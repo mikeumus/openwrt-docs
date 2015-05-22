@@ -10,4 +10,4 @@ But it is useful to see the total waterfront of documentation files, and to cons
 * [Experienced User Guide](http://wiki.openwrt.org/doc/playground/experienced)
 * [Developer Guide](http://wiki.openwrt.org/doc/playground/developer)
 
-Please make comments on the [Fixing wiki.openwrt.org top-level pages](https://github.com/prplfoundation/openwrt-doc-initiative/issues/13) on Github. Thanks! -richbhanover
+Please make comments on the [Fixing wiki.openwrt.org top-level pages](https://github.com/prplfoundation/openwrt-doc-initiative/issues/13) on Github. Thanks! 
