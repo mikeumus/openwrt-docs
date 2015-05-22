@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>BT HomeHub 2.0 Type A [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="bcm63xx,bcm6358"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="homehub_v2a?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=toh:bt"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/toh/bt/homehub_v2a"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/toh/bt/homehub_v2a"/>
+<link rel="canonical" href="homehub_v2a"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='toh:bt';var JSINFO = {"id":"toh:bt:homehub_v2a","namespace":"toh:bt"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266840 166.182.3.36';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="homehub_v2a#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="homehub_v2a?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="homehub_v2a?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="toh:bt:homehub_v2a" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="homehub_v2a?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="homehub_v2a?do=media&amp;ns=toh%253Abt"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="homehub_v2a?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="toh:start">Table of Hardware</a></bdi> » <bdi><a href="start" class="wikilink1" title="toh:bt:start">BT</a></bdi> » <bdi><span class="curid"><a href="homehub_v2a" class="wikilink1" title="toh:bt:homehub_v2a">BT HomeHub 2.0 Type A</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/toh/bt/homehub_v2a" class="media" title="cz:toh:bt:homehub_v2a"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/toh/bt/homehub_v2a" class="media" title="de:toh:bt:homehub_v2a"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="homehub_v2a" class="media" title="toh:bt:homehub_v2a"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/toh/bt/homehub_v2a" class="media" title="es:toh:bt:homehub_v2a"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/toh/bt/homehub_v2a" class="media" title="fr:toh:bt:homehub_v2a"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/toh/bt/homehub_v2a" class="media" title="hu:toh:bt:homehub_v2a"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/toh/bt/homehub_v2a" class="media" title="jp:toh:bt:homehub_v2a"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/toh/bt/homehub_v2a" class="media" title="pl:toh:bt:homehub_v2a"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/toh/bt/homehub_v2a" class="media" title="pt-br:toh:bt:homehub_v2a"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/toh/bt/homehub_v2a" class="media" title="ru:toh:bt:homehub_v2a"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/toh/bt/homehub_v2a" class="media" title="tr:toh:bt:homehub_v2a"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/toh/bt/homehub_v2a" class="media" title="zh-cn:toh:bt:homehub_v2a"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/toh/bt/homehub_v2a" class="media" title="zh-tw:toh:bt:homehub_v2a"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>toh:bt:homehub_v2a</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="homehub_v2a#hardware_highlights">Hardware Highlights</a></div></li>
+<li class="level1"><div class="li"><a href="homehub_v2a#supported_versions">Supported Versions</a></div></li>
+<li class="level1"><div class="li"><a href="homehub_v2a#installation">Installation</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="homehub_v2a#flash_layout">Flash Layout</a></div></li>
+<li class="level2"><div class="li"><a href="homehub_v2a#cfe_easy_installation">CFE easy installation</a></div></li>
+<li class="level2"><div class="li"><a href="homehub_v2a#installation_using_the_tftp_method">Installation using the TFTP method</a></div></li>
+<li class="level2"><div class="li"><a href="homehub_v2a#upgrading_openwrt">Upgrading OpenWrt</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="homehub_v2a#luci_web_upgrade_process">LuCI Web Upgrade Process</a></div></li>
+<li class="level3"><div class="li"><a href="homehub_v2a#terminal_upgrade_process">Terminal Upgrade Process</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="homehub_v2a#basic_configuration">Basic configuration</a></div></li>
+<li class="level1"><div class="li"><a href="homehub_v2a#specific_configuration">Specific Configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="homehub_v2a#interfaces">Interfaces</a></div></li>
+<li class="level2"><div class="li"><a href="homehub_v2a#failsafe_mode">Failsafe mode</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="homehub_v2a#hardware">Hardware</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="homehub_v2a#info">Info</a></div></li>
+<li class="level2"><div class="li"><a href="homehub_v2a#photos">Photos</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="homehub_v2a#rev1">rev.1</a></div></li>
+<li class="level3"><div class="li"><a href="homehub_v2a#rev2">rev.2</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="homehub_v2a#serial">Serial</a></div></li>
+<li class="level2"><div class="li"><a href="homehub_v2a#jtag">JTAG</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="homehub_v2a#flashing_the_new_bootloader">Flashing the new bootloader</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="homehub_v2a#switch">Switch</a></div></li>
+<li class="level2"><div class="li"><a href="homehub_v2a#buttons">Buttons</a></div></li>
+<li class="level2"><div class="li"><a href="homehub_v2a#leds">LEDS</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="homehub_v2a#hardware_mods">Hardware mods</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="homehub_v2a#usb_mod">USB mod</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="homehub_v2a#bootlogs">Bootlogs</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="homehub_v2a#oem_bootlog">OEM bootlog</a></div></li>
+<li class="level2"><div class="li"><a href="homehub_v2a#openwrt_bootlog">OpenWrt bootlog</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="homehub_v2a#tags">Tags</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="bt_homehub_20_type_a">BT HomeHub 2.0 Type A</h1>
+<div class="level1">
+
+<p>
+Forum: <a href="https://forum.openwrt.org/viewtopic.php?id=51348" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=51348"  rel="nofollow">https://forum.openwrt.org/viewtopic.php?id=51348</a>
+</p>
+
+<p>
+Black boxes given away with a bt broadband subscription. It comes in two versions Type A and Type B. The two versions look identical, and although they provide similar functionality, they are quite different on the inside.
+</p>
+<ul>
+<li class="level1"><div class="li"> Type A is made by Thomson, and is broadcom based, using Thomson linux based firmware. The bootloader can be replaced by a standard CFE allowing to flash/run the OpenWrt firmware.</div>
+</li>
+<li class="level1"><div class="li"> <a href="homehub_v2b" class="wikilink1" title="toh:bt:homehub_v2b">Type B</a> is made by SHC (Siemens), and is Infineon/Lantiq Danube based, using OpenRG based linux firmware.  Bootloader is u-boot.</div>
+</li>
+</ul>
+
+<p>
+The homehub V2 includes ADSL2+, 802.11b/g/n wireless, host USB port, 4 wired ethernet ports, DECT, FXS &amp; FXO ports and VOIP functionality.
+</p>
+
+<p>
+<span style='color:grey; '>Obsolete info:<br/>
+
+Some initial work: <del><a href="http://www.psidoc.com/showthread.php/439-Open-WRT-OR-DD-WRT-for-Home-Hub-2.0" class="urlextern" title="http://www.psidoc.com/showthread.php/439-Open-WRT-OR-DD-WRT-for-Home-Hub-2.0"  rel="nofollow">www.psidoc.com</a></del>. Following the sad closure of <a href="http://psidoc.com" class="urlextern" title="http://psidoc.com"  rel="nofollow">http://psidoc.com</a>, all members of the BT Home Hub Openwrt community are now encouraged to join in ongoing development efforts, concentrated on the Home Hub 2B, at <a href="http://openwrt.ebilan.co.uk" class="urlextern" title="http://openwrt.ebilan.co.uk"  rel="nofollow">http://openwrt.ebilan.co.uk</a>.</span>
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="hardware_highlights">Hardware Highlights</h2>
+<div class="level2">
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> SoC </th><th class="col1"> CPU Speed </th><th class="col2"> Ram </th><th class="col3"> Flash </th><th class="col4"> Ethernet </th><th class="col5"> USB </th><th class="col6"> Wifi </th><th class="col7"> Serial </th><th class="col8"> JTag </th><th class="col9"> VOIP </th><th class="col10"> FXS </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> Broadcom 6358 </td><td class="col1"> 300MHz </td><td class="col2"> 64MiB </td><td class="col3"> 16MiB </td><td class="col4"> 4x1 </td><td class="col5"> Yes </td><td class="col6"> 11n/g </td><td class="col7"> Yes </td><td class="col8"> Yes </td><td class="col9"> yes </td><td class="col10"> yes </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit4" id="supported_versions">Supported Versions</h2>
+<div class="level2">
+
+<p>
+Supported since <a href="https://dev.openwrt.org/changeset/44985" class="urlextern" title="https://dev.openwrt.org/changeset/44985"  rel="nofollow">r44985</a> (Chaos Calmer). Internal ADSL not supported.
+</p>
+
+<p>
+We can install OpenWrt in this router but first we need to flash the custom CFE bootloader. You can <a href="homehub_v2a#flashing_the_new_bootloader" title="toh:bt:homehub_v2a ↵" class="wikilink1">flash the new bootloader</a> using a JTAG adapter. 
+</p>
+<div class="wrap_center wrap_round wrap_download plugin_wrap" style="width: 60%;">
+<p>
+<a href="https://drive.google.com/uc?export=download&amp;id=0B-EMoBe-_OdBU0E3YW9VM1JWV2s" class="urlextern" title="https://drive.google.com/uc?export=download&amp;id=0B-EMoBe-_OdBU0E3YW9VM1JWV2s"  rel="nofollow">CFE_HomeHub2A-CUSTOM_nvr.bin</a><br/>
+<span style='color:grey; '>md5sum=6525b203f8abc715b0dce7799ee53aba</span>
+</p>
+</div>
+<p>
+Using the OEM firmware for flashing the new bootloader might be also possible, please post here or at the forum topic if you find how to do it.
+</p>
+
+<p>
+Available firmwares:
+</p>
+<div class="table sectionedit7"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> Version </td><td class="col1"> Link </td><td class="col2"> Notes </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> Trunk </td><td class="col1"> <a href="https://downloads.openwrt.org/snapshots/trunk/brcm63xx/generic/openwrt-HomeHub2A-squashfs-cfe.bin" class="urlextern" title="https://downloads.openwrt.org/snapshots/trunk/brcm63xx/generic/openwrt-HomeHub2A-squashfs-cfe.bin"  rel="nofollow">openwrt-HomeHub2A-squashfs-cfe.bin</a> </td><td class="col2"> unstable version </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> Barrier Breaker </td><td class="col1"> <a href="https://drive.google.com/uc?export=download&amp;id=0B-EMoBe-_OdBVExGUEdncGFaTlE" class="urlextern" title="https://drive.google.com/uc?export=download&amp;id=0B-EMoBe-_OdBVExGUEdncGFaTlE"  rel="nofollow">OpenWrt-HH2A-Barrier_Breaker_14.07-CFE.zip</a> </td><td class="col2"> unofficial backport </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit8" id="installation">Installation</h2>
+<div class="level2">
+
+<p>
+ → <a href="../../doc/howto/obtain.firmware" class="wikilink1" title="doc:howto:obtain.firmware">obtain.firmware</a><br/>
+
+ → <a href="../../doc/howto/installing" class="wikilink1" title="doc:howto:generic.flashing">Install OpenWrt</a>
+</p>
+
+<p>
+Installing Openwrt in this router requires two steps:
+</p>
+<ol>
+<li class="level1"><div class="li"> <a href="homehub_v2a#flashing_the_new_bootloader" title="toh:bt:homehub_v2a ↵" class="wikilink1">Install the CFE bootloader</a>.</div>
+</li>
+<li class="level1"><div class="li"> <a href="homehub_v2a#cfe_easy_installation" title="toh:bt:homehub_v2a ↵" class="wikilink1">Install openwrt</a>.</div>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit9" id="flash_layout">Flash Layout</h3>
+<div class="level3">
+
+<p>
+Please check out the article <a href="../../doc/techref/flash.layout" class="wikilink1" title="doc:techref:flash.layout">Flash.Layout</a>. It contains an example and a couple of explanations.
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="cfe_easy_installation">CFE easy installation</h3>
+<div class="level3">
+
+<p>
+This section deals with how you install OpenWrt once the OEM bootloader <a href="homehub_v2a#flashing_the_new_bootloader" title="toh:bt:homehub_v2a ↵" class="wikilink1">is replaced by a new CFE</a>.
+With this procedure you will flash the firmware using the <a href="../../doc/techref/bootloader.1" class="wikilink1" title="doc:techref:bootloader">bootloader</a> web interface (foolproof):
+</p>
+<ul>
+<li class="level1"><div class="li">Set a <strong>static IP</strong> on your computer, use 192.168.1.35 (or any compatible), and connect the ethernet cable to the router.</div>
+</li>
+<li class="level1"><div class="li">Unplug the power cord</div>
+</li>
+<li class="level1"><div class="li">Press the button labeled as <em>Find Handset</em>, don&#039;t release it yet!</div>
+</li>
+<li class="level1"><div class="li">Plug the power cord</div>
+</li>
+<li class="level1"><div class="li">Wait 10 seconds</div>
+</li>
+<li class="level1"><div class="li">Release the <em>Find Handset</em> button</div>
+</li>
+<li class="level1"><div class="li">Browse to <a href="http://192.168.1.1" class="urlextern" title="http://192.168.1.1"  rel="nofollow">http://192.168.1.1</a></div>
+</li>
+<li class="level1"><div class="li">Select .bin file</div>
+</li>
+<li class="level1"><div class="li">Upgrade the image</div>
+</li>
+<li class="level1"><div class="li">Wait for it to reboot</div>
+</li>
+<li class="level1"><div class="li">Telnet to 192.168.1.1 and set a root password, or browse to <a href="http://192.168.1.1" class="urlextern" title="http://192.168.1.1"  rel="nofollow">http://192.168.1.1</a> if LuCI is installed.</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit11" id="installation_using_the_tftp_method">Installation using the TFTP method</h3>
+<div class="level3">
+
+<p>
+→  <a href="../../doc/howto/tftp" class="wikilink1" title="doc:howto:generic.flashing.tftp">generic.flashing.tftp</a>
+If you want to install a firmware using TFTP, follow these steps (as an alternative to the above install process).
+</p>
+<ul>
+<li class="level1"><div class="li"> Connect a <a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console" class="wikilink1" title="doc:hardware:port.serial">serial</a> TTL cable to send commands to CFE via serial console software, for loading the firmware via TFTP.</div>
+</li>
+<li class="level1"><div class="li"> Start a TFTP server in your PC. Copy the <em><strong>firmware.bin</strong></em> file to the TFTP server&#039;s directory.</div>
+</li>
+<li class="level1"><div class="li"> Set the IP at your pc to 192.168.1.35 (or any compatible), and connect the ethernet cable to the router.</div>
+</li>
+<li class="level1"><div class="li"> Power ON the router, press any key in the serial console to break into the CFE command line interpreter.</div>
+</li>
+<li class="level1"><div class="li"> Execute the command: <code>f 192.168.1.35:firmware.bin</code></div>
+</li>
+</ul>
+
+<p>
+This is a session of flashing via TFTP:
+</p>
+
+<p style="padding: 10px;border:1px solid grey;height:120px;font:12px/14px Georgia, Garamond, Serif;overflow:Auto;background-color:#DEE4E7">
+<code>CFE> f 192.168.1.35:firmware.bin
+Loading 192.168.1.35:firmware.bin ...
+Finished loading 2686980 bytes
+
+Flashing root file system and kernel at 0xbe020000: .......................................
+
+.
+*** Image flash done *** !
+Resetting board...\0x1d
+</code>
+</p>
+
+</div>
+
+<h3 class="sectionedit12" id="upgrading_openwrt">Upgrading OpenWrt</h3>
+<div class="level3">
+
+<p>
+→  <a href="../../doc/howto/generic.sysupgrade" class="wikilink1" title="doc:howto:generic.sysupgrade">generic.sysupgrade</a>
+</p>
+
+<p>
+If you have already installed OpenWrt and like to reflash for e.g. upgrading to a new OpenWrt version you can upgrade using the mtd command line tool. It is important that you put the firmware image into the ramdisk (/tmp) before you start flashing.
+</p>
+
+</div>
+
+<h4 id="luci_web_upgrade_process">LuCI Web Upgrade Process</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Browse to <a href="http://192.168.1.1/cgi-bin/luci/mini/system/upgrade/" class="urlextern" title="http://192.168.1.1/cgi-bin/luci/mini/system/upgrade/"  rel="nofollow">http://192.168.1.1/cgi-bin/luci/mini/system/upgrade/</a> LuCI Upgrade <abbr title="Uniform Resource Locator">URL</abbr></div>
+</li>
+<li class="level1"><div class="li"> Upload image file for sysupgrade to LuCI</div>
+</li>
+<li class="level1"><div class="li"> Wait for reboot</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="terminal_upgrade_process">Terminal Upgrade Process</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Login as root via SSH on 192.168.1.1</div>
+</li>
+<li class="level1"><div class="li"> Use the following commands to upgrade.</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">cd /tmp/
+wget http://http://downloads.openwrt.org/snapshots/trunk/XXX/xxx.abc
+sysupgrade /tmp/xxx.abc</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li">If sysupgrade does not support this router, use the following commands.</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">cd /tmp/
+wget http://http://downloads.openwrt.org/snapshots/trunk/XXX/xxx.abc
+mtd write /tmp/xxx.abc linux &amp;&amp; reboot</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit13" id="basic_configuration">Basic configuration</h2>
+<div class="level2">
+
+<p>
+→ <a href="../../doc/howto/configuration" class="wikilink1" title="doc:howto:basic.config">Basic configuration</a> After flashing, proceed with this.<br/>
+
+Set up your Internet connection, configure wireless, configure USB port, etc.
+</p>
+
+</div>
+
+<h2 class="sectionedit14" id="specific_configuration">Specific Configuration</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit15" id="interfaces">Interfaces</h3>
+<div class="level3">
+
+<p>
+The default network configuration is:
+</p>
+<div class="table sectionedit16"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Interface Name </th><th class="col1"> Description </th><th class="col2"> Default configuration </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> br-lan </td><td class="col1"> <abbr title="Local Area Network">LAN</abbr> &amp; WiFi </td><td class="col2"> 192.168.1.1/24 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> eth0 	</td><td class="col1"> <abbr title="Local Area Network">LAN</abbr> ports (1 to 4) </td><td class="col2"> bridged </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> wlan0 </td><td class="col1"> WiFi </td><td class="col2"> disabled </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit17" id="failsafe_mode">Failsafe mode</h3>
+<div class="level3">
+
+<p>
+→ <a href="../../doc/howto/generic.failsafe" class="wikilink1" title="doc:howto:generic.failsafe">generic.failsafe</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit18" id="hardware">Hardware</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit19" id="info">Info</h3>
+<div class="level3">
+<div class="table sectionedit20"><table class="inline">
+	<tr class="row0">
+		<td class="col0 leftalign"> <strong><a href="http://en.wikipedia.org/wiki/Instruction set" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Instruction set">Instruction set</a>:</strong>    </td><td class="col1"> <a href="http://en.wikipedia.org/wiki/MIPS architecture" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/MIPS architecture">MIPS</a> </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 leftalign"> <strong>Vendor:</strong>          </td><td class="col1"> <a href="http://en.wikipedia.org/wiki/Broadcom" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Broadcom">Broadcom</a> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <strong><a href="../../doc/techref/bootloader.1" class="wikilink1" title="doc:techref:bootloader">Bootloader</a>:</strong>     </td><td class="col1"> unknown (custom Thomson Speedtouch bootloader)<br/>
+Can be replaced by <a href="../../doc/techref/bootloader/cfe" class="wikilink1" title="doc:techref:bootloader:cfe">CFE</a> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/soc.1" class="wikilink1" title="doc:hardware:soc">System-On-Chip</a>:</strong>  </td><td class="col1"> <a href="http://www.broadcom.com/products/Broadband-Carrier-Access/xDSL-CPE-Solutions/BCM6358" class="urlextern" title="http://www.broadcom.com/products/Broadband-Carrier-Access/xDSL-CPE-Solutions/BCM6358"  rel="nofollow">Broadcom 6358KFBG</a> </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/cpu" class="wikilink1" title="doc:hardware:cpu">CPU</a>/Speed</strong>        </td><td class="col1"> BMIPS4350 V1.0 / 300 Mhz </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> <strong>Flash-Chip:</strong>      </td><td class="col1"> <a href="http://www.spansion.com/Support/Datasheets/S29GL-N_00.pdf" class="urlextern" title="http://www.spansion.com/Support/Datasheets/S29GL-N_00.pdf"  rel="nofollow">Spansion S29GL128N90TFIR2</a> (Parallel NOR Flash)<br/>
+128KB block size x 128 blocks </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> <strong>Flash size:</strong>      </td><td class="col1"> 16 MiB </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> <strong>RAM:</strong>             </td><td class="col1"> <a href="http://www.hynix.com/datasheet/pdf/dram/HY5DU124(8,16)22D(L)TP(Rev0.1).pdf" class="urlextern" title="http://www.hynix.com/datasheet/pdf/dram/HY5DU124(8,16)22D(L)TP(Rev0.1).pdf"  rel="nofollow">Hynix HY5DU121622DTP</a> or <br/>
+<a href="http://www.samsung.com/global/business/semiconductor/file/2011/product/2007/6/11/DDR_DDR2/DDRSDRAM/Component/512Mbit/K4H511638D/ds_k4h51xx38d_tsop2_rev12.pdf" class="urlextern" title="http://www.samsung.com/global/business/semiconductor/file/2011/product/2007/6/11/DDR_DDR2/DDRSDRAM/Component/512Mbit/K4H511638D/ds_k4h51xx38d_tsop2_rev12.pdf"  rel="nofollow">Samsung K4H511638D</a> </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> <strong>RAM size:</strong>      </td><td class="col1"> 64 MiB </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> <strong>Wireless:</strong>        </td><td class="col1"> <a href="http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94322MP2D" class="urlextern" title="http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94322MP2D"  rel="nofollow">BCM94332MP2D</a> 802.11a/b/g/n Mini PCI card or <br/>
+soldered module</td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> <strong>Ethernet:</strong>        </td><td class="col1"> Broadcom  <a href="../../_media/toh/bcm5325_pinout.png" class="urlextern" title="http://wiki.openwrt.org/_media/toh/bcm5325_pinout.png"  rel="nofollow">BCM5325</a> w/ vlan support <a href="../../doc/uci/network#swconfig" class="wikilink1" title="doc:uci:network">swconfig</a> </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> <strong>Internet:</strong>        </td><td class="col1 leftalign"> ADSL2+  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> <strong>Slic:</strong>        </td><td class="col1 leftalign"> <a href="http://www.silabs.com/Support%20Documents/TechnicalDocs/si3216.pdf" class="urlextern" title="http://www.silabs.com/Support%20Documents/TechnicalDocs/si3216.pdf"  rel="nofollow">Silicon Labs Si3216-FM</a> Programmble Wideband SLIC/CODEC with ringing/battery voltage generation  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> <strong>DECT</strong>        </td><td class="col1 leftalign"> Inventel DECT module appearing as Bluetooth HCI on SPI bus  </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 leftalign"> <strong>USB:</strong>             </td><td class="col1"> Yes </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 leftalign"> <strong><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console" class="wikilink1" title="doc:hardware:port.serial">Serial</a>:</strong>          </td><td class="col1"> <a href="homehub_v2a#serial" title="toh:bt:homehub_v2a ↵" class="wikilink1">Yes</a> </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/port.jtag" class="wikilink1" title="doc:hardware:port.jtag">JTAG</a>:</strong>            </td><td class="col1 leftalign"> <a href="homehub_v2a#jtag" title="toh:bt:homehub_v2a ↵" class="wikilink1">Yes</a>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit21" id="photos">Photos</h3>
+<div class="level3">
+
+<p>
+<a href="../../_detail/media/toh/bt/front.jpg?id=toh%253Abt%253Ahomehub_v2a" class="media" title="media:toh:bt:front.jpg"><img src="../../_media/media/toh/bt/front.jpg?h=200&amp;tok=3f5fc0" class="media" alt="" height="200" /></a> <a href="../../_detail/media/toh/bt/back.jpg?id=toh%253Abt%253Ahomehub_v2a" class="media" title="media:toh:bt:back.jpg"><img src="../../_media/media/toh/bt/back.jpg?h=200&amp;tok=2f2f48" class="media" alt="" height="200" /></a> <a href="../../_detail/media/toh/bt/bottom.jpg?id=toh%253Abt%253Ahomehub_v2a" class="media" title="media:toh:bt:bottom.jpg"><img src="../../_media/media/toh/bt/bottom.jpg?h=200&amp;tok=7922e8" class="media" alt="" height="200" /></a>
+</p>
+
+</div>
+
+<h4 id="rev1">rev.1</h4>
+<div class="level4">
+
+<p>
+<a href="../../_media/media/toh/bt/homehub2a-top.jpg" class="media" title="media:toh:bt:homehub2a-top.jpg"><img src="../../_media/media/toh/bt/homehub2a-top.jpg?w=400&amp;h=390&amp;tok=56c2f7" class="media" alt="" width="400" height="390" /></a> <a href="../../_media/media/toh/bt/homehub2a-bottom.jpg" class="media" title="media:toh:bt:homehub2a-bottom.jpg"><img src="../../_media/media/toh/bt/homehub2a-bottom.jpg?w=400&amp;h=390&amp;tok=02fc71" class="media" alt="" width="400" height="390" /></a>
+</p>
+
+</div>
+
+<h4 id="rev2">rev.2</h4>
+<div class="level4">
+
+<p>
+<a href="../../_media/media/toh/bt/homehub2a-top-rev2.jpg" class="media" title="media:toh:bt:homehub2a-top-rev2.jpg"><img src="../../_media/media/toh/bt/homehub2a-top-rev2.jpg?h=390&amp;tok=271bf0" class="media" alt="" height="390" /></a> <a href="../../_media/media/toh/bt/homehub2a-bottom-rev2.jpg" class="media" title="media:toh:bt:homehub2a-bottom-rev2.jpg"><img src="../../_media/media/toh/bt/homehub2a-bottom-rev2.jpg?h=390&amp;tok=27db72" class="media" alt="" height="390" /></a>
+</p>
+
+<p>
+<a href="../../_detail/media/toh/bt/cpu.jpg?id=toh%253Abt%253Ahomehub_v2a" class="media" title="media:toh:bt:cpu.jpg"><img src="../../_media/media/toh/bt/cpu.jpg?h=100&amp;tok=6a386d" class="media" alt="" height="100" /></a> <a href="../../_detail/media/toh/bt/ram.jpg?id=toh%253Abt%253Ahomehub_v2a" class="media" title="media:toh:bt:ram.jpg"><img src="../../_media/media/toh/bt/ram.jpg?h=100&amp;tok=3050b1" class="media" alt="" height="100" /></a> <a href="../../_detail/media/toh/bt/flash.jpg?id=toh%253Abt%253Ahomehub_v2a" class="media" title="media:toh:bt:flash.jpg"><img src="../../_media/media/toh/bt/flash.jpg?h=100&amp;tok=678079" class="media" alt="" height="100" /></a> <a href="../../_media/media/toh/bt/bback.jpg" class="media" title="media:toh:bt:bback.jpg"><img src="../../_media/media/toh/bt/bback.jpg?h=100&amp;tok=4f6ccc" class="media" alt="" height="100" /></a>
+</p>
+
+</div>
+
+<h3 class="sectionedit22" id="serial">Serial</h3>
+<div class="level3">
+
+<p>
+the Type A has a 3.3v serial port, it&#039;s located near the top of the board, as 4 holes designed to take a header. To use it, you need to short two absent resistor placements on the front of the board.
+the connections are, from the top
+</p>
+<div class="table sectionedit23"><table class="inline">
+	<tr class="row0">
+		<th class="col0" rowspan="4"> <img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> </th><td class="col1"> 3.3v </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> TX </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> RX </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> GND </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit24" id="jtag">JTAG</h3>
+<div class="level3">
+
+<p>
+→ <a href="../../doc/hardware/port.jtag" class="wikilink1" title="doc:hardware:port.jtag">port.jtag</a> general information about the JTAG port, JTAG cable, etc.
+</p>
+
+<p>
+How to connect to the JTAG Port of this specific device:
+</p>
+
+<p>
+<strong>Photo of PCB with markings</strong>
+</p>
+<div class="table sectionedit25"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> rev.1 </td><td class="col1"> rev.2 </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"><a href="../../_detail/media/homehub2a-jtag.jpg?id=toh%253Abt%253Ahomehub_v2a" class="media" title="media:homehub2a-jtag.jpg"><img src="../../_media/media/homehub2a-jtag.jpg?w=400&amp;h=250&amp;tok=4b140c" class="media" alt="" width="400" height="250" /></a> </td><td class="col1"> <a href="../../_detail/media/homehub2arev2-jtag.jpg?id=toh%253Abt%253Ahomehub_v2a" class="media" title="media:homehub2arev2-jtag.jpg"><img src="../../_media/media/homehub2arev2-jtag.jpg?w=400&amp;h=250&amp;tok=fc84f7" class="media" alt="" width="400" height="250" /></a> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h4 id="flashing_the_new_bootloader">Flashing the new bootloader</h4>
+<div class="level4">
+
+<p>
+We can use any hairydairymaid based software to flash the required CFE for loading OpenWrt firmware. UrJTAG or OpenOCD may also work.
+</p>
+
+<p>
+A session of flashing CFE
+</p>
+
+<p style="padding: 10px;border:1px solid grey;height:350px;font:11px/12px Georgia, Garamond, Serif;overflow:Auto;background-color:#DEE4E7">
+<code># ./zjtag -flash:custom /window:1e000000 /start:1e000000 /length:20000 /wiggler /BE
+
+        ==============================================
+               zJTAG EJTAG Debrick Utility v1.8 RC3
+        ==============================================
+
+cable=wiggler, cabletype=3
+
+Detected IR chain length = 32
+
+There are 1 device(s) in the JTAG chain
+ IDCODE for device 1 is 0x0635817F (IR length:1)
+
+Probing bus ... Done
+
+Defined IR Length is 5 bits
+
+CPU assumed running under BIG endian
+
+CPU Chip ID: 00000110001101011000000101111111 (0x0635817F)
+*** Found a Broadcom manufactured BCM6358 REV 01 CPU ***
+
+    - EJTAG IMPCODE ....... : 00000000100000011000100100000100 (0x00818904)
+    - EJTAG Version ....... : 1 or 2.0
+    - EJTAG DMA Support ... : Yes
+    - EJTAG Implementation flags: R4k MIPS16 MIPS32
+
+Issuing Processor / Peripheral Reset ... Done
+Enabling Memory Writes ... Done
+Halting Processor ... <Processor Entered Debug Mode!> ... Done
+Clearing Watchdog ... Done
+Loading CPU Configuration Code ... Skipped
+Detecting Flash Base Address...
+Read MPI register value : 1E00000C
+MPI register show Flash Access Base Addr : 1E000000
+
+Probing Flash at Address: 0x1E000000 ...
+Detected Chip ID (VenID:DevID = C27E : 2101)
+*** Found a CFI Compatiable Flash Chip from Macronix
+
+    - Flash Chip Window Start .... : 1E000000
+    - Flash Chip Window Length ... : 01000000
+    - Selected Area Start ........ : 1E000000
+    - Selected Area Length ....... : 00020000
+
+*** You Selected to Flash the CUSTOM.BIN ***
+
+=========================
+Flashing Routine Started
+=========================
+Total Blocks to Erase: 1
+
+Erasing block: 1 (addr = 1E000000)...Done
+
+Loading CUSTOM.BIN to Flash Memory...
+Done  (CUSTOM.BIN loaded into Flash Memory OK)
+
+=========================
+Flashing Routine Complete
+=========================
+elapsed time: 174 seconds
+
+
+ *** REQUESTED OPERATION IS COMPLETE *** 
+
+#
+</code>
+</p>
+
+</div>
+
+<h3 class="sectionedit26" id="switch">Switch</h3>
+<div class="level3">
+
+<p>
+This board uses an external BCM5325 switch. It&#039;s connected to the second internal EMAC at the SoC. 
+</p>
+
+<p>
+<a href="../../_media/media/toh/bt/phy6.jpg" class="media" title="media:toh:bt:phy6.jpg"><img src="../../_media/media/toh/bt/phy6.jpg?h=200&amp;tok=b60ec4" class="media" alt="" height="200" /></a> <a href="../../_media/toh/bcm5325_pinout.png" class="media" title="toh:bcm5325_pinout.png"><img src="../../_media/toh/bcm5325_pinout.png?h=200&amp;tok=1990ed" class="media" alt="" height="200" /></a>
+</p>
+
+<p>
+The <strong>RESET#</strong> pin at the switch is wired to the <strong>GPIO15</strong> at the SoC. <strong>We must set GPIO15 to HIGH state to pull the switch out of reset</strong>. After this operation it seems the switch still doesn&#039;t respond, so probably additional configuration is required.
+</p>
+
+<p>
+This sequence leaves the switch in a working (ping OK) state:
+</p>
+
+<p>
+<code>GPIO 15 output HIGH, wait 1s → set managed mode, wait 300ms → set unmanaged mode, wait 300ms →  B53_PORT_CTRL(i)=0x00 0≤i≤8 → ping OK</code>
+</p>
+
+<p>
+Both MDIO and SPI pins are wired to the SoC, therefore configuring the switch can be done either by using MDIO bus or else SPI. BCM63xx SPI driver is buggy in Openwrt, then we prefer to always use MDIO.
+</p>
+
+</div>
+
+<h3 class="sectionedit27" id="buttons">Buttons</h3>
+<div class="level3">
+
+<p>
+<a href="../../_detail/media/toh/bt/buttons.jpg?id=toh%253Abt%253Ahomehub_v2a" class="media" title="media:toh:bt:buttons.jpg"><img src="../../_media/media/toh/bt/buttons.jpg?w=200&amp;tok=bfa928" class="media" alt="" width="200" /></a>
+</p>
+<div class="table sectionedit28"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Label </th><th class="col1"> GPIO </th><th class="col2"> active </th><th class="col3"> Linux code </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> Restart </td><td class="col1"> n/a </td><td class="col2"> n/a </td><td class="col3"> n/a </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> Find Handset </td><td class="col1"> 1 </td><td class="col2"> low </td><td class="col3"> KEY_PHONE </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> Reset to Defaults </td><td class="col1"> 9 </td><td class="col2"> low </td><td class="col3"> KEY_RESTART </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> Wireless Association </td><td class="col1"> 11 </td><td class="col2"> low </td><td class="col3"> KEY_WPS_BUTTON </td>
+	</tr>
+</table></div>
+
+<p>
+All buttons are active low.
+</p>
+
+</div>
+
+<h3 class="sectionedit29" id="leds">LEDS</h3>
+<div class="level3">
+
+<p>
+The LEDs are not connected directly to the GPIO lines, but instead to a couple of shift registers driven by two chained <a href="http://www.nxp.com/documents/data_sheet/74HC_HCT594.pdf" class="urlextern" title="http://www.nxp.com/documents/data_sheet/74HC_HCT594.pdf"  rel="nofollow">74HC594</a>. GPIO 7 is data, GPIO 6 is clock, and GPIO 5 is latch. In OpenWrt these GPIOs are controlled by the SPI master driver using generic bitbanged GPIO, allowing to use the 74Hx164 generic serial-in/parallel-out 8-bits shift register GPIO driver.
+</p>
+
+<p>
+<a href="../../_media/media/toh/bt/leds.jpg" class="media" title="media:toh:bt:leds.jpg"><img src="../../_media/media/toh/bt/leds.jpg?h=100&amp;tok=654bcb" class="media" alt="" height="100" /></a>
+</p>
+<div class="table sectionedit30"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Led Name </th><th class="col1"> Colour </th><th class="col2"> bit </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0" rowspan="3"> Power</td><td class="col1"> <span style='color:red; '> Red </span> </td><td class="col2"> 0 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <span style='color:green; '> Green </span> </td><td class="col1"> 1 </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <span style='color:blue; '> Blue </span> </td><td class="col1"> 2 </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0" rowspan="3"> Broadband</td><td class="col1"> <span style='color:red; '> Red </span> </td><td class="col2"> 3 </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <span style='color:green; '> Green </span> </td><td class="col1"> 4 </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <span style='color:blue; '> Blue </span> </td><td class="col1"> 5 </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0" rowspan="3"> Wireless </td><td class="col1"> <span style='color:red; '> Red </span> </td><td class="col2"> 6 </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <span style='color:green; '> Green </span> </td><td class="col1"> 7 </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <span style='color:blue; '> Blue </span> </td><td class="col1"> 8 </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0" rowspan="3"> Phone </td><td class="col1"> <span style='color:Red; '> Red </span> </td><td class="col2"> 9 </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> <span style='color:green; '> Green </span> </td><td class="col1"> 10 </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0"> <span style='color:blue; '> Blue </span> </td><td class="col1"> 11 </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0" rowspan="3"> Upgrading </td><td class="col1"> <span style='color:red; '> Red </span> </td><td class="col2"> 12 </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0"> <span style='color:green; '> Green </span> </td><td class="col1"> 13 </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0"> <span style='color:blue; '> Blue </span> </td><td class="col1"> 14 </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0"> n/a </td><td class="col1"> spare:U23:pin7 </td><td class="col2"> 15 </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit31" id="hardware_mods">Hardware mods</h2>
+<div class="level2">
+
+<p>
+→ as a beginner, you really should inform yourself about <a href="../../doc/hardware/soldering" class="wikilink1" title="doc:hardware:soldering">soldering</a> in general and then obtain some practical experience!
+</p>
+
+</div>
+
+<h3 class="sectionedit32" id="usb_mod">USB mod</h3>
+<div class="level3">
+
+<p>
+<a href="../../_media/media/toh/bt/homehub2a-usb.jpg" class="media" title="media:toh:bt:homehub2a-usb.jpg"><img src="../../_media/media/toh/bt/homehub2a-usb.jpg?w=300&amp;tok=9116c3" class="media" alt="" width="300" /></a>
+</p>
+
+</div>
+
+<h2 class="sectionedit33" id="bootlogs">Bootlogs</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit34" id="oem_bootlog">OEM bootlog</h3>
+<div class="level3">
+
+<p style="padding: 10px;border:1px solid grey;height:600px;font:12px/14px Georgia, Garamond, Serif;overflow:Auto;background-color:#FFFFFF">
+<code>
+DDR2 test..
+VCDL test.
+
+Decompressing Bootloader................................
+
+Version BL: 1.0.2
+Reading cpu info...........bcm96358 tp0 revision 1
+MIPS is in Big endian mode
+Icache : 32Kb            Icachelinesize : 16 bytes
+Dcache : 16Kb            Dcachelinesize : 16 bytes
+BCM config reg CP0 : e30e1006
+                Instruction cache enabled
+                Data cache enabled
+                Data cache is nonblocking
+C0_CONFIG reg = 80008083
+                standard TLB config
+                Cacheable, write-back
+
+Multicore enable; Booting Linux kernel
+
+pfuncjmp = A0001840
+Reading cpu info...........bcm96358 tp0 revision 1
+MIPS is in Big endian mode
+Icache : 16Kb            Icachelinesize : 16 bytes
+Dcache : 16Kb            Dcachelinesize : 16 bytes
+BCM config reg CP0 : 230e1006
+                Data cache is nonblocking
+C0_CONFIG reg = 80008082
+                standard TLB config
+                Noncacheable
+
+JTAG select tp1
+BOOTING THE THOMSON LINUX KERNEL
+
+Starting the kernel @ 0x801df018
+memsize=0x3F7D000serial initialized
+Linux version 2.6.8.1 (buildmgm@dslws-zhangjw.beijing.ap.thmulti.com) (gcc version 3.4.6) #1 Mon Sep 14 12:05:33 CST 2009
+CPU revision is: 0002a010
+bcm63xx : initiazation of mpi bus ...............
+Determined physical RAM map:
+ memory: 03f7d000 @ 00002000 (usable)
+On node 0 totalpages: 16255
+  DMA zone: 4096 pages, LIFO batch:1
+  Normal zone: 12159 pages, LIFO batch:2
+  HighMem zone: 0 pages, LIFO batch:1
+Built 1 zonelists
+Kernel command line: root=/dev/mtdblock1 rootfstype=squashfs
+brcm mips: enabling icache and dcache...
+Primary instruction cache 32kB, physically tagged, 2-way, linesize 16 bytes.
+Primary data cache 16kB 2-way, linesize 16 bytes.
+PID hash table entries: 256 (order 8: 2048 bytes)
+Using 150.000 MHz high precision timer.
+Dentry cache hash table entries: 16384 (order: 4, 65536 bytes)
+Inode-cache hash table entries: 8192 (order: 3, 32768 bytes)
+Allocating memory for DSP module core and initialization code
+Allocated DSP module memory - CORE=0x81099bc0 SIZE=900000, INIT=0x81175760 SIZE=5000
+Memory: 61380k/65012k available (1428k kernel code, 3564k reserved, 420k data, 68k init, 0k highmem)
+Calibrating delay loop... 297.98 BogoMIPS
+Mount-cache hash table entries: 512 (order: 0, 4096 bytes)
+Checking for 'wait' instruction...  available.
+NET: Registered protocol family 16
+usbcore: registered new driver usbfs
+usbcore: registered new driver hub
+Bluetooth: Core ver 2.6
+NET: Registered protocol family 31
+Bluetooth: HCI device and connection manager initialized
+Bluetooth: HCI socket layer initialized
+inotify device minor=63
+squashfs: version 3.3 (2007/10/31) Phillip Lougher
+squashfs: LZMA suppport for slax.org by jro
+JFFS2 version 2.2. (C) 2001-2003 Red Hat, Inc.
+bcm963xx_serial driver v2.0
+BTHub: initialize parser
+Using noop io scheduler
+Thomson Speedtouch flash mapping
+flash: Found 1 x16 devices at 0x0 in 16-bit bank
+ Amd/Fujitsu Extended Query Table at 0x0040
+flash: CFI does not contain boot bank location. Assuming top.
+number of CFI chips: 1
+cfi_cmdset_0002: Disabling erase-suspend-program due to code brokenness.
+flash mapping initialized
+parse_bthub_partitions (block_size: 131072)
+bthub: header of CORE partition is detected
+bthub: kernel is at offset (be1a001a), size (94f1b)
+corefs_pattern: info is at offset (bea00004), size (4) including a header of (4)
+corefs_pattern: ds is at offset (bea00008), size (24) including a header of (4)
+bthub: a signature has been stored
+bthub: SquashFS is expected at be235000, found magic is 71736873
+bthub: SquashFS (start: be235000, size 1eb000)
+bthub: SquashFS is expected at be420000, found magic is 71736873
+bthub: SquashFS (start: be420000, size 5e0000)
+bthub: user partition is created
+bthub: no valid extended partition detected. An empty one will be created.
+bthub mtd: user (be020000, 180000), write(1), sdram(0)
+bthub mtd: rootfs (be420000, 5e0000), write(0), sdram(0)
+bthub mtd: modfs (be235000, 1eb000), write(0), sdram(0)
+bthub mtd: extfs (bea21000, 59f000), write(0), sdram(0)
+bthub mtd: extended (bea20000, 5e0000), write(1), sdram(0)
+bthub mtd: flash (be000000, 1000000), write(1), sdram(0)
+PT: creating a tree under /proc...
+   [ flash ]
+     [ core ]
+       [ corefs ]
+         [ kernel ]
+         [ modfs ]
+       [ rootfs ]
+     [ user ]
+     [ extended ]
+       [ extfs ]
+PT: done.
+6 BTHub partitions found on MTD device flash
+Creating 6 MTD partitions on "flash":
+0x00020000-0x001a0000 : "user"
+0x00420000-0x00a00000 : "rootfs"
+0x00235000-0x00420000 : "modfs"
+0x00a21000-0x00fc0000 : "extfs"
+0x00a20000-0x01000000 : "extended"
+0x00000000-0x01000000 : "flash"
+Bluetooth: HCI UART driver ver 2.1
+Bluetooth: HCI H4 protocol initialized
+Bluetooth: HCI BCSP protocol initialized
+brcmboard: brcm_board_init entry
+NET: Registered protocol family 2
+IP: routing cache hash table of 512 buckets, 4Kbytes
+TCP: Hash tables configured (established 4096 bind 8192)
+NET: Registered protocol family 1
+NET: Registered protocol family 17
+NET: Registered protocol family 15
+VFS: Mounted root (squashfs filesystem) readonly.
+Freeing unused kernel memory: 68k freed
+init started:  BusyBox v1.00 (2009.09.14-04:06+0000) multi-call binary
+init started:  BusyBox v1.00 (2009.09.14-04:06+0000) multi-call binary
+Starting pid 40, console /dev/ttyS0: '/etc/init.d/rcS'
+Algorithmics/MIPS FPU Emulator v1.5
+SQUASHFS error: Can't find a SQUASHFS superblock on mtdblock3
+mount: Mounting /dev/mtdblock3 on /extfs failed: Invalid argument
+telnetd: starting
+  port: 23; login program: /bin/sh
+Using /lib/modules/2.6.8.1/kernel/drivers/usb/host/ohci-hcd.ko
+ohci_hcd: 2004 Feb 02 USB 1.1 'Open' Host Controller (OHCI) Driver (PCI)
+ohci_hcd: block sizes: ed 64 td 64
+PCI: Enabling device 0000:00:09.0 (0000 -> 0002)
+ohci_hcd 0000:00:09.0: PCI device 14e4:6300 (Broadcom Corporation)
+PCI: Setting latency timer of device 0000:00:09.0 to 64
+ohci_hcd 0000:00:09.0: irq 13, pci mem c00cb400
+ohci_hcd 0000:00:09.0: new USB bus registered, assigned bus number 1
+hub 1-0:1.0: USB hub found
+hub 1-0:1.0: 2 ports detected
+Using /lib/modules/2.6.8.1/kernel/drivers/usb/host/ehci-hcd.ko
+PCI: Enabling device 0000:00:0a.0 (0000 -> 0002)
+ehci_hcd 0000:00:0a.0: PCI device 14e4:6300 (Broadcom Corporation)
+PCI: Setting latency timer of device 0000:00:0a.0 to 64
+ehci_hcd 0000:00:0a.0: irq 18, pci mem c00cf300
+ehci_hcd 0000:00:0a.0: new USB bus registered, assigned bus number 2
+PCI: cache line size of 32 is not supported by device 0000:00:0a.0
+ehci_hcd 0000:00:0a.0: USB f.f enabled, EHCI 1.00, driver 2004-May-10
+hub 2-0:1.0: USB hub found
+hub 2-0:1.0: 2 ports detected
+hub 2-0:1.0: over-current change on port 2
+rm: cannot remove `/rw/dl/usbabsent': No such file or directory
+Using /nmon/nmon.ko
+nmon: module license 'unspecified' taints kernel.
+Button: Character device registered successfully.
+AnnexCParam=0x00000000 AnnexAParam=0x00000000 adsl2=0x00000000
+pSdramPHY=0xA3FFFFF8, 0x48000000 0x0
+[BCM ADSL] Firmware load : 431156 431156 LMEM=(0xFFF00000, 49488) SDRAM=(0xA3FA0000, 381660)
+AdslCoreHwReset: AdslOemDataAddr = 0xA3FFC1C4
+AnnexCParam=0x00000000 AnnexAParam=0x00000000 adsl2=0x00000000
+ADSL PHY version is A2pBT010i.d20h
+b6w_init
+mpi: No Card is in the PCMCIA slot
+mpi: device 0x432c found in PCI slot 1, function 0
+IPSecControl Character device registered successfully.
+NET: Registered protocol family 3
+NET: Registered protocol family 9
+NET: Registered protocol family 4
+NET: Registered protocol family 5
+NET: Registered protocol family 18
+NET: Registered protocol family 25
+Using /lib/modules/tty_spi.ko
+usage: insmod tty_spi speed n
+CS=2 date: Sep 14 2009 time: 12:31:13, speed 1
+Using /lib/modules/krtp.ko
+krtp ver 2.8 softdsp-vad-multiline-wb (Sep 14 2009 12:24:47)
+Using /lib/modules/dspdd.ko
+load dspdd.ko: core_size=825584, init_size=0
+DSP Driver: DSP init stub
+Using /lib/modules/endpointdd.ko
+Endpoint: endpoint_init entry
+Endpoint: endpoint_init COMPLETED
+Using /lib/modules/bt_reset.ko
+Using /lib/modules/2.6.8.1/kernel/net/bluetooth/l2cap.ko
+Bluetooth: L2CAP ver 2.3
+Bluetooth: L2CAP socket layer initialized
+Device ikanos not present.
+Starting pid 231, console /dev/ttyS0: '/etc/init.d/rc'
+Switching to RUNLEVEL 1 ...
+MDG on SPI
+MDG version: 40-1, expect 40-1
+RAD : rad started.....
+
+RAD : Reading /etc/rad.conf
+RAD : found entry 1, path /usr/bin/upnp_dect_ui
+RAD : found entry 2, path /usr/bin/gw_numberL2C
+RAD : found entry 3, path /usr/bin/loader_alertL2C
+RAD : found entry 4, path /usr/bin/TI_number_menu
+RAD : found entry 5, path /usr/bin/hyper_accept
+RAD : found entry 6, path /usr/bin/send_base_IP_address
+RAD : found entry 7, path /usr/bin/osis_channel_conf
+RAD : found entry 8, path /usr/bin/osis_wizard
+RAD : found entry 9, path /usr/bin/npab_connect
+
+RAD : Reading /etc/hsupd.conf
+RAD : found entry 1, path /usr/bin/hyper_update
+RAD : found entry 2, path /usr/bin/hs_eep_update
+RAD : Waiting for connection on psm :
+RAD : A01
+RAD : A06
+Writing /var/run/rad.pid
+linux application start ...
+wait for linux_appl to initialize (1)
+wait for linux_appl to initialize (2)
+
+************* ERROR RECORD *************
+000000:00:00.000000
+Application NMON started after POWERON.
+****************** END *****************
+
+appl_init: build verified
+dip_init() : button[FACTORY_RESET] has number[1]
+wait for linux_appl to initialize (3)
+End of initialisation
+ start storagepl ...
+ storagepl is started
+Using /lib/modules/2.6.8.1/kernel/drivers/usb/host/ohci-hcd.ko
+insmod: cannot insert `/lib/modules/2.6.8.1/kernel/drivers/usb/host/ohci-hcd.ko': Success (17): Success
+modprobe: failed to load module ohci-hcd
+Using /lib/modules/2.6.8.1/kernel/drivers/usb/host/ehci-hcd.ko
+insmod: cannot insert `/lib/modules/2.6.8.1/kernel/drivers/usb/host/ehci-hcd.ko': Success (17): Success
+modprobe: failed to load module ehci-hcd
+Using /lib/modules/2.6.8.1/kernel/drivers/usb/class/usblp.ko
+usblp: falsely claims to have parameter proto_bias
+usbcore: registered new driver usblp
+drivers/usb/class/usblp.c: v0.13: USB Printer Device Class driver
+modprobe: module usbserial not found.
+modprobe: failed to load module usbserial
+id: unknown user name: nobody
+id: unknown user name: nobody
+Using /lib/modules/2.6.8.1/kernel/drivers/scsi/scsi_mod.ko
+SCSI subsystem initialized
+Using /lib/modules/2.6.8.1/kernel/drivers/scsi/sd_mod.ko
+Using /lib/modules/2.6.8.1/kernel/drivers/usb/storage/usb-storage.ko
+Initializing USB Mass Storage driver...
+usbcore: registered new driver usb-storage
+USB Mass Storage support registered.
+Using /lib/modules/2.6.8.1/kernel/fs/fat/fat.ko
+Using /lib/modules/2.6.8.1/kernel/fs/vfat/vfat.ko
+Using /lib/modules/2.6.8.1/kernel/fs/msdos/msdos.ko
+Using /lib/modules/2.6.8.1/kernel/fs/nls/nls_cp437.ko
+Using /lib/modules/2.6.8.1/kernel/fs/nls/nls_iso8859-1.ko
+mount all usbdisks not implemented !
+Name: /etc/usbmgr/usbmgr.conf
+Load_from_file: /etc/usbmgr/preload.conf
+checkd start ...
+checkd: daemonized with blocked parent process
+checkd: parent process released.
+S67stopload: wait until configuration load reaches phase 9...
+linuxappl: start loading after [  3034ms ]
+---- WL firmwarecode (0--1-0-0)
+kernel::endpoint_open
+kernel::endpoint_open COMPLETED
+[adsl] trace = 5 0
+[LED] led_drv_init() userspace
+usb 2-1: new high speed USB device using address 2
+scsi0 : SCSI emulation for USB Mass Storage devices
+  Vendor: Kingston  Model: DataTraveler G3   Rev: 1.00
+  Type:   Direct-Access                      ANSI SCSI revision: 02
+SCSI device sda: 31272544 512-byte hdwr sectors (16012 MB)
+sda: assuming Write Enabled
+sda: assuming drive cache: write through
+ sda: sda1
+Attached scsi removable disk sda at scsi0, channel 0, id 0, lun 0
+USB Mass Storage device found at 2
+ADSL configuration:
+        adslmultimode = adsl2plus
+        syslog = disabled
+[mlp] Invalid/duplicate username or user database full.
+[mlp] Invalid/duplicate username or user database full.
+[mlp] Invalid/duplicate username or user database full.
+stopping the pureftp-server ...
+the pureftp-server is stopped
+stopping the pure-authd ...
+the pure-authd is stopped
+HAUSWARE HOST LIBRARY => BUILD DATE = Jul  4 2008, BUILD TIME = 15:17:51
+*** gStartRxDesc[0] = 0xA0E2D000
+*** gBufferSizeBytes = 1280
+*** gStartTxDesc[0] = 0xA0E2F000
+hal6358PcmInit 260 nextTxDesc = 0xA0E2F000
+hal6358PcmInit 260 nextTxDesc = 0xA0E2F008
+hal6358PcmInit 264 Ownership for TX desc not set. Use this buffer.
+PERF->IrqMask   = 0xA8060427
+PERF->IrqMask1  = 0x00800000
+Starting su_interface ...
+su_interface: running
+Starting la_interface ...
+la_interface: running
+/extfs/etc/finally.sh: 1: shareroot: not found
+Load_from_file: /etc/usbmgr/class/08/06/module
+Start to load
+end of loop
+really the end 9 (len 8)
+Module_load name: þC8
+Load_from_file: /etc/usbmgr/class/08/06/script
+Start to load
+end of loop
+really the end 8 (len 7)
+Path: /etc/usbmgr/storage
+Cmd2 : storage
+id: unknown user name: nobody
+id: unknown user name: nobody
+Disk dev is sda
+Mounting all partitions of sda
+checking sda1 514
+Trying to mounting device:
+SQUASHFS error: Can't find a SQUASHFS superblock on sda1
+Mounted /var/usbmount/sda1 succesfully
+ * Determine managed disk based on a marker file on the disk.
+Could not open marker files
+Device nr /var/usbmount/sda1/Settings/manageddisk_marker is NOT the managed disk
+Device 514 is not a managed disk
+checking sda2 514
+open() failed: No such device or address
+checking sda3 514
+starting the upnp av server
+open() failed: No such device or address
+checking sda4 514
+open() failed: No such device or address
+
+Username : checking sda5 514
+open() failed: No such device or address
+samba: stopping ...
+ILibMediaProfiler: ILibMediaProf_CheckState: Media profiling finished
+checking sda6 514
+killall: smbd: no process killed
+open() failed: No such device or address
+checking sda7 514
+killall: nmbd: no process killed
+open() failed: No such device or address
+checking sda8 514
+killall: cifscl: no process killed
+samba: initializing ...
+open() failed: No such device or address
+samba: wait for cifscl to initialize (1)
+checking sda9 514
+open() failed: No such device or address
+checking sda10 514
+open() failed: No such device or address
+checking sda11 514
+open() failed: No such device or address
+checking sda12 514
+open() failed: No such device or address
+checking sda13 514
+open() failed: No such device or address
+checking sda14 514
+open() failed: No such device or address
+checking sda 514
+/etc/usbmgr/usbledctrl: 38: ledctrl: not found
+envp2 addr 0x7ffe3f18
+samba: wait for cifscl to initialize (2)
+samba: wait for cifscl to initialize (3)
+samba: wait for cifscl to initialize (4)
+samba: wait for cifscl to initialize (5)
+samba: wait for cifscl to initialize (6)
+samba: wait for cifscl to initialize (7)
+samba: wait for cifscl to initialize (8)
+samba: wait for cifscl to initialize (9)
+samba: wait for cifscl to initialize (10)
+samba: wait for cifscl to initialize (11)
+samba: wait for cifscl to initialize (12)
+samba: wait for cifscl to initialize (13)
+samba: wait for cifscl to initialize (14)
+samba: wait for cifscl to initialize (15)
+samba: wait for cifscl to initialize (16)
+samba: wait for cifscl to initialize (17)
+samba: wait for cifscl to initialize (18)
+samba: wait for cifscl to initialize (19)
+samba: wait for cifscl to initialize (20)
+ cifscl time out
+samba: starting ...''
+
+</code>
+</p>
+
+</div>
+
+<h3 class="sectionedit35" id="openwrt_bootlog">OpenWrt bootlog</h3>
+<div class="level3">
+
+<p style="padding: 10px;border:1px solid grey;height:600px;font:12px/14px Georgia, Garamond, Serif;overflow:Auto;background-color:#FFFFFF">
+<code>
+Pulling BCM5325 out of reset (GPIO15 ON)......done
+
+
+CFE version 1.0.37-6.4 for BCM96358 (32bit,SP,BE)
+Build Date: Mon Mar 16 15:29:36 CET 2015 (dani@tool)
+Copyright (C) 2000-2005 Broadcom Corporation.
+
+Boot Address 0xbe000000
+
+Initializing Arena.
+Initializing Devices.
+Parallel flash device: name AM29LV320MT, id 0x2201, size 16384KB
+
+Now initializing the switch...
+GPIO_MODE_EMAC2_MII_CLK_INV pinmux enabled
+Setting BCM5325 managed mode
+    B53_SWITCH_MODE = 0x5
+    new B53_SWITCH_MODE = 0x7
+    REG_MII_PORT_CONTROL = 0x20
+    new REG_MII_PORT_CONTROL = 0x3c
+    B53_GLOBAL_CONFIG = 0x0
+    new B53_GLOBAL_CONFIG = 0x80
+    REG_VLAN_CTRL5 = 0x0
+    new REG_VLAN_CTRL5 = 0x3
+done
+Setting BCM5325 unmanaged mode
+    B53_SWITCH_MODE = 0x7
+    new B53_SWITCH_MODE = 0x6
+    B53_GLOBAL_CONFIG = 0x80
+    new B53_GLOBAL_CONFIG = 0x0
+done
+Clearing B53_PORT_CTRL(i) registers at ports 0, 1, 2, 3, 4, 5, 6, 7, 8,  done
+B53_PORT_OVERRIDE_CTRL = 0x9f
+...done
+
+CPU type 0x2A010: 300MHz, Bus: 133MHz, Ref: 64MHz
+Total memory: 67108864 bytes (64MB)
+
+Total memory used by CFE:  0x80401000 - 0x80528880 (1210496)
+Initialized Data:          0x8041D970 - 0x8041FF80 (9744)
+BSS Area:                  0x8041FF80 - 0x80426880 (26880)
+Local Heap:                0x80426880 - 0x80526880 (1048576)
+Stack Area:                0x80526880 - 0x80528880 (8192)
+Text (code) segment:       0x80401000 - 0x8041D970 (117104)
+Boot area (physical):      0x00529000 - 0x00569000
+Relocation Factor:         I:00000000 - D:00000000
+
+Board IP address                  : 192.168.1.1  
+Host IP address                   : 192.168.1.100  
+Gateway IP address                :   
+Run from flash/host (f/h)         : f  
+Default host run file name        : vmlinux  
+Default host flash file name      : bcm963xx_fs_kernel  
+Boot delay (0-9 seconds)          : 1  
+Board Id Name                     : HOMEHUB2A  
+Psi size in KB                    : 24
+Number of MAC Addresses (1-32)    : 4  
+Base MAC Address                  : 00:26:44:ee:53:c6  
+Ethernet PHY Type                 : Internal
+Memory size in MB                 : 64
+CMT Thread Number                 : 0
+
+***  Press any key to stop auto run (1 seconds) ***
+ Auto run second count down: 1\0x081\0x080
+Code Address: 0x80010000, Entry Address: 0x80010000
+Decompression OK!
+Entry at 0x80010000
+Closing network.
+Starting program at 0x80010000
+[    0.000000] Linux version 3.10.49 (dani@tool) (gcc version 4.8.3 (OpenWrt/Linaro GCC 4.8-2014.04 r44645) ) #15 Mon Mar 16 15:48:28 CET 2015
+[    0.000000] Detected Broadcom 0x6358 CPU revision a1
+[    0.000000] CPU frequency is 300 MHz
+[    0.000000] 64MB of RAM installed
+[    0.000000] registering 40 GPIOs
+[    0.000000] board_bcm963xx: Boot address 0xbe000000
+[    0.000000] board_bcm963xx: CFE version: 1.0.37-6.4
+[    0.000000] bootconsole [early0] enabled
+[    0.000000] CPU revision is: 0002a010 (Broadcom BMIPS4350)
+[    0.000000] board: board name: HOMEHUB2A
+[    0.000000] Determined physical RAM map:
+[    0.000000]  memory: 04000000 @ 00000000 (usable)
+[    0.000000] Initrd not found or empty - disabling initrd
+[    0.000000] Zone ranges:
+[    0.000000]   Normal   [mem 0x00000000-0x03ffffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x00000000-0x03ffffff]
+[    0.000000] Primary instruction cache 32kB, VIPT, 2-way, linesize 16 bytes.
+[    0.000000] Primary data cache 16kB, 2-way, VIPT, cache aliases, linesize 16 bytes
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 16256
+[    0.000000] Kernel command line:  root=/dev/mtdblock2 rootfstype=squashfs,jffs2 noinitrd console=ttyS0,115200
+[    0.000000] PID hash table entries: 256 (order: -2, 1024 bytes)
+[    0.000000] Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.000000] Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000] Memory: 61336k/65536k available (2422k kernel code, 4200k reserved, 703k data, 200k init, 0k highmem)
+[    0.000000] NR_IRQS:256
+[    0.000000] Calibrating delay loop... 299.26 BogoMIPS (lpj=598528)
+[    0.036000] pid_max: default: 32768 minimum: 301
+[    0.040000] Mount-cache hash table entries: 512
+[    0.048000] NET: Registered protocol family 16
+[    0.064000] registering PCI controller with io_map_base unset
+[    0.068000] registering PCI controller with io_map_base unset
+[    0.088000] bio: create slab <bio-0> at 0
+[    0.096000] PCI host bridge to bus 0000:00
+[    0.100000] pci_bus 0000:00: root bus resource [mem 0x30000000-0x37ffffff]
+[    0.104000] pci_bus 0000:00: root bus resource [io  0x8000000-0x8007fff]
+[    0.108000] pci_bus 0000:00: No busn resource found for root bus, will use [bus 00-ff]
+[    0.124000] pci 0000:00:01.0: BAR 0: assigned [mem 0x30000000-0x30003fff]
+[    0.128000] PCI host bridge to bus 0000:01
+[    0.132000] pci_bus 0000:01: root bus resource [mem 0x38000000-0x3fffffff]
+[    0.136000] pci_bus 0000:01: root bus resource [io  0x8008000-0x800ffff]
+[    0.140000] pci_bus 0000:01: No busn resource found for root bus, will use [bus 01-ff]
+[    0.144000] pci 0000:01:1e.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+[    0.148000] pci 0000:01:1e.0: BAR 10: assigned [mem 0x38000000-0x3fffffff]
+[    0.152000] pci 0000:01:1e.0: BAR 7: assigned [io  0x8008000-0x80080ff]
+[    0.156000] pci 0000:01:1e.0: BAR 8: assigned [io  0x8008400-0x80084ff]
+[    0.160000] pci 0000:01:1e.0: CardBus bridge to [bus 02-05]
+[    0.164000] pci 0000:01:1e.0:   bridge window [io  0x8008000-0x80080ff]
+[    0.168000] pci 0000:01:1e.0:   bridge window [io  0x8008400-0x80084ff]
+[    0.172000] pci 0000:01:1e.0:   bridge window [mem 0x38000000-0x3fffffff]
+[    0.176000] PCI: Enabling device 0000:01:1e.0 (0000 -> 0003)
+[    0.180000] Switching to clocksource MIPS
+[    0.192000] PCI: Enabling device 0000:00:01.0 (0000 -> 0002)
+[    0.220000] ssb: Found chip with id 0x4322, rev 0x01 and package 0x09
+[    0.292000] ssb: Sonics Silicon Backplane found on PCI device 0000:00:01.0
+[    0.300000] NET: Registered protocol family 2
+[    0.304000] TCP established hash table entries: 512 (order: 0, 4096 bytes)
+[    0.312000] TCP bind hash table entries: 512 (order: -1, 2048 bytes)
+[    0.320000] TCP: Hash tables configured (established 512 bind 512)
+[    0.324000] TCP: reno registered
+[    0.328000] UDP hash table entries: 256 (order: 0, 4096 bytes)
+[    0.336000] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+[    0.344000] NET: Registered protocol family 1
+[    0.352000] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.360000] jffs2: version 2.2 (NAND) (SUMMARY) (ZLIB) (CMODE_PRIORITY) (c) 2001-2006 Red Hat, Inc.
+[    0.368000] msgmni has been set to 119
+[    0.372000] io scheduler noop registered
+[    0.376000] io scheduler deadline registered (default)
+[    0.384000] bcm63xx_uart.0: ttyS0 at MMIO 0xfffe0100 (irq = 10) is a bcm63xx_uart
+[    0.392000] console [ttyS0] enabled, bootconsole disabled
+[    0.392000] console [ttyS0] enabled, bootconsole disabled
+[    0.408000] physmap platform flash device: 02000000 at 1e000000
+[    0.416000] physmap-flash.0: Found 1 x16 devices at 0x0 in 16-bit bank. Manufacturer ID 0x000001 Chip ID 0x002101
+[    0.424000] Amd/Fujitsu Extended Query Table at 0x0040
+[    0.432000]   Amd/Fujitsu Extended Query version 1.3.
+[    0.436000] number of CFI chips: 1
+[    0.440000] bcm63xxpart: CFE boot tag found with version 6 and board type HOMEHUB2A
+[    0.448000] bcm63xxpart: Partition 0 is CFE offset 0 and length 20000
+[    0.452000] bcm63xxpart: Partition 1 is kernel offset 20100 and length 11ff00
+[    0.460000] bcm63xxpart: Partition 2 is rootfs offset 140000 and length ea0000
+[    0.468000] bcm63xxpart: Partition 3 is nvram offset fe0000 and length 20000
+[    0.476000] bcm63xxpart: Partition 4 is linux offset 20000 and length fc0000
+[    0.484000] bcm63xxpart: Spare partition is offset 4e0004 and length affffc
+[    0.492000] 5 bcm63xxpart partitions found on MTD device physmap-flash.0
+[    0.496000] Creating 5 MTD partitions on "physmap-flash.0":
+[    0.504000] 0x000000000000-0x000000020000 : "CFE"
+[    0.512000] 0x000000020100-0x000000140000 : "kernel"
+[    0.516000] mtd: partition "kernel" must either start or end on erase block boundary or be smaller than an erase block -- forcing read-only
+[    0.532000] 0x000000140000-0x000000fe0000 : "rootfs"
+[    0.544000] mtd: device 2 (rootfs) set to be root filesystem
+[    0.548000] mtd: partition "rootfs_data" created automatically, ofs=0x4e0000, len=0xb00000
+[    0.556000] 0x0000004e0000-0x000000fe0000 : "rootfs_data"
+[    0.564000] 0x000000fe0000-0x000001000000 : "nvram"
+[    0.576000] 0x000000020000-0x000000fe0000 : "linux"
+[    0.588000] bcm63xx-spi bcm63xx-spi: at 0xfffe0800 (irq 9, FIFOs size 542)
+[    0.596000] spi_gpio spi_gpio.1: master is unqueued, this is deprecated
+[    0.604000] 74x164 spi1.0: No device tree data available.
+[    0.608000] 74x164: probe of spi1.0 failed with error -22
+[    0.624000] libphy: bcm63xx_enet MII bus: probed
+[    0.632000] b53_common: found switch: BCM5325, rev 0
+[    0.636000] bcm63xx_enet bcm63xx_enet.1: attached PHY at address 0 [Broadcom B53 (1)]
+[    0.648000] bcm63xx-wdt bcm63xx-wdt:  started, timer margin: 30 sec
+[    0.656000] platform leds-gpio.0: Driver leds-gpio requests probe deferral
+[    0.664000] TCP: cubic registered
+[    0.668000] NET: Registered protocol family 17
+[    0.672000] Bridge firewalling registered
+[    0.676000] 8021q: 802.1Q VLAN Support v1.8
+[    0.684000] platform leds-gpio.0: Driver leds-gpio requests probe deferral
+[    0.696000] VFS: Mounted root (squashfs filesystem) readonly on device 31:2.
+[    0.708000] Freeing unused kernel memory: 200K (8031e000 - 80350000)
+procd: Console is alive
+procd: - watchdog -
+[    2.260000] usbcore: registered new interface driver usbfs
+[    2.268000] usbcore: registered new interface driver hub
+[    2.272000] usbcore: registered new device driver usb
+[    2.288000] Button Hotplug driver version 0.4.1
+[    2.384000] SCSI subsystem initialized
+[    2.400000] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    2.412000] ehci-platform: EHCI generic platform driver
+[    2.416000] ehci-platform ehci-platform: EHCI Host Controller
+[    2.420000] ehci-platform ehci-platform: new USB bus registered, assigned bus number 1
+[    2.432000] ehci-platform ehci-platform: irq 18, io mem 0xfffe1300
+[    2.448000] ehci-platform ehci-platform: USB 2.0 started, EHCI 1.00, overcurrent ignored
+[    2.456000] hub 1-0:1.0: USB hub found
+[    2.460000] hub 1-0:1.0: 1 port detected
+[    2.464000] platform leds-gpio.0: Driver leds-gpio requests probe deferral
+[    2.480000] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    2.484000] ohci-platform ohci-platform: Generic Platform OHCI Controller
+[    2.492000] ohci-platform ohci-platform: new USB bus registered, assigned bus number 2
+[    2.500000] ohci-platform ohci-platform: irq 13, io mem 0xfffe1400
+[    2.568000] hub 2-0:1.0: USB hub found
+[    2.572000] hub 2-0:1.0: 1 port detected
+[    2.576000] platform leds-gpio.0: Driver leds-gpio requests probe deferral
+[    2.600000] usbcore: registered new interface driver usb-storage
+[    2.608000] input: gpio-keys-polled as /devices/platform/gpio-keys-polled.0/input/input0
+[    2.616000] platform leds-gpio.0: Driver leds-gpio requests probe deferral
+procd: - preinit -
+Press the [f] key and hit [enter] to enter failsafe mode
+Press the [1], [2], [3] or [4] key and hit [enter] to select the debug level
+[    4.680000] eth0: link UP - 100/full - flow control off
+[    6.588000] jffs2: notice: (245) jffs2_build_xattr_subsystem: complete building xattr subsystem, 1 of xdatum (0 unchecked, 0 orphan) and 19 of xref (0 dead, 5 orphan) found.
+[    6.604000] block: attempting to load /tmp/jffs_cfg/upper/etc/config/fstab
+[    6.612000] block: unable to load configuration (fstab: Entry not found)
+[    6.620000] block: attempting to load /tmp/jffs_cfg/etc/config/fstab
+[    6.628000] block: extroot: not configured
+jffs2 is ready
+No jffs2 marker was found
+[    6.684000] jffs2: notice: (242) jffs2_build_xattr_subsystem: complete building xattr subsystem, 1 of xdatum (0 unchecked, 0 orphan) and 19 of xref (0 dead, 5 orphan) found.
+[    6.864000] block: attempting to load /tmp/jffs_cfg/upper/etc/config/fstab
+[    6.872000] block: unable to load configuration (fstab: Entry not found)
+[    6.876000] block: attempting to load /tmp/jffs_cfg/etc/config/fstab
+[    6.888000] block: extroot: not configured
+switching to overlay
+procd: - early -
+procd: - watchdog -
+procd: - ubus -
+procd: - init -
+[    7.700000] eth0: link DOWN
+Please press Enter to activate this console.
+[   10.024000] NET: Registered protocol family 10
+[   10.112000] nf_conntrack version 0.5.0 (961 buckets, 3844 max)
+[   10.140000] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[   10.208000] u32 classifier
+[   10.208000]     input device check on
+[   10.212000]     Actions configured
+[   10.248000] Mirror/redirect action on
+[   10.288000] Loading modules backported from Linux version master-2014-05-22-0-gf2032ea
+[   10.296000] Backport generated by backports.git backports-20140320-37-g5c33da0
+[   10.328000] ip_tables: (C) 2000-2006 Netfilter Core Team
+[   10.532000] xt_time: kernel timezone is -0000
+[   10.612000] cfg80211: Calling CRDA to update world regulatory domain
+[   10.660000] cfg80211: World regulatory domain updated:
+[   10.664000] cfg80211:  DFS Master region: unset
+[   10.668000] cfg80211:   (start_freq - end_freq @ bandwidth), (max_antenna_gain, max_eirp), (dfs_cac_time)
+[   10.680000] cfg80211:   (2402000 KHz - 2472000 KHz @ 40000 KHz), (N/A, 2000 mBm), (N/A)
+[   10.688000] cfg80211:   (2457000 KHz - 2482000 KHz @ 40000 KHz), (N/A, 2000 mBm), (N/A)
+[   10.696000] cfg80211:   (2474000 KHz - 2494000 KHz @ 20000 KHz), (N/A, 2000 mBm), (N/A)
+[   10.704000] cfg80211:   (5170000 KHz - 5250000 KHz @ 160000 KHz), (N/A, 2000 mBm), (N/A)
+[   10.712000] cfg80211:   (5250000 KHz - 5330000 KHz @ 160000 KHz), (N/A, 2000 mBm), (0 s)
+[   10.720000] cfg80211:   (5490000 KHz - 5730000 KHz @ 160000 KHz), (N/A, 2000 mBm), (0 s)
+[   10.728000] cfg80211:   (5735000 KHz - 5835000 KHz @ 80000 KHz), (N/A, 2000 mBm), (N/A)
+[   10.736000] cfg80211:   (57240000 KHz - 63720000 KHz @ 2160000 KHz), (N/A, 0 mBm), (N/A)
+[   10.872000] PPP generic driver version 2.4.2
+[   10.880000] NET: Registered protocol family 24
+[   10.972000] b43-phy0: Broadcom 4322 WLAN found (core revision 16)
+[   11.012000] b43-phy0: Found PHY: Analog 8, Type 4 (N), Revision 4
+[   11.016000] b43-phy0: Found Radio: Manuf 0x17F, ID 0x2056, Revision 3, Version 0
+[   11.036000] platform leds-gpio.0: Driver leds-gpio requests probe deferral
+[   11.044000] Broadcom 43xx driver loaded [ Features: PNL ]
+[   14.532000] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+[   15.852000] eth0: link UP - 100/full - flow control off
+[   15.860000] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+[   23.808000] device eth0.1 entered promiscuous mode
+[   23.812000] device eth0 entered promiscuous mode
+[   23.828000] br-lan: port 1(eth0.1) entered forwarding state
+[   23.832000] br-lan: port 1(eth0.1) entered forwarding state
+[   24.912000] eth0: link UP - 100/full - flow control off
+[   25.836000] br-lan: port 1(eth0.1) entered forwarding state
+[   27.100000] b43-phy0: Loading firmware version 666.2 (2011-02-23 01:15:07)
+[   27.236000] IPv6: ADDRCONF(NETDEV_UP): wlan0: link is not ready
+[   27.248000] device wlan0 entered promiscuous mode
+[   27.296000] br-lan: port 2(wlan0) entered forwarding state
+[   27.300000] br-lan: port 2(wlan0) entered forwarding state
+[   27.308000] IPv6: ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready
+[   29.304000] br-lan: port 2(wlan0) entered forwarding state
+procd: - init complete -
+
+
+
+BusyBox v1.22.1 (2015-03-11 21:32:56 CET) built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+ BARRIER BREAKER (Barrier Breaker, r44645)
+ -----------------------------------------------------
+  * 1/2 oz Galliano         Pour all ingredients into
+  * 4 oz cold Coffee    \0xe0h coffee mug filled
+  * 1 1/2 oz Dark Rum       with crushed ice. Stir.
+  * 2 tsp. Creme de Cacao
+ -----------------------------------------------------
+root@OpenWrt:/# cat /proc/cpuinfo                                               
+system type             : bcm63xx/HOMEHUB2A (0x6358/0xA1)                       
+machine                 : Unknown                                               
+processor               : 0                                                     
+cpu model               : Broadcom BMIPS4350 V1.0                               
+BogoMIPS                : 299.26                                                
+wait instruction        : yes                                                   
+microsecond timers      : yes                                                   
+tlb_entries             : 32                                                    
+extra interrupt vector  : yes                                                   
+hardware watchpoint     : no                                                    
+isa                     : mips1 mips2 mips32r1                                  
+ASEs implemented        :                                                       
+shadow register sets    : 1                                                     
+kscratch registers      : 0                                                     
+core                    : 0                                                     
+VCED exceptions         : not available                                         
+VCEI exceptions         : not available    
+root@OpenWrt:/#
+</code>
+</p>
+
+</div>
+
+<h2 class="sectionedit36" id="tags">Tags</h2>
+<div class="level2">
+<div class="tags"><span>
+	<a href="../../tag/bcm63xx?do=showtag&amp;tag=bcm63xx" class="wikilink1" title="tag:bcm63xx" rel="tag">bcm63xx</a>,
+	<a href="../../tag/bcm6358?do=showtag&amp;tag=bcm6358" class="wikilink1" title="tag:bcm6358" rel="tag">bcm6358</a>
+</span></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>toh/bt/homehub_v2a.txt</bdi> · Last modified: 2015/04/01 20:01 by <bdi>danitool</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="homehub_v2a?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="homehub_v2a?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="homehub_v2a?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="homehub_v2a#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=toh%253Abt%253Ahomehub_v2a&amp;1432266840" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>BCM63xx ADSL Support on Linux kernel 2.6.8.1 [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="wip,bcm63xx,adsl"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../index.html"/>
+<link rel="contents" href="adsl_support?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../feed.php?mode=list&amp;ns=inbox"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../_export/xhtml/inbox/adsl_support"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../_export/raw/inbox/adsl_support"/>
+<link rel="canonical" href="adsl_support"/>
+<link rel="stylesheet" type="text/css" href="../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='inbox';var JSINFO = {"id":"inbox:adsl_support","namespace":"inbox"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432278287 166.182.3.192';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="adsl_support#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../start"  accesskey="h" title="[H]"><img src="../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="adsl_support?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="adsl_support?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="inbox:adsl_support" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="adsl_support?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="adsl_support?do=media&amp;ns=inbox"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="adsl_support?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="start" class="wikilink1" title="inbox:start">Build and installation - Few Adjustments - NEW (shiva)</a></bdi> » <bdi><span class="curid"><a href="adsl_support" class="wikilink1" title="inbox:adsl_support">BCM63xx ADSL Support on Linux kernel 2.6.8.1</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/inbox/adsl_support" class="media" title="cz:inbox:adsl_support"><img src="../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/inbox/adsl_support" class="media" title="de:inbox:adsl_support"><img src="../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="adsl_support" class="media" title="inbox:adsl_support"><img src="../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/inbox/adsl_support" class="media" title="es:inbox:adsl_support"><img src="../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/inbox/adsl_support" class="media" title="fr:inbox:adsl_support"><img src="../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/inbox/adsl_support" class="media" title="hu:inbox:adsl_support"><img src="../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/inbox/adsl_support" class="media" title="jp:inbox:adsl_support"><img src="../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/inbox/adsl_support" class="media" title="pl:inbox:adsl_support"><img src="../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/inbox/adsl_support" class="media" title="pt-br:inbox:adsl_support"><img src="../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/inbox/adsl_support" class="media" title="ru:inbox:adsl_support"><img src="../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/inbox/adsl_support" class="media" title="tr:inbox:adsl_support"><img src="../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/inbox/adsl_support" class="media" title="zh-cn:inbox:adsl_support"><img src="../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/inbox/adsl_support" class="media" title="zh-tw:inbox:adsl_support"><img src="../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>inbox:adsl_support</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="adsl_support#kernel_modules">Kernel Modules</a></div></li>
+<li class="level1"><div class="li"><a href="adsl_support#setup_manual_wan_connection">Setup Manual WAN Connection</a></div></li>
+<li class="level1"><div class="li"><a href="adsl_support#roadmap_☺">ROADMAP ☺</a></div></li>
+<li class="level1"><div class="li"><a href="adsl_support#feel_free_to_add_tips_and_tricks">Feel free to add tips and tricks.</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="adsl_support#external_links">External Links</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="bcm63xx_adsl_support_on_linux_kernel_2681">BCM63xx ADSL Support on Linux kernel 2.6.8.1</h1>
+<div class="level1">
+<div class="table sectionedit2"><table class="inline">
+	<tr class="row0">
+		<td class="col0" rowspan="3"> <img src="../_media/meta/icons/tango/dialog-information.png" class="media" alt="" /> </td><td class="col1"> → <a href="../doc/hardware/soc/soc.broadcom.bcm63xx" class="wikilink1" title="doc:hardware:soc:soc.broadcom.bcm63xx">soc.broadcom.bcm63xx</a> </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> → <a href="../toh/davolink/dv-2020" class="wikilink1" title="toh:davolink:dv-2020">Davolink DV-2020</a> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> FYI: Linux kernel <strong>2.6.8.1</strong> was released on <strong>2004-Aug-14</strong>; this is not <strong><em>old</em></strong>, this is <strong><em>ancient</em></strong> (<em>see <a href="http://en.wikipedia.org/wiki/Linux_kernel#Maintenance" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Linux_kernel#Maintenance">Linux_kernel#Maintenance</a></em>) </td>
+	</tr>
+</table></div>
+
+<p>
+I have recently begun compiling and adapting the code found at <a href="https://forum.openwrt.org/viewtopic.php?pid=120035#p120035" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?pid=120035#p120035"  rel="nofollow">https://forum.openwrt.org/viewtopic.php?pid=120035#p120035</a> and testing it on a <a href="../toh/davolink/dv-2020" class="wikilink1" title="toh:davolink:dv-2020">dv-2020</a> platform.
+</p>
+
+<p>
+First results are promising just now managed to compile and install the drivers.
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="kernel_modules">Kernel Modules</h2>
+<div class="level2">
+
+<p>
+<a href="../_detail/media/bcm63xx_adsl_kmods.png?id=inbox%253Aadsl_support" class="media" title="media:bcm63xx_adsl_kmods.png"><img src="../_media/media/bcm63xx_adsl_kmods.png" class="media" alt="" /></a>
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="setup_manual_wan_connection">Setup Manual WAN Connection</h2>
+<div class="level2">
+
+<p>
+Example script below sets up regular wan connection, just like <strong>cfm</strong> does but without the overhead.
+</p>
+
+<p>
+<pre class="code perl"><span class="co1"># minimal script to start IPoEoATM</span>
+<span class="co1">#</span>
+<span class="co1"># Using binary drivers from dv20xx_DV2010_SIP_ANNEX_A.1.05_consumer.tar.gz</span>
+<span class="co1">#</span>
+<span class="co1"># adslctl version 1.0                                                             </span>
+<span class="co1"># ADSL PHY: AnnexA version - A2pB022f.d19e   </span>
+<span class="co1"># atmctl version 1.1                                                              </span>
+&nbsp;
+<span class="co1"># Load responsible kernel modules</span>
+insmod <span class="sy0">/</span>lib<span class="sy0">/</span>modules<span class="sy0">/</span>2<span class="sy0">.</span>6<span class="sy0">.</span>8<span class="sy0">.</span>1<span class="sy0">/</span>extra<span class="sy0">/</span>atmapi<span class="sy0">.</span>ko
+insmod <span class="sy0">/</span>lib<span class="sy0">/</span>modules<span class="sy0">/</span>2<span class="sy0">.</span>6<span class="sy0">.</span>8<span class="sy0">.</span>1<span class="sy0">/</span>extra<span class="sy0">/</span>blaa_dd<span class="sy0">.</span>ko
+insmod <span class="sy0">/</span>lib<span class="sy0">/</span>modules<span class="sy0">/</span>2<span class="sy0">.</span>6<span class="sy0">.</span>8<span class="sy0">.</span>1<span class="sy0">/</span>extra<span class="sy0">/</span>adsldd<span class="sy0">.</span>ko
+<span class="co1">#insmod /lib/modules/2.6.8.1/extra/bcmprocfs.ko</span>
+&nbsp;
+<span class="co1"># ADSL link up: ADSL2+ (llc encapsulation)</span>
+adslctl start <span class="sy0">--</span>mod a <span class="sy0">--</span>bitswap on <span class="sy0">--</span>sra off <span class="sy0">--</span>lpair i<span class="sy0">**</span>
+adslctl connection <span class="sy0">--</span>up
+<span class="co1">#adslctl --version</span>
+&nbsp;
+<span class="co1"># ATM setup</span>
+atmctl start <span class="sy0">--</span>pqs <span class="nu0">125</span>
+atmctl operate intf <span class="sy0">--</span>state <span class="nu0">0</span> enable
+<span class="co1">#atmctl operate tdte --show</span>
+atmctl operate vcc <span class="sy0">--</span>add 0<span class="sy0">.</span>8<span class="sy0">.</span>35 aal5 <span class="nu0">1</span> llcencaps <span class="sy0">--</span>addq 0<span class="sy0">.</span>8<span class="sy0">.</span>35 <span class="nu0">300</span> <span class="nu0">1</span>
+&nbsp;
+<span class="co1"># PVC emulation</span>
+pvc2684d <span class="sy0">&amp;</span>
+pvc2684ctl <span class="sy0">-</span>a <span class="sy0">-</span>v 0<span class="sy0">.</span>8<span class="sy0">.</span>35 <span class="sy0">&amp;</span>
+&nbsp;
+<span class="co1"># Bring interface up</span>
+ifconfig nas_8_35 hw ether 00<span class="sy0">:</span><span class="nu0">15</span><span class="sy0">:</span><span class="nu0">66</span><span class="sy0">:</span><span class="nu0">66</span><span class="sy0">:</span><span class="nu0">66</span><span class="sy0">:</span><span class="nu0">66</span>
+ifconfig nas_8_35 0<span class="sy0">.</span>0<span class="sy0">.</span>0<span class="sy0">.</span>0
+&nbsp;
+udhcpc <span class="sy0">-</span>i nas_8_35 <span class="sy0">&amp;</span>
+&nbsp;
+&nbsp;
+<span class="co1"># Cruft for the bcm cripled version dhcpc (not needed whan using regular udhcpcd of busybox)</span>
+<span class="co1">#</span>
+<span class="co1">#bcmprocfs_ioctl creates symbolic link from /proc/var/fyi/wan/&lt;src&gt; -&gt; /proc/var/fyi/wan/&lt;dst&gt;, see note below</span>
+<span class="co1">#bcmprocfs_ioctl .ppp0 nas_8_35</span>
+<span class="co1">#mkdir -p /var/fyi/sys</span>
+<span class="co1">#dhcpc -i nas_8_35 &amp;</span></pre>
+
+</p>
+
+<p>
+Note: <strong>bcmprocfs_ioctl</strong> is defined in <a href="bcmprocfs" class="wikilink1" title="inbox:bcmprocfs">bcmprocfs</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="roadmap_☺">ROADMAP ☺</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> <del>Get ADSL working with the 2.8.1 vendor distribution (davolink dv2020) without aid of cfm</del> <strong>DONE</strong></div>
+<ul>
+<li class="level2"><div class="li"> Sanitize the build system. Kconfig support. ect</div>
+</li>
+<li class="level2"><div class="li"> Already fixed some initialization and potential buffer overflows. (you see clearly the drawbacks of closed source code: horror, horror, horror…)</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Sanitize the driver code</div>
+<ul>
+<li class="level2"><div class="li"> Possibly convert the .cpp stuf to regular C.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Look at userspace apps atmctl / adslctl</div>
+<ul>
+<li class="level2"><div class="li"> Most of the support is now in kernel space part of it can be moved to userspace.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Openwrt integration, support for kernel 3.x</div>
+</li>
+</ol>
+
+</div>
+
+<h2 class="sectionedit6" id="feel_free_to_add_tips_and_tricks">Feel free to add tips and tricks.</h2>
+<div class="level2">
+
+<p>
+…
+</p>
+
+</div>
+
+<h3 class="sectionedit7" id="external_links">External Links</h3>
+<div class="level3">
+
+<p>
+<a href="http://bcm63xx.sipsolutions.net/Specification" class="urlextern" title="http://bcm63xx.sipsolutions.net/Specification"  rel="nofollow">http://bcm63xx.sipsolutions.net/Specification</a> Attempt on writing a specification from the ground up.
+</p>
+
+<p>
+<a href="http://huaweihg612hacking.wordpress.com" class="urlextern" title="http://huaweihg612hacking.wordpress.com"  rel="nofollow">http://huaweihg612hacking.wordpress.com</a> Very nice collection of useful bcm63xx information.
+</p>
+
+<p>
+<a href="http://www.pms.ifi.lmu.de/mitarbeiter/ohlbach/multimedia/IT/IBMtutorial/3376c213.html" class="urlextern" title="http://www.pms.ifi.lmu.de/mitarbeiter/ohlbach/multimedia/IT/IBMtutorial/3376c213.html"  rel="nofollow">http://www.pms.ifi.lmu.de/mitarbeiter/ohlbach/multimedia/IT/IBMtutorial/3376c213.html</a> ATM tutorial.
+</p>
+<div class="tags"><span>
+	<a href="../tag/wip?do=showtag&amp;tag=wip" class="wikilink1" title="tag:wip" rel="tag">wip</a>,
+	<a href="../tag/bcm63xx?do=showtag&amp;tag=bcm63xx" class="wikilink1" title="tag:bcm63xx" rel="tag">bcm63xx</a>,
+	<a href="../tag/adsl?do=showtag&amp;tag=ADSL" class="wikilink1" title="tag:adsl" rel="tag">ADSL</a>
+</span></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>inbox/adsl_support.txt</bdi> · Last modified: 2013/08/20 20:48 (external edit)</div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="adsl_support?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="adsl_support?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="adsl_support?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="adsl_support#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../lib/exe/indexer.php?id=inbox%253Aadsl_support&amp;1432278287" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Cisco RVS4000 v2 [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="gigabitethernet,fastethernet,5port"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="rvs4000_v2?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=toh:cisco"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/toh/cisco/rvs4000_v2"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/toh/cisco/rvs4000_v2"/>
+<link rel="canonical" href="rvs4000_v2"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='toh:cisco';var JSINFO = {"id":"toh:cisco:rvs4000_v2","namespace":"toh:cisco"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432276519 166.182.3.127';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="rvs4000_v2#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="rvs4000_v2?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="rvs4000_v2?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="toh:cisco:rvs4000_v2" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="rvs4000_v2?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="rvs4000_v2?do=media&amp;ns=toh%253Acisco"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="rvs4000_v2?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="toh:start">Table of Hardware</a></bdi> » <bdi><a href="start" class="wikilink1" title="toh:cisco:start">Cisco</a></bdi> » <bdi><span class="curid"><a href="rvs4000_v2" class="wikilink1" title="toh:cisco:rvs4000_v2">Cisco RVS4000 v2</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/toh/cisco/rvs4000_v2" class="media" title="cz:toh:cisco:rvs4000_v2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/toh/cisco/rvs4000_v2" class="media" title="de:toh:cisco:rvs4000_v2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="rvs4000_v2" class="media" title="toh:cisco:rvs4000_v2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/toh/cisco/rvs4000_v2" class="media" title="es:toh:cisco:rvs4000_v2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/toh/cisco/rvs4000_v2" class="media" title="fr:toh:cisco:rvs4000_v2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/toh/cisco/rvs4000_v2" class="media" title="hu:toh:cisco:rvs4000_v2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/toh/cisco/rvs4000_v2" class="media" title="jp:toh:cisco:rvs4000_v2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/toh/cisco/rvs4000_v2" class="media" title="pl:toh:cisco:rvs4000_v2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/toh/cisco/rvs4000_v2" class="media" title="pt-br:toh:cisco:rvs4000_v2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/toh/cisco/rvs4000_v2" class="media" title="ru:toh:cisco:rvs4000_v2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/toh/cisco/rvs4000_v2" class="media" title="tr:toh:cisco:rvs4000_v2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/toh/cisco/rvs4000_v2" class="media" title="zh-cn:toh:cisco:rvs4000_v2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/toh/cisco/rvs4000_v2" class="media" title="zh-tw:toh:cisco:rvs4000_v2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>toh:cisco:rvs4000_v2</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="rvs4000_v2#supported_versions">Supported Versions</a></div></li>
+<li class="level1"><div class="li"><a href="rvs4000_v2#hardware_highlights">Hardware Highlights</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="rvs4000_v2#keep_the_articles_modular">Keep the articles modular</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="rvs4000_v2#installation">Installation</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="rvs4000_v2#flash_layout">Flash Layout</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="rvs4000_v2#original_layout">Original Layout</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="rvs4000_v2#upgrading_openwrt">Upgrading OpenWrt</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="rvs4000_v2#terminal_upgrade_process">Terminal Upgrade Process</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="rvs4000_v2#basic_configuration">Basic configuration</a></div></li>
+<li class="level1"><div class="li"><a href="rvs4000_v2#specific_configuration">Specific Configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="rvs4000_v2#interfaces">Interfaces</a></div></li>
+<li class="level2"><div class="li"><a href="rvs4000_v2#switch_ports_for_vlans">Switch Ports (for VLANs)</a></div></li>
+<li class="level2"><div class="li"><a href="rvs4000_v2#failsafe_mode">Failsafe mode</a></div></li>
+<li class="level2"><div class="li"><a href="rvs4000_v2#buttons">Buttons</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="rvs4000_v2#hardware">Hardware</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="rvs4000_v2#info">Info</a></div></li>
+<li class="level2"><div class="li"><a href="rvs4000_v2#cpu">CPU</a></div></li>
+<li class="level2"><div class="li"><a href="rvs4000_v2#serial_port">Serial Port</a></div></li>
+<li class="level2"><div class="li"><a href="rvs4000_v2#jtag_port">JTAG Port</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="rvs4000_v2#debricking">Debricking</a></div></li>
+<li class="level1"><div class="li"><a href="rvs4000_v2#hardware_mods">Hardware mods</a></div></li>
+<li class="level1"><div class="li"><a href="rvs4000_v2#notes">Notes</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="rvs4000_v2#hidden_telnet">Hidden Telnet</a></div></li>
+<li class="level2"><div class="li"><a href="rvs4000_v2#bootloader_log">Bootloader Log</a></div></li>
+<li class="level2"><div class="li"><a href="rvs4000_v2#kernel_log">Kernel Log</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="rvs4000_v2#tags">Tags</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="cisco_rvs4000_v2">Cisco RVS4000 v2</h1>
+<div class="level1">
+
+<p>
+Small Business / Home Router with L7 IPS and NAT (both hardware accelerated), a VLAN capable switch
+</p>
+
+<p>
+This page has preliminary documentation for those wishing to help in getting OpenWrt firmware running on this hardware.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="supported_versions">Supported Versions</h2>
+<div class="level2">
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Version/Model </th><th class="col1"> Launch Date </th><th class="col2"> S/N </th><th class="col3"> OpenWrt Version Supported </th><th class="col4"> Model Specific Notes </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> v1   </td><td class="col1 centeralign">  ?  </td><td class="col2"> - </td><td class="col3"> <strong>unsupported</strong> </td><td class="col4 leftalign">  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> v2   </td><td class="col1 centeralign">  ?  </td><td class="col2"> - </td><td class="col3"> <strong>unsupported</strong> </td><td class="col4 leftalign">  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit4" id="hardware_highlights">Hardware Highlights</h2>
+<div class="level2">
+<div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> SoC </th><th class="col1"> Ram </th><th class="col2"> Flash </th><th class="col3"> Network </th><th class="col4"> USB </th><th class="col5"> Serial </th><th class="col6"> JTag </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <a href="http://en.wikipedia.org/wiki/Cavium" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Cavium">Cavium</a> CNS1202 (Star Semiconductor STR9202) </td><td class="col1"> 64MiB </td><td class="col2"> 8MiB </td><td class="col3"> RTL8366 1GbE(WAN), 4GbE(<abbr title="Local Area Network">LAN</abbr> </td><td class="col4"> No</td><td class="col5"> Yes </td><td class="col6"> ? </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit6" id="keep_the_articles_modular">Keep the articles modular</h3>
+<div class="level3">
+<div class="table sectionedit7"><table class="inline">
+	<tr class="row0">
+		<td class="col0 leftalign"> Please include only model specific information, omit bla,bla and put everything generic into separate articles  </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> <a href="../../doc/howto/generic.overview" class="wikilink1" title="doc:howto:generic.overview">generic.overview</a> if you have no time to write certain stuff link to this </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <a href="../../doc/howto/configuration" class="wikilink1" title="doc:howto:basic.config">basic.config</a> should lead the way, do not explain this again  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> DO NOT provide a complete howto here! Instead <em>groom</em> the general HowTos.  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit8" id="installation">Installation</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> → <a href="../../doc/howto/obtain.firmware" class="wikilink1" title="doc:howto:obtain.firmware">obtain.firmware</a></div>
+</li>
+<li class="level1"><div class="li"> → <a href="../../doc/howto/installing" class="wikilink1" title="doc:howto:generic.flashing">Install OpenWrt</a></div>
+</li>
+</ol>
+<ul>
+<li class="level1"><div class="li"> Access the following site on the OEM WebInterface: <a href="http://192.168.1.1/Hidden_telnet.htm" class="urlextern" title="http://192.168.1.1/Hidden_telnet.htm"  rel="nofollow">http://192.168.1.1/Hidden_telnet.htm</a></div>
+</li>
+<li class="level1"><div class="li"> Select <em>enable</em> and push <em>save</em></div>
+</li>
+<li class="level1"><div class="li"> Telnet on Port 23, username=<code>admin</code>, pwd=<code>admin</code></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit9" id="flash_layout">Flash Layout</h3>
+<div class="level3">
+
+<p>
+Please check out the article <a href="../../doc/techref/flash.layout" class="wikilink1" title="doc:techref:flash.layout">Flash.Layout</a>. It contains an example and a couple of explanations.
+</p>
+
+</div>
+
+<h4 id="original_layout">Original Layout</h4>
+<div class="level4">
+
+<p>
+Linux version 2.4.27-star (root@localhost) (gcc version 2.95.3 20010315 (release)) #1 Tue Mar 16 11:23:54 CST 2010
+</p>
+<ul>
+<li class="level1"><div class="li"> 0x00000000-0x00020000 : &quot;BootLoader &quot;</div>
+</li>
+<li class="level1"><div class="li"> 0x00020000-0x00040000 : &quot;System Configuration&quot;</div>
+</li>
+<li class="level1"><div class="li"> 0x00040000-0x00100000 : &quot;Signature&quot;</div>
+</li>
+<li class="level1"><div class="li"> 0x00100000-0x00680000 : &quot;Kernel&quot;</div>
+</li>
+</ul>
+<div class="table sectionedit10"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign" colspan="11">   Cisco RVS4000 V2  Flash Layout           </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<th class="col0 leftalign"> Layer0       </th><td class="col1 leftalign" colspan="4"> 8MiB  </td><td class="col5"></td><td class="col6"></td><td class="col7"></td><td class="col8"></td><td class="col9"></td><td class="col10"></td>
+	</tr>
+	<tr class="row2">
+		<th class="col0 leftalign"> Layer1       </th><td class="col1"> mtd0  <strong><em>BootLoader</em></strong> 128KiB </td><td class="col2"> mtd1 <strong><em>System Configuration</em></strong> 128KiB </td><td class="col3"> mtd2 <strong><em>Signature</em></strong> 1152KiB </td><td class="col4"> mtd3 <strong><em>Kernel</em></strong> 6784KiB </td><td class="col5"></td><td class="col6"></td><td class="col7"></td><td class="col8"></td><td class="col9"></td><td class="col10"></td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit11" id="upgrading_openwrt">Upgrading OpenWrt</h3>
+<div class="level3">
+
+<p>
+→  <a href="../../doc/howto/generic.sysupgrade" class="wikilink1" title="doc:howto:generic.sysupgrade">generic.sysupgrade</a>
+TBD
+</p>
+
+</div>
+
+<h4 id="terminal_upgrade_process">Terminal Upgrade Process</h4>
+<div class="level4">
+
+<p>
+TBD
+</p>
+
+</div>
+
+<h2 class="sectionedit12" id="basic_configuration">Basic configuration</h2>
+<div class="level2">
+
+<p>
+TBD
+</p>
+
+</div>
+
+<h2 class="sectionedit13" id="specific_configuration">Specific Configuration</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit14" id="interfaces">Interfaces</h3>
+<div class="level3">
+
+<p>
+TBD
+</p>
+
+</div>
+
+<h3 class="sectionedit15" id="switch_ports_for_vlans">Switch Ports (for VLANs)</h3>
+<div class="level3">
+
+<p>
+TBD
+</p>
+
+</div>
+
+<h3 class="sectionedit16" id="failsafe_mode">Failsafe mode</h3>
+<div class="level3">
+
+<p>
+→ <a href="../../doc/howto/generic.failsafe" class="wikilink1" title="doc:howto:generic.failsafe">generic.failsafe</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit17" id="buttons">Buttons</h3>
+<div class="level3">
+
+<p>
+→ <a href="../../doc/howto/hardware.button" class="wikilink1" title="doc:howto:hardware.button">hardware.button</a> on howto use and configure the hardware button(s).
+</p>
+
+</div>
+
+<h2 class="sectionedit18" id="hardware">Hardware</h2>
+<div class="level2">
+
+<p>
+It&#039;s been stated that the Cisco models RV220w and RV120w use the same CPU as this device.
+</p>
+
+</div>
+
+<h3 class="sectionedit19" id="info">Info</h3>
+<div class="level3">
+<div class="table sectionedit20"><table class="inline">
+	<tr class="row0">
+		<td class="col0 leftalign"> <strong><a href="http://en.wikipedia.org/wiki/Instruction set" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Instruction set">Architecture</a>:</strong>    </td><td class="col1"> <a href="http://en.wikipedia.org/wiki/ARM architecture" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/ARM architecture">ARM</a> </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 leftalign"> <strong>Vendor:</strong>          </td><td class="col1"> <a href="http://en.wikipedia.org/wiki/Cavium Networks" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Cavium Networks">Cavium Networks</a> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <strong><a href="../../doc/techref/bootloader.1" class="wikilink1" title="doc:techref:bootloader">Bootloader</a>:</strong>     </td><td class="col1"> <a href="../../doc/techref/bootloader/armboot" class="wikilink1" title="doc:techref:bootloader:armboot">ARMboot</a> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/soc.1" class="wikilink1" title="doc:hardware:soc">System-On-Chip</a>1:</strong>  </td><td class="col1"> Cavium Networks / Star BroadWeb CNS1202 (STR 9202 CPU: FA526id(wb) rev 1 (v4l) </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/cpu" class="wikilink1" title="doc:hardware:cpu">CPU</a>1/Speed</strong>        </td><td class="col1"> 250 Mhz </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> <strong>Flash:</strong>      </td><td class="col1"> MXIC MX29LV640EBTI-70G </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> <strong>Flash Size:</strong>      </td><td class="col1"> 8192 KiB </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <strong>RAM:</strong> </td><td class="col1"> 2x EtronTec EM6AA160TSA-5G </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> <strong>RAM Size:</strong>        </td><td class="col1 leftalign"> 64 MiB   </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> <strong>Ethernet:</strong>        </td><td class="col1"> Vitesse VSC7385 (4 port) RTL8366RB Gigabit w/ vlan support <a href="../../doc/techref/swconfig" class="wikilink1" title="doc:techref:swconfig">swconfig</a> </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> <strong>USB:</strong>             </td><td class="col1"> No </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> <strong><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console" class="wikilink1" title="doc:hardware:port.serial">Serial</a>:</strong>          </td><td class="col1"> <a href="rvs4000_v2#serial" title="toh:cisco:rvs4000_v2 ↵" class="wikilink1">Yes</a> </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/port.jtag" class="wikilink1" title="doc:hardware:port.jtag">JTAG</a>:</strong>            </td><td class="col1 leftalign"> <a href="rvs4000_v2#jtag" title="toh:cisco:rvs4000_v2 ↵" class="wikilink1">Unknown</a>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit21" id="cpu">CPU</h3>
+<div class="level3">
+
+<p>
+<pre class="code">Device                        CNS1202
+Part Number*                    &quot;CNS1202-XXXBG304-Option Code &quot;
+&quot;Parallel Flash&quot;                    8/16-bit
+Memory I/O                    16/32-bit
+&quot;Content Inspection Engine&quot;        y
+&quot;Embedded Switch&quot;                y
+&quot;Hardware NAT/NAPT&quot;                y
+&quot;Interfaces: USB 1.1/2.0 PHY/CTL&quot;    2 ports
+Interfaces: PCMCIA                y
+Interfaces: Ethernet                &quot;2 x RGMII/MII&quot;
+PCI 2.2 Host                    &quot;32-bit/66 MHz up to 3 devices&quot;
+Package                        BGA-304</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit22" id="serial_port">Serial Port</h3>
+<div class="level3">
+
+<p>
+→ <a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console" class="wikilink1" title="doc:hardware:port.serial">port.serial</a> general information about the serial port, serial port cable, etc.
+</p>
+
+<p>
+Unpopulated J1 header is a 3.3V serial port that is the primary serial console. It&#039;s possible to solder a 3 pin header onto the PCB and access the serial console including the bootloader prompt, using an FTDI 3.3V serial-to-usb cable.
+</p>
+
+<p>
+ Pinout
+</p>
+<ol>
+<li class="level1"><div class="li"> VDD (the [] marked pin)</div>
+</li>
+<li class="level1"><div class="li"> RX</div>
+</li>
+<li class="level1"><div class="li"> TX</div>
+</li>
+<li class="level1"><div class="li"> GND</div>
+</li>
+</ol>
+
+<p>
+Only RX TX and Ground are needed to use the terminal set up with 38400 baud, 8 data bits, no parity and one stop bit (38400 8N1). Uses 3.3V TTL.
+</p>
+
+</div>
+
+<h3 class="sectionedit23" id="jtag_port">JTAG Port</h3>
+<div class="level3">
+
+<p>
+It remains to be seen if there is any JTAG support on this board. There is no obvious unpopulated connector that could be JTAG.
+</p>
+
+</div>
+
+<h2 class="sectionedit24" id="debricking">Debricking</h2>
+<div class="level2">
+
+<p>
+→ <a href="../../doc/howto/generic.debrick" class="wikilink1" title="doc:howto:generic.debrick">generic.debrick</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit25" id="hardware_mods">Hardware mods</h2>
+<div class="level2">
+
+</div>
+
+<h2 class="sectionedit26" id="notes">Notes</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit27" id="hidden_telnet">Hidden Telnet</h3>
+<div class="level3">
+
+<p>
+You can (insanely) enable telnet access on all ports (WAN and <abbr title="Local Area Network">LAN</abbr>) by the web interface:
+</p>
+<pre class="code">http://$ROUTER_IP/Hidden_telnet.htm</pre>
+
+<p>
+This is useful for poking around on your router without too much trouble.
+</p>
+
+</div>
+
+<h3 class="sectionedit28" id="bootloader_log">Bootloader Log</h3>
+<div class="level3">
+
+<p>
+
+<div style="height:200px;overflow:scroll;">
+
+<pre class="code">ARMboot 1.1.0 (Mar  4 2010 - 15:27:17)
+
+Star maintain version 0.14.100000000
+ARMboot code: 00000000 -&gt; 0001aeb0
+ARMboot code(Bin file):00000000 -&gt;00016ca0
+
+STR9100 CPU Clock: 250 MHz
+
+DDR Bank #0: 00000000 64 MB
+DDR Controller Data Bus Width: 32 bits
+Flash Dev.id = 22CB
+
+Flash Bank #1: 8 MB
+
+*** Using default environment
+## Starting application at 0x01000000 ...
+Reset switch by gpio 10,low active
+
+RTL8366RB Chip version [3]
+Force RTL8366 MAC5 link up and 1000M
+Boot version 1.04
+
+MAC Address:58-8d-09-e2-96-8e
+the product id is : 65 52 63 4F 6D 4D
+the pruduct ID check OK!
+## Application terminated, rc = 0x0
+
+Hit ENTRY to stop autoboot:  0 
+## Starting application at 0x10160000 ...
+Uncompressing Linux.....................
+
+ARMboot 1.1.0 (Mar  4 2010 - 15:27:17)
+
+Star maintain version 0.14.100000000
+ARMboot code: 00000000 -&gt; 0001aeb0
+ARMboot code(Bin file):00000000 -&gt;00016ca0
+
+STR9100 CPU Clock: 250 MHz
+
+DDR Bank #0: 00000000 64 MB
+DDR Controller Data Bus Width: 32 bits
+Flash Dev.id = 22CB
+
+Flash Bank #1: 8 MB
+
+*** Using default environment
+## Starting application at 0x01000000 ...
+Reset switch by gpio 10,low active
+
+RTL8366RB Chip version [3]
+Force RTL8366 MAC5 link up and 1000M
+Boot version 1.04
+
+MAC Address:58-8d-09-e2-96-8e
+the product id is : 65 52 63 4F 6D 4D
+the pruduct ID check OK!
+## Application terminated, rc = 0x0
+
+Hit ENTRY to stop autoboot:  0 
+STR9100&gt;</pre>
+
+</div>
+</p>
+
+</div>
+
+<h3 class="sectionedit29" id="kernel_log">Kernel Log</h3>
+<div class="level3">
+
+<p>
+
+<div style="height:200px;overflow:scroll;">
+
+<pre class="code">## Starting application at 0x10160000 ...
+Uncompressing Linux....................................................................... done, booting the kernel.
+request_standard_resources()....OK
+trap_init().....OK
+init_IRQ().....OK
+sched_init().....OK
+softirq_init().....OK
+time_init().....OK
+Linux version 2.4.27-star (root@sbu-ii-1-server) (gcc version 2.95.3 20010315 (release)) #3 Thu May 12 16:07:18 CST 2011
+CPU: FA526id(wb) revision 1
+ICache:16KB enabled, DCache:16KB enabled, BTB support
+Machine: STAR_STR9100
+MM: not creating mapping for 0x10000000 at 0x10000000 in user region
+On node 0 totalpages: 16384
+zone(0): 16384 pages.
+zone(1): 0 pages.
+zone(2): 0 pages.
+Kernel command line: root=/dev/ram0 MEM=64
+I-base_addr : c01d3000
+IRQ Timer1 at interrupt number 0x0 and clock 125000000(Hz)
+console_init().....OK
+kmem_cache_init().....OK
+Calibrating delay loop... 192.10 BogoMIPS
+Memory: 64MB = 64MB total
+Memory: 57884KB available (1985K code, 435K data, 68K init)
+mem_init().....OK
+pgtable_cache_init().....OK
+proc_caches_init().....OK
+Dentry cache hash table entries: 8192 (order: 4, 65536 bytes)
+Inode cache hash table entries: 4096 (order: 3, 32768 bytes)
+Mount cache hash table entries: 512 (order: 0, 4096 bytes)
+vfs_caches_init().....OK
+Buffer cache hash table entries: 4096 (order: 2, 16384 bytes)
+buffer_init().....OK
+Page-cache hash table entries: 16384 (order: 4, 65536 bytes)
+page_cache_init().....OK
+signals_init().....OK
+POSIX conformance testing by UNIFIX
+Linux NET4.0 for Linux 2.4
+Based upon Swansea University Computer Society NET3.039
+Initializing RT netlink socket
+do initcalls start
+Starting kswapd
+pty: 256 Unix98 ptys configured
+Str9100 Serial Driver version 5.05c (2001-07-08) with no serial options enabled
+ttyS00 at 0xf7800000 (irq = 10) is a Star_UART
+
+
+!!!RESET SWITCH
+
+RTL8366RB Chip version [3]
+RTL8366 force link and 1000M success!
+!!!Init default VLAN
+!!!Init ACL 
+
+!!!Power save enable 
+
+rxring.vir_addr=C4800000	rxring.phy_addr=00376000 
+txring.vir_addr=C4802000	txring.phy_addr=00350000 
+eth0: Switch Type: ONEARM(One Mac mode) 
+[orn_drv_open_poll,3362]
+[orn_drv_open_poll,3368]
+[orn_drv_open_poll,3380]
+[orn_drv_open_poll,3397]
+Check MAC/PHY 0 Link Status : UP!
+[orn_drv_open_poll,3422]
+[orn_drv_open_poll,3443]
+Star9100 one arm Lan Port Bridge Mode 
+Error : PORT0 is disabled 
+[orn_drv_open_poll,3467]
+[orn_drv_open_poll,3473]
+
+gsw_info.vlan[0].vlan_vid : 3292
+
+gsw_info.vlan[1].vlan_vid : 1
+[orn_drv_open_poll,3522]
+[orn_drv_open_poll,3529]
+[orn_drv_open_poll,3543]
+[orn_drv_open_poll,3546]
+eth0: STAR9100 LAN Port Initial Finished 
+eth1: STAR9100 WAN Port Initial Finished 
+ Enable AN
+STAR9100 EWC Project MAC1 Initial
+eth2: STAR9100 EWC Port Initial Finished 
+RAMDISK driver initialized: 16 RAM disks of 16384K size 1024 blocksize
+loop: loaded (max 8 devices)
+PPP generic driver version 2.4.2
+ Amd/Fujitsu Extended Query Table v1.1 at 0x0040
+number of CFI chips: 1
+cfi_cmdset_0002: Disabling fast programming due to code brokenness.
+Creating 4 MTD partitions on &quot;str9100_flash&quot;:
+0x00000000-0x00020000 : &quot;BootLoader &quot;
+0x00020000-0x00040000 : &quot;System Configuration&quot;
+0x00040000-0x00160000 : &quot;Signature&quot;
+0x00160000-0x00800000 : &quot;Kernel&quot;
+IPv6 v0.8 for NET4.0
+IPv6 over IPv4 tunneling driver
+NET4: Linux TCP/IP 1.0 for NET4.0
+IP Protocols: ICMP, UDP, TCP, IGMP
+IP: routing cache hash table of 512 buckets, 4Kbytes
+TCP: Hash tables configured (established 4096 bind 4096)
+IPv4 over IPv4 tunneling driver
+GRE over IPv4 tunneling driver
+Linux IP multicast router 0.06 plus PIM-SM
+klips_info:ipsec_init: KLIPS startup, Openswan KLIPS IPsec stack version: cvs2006Jan12_11:29:56
+klips_info:ipsec_alg_init: KLIPS alg v=0.8.1-0 (EALG_MAX=255, AALG_MAX=251)
+klips_info:ipsec_alg_init: calling ipsec_alg_static_init()
+ipsec_aes_init(alg_type=15 alg_id=12 name=aes): ret=0
+ipsec_aes_init(alg_type=14 alg_id=9 name=aes_mac): ret=0
+ipsec_3des_init(alg_type=15 alg_id=3 name=3des): ret=0
+netfilter PSD loaded - (c) astaro AG
+ipt_random match loaded
+NET4: Unix domain sockets 1.0/SMP for Linux NET4.0.
+ip6_tables: (C) 2000-2002 Netfilter core team
+Str9100 Information inited 
+STAR9100 Software HNAT Driver Initialed
+NetWinder Floating Point Emulator V0.97 (double precision)
+do initcalls end
+RAMDISK: Compressed image found at block 0
+Freeing initrd memory: 4349K
+VFS: Mounted root (ext2 filesystem) readonly.
+Freeing init memory: 68K
+UART IRQ_ports = c02370d8
+UART IRQ at interrupt number 0xa
+init started:  BusyBox v1.00 (2011.05.12-08:02+0000) multi-call binary
+init started:  BusyBox v1.00 (2011.05.12-08:02+0000) multi-call binary
+Starting pid 9, console /dev/ttyS0: &#039;/etc/init.d/rc.sysinit&#039;
+Mounting root fs rw ...
+Mounting other filesystems ...
+mount: Mounting none on /proc/bus/usb failed: No such file or directory
+Sysinit done
+Call /etc/rcS...
+Using /usr/sbin/led.o
+Using /usr/sbin/push_button.o
+Using /lib/modules/ipt_DLOG.o
+Using /lib/modules/ipt_webstr.o
+Using /lib/modules/ipt_http_string.o
+Using /lib/modules/ipt_multi_match.o
+Using /lib/modules/ipt_multiaddr.o
+Using /lib/modules/ipt_httpMETHOD.o
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=vlan action=start
+/bin/cp /proc/uptime /tmp/var/run/rc.vlan.run
+rc starting vlan...
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=port action=start
+/bin/cp /proc/uptime /tmp/var/run/rc.port.run
+rc starting port...
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=initqos action=start
+/bin/cp /proc/uptime /tmp/var/run/rc.initqos.run
+rc starting initqos...
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=qos action=start
+/bin/cp /proc/uptime /tmp/var/run/rc.qos.run
+rc starting qos...
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=wan_mac action=start
+/bin/cp /proc/uptime /tmp/var/run/rc.wan_mac.run
+rc starting wan_mac...
+/sbin/ifconfig eth1 up
+install_isr
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=lan action=start
+/bin/cp /proc/uptime /tmp/var/run/rc.lan.run
+rc starting lan...
+/sbin/ifconfig eth0 172.16.72.1 netmask 255.255.255.0
+eth0:star9100_gsw1000_lan_open
+star9100_gsw1000_lan_open Exit!! 
+not install_isr
+/bin/echo &quot;lanip 172.16.72.1&quot; &gt;/proc/star9100_shnat_setting
+/bin/echo &quot;interswitch lanip:172.16.72.1/24&quot; &gt;/proc/str9100/shnat
+iptables -t nat -I PREROUTING -i eth0 -s 172.16.72.1/255.255.255.0 -d 172.16.72.1 -p tcp --dport 443 -j DNAT --to 172.16.72.1:30443
+iptables -t nat -I PREROUTING -i eth0 -s 172.16.72.1/255.255.255.0 -d 172.16.72.1 -p udp --dport  53 -j DNAT --to 8.8.8.8
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=printk action=start
+/bin/cp /proc/uptime /tmp/var/run/rc.printk.run
+rc starting printk...
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=syslogd action=start
+/bin/cp /proc/uptime /tmp/var/run/rc.syslogd.run
+rc starting syslogd...
+/sbin/syslogd -f /etc/syslog.conf
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=httpd action=start
+/bin/cp /proc/uptime /tmp/var/run/rc.httpd.run
+rc starting httpd...
+/bin/rm -f /tmp/www
+/bin/ln -s -f /www.eng /tmp/www
+/usr/sbin/mini_httpd -d /tmp/www -r &quot;Router&quot; -c &#039;*.cgi&#039; -t 1800 -i /var/run/mini_httpd.pid -a Digest -S -E /usr/sbin/certSrv.pem &amp;
+bind: Address already in use
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=dhcpd action=start
+/bin/cp /proc/uptime /tmp/var/run/rc.dhcpd.run
+rc starting dhcpd...
+/bin/echo &quot;1:21500076:16777215;0:1:1:1:1&quot; &gt;/proc/vid_config
+/usr/sbin/udhcpd /etc/udhcpd.conf&amp;
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=dhcp-fwd action=start
+/bin/cp /proc/uptime /tmp/var/run/rc.dhcp-fwd.run
+/bin/cp /proc/uptime /tmp/var/run/rc.dhcp-fwd.run
+rc starting dhcp-fwd...
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=route action=start
+/bin/cp /proc/uptime /tmp/var/run/rc.route.run
+rc starting route...
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=ripd action=start
+/bin/cp /proc/uptime /tmp/var/run/rc.ripd.run
+rc starting ripd...
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=natpt action=start
+/bin/cp /proc/uptime /tmp/var/run/rc.natpt.run
+/bin/cp /proc/uptime /tmp/var/run/rc.natpt.run
+rc starting natpt...
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=dhcp6 action=start
+/bin/cp /proc/uptime /tmp/var/run/rc.dhcp6.run
+rc starting dhcp6...
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+start wan init=0
+/sbin/ifconfig eth1 up
+/sbin/ifconfig eth1 mtu 1460
+/sbin/ifconfig eth1 192.168.4.2 netmask 255.255.255.0
+/sbin/route del default
+route: SIOC[ADD|DEL]RT: No such process
+/sbin/route add default gw 192.168.4.1
+echo nameserver 192.168.4.1&gt;&gt;/etc/resolv.conf
+/bin/cp /proc/uptime /tmp/wan_uptime
+/usr/sbin/rc dhcpd create
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=dhcpd action=create
+/bin/cp /proc/uptime /tmp/var/run/rc.dhcpd.run
+/bin/echo &quot;1:21500076:16777215;0:1:1:1:1&quot; &gt;/proc/vid_config
+/usr/sbin/rc service restart
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=(null) action=restart
+rc ntp stop
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=ntp action=stop
+/bin/cp /proc/uptime /tmp/var/run/rc.ntp.run
+/usr/bin/killall ntp
+killall: ntp: no process killed
+route del default gw 192.168.4.1
+/usr/sbin/fw-scripts/firewall stop
+.: 19: Can&#039;t open /tmp/firewall.conf
+killall: dnrd: no process killed
+/usr/bin/killall IGMPProxy
+killall: IGMPProxy: no process killed
+/usr/sbin/tc qdisc del dev eth0 root
+RTNETLINK answers: No such file or directory
+/usr/sbin/tc qdisc del dev eth1 root
+RTNETLINK answers: No such file or directory
+/usr/sbin/iptables -F -t mangle
+iptables -t nat -I PREROUTING -i eth0 -s 172.16.72.1/255.255.255.0 -d 172.16.72.1 -p tcp --dport 443 -j DNAT --to 172.16.72.1:30443
+iptables -t nat -I PREROUTING -i eth0 -s 172.16.72.1/255.255.255.0 -d 172.16.72.1 -p udp --dport  53 -j DNAT --to 8.8.8.8
+/usr/bin/killall dhcp-fwd &gt;/dev/null 2&gt;&amp;1
+killall -SIGINT routed
+killall: routed: no process killed
+sh: /user/sbin/iptables: not found
+/usr/bin/killall syslogd
+killall: LicMgm: no process killed
+rc starting wan_basic...
+rc ntp start
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=ntp action=start
+/bin/cp /proc/uptime /tmp/var/run/rc.ntp.run
+rc starting ntp...
+/usr/sbin/ntp -z GMT-5 0 14&amp; 
+rc dhcp6 restart
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=dhcp6 action=restart
+/bin/cp /proc/uptime /tmp/var/run/rc.dhcp6.run
+/usr/bin/killall dhcp6-serv
+killall: dhcp6-serv: no process killed
+rc starting dhcp6...
+route add default gw 192.168.4.1 dev eth1
+/bin/echo &quot;lanip 172.16.72.1&quot; &gt;/proc/star9100_shnat_setting
+/bin/echo &quot;wanip 192.168.4.2&quot; &gt;/proc/star9100_shnat_setting
+rc starting dns...
+rc starting firewall...
+iptables -t nat -F
+cp /etc/crontab /etc/crontab.policy
+echo &quot;vserver clean&quot; &gt; /proc/star9100_shnat_setting
+/usr/sbin/fw-scripts/firewall start
+iptables: Bad rule (does a matching rule exist in that chain?)
+/usr/sbin/ipsec spi --clear
+/usr/sbin/ipsec eroute --clear
+/usr/sbin/ipsec whack --shutdown
+whack: Pluto is not running (no &quot;/var/run/pluto/pluto.ctl&quot;)
+/sbin/ifconfig ipsec0 down
+/usr/sbin/ipsec tncfg --clear
+/usr/sbin/iptables -D INPUT -p udp --dport 500 -j ACCEPT
+iptables: Bad rule (does a matching rule exist in that chain?)
+/usr/sbin/iptables -D INPUT -p udp --dport 4500 -j ACCEPT
+iptables: Bad rule (does a matching rule exist in that chain?)
+/usr/sbin/iptables -D INPUT -p esp -j ACCEPT
+iptables: Bad rule (does a matching rule exist in that chain?)
+/usr/sbin/iptables -t nat -D PREROUTING -p udp --dport 500 -j ACCEPT
+iptables: Bad rule (does a matching rule exist in that chain?)
+/usr/sbin/iptables -t nat -D PREROUTING -p udp --dport 4500 -j ACCEPT
+iptables: Bad rule (does a matching rule exist in that chain?)
+/usr/sbin/iptables -t nat -D PREROUTING -p esp -j ACCEPT
+iptables: Bad rule (does a matching rule exist in that chain?)
+vpn down null complete./usr/bin/killall ssl_server
+killall: ssl_server: no process killed
+gateway==[192.168.4.1]
+VPN parse_conf Error!!
+ index=-1  
+Error Number=-3
+eth1,192.168.4.2,255.255.255.0,192.168.4.255,192.168.4.1
+/usr/sbin/ipsec spi --clear
+/usr/sbin/ipsec eroute --clear
+/usr/sbin/iptables -I INPUT -p udp --dport 500 -j ACCEPT
+/usr/sbin/iptables -I INPUT -p udp --dport 4500 -j ACCEPT
+/usr/sbin/iptables -I INPUT -p esp -j ACCEPT
+/usr/sbin/iptables -t nat -I PREROUTING -p udp --dport 500 -j ACCEPT
+/usr/sbin/iptables -t nat -I PREROUTING -p udp --dport 4500 -j ACCEPT
+/usr/sbin/iptables -t nat -I PREROUTING -p esp -j ACCEPT
+/bin/echo 0 &gt; /proc/sys/net/ipv4/conf/all/rp_filter
+/usr/sbin/ipsec tncfg --attach --virtual ipsec0 --physical eth1
+/sbin/ifconfig ipsec0 192.168.4.2 broadcast 192.168.4.255 netmask 255.255.255.0
+/usr/sbin/ipsec pluto --secretsfile /etc/ipsec.secrets --nat_traversal --uniqueids --adns /usr/local/libexec/ipsec/_pluto_adns  
+Jan  1 00:00:30 pluto[425]: Starting Pluto (Openswan Version cvs2006Jan12_11:29:56 X.509-1.5.4 PLUTO_SENDS_VENDORID PLUTO_USES_KEYRR; Vendor ID OE@ECqImzhFD)
+vpn_up_null up.
+/usr/sbin/ssl_server &amp;
+/usr/bin/killall IGMPProxy &gt;/dev/null 2&gt;&amp;1
+Jan  1 00:00:30 pluto[425]: @(#) built on May 12 2011:16:06:15:
+Jan  1 00:00:30 pluto[425]: Setting NAT-Traversal port-4500 floating to on
+Jan  1 00:00:30 pluto[425]:    port floating activation criteria nat_t=1/port_fload=1
+Jan  1 00:00:30 pluto[425]:   including NAT-Traversal patch (Version 0.6c)
+Jan  1 00:00:30 pluto[425]: ike_alg_register_enc(): Activating OAKLEY_AES_CBC: Ok (ret=0)
+Jan  1 00:00:30 pluto[425]: starting up 1 cryptographic helpers
+Jan  1 00:00:30 pluto[425]: started helper pid=430 (fd:4)
+the function is main,the line is 94,the file is serv.c
+the function is main,the line is 100,the file is serv.c
+the function is main,the line is 104,the file is serv.c
+the function is main,the line is 108,the file is serv.c
+the function is main,the line is 111,the file is serv.c
+Jan  1 00:00:30 pluto[425]: Using KLIPS IPsec interface code on 2.4.27-star
+/usr/bin/killall utelnetd &gt; /dev/null 2&gt;&amp;1
+Jan  1 00:00:30 pluto[425]: Changing to directory &#039;/etc/ipsec.d/cacerts&#039;
+Jan  1 00:00:30 pluto[425]: Changing to directory &#039;/etc/ipsec.d/aacerts&#039;
+Jan  1 00:00:30 pluto[425]: Changing to directory &#039;/etc/ipsec.d/ocspcerts&#039;
+Jan  1 00:00:30 pluto[425]: Changing to directory &#039;/etc/ipsec.d/crls&#039;
+Jan  1 00:00:30 pluto[425]:   Warning: empty directory
+/bin/echo &quot;I&quot; &gt; /proc/led
+/sbin/rmmod ip_nat_sip
+rmmod: ip_nat_sip: No such file or directory
+/sbin/rmmod ip_conntrack_sip
+rmmod: ip_conntrack_sip: No such file or directory
+cp /etc/crontab.policy /etc/crontab
+iptables -F ip_filter
+ip link set dev eth1 multicast on
+rc starting dhcp-fwd...
+rc starting ddns...
+rc starting ripd...
+rc starting pppoe_rule...
+rc starting pppoe_unNB_IP...
+/usr/bin/killall -SIGUSR2 udhcpd
+/etc/rcS: 75: /usr/sbin/wizd: not found
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=upnp action=start
+/bin/cp /proc/uptime /tmp/var/run/rc.upnp.run
+rc starting upnp...
+/bin/echo &quot;lanip 172.16.72.1&quot; &gt;/proc/star9100_shnat_setting
+/bin/echo &quot;wanip 192.168.4.2&quot; &gt;/proc/star9100_shnat_setting
+/usr/bin/killall -9 upnpd
+killall: upnpd: no process killed
+Using /usr/sbin/led.o
+insmod: A module named led already exists
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=ips action=start
+/bin/cp /proc/uptime /tmp/var/run/rc.ips.run
+rc starting ips...
+Using /root/kris.o
+/bin/echo i1 &gt; /proc/led
+kris daemon version 1.7
+the function is main,the line is 94,the file is serv.c
+the function is main,the line is 100,the file is serv.c
+the function is main,the line is 104,the file is serv.c
+the function is main,the line is 108,the file is serv.c
+the function is main,the line is 111,the file is serv.c
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=radvd action=start
+/bin/cp /proc/uptime /tmp/var/run/rc.radvd.run
+rc starting radvd...
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=LicMgm action=start
+/bin/cp /proc/uptime /tmp/var/run/rc.LicMgm.run
+rc starting LicMgm...
+Sum=0x01C426B7,InvSum=0xFE3BD949,Result=0x00000000
+killall: LicMgm: no process killed
+Kris Rule Version 1.42
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=snmp action=start
+/bin/cp /proc/uptime /tmp/var/run/rc.snmp.run
+=&gt; AcquireBasicData(UDI=C78A32118C603FB6D362C8440F79081F145A98AA4B771687694FC50468BB2C2E06D07E)
+Start TMZ_request_HTTP()
+rc starting snmp...
+/usr/bin/killall snmp
+killall: snmp: no process killed
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=sigmail action=start
+/bin/cp /proc/uptime /tmp/var/run/rc.sigmail.run
+rc starting sigmail...
+Donot send signature email duto no email information!
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=vpn_netbios action=start
+/bin/cp /proc/uptime /tmp/var/run/rc.vpn_netbios.run
+rc starting vpn_netbios...
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=http_HNAT action=start
+/bin/cp /proc/uptime /tmp/var/run/rc.http_HNAT.run
+rc starting http_HNAT...
+echo &quot;table alg add sport:80&quot; &gt; /proc/star9100_shnat_setting
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=radius action=start
+/bin/cp /proc/uptime /tmp/var/run/rc.radius.run
+rc starting radius...
+     *           *  
+  *      *   *      *
+  *     {~._.~}      *
+  *      ( Y )       *
+   *    ()~*~()    *
+     *  (_)-(_)  *
+       *       *
+         *   *
+           *
+ap_name=rstp action=start
+/bin/cp /proc/uptime /tmp/var/run/rc.rstp.run
+rc starting rstp...
+Starting pid 532, console /dev/ttyS0: &#039;/bin/sh&#039;
+
+
+BusyBox v1.00 (2011.05.12-08:02+0000) Built-in shell (ash)
+Enter &#039;help&#039; for a list of built-in commands.
+
+# 
+
+</pre>
+
+</div>
+</p>
+
+</div>
+
+<h2 class="sectionedit30" id="tags">Tags</h2>
+<div class="level2">
+
+<p>
+For some Help with the Tags, please have a look here: <a href="../../meta/tags" class="wikilink1" title="meta:tags">tags</a>
+</p>
+<div class="tags"><span>
+	<a href="../../tag/gigabitethernet?do=showtag&amp;tag=GigabitEthernet" class="wikilink1" title="tag:gigabitethernet" rel="tag">GigabitEthernet</a>,
+	<a href="../../tag/fastethernet?do=showtag&amp;tag=FastEthernet" class="wikilink1" title="tag:fastethernet" rel="tag">FastEthernet</a>,
+	<a href="../../tag/5port?do=showtag&amp;tag=5Port" class="wikilink1" title="tag:5port" rel="tag">5Port</a>
+</span></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>toh/cisco/rvs4000_v2.txt</bdi> · Last modified: 2015/05/06 12:22 by <bdi>theoradicus</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="rvs4000_v2?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="rvs4000_v2?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="rvs4000_v2?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="rvs4000_v2#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=toh%253Acisco%253Arvs4000_v2&amp;1432276519" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

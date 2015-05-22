@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Benchmark Network Address Translation [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="fastethernet,ethernet,router,gigabitethernet"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../index.html"/>
+<link rel="contents" href="benchmark.nat?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../feed.php?mode=list&amp;ns=inbox"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../_export/xhtml/inbox/benchmark.nat"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../_export/raw/inbox/benchmark.nat"/>
+<link rel="canonical" href="benchmark.nat"/>
+<link rel="stylesheet" type="text/css" href="../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='inbox';var JSINFO = {"id":"inbox:benchmark.nat","namespace":"inbox"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265561 166.182.3.5';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="benchmark.nat#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../start"  accesskey="h" title="[H]"><img src="../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="benchmark.nat?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="benchmark.nat?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="inbox:benchmark.nat" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="benchmark.nat?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="benchmark.nat?do=media&amp;ns=inbox"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="benchmark.nat?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="start" class="wikilink1" title="inbox:start">Build and installation - Few Adjustments - NEW (shiva)</a></bdi> » <bdi><span class="curid"><a href="benchmark.nat" class="wikilink1" title="inbox:benchmark.nat">Benchmark Network Address Translation</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/inbox/benchmark.nat" class="media" title="cz:inbox:benchmark.nat"><img src="../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/inbox/benchmark.nat" class="media" title="de:inbox:benchmark.nat"><img src="../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="benchmark.nat" class="media" title="inbox:benchmark.nat"><img src="../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/inbox/benchmark.nat" class="media" title="es:inbox:benchmark.nat"><img src="../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/inbox/benchmark.nat" class="media" title="fr:inbox:benchmark.nat"><img src="../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/inbox/benchmark.nat" class="media" title="hu:inbox:benchmark.nat"><img src="../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/inbox/benchmark.nat" class="media" title="jp:inbox:benchmark.nat"><img src="../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/inbox/benchmark.nat" class="media" title="pl:inbox:benchmark.nat"><img src="../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/inbox/benchmark.nat" class="media" title="pt-br:inbox:benchmark.nat"><img src="../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/inbox/benchmark.nat" class="media" title="ru:inbox:benchmark.nat"><img src="../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/inbox/benchmark.nat" class="media" title="tr:inbox:benchmark.nat"><img src="../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/inbox/benchmark.nat" class="media" title="zh-cn:inbox:benchmark.nat"><img src="../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/inbox/benchmark.nat" class="media" title="zh-tw:inbox:benchmark.nat"><img src="../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>inbox:benchmark.nat</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="benchmark.nat#rationale">Rationale</a></div></li>
+<li class="level1"><div class="li"><a href="benchmark.nat#prerequisites">Prerequisites</a></div></li>
+<li class="level1"><div class="li"><a href="benchmark.nat#method">Method</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="benchmark.nat#client_network_settings">Client Network Settings</a></div></li>
+<li class="level2"><div class="li"><a href="benchmark.nat#server_network_settings">Server Network Settings</a></div></li>
+<li class="level2"><div class="li"><a href="benchmark.nat#network_settings_verification">Network Settings Verification</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="benchmark.nat#setting_up_jperf">Setting Up Jperf</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="benchmark.nat#set_server_to_listen">Set Server To Listen</a></div></li>
+<li class="level2"><div class="li"><a href="benchmark.nat#start_benchmark_on_client">Start Benchmark On Client</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="benchmark_network_address_translation">Benchmark Network Address Translation</h1>
+<div class="level1">
+
+<p>
+After you install OpenWRT on your Router you should do a Network Address Translation Benchmark to know how well it performs address translation of network packets between your local network (<abbr title="Local Area Network">LAN</abbr>) to your internet service provider (WAN).
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="rationale">Rationale</h2>
+<div class="level2">
+
+<p>
+It is important to know the performance of the router in order to maximise the subscription you are paying to your internet service provider for the bandwidth allocated.
+</p>
+
+<p>
+In order to make full use of the bandwidth you are paying for, the router has to be able to process network packets at rates that exceed the bandwidth of the subscription you are paying for.
+</p>
+
+<p>
+You should not take benchmarks found online as a reference because it is now using OpenWRT iptables (Masquerade) to perform translation of ip address of network packets instead of the factory firmware network stack implementation.
+</p>
+
+<p>
+For a graphical approach to testing you can follow the methods to utilise jperf to benchmark Network Address Translation performance as described below:
+</p>
+
+<p>
+<a href="http://code.google.com/p/xjperf/‎" class="urlextern" title="http://code.google.com/p/xjperf/‎"  rel="nofollow">Jperf</a> is <a href="http://en.wikipedia.org/wiki/Iperf‎" class="urlextern" title="http://en.wikipedia.org/wiki/Iperf‎"  rel="nofollow">Iperf</a> with a Java graphical frontend.
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="prerequisites">Prerequisites</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Jperf requires the installation of a Java Runtime before it can be used.</div>
+</li>
+<li class="level1"><div class="li"> You can obtain Java Runtime by using OpenJRE on Linux or you can download and install JRE from Oracle Website.</div>
+</li>
+<li class="level1"><div class="li"> You need 2 gigabit capable computers, one as a server, the other as the client both with Java Runtime installed.</div>
+</li>
+<li class="level1"><div class="li"> You should do this on an isolated network to ensure accurate results with minimal disruptions also because some settings used for benchmarking may not be secure.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit4" id="method">Method</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> Download Jperf on both the client and the server.</div>
+</li>
+<li class="level1"><div class="li"> Plug the Server&#039;s gigabit Port to the WAN port on the Router.</div>
+</li>
+<li class="level1"><div class="li"> Plug the Client&#039;s gigabit to any <abbr title="Local Area Network">LAN</abbr> port on the Router.</div>
+</li>
+<li class="level1"><div class="li"> In order to simplify the steps involved we will use 10.1.1.0/24 as the WAN Network and the default 192.168.1.0/24 as the <abbr title="Local Area Network">LAN</abbr> Network</div>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit5" id="client_network_settings">Client Network Settings</h3>
+<div class="level3">
+
+<p>
+On the Client Computer using Web Browser,Telnet or SSH get to the Router Configuration Page at IP Address 192.168.1.1 and set the network settings on the Router WAN Interface to
+</p>
+<div class="table sectionedit6"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> Protocol </td><td class="col1"> Static </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0">IP Address </td><td class="col1"> 10.1.1.1 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">Subnet Mask </td><td class="col1"> 255.255.255.0 </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">Default Gateway </td><td class="col1 leftalign">   </td>
+	</tr>
+</table></div>
+
+<p>
+<a href="../_detail/media/openwrt_server_wan.png?id=inbox%253Abenchmark.nat" class="media" title="media:openwrt_server_wan.png"><img src="../_media/media/openwrt_server_wan.png" class="media" alt="" /></a>
+</p>
+
+<p>
+Click Save and Apply.
+</p>
+
+</div>
+
+<h3 class="sectionedit7" id="server_network_settings">Server Network Settings</h3>
+<div class="level3">
+
+<p>
+On the Server use its own network configuration tool to set the network settings to
+</p>
+<div class="table sectionedit8"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> Protocol </td><td class="col1"> Static </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> IP Address </td><td class="col1"> 10.1.1.2 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">Subnet Mask </td><td class="col1"> 255.255.255.0 </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">Default Gateway </td><td class="col1"> 10.1.1.1 </td>
+	</tr>
+</table></div>
+
+<p>
+<a href="../_detail/media/server.png?id=inbox%253Abenchmark.nat" class="media" title="media:server.png"><img src="../_media/media/server.png" class="media" alt="" /></a>
+</p>
+
+<p>
+Click Save and Apply.
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="network_settings_verification">Network Settings Verification</h3>
+<div class="level3">
+
+<p>
+By this step your client should be able to ping the server successfully by the command:
+<pre class="code">ping 10.1.1.2 </pre>
+
+You should get a series of ping echo response if not recheck your network settings or turn off your firewall on both the Client and the Server.
+There is no need to change the <abbr title="Local Area Network">LAN</abbr> Settings as by default OpenWRT sets <abbr title="Local Area Network">LAN</abbr> to 192.168.1.0/24 n DHCP Mode.
+</p>
+
+</div>
+
+<h2 class="sectionedit10" id="setting_up_jperf">Setting Up Jperf</h2>
+<div class="level2">
+
+<p>
+Extract the compressed files in Jperf to a folder.
+If you are running Linux you might need to set the execute bit on jperf.sh.
+Open a Terminal in that directory and run <pre class="code">chmod +x jperf.sh</pre>
+
+In Windows you run Jperf by double clicking jperf.bat.
+In UNIX you run Jperf by executing jperf.sh.
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="set_server_to_listen">Set Server To Listen</h3>
+<div class="level3">
+
+<p>
+You should be able to see the jperf main screen.
+You need to set the Jperf on the Server to listen first before we can run the Client.
+For the Server, simply select Server and change the metric to Mbits for easy reference and comparison as shown below.
+Then click run Iperf to set the Server to listening mode.
+</p>
+
+<p>
+<a href="../_detail/media/jperf_server.png?id=inbox%253Abenchmark.nat" class="media" title="media:jperf_server.png"><img src="../_media/media/jperf_server.png" class="media" alt="" /></a>
+</p>
+
+</div>
+
+<h3 class="sectionedit12" id="start_benchmark_on_client">Start Benchmark On Client</h3>
+<div class="level3">
+
+<p>
+For the Client Computer, simply select Client and enter the Server Address 10.1.1.2 and change the metric to Mbits as well.
+</p>
+
+<p>
+<a href="../_detail/media/jperf_client.png?id=inbox%253Abenchmark.nat" class="media" title="media:jperf_client.png"><img src="../_media/media/jperf_client.png" class="media" alt="" /></a>
+</p>
+
+<p>
+When you are ready click run Iperf to start the test.
+After the test ends you should analyse the result on the Server for accuracy instead of the Client since only the network packets that get through matters not the packets generated.
+</p>
+
+<p>
+<a href="../_detail/media/jperf_result.png?id=inbox%253Abenchmark.nat" class="media" title="media:jperf_result.png"><img src="../_media/media/jperf_result.png" class="media" alt="" /></a>
+</p>
+
+<p>
+For the above picture it indicates that the Router will be generally sufficiently powerful enough for a &lt; 250Mbps Internet Subscription Plan.
+</p>
+<div class="table sectionedit13"><table class="inline">
+	<tr class="row0">
+		<td class="col0">Note that OpenWRT does Network Address Translation in Software so any activities that taxes the Router&#039;s Processor will affect the Network Address Translation performance including accessing the Router Web Server LuCI, Telnet Sessions, SSH Sessions,Samba File Copy etc.</td>
+	</tr>
+</table></div>
+<div class="tags"><span>
+	<a href="../tag/fastethernet?do=showtag&amp;tag=fastethernet" class="wikilink1" title="tag:fastethernet" rel="tag">fastethernet</a>,
+	<a href="../tag/ethernet?do=showtag&amp;tag=ethernet" class="wikilink1" title="tag:ethernet" rel="tag">ethernet</a>,
+	<a href="../tag/router?do=showtag&amp;tag=router" class="wikilink1" title="tag:router" rel="tag">router</a>,
+	<a href="../tag/gigabitethernet?do=showtag&amp;tag=gigabitethernet" class="wikilink1" title="tag:gigabitethernet" rel="tag">gigabitethernet</a>
+</span></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>inbox/benchmark.nat.txt</bdi> · Last modified: 2013/08/18 17:19 (external edit)</div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="benchmark.nat?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="benchmark.nat?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="benchmark.nat?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="benchmark.nat#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../lib/exe/indexer.php?id=inbox%253Abenchmark.nat&amp;1432265561" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>T-Home Speedport W 303V [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="bcm63xx,bcm6358"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="spw303v-b?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=toh:t-com"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/toh/t-com/spw303v-b"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/toh/t-com/spw303v-b"/>
+<link rel="canonical" href="spw303v-b"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='toh:t-com';var JSINFO = {"id":"toh:t-com:spw303v-b","namespace":"toh:t-com"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432271895 166.182.3.144';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="spw303v-b#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="spw303v-b?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="spw303v-b?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="toh:t-com:spw303v-b" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="spw303v-b?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="spw303v-b?do=media&amp;ns=toh%253At-com"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="spw303v-b?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="toh:start">Table of Hardware</a></bdi> » <bdi><a href="start" class="wikilink1" title="toh:t-com:start">T-Com</a></bdi> » <bdi><span class="curid"><a href="spw303v-b" class="wikilink1" title="toh:t-com:spw303v-b">T-Home Speedport W 303V</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/toh/t-com/spw303v-b" class="media" title="cz:toh:t-com:spw303v-b"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/toh/t-com/spw303v-b" class="media" title="de:toh:t-com:spw303v-b"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="spw303v-b" class="media" title="toh:t-com:spw303v-b"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/toh/t-com/spw303v-b" class="media" title="es:toh:t-com:spw303v-b"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/toh/t-com/spw303v-b" class="media" title="fr:toh:t-com:spw303v-b"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/toh/t-com/spw303v-b" class="media" title="hu:toh:t-com:spw303v-b"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/toh/t-com/spw303v-b" class="media" title="jp:toh:t-com:spw303v-b"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/toh/t-com/spw303v-b" class="media" title="pl:toh:t-com:spw303v-b"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/toh/t-com/spw303v-b" class="media" title="pt-br:toh:t-com:spw303v-b"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/toh/t-com/spw303v-b" class="media" title="ru:toh:t-com:spw303v-b"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/toh/t-com/spw303v-b" class="media" title="tr:toh:t-com:spw303v-b"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/toh/t-com/spw303v-b" class="media" title="zh-cn:toh:t-com:spw303v-b"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/toh/t-com/spw303v-b" class="media" title="zh-tw:toh:t-com:spw303v-b"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>toh:t-com:spw303v-b</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="spw303v-b#hardware">Hardware</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="spw303v-b#info">Info</a></div></li>
+<li class="level2"><div class="li"><a href="spw303v-b#opening_the_case">Opening the case</a></div></li>
+<li class="level2"><div class="li"><a href="spw303v-b#serial">Serial</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="spw303v-b#installation">Installation</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="spw303v-b#oem_easy_installation">OEM easy installation</a></div></li>
+<li class="level2"><div class="li"><a href="spw303v-b#upgrading_openwrt">Upgrading OpenWrt</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="spw303v-b#luci_web_upgrade_process">LuCI Web Upgrade Process</a></div></li>
+<li class="level3"><div class="li"><a href="spw303v-b#terminal_upgrade_process">Terminal Upgrade Process</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="spw303v-b#basic_configuration">Basic configuration</a></div></li>
+<li class="level1"><div class="li"><a href="spw303v-b#specific_configuration">Specific Configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="spw303v-b#interfaces">Interfaces</a></div></li>
+<li class="level2"><div class="li"><a href="spw303v-b#wlan">WLAN</a></div></li>
+<li class="level2"><div class="li"><a href="spw303v-b#failsafe_mode">Failsafe mode</a></div></li>
+<li class="level2"><div class="li"><a href="spw303v-b#buttons">Buttons</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="spw303v-b#debricking">Debricking</a></div></li>
+<li class="level1"><div class="li"><a href="spw303v-b#notes">Notes</a></div></li>
+<li class="level1"><div class="li"><a href="spw303v-b#tags">Tags</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="t-home_speedport_w_303v">T-Home Speedport W 303V</h1>
+<div class="level1">
+
+<p>
+The T-Home Speedport W 303V is a IAD sold by T-Com with a ADSL2+ Annex B Modem, 11n Wifi and two FXS ports as well as a S<sub>0</sub> bus connector.
+</p>
+
+<p>
+There are 2 models of it, &quot;Typ A&quot; and &quot;Typ B&quot; having completely different hardware.
+<a href="spw303v" class="wikilink1" title="toh:t-com:spw303v">Click here for &quot;Typ A&quot;</a>.
+</p>
+
+</div>
+
+<h1 class="sectionedit2" id="typ_b">Typ B</h1>
+<div class="level1">
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> CPU </th><th class="col1"> Ram </th><th class="col2"> Flash </th><th class="col3"> Network </th><th class="col4"> USB </th><th class="col5"> Serial </th><th class="col6"> JTag </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> Broadcom BCM6358@300MHz </td><td class="col1"> 32MiB </td><td class="col2"> 8MiB </td><td class="col3"> 1 + ADSL </td><td class="col4"> No </td><td class="col5"> Yes </td><td class="col6"> No </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit4" id="hardware">Hardware</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit5" id="info">Info</h3>
+<div class="level3">
+<div class="table sectionedit6"><table class="inline">
+	<tr class="row0">
+		<td class="col0 leftalign"> <strong><a href="http://en.wikipedia.org/wiki/Instruction set" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Instruction set">Architecture</a>:</strong>    </td><td class="col1"> <a href="http://en.wikipedia.org/wiki/MIPS architecture" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/MIPS architecture">MIPS</a> </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 leftalign"> <strong>Vendor:</strong>          </td><td class="col1"> <a href="http://en.wikipedia.org/wiki/Broadcom" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Broadcom">Broadcom</a> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <strong><a href="../../doc/techref/bootloader.1" class="wikilink1" title="doc:techref:bootloader">Bootloader</a>:</strong>     </td><td class="col1"> <a href="../../doc/techref/bootloader/cfe" class="wikilink1" title="doc:techref:bootloader:cfe">CFE</a> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> <strong>Board Id:</strong>  </td><td class="col1"> 96358-502V </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/soc.1" class="wikilink1" title="doc:hardware:soc">System-On-Chip</a>:</strong>  </td><td class="col1"> BCM6358 </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/cpu" class="wikilink1" title="doc:hardware:cpu">CPU</a>/Speed</strong>        </td><td class="col1"> BMIPS4350 V1.0 / 300 Mhz <a href="../../doc/hardware/soc/soc.broadcom.bcm63xx/smp" class="wikilink1" title="doc:hardware:soc:soc.broadcom.bcm63xx:smp">BMIPS Dual Core</a> </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> <strong>Flash-Chip:</strong>      </td><td class="col1"> <img src="../../lib/images/smileys/icon_question.gif" class="icon" alt=":?:" /> </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> <strong>Flash size:</strong>      </td><td class="col1"> 8 MiB </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> <strong>RAM size :</strong>             </td><td class="col1"> 32 MiB </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> <strong>Wireless:</strong>        </td><td class="col1"> Broadcom BCM4322 </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> <strong>Wireless standard:</strong> </td><td class="col1"> 802.11b/g/n </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> <strong>Ethernet:</strong>        </td><td class="col1"> Internal PHY </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> <strong>Internet:</strong>        </td><td class="col1"> ADSL2+ Annex B (unsupported) </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> <strong>USB:</strong>             </td><td class="col1"> No </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 leftalign"> <strong><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console" class="wikilink1" title="doc:hardware:port.serial">Serial</a>:</strong>          </td><td class="col1"> <a href="spw303v-b#serial" title="toh:t-com:spw303v-b ↵" class="wikilink1">Yes</a> </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/port.jtag" class="wikilink1" title="doc:hardware:port.jtag">JTAG</a>:</strong>            </td><td class="col1 leftalign"> <a href="spw303v-b#jtag" title="toh:t-com:spw303v-b ↵" class="wikilink1">No</a>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit7" id="opening_the_case">Opening the case</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> To remove the cover you have two remove two screws, then open a total of eight plastic clips. These are very easy to break.</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit8" id="serial">Serial</h3>
+<div class="level3">
+
+<p>
+→ <a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console" class="wikilink1" title="doc:hardware:port.serial">port.serial</a>
+</p>
+
+<p>
+The Speedport W 303V comes pre equipped with a serial header with 3.3V TTL. The serial console is available on J3
+</p>
+
+<p>
+<pre class="code">serial connector J3
+
+       |---|
+       | o | GND
+       | o | RX
+       | o | TX
+       | o | 3.3V
+       |---|
+
+  &lt;Ethernet/RJ45 Ports are on this side&gt;
+</pre>
+
+</p>
+
+<p>
+The serial port is the typical 3.3V TTL serial commonly found on router and router-like devices, NOT a PC-style RS-232 serial, with it&#039;s different signaling voltages. It&#039;s 115200 8-N-1 without hardware or software control.
+</p>
+
+</div>
+
+<h2 class="sectionedit9" id="installation">Installation</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> → <a href="../../doc/howto/obtain.firmware" class="wikilink1" title="doc:howto:obtain.firmware">obtain.firmware</a></div>
+</li>
+<li class="level1"><div class="li"> → <a href="../../doc/howto/installing" class="wikilink1" title="doc:howto:generic.flashing">Install OpenWrt</a></div>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit10" id="oem_easy_installation">OEM easy installation</h3>
+<div class="level3">
+
+<p>
+This section deals with how you install OpenWrt from a device freshly opened.
+</p>
+<ul>
+<li class="level1"><div class="li"> Configure your PC to use an IP from 192.168.2.0/24 (not .1)</div>
+</li>
+<li class="level1"><div class="li"> Press and hold reset, power on the device</div>
+</li>
+<li class="level1"><div class="li"> Wait until all leds are lit, then stop pressing reset</div>
+</li>
+<li class="level1"><div class="li"> Browse to <a href="http://192.168.2.1" class="urlextern" title="http://192.168.2.1"  rel="nofollow">http://192.168.2.1</a></div>
+</li>
+<li class="level1"><div class="li"> Upload openwrt-SPW303V-squashfs-cfe-<strong>factory</strong>.bin file to router</div>
+</li>
+<li class="level1"><div class="li"> Wait for it to reboot</div>
+</li>
+<li class="level1"><div class="li"> Telnet to 192.168.1.1 and set a root password, or browse to <a href="http://192.168.1.1" class="urlextern" title="http://192.168.1.1"  rel="nofollow">http://192.168.1.1</a> if LuCI is installed.</div>
+</li>
+</ul>
+
+<p>
+<strong>NOTE:</strong> If you are using this to recover from a non working flash, you have to first upload a stock firmware using the same procedure, then flash OpenWrt.
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="upgrading_openwrt">Upgrading OpenWrt</h3>
+<div class="level3">
+
+<p>
+→  <a href="../../doc/howto/generic.sysupgrade" class="wikilink1" title="doc:howto:generic.sysupgrade">generic.sysupgrade</a>
+</p>
+
+<p>
+If you have already installed OpenWrt and like to reflash for e.g. upgrading to a new OpenWrt version you can upgrade using the sysupgrade command line tool. It is important that you put the firmware image into the ramdisk (/tmp) before you start flashing.
+</p>
+
+<p>
+<strong>Note:</strong> You need the -<strong>sysupgrade</strong>.bin file for upgrading.
+</p>
+
+</div>
+
+<h4 id="luci_web_upgrade_process">LuCI Web Upgrade Process</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Browse to <a href="http://192.168.1.1/cgi-bin/luci/mini/system/upgrade/" class="urlextern" title="http://192.168.1.1/cgi-bin/luci/mini/system/upgrade/"  rel="nofollow">http://192.168.1.1/cgi-bin/luci/mini/system/upgrade/</a> LuCI Upgrade <abbr title="Uniform Resource Locator">URL</abbr></div>
+</li>
+<li class="level1"><div class="li"> Upload image file for sysupgrade to LuCI</div>
+</li>
+<li class="level1"><div class="li"> Wait for reboot</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="terminal_upgrade_process">Terminal Upgrade Process</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Login as root via SSH on 192.168.1.1</div>
+</li>
+<li class="level1"><div class="li"> Use the following commands to upgrade.</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">cd /tmp/
+wget http://downloads.openwrt.org/attitude_adjustment/12.09/brcm63xx/generic/openwrt-SPW303V-squashfs-cfe-sysupgrade.bin
+sysupgrade openwrt-SPW303V-squashfs-cfe-sysupgrade.bin</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit12" id="basic_configuration">Basic configuration</h2>
+<div class="level2">
+
+<p>
+→ <a href="../../doc/howto/configuration" class="wikilink1" title="doc:howto:basic.config">Basic configuration</a> After flashing, proceed with this.<br/>
+
+Set up your Internet connection, configure wireless, configure USB port, etc.
+</p>
+
+</div>
+
+<h2 class="sectionedit13" id="specific_configuration">Specific Configuration</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit14" id="interfaces">Interfaces</h3>
+<div class="level3">
+
+<p>
+The default network configuration is:
+</p>
+<div class="table sectionedit15"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Interface Name </th><th class="col1"> Description </th><th class="col2"> Default configuration </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> br-lan </td><td class="col1"> <abbr title="Local Area Network">LAN</abbr> &amp; WiFi </td><td class="col2"> 192.168.1.1/24 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> eth0 </td><td class="col1"> <abbr title="Local Area Network">LAN</abbr> port </td><td class="col2"> None </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> wl0/wlan0 </td><td class="col1"> WiFi </td><td class="col2"> Disabled </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit16" id="wlan">WLAN</h3>
+<div class="level3">
+
+<p>
+Installation the proprietary Broadcom drivers
+</p>
+
+<p>
+<pre class="code">opkg install kmod-brcm-wl wlc</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit17" id="failsafe_mode">Failsafe mode</h3>
+<div class="level3">
+
+<p>
+→ <a href="../../doc/howto/generic.failsafe" class="wikilink1" title="doc:howto:generic.failsafe">generic.failsafe</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit18" id="buttons">Buttons</h3>
+<div class="level3">
+
+<p>
+→ <a href="../../doc/howto/hardware.button" class="wikilink1" title="doc:howto:hardware.button">hardware.button</a> on howto use and configure the hardware button(s).
+</p>
+
+<p>
+The Speedport W 303V has two buttons. They are Reset and Secure Easy Setup. Here, we merely name the buttons, so we can use them in the above Howto:
+</p>
+<div class="table sectionedit19"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> BUTTON </th><th class="col1"> Event </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> Reset </td><td class="col1"> reset </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> Secure Easy Setup </td><td class="col1"> ses </td>
+	</tr>
+</table></div>
+
+<p>
+there is a problem with the latest trunk - feb 2014 . the router always boot into failsafe - caused by the button config.
+take a look at <a href="https://dev.openwrt.org/ticket/14546" class="urlextern" title="https://dev.openwrt.org/ticket/14546"  rel="nofollow">https://dev.openwrt.org/ticket/14546</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit20" id="debricking">Debricking</h2>
+<div class="level2">
+
+<p>
+→ <a href="../../doc/howto/generic.debrick" class="wikilink1" title="doc:howto:generic.debrick">generic.debrick</a>
+</p>
+
+<p>
+The bootloader (CFE) has a web interface for uploading firmware images. 
+Press your reset button while powering up the device, wait ~20seconds, then release the reset button. All LEDs should light.
+Your device will be accessible on the <a href="http://192.168.2.1" class="urlextern" title="http://192.168.2.1"  rel="nofollow">http://192.168.2.1</a> address with a very simple webpage where you can upload a new image. 
+The device will not start a DHCP server, you will have to configure your host to the 192.168.2.x subnet.
+</p>
+
+<p>
+Ps. do not try to upload images with TFTP using the flashimage command in your CFE prompt, because it does not works.
+</p>
+
+</div>
+
+<h2 class="sectionedit21" id="notes">Notes</h2>
+<div class="level2">
+
+<p>
+The Bootloader (CFE) is password protected. To abort autoboot you have to either hold the reset button long enough to enter recovery mode or enter <code>TCO&amp;</code> when it counts down for autoboot.
+</p>
+
+</div>
+
+<h2 class="sectionedit22" id="tags">Tags</h2>
+<div class="level2">
+<div class="tags"><span>
+	<a href="../../tag/bcm63xx?do=showtag&amp;tag=bcm63xx" class="wikilink1" title="tag:bcm63xx" rel="tag">bcm63xx</a>,
+	<a href="../../tag/bcm6358?do=showtag&amp;tag=bcm6358" class="wikilink1" title="tag:bcm6358" rel="tag">bcm6358</a>
+</span></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>toh/t-com/spw303v-b.txt</bdi> · Last modified: 2014/02/26 17:27 (external edit)</div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="spw303v-b?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="spw303v-b?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="spw303v-b?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="spw303v-b#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=toh%253At-com%253Aspw303v-b&amp;1432271895" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

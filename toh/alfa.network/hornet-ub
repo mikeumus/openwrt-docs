@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>ALFA Network Hornet-UB (based on 8M/32MB version) [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="fastethernet,2nic,1wnic,devboard,ar9331,no switch,usb,1usb,serial,802.11bgn,1ant,integrated,32ram,8flash,mips,mips32,24k,ap121,ar7240,ath9k"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="hornet-ub?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=toh:alfa.network"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/toh/alfa.network/hornet-ub"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/toh/alfa.network/hornet-ub"/>
+<link rel="canonical" href="hornet-ub"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='toh:alfa.network';var JSINFO = {"id":"toh:alfa.network:hornet-ub","namespace":"toh:alfa.network"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266754 166.182.3.231';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="hornet-ub#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="hornet-ub?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="hornet-ub?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="toh:alfa.network:hornet-ub" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="hornet-ub?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="hornet-ub?do=media&amp;ns=toh%253Aalfa.network"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="hornet-ub?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="toh:start">Table of Hardware</a></bdi> » <bdi><a href="start" class="wikilink1" title="toh:alfa.network:start">ALFA Network</a></bdi> » <bdi><span class="curid"><a href="hornet-ub" class="wikilink1" title="toh:alfa.network:hornet-ub">ALFA Network Hornet-UB (based on 8M/32MB version)</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/toh/alfa.network/hornet-ub" class="media" title="cz:toh:alfa.network:hornet-ub"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/toh/alfa.network/hornet-ub" class="media" title="de:toh:alfa.network:hornet-ub"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="hornet-ub" class="media" title="toh:alfa.network:hornet-ub"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/toh/alfa.network/hornet-ub" class="media" title="es:toh:alfa.network:hornet-ub"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/toh/alfa.network/hornet-ub" class="media" title="fr:toh:alfa.network:hornet-ub"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/toh/alfa.network/hornet-ub" class="media" title="hu:toh:alfa.network:hornet-ub"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/toh/alfa.network/hornet-ub" class="media" title="jp:toh:alfa.network:hornet-ub"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/toh/alfa.network/hornet-ub" class="media" title="pl:toh:alfa.network:hornet-ub"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/toh/alfa.network/hornet-ub" class="media" title="pt-br:toh:alfa.network:hornet-ub"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/toh/alfa.network/hornet-ub" class="media" title="ru:toh:alfa.network:hornet-ub"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/toh/alfa.network/hornet-ub" class="media" title="tr:toh:alfa.network:hornet-ub"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/toh/alfa.network/hornet-ub" class="media" title="zh-cn:toh:alfa.network:hornet-ub"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/toh/alfa.network/hornet-ub" class="media" title="zh-tw:toh:alfa.network:hornet-ub"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>toh:alfa.network:hornet-ub</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="hornet-ub#supported_versions">Supported Versions</a></div></li>
+<li class="level1"><div class="li"><a href="hornet-ub#hardware_highlights">Hardware Highlights</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="hornet-ub#extra_info">Extra info</a></div></li>
+<li class="level2"><div class="li"><a href="hornet-ub#opening_the_case">Opening the case</a></div></li>
+<li class="level2"><div class="li"><a href="hornet-ub#pictures">Pictures</a></div></li>
+<li class="level2"><div class="li"><a href="hornet-ub#serial">Serial</a></div></li>
+<li class="level2"><div class="li"><a href="hornet-ub#jtag">JTAG</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="hornet-ub#installation">Installation</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="hornet-ub#tftp_install">TFTP Install</a></div></li>
+<li class="level2"><div class="li"><a href="hornet-ub#failsafe_mode">Failsafe Mode</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="hornet-ub#flash_layout">Flash Layout</a></div></li>
+<li class="level1"><div class="li"><a href="hornet-ub#gpio">GPIO</a></div></li>
+<li class="level1"><div class="li"><a href="hornet-ub#leds">LEDs</a></div></li>
+<li class="level1"><div class="li"><a href="hornet-ub#specific_configuration">Specific Configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="hornet-ub#interfaces">Interfaces</a></div></li>
+<li class="level2"><div class="li"><a href="hornet-ub#tags">Tags</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="alfa_network_hornet-ub_based_on_8m32mb_version">ALFA Network Hornet-UB (based on 8M/32MB version)</h1>
+<div class="level1">
+
+<p>
+Atheros Devices with identical PCBs
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://www.alfa.com.tw/products_show.php?pc=35&amp;ps=121" class="urlextern" title="http://www.alfa.com.tw/products_show.php?pc=35&amp;ps=121"  rel="nofollow">AP121 Product page (without USB)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.alfa.com.tw/products_show.php?pc=35&amp;ps=97" class="urlextern" title="http://www.alfa.com.tw/products_show.php?pc=35&amp;ps=97"  rel="nofollow">AP121U Product page</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.alfa.com.tw/products_show.php?pc=99&amp;ps=50" class="urlextern" title="http://www.alfa.com.tw/products_show.php?pc=99&amp;ps=50"  rel="nofollow">Hornet-UB Product page</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit2" id="supported_versions">Supported Versions</h2>
+<div class="level2">
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Version/Model </th><th class="col1"> Launch Date </th><th class="col2"> S/N </th><th class="col3"> OpenWrt Version Supported </th><th class="col4"> Model Specific Notes </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> v1   </td><td class="col1 centeralign">  2012-01  </td><td class="col2"> - </td><td class="col3"> Trunk <a href="https://dev.openwrt.org/changeset/29637/trunk" class="urlextern" title="https://dev.openwrt.org/changeset/29637/trunk"  rel="nofollow">R29637</a> </td><td class="col4"> AR9331 chipset </td>
+	</tr>
+</table></div>
+
+<p>
+<img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> <em>For the 16MB/64MB version of the Hornet-UB board (the &quot;Hornet-UB x2&quot;), see <a href="https://forum.openwrt.org/viewtopic.php?pid=250080#p250080" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?pid=250080#p250080"  rel="nofollow">jivex5k&#039;s procedure in the forums</a>.</em>
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="hardware_highlights">Hardware Highlights</h2>
+<div class="level2">
+<div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> CPU </th><th class="col1"> Ram </th><th class="col2"> Flash </th><th class="col3"> Network </th><th class="col4"> USB </th><th class="col5"> Serial </th><th class="col6"> JTag </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> Atheros AR9331@400MHz </td><td class="col1"> 32MiB </td><td class="col2"> 8MiB </td><td class="col3"> 2x 100Mbit </td><td class="col4"> Yes </td><td class="col5"> Yes </td><td class="col6"> With Hardwaremod </td>
+	</tr>
+</table></div>
+<ul>
+<li class="level1"><div class="li"> SoC: Atheros AR9331 rev 1</div>
+</li>
+<li class="level1"><div class="li"> 802.11 b/g/n 150Mbps</div>
+</li>
+<li class="level1"><div class="li"> 2x Ethernet ports 1 with PoE (Power over Ethernet)</div>
+</li>
+<li class="level1"><div class="li"> Powered via 12V or 5V type M barrel connector (though power to the USB port can be marginal with only 5V system input)</div>
+</li>
+<li class="level1"><div class="li"> Tiny form factor</div>
+<ul>
+<li class="level2"><div class="li"> 8.5cm x 6cm PCB</div>
+</li>
+<li class="level2"><div class="li"> 9.3cm x 7cm x 2.6cm casing</div>
+</li>
+<li class="level2"><div class="li"> weight 74g</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit6" id="extra_info">Extra info</h3>
+<div class="level3">
+<div class="table sectionedit7"><table class="inline">
+	<tr class="row0">
+		<td class="col0 leftalign"> <strong><a href="http://en.wikipedia.org/wiki/Instruction set" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Instruction set">Architecture</a>:</strong>    </td><td class="col1 leftalign"> <a href="http://en.wikipedia.org/wiki/MIPS architecture" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/MIPS architecture">MIPS</a>  </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 leftalign"> <strong>Vendor:</strong>          </td><td class="col1"> <a href="http://en.wikipedia.org/wiki/Qualcomm Atheros" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Qualcomm Atheros">Qualcomm Atheros</a> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <strong><a href="../../doc/techref/bootloader.1" class="wikilink1" title="doc:techref:bootloader">Bootloader</a>:</strong>     </td><td class="col1"> <a href="../../doc/techref/bootloader/uboot" class="wikilink1" title="doc:techref:bootloader:uboot">U-Boot</a> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/soc.1" class="wikilink1" title="doc:hardware:soc">System-On-Chip</a>:</strong>  </td><td class="col1"> Atheros AR9331 (MIPS 24Kc V7.4) </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/cpu" class="wikilink1" title="doc:hardware:cpu">CPU</a>/Speed</strong>        </td><td class="col1"> 400 Mhz </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> <strong>BogoMIPS</strong>         </td><td class="col1"> 265.42 </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> <strong>Flash-Chip:</strong>      </td><td class="col1"> MX25L6406EM2I-12G </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> <strong>Flash size:</strong>      </td><td class="col1"> 8 MiB </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> <strong>RAM:</strong>             </td><td class="col1 leftalign"> 32 MiB   </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> <strong>Wireless:</strong>        </td><td class="col1"> Atheros AR9330 </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> <strong>Ethernet:</strong>        </td><td class="col1"> Atheros AG71xx </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> <strong>USB:</strong>             </td><td class="col1 leftalign"> 1x 2.0     </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> <strong><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console" class="wikilink1" title="doc:hardware:port.serial">Serial</a>:</strong>   </td><td class="col1"> <a href="hornet-ub#serial" title="toh:alfa.network:hornet-ub ↵" class="wikilink1">Yes</a> </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/port.jtag" class="wikilink1" title="doc:hardware:port.jtag">JTAG</a>:</strong>       </td><td class="col1 leftalign"> <a href="hornet-ub#jtag" title="toh:alfa.network:hornet-ub ↵" class="wikilink1">With Hardwaremod</a>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit8" id="opening_the_case">Opening the case</h3>
+<div class="level3">
+
+<p>
+To open the case, remove the 2 rubber feet on the bottom located at the USB port side. After removing the caps you will find two screws, unscrew them and voila case opened.
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="pictures">Pictures</h3>
+<div class="level3">
+
+<p>
+<a href="../../_detail/toh/alfa.network/hornet-ub.1.jpg?id=toh%253Aalfa.network%253Ahornet-ub" class="media" title="toh:alfa.network:hornet-ub.1.jpg"><img src="../../_media/toh/alfa.network/hornet-ub.1.jpg?w=400&amp;h=400&amp;tok=e98bd6" class="media" alt="" width="400" height="400" /></a> <a href="../../_detail/toh/alfa.network/hornet-ub.2.jpg?id=toh%253Aalfa.network%253Ahornet-ub" class="media" title="toh:alfa.network:hornet-ub.2.jpg"><img src="../../_media/toh/alfa.network/hornet-ub.2.jpg?w=400&amp;h=400&amp;tok=99789e" class="media" alt="" width="400" height="400" /></a>
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="serial">Serial</h3>
+<div class="level3">
+<div class="table sectionedit11"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> 1 </th><th class="col1"> 2 </th><th class="col2"> 3 </th><th class="col3"> 4 </th><td class="col4"></td>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> VDD </td><td class="col1"> RX </td><td class="col2"> TX </td><td class="col3"> GND </td><td class="col4"> J1 </td>
+	</tr>
+</table></div>
+
+<p>
+<img src="../../_media/meta/icons/tango/48px-dialog-warning.svg.png" class="media" alt="" /> <strong>Warning!</strong>
+</p>
+
+<p>
+
+Be aware that <span style="color:red;"><b>you should not connect the VDD pin</b></span> or the CPU will receive too much voltage when the DC power supply is connected.<br>
+This will likely brick it.
+
+</p>
+
+<p>
+<a href="../../_detail/toh/alfa.network/hornet-ub.8.-pins.jpg?id=toh%253Aalfa.network%253Ahornet-ub" class="media" title="toh:alfa.network:hornet-ub.8.-pins.jpg"><img src="../../_media/toh/alfa.network/hornet-ub.8.-pins.jpg?w=400&amp;h=400&amp;tok=7d5dac" class="media" alt="" width="400" height="400" /></a>
+</p>
+
+</div>
+
+<h3 class="sectionedit12" id="jtag">JTAG</h3>
+<div class="level3">
+
+<p>
+<img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" />
+</p>
+<div class="table sectionedit13"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> TP1 </th><th class="col1"> TP2 </th><th class="col2"> TP3 </th><th class="col3"> TP4 </th><th class="col4"> TP5 </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> TRST_L </td><td class="col1"> TDI </td><td class="col2"> TDO </td><td class="col3"> TMS </td><td class="col4"> TCK </td>
+	</tr>
+</table></div>
+
+<p>
+TP1 is near the Serial VDD Pin.
+</p>
+
+<p>
+TP2-5 are on the right next to the SoC.
+</p>
+
+<p>
+each JTAG Pin has its own solderpad, but is not populated.
+</p>
+
+</div>
+
+<h2 class="sectionedit14" id="installation">Installation</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit15" id="tftp_install">TFTP Install</h3>
+<div class="level3">
+
+<p>
+This installation method needs a TTL level serial console (putty) and a working TFTP server (OpenTFTP)
+</p>
+
+<p>
+This hardware is well-supported in OpenWrt release since <a href="http://downloads.openwrt.org/attitude_adjustment/12.09/ar71xx/generic/openwrt-ar71xx-generic-hornet-ub-squashfs-sysupgrade.bin" class="urlextern" title="http://downloads.openwrt.org/attitude_adjustment/12.09/ar71xx/generic/openwrt-ar71xx-generic-hornet-ub-squashfs-sysupgrade.bin"  rel="nofollow">Atitude Adjustment 12.09</a>, including <a href="http://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/generic/openwrt-ar71xx-generic-hornet-ub-squashfs-sysupgrade.bin" class="urlextern" title="http://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/generic/openwrt-ar71xx-generic-hornet-ub-squashfs-sysupgrade.bin"  rel="nofollow">Barrier Breaker 14.07</a>.
+</p>
+
+<p>
+Connect serial console cable and a network cable to WAN/<abbr title="Local Area Network">LAN</abbr>. Switch on the router and press &#039;1&#039; to get the U-boot prompt.
+</p>
+
+<p>
+If nothing happens switch TX und RX around.
+</p>
+
+<p>
+Important!: You need to change the baud/port speed to 115200 in putty
+</p>
+
+<p>
+For installation with OpenTFTP
+You need to copy the firmwarefile in the same directory as the start batch file of OpenTFTP
+(You can also give it a shorter name like FW.bin)
+</p>
+
+<p>
+Make sure your firewall is diabled.
+The default IP-Settings of the U-Bootloader are 192.168.2.1 for the Alfa-AP and 192.168.2.11 for the TFTP-Server.
+You can change these setting with the command
+&quot;setenv serverip &lt;IP&gt;&quot;
+and
+&quot;setenv ipaddr &lt;IP&gt;&quot;
+</p>
+
+<p>
+To check if the connection is up you can use ping like allways.
+</p>
+
+<p>
+<pre class="code">U-Boot 1.1.4 (Sep 29 2011 - 16:39:41)
+
+AP121-8MB (ar9331) U-boot
+DRAM:  32 MB
+Top of RAM usable for U-Boot at: 82000000
+Reserving 248k for U-Boot at: 81fc0000
+Reserving 192k for malloc() at: 81f90000
+Reserving 44 Bytes for Board Info at: 81f8ffd4
+Reserving 36 Bytes for Global Data at: 81f8ffb0
+Reserving 128k for boot params() at: 81f6ffb0
+Stack Pointer at: 81f6ff98
+Now running in RAM - U-Boot at: 81fc0000
+id read 0x100000ff
+flash size 8388608, sector count = 128
+Flash:  8 MB
+In:    serial
+Out:   serial
+Err:   serial
+Net:   ag7240_enet_initialize...
+Fetching MAC Address from 0x81feb688
+Fetching MAC Address from 0x81feb688
+: cfg1 0x5 cfg2 0x7114
+eth0: 00:c0:ca:5f:6b:3d
+eth0 up
+: cfg1 0xf cfg2 0x7214
+eth1: 00:c0:ca:5f:6b:3e
+athrs26_reg_init_lan
+ATHRS26: resetting s26
+ATHRS26: s26 reset done
+eth1 up
+eth0, eth1
+
+Please choose the operation:
+   1: Entr boot command line interface.
+   2: Load system code then write to Flash via TFTP.
+   3: Boot system code via Flash (default).
+
+You choosed 1
+
+ 0
+
+ar7240&gt; </pre>
+
+</p>
+
+<p>
+tftp 0xa0800000 openwrt-ar71xx-generic-hornet-ub-jffs2-sysupgrade.bin
+</p>
+
+<p>
+<pre class="code">ar7240&gt; tftp 0xa0800000 openwrt-ar71xx-generic-hornet-ub-jffs2-sysupgrade.bin
+eth0 link down
+FAIL
+dup 1 speed 1000
+Using eth1 device
+TFTP from server 192.168.1.254; our IP address is 192.168.1.1
+Filename &#039;openwrt-ar71xx-generic-hornet-ub-jffs2-sysupgrade.bin&#039;.
+Load address: 0xa0800000
+Loading: #################################################################
+         #################################################################
+         #################################################################
+         #################################################################
+         #################################################################
+         #################################################################
+         #################################################################
+         #################################################################
+         #################################################################
+         #################################################################
+         #################################################################
+         #################################################################
+         #################################################################
+         #################################################################
+         #################################################################
+         #################################################################
+         #################################################################
+         #################################################################
+         #################################################################
+         #################################################################
+         #################################################################
+         #################################################################
+         #
+done
+Bytes transferred = 7322966 (6fbd56 hex)</pre>
+
+now enter<br/>
+
+erase 0x9f050000 +0x790000
+</p>
+<pre class="code ar7240"> erase 0x9f050000 +0x790000
+Erase Flash from 0x9f050000 to 0x9f7dffff in Bank # 1
+First 0x5 last 0x7d sector size 0x10000
+ 125
+Erased 121 sectors</pre>
+
+<p>
+cp.b 0xa0800000 0x9f050000 0x790000
+</p>
+
+<p>
+<pre class="code">ar7240&gt; cp.b 0xa0800000 0x9f050000 0x790000
+Copy to Flash... write addr: 9f050000
+done</pre>
+
+</p>
+
+<p>
+issue reset and it should restart into OpenWRT
+</p>
+
+<p>
+<pre class="code">ar7240&gt;reset
+
+U-Boot 1.1.4 (Sep 29 2011 - 16:39:41)
+
+AP121-8MB (ar9331) U-boot
+DRAM:  32 MB
+Top of RAM usable for U-Boot at: 82000000
+Reserving 248k for U-Boot at: 81fc0000
+Reserving 192k for malloc() at: 81f90000
+Reserving 44 Bytes for Board Info at: 81f8ffd4
+Reserving 36 Bytes for Global Data at: 81f8ffb0
+Reserving 128k for boot params() at: 81f6ffb0
+Stack Pointer at: 81f6ff98
+Now running in RAM - U-Boot at: 81fc0000
+id read 0x100000ff
+flash size 8388608, sector count = 128
+Flash:  8 MB
+In:    serial
+Out:   serial
+Err:   serial
+Net:   ag7240_enet_initialize...
+Fetching MAC Address from 0x81feb688
+Fetching MAC Address from 0x81feb688
+: cfg1 0x5 cfg2 0x7114
+eth0: 00:c0:ca:5f:6b:3d
+eth0 up
+: cfg1 0xf cfg2 0x7214
+eth1: 00:c0:ca:5f:6b:3e
+athrs26_reg_init_lan
+ATHRS26: resetting s26
+ATHRS26: s26 reset done
+eth1 up
+eth0, eth1
+
+Please choose the operation:
+   1: Entr boot command line interface.
+   2: Load system code then write to Flash via TFTP.
+   3: Boot system code via Flash (default).
+ 0
+
+
+ System Boot system code via Flash.
+## Booting image at 9f650000 ...
+   Image Name:   MIPS OpenWrt Linux-3.3.8
+   Created:      2012-07-11   8:29:19 UTC
+   Image Type:   MIPS Linux Kernel Image (lzma compressed)
+   Data Size:    1031446 Bytes = 1007.3 kB
+   Load Address: 80060000
+   Entry Point:  80060000
+   Verifying Checksum at 0x9f650040 ...OK
+   Uncompressing Kernel Image ... OK
+No initrd
+## Transferring control to Linux (at address 80060000) ...
+## Giving linux memsize in bytes, 33554432
+
+Starting kernel ...
+
+[    0.000000] Linux version 3.3.8 (fnord@tschunk) (gcc version 4.6.3 20120201 (prerelease) (Linaro GCC 4.6-2012.02) ) #1 Wed Jul 11 08:28:3
+3 UTC 2012
+[    0.000000] bootconsole [early0] enabled
+[    0.000000] CPU revision is: 00019374 (MIPS 24Kc)
+[    0.000000] SoC: Atheros AR9330 rev 1
+[    0.000000] Clocks: CPU:400.000MHz, DDR
+...</pre>
+
+</p>
+
+<p>
+There will be many informations but you have to wait until it all stops and in the last line are only 3 dots displayed.
+</p>
+
+<p>
+Now press Enter and you should see the OpenWRT Commandline.
+</p>
+
+<p>
+<pre class="code">BusyBox v1.19.4 (2013-03-14 11:28:31 UTC) built-in shell (ash)
+Enter &#039;help&#039; for a list of built-in commands.
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+ ATTITUDE ADJUSTMENT (12.09, r36088)
+ -----------------------------------------------------
+  * 1/4 oz Vodka      Pour all ingredients into mixing
+  * 1/4 oz Gin        tin with ice, strain into glass.
+  * 1/4 oz Amaretto
+  * 1/4 oz Triple sec
+  * 1/4 oz Peach schnapps
+  * 1/4 oz Sour mix
+  * 1 splash Cranberry juice
+ -----------------------------------------------------
+root@OpenWrt:/#</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit16" id="failsafe_mode">Failsafe Mode</h3>
+<div class="level3">
+
+<p>
+Hold the reset button and powercycle the device. You can release the button, when all lights come on.
+</p>
+
+</div>
+
+<h2 class="sectionedit17" id="flash_layout">Flash Layout</h2>
+<div class="level2">
+<div class="table sectionedit18"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> Please correct the flash layout when wrong, thank you. </td>
+	</tr>
+</table></div>
+
+<p>
+<em>(My layout is the same. On Alfa firmware mtd3 is named &quot;uImage&quot;. reichhart 2013-10-03)</em>
+<br/>
+
+</p>
+<div class="table sectionedit19"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign" colspan="8">   Hornet-UB  Flash Layout           </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<th class="col0 leftalign"> Layer0       </th><td class="col1 centeralign" colspan="7">  m25p80 spi0.0: MX25L6406EM2I-12G 8192 KiB   </td>
+	</tr>
+	<tr class="row2">
+		<th class="col0 leftalign"> Layer1       </th><td class="col1 centeralign">  mtd0 <strong><em>u-boot</em></strong> 256KiB   </td><td class="col2 centeralign">     mtd1 <strong><em>u-boot-env</em></strong> 64KiB   </td><td class="col3 centeralign" colspan="3">  mtd6 <strong><em>firmware</em></strong> 7744KiB  </td><td class="col6 rightalign">  mtd4 <strong><em>nvram</em></strong> 64KiB </td><td class="col7 centeralign">  mtd5 <strong><em>art</em></strong> 64KiB  </td>
+	</tr>
+	<tr class="row3">
+		<th class="col0 leftalign"> Layer2       </th><td class="col1 leftalign" colspan="2">                              </td><td class="col3 centeralign">  mtd2 <strong><em>rootfs</em></strong> 6144KiB  </td><td class="col4 centeralign" colspan="2">  mtd3 <strong><em>kernel</em></strong> 1600KiB  </td><td class="col6" colspan="2"> </td>
+	</tr>
+	<tr class="row4">
+		<th class="col0 leftalign"> <span style='color:magenta; '>mountpoint</span>  </th><td class="col1" colspan="2"> </td><td class="col3 centeralign">  <span style='color:magenta; '><code>/</code></span>  </td><td class="col4" colspan="4"> </td>
+	</tr>
+	<tr class="row5">
+		<th class="col0 leftalign"> filesystem   </th><td class="col1" colspan="2"> </td><td class="col3 centeralign">  <a href="../../doc/techref/filesystems#squashfs" class="wikilink1" title="doc:techref:filesystems">SquashFS</a>  </td><td class="col4" colspan="4"> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit20" id="gpio">GPIO</h2>
+<div class="level2">
+<div class="table sectionedit21"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0" colspan="2"> GPIO Overview </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<th class="col0"> GPIO 0 </th><td class="col1"> WLAN LED </td>
+	</tr>
+	<tr class="row2">
+		<th class="col0"> GPIO 1 </th><td class="col1"> USB LED </td>
+	</tr>
+	<tr class="row3">
+		<th class="col0"> GPIO 11 </th><td class="col1"> WPS Button </td>
+	</tr>
+	<tr class="row4">
+		<th class="col0"> GPIO 12 </th><td class="col1"> System Reset Button </td>
+	</tr>
+	<tr class="row5">
+		<th class="col0"> GPIO 13 </th><td class="col1"> <abbr title="Local Area Network">LAN</abbr> LED </td>
+	</tr>
+	<tr class="row6">
+		<th class="col0"> GPIO 17 </th><td class="col1"> WAN LED </td>
+	</tr>
+	<tr class="row7">
+		<th class="col0"> GPIO 18 </th><td class="col1"> Watchdog Buffer Control </td>
+	</tr>
+	<tr class="row8">
+		<th class="col0"> GPIO 22 </th><td class="col1"> Watchdog Clock </td>
+	</tr>
+	<tr class="row9">
+		<th class="col0"> GPIO 27 </th><td class="col1"> WPS LED </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit22" id="leds">LEDs</h2>
+<div class="level2">
+
+<p>
+How to configure LEDs in general, see the LED section in the <a href="../../doc/uci/system" class="wikilink1" title="doc:uci:system">system</a>.
+</p>
+
+<p>
+The Hornet-UB has 6 LEDs:
+</p>
+<div class="table sectionedit23"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> LED name </th><th class="col1"> LED print </th><th class="col2"> Internal name </th><th class="col3"> Trigger </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> Power </td><td class="col1"> Power symbol </td><td class="col2"> N/A (fixed supply) </td><td class="col3"> N/A </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> USB    </td><td class="col1 leftalign"> Internet symbol  </td><td class="col2"> alfa:blue:usb </td><td class="col3"> <code>USB:1-1</code> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> WLAN </td><td class="col1"> WLAN symbol </td><td class="col2"> alfa:blue:wlan </td><td class="col3"> <code>phy0tpt</code> </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <abbr title="Local Area Network">LAN</abbr> </td><td class="col1"> <abbr title="Local Area Network">LAN</abbr> symbol</td><td class="col2"> alfa:blue:lan </td><td class="col3"> <code>netdev:eth0</code> </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> WAN </td><td class="col1"> WAN symbol </td><td class="col2"> alfa:blue:wan </td><td class="col3"> <code>netdev:eth1</code> </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> WPS </td><td class="col1"> WPS </td><td class="col2"> alfa:blue:wps </td><td class="col3"> User preference </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit24" id="specific_configuration">Specific Configuration</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit25" id="interfaces">Interfaces</h3>
+<div class="level3">
+
+<p>
+The default network configuration is:
+</p>
+<div class="table sectionedit26"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Interface Name </th><th class="col1"> Description </th><th class="col2"> Default configuration </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> br-lan </td><td class="col1"> <abbr title="Local Area Network">LAN</abbr> &amp; WiFi </td><td class="col2"> 192.168.1.1/24 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> eth0 </td><td class="col1"> PoE/<abbr title="Local Area Network">LAN</abbr> port </td><td class="col2"> None </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> eth1 </td><td class="col1"> WAN/<abbr title="Local Area Network">LAN</abbr> port </td><td class="col2"> DHCP </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> wlan0 </td><td class="col1"> WiFi </td><td class="col2"> Disabled </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit27" id="tags">Tags</h3>
+<div class="level3">
+<div class="tags"><span>
+	<a href="../../tag/fastethernet?do=showtag&amp;tag=FastEthernet" class="wikilink1" title="tag:fastethernet" rel="tag">FastEthernet</a>,
+	<a href="../../tag/2nic?do=showtag&amp;tag=2NIC" class="wikilink1" title="tag:2nic" rel="tag">2NIC</a>,
+	<a href="../../tag/1wnic?do=showtag&amp;tag=1WNIC" class="wikilink1" title="tag:1wnic" rel="tag">1WNIC</a>,
+	<a href="../../tag/devboard?do=showtag&amp;tag=DevBoard" class="wikilink1" title="tag:devboard" rel="tag">DevBoard</a>,
+	<a href="../../tag/ar9331?do=showtag&amp;tag=ar9331" class="wikilink1" title="tag:ar9331" rel="tag">ar9331</a>,
+	<a href="../../tag/no_switch?do=showtag&amp;tag=no_switch" class="wikilink1" title="tag:no_switch" rel="tag">no switch</a>,
+	<a href="../../tag/usb?do=showtag&amp;tag=USB" class="wikilink1" title="tag:usb" rel="tag">USB</a>,
+	<a href="../../tag/1usb?do=showtag&amp;tag=1USB" class="wikilink1" title="tag:1usb" rel="tag">1USB</a>,
+	<a href="../../tag/serial?do=showtag&amp;tag=Serial" class="wikilink1" title="tag:serial" rel="tag">Serial</a>,
+	<a href="../../tag/802.11bgn?do=showtag&amp;tag=802.11bgn" class="wikilink1" title="tag:802.11bgn" rel="tag">802.11bgn</a>,
+	<a href="../../tag/1ant?do=showtag&amp;tag=1Ant" class="wikilink1" title="tag:1ant" rel="tag">1Ant</a>,
+	<a href="../../tag/integrated?do=showtag&amp;tag=integrated" class="wikilink1" title="tag:integrated" rel="tag">integrated</a>,
+	<a href="../../tag/32ram?do=showtag&amp;tag=32RAM" class="wikilink1" title="tag:32ram" rel="tag">32RAM</a>,
+	<a href="../../tag/8flash?do=showtag&amp;tag=8Flash" class="wikilink1" title="tag:8flash" rel="tag">8Flash</a>,
+	<a href="../../tag/mips?do=showtag&amp;tag=MIPS" class="wikilink1" title="tag:mips" rel="tag">MIPS</a>,
+	<a href="../../tag/mips32?do=showtag&amp;tag=MIPS32" class="wikilink1" title="tag:mips32" rel="tag">MIPS32</a>,
+	<a href="../../tag/24k?do=showtag&amp;tag=24k" class="wikilink1" title="tag:24k" rel="tag">24k</a>,
+	<a href="../../tag/ap121?do=showtag&amp;tag=AP121" class="wikilink1" title="tag:ap121" rel="tag">AP121</a>,
+	<a href="../../tag/ar7240?do=showtag&amp;tag=AR7240" class="wikilink1" title="tag:ar7240" rel="tag">AR7240</a>,
+	<a href="../../tag/ar9331?do=showtag&amp;tag=AR9331" class="wikilink1" title="tag:ar9331" rel="tag">AR9331</a>,
+	<a href="../../tag/ath9k?do=showtag&amp;tag=ath9k" class="wikilink1" title="tag:ath9k" rel="tag">ath9k</a>
+</span></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>toh/alfa.network/hornet-ub.txt</bdi> · Last modified: 2015/04/01 00:41 by <bdi>rozzin</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="hornet-ub?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="hornet-ub?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="hornet-ub?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="hornet-ub#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=toh%253Aalfa.network%253Ahornet-ub&amp;1432266754" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

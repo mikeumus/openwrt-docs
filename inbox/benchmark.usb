@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>USB Benchmarks [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="inbox,benchmark.usb"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../index.html"/>
+<link rel="contents" href="benchmark.usb?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../feed.php?mode=list&amp;ns=inbox"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../_export/xhtml/inbox/benchmark.usb"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../_export/raw/inbox/benchmark.usb"/>
+<link rel="canonical" href="benchmark.usb"/>
+<link rel="stylesheet" type="text/css" href="../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='inbox';var JSINFO = {"id":"inbox:benchmark.usb","namespace":"inbox"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265559 166.182.3.5';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="benchmark.usb#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../start"  accesskey="h" title="[H]"><img src="../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="benchmark.usb?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="benchmark.usb?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="inbox:benchmark.usb" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="benchmark.usb?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="benchmark.usb?do=media&amp;ns=inbox"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="benchmark.usb?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="start" class="wikilink1" title="inbox:start">Build and installation - Few Adjustments - NEW (shiva)</a></bdi> » <bdi><span class="curid"><a href="benchmark.usb" class="wikilink1" title="inbox:benchmark.usb">USB Benchmarks</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/inbox/benchmark.usb" class="media" title="cz:inbox:benchmark.usb"><img src="../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/inbox/benchmark.usb" class="media" title="de:inbox:benchmark.usb"><img src="../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="benchmark.usb" class="media" title="inbox:benchmark.usb"><img src="../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/inbox/benchmark.usb" class="media" title="es:inbox:benchmark.usb"><img src="../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/inbox/benchmark.usb" class="media" title="fr:inbox:benchmark.usb"><img src="../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/inbox/benchmark.usb" class="media" title="hu:inbox:benchmark.usb"><img src="../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/inbox/benchmark.usb" class="media" title="jp:inbox:benchmark.usb"><img src="../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/inbox/benchmark.usb" class="media" title="pl:inbox:benchmark.usb"><img src="../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/inbox/benchmark.usb" class="media" title="pt-br:inbox:benchmark.usb"><img src="../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/inbox/benchmark.usb" class="media" title="ru:inbox:benchmark.usb"><img src="../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/inbox/benchmark.usb" class="media" title="tr:inbox:benchmark.usb"><img src="../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/inbox/benchmark.usb" class="media" title="zh-cn:inbox:benchmark.usb"><img src="../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/inbox/benchmark.usb" class="media" title="zh-tw:inbox:benchmark.usb"><img src="../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>inbox:benchmark.usb</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="benchmark.usb#prerequisites">Prerequisites</a></div></li>
+<li class="level1"><div class="li"><a href="benchmark.usb#usb_flash_drives">USB Flash drives</a></div></li>
+<li class="level1"><div class="li"><a href="benchmark.usb#usb_hard_drives">USB Hard drives</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="usb_benchmarks">USB Benchmarks</h1>
+<div class="level1">
+
+<p>
+These benchmarks provide a rough estimate of how USB devices perform on various hardware and software configurations.
+</p>
+<div class="table sectionedit2"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../_media/meta/icons/tango/48px-dialog-error-round.svg.png" class="media" alt="" /> </td><td class="col1">I see two possible bottlenecks when bechmarking read/write operations on a storage device: the CPU and the device itself.<br/>
+ * If you expected notable differences between the <a href="../doc/hardware/cpu" class="wikilink1" title="doc:hardware:cpu">CPU</a>s, you would conduct a series of benchmark with the same storage device but different CPUs. You would also make sure that the storage device used in this benchmark is NOT a bottle neck.<br/>
+ * If you expected notable differences between the storage devices, you would conduct a series of benchmarks with the same CPU, but different storage devices. Again, you would make sure, that the CPU is not the bottle neck!<br/>
+ * there is of course a third possible bottle neck: the USB controller (MAC+PHY) on the SoC and/or possibly the USB-to-SATA converter, in case you use a SATA hard disk. <img src="../lib/images/smileys/icon_wink.gif" class="icon" alt=";-)" /><br/>
+<br/>
+I do not know, about notable differences in CPU, but there definitely are very slow flash storage devices purchasable out there with maximum read/write &quot;speeds&quot; of &lt; 2MB/s and less!!! </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit3" id="prerequisites">Prerequisites</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Install benchmark utilities <code>hdparm</code> and <code>bonnie++</code> <pre class="code">opkg update
+opkg install hdparm bonniexx</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> Install USB drivers <pre class="code"> opkg install kmod-usb2 kmod-usb-storage   kmod-fs-ext4  block-mount</pre>
+</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit4" id="usb_flash_drives">USB Flash drives</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Run the followings commands: <pre class="code">hdparm -Tt /dev/sda#</pre>
+ <pre class="code">mkdir -p /mnt/benchmark</pre>
+ <pre class="code">mount -O rw,noatime -t ext4 /dev/sda# /mnt/benchmark
+bonnie++ -n 0 -u 0 -s 64 -f -b -d /mnt/benchmark</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> <code>hdparm</code> and <code>bonnie++</code> are <strong>non-destructive</strong> benchmarks</div>
+</li>
+<li class="level1"><div class="li"> bonnie should auto-detect RAM size but you may need to use <code>-r</code> parameter to override. Also you may adjust <code>-s</code> to be double of <code>-r</code>.</div>
+</li>
+</ul>
+<div class="sortable"><div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign" colspan="3">            </th><th class="col3 leftalign" colspan="3">              </th><th class="col6 leftalign" colspan="2">                                </th><th class="col8 leftalign" colspan="4">                                                          </th>
+	</tr>
+	<tr class="row1">
+		<th class="col0 centeralign" colspan="3">      Router     </th><th class="col3 centeralign" colspan="3">      Flash Drive       </th><th class="col6 centeralign" colspan="2">                  hdparm                         </th><th class="col8 centeralign" colspan="4">                                    bonnie++                        </th>
+	</tr>
+	<tr class="row2">
+		<th class="col0 leftalign" colspan="3">                 </th><th class="col3 leftalign" colspan="3">                        </th><th class="col6 centeralign" colspan="2">                Timing (<abbr title="Megabyte">MB</abbr>/s)                    </th><th class="col8 centeralign" colspan="2">  Sequential Output (KB/s)  </th><th class="col10 centeralign">  Sequential Input (KB/s)  </th><th class="col11 centeralign">  Random     </th>
+	</tr>
+	<tr class="row3">
+		<th class="col0"> Device </th><th class="col1"> USB </th><th class="col2"> Software Version </th><th class="col3"> Drive </th><th class="col4"> USB </th><th class="col5"> Filesystem </th><th class="col6 centeralign">   Cached Reads  </th><th class="col7 centeralign">   Buffered Disk Reads          </th><th class="col8 centeralign">  Block  </th><th class="col9 centeralign">      Rewrite      </th><th class="col10 centeralign">        Block              </th><th class="col11 centeralign">   Seeks/s   </th>
+	</tr>
+	</thead>
+	<tr class="row4">
+		<td class="col0"> D-Link DIR-835 rev. A1 </td><td class="col1"> A1 </td><td class="col2"> Attitude Adjustment, r39789 </td><td class="col3"> <a href="http://www.aliexpress.com/store/product/Free-Shipping-Super-Low-Price-128MB-8GB-16GB-32GB-64GB-Swivel-USB-2-0-Flash-Drive/1036461_1486356715.html" class="urlextern" title="http://www.aliexpress.com/store/product/Free-Shipping-Super-Low-Price-128MB-8GB-16GB-32GB-64GB-Swivel-USB-2-0-Flash-Drive/1036461_1486356715.html"  rel="nofollow">UDisk</a>, 64GiB (59.9GB) </td><td class="col4"> 2.0 </td><td class="col5"> ext4</td><td class="col6"> 88.51 </td><td class="col7"> 13.63 </td><td class="col8"> 4721 </td><td class="col9"> 4216 </td><td class="col10"> 128686 </td><td class="col11"> 12.5 (not a typo) </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> D-Link DIR-835 rev. A1 </td><td class="col1"> A1 </td><td class="col2"> Attitude Adjustment, r39789 </td><td class="col3"> <a href="http://www.aliexpress.com/store/product/Free-Shipping-Super-Low-Price-128MB-8GB-16GB-32GB-64GB-Swivel-USB-2-0-Flash-Drive/1036461_1486356715.html" class="urlextern" title="http://www.aliexpress.com/store/product/Free-Shipping-Super-Low-Price-128MB-8GB-16GB-32GB-64GB-Swivel-USB-2-0-Flash-Drive/1036461_1486356715.html"  rel="nofollow">UDisk</a>, 64GiB (59.9GB) </td><td class="col4"> 2.0 </td><td class="col5"> vfat </td><td class="col6"> 87.48 </td><td class="col7"> 13.35 </td><td class="col8"> ? </td><td class="col9"> ? </td><td class="col10"> ? </td><td class="col11"> ? </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <a href="../toh/tp-link/tl-wr1043nd" class="wikilink1" title="toh:tp-link:tl-wr1043nd">TP-Link TL-WR1043ND</a> v1.8 </td><td class="col1"> 2.0 </td><td class="col2"> Attitude Adjustment, r33883 </td><td class="col3"> SanDisk Cruzer Extreme, 32GB (PID: SDCZ80-032G-X46) </td><td class="col4"> 3.0 </td><td class="col5"> ext4 </td><td class="col6"> 106.40 </td><td class="col7"> 24.21 </td><td class="col8"> 22,124 </td><td class="col9"> 12,774 </td><td class="col10"> 29,664 </td><td class="col11"> 718.6 </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <a href="../toh/tp-link/tl-wr1043nd" class="wikilink1" title="toh:tp-link:tl-wr1043nd">TP-Link TL-WR1043ND</a> v1.8 </td><td class="col1"> 2.0 </td><td class="col2"> Attitude Adjustment, r33883 </td><td class="col3"> Unknown Manufacturer, 2GB </td><td class="col4"> 2.0 </td><td class="col5"> ext4 </td><td class="col6"> 89.17 </td><td class="col7"> 13.41 </td><td class="col8"> 1,623 </td><td class="col9"> 1,485 </td><td class="col10"> 14,661 </td><td class="col11"> 73.6 </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <a href="../toh/tp-link/tl-mr3020" class="wikilink1" title="toh:tp-link:tl-mr3020">TP-Link TL-MR3020</a> v1.6 </td><td class="col1"> 2.0 </td><td class="col2"> Attitude Adjustment, r33883 </td><td class="col3"> SanDisk Cruzer Fit, 16GB (PID: SDCZ33-016G-B35) </td><td class="col4"> 2.0 </td><td class="col5"> ext4 </td><td class="col6 leftalign"> 70.27  </td><td class="col7 leftalign"> 18.65  </td><td class="col8"> 5,091 </td><td class="col9"> 3,254 </td><td class="col10"> 19,499 </td><td class="col11"> 33.7 </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <a href="../toh/tp-link/tl-mr3020" class="wikilink1" title="toh:tp-link:tl-mr3020">TP-Link TL-MR3020</a> v1.6 </td><td class="col1"> 2.0 </td><td class="col2"> Attitude Adjustment, r33883 </td><td class="col3"> Kingston DTSE9H, 16GB </td><td class="col4"> 2.0 </td><td class="col5"> ext4 </td><td class="col6 leftalign"> 72.93  </td><td class="col7 leftalign"> 17.19  </td><td class="col8"> 11,519 </td><td class="col9"> 6,998 </td><td class="col10"> 17,661 </td><td class="col11"> 339.6 </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> <a href="../toh/tp-link/tl-mr3220" class="wikilink1" title="toh:tp-link:tl-mr3220">TP-Link TL-MR3220</a> v1.0 </td><td class="col1"> 2.0 </td><td class="col2"> Attitude Adjustment, r36088 </td><td class="col3"> Lexar Jumpdrive S73, 32GB </td><td class="col4"> 3.0 </td><td class="col5"> ext4 without journal </td><td class="col6 leftalign"> 75.07   </td><td class="col7 leftalign"> 26.07  </td><td class="col8"> 24,395 </td><td class="col9"> 12,403 </td><td class="col10"> 30,900 </td><td class="col11"> 200.2 </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> <a href="../toh/tp-link/tl-wr842nd" class="wikilink1" title="toh:tp-link:tl-wr842nd">TP-Link TL-WR842ND</a> v1.0 </td><td class="col1"> 2.0 </td><td class="col2"> Attitude Adjustment, r33312 </td><td class="col3"> SanDisk Cruzer Fit, 16GB (PID: SDCZ33-016G-B35) </td><td class="col4"> 2.0 </td><td class="col5"> ext4 </td><td class="col6 leftalign"> 73.40  </td><td class="col7 leftalign"> 18.88  </td><td class="col8"> 5,053 </td><td class="col9"> 3,227 </td><td class="col10"> 20,335 </td><td class="col11"> 34.2 </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0"> <a href="../toh/tp-link/tl-wr842nd" class="wikilink1" title="toh:tp-link:tl-wr842nd">TP-Link TL-WR842ND</a> v1.0 </td><td class="col1"> 2.0 </td><td class="col2"> Attitude Adjustment, r33312 </td><td class="col3"> Kingston DTSE9H, 16GB </td><td class="col4"> 2.0 </td><td class="col5"> ext4 </td><td class="col6 leftalign"> 71.51  </td><td class="col7 leftalign"> 16.44  </td><td class="col8"> 12,548 </td><td class="col9"> 6,758 </td><td class="col10"> 17,849 </td><td class="col11"> 330.9 </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0"> <a href="../toh/tp-link/tl-wr842nd" class="wikilink1" title="toh:tp-link:tl-wr842nd">TP-Link TL-WR842ND</a> v1.0 </td><td class="col1"> 2.0 </td><td class="col2"> Attitude Adjustment, r34185 (12.09-rc1) </td><td class="col3"> Seagate Free Agent Desktop, 250GB </td><td class="col4"> 2.0 </td><td class="col5"> ext4 data=ordered barrier=1 </td><td class="col6"> 72.15 </td><td class="col7"> 23.12 </td><td class="col8"> 15,895 or <a href="https://forum.openwrt.org/viewtopic.php?id=28574" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=28574"  rel="nofollow"> 31,864</a> </td><td class="col9"> 9,900 or <a href="https://forum.openwrt.org/viewtopic.php?id=28574" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=28574"  rel="nofollow"> 12,645</a> </td><td class="col10"> 26,373 or <a href="https://forum.openwrt.org/viewtopic.php?id=28574" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=28574"  rel="nofollow"> 33,142</a> </td><td class="col11"> 94.0 or <a href="https://forum.openwrt.org/viewtopic.php?id=28574" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=28574"  rel="nofollow"> 117.7</a> </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0"> <a href="../toh/linksys/wrt160nl" class="wikilink1" title="toh:linksys:wrt160nl">Linksys WRT160NL-DE</a> v1.0 </td><td class="col1"> 2.0 </td><td class="col2"> Attitude Adjustment, r33312 </td><td class="col3"> SanDisk Cruzer Fit, 16GB (PID: SDCZ33-016G-B35) </td><td class="col4"> 2.0 </td><td class="col5"> ext4 </td><td class="col6 leftalign"> 106.4  </td><td class="col7 leftalign"> 17.8  </td><td class="col8"> 5,019 </td><td class="col9"> 3,286 </td><td class="col10"> 19,500 </td><td class="col11"> 37.4 </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0"> <a href="../toh/linksys/wrt160nl" class="wikilink1" title="toh:linksys:wrt160nl">Linksys WRT160NL-DE</a> v1.0 </td><td class="col1"> 2.0 </td><td class="col2"> Attitude Adjustment, r33883 </td><td class="col3"> Kingston DTSE9H, 16GB </td><td class="col4"> 2.0 </td><td class="col5"> ext4 </td><td class="col6 leftalign"> 99.75  </td><td class="col7 leftalign"> 15.64  </td><td class="col8"> 12,405 </td><td class="col9"> 6,727 </td><td class="col10"> 21,925 </td><td class="col11"> 324.6 </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0"> <a href="../toh/buffalo/wzr-hp-g300h" class="wikilink1" title="toh:buffalo:wzr-hp-g300h">Buffalo WZR-HP-G300H-EU</a> v1.0 </td><td class="col1"> 2.0 </td><td class="col2"> Attitude Adjustment, r33312 </td><td class="col3"> SanDisk Cruzer Fit, 16GB (PID: SDCZ33-016G-B35) </td><td class="col4"> 2.0 </td><td class="col5"> ext4 </td><td class="col6 leftalign"> 158.53  </td><td class="col7 leftalign"> 19.92  </td><td class="col8"> 5,240 </td><td class="col9"> 3,866 </td><td class="col10"> +++++ </td><td class="col11"> 36.1 </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0"> <a href="../toh/buffalo/wzr-hp-g300h" class="wikilink1" title="toh:buffalo:wzr-hp-g300h">Buffalo WZR-HP-G300H-EU</a> v1.0 </td><td class="col1"> 2.0 </td><td class="col2"> Attitude Adjustment, r33312 </td><td class="col3"> Kingston DTSE9H, 16GB </td><td class="col4"> 2.0 </td><td class="col5"> ext4 </td><td class="col6 leftalign"> 133.21  </td><td class="col7 leftalign"> 16.61  </td><td class="col8"> 16,485 </td><td class="col9"> 17,118 </td><td class="col10"> 65,676 </td><td class="col11"> 969.1 </td>
+	</tr>
+	<tr class="row18">
+		<th class="col0 leftalign" colspan="3">            </th><th class="col3 leftalign" colspan="3">              </th><th class="col6 leftalign" colspan="2">                                </th><th class="col8 leftalign" colspan="4">                                                          </th>
+	</tr>
+	<tr class="row19">
+		<th class="col0 centeralign" colspan="3">      Router     </th><th class="col3 centeralign" colspan="3">      Flash Drive       </th><th class="col6 centeralign" colspan="2">                  hdparm                         </th><th class="col8 centeralign" colspan="4">                                    bonnie++                        </th>
+	</tr>
+	<tr class="row20">
+		<th class="col0 leftalign" colspan="3">                 </th><th class="col3 leftalign" colspan="3">                        </th><th class="col6 centeralign" colspan="2">                Timing (<abbr title="Megabyte">MB</abbr>/s)                    </th><th class="col8 centeralign" colspan="2">  Sequential Output (KB/s)  </th><th class="col10 centeralign">  Sequential Input (KB/s)  </th><th class="col11 centeralign">  Random     </th>
+	</tr>
+	<tr class="row21">
+		<th class="col0"> Device </th><th class="col1"> USB </th><th class="col2"> Software Version </th><th class="col3"> Drive </th><th class="col4"> USB </th><th class="col5"> Filesystem </th><th class="col6 centeralign">   Cached Reads  </th><th class="col7 centeralign">   Buffered Disk Reads          </th><th class="col8 centeralign">  Block  </th><th class="col9 centeralign">      Rewrite      </th><th class="col10 centeralign">        Block              </th><th class="col11 centeralign">   Seeks/s   </th>
+	</tr>
+	<tr class="row22">
+		<td class="col0"> <a href="../toh/arcadyan/arv4518pw" class="wikilink1" title="toh:arcadyan:arv4518pw">ARV4518PW</a> </td><td class="col1"> 2.0 </td><td class="col2"> Barrier Breaker, r35905 </td><td class="col3"> Maxell, 4GB </td><td class="col4"> 2.0 </td><td class="col5"> ext4 </td><td class="col6"> 57.97 </td><td class="col7"> 12.86 </td><td class="col8"> 3,776 </td><td class="col9"> 2,918 </td><td class="col10"> 16,518 </td><td class="col11"> 17.1 </td>
+	</tr>
+	<tr class="row23">
+		<td class="col0"> <a href="../toh/comtrend/vr3025un" class="wikilink1" title="toh:comtrend:vr3025un">VR-3025un</a> </td><td class="col1"> 2.0 </td><td class="col2"> Barrier Breaker, r37514 </td><td class="col3"> Maxell, 4GB </td><td class="col4"> 2.0 </td><td class="col5"> ext4 </td><td class="col6"> 87.66 </td><td class="col7"> 12.82 </td><td class="col8"> 2,743 </td><td class="col9"> 2,654 </td><td class="col10"> 19,213 </td><td class="col11"> 16.9 </td>
+	</tr>
+	<tr class="row24">
+		<td class="col0"> <a href="../toh/comtrend/vr3025un" class="wikilink1" title="toh:comtrend:vr3025un">VR-3025un SMP</a> </td><td class="col1"> 2.0 </td><td class="col2"> Barrier Breaker, r37842 </td><td class="col3"> Maxell, 4GB </td><td class="col4"> 2.0 </td><td class="col5"> ext4 </td><td class="col6"> 116.20 </td><td class="col7"> 13.24 </td><td class="col8"> 3,815 </td><td class="col9"> 2,939 </td><td class="col10"> 18,480 </td><td class="col11"> 18.4 </td>
+	</tr>
+	<tr class="row25">
+		<td class="col0"> <a href="http://www.parkytowers.me.uk/thin/wyse/s10/index.shtml" class="urlextern" title="http://www.parkytowers.me.uk/thin/wyse/s10/index.shtml"  rel="nofollow">Wyse Winterm S10</a> </td><td class="col1"> 2.0 </td><td class="col2"> Attitude Adjustment, r34668 </td><td class="col3"> Maxell, 4GB </td><td class="col4"> 2.0 </td><td class="col5"> ext4 </td><td class="col6"> 134.98 </td><td class="col7"> 13.72 </td><td class="col8"> 3,861 </td><td class="col9"> 3,167 </td><td class="col10"> 18,472 </td><td class="col11"> 17.6 </td>
+	</tr>
+	<tr class="row26">
+		<td class="col0"> <a href="../toh/tp-link/tl-wdr4300" class="wikilink1" title="toh:tp-link:tl-wdr4300">TP-Link TL-WDR4300</a> v.1.1 </td><td class="col1"> 2.0 </td><td class="col2"> Attitude Adjustment, r34185 (12.09-rc1) </td><td class="col3"> Unknown Manufacturer,<sup><a href="benchmark.usb#fn__1" id="fnt__1" class="fn_top">1)</a></sup> 2GB </td><td class="col4"> 2.0 </td><td class="col5"> ext4 </td><td class="col6"> 82.57 </td><td class="col7"> 9.85 </td><td class="col8"> 272 </td><td class="col9"> 599 </td><td class="col10"> +++++ </td><td class="col11"> 36.2 </td>
+	</tr>
+	<tr class="row27">
+		<td class="col0"> <a href="../toh/tp-link/tl-wdr4300" class="wikilink1" title="toh:tp-link:tl-wdr4300">TP-Link TL-WDR4300</a> v.1.1 </td><td class="col1"> 2.0 </td><td class="col2"> Attitude Adjustment, r34185 (12.09-rc1) </td><td class="col3"> SanDisk Corp. Cruzer Glide, 8GB (PID: SDCZ60-008G) </td><td class="col4"> 2.0 </td><td class="col5"> ext4 </td><td class="col6"> 89.17 </td><td class="col7"> 20.43 </td><td class="col8"> 10,901 </td><td class="col9"> 11,741 </td><td class="col10"> +++++ </td><td class="col11"> 1,458 </td>
+	</tr>
+</table></div>
+</div>
+<p>
+<em>
+Sequential Output = Write performance<br/>
+
+Sequential Input = Read performance<br/>
+
+Random Seeks = IOPS
+</em>
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="usb_hard_drives">USB Hard drives</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Run the followings commands: <pre class="code">hdparm -Tt /dev/sda#</pre>
+ <pre class="code">mkdir -p /mnt/benchmark</pre>
+ <pre class="code">mount -O rw,noatime -t ext4 /dev/sda# /mnt/benchmark
+bonnie++ -n 0 -u 0 -s 64 -f -b -d /mnt/benchmark</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> <code>hdparm</code> and <code>bonnie++</code> are <strong>non-destructive</strong> benchmarks</div>
+</li>
+<li class="level1"><div class="li"> bonnie should auto-detect RAM size but you may need to use <code>-r</code> parameter to override. Also you may adjust <code>-s</code> to be double of <code>-r</code>.</div>
+</li>
+</ul>
+<div class="sortable"><div class="table sectionedit7"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign" colspan="3">            </th><th class="col3 leftalign" colspan="3">              </th><th class="col6 leftalign" colspan="2">                                </th><th class="col8 leftalign" colspan="4">                                                          </th>
+	</tr>
+	<tr class="row1">
+		<th class="col0 centeralign" colspan="3">      Router     </th><th class="col3 centeralign" colspan="3">      Hard Drive       </th><th class="col6 centeralign" colspan="2">                  hdparm                         </th><th class="col8 centeralign" colspan="4">                                    bonnie++                        </th>
+	</tr>
+	<tr class="row2">
+		<th class="col0 leftalign" colspan="3">                 </th><th class="col3 leftalign" colspan="3">                        </th><th class="col6 centeralign" colspan="2">                Timing (<abbr title="Megabyte">MB</abbr>/s)                    </th><th class="col8 centeralign" colspan="2">  Sequential Output (KB/s)  </th><th class="col10 centeralign">  Sequential Input (KB/s)  </th><th class="col11 centeralign">  Random     </th>
+	</tr>
+	<tr class="row3">
+		<th class="col0"> Device </th><th class="col1"> USB </th><th class="col2"> Software Version </th><th class="col3"> Drive </th><th class="col4"> USB </th><th class="col5"> Filesystem </th><th class="col6 centeralign">   Cached Reads  </th><th class="col7 centeralign">   Buffered Disk Reads          </th><th class="col8 centeralign">  Block  </th><th class="col9 centeralign">      Rewrite      </th><th class="col10 centeralign">        Block              </th><th class="col11 centeralign">   Seeks/s   </th>
+	</tr>
+	</thead>
+	<tr class="row4">
+		<td class="col0"> <a href="../toh/buffalo/wzr-hp-ag300h" class="wikilink1" title="toh:buffalo:wzr-hp-ag300h">Buffalo WZR-HP-AG300H</a> </td><td class="col1"> 2.0 </td><td class="col2"> Attitude Adjustment, r31761 </td><td class="col3"> Seagate 2TB </td><td class="col4"> 2.0 </td><td class="col5"> ext4 </td><td class="col6 leftalign"> 134.75  </td><td class="col7 leftalign"> 27.87  </td><td class="col8"> 30,757 </td><td class="col9"> 31.057 </td><td class="col10"> +++++ </td><td class="col11"> 186.0 </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <a href="../toh/tp-link/tl-wr842nd" class="wikilink1" title="toh:tp-link:tl-wr842nd">TL-WR842ND</a> </td><td class="col1"> 2.0 </td><td class="col2"> Attitude Adjustment, r36088 </td><td class="col3"> WD 750MB </td><td class="col4"> 3.0 </td><td class="col5"> xfs </td><td class="col6 leftalign"> 69.51  </td><td class="col7 leftalign"> 17.98  </td><td class="col8"> 4,100 </td><td class="col9"> 3,911 </td><td class="col10"> 24,651 </td><td class="col11"> 103.8 </td>
+	</tr>
+</table></div>
+
+<p>
+<div class="footnotes">
+<div class="fn"><sup><a href="benchmark.usb#fnt__1" id="fn__1" class="fn_bot">1)</a></sup> 
+Presents as &quot;<code>Kingston Technology Company Inc. DataTraveler 2.0 1GB/4GB Flash Drive / Patriot Xporter 4GB Flash Drive</code>&quot; in <code>lsusb</code></div>
+</div>
+
+</p>
+</div>
+<p>
+<em>
+Sequential Output = Write performance<br/>
+
+Sequential Input = Read performance<br/>
+
+Random Seeks = IOPS
+</em>
+</p>
+
+</div>
+<div class="footnotes">
+<div class="fn"><sup><a href="benchmark.usb#fnt__1" id="fn__1" class="fn_bot">1)</a></sup> 
+Presents as &quot;<code>Kingston Technology Company Inc. DataTraveler 2.0 1GB/4GB Flash Drive / Patriot Xporter 4GB Flash Drive</code>&quot; in <code>lsusb</code></div>
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>inbox/benchmark.usb.txt</bdi> · Last modified: 2014/07/20 18:50 by <bdi>spy00a35</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="benchmark.usb?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="benchmark.usb?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="benchmark.usb?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="benchmark.usb#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../lib/exe/indexer.php?id=inbox%253Abenchmark.usb&amp;1432265559" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

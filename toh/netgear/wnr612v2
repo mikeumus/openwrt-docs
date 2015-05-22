@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Netgear WNR612 v2 [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="fastethernet,1nic,1wnic,2port,ath9k,32ram,8flash,mips"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="wnr612v2?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=toh:netgear"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/toh/netgear/wnr612v2"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/toh/netgear/wnr612v2"/>
+<link rel="canonical" href="wnr612v2"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='toh:netgear';var JSINFO = {"id":"toh:netgear:wnr612v2","namespace":"toh:netgear"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432278950 166.182.3.101';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="wnr612v2#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="wnr612v2?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="wnr612v2?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="toh:netgear:wnr612v2" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="wnr612v2?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="wnr612v2?do=media&amp;ns=toh%253Anetgear"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="wnr612v2?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="toh:start">Table of Hardware</a></bdi> » <bdi><a href="start" class="wikilink1" title="toh:netgear:start">Netgear</a></bdi> » <bdi><span class="curid"><a href="wnr612v2" class="wikilink1" title="toh:netgear:wnr612v2">Netgear WNR612 v2</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/toh/netgear/wnr612v2" class="media" title="cz:toh:netgear:wnr612v2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/toh/netgear/wnr612v2" class="media" title="de:toh:netgear:wnr612v2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="wnr612v2" class="media" title="toh:netgear:wnr612v2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/toh/netgear/wnr612v2" class="media" title="es:toh:netgear:wnr612v2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/toh/netgear/wnr612v2" class="media" title="fr:toh:netgear:wnr612v2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/toh/netgear/wnr612v2" class="media" title="hu:toh:netgear:wnr612v2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/toh/netgear/wnr612v2" class="media" title="jp:toh:netgear:wnr612v2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/toh/netgear/wnr612v2" class="media" title="pl:toh:netgear:wnr612v2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/toh/netgear/wnr612v2" class="media" title="pt-br:toh:netgear:wnr612v2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/toh/netgear/wnr612v2" class="media" title="ru:toh:netgear:wnr612v2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/toh/netgear/wnr612v2" class="media" title="tr:toh:netgear:wnr612v2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/toh/netgear/wnr612v2" class="media" title="zh-cn:toh:netgear:wnr612v2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/toh/netgear/wnr612v2" class="media" title="zh-tw:toh:netgear:wnr612v2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>toh:netgear:wnr612v2</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="wnr612v2#hardware_highlights">Hardware Highlights</a></div></li>
+<li class="level1"><div class="li"><a href="wnr612v2#installation">Installation</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="wnr612v2#flash_layout">Flash Layout</a></div></li>
+<li class="level2"><div class="li"><a href="wnr612v2#oem_easy_installation">OEM easy installation</a></div></li>
+<li class="level2"><div class="li"><a href="wnr612v2#oem_installation_using_the_tftp_method">OEM installation using the TFTP method</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="wnr612v2#luci_web_upgrade_process">LuCI Web Upgrade Process</a></div></li>
+<li class="level3"><div class="li"><a href="wnr612v2#terminal_upgrade_process">Terminal Upgrade Process</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="wnr612v2#basic_configuration">Basic configuration</a></div></li>
+<li class="level1"><div class="li"><a href="wnr612v2#specific_configuration">Specific Configuration</a></div></li>
+<li class="level1"><div class="li"><a href="wnr612v2#hardware">Hardware</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="wnr612v2#info">Info</a></div></li>
+<li class="level2"><div class="li"><a href="wnr612v2#photos">Photos</a></div></li>
+<li class="level2"><div class="li"><a href="wnr612v2#opening_the_case">Opening the case</a></div></li>
+<li class="level2"><div class="li"><a href="wnr612v2#serial">Serial</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="wnr612v2#bootlogs">Bootlogs</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="wnr612v2#openwrt_bootlog">OpenWrt bootlog</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="wnr612v2#notes">Notes</a></div></li>
+<li class="level1"><div class="li"><a href="wnr612v2#tags">Tags</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="netgear_wnr612_v2">Netgear WNR612 v2</h1>
+<div class="level1">
+
+<p>
+This router is a device with 2 <abbr title="Local Area Network">LAN</abbr> + 1 WAN-port, plus WLAN. The v2 reflects the 2 <abbr title="Local Area Network">LAN</abbr>-ports.
+</p>
+
+<p>
+<strong>Note:</strong> The device is very similar to the <a href="wnr2000" class="wikilink1" title="toh:netgear:wnr2000">NetGear WNR2000v3</a>, but has less <abbr title="Local Area Network">LAN</abbr> ports.
+</p>
+
+<p>
+<strong>Note:</strong> The device is re-branded as the <strong>On Networks N150 router</strong>, in a different casing.
+</p>
+
+<p>
+OEM source code available at: <a href="ftp://downloads.netgear.com/files/GPL/wnr612v2-V1.0.0.3_1.0.2_src.tar.bz2.zip" class="urlextern" title="ftp://downloads.netgear.com/files/GPL/wnr612v2-V1.0.0.3_1.0.2_src.tar.bz2.zip"  rel="nofollow">ftp://downloads.netgear.com/files/GPL/wnr612v2-V1.0.0.3_1.0.2_src.tar.bz2.zip</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="hardware_highlights">Hardware Highlights</h2>
+<div class="level2">
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> SoC </th><th class="col1"> Ram </th><th class="col2"> Flash </th><th class="col3"> Network </th><th class="col4"> USB </th><th class="col5"> Serial </th><th class="col6"> JTag </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> Atheros AR7240 </td><td class="col1"> 32MiB </td><td class="col2"> 4MiB </td><td class="col3"> 2 x 1 </td><td class="col4"> No </td><td class="col5"> Yes </td><td class="col6"> ? </td>
+	</tr>
+</table></div>
+
+<p>
+Manufacturer&#039;s site: <a href="http://support.netgear.com/product/WNR612v2" class="urlextern" title="http://support.netgear.com/product/WNR612v2"  rel="nofollow">http://support.netgear.com/product/WNR612v2</a>
+</p>
+<div class="table sectionedit4"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <a href="../../doc/howto/generic.overview" class="wikilink1" title="doc:howto:generic.overview">generic.overview</a> if you have no time to write certain stuff link to this </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 leftalign"> <a href="../../doc/howto/configuration" class="wikilink1" title="doc:howto:basic.config">basic.config</a> should lead the way, do not explain this again  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit5" id="installation">Installation</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> How to obtain firmware <a href="../../doc/howto/obtain.firmware" class="wikilink1" title="doc:howto:obtain.firmware">obtain.firmware</a></div>
+</li>
+<li class="level1"><div class="li"> How to install OpenWrt <a href="../../doc/howto/installing" class="wikilink1" title="doc:howto:generic.flashing">Install OpenWrt</a></div>
+</li>
+</ol>
+<div class="table sectionedit6"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Model </th><th class="col1"> supported since </th><th class="col2"> Image name </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> Netgear WNR612v2 </td><td class="col1"> ? </td><td class="col2"> ar71xx/generic/openwrt-ar71xx-generic-wnr612v2 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> On Networks N150 </td><td class="col1"> r39320 </td><td class="col2"> ar71xx/generic/openwrt-ar71xx-generic-n150r </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit7" id="flash_layout">Flash Layout</h3>
+<div class="level3">
+
+</div>
+
+<h3 class="sectionedit8" id="oem_easy_installation">OEM easy installation</h3>
+<div class="level3">
+
+<p>
+You may install OpenWRT using upgrade firmware of web interface of original firmware.
+</p>
+<ol>
+<li class="level1"><div class="li"> Download a squashfs-factory image file of OpenWRT.</div>
+</li>
+<li class="level1"><div class="li"> Set IP from pool 192.168.1.2-192.168.1.254 on your computer and next open <a href="http://192.168.1.1" class="urlextern" title="http://192.168.1.1"  rel="nofollow">http://192.168.1.1</a> in the web brouser.</div>
+</li>
+<li class="level1"><div class="li"> Select an <em>Administration</em> page, use firmware file selection button and firmware upgrade button to start firmware upgrade process.</div>
+</li>
+<li class="level1"><div class="li"> Confirm firmwware upgrade to OpenWRT.</div>
+</li>
+<li class="level1"><div class="li"> Wait upload process, firmware upgrade process, additional wait up to 10 minutes. You wiil be able to notice this moment when browser won&#039;t be load <a href="http://192.168.1.1/index.htm" class="urlextern" title="http://192.168.1.1/index.htm"  rel="nofollow">http://192.168.1.1/index.htm</a> at its next updating.</div>
+</li>
+<li class="level1"><div class="li"> Telnet to 192.168.1.1. You in the <a href="../../doc/uci.1" class="wikilink1" title="doc:uci">OpenWRT console</a>. Now you may install <a href="../../doc/luci" class="wikilink2" title="doc:luci" rel="nofollow">LuCI</a> if needed.</div>
+</li>
+<li class="level1"><div class="li"> If you can&#039;t connect via telnet, simple switch off and turn on router, wait several tens of seconds for router booting, and again try connect.</div>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit9" id="oem_installation_using_the_tftp_method">OEM installation using the TFTP method</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Connect via serial console</div>
+</li>
+<li class="level1"><div class="li"> Interrupt U-Boot by pressing any key</div>
+</li>
+<li class="level1"><div class="li"> You may need to enable writes to the flash by issuing &quot;protect off all&quot;</div>
+</li>
+<li class="level1"><div class="li"> At the U-Boot prompt enter the <code>fsload</code> command</div>
+</li>
+<li class="level1"><div class="li"> A TFTP server starts listening on port 192.168.1.1</div>
+</li>
+<li class="level1"><div class="li"> Start TFTPing the image now</div>
+<ul>
+<li class="level2"><div class="li"> For the V1: <code>openwrt-ar71xx-generic-wnr612v2-squashfs-factory.img</code></div>
+</li>
+<li class="level2"><div class="li"> For the V2: <code>openwrt-ar71xx-generic-wnr612v2-squashfs-factory.img</code></div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+<pre class="code">tftp 192.168.1.1
+mode binary
+put openwrt-ar71xx-generic-wnr612v2-squashfs-factory.img
+quit</pre>
+
+</p>
+
+</div>
+
+<h4 id="luci_web_upgrade_process">LuCI Web Upgrade Process</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Browse to <a href="http://192.168.1.1/cgi-bin/luci/mini/system/upgrade/" class="urlextern" title="http://192.168.1.1/cgi-bin/luci/mini/system/upgrade/"  rel="nofollow">http://192.168.1.1/cgi-bin/luci/mini/system/upgrade/</a> LuCI Upgrade <abbr title="Uniform Resource Locator">URL</abbr></div>
+</li>
+<li class="level1"><div class="li"> Upload image file for sysupgrade to LuCI</div>
+</li>
+<li class="level1"><div class="li"> Wait for reboot</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="terminal_upgrade_process">Terminal Upgrade Process</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Login as root via SSH on 192.168.1.1</div>
+</li>
+<li class="level1"><div class="li"> Use the following commands to upgrade.</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">cd /tmp/
+wget http://http://downloads.openwrt.org/snapshots/trunk/XXX/xxx.abc
+sysupgrade /tmp/xxx.abc</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li">If sysupgrade does not support this router, use the following commands.</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">cd /tmp/
+wget http://http://downloads.openwrt.org/snapshots/trunk/XXX/xxx.abc
+mtd write /tmp/xxx.abc linux &amp;&amp; reboot</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit10" id="basic_configuration">Basic configuration</h2>
+<div class="level2">
+
+<p>
+→ <a href="../../doc/howto/configuration" class="wikilink1" title="doc:howto:basic.config">Basic configuration</a> After flashing, proceed with this.<br/>
+
+Set up your Internet connection, configure wireless, configure USB port, etc.
+</p>
+
+</div>
+
+<h2 class="sectionedit11" id="specific_configuration">Specific Configuration</h2>
+<div class="level2">
+
+</div>
+
+<h2 class="sectionedit12" id="hardware">Hardware</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit13" id="info">Info</h3>
+<div class="level3">
+<div class="table sectionedit14"><table class="inline">
+	<tr class="row0">
+		<td class="col0 leftalign"> <strong><a href="http://en.wikipedia.org/wiki/Instruction set" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Instruction set">Instruction set</a>:</strong>               </td><td class="col1 leftalign"> <a href="http://en.wikipedia.org/wiki/MIPS architecture" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/MIPS architecture">MIPS</a>   </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 leftalign"> <strong>Vendor:</strong>                               </td><td class="col1 leftalign"> <a href="http://en.wikipedia.org/wiki/Qualcomm Atheros" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Qualcomm Atheros">Qualcomm Atheros</a>   </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <strong><a href="../../doc/techref/bootloader.1" class="wikilink1" title="doc:techref:bootloader">Bootloader</a>:</strong>           </td><td class="col1 leftalign"> <a href="../../doc/techref/bootloader/uboot" class="wikilink1" title="doc:techref:bootloader:uboot">U-Boot</a>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/soc.1" class="wikilink1" title="doc:hardware:soc">System-On-Chip</a>:</strong>  </td><td class="col1"> Atheros AR7240 </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/cpu" class="wikilink1" title="doc:hardware:cpu">CPU</a> @Frq</strong>         </td><td class="col1"> MIPS 24Kc V7.4 @400MHz </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> <strong>Flash size:</strong>                 </td><td class="col1"> 4096 KiB </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> <strong>RAM size:</strong>                   </td><td class="col1 leftalign"> 32 MiB   </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> <strong>Wireless No1:</strong>               </td><td class="col1"> <em>distinct Chip</em>: AR9285 </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/switch" class="wikilink1" title="doc:hardware:switch">Switch</a>:</strong>    </td><td class="col1"> </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> <strong>USB:</strong>                        </td><td class="col1 leftalign"> No  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> <strong><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console" class="wikilink1" title="doc:hardware:port.serial">Serial</a>:</strong>  </td><td class="col1"> <a href="wnr612v2#serial" title="toh:netgear:wnr612v2 ↵" class="wikilink1">Yes</a> </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/port.jtag" class="wikilink1" title="doc:hardware:port.jtag">JTAG</a>:</strong>      </td><td class="col1 leftalign"> <a href="wnr612v2#jtag" title="toh:netgear:wnr612v2 ↵" class="wikilink1">No</a>   </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit15" id="photos">Photos</h3>
+<div class="level3">
+
+<p>
+Model Number
+</p>
+
+<p>
+<em>Front:</em>
+</p>
+
+<p>
+<strong>Photo of front of the casing</strong>
+</p>
+
+<p>
+<a href="../../_detail/media/toh/netgear/n150r_case2.jpg?id=toh%253Anetgear%253Awnr612v2" class="media" title="media:toh:netgear:n150r_case2.jpg"><img src="../../_media/media/toh/netgear/n150r_case2.jpg" class="media" title="WNR612v2 front" alt="WNR612v2 front" /></a>
+</p>
+
+<p>
+<strong>Photo of back of the casing</strong>
+</p>
+
+<p>
+<a href="../../_detail/media/toh/netgear/n150r_case1.jpg?id=toh%253Anetgear%253Awnr612v2" class="media" title="media:toh:netgear:n150r_case1.jpg"><img src="../../_media/media/toh/netgear/n150r_case1.jpg" class="media" title="WNR612v2 back" alt="WNR612v2 back" /></a>
+</p>
+
+</div>
+
+<h3 class="sectionedit16" id="opening_the_case">Opening the case</h3>
+<div class="level3">
+
+<p>
+<strong>Note:</strong> This will void your warranty!
+</p>
+
+<p>
+<a href="../../_detail/media/toh/netgear/n150r_pcb.jpg?id=toh%253Anetgear%253Awnr612v2" class="media" title="media:toh:netgear:n150r_pcb.jpg"><img src="../../_media/media/toh/netgear/n150r_pcb.jpg" class="media" title="WNR612v2 PCB" alt="WNR612v2 PCB" /></a>
+</p>
+
+<p>
+<a href="../../_detail/media/toh/netgear/n150r_pcb2.jpg?id=toh%253Anetgear%253Awnr612v2" class="media" title="media:toh:netgear:n150r_pcb2.jpg"><img src="../../_media/media/toh/netgear/n150r_pcb2.jpg" class="media" title="WNR612v2 PCB 2" alt="WNR612v2 PCB 2" /></a>
+</p>
+
+</div>
+
+<h3 class="sectionedit17" id="serial">Serial</h3>
+<div class="level3">
+
+<p>
+→ <a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console" class="wikilink1" title="doc:hardware:port.serial">port.serial</a> general information about the serial port, serial port cable, etc.
+</p>
+
+<p>
+The serial port is found at JPA1.
+</p>
+<div class="table sectionedit18"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">Pin Out</th><th class="col1">Description</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">Pin1</td><td class="col1">GND</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">Pin2</td><td class="col1">TX</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">Pin3</td><td class="col1">RX</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">Pin4</td><td class="col1">3.3V</td>
+	</tr>
+</table></div>
+
+<p>
+How to connect to the Serial Port of this specific device:
+</p>
+
+<p>
+<a href="../../_detail/media/toh/netgear/n150r_serial.jpg?id=toh%253Anetgear%253Awnr612v2" class="media" title="media:toh:netgear:n150r_serial.jpg"><img src="../../_media/media/toh/netgear/n150r_serial.jpg" class="media" title="WNR612v2 serial" alt="WNR612v2 serial" /></a>
+</p>
+
+</div>
+
+<h2 class="sectionedit19" id="bootlogs">Bootlogs</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit20" id="openwrt_bootlog">OpenWrt bootlog</h3>
+<div class="level3">
+
+<p style="padding: 10px;border:1px solid grey;height:600px;font:10px/14px Georgia, Garamond, Serif;overflow:Auto;background-color:#FFFFFF">
+<code>
+
+U-Boot 1.1.4 (WNR612 400 MHz, V0.7, Dec 12 2011 - 11:31:40)
+
+DRAM:
+sri
+#### TAP VALUE 1 = a, 2 = a
+32 MB
+Top of RAM usable for U-Boot at: 82000000
+Reserving 277k for U-Boot at: 81fb8000
+Reserving 192k for malloc() at: 81f88000
+Reserving 44 Bytes for Board Info at: 81f87fd4
+Reserving 36 Bytes for Global Data at: 81f87fb0
+Reserving 128k for boot params() at: 81f67fb0
+Stack Pointer at: 81f67f98
+Now running in RAM - U-Boot at: 81fb8000
+id read 0x100000ff
+flash size 4194304, sector count = 64
+Flash:  4 MB
+In:    serial
+Out:   serial
+Err:   serial
+Net:   ag7240_enet_initialize...
+No valid address in Flash. Using fixed address
+No valid address in Flash. Using fixed address
+: cfg1 0xf cfg2 0x7014
+eth0: 00:03:7f:09:0b:ad
+eth0 up
+: cfg1 0xf cfg2 0x7214
+eth1: 00:03:7f:09:0b:ad
+ATHRS26: resetting s26
+ATHRS26: s26 reset done
+eth1 up
+eth0, eth1
+Hit any key to stop autoboot:  0
+Trying eth1
+dup 1 speed 1000
+
+ Client starts...[Listening] for ADVERTISE...TTT
+Retry count exceeded; boot the image as usual
+
+ nmrp server is stopped or failed !
+   Verifying Checksum ... OK
+### SQUASHFS loading 'image/uImage' to 0x80800000
+### SQUASHFS load complete: 1065900 bytes loaded to 0x80800000
+## Booting image at 80800000 ...
+   Image Name:   MIPS OpenWrt Linux-3.10.49
+   Created:      2014-09-03  19:43:44 UTC
+   Image Type:   MIPS Linux Kernel Image (lzma compressed)
+   Data Size:    1065836 Bytes =  1 MB
+   Load Address: 80060000
+   Entry Point:  80060000
+   Verifying Checksum ... OK
+   Uncompressing Kernel Image ... OK
+No initrd
+## Transferring control to Linux (at address 80060000) ...
+## Giving linux memsize in bytes, 33554432
+
+Starting kernel ...
+
+[    0.000000] Linux version 3.10.49 (wigyori@trabant) (gcc version 4.8.3 (OpenWrt/Linaro GCC 4.8-2014.04 r42305) ) #3 Wed Sep 3 21:43:33 CEST 2014
+[    0.000000] bootconsole [early0] enabled
+[    0.000000] CPU revision is: 00019374 (MIPS 24Kc)
+[    0.000000] SoC: Atheros AR7240 rev 2
+[    0.000000] Clocks: CPU:400.000MHz, DDR:400.000MHz, AHB:200.000MHz, Ref:5.000MHz
+[    0.000000] Determined physical RAM map:
+[    0.000000]  memory: 02000000 @ 00000000 (usable)
+[    0.000000] Initrd not found or empty - disabling initrd
+[    0.000000] Zone ranges:
+[    0.000000]   Normal   [mem 0x00000000-0x01ffffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x00000000-0x01ffffff]
+[    0.000000] Primary instruction cache 64kB, VIPT, 4-way, linesize 32 bytes.
+[    0.000000] Primary data cache 32kB, 4-way, VIPT, cache aliases, linesize 32 bytes
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 8128
+[    0.000000] Kernel command line:  board=WNR612V2 console=ttyS0,115200 mtdparts=spi0.0:256k(u-boot)ro,64k(u-boot-env)ro,3712k(firmware),64k(art)ro rootfstype=squashfs,jffs2 noinitrd
+[    0.000000] PID hash table entries: 128 (order: -3, 512 bytes)
+[    0.000000] Dentry cache hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000] Inode-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.000000] Writing ErrCtl register=00000000
+[    0.000000] Readback ErrCtl register=00000000
+[    0.000000] Memory: 28784k/32768k available (2239k kernel code, 3984k reserved, 603k data, 228k init, 0k highmem)
+[    0.000000] SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] NR_IRQS:51
+[    0.000000] Calibrating delay loop... 265.42 BogoMIPS (lpj=1327104)
+[    0.080000] pid_max: default: 32768 minimum: 301
+[    0.080000] Mount-cache hash table entries: 512
+[    0.090000] NET: Registered protocol family 16
+[    0.100000] MIPS: machine is NETGEAR WNR612 V2
+[    0.500000] registering PCI controller with io_map_base unset
+[    0.510000] bio: create slab <bio-0> at 0
+[    0.520000] PCI host bridge to bus 0000:00
+[    0.520000] pci_bus 0000:00: root bus resource [mem 0x10000000-0x13ffffff]
+[    0.530000] pci_bus 0000:00: root bus resource [io  0x0000]
+[    0.530000] pci_bus 0000:00: No busn resource found for root bus, will use [bus 00-ff]
+[    0.540000] pci 0000:00:00.0: fixup device configuration
+[    0.540000] pci 0000:00:00.0: BAR 0: assigned [mem 0x10000000-0x1000ffff 64bit]
+[    0.550000] pci 0000:00:00.0: using irq 40 for pin 1
+[    0.550000] Switching to clocksource MIPS
+[    0.560000] NET: Registered protocol family 2
+[    0.560000] TCP established hash table entries: 512 (order: 0, 4096 bytes)
+[    0.570000] TCP bind hash table entries: 512 (order: -1, 2048 bytes)
+[    0.580000] TCP: Hash tables configured (established 512 bind 512)
+[    0.580000] TCP: reno registered
+[    0.590000] UDP hash table entries: 256 (order: 0, 4096 bytes)
+[    0.590000] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+[    0.600000] NET: Registered protocol family 1
+[    0.620000] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.630000] jffs2: version 2.2 (NAND) (SUMMARY) (LZMA) (RTIME) (CMODE_PRIORITY) (c) 2001-2006 Red Hat, Inc.
+[    0.640000] msgmni has been set to 56
+[    0.640000] io scheduler noop registered
+[    0.650000] io scheduler deadline registered (default)
+[    0.650000] Serial: 8250/16550 driver, 1 ports, IRQ sharing disabled
+[    0.680000] serial8250.0: ttyS0 at MMIO 0x18020000 (irq = 11) is a 16550A
+[    0.690000] console [ttyS0] enabled, bootconsole disabled
+[    0.690000] console [ttyS0] enabled, bootconsole disabled
+[    0.700000] ath79-spi ath79-spi: master is unqueued, this is deprecated
+[    0.710000] m25p80 spi0.0: found mx25l3205d, expected m25p80
+[    0.720000] m25p80 spi0.0: mx25l3205d (4096 Kbytes)
+[    0.720000] 4 cmdlinepart partitions found on MTD device spi0.0
+[    0.730000] Creating 4 MTD partitions on "spi0.0":
+[    0.730000] 0x000000000000-0x000000040000 : "u-boot"
+[    0.740000] 0x000000040000-0x000000050000 : "u-boot-env"
+[    0.750000] 0x000000050000-0x0000003f0000 : "firmware"
+[    0.750000] 2 netgear-fw partitions found on MTD device firmware
+[    0.760000] 0x000000050000-0x000000155440 : "kernel"
+[    0.760000] mtd: partition "kernel" must either start or end on erase block boundary or be smaller than an erase block -- forcing read-only
+[    0.780000] 0x000000155440-0x0000003f0000 : "rootfs"
+[    0.780000] mtd: partition "rootfs" must either start or end on erase block boundary or be smaller than an erase block -- forcing read-only
+[    0.800000] mtd: device 4 (rootfs) set to be root filesystem
+[    0.800000] 1 squashfs-split partitions found on MTD device rootfs
+[    0.810000] 0x0000003a0000-0x0000003f0000 : "rootfs_data"
+[    0.820000] 0x0000003f0000-0x000000400000 : "art"
+[    0.930000] libphy: ag71xx_mdio: probed
+[    1.510000] ag71xx ag71xx.0: connected to PHY at ag71xx-mdio.0:04 [uid=004dd041, driver=Generic PHY]
+[    1.520000] eth0: Atheros AG71xx at 0xb9000000, irq 4, mode:MII
+[    2.090000] ag71xx-mdio.0: Found an AR7240/AR9330 built-in switch
+[    3.120000] eth1: Atheros AG71xx at 0xba000000, irq 5, mode:GMII
+[    3.120000] TCP: cubic registered
+[    3.130000] NET: Registered protocol family 17
+[    3.130000] 8021q: 802.1Q VLAN Support v1.8
+[    3.150000] VFS: Mounted root (squashfs filesystem) readonly on device 31:4.
+[    3.160000] Freeing unused kernel memory: 228K (80327000 - 80360000)
+procd: Console is alive
+procd: - watchdog -
+[    5.820000] usbcore: registered new interface driver usbfs
+[    5.830000] usbcore: registered new interface driver hub
+[    5.830000] usbcore: registered new device driver usb
+[    5.850000] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    5.850000] ehci-platform: EHCI generic platform driver
+[    5.860000] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+procd: - preinit -
+Press the [f] key and hit [enter] to enter failsafe mode
+Press the [1], [2], [3] or [4] key and hit [enter] to select the debug level
+[    8.120000] eth1: link up (1000Mbps/Full duplex)
+jffs2 is ready
+jffs2 is ready
+[   10.720000] jffs2: notice: (298) jffs2_build_xattr_subsystem: complete building xattr subsystem, 1 of xdatum (0 unchecked, 0 orphan) and 14 of xref (0 dead, 2 orphan) found.
+switching to overlay
+[   10.760000] eth1: link down
+procd: - early -
+procd: - watchdog -
+procd: - ubus -
+procd: - init -
+Please press Enter to activate this console.
+[   12.230000] NET: Registered protocol family 10
+[   12.240000] tun: Universal TUN/TAP device driver, 1.6
+[   12.240000] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[   12.260000] nf_conntrack version 0.5.0 (453 buckets, 1812 max)
+[   12.270000] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[   12.290000] Loading modules backported from Linux version
+master-2014-05-22-0
+-gf2032ea
+[   12.300000] Backport generated by backports.git
+-backports-20140320-37-g5c33da
+0
+[   12.310000] ip_tables: (C) 2000-2006 Netfilter Core Team
+[   12.360000] xt_time: kernel timezone is -0000
+[   12.400000] cfg80211: Calling CRDA to update world regulatory domain
+[   12.400000] cfg80211: World regulatory domain updated:
+[   12.410000] cfg80211:  DFS Master region: unset
+[   12.410000] cfg80211:   (start_freq - end_freq @ bandwidth), (max_antenna_gain, max_eirp), (dfs_cac_time)
+[   12.420000] cfg80211:   (2402000 KHz - 2472000 KHz @ 40000 KHz), (N/A, 2000 mBm), (N/A)
+[   12.430000] cfg80211:   (2457000 KHz - 2482000 KHz @ 40000 KHz), (N/A, 2000 mBm), (N/A)
+[   12.440000] cfg80211:   (2474000 KHz - 2494000 KHz @ 20000 KHz), (N/A, 2000 mBm), (N/A)
+[   12.450000] cfg80211:   (5170000 KHz - 5250000 KHz @ 160000 KHz), (N/A, 2000 mBm), (N/A)
+[   12.450000] cfg80211:   (5250000 KHz - 5330000 KHz @ 160000 KHz), (N/A, 2000 mBm), (0 s)
+[   12.460000] cfg80211:   (5490000 KHz - 5730000 KHz @ 160000 KHz), (N/A, 2000 mBm), (0 s)
+[   12.470000] cfg80211:   (5735000 KHz - 5835000 KHz @ 80000 KHz), (N/A, 2000 mBm), (N/A)
+[   12.480000] cfg80211:   (57240000 KHz - 63720000 KHz @ 2160000 KHz), (N/A, 0mBm), (N/A)
+[   12.540000] PPP generic driver version 2.4.2
+[   12.560000] NET: Registered protocol family 24
+[   12.620000] PCI: Enabling device 0000:00:00.0 (0000 -> 0002)
+[   12.630000] ath: phy0: Enable LNA combining
+[   12.630000] ath: phy0: eeprom contains invalid mac address: ff:ff:ff:ff:ff:ff
+[   12.640000] ath: phy0: random mac address will be used: fe:64:6b:c4:d8:a1
+[   12.680000] cfg80211: Calling CRDA for country: US
+[   12.690000] cfg80211: Regulatory domain changed to country: US
+[   12.690000] cfg80211:  DFS Master region: FCC
+[   12.700000] cfg80211:   (start_freq - end_freq @ bandwidth), (max_antenna_gai
+[   12.480000] cfg80211:   (57240000 KHz - 63720000 KHz @ 2160000 KHz), (N/A, 0 mBm), (N/A)
+[   12.540000] PPP generic driver version 2.4.2
+[   12.560000] NET: Registered protocol family 24
+[   12.620000] PCI: Enabling device 0000:00:00.0 (0000 -> 0002)
+[   12.630000] ath: phy0: Enable LNA combining
+[   12.630000] ath: phy0: eeprom contains invalid mac address:ff:ff:ff:ff:ff:ff
+[   12.640000] ath: phy0: random mac address will be used: fe:64:6b:c4:d8:a1
+[   12.680000] cfg80211: Calling CRDA for country: US
+[   12.690000] cfg80211: Regulatory domain changed to country: US
+[   12.690000] cfg80211:  DFS Master region: FCC
+[   12.700000] cfg80211:   (start_freq - end_freq @ bandwidth), (max_antenna_gain, max_eirp), (dfs_cac_time)
+[   12.710000] cfg80211:   (2402000 KHz - 2472000 KHz @ 40000 KHz), (N/A, 3000 mBm), (N/A)
+[   12.710000] cfg80211:   (5170000 KHz - 5250000 KHz @ 80000 KHz), (N/A, 1700 mBm), (N/A)
+[   12.720000] cfg80211:   (5250000 KHz - 5330000 KHz @ 80000 KHz), (N/A, 2300 mBm), (0 s)
+[   12.730000] cfg80211:   (5735000 KHz - 5835000 KHz @ 80000 KHz), (N/A, 3000 mBm), (N/A)
+[   12.740000] cfg80211:   (57240000 KHz - 63720000 KHz @ 2160000 KHz), (N/A, 4000 mBm), (N/A)
+[   12.750000] ieee80211 phy0: Atheros AR9285 Rev:2 mem=0xb0000000, irq=40
+procd: - init complete -
+[   23.260000] IPv6: ADDRCONF(NETDEV_UP): eth1: link is not ready
+[   23.260000] device eth1 entered promiscuous mode
+[   23.270000] IPv6: ADDRCONF(NETDEV_UP): br-lan: link is not ready
+[   23.280000] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+[   24.370000] eth1: link up (1000Mbps/Full duplex)
+[   24.370000] br-lan: port 1(eth1) entered forwarding state
+[   24.380000] br-lan: port 1(eth1) entered forwarding state
+[   24.380000] IPv6: ADDRCONF(NETDEV_CHANGE): eth1: link becomes ready
+[   24.400000] IPv6: ADDRCONF(NETDEV_CHANGE): br-lan: link becomes ready
+[   26.380000] br-lan: port 1(eth1) entered forwarding state
+
+
+
+BusyBox v1.22.1 (2014-08-26 18:44:42 CEST) built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+ CHAOS CALMER (Bleeding Edge, r42305)
+ -----------------------------------------------------
+  * 1 1/2 oz Gin            Shake with a glassful
+  * 1/4 oz Triple Sec       of broken ice and pour
+  * 3/4 oz Lime Juice       unstrained into a goblet.
+  * 1 1/2 oz Orange Juice
+  * 1 tsp. Grenadine Syrup
+ -----------------------------------------------------
+root@OpenWrt:/#
+
+</code>
+</p>
+
+</div>
+
+<h2 class="sectionedit21" id="notes">Notes</h2>
+<div class="level2">
+
+</div>
+
+<h2 class="sectionedit22" id="tags">Tags</h2>
+<div class="level2">
+
+<p>
+For some Help with the Tags, please have a look here: <a href="../../meta/tags" class="wikilink1" title="meta:tags">tags</a>
+</p>
+<div class="tags"><span>
+	<a href="../../tag/fastethernet?do=showtag&amp;tag=FastEthernet" class="wikilink1" title="tag:fastethernet" rel="tag">FastEthernet</a>,
+	<a href="../../tag/1nic?do=showtag&amp;tag=1NIC" class="wikilink1" title="tag:1nic" rel="tag">1NIC</a>,
+	<a href="../../tag/1wnic?do=showtag&amp;tag=1WNIC" class="wikilink1" title="tag:1wnic" rel="tag">1WNIC</a>,
+	<a href="../../tag/2port?do=showtag&amp;tag=2Port" class="wikilink1" title="tag:2port" rel="tag">2Port</a>,
+	<a href="../../tag/ath9k?do=showtag&amp;tag=ath9k" class="wikilink1" title="tag:ath9k" rel="tag">ath9k</a>,
+	<a href="../../tag/32ram?do=showtag&amp;tag=32RAM" class="wikilink1" title="tag:32ram" rel="tag">32RAM</a>,
+	<a href="../../tag/8flash?do=showtag&amp;tag=8Flash" class="wikilink1" title="tag:8flash" rel="tag">8Flash</a>,
+	<a href="../../tag/mips?do=showtag&amp;tag=MIPS" class="wikilink1" title="tag:mips" rel="tag">MIPS</a>
+</span></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>toh/netgear/wnr612v2.txt</bdi> · Last modified: 2015/05/03 15:47 by <bdi>tmomas</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="wnr612v2?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="wnr612v2?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="wnr612v2?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="wnr612v2#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=toh%253Anetgear%253Awnr612v2&amp;1432278950" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

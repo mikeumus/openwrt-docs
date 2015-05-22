@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Seagate GoFlexNet [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="gigabitethernet,1nic,0wnic,no switch,usb,4usb,jtag,128ram,gt32flash,arm,armv5,arm926ej-s,crypto,sata,marvell,kirkwood"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="http://wiki.openwrt.org/toh/seagate/goflexnet?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=toh:seagate"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="http://wiki.openwrt.org/_export/xhtml/toh/seagate/goflexnet"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="http://wiki.openwrt.org/_export/raw/toh/seagate/goflexnet"/>
+<link rel="canonical" href="goflexnet"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='toh:seagate';var JSINFO = {"id":"toh:seagate:goflexnet","namespace":"toh:seagate"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432284096 166.182.3.70';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="goflexnet#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="http://wiki.openwrt.org/toh/seagate/goflexnet?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="http://wiki.openwrt.org/toh/seagate/goflexnet?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="toh:seagate:goflexnet" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="http://wiki.openwrt.org/toh/seagate/goflexnet?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="http://wiki.openwrt.org/toh/seagate/goflexnet?do=media&amp;ns=toh%3Aseagate"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="http://wiki.openwrt.org/toh/seagate/goflexnet?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="toh:start">Table of Hardware</a></bdi> » <bdi><a href="start" class="wikilink1" title="toh:seagate:start">Seagate</a></bdi> » <bdi><span class="curid"><a href="goflexnet" class="wikilink1" title="toh:seagate:goflexnet">Seagate GoFlexNet</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/toh/seagate/goflexnet" class="media" title="cz:toh:seagate:goflexnet"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/toh/seagate/goflexnet" class="media" title="de:toh:seagate:goflexnet"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="goflexnet" class="media" title="toh:seagate:goflexnet"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/toh/seagate/goflexnet" class="media" title="es:toh:seagate:goflexnet"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/toh/seagate/goflexnet" class="media" title="fr:toh:seagate:goflexnet"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/toh/seagate/goflexnet" class="media" title="hu:toh:seagate:goflexnet"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/toh/seagate/goflexnet" class="media" title="jp:toh:seagate:goflexnet"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/toh/seagate/goflexnet" class="media" title="pl:toh:seagate:goflexnet"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/toh/seagate/goflexnet" class="media" title="pt-br:toh:seagate:goflexnet"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/toh/seagate/goflexnet" class="media" title="ru:toh:seagate:goflexnet"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/toh/seagate/goflexnet" class="media" title="tr:toh:seagate:goflexnet"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/toh/seagate/goflexnet" class="media" title="zh-cn:toh:seagate:goflexnet"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/toh/seagate/goflexnet" class="media" title="zh-tw:toh:seagate:goflexnet"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>toh:seagate:goflexnet</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="goflexnet#supported_versions">Supported Versions</a></div></li>
+<li class="level1"><div class="li"><a href="goflexnet#highlights">Highlights</a></div></li>
+<li class="level1"><div class="li"><a href="goflexnet#hardware">Hardware</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="goflexnet#info">Info</a></div></li>
+<li class="level2"><div class="li"><a href="goflexnet#flash_layout">Flash Layout</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="goflexnet#specific_configuration">Specific Configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="goflexnet#interfaces">Interfaces</a></div></li>
+<li class="level2"><div class="li"><a href="goflexnet#failsafe">Failsafe</a></div></li>
+<li class="level2"><div class="li"><a href="goflexnet#buttons">Buttons</a></div></li>
+<li class="level2"><div class="li"><a href="goflexnet#crypto_hardware_acceleration">Crypto Hardware Acceleration</a></div></li>
+<li class="level2"><div class="li"><a href="goflexnet#photos">Photos</a></div></li>
+<li class="level2"><div class="li"><a href="goflexnet#opening_the_case">Opening the case</a></div></li>
+<li class="level2"><div class="li"><a href="goflexnet#ssh">SSH</a></div></li>
+<li class="level2"><div class="li"><a href="goflexnet#backup_original_firmware">Backup original firmware</a></div></li>
+<li class="level2"><div class="li"><a href="goflexnet#restore_original_firmware_via_serial_cable_and_tftp-server">Restore original firmware via serial cable and tftp-server</a></div></li>
+<li class="level2"><div class="li"><a href="goflexnet#install_openwrt_into_nand_via_serial_cable_and_tftp-server">Install OpenWrt into NAND via serial cable and tftp-server</a></div></li>
+<li class="level2"><div class="li"><a href="goflexnet#redstone63_rescue">redstone63 rescue</a></div></li>
+<li class="level2"><div class="li"><a href="goflexnet#recovery_of_a_bricked_uboot_without_jtag">Recovery of a bricked uboot *without* jtag</a></div></li>
+<li class="level2"><div class="li"><a href="goflexnet#recovery_bricked_uboot_of_goflexnet_buspirate_cygwin">RECOVERY BRICKED UBOOT OF GOFLEXNET (BusPirate &amp; Cygwin)</a></div></li>
+<li class="level2"><div class="li"><a href="goflexnet#originaldefault_goflexnet_uboot_environment_printenvsetenv">original/default GoFlex.net uBoot environment (printenv/setenv)</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="goflexnet#tags">Tags</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="seagate_goflexnet">Seagate GoFlexNet</h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit2" id="supported_versions">Supported Versions</h2>
+<div class="level2">
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Model </th><th class="col1"> OpenWrt Version Supported </th><th class="col2"> Model Specific Notes </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> Seagate GoFlexNet </td><td class="col1"> WIP, trunk </td><td class="col2"> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit4" id="highlights">Highlights</h2>
+<div class="level2">
+<div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> CPU </th><th class="col1"> Ram </th><th class="col2"> Flash </th><th class="col3"> Network </th><th class="col4"> USB </th><th class="col5"> Serial </th><th class="col6"> JTAG </th><th class="col7"> SATA </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> Marvell Kirkwood@1200MHz </td><td class="col1"> 128 MiB </td><td class="col2"> 256 MiB </td><td class="col3"> 1 gigE </td><td class="col4"> 1x 2.0 </td><td class="col5"> Yes </td><td class="col6"> Yes </td><td class="col7"> 2x data+power </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit6" id="hardware">Hardware</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit7" id="info">Info</h3>
+<div class="level3">
+<div class="table sectionedit8"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <strong>Architecture:</strong> <a href="http://en.wikipedia.org/wiki/ARM_architecture" class="urlextern" title="http://en.wikipedia.org/wiki/ARM_architecture"  rel="nofollow">ARM </a>  armv5te </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> <strong>Vendor:</strong> Marvell </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <strong><a href="../../doc/techref/bootloader.1" class="wikilink1" title="doc:techref:bootloader">Bootloader</a>:</strong> <a href="../../doc/techref/bootloader/uboot" class="wikilink1" title="doc:techref:bootloader:uboot"> U-Boot</a> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <strong>System-On-Chip:</strong> Marvell <a href="http://www.marvell.com/products/processors/embedded/kirkwood/HW_88F6281_OpenSource.pdf" class="urlextern" title="http://www.marvell.com/products/processors/embedded/kirkwood/HW_88F6281_OpenSource.pdf"  rel="nofollow">MV88F6281 A0 (DDR2)</a> with ARM926EJ-S CPU (Marvell Feroceon) </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <strong>CPU Speed:</strong> 1200 Mhz </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <strong>Flash size:</strong> 256 MiB / 1x Micron 29F2G08AAD </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <strong>RAM:</strong> 128 MiB / 1x Nanya NT5TU64M16DG-AC </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <strong>Wireless:</strong> n/a </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <strong>Ethernet:</strong> 1x GigE port / Marvell &quot;Alaska&quot; 88E1116R </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <strong>USB:</strong> 1x USB 2.0 port </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> <strong>Serial:</strong> <a href="goflexnet#serial" title="toh:seagate:goflexnet ↵" class="wikilink1">Yes</a> </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> <strong>JTAG:</strong> <a href="goflexnet#jtag" title="toh:seagate:goflexnet ↵" class="wikilink1">Yes</a> </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0"> <strong>SATA:</strong> 2x (data &amp; power) </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit9" id="flash_layout">Flash Layout</h3>
+<div class="level3">
+<div class="table sectionedit10"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign" colspan="5">               original u-boot flash layout            </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<th class="col0 leftalign"> mtdparts    </th><td class="col1 leftalign"> mtd0     </td><td class="col2 leftalign"> mtd1     </td><td class="col3 leftalign"> mtd2      </td><td class="col4 leftalign"> mtd3      </td>
+	</tr>
+	<tr class="row2">
+		<th class="col0"> start (hex) </th><td class="col1"> 0x000000 </td><td class="col2"> 0x100000 </td><td class="col3 leftalign"> 0x500000  </td><td class="col4"> 0x2500000 </td>
+	</tr>
+	<tr class="row3">
+		<th class="col0 leftalign"> size (hex)  </th><td class="col1"> 0x100000 </td><td class="col2"> 0x400000 </td><td class="col3"> 0x2000000 </td><td class="col4"> 0xdb00000 </td>
+	</tr>
+	<tr class="row4">
+		<th class="col0 leftalign"> size (<abbr title="Megabyte">MB</abbr>)   </th><td class="col1 leftalign"> 1        </td><td class="col2 leftalign"> 4        </td><td class="col3 leftalign"> 32        </td><td class="col4 leftalign"> 219       </td>
+	</tr>
+	<tr class="row5">
+		<th class="col0 leftalign"> name        </th><td class="col1 leftalign"> u-boot   </td><td class="col2 leftalign"> kernel   </td><td class="col3 leftalign"> rootfs    </td><td class="col4 leftalign"> data      </td>
+	</tr>
+	<tr class="row6">
+		<th class="col0"> file system </th><td class="col1 leftalign"> raw      </td><td class="col2 leftalign"> uImage?  </td><td class="col3 leftalign"> JFFS2     </td><td class="col4 leftalign"> ?         </td>
+	</tr>
+</table></div>
+
+<p>
+ 
+</p>
+<div class="table sectionedit11"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign" colspan="7">               openwrt-kirkwood-dockstar-u-boot.kwb flash layout           </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<th class="col0 leftalign"> mtdparts    </th><td class="col1 leftalign"> mtd0     </td><td class="col2 leftalign"> mtd1                </td><td class="col3 leftalign"> mtd2     </td><td class="col4 leftalign"> mtd3      </td><td class="col5 leftalign"> mtd4      </td><td class="col6"></td>
+	</tr>
+	<tr class="row2">
+		<th class="col0"> start (hex) </th><td class="col1"> 0x000000 </td><td class="col2 leftalign"> 0x100000            </td><td class="col3"> 0x200000 </td><td class="col4 leftalign"> 0x500000  </td><td class="col5"> 0x2500000 </td><td class="col6"></td>
+	</tr>
+	<tr class="row3">
+		<th class="col0 leftalign"> size (hex)  </th><td class="col1"> 0x100000 </td><td class="col2 leftalign"> 0x100000            </td><td class="col3"> 0x300000 </td><td class="col4"> 0x2000000 </td><td class="col5"> 0xdb00000 </td><td class="col6"></td>
+	</tr>
+	<tr class="row4">
+		<th class="col0 leftalign"> size (<abbr title="Megabyte">MB</abbr>)   </th><td class="col1 leftalign"> 1        </td><td class="col2 leftalign"> 1                   </td><td class="col3 leftalign"> 3        </td><td class="col4 leftalign"> 32        </td><td class="col5 leftalign"> 219       </td><td class="col6"></td>
+	</tr>
+	<tr class="row5">
+		<th class="col0 leftalign"> name        </th><td class="col1 leftalign"> u-boot   </td><td class="col2"> second_stage_u-boot </td><td class="col3 leftalign"> kernel   </td><td class="col4 leftalign"> rootfs    </td><td class="col5 leftalign"> data      </td><td class="col6"></td>
+	</tr>
+	<tr class="row6">
+		<th class="col0"> file system </th><td class="col1 leftalign"> raw      </td><td class="col2 leftalign"> raw                 </td><td class="col3 leftalign"> uImage?  </td><td class="col4 leftalign"> JFFS2     </td><td class="col5 leftalign"> ?         </td><td class="col6"></td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit12" id="specific_configuration">Specific Configuration</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit13" id="interfaces">Interfaces</h3>
+<div class="level3">
+
+<p>
+The default network configuration is:
+</p>
+<div class="table sectionedit14"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Interface Name </th><th class="col1"> Description </th><th class="col2"> Default configuration </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> eth0 </td><td class="col1"> Ethernet port </td><td class="col2"> DHCP </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit15" id="failsafe">Failsafe</h3>
+<div class="level3">
+
+<p>
+The GoFlexNet cannot be put into failsafe mode by pressing the button.
+</p>
+
+<p>
+It can however be put in failsafe mode using serial console and pressing &#039;f&#039; and &lt;enter&gt; when prompted during boot-up
+</p>
+
+</div>
+
+<h3 class="sectionedit16" id="buttons">Buttons</h3>
+<div class="level3">
+
+<p>
+The GoFlexNet&#039;s only button is not configurable and inevitably performs a hard reset when pressed, the button open the bridge between the positive pole and the power cord.
+</p>
+
+</div>
+
+<h3 class="sectionedit17" id="crypto_hardware_acceleration">Crypto Hardware Acceleration</h3>
+<div class="level3">
+
+<p>
+See <a href="dockstar#crypto.hardware.acceleration" class="urlextern" title="http://wiki.openwrt.org/toh/seagate/dockstar#crypto.hardware.acceleration"  rel="nofollow">Crypto Hardware Acceleration</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit18" id="photos">Photos</h3>
+<div class="level3">
+
+<p>
+for serial cable (nokia&#039;s DKU-5, CA-42 and etc ttl…), 115200 8n1:
+</p>
+
+<p>
+<strong>NOTE:</strong> The pins to use are the ones &quot;covered up&quot; by the tips of the arrows, i.e. the pins in the row toward the outer edge of the PCB.
+(for comparison, see <a href="http://www.varkey.in/wp-content/uploads/2011/06/IMG_0771.jpg" class="urlextern" title="http://www.varkey.in/wp-content/uploads/2011/06/IMG_0771.jpg"  rel="nofollow">here</a>)
+</p>
+
+<p>
+<a href="http://wiki.openwrt.org/_detail/media/seagate_goflex_net_1.jpg?id=toh%3Aseagate%3Agoflexnet" class="media" title="media:seagate_goflex_net_1.jpg"><img src="http://wiki.openwrt.org/_media/media/seagate_goflex_net_1.jpg" class="media" alt="" /></a>
+</p>
+
+<p>
+for enable 3.5&quot; disks (3 pins sata power to +12V DC):
+</p>
+
+<p>
+<strong>NOTE:</strong> The ellipse in the picture indicates <strong>three</strong> pins for Serial ATA +12 V. (Multiple pins are used for current (Ampere) considerations, compare <a href="https://en.wikipedia.org/wiki/Serial_ATA#Power_connectors" class="urlextern" title="https://en.wikipedia.org/wiki/Serial_ATA#Power_connectors"  rel="nofollow">https://en.wikipedia.org/wiki/Serial_ATA#Power_connectors</a>.)
+</p>
+
+<p>
+<a href="http://wiki.openwrt.org/_detail/media/seagate_goflex_net_2.jpg?id=toh%3Aseagate%3Agoflexnet" class="media" title="media:seagate_goflex_net_2.jpg"><img src="http://wiki.openwrt.org/_media/media/seagate_goflex_net_2.jpg" class="media" alt="" /></a>
+</p>
+
+<p>
+<a href="http://wiki.openwrt.org/_detail/media/seagate_goflex_net_3.jpg?id=toh%3Aseagate%3Agoflexnet" class="media" title="media:seagate_goflex_net_3.jpg"><img src="http://wiki.openwrt.org/_media/media/seagate_goflex_net_3.jpg" class="media" alt="" /></a>
+</p>
+
+<p>
+example:
+</p>
+
+<p>
+<a href="http://wiki.openwrt.org/_detail/media/seagate_goflex_net_4.jpg?id=toh%3Aseagate%3Agoflexnet" class="media" title="media:seagate_goflex_net_4.jpg"><img src="http://wiki.openwrt.org/_media/media/seagate_goflex_net_4.jpg" class="media" alt="" /></a>
+</p>
+
+</div>
+
+<h3 class="sectionedit19" id="opening_the_case">Opening the case</h3>
+<div class="level3">
+
+<p>
+There are no screws - the bottom cover is held by ten plastic snap on clips, three on the sides and two on the edges. To open the case, gently pry all around with a thin screwdriver until it is open.
+</p>
+
+<p>
+The serial pins are accessible without further disassembly.
+</p>
+
+</div>
+
+<h3 class="sectionedit20" id="ssh">SSH</h3>
+<div class="level3">
+
+<p>
+Connect device to Ethernet port. To prevent automatic updates by cloud engines (which may disable ssh access), use a separate switch or disconnect your router from the internet. If the ssh access was disabled by the automatic cloud engine update service, you need to login there and re-activate ssh.
+</p>
+
+<p>
+Find IP address, BE and EF are the last two bytes of the MAC of your device (printed on the bottom of the GoFlexNet)
+<pre class="code">root@host ~ # ifconfig eth0 169.254.1.0 
+root@host ~ # nmap -e eth0 -sP $(printf &quot;169.254.%d.%d&quot; 0xbe 0xef)</pre>
+
+Connect to IP address via ssh (root / stxadmin) to see if it works.
+</p>
+
+</div>
+
+<h3 class="sectionedit21" id="backup_original_firmware">Backup original firmware</h3>
+<div class="level3">
+
+<p>
+Login to the original firmware via SSH (enable it first in popoplug site) or Serial cable (nokia&#039;s CA-52, DKU-5 and etc ttl…).
+Plug the flash drive (FAT32) to USB port in Seagate GoFlex Net, then:
+<pre class="code">mkdir /tmp/backup
+mount /dev/sda1 /tmp/backup
+cd /tmp/backup
+wget http://download.doozan.com/uboot/nanddump
+chmod +x nanddump
+./nanddump -nof uboot-mtd0-dump /dev/mtd0
+./nanddump -nof uboot-original -s 0 -l 0x80000 /dev/mtd0
+./nanddump -nof uImage-mtd1-dump /dev/mtd1
+./nanddump -nof rootfs-mtd2-dump /dev/mtd2
+umount /dev/sda1</pre>
+
+To create an image of mtd0, you need to dump the nand without ecc. using &quot;dd if=/dev/mtd0 of=mtd0.DOESNOTWORK&quot; will automatically do ecc for you and will result in a corrupt image.
+</p>
+
+</div>
+
+<h3 class="sectionedit22" id="restore_original_firmware_via_serial_cable_and_tftp-server">Restore original firmware via serial cable and tftp-server</h3>
+<div class="level3">
+
+<p>
+<pre class="code">#set goflex net ip
+setenv ipaddr &#039;192.168.1.1&#039;
+#set tftp-server ip
+setenv serverip &#039;192.168.1.2&#039;
+
+#original uImage (backuped before)
+tftpboot 0x800000 uImage-mtd1-dump
+nand erase 0x100000 0x400000
+nand write.e 0x800000 0x100000 0x400000
+
+#original rootfs (backuped before)
+tftpboot 0x800000 rootfs-mtd2-dump
+nand erase 0x500000 0x2000000
+nand write.e 0x800000 0x500000 0x2000000
+
+resetenv
+reset
+
+Hit any key to stop autoboot:  0
+
+setenv bootcmd &#039;nand read.e 0x800000 0x100000 0x300000; setenv bootargs $(console) $(bootargs_root); bootm 0x800000&#039;
+
+#change value to your device
+setenv ethaddr &#039;00:10:75:26:3D:9F&#039;
+setenv cesvcid &#039;5RFAJDGYNLPLDUHN4BWUWC3EKJ&#039;
+setenv ceserialno &#039;NA1Y0EG1&#039;
+setenv ceboardver &#039;DISCOVERY:0.1&#039;
+saveenv
+
+reset</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit23" id="install_openwrt_into_nand_via_serial_cable_and_tftp-server">Install OpenWrt into NAND via serial cable and tftp-server</h3>
+<div class="level3">
+
+<p>
+Files needed:
+</p>
+
+<p>
+<del><a href="http://downloads.openwrt.org/snapshots/trunk/kirkwood/uboot-kirkwood-dockstar/openwrt-kirkwood-dockstar-u-boot.kwb" class="urlextern" title="http://downloads.openwrt.org/snapshots/trunk/kirkwood/uboot-kirkwood-dockstar/openwrt-kirkwood-dockstar-u-boot.kwb"  rel="nofollow">http://downloads.openwrt.org/snapshots/trunk/kirkwood/uboot-kirkwood-dockstar/openwrt-kirkwood-dockstar-u-boot.kwb</a></del>
+</p>
+
+<p>
+<a href="http://dl.dropbox.com/u/1015928/Kirkwood/uboot/newer-uboots-nonEFI_GPT-TESTED/uboot.mtd0.kwb-2011.12-goflexnet-L2Coff-IDEpatched.tar.gz" class="urlextern" title="http://dl.dropbox.com/u/1015928/Kirkwood/uboot/newer-uboots-nonEFI_GPT-TESTED/uboot.mtd0.kwb-2011.12-goflexnet-L2Coff-IDEpatched.tar.gz"  rel="nofollow">http://dl.dropbox.com/u/1015928/Kirkwood/uboot/newer-uboots-nonEFI_GPT-TESTED/uboot.mtd0.kwb-2011.12-goflexnet-L2Coff-IDEpatched.tar.gz</a>
+</p>
+
+<p>
+(untar - this is uboot with working sata!)
+</p>
+
+<p>
+<a href="http://downloads.openwrt.org/snapshots/trunk/kirkwood/openwrt-kirkwood-uImage" class="urlextern" title="http://downloads.openwrt.org/snapshots/trunk/kirkwood/openwrt-kirkwood-uImage"  rel="nofollow">http://downloads.openwrt.org/snapshots/trunk/kirkwood/openwrt-kirkwood-uImage</a>
+</p>
+
+<p>
+<a href="http://downloads.openwrt.org/snapshots/trunk/kirkwood/openwrt-kirkwood--jffs2-nand-2048-128k.img" class="urlextern" title="http://downloads.openwrt.org/snapshots/trunk/kirkwood/openwrt-kirkwood--jffs2-nand-2048-128k.img"  rel="nofollow">http://downloads.openwrt.org/snapshots/trunk/kirkwood/openwrt-kirkwood--jffs2-nand-2048-128k.img</a>
+</p>
+
+<p>
+Hit any key to stop autoboot in the uboot and set goflexnet ip, tftp-server ip, goflexnet mac:
+<pre class="code">setenv ipaddr &#039;192.168.1.1&#039;
+setenv serverip &#039;192.168.1.2&#039;
+setenv ethaddr &#039;00:10:75:26:28:7D&#039;</pre>
+
+</p>
+
+<p>
+download from tftp-server file <strong>uboot.mtd0.kwb-2011.12-goflexnet-L2Coff-IDEpatched</strong> to RAM start offset 0x6400000
+<pre class="code">tftp 0x6400000 uboot.mtd0.kwb-2011.12-goflexnet-L2Coff-IDEpatched</pre>
+
+Bytes transferred = 524288 (<strong>80000</strong> hex)  ← this number is needed for nand write
+</p>
+
+<p>
+erase nand start from 0 size 0x100000
+<pre class="code">nand erase 0x0 0x100000</pre>
+
+write nand from RAM start offset 0x6400000 to nand start 0x0 size 0x<strong>80000</strong>
+<pre class="code">nand write.e 0x6400000 0x0 0x80000</pre>
+
+</p>
+
+<p>
+download from tftp-server file <strong>openwrt-kirkwood-uImage</strong> to RAM start offset 0x6400000
+<pre class="code">tftp 0x6400000 openwrt-kirkwood-uImage</pre>
+
+Bytes transferred = 1266344 (<strong>1352a8</strong> hex) ← this number is needed for nand write
+</p>
+
+<p>
+erase nand start from 0x200000 size 0x300000
+<pre class="code">nand erase 0x200000 0x300000</pre>
+
+write nand from RAM start offset 0x6400000 to nand start 0x200000 size 0x<strong>1352a8</strong>
+<pre class="code">nand write.e 0x6400000 0x200000 0x1352a8</pre>
+
+</p>
+
+<p>
+download from tftp-server file <strong>openwrt-kirkwood–jffs2-nand-2048-128k.img</strong> to RAM start offset 0x6400000
+<pre class="code">tftp 0x6400000 openwrt-kirkwood--jffs2-nand-2048-128k.img</pre>
+
+Bytes transferred = 1837056 (<strong>1c0800</strong> hex) ← this number is needed for nand write
+</p>
+
+<p>
+erase nand start from 0x500000 size 0xfb00000
+<pre class="code">nand erase 0x500000 0xfb00000</pre>
+
+write nand from RAM start offset 0x6400000 to nand start 0x500000 size 0x<strong>1c0800</strong>
+<pre class="code">nand write.e 0x6400000 0x500000 0x1c0800</pre>
+
+reboot device
+<pre class="code">reset</pre>
+
+Hit any key to stop autoboot! and set your mac-address from bottom side of the box (if you don&#039;t do this - ethernet wont work) and set other openwrt&#039;s environment
+<pre class="code">setenv baudrate &#039;115200&#039;
+setenv bootcmd &#039;${x_bootcmd_kernel}; setenv bootargs ${x_bootargs} ${x_bootargs_root}; ${x_bootcmd_usb}; bootm 0x6400000;&#039;
+setenv bootdelay &#039;3&#039;
+setenv ethact &#039;egiga0&#039;
+setenv ethaddr &#039;00:10:75:26:28:7D&#039;
+setenv ipaddr &#039;192.168.1.1&#039;
+setenv serverip &#039;192.168.1.2&#039;
+setenv stderr &#039;serial&#039;
+setenv stdin &#039;serial&#039;
+setenv stdout &#039;serial&#039;
+setenv x_bootargs &#039;console=ttyS0,115200 mtdparts=orion_nand:1M(u-boot),1M@1M(second_stage_u-boot),3M@2M(kernel),251M@5M(rootfs) rw&#039;
+setenv x_bootargs_root &#039;root=/dev/mtdblock3 rw rootfstype=jffs2&#039;
+setenv x_bootcmd_kernel &#039;nand read 0x6400000 0x200000 0x300000&#039;
+setenv x_bootcmd_usb &#039;usb start&#039;
+setenv machid c11
+saveenv
+reset</pre>
+
+</p>
+
+<p>
+Voilà, we did it! :)
+</p>
+
+<p>
+<pre class="code">U-Boot 2011.12 (Apr 18 2012 - 23:08:20)
+Seagate GoFlexNet
+
+SoC:   Kirkwood 88F6281_A0
+DRAM:  128 MiB
+WARNING: Caches not enabled
+NAND:  256 MiB
+In:    serial
+Out:   serial
+Err:   serial
+Net:   egiga0
+88E1116 Initialized on egiga0
+Hit any key to stop autoboot:  0
+
+NAND read: device 0 offset 0x200000, size 0x300000
+ 3145728 bytes read: OK
+(Re)start USB...
+USB:   Register 10011 NbrPorts 1
+USB EHCI 1.00
+scanning bus for devices... 1 USB Device(s) found
+       scanning bus for storage devices... 0 Storage Device(s) found
+## Booting kernel from Legacy Image at 06400000 ...
+   Image Name:   Linux-3.3.8
+   Image Type:   ARM Linux Kernel Image (uncompressed)
+   Data Size:    1266192 Bytes = 1.2 MiB
+   Load Address: 00008000
+   Entry Point:  00008000
+   Verifying Checksum ... OK
+   Loading Kernel Image ... OK
+OK
+
+Starting kernel ...
+
+Uncompressing Linux... done, booting the kernel.
+[    0.000000] Booting Linux on physical CPU 0
+[    0.000000] Linux version 3.3.8 (openwrt@OpenWRT) (gcc version 4.6.4 (OpenWrt/Linaro GCC 4.6-2013.05 r38047) ) #1 Thu Sep 19 01:30:05 MST 2013
+[    0.000000] CPU: Feroceon 88FR131 [56251311] revision 1 (ARMv5TE), cr=00053977
+[    0.000000] CPU: VIVT data cache, VIVT instruction cache
+[    0.000000] Machine: Marvell eSATA SheevaPlug Reference Board
+[    0.000000] Memory policy: ECC disabled, Data cache writeback
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 32512
+[    0.000000] Kernel command line: console=ttyS0,115200 mtdparts=orion_nand:1M(u-boot),1M@1M(second_stage_u-boot),3M@2M(kernel),251M@5M(rootfs) rw root=/dev/mtdblock3 rw rootfstype=jffs2
+[    0.000000] PID hash table entries: 512 (order: -1, 2048 bytes)
+[    0.000000] Dentry cache hash table entries: 16384 (order: 4, 65536 bytes)
+[    0.000000] Inode-cache hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.000000] Memory: 128MB = 128MB total
+[    0.000000] Memory: 126284k/126284k available, 4788k reserved, 0K highmem
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+[    0.000000]     vmalloc : 0xc8800000 - 0xff000000   ( 872 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xc8000000   ( 128 MB)
+[    0.000000]     modules : 0xbf000000 - 0xc0000000   (  16 MB)
+[    0.000000]       .text : 0xc0008000 - 0xc0324000   (3184 kB)
+[    0.000000]       .init : 0xc0324000 - 0xc0342000   ( 120 kB)
+[    0.000000]       .data : 0xc0342000 - 0xc035fb20   ( 119 kB)
+[    0.000000]        .bss : 0xc035fb44 - 0xc0389a90   ( 168 kB)
+[    0.000000] NR_IRQS:114
+[    0.000000] gpiochip_add: registered GPIOs 0 to 31 on device: orion_gpio0
+[    0.000000] gpiochip_add: registered GPIOs 32 to 49 on device: orion_gpio1
+[    0.000000] sched_clock: 32 bits at 200MHz, resolution 5ns, wraps every 21474ms
+[   15.378138] Calibrating delay loop... 1191.11 BogoMIPS (lpj=5955584)
+[   15.468126] pid_max: default: 32768 minimum: 301
+[   15.468266] Mount-cache hash table entries: 512
+[   15.468584] CPU: Testing write buffer coherency: ok
+[   15.468840] Setting up static identity map for 0x2757e8 - 0x275824
+[   15.470513] NET: Registered protocol family 16
+[   15.472748] Kirkwood: MV88F6281-A0, TCLK=200000000.
+[   15.472764] Feroceon L2: Enabling L2
+[   15.472801] Feroceon L2: Cache support initialised.
+[   15.480475] bio: create slab &lt;bio-0&gt; at 0
+[   15.481375] SCSI subsystem initialized
+[   15.481930] usbcore: registered new interface driver usbfs
+[   15.482067] usbcore: registered new interface driver hub
+[   15.482226] usbcore: registered new device driver usb
+[   15.483324] Switching to clocksource orion_clocksource
+[   15.484874] NET: Registered protocol family 2
+[   15.485020] IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+[   15.485321] TCP established hash table entries: 4096 (order: 3, 32768 bytes)
+[   15.485420] TCP bind hash table entries: 4096 (order: 2, 16384 bytes)
+[   15.485474] TCP: Hash tables configured (established 4096 bind 4096)
+[   15.485484] TCP reno registered
+[   15.485494] UDP hash table entries: 256 (order: 0, 4096 bytes)
+[   15.485516] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+[   15.485690] NET: Registered protocol family 1
+[   15.487175] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[   15.487189] JFFS2 version 2.2 (NAND) (SUMMARY) (LZMA) (RTIME) (CMODE_PRIORITY) (c) 2001-2006 Red Hat, Inc.
+[   15.487525] msgmni has been set to 246
+[   15.487555] io scheduler noop registered
+[   15.487563] io scheduler deadline registered (default)
+[   15.554884] Serial: 8250/16550 driver, 16 ports, IRQ sharing enabled
+[   15.577632] serial8250.0: ttyS0 at MMIO 0xf1012000 (irq = 33) is a 16550A
+[   15.918534] console [ttyS0] enabled
+[   15.923472] ONFI flash detected
+[   15.926716] ONFI param page 0 valid
+[   15.930224] NAND device: Manufacturer ID: 0x2c, Chip ID: 0xda (Micron MT29F2G08AAD)
+[   15.937929] Scanning device for bad blocks
+[   16.094164] 4 cmdlinepart partitions found on MTD device orion_nand
+[   16.100459] Creating 4 MTD partitions on &quot;orion_nand&quot;:
+[   16.105637] 0x000000000000-0x000000100000 : &quot;u-boot&quot;
+[   16.111557] 0x000000100000-0x000000200000 : &quot;second_stage_u-boot&quot;
+[   16.118542] 0x000000200000-0x000000500000 : &quot;kernel&quot;
+[   16.124386] 0x000000500000-0x000010000000 : &quot;rootfs&quot;
+[   16.130502] mv643xx_eth: MV-643xx 10/100/1000 ethernet driver version 1.4
+[   16.137474] mv643xx_eth smi: probed
+[   16.142824] mv643xx_eth_port mv643xx_eth_port.0: eth0: port 0 with MAC address 00:10:75:26:28:7d
+[   16.151794] ehci_hcd: USB 2.0 &#039;Enhanced&#039; Host Controller (EHCI) Driver
+[   16.158406] orion-ehci orion-ehci.0: Marvell Orion EHCI
+[   16.163725] orion-ehci orion-ehci.0: new USB bus registered, assigned bus number 1
+[   16.193367] orion-ehci orion-ehci.0: irq 19, io mem 0xf1050000
+[   16.213355] orion-ehci orion-ehci.0: USB 2.0 started, EHCI 1.00
+[   16.219848] hub 1-0:1.0: USB hub found
+[   16.223640] hub 1-0:1.0: 1 port detected
+[   16.228077] Initializing USB Mass Storage driver...
+[   16.233153] usbcore: registered new interface driver usb-storage
+[   16.239200] USB Mass Storage support registered.
+[   16.244122] cpuidle: using governor ladder
+[   16.249582] mmc0: mvsdio driver initialized, using GPIO 47 for card detection
+[   16.256984] leds-gpio: probe of leds-gpio failed with error -22
+[   16.263254] TCP cubic registered
+[   16.266519] NET: Registered protocol family 17
+[   16.271047] Bridge firewalling registered
+[   16.275254] 8021q: 802.1Q VLAN Support v1.8
+[   16.279588] drivers/rtc/hctosys.c: unable to open rtc device (rtc0)
+[   17.972758] JFFS2 notice: (1) jffs2_build_xattr_subsystem: complete building xattr subsystem, 0 of xdatum (0 unchecked, 0 orphan) and 0 of xref (0 dead, 0 orphan) found.
+[   17.991751] VFS: Mounted root (jffs2 filesystem) on device 31:3.
+[   17.998179] Freeing init memory: 120K
+procd: Console is alive
+[   20.599310] Uniform Multi-Platform E-IDE driver
+[   20.623458] sata_mv sata_mv.0: slots 32 ports 2
+[   20.629741] scsi0 : sata_mv
+[   20.632984] scsi1 : sata_mv
+[   20.636119] ata1: SATA max UDMA/133 irq 21
+[   20.640234] ata2: SATA max UDMA/133 irq 21
+[   20.993364] ata1: SATA link down (SStatus 0 SControl F300)
+[   21.503369] ata2: SATA link up 1.5 Gbps (SStatus 113 SControl F300)
+[   21.883398] ata2.00: ATA-6: TOSHIBA MK1032GSX, AS021G, max UDMA/100
+[   21.889697] ata2.00: 195371568 sectors, multi 16: LBA48 NCQ (depth 31/32)
+[   21.953398] ata2.00: configured for UDMA/100
+[   21.957957] scsi 1:0:0:0: Direct-Access     ATA      TOSHIBA MK1032GS AS02 PQ: 0 ANSI: 5
+[   21.967355] sd 1:0:0:0: [sda] 195371568 512-byte logical blocks: (100 GB/93.1 GiB)
+[   21.975267] sd 1:0:0:0: [sda] Write Protect is off
+[   21.980167] sd 1:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn&#039;t support DPO or FUA
+[   22.030739]  sda: sda1
+[   22.034046] sd 1:0:0:0: [sda] Attached SCSI disk
+[   22.045058] ohci_hcd: USB 1.1 &#039;Open&#039; Host Controller (OHCI) Driver
+[   22.052996] uhci_hcd: USB Universal Host Controller Interface driver
+kmod: ran 28 iterations
+procd: - preinit -
+Press the [f] key and hit [enter] to enter failsafe mode
+mount_root: mounting /dev/root
+procd: - early -
+procd: - init -
+Please press Enter to activate this console.
+[   28.126425] NET: Registered protocol family 10
+[   28.193973] aoe: AoE v47 initialised.
+[   28.253711] RPC: Registered named UNIX socket transport module.
+[   28.259662] RPC: Registered udp transport module.
+[   28.264413] RPC: Registered tcp transport module.
+[   28.269131] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[   28.287417] NTFS driver 2.1.30 [Flags: R/O MODULE].
+[   28.315502] tun: Universal TUN/TAP device driver, 1.6
+[   28.320580] tun: (C) 1999-2004 Max Krasnyansky &lt;maxk@qualcomm.com&gt;
+[   28.387485] Installing knfsd (copyright (C) 1996 okir@monad.swb.de).
+[   28.411442] nf_conntrack version 0.5.0 (1975 buckets, 7900 max)
+[   28.437469] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[   28.513508] sd 1:0:0:0: Attached scsi generic sg0 type 0
+[   28.543385] u32 classifier
+[   28.546104]     input device check on
+[   28.549775]     Actions configured
+[   28.564556] Mirror/redirect action on
+[   28.624722] netem: version 1.3
+[   28.663524] fuse init (API version 7.18)
+[   28.680251] ip_tables: (C) 2000-2006 Netfilter Core Team
+[   28.726045] usbcore: registered new interface driver usblp
+[   28.823510] xt_time: kernel timezone is -0000
+[   28.851447] PPP generic driver version 2.4.2
+[   28.861255] NET: Registered protocol family 24
+[   33.545126] ADDRCONF(NETDEV_UP): eth0: link is not ready
+[   36.346205] mv643xx_eth_port mv643xx_eth_port.0: eth0: link up, 1000 Mb/s, full duplex, flow control disabled
+[   36.356457] ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+procd: - init complete -
+
+
+
+BusyBox v1.19.4 (2013-09-19 01:21:59 MST) built-in shell (ash)
+Enter &#039;help&#039; for a list of built-in commands.
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+ BARRIER BREAKER (Bleeding Edge, r38047)
+ -----------------------------------------------------
+  * 1/2 oz Galliano         Pour all ingredients into
+  * 4 oz cold Coffee        an irish coffee mug filled
+  * 1 1/2 oz Dark Rum       with crushed ice. Stir.
+  * 2 tsp. Creme de Cacao
+ -----------------------------------------------------
+root@OpenWrt:/# df -h
+Filesystem                Size      Used Available Use% Mounted on
+rootfs                  251.0M     22.5M    228.5M   9% /
+/dev/root               251.0M     22.5M    228.5M   9% /
+tmpfs                    61.7M    236.0K     61.5M   0% /tmp
+tmpfs                   512.0K         0    512.0K   0% /dev
+/dev/sda1                93.2G     88.6M     93.1G   0% /tmp/run/mountd/sda1
+root@OpenWrt:/#</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit24" id="redstone63_rescue">redstone63 rescue</h3>
+<div class="level3">
+
+<p>
+all files are here: <a href="http://us.mirror.archlinuxarm.org/mirror/ce/" class="urlextern" title="http://us.mirror.archlinuxarm.org/mirror/ce/"  rel="nofollow">redstone_v63</a>
+</p>
+
+<p>
+Checksums:
+</p>
+
+<p>
+ce_kernel_redstone_v63.img: c31ca085da5999651384cf4bb9978692
+</p>
+
+<p>
+ce_ramdisk_v2.0b.img.gz:    80787eea2389a1fe96ffc6715ec65d4c
+</p>
+
+<p>
+<pre class="code">setenv ipaddr &#039;192.168.1.1&#039;
+setenv serverip &#039;192.168.1.2&#039;
+nand erase 0x100000 0x400000
+tftp 0x800000 ce_kernel_redstone_v63.img
+nand write.e 0x800000 0x100000 0x1e30f0
+tftp 0x1000000 ce_ramdisk_v2.0b.img.gz
+setenv bootargs $(console) root=/dev/mtdblock2 initrd=0x1000000,0xb39a59
+bootm 0x800000</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit25" id="recovery_of_a_bricked_uboot_without_jtag">Recovery of a bricked uboot *without* jtag</h3>
+<div class="level3">
+
+<p>
+Unlike the dockstar, the goflexnet has a newer bootrom which supports
+serial boot. [<a href="http://forum.doozan.com/read.php?3,7852,7852]" class="urlextern" title="http://forum.doozan.com/read.php?3,7852,7852]"  rel="nofollow">http://forum.doozan.com/read.php?3,7852,7852]</a>
+</p>
+
+<p>
+<pre class="code">wget ftp://ftp.denx.de/pub/u-boot/u-boot-2013.10.tar.bz2
+tar jxf u-boot-2013.10.tar.bz2
+cd u-boot-2013.10/tools/
+gcc -o kwboot kwboot.c
+./kwboot -b /tmp/openwrt-kirkwood-goflexhome-u-boot.kwb -t -p -B 115200 /dev/ttyUSB0</pre>
+
+</p>
+
+<p>
+Now the uboot is loaded into ram and executed. You have to flash u-boot into nand. See below how to flash it.
+</p>
+
+</div>
+
+<h3 class="sectionedit26" id="recovery_bricked_uboot_of_goflexnet_buspirate_cygwin">RECOVERY BRICKED UBOOT OF GOFLEXNET (BusPirate &amp; Cygwin)</h3>
+<div class="level3">
+
+<p>
+information from console of BusPirate (SeeedStudio) &quot;HiZ&gt;i&quot; - Bus Pirate v3.5 Firmware v6.1 r1676  Bootloader v4.4
+in bash of Cygwin
+<pre class="code">git clone git://git.code.sf.net/p/openocd/code
+cd code
+./bootstrap
+./configure --enable-maintainer-mode --disable-werror --disable-at91rm9200 --enable-buspirate
+make &amp;&amp; make install &amp;&amp; make clean
+
+put buspirate.cfg to /usr/local/share/openocd/scripts/interface/
+put dockstar.cfg to /usr/local/share/openocd/scripts/board/
+put uboot.mtd0.goflexnet.original.kwb from http://download.doozan.com/uboot/files/uboot/uboot.mtd0.goflexnet.original.kwb to /usr/local/share/openocd/scripts/
+
+cd /usr/local/share/openocd/scripts
+
+(Seeed Studio BusPirate - GoFlex.net)  (GoFlex.net - Seeed Studio BusPirate)
+(            nc         -   1  nc   )  ( 10  GND   -    serial cable GND   )
+(     6  blue   (aux)   -   2  IN   )  (  9  RxD   -    serial cable TxD   )
+(     8  gray   (mosi)  -   3  TDI  )  (  8  TxD   -    serial cable RxD   )
+(     9  white  (cs)    -   4  TMS  )  (  7  CN    -           nc          )
+(     7  purple (clk)   -   5  TCK  )  (  6  DOT   -    10  black (miso)   )
+power on goflex.net, serial, buspirate
+
+openocd.exe -f board/dockstar.cfg
+
+in telnet 127.0.0.1 4444:
+init
+type &#039;halt&#039; - press reset - press enter - release reset
+
+(repeat while not see this:
+target state: halted
+target halted in ARM state due to debug-request, current fashion: Supervisor
+CPSR: 0x000000d3 pc: 0xffff0000
+MMU: disabled, D-Cache: disabled, I-Cache: disabled
+if you not see this - you can try command &#039;soft_reset_halt&#039;)
+
+dockstar_init
+
+(here are two options to choose from)
+------
+load_image uboot.mtd0.goflexnet.original.kwb 0x800000
+(wait ~214 sec)
+resume 0x800200
+------
+or you can erease nand and native write to nand:
+------
+nand probe 0
+nand erase 0 0x0 0xa0000
+nand write 0 uboot.mtd0.goflexnet.original.kwb 0 oob_softecc_kw
+(wait ~569 sec)
+(then poweroff goflexnet &amp; buspirate, wait 5 secs adns poweron goflexnet)
+------
+
+
+in serial console:
+Hit any key to stop autoboot:  0
+nand erase
+nand write.e 0x800000 0x0 0x80000
+reset</pre>
+
+</p>
+
+<p>
+buspirate.cfg
+<pre class="code">interface buspirate
+buspirate_port /dev/ttyS15
+buspirate_speed fast #normal or fast
+buspirate_vreg 0
+buspirate_mode open-drain
+buspirate_pullup 0
+reset_config srst_only</pre>
+
+</p>
+
+<p>
+dockstar.cfg
+<pre class="code"># Marvell SheevaPlug
+
+# I&#039;m using a wiggler compatible cable
+source [find interface/buspirate.cfg]
+source [find target/feroceon.cfg]
+jtag_khz 500
+jtag_nsrst_delay 500
+
+$_TARGETNAME configure \
+	-work-area-phys 0x100000 \
+	-work-area-size 65536 \
+	-work-area-backup 0
+
+# Disabled for the dockstar	
+#arm7_9 dcc_downloads enable
+
+# this assumes the hardware default peripherals location before u-Boot moves it
+set _FLASHNAME $_CHIPNAME.flash
+nand device $_FLASHNAME orion 0 0xd8000000
+
+proc dockstar_init { } {
+
+	# We need to assert DBGRQ while holding nSRST down.
+	# However DBGACK will be set only when nSRST is released.
+	# Furthermore, the JTAG interface doesn&#039;t respond at all when
+	# the CPU is in the WFI (wait for interrupts) state, so it is
+	# possible that initial tap examination failed.  So let&#039;s
+	# re-examine the target again here when nSRST is asserted which
+	# should then succeed.
+	jtag_reset 0 1
+	feroceon.cpu arp_examine
+	halt 0
+	jtag_reset 0 0
+	wait_halt
+
+	arm mcr 15 0 0 1 0 0x00052078
+
+	mww 0xD0001400 0x43000C30
+	mww 0xD0001404 0x39543000 
+	mww 0xD0001408 0x22125451 
+	mww 0xD000140C 0x00000833 
+	mww 0xD0001410 0x000000CC
+	mww 0xD0001414 0x00000000 
+	mww 0xD0001418 0x00000000
+	mww 0xD000141C 0x00000C52 
+	mww 0xD0001420 0x00000042 
+	mww 0xD0001424 0x0000F17F 
+	mww 0xD0001428 0x00085520 
+	mww 0xD000147c 0x00008552 
+
+	# 1st bank is 128 MB
+	mww 0xD0001504 0x07FFFFF1 
+	# 2nd bank of DRAM is not used
+	mww 0xD0001508 0x00000000 
+	mww 0xD000150C 0x00000000
+	# Commented the 3 following	lines
+	#mww 0xD0001504 0x0FFFFFF1 
+	#mww 0xD0001508 0x10000000 
+	#mww 0xD000150C 0x0FFFFFF5 
+	mww 0xD0001514 0x00000000
+	mww 0xD000151C 0x00000000
+	mww 0xD0001494 0x003C0000 
+	mww 0xD0001498 0x00000000
+	mww 0xD000149C 0x0000F80F 
+	mww 0xD0001480 0x00000001 
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+	mww 0xD0020204 0x00000000
+
+	mww 0xD0010000 0x01111111 
+	mww 0xD0010004 0x11113322 
+	mww 0xD0010008 0x00001111
+
+	mww 0xD0010418 0x003E07CF
+	mww 0xD001041C 0x000F0F0F
+	mww 0xD0010470 0x01C7D943
+
+}
+
+proc sheevaplug_reflash_uboot { } {
+
+	# reflash the u-Boot binary and reboot into it
+	sheevaplug_init
+	nand probe 0
+	nand erase 0 0x0 0xa0000
+	nand write 0 uboot.bin 0 oob_softecc_kw
+	resume
+
+}
+
+proc sheevaplug_reflash_uboot_env { } {
+
+	# reflash the u-Boot environment variables area
+	sheevaplug_init
+	nand probe 0
+	nand erase 0 0xa0000 0x40000
+	nand write 0 uboot-env.bin 0xa0000 oob_softecc_kw
+	resume
+
+}
+
+proc sheevaplug_load_uboot { } {
+
+	# load u-Boot into RAM and execute it
+	sheevaplug_init
+	#load_image uboot.elf
+	#verify_image uboot.elf
+	load_image u-boot
+	verify_image u-boot
+	resume 0x00600000
+
+}
+
+proc dockstar_reset_cpu { } {
+
+#	System and User mode registers
+#		  r0: 00000000       r1: 00000000       r2: 00000000       r3: 00000000
+#		  r4: 00000000       r5: 00000000       r6: 00000000       r7: 00000000
+#		  r8: 00000000       r9: 00000000      r10: 00000000      r11: 00000000
+#		 r12: 00000000   sp_usr: 7dddee86   lr_usr: dffebe46       pc: ffff0a42
+#		cpsr: 400000f3
+
+	reg r1 0
+	reg r2 0
+	reg r3 0
+	reg r4 0
+	reg r5 0
+	reg r6 0
+	reg r7 0
+	reg r8 0
+	reg r9 0
+	reg r10 0
+	reg r11 0
+	reg r12 0
+	reg sp_usr 0
+	reg lr_usr 0
+	reg pc 0
+	# Set the CPU in Supervisor mode
+	reg cpsr 0x13
+
+#	FIQ mode shadow registers
+#	  r8_fiq: fbcfff64   r9_fiq: d7dfafd6  r10_fiq: 1fff6d2e  r11_fiq: 1db65df4
+#	 r12_fiq: ff5a6de4   sp_fiq: 745fe7d5   lr_fiq: 89f7ae3e spsr_fiq: 00000000
+
+	reg r8_fiq 0
+	reg r9_fiq 0
+	reg r10_fiq 0
+	reg r11_fiq 0
+	reg r12_fiq 0
+	reg sp_fiq 0
+	reg lr_fiq 0
+	reg spsr_fiq 0
+
+#	Supervisor mode shadow registers
+#	  sp_svc: fffeff84   lr_svc: ffff0a43 spsr_svc: 00000000
+
+	reg sp_svc 0
+	reg lr_svc 0
+	reg spsr_svc 0
+
+#	Abort mode shadow registers
+#	  sp_abt: 51fe66f7   lr_abt: d7abaef7 spsr_abt: 00000000
+
+	reg sp_abt 0
+	reg lr_abt 0
+	reg spsr_abt 0
+
+#	IRQ mode shadow registers
+#	  sp_irq: 7fdb4ed5   lr_irq: 6d41122e spsr_irq: 00000000
+
+	reg sp_irq 0
+	reg lr_irq 0
+	reg spsr_irq 0
+	
+#	Undefined instruction mode shadow registers
+#	  sp_und: 75ffef7e   lr_und: d75b6cd1 spsr_und: 00000000
+
+	reg sp_und 0
+	reg lr_und 0
+	reg spsr_und 0
+	
+}</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit27" id="originaldefault_goflexnet_uboot_environment_printenvsetenv">original/default GoFlex.net uBoot environment (printenv/setenv)</h3>
+<div class="level3">
+
+<p>
+<pre class="code">baudrate=115200
+loads_echo=0
+rootpath=/mnt/ARM_FS/
+run_diag=yes
+console=console=ttyS0,115200
+CASset=min
+MALLOC_len=1
+ethprime=egiga0
+bootargs_root=root=/dev/mtdblock2 ro
+ethmtu=1500
+usb0Mode=host
+nandEcc=1bit
+bootargs=console=ttyS0,115200 root=/dev/mtdblock2 ro
+ethaddr=00:10:75:26:3D:9F
+cesvcid=5RFAJDGYNLPLDUHN4BWUWC3EKJ
+ceserialno=NA1Y0EG1
+ceboardver=DISCOVERY:0.1
+ethact=egiga0
+filesize=1b60000
+fileaddr=1000000
+netmask=255.255.0.0
+ipaddr=192.168.1.1
+serverip=192.168.1.2
+bootcmd=nand read.e 0x800000 0x100000 0x300000; setenv bootargs $(console) $(bootargs_root); bootm 0x800000
+arcNumber=3089
+stdin=serial
+stdout=serial
+stderr=serial
+mainlineLinux=no
+enaMonExt=no
+enaCpuStream=no
+enaWrAllo=no
+pexMode=RC
+disL2Cache=no
+setL2CacheWT=yes
+disL2Prefetch=yes
+enaICPref=yes
+enaDCPref=yes
+sata_dma_mode=yes
+netbsd_en=no
+vxworks_en=no
+bootdelay=3
+disaMvPnp=no</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit28" id="tags">Tags</h2>
+<div class="level2">
+<div class="tags"><span>
+	<a href="../../tag/gigabitethernet?do=showtag&amp;tag=GigabitEthernet" class="wikilink1" title="tag:gigabitethernet" rel="tag">GigabitEthernet</a>,
+	<a href="../../tag/1nic?do=showtag&amp;tag=1NIC" class="wikilink1" title="tag:1nic" rel="tag">1NIC</a>,
+	<a href="../../tag/0wnic?do=showtag&amp;tag=0WNIC" class="wikilink1" title="tag:0wnic" rel="tag">0WNIC</a>,
+	<a href="../../tag/no_switch?do=showtag&amp;tag=no_switch" class="wikilink1" title="tag:no_switch" rel="tag">no switch</a>,
+	<a href="../../tag/usb?do=showtag&amp;tag=USB" class="wikilink1" title="tag:usb" rel="tag">USB</a>,
+	<a href="../../tag/4usb?do=showtag&amp;tag=4USB" class="wikilink1" title="tag:4usb" rel="tag">4USB</a>,
+	<a href="../../tag/jtag?do=showtag&amp;tag=JTAG" class="wikilink1" title="tag:jtag" rel="tag">JTAG</a>,
+	<a href="../../tag/128ram?do=showtag&amp;tag=128RAM" class="wikilink1" title="tag:128ram" rel="tag">128RAM</a>,
+	<a href="../../tag/gt32flash?do=showtag&amp;tag=gt32Flash" class="wikilink1" title="tag:gt32flash" rel="tag">gt32Flash</a>,
+	<a href="../../tag/arm?do=showtag&amp;tag=ARM" class="wikilink1" title="tag:arm" rel="tag">ARM</a>,
+	<a href="../../tag/armv5?do=showtag&amp;tag=ARMv5" class="wikilink1" title="tag:armv5" rel="tag">ARMv5</a>,
+	<a href="../../tag/arm926ej-s?do=showtag&amp;tag=ARM926EJ-S" class="wikilink1" title="tag:arm926ej-s" rel="tag">ARM926EJ-S</a>,
+	<a href="../../tag/crypto?do=showtag&amp;tag=crypto" class="wikilink1" title="tag:crypto" rel="tag">crypto</a>,
+	<a href="../../tag/sata?do=showtag&amp;tag=SATA" class="wikilink1" title="tag:sata" rel="tag">SATA</a>,
+	<a href="../../tag/marvell?do=showtag&amp;tag=marvell" class="wikilink1" title="tag:marvell" rel="tag">marvell</a>,
+	<a href="../../tag/kirkwood?do=showtag&amp;tag=kirkwood" class="wikilink1" title="tag:kirkwood" rel="tag">kirkwood</a>
+</span></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>toh/seagate/goflexnet.txt</bdi> · Last modified: 2015/02/22 08:56 by <bdi>rayknight</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="http://wiki.openwrt.org/toh/seagate/goflexnet?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="http://wiki.openwrt.org/toh/seagate/goflexnet?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="http://wiki.openwrt.org/toh/seagate/goflexnet?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="goflexnet#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="http://wiki.openwrt.org/lib/exe/indexer.php?id=toh%3Aseagate%3Agoflexnet&amp;1432284096" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

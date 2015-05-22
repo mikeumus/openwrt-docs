@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Pirelli Alice Gate VoIP 2 Plus Wi-Fi Business [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="bcm63xx,bcm6358"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="agpf?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=toh:pirelli"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/toh/pirelli/agpf"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/toh/pirelli/agpf"/>
+<link rel="canonical" href="agpf"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='toh:pirelli';var JSINFO = {"id":"toh:pirelli:agpf","namespace":"toh:pirelli"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266285 166.182.3.99';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="agpf#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="agpf?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="agpf?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="toh:pirelli:agpf" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="agpf?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="agpf?do=media&amp;ns=toh%253Apirelli"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="agpf?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="toh:start">Table of Hardware</a></bdi> » <bdi><a href="start" class="wikilink1" title="toh:pirelli:start">Pirelli</a></bdi> » <bdi><span class="curid"><a href="agpf" class="wikilink1" title="toh:pirelli:agpf">Pirelli Alice Gate VoIP 2 Plus Wi-Fi Business</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/toh/pirelli/agpf" class="media" title="cz:toh:pirelli:agpf"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/toh/pirelli/agpf" class="media" title="de:toh:pirelli:agpf"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="agpf" class="media" title="toh:pirelli:agpf"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/toh/pirelli/agpf" class="media" title="es:toh:pirelli:agpf"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/toh/pirelli/agpf" class="media" title="fr:toh:pirelli:agpf"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/toh/pirelli/agpf" class="media" title="hu:toh:pirelli:agpf"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/toh/pirelli/agpf" class="media" title="jp:toh:pirelli:agpf"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/toh/pirelli/agpf" class="media" title="pl:toh:pirelli:agpf"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/toh/pirelli/agpf" class="media" title="pt-br:toh:pirelli:agpf"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/toh/pirelli/agpf" class="media" title="ru:toh:pirelli:agpf"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/toh/pirelli/agpf" class="media" title="tr:toh:pirelli:agpf"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/toh/pirelli/agpf" class="media" title="zh-cn:toh:pirelli:agpf"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/toh/pirelli/agpf" class="media" title="zh-tw:toh:pirelli:agpf"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>toh:pirelli:agpf</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="agpf#hardware">Hardware</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="agpf#info">Info</a></div></li>
+<li class="level2"><div class="li"><a href="agpf#photos">Photos</a></div></li>
+<li class="level2"><div class="li"><a href="agpf#serial">Serial</a></div></li>
+<li class="level2"><div class="li"><a href="agpf#jtag">JTAG</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="agpf#flash">FLASH</a></div></li>
+<li class="level1"><div class="li"><a href="agpf#openwrt_on_the_machine">OpenWrt on the machine :-)</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="agpf#backup_of_the_original_firmware">Backup of the original firmware</a></div></li>
+<li class="level2"><div class="li"><a href="agpf#restore_original_firmware">Restore original firmware</a></div></li>
+<li class="level2"><div class="li"><a href="agpf#installing_openwrt">Installing OpenWrt</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="agpf#specific_openwrt_configuration">Specific OpenWrt configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="agpf#working_as_access_point_router">Working as Access Point Router</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="agpf#network_config_lan_4_wan">Network config (lan 4 = wan)</a></div></li>
+<li class="level3"><div class="li"><a href="agpf#leds_config">Leds config</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="agpf#working_as_client_device">Working as Client Device</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="agpf#wireless_config">Wireless config</a></div></li>
+<li class="level3"><div class="li"><a href="agpf#network_config">Network config</a></div></li>
+<li class="level3"><div class="li"><a href="agpf#led_config">Led config</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="agpf#working_as_3g4g_router">Working as 3G/4G Router</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="agpf#necessary_packages">Necessary packages</a></div></li>
+<li class="level3"><div class="li"><a href="agpf#luci_configuration">Luci configuration</a></div></li>
+<li class="level3"><div class="li"><a href="agpf#net_config_example">Net config example</a></div></li>
+<li class="level3"><div class="li"><a href="agpf#led_config1">Led config</a></div></li>
+<li class="level3"><div class="li"><a href="agpf#other_suggestions">Other suggestions</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="agpf#bootlogs">Bootlogs</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="agpf#oem_bootlog">OEM bootlog</a></div></li>
+<li class="level2"><div class="li"><a href="agpf#openwrt_bootlog">OpenWrt bootlog</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="agpf#links">Links</a></div></li>
+<li class="level1"><div class="li"><a href="agpf#tags">Tags</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="pirelli_alice_gate_voip_2_plus_wi-fi_business">Pirelli Alice Gate VoIP 2 Plus Wi-Fi Business</h1>
+<div class="level1">
+
+<p>
+This page is about the above mentioned device also know as <strong>agpf</strong>.
+</p>
+
+<p>
+Supported, but without ADSL.
+</p>
+<ul>
+<li class="level1"><div class="li"> Backfire (10.03):<br/>
+<a href="http://downloads.openwrt.org/backfire/10.03.1/brcm63xx/openwrt-AGV2%2bW-cfe-squashfs-cfe.bin" class="urlextern" title="http://downloads.openwrt.org/backfire/10.03.1/brcm63xx/openwrt-AGV2%2bW-cfe-squashfs-cfe.bin"  rel="nofollow">openwrt-AGV2+W-cfe-squashfs-cfe.bin</a></div>
+</li>
+<li class="level1"><div class="li"> Attitude Adjustment (12.09):<br/>
+<a href="http://downloads.openwrt.org/attitude_adjustment/12.09/brcm63xx/generic/openwrt-AGV2%2bW-cfe-squashfs-cfe.bin" class="urlextern" title="http://downloads.openwrt.org/attitude_adjustment/12.09/brcm63xx/generic/openwrt-AGV2%2bW-cfe-squashfs-cfe.bin"  rel="nofollow">openwrt-AGV2+W-cfe-squashfs-cfe.bin</a></div>
+</li>
+<li class="level1"><div class="li"> Trunk:<br/>
+<a href="http://downloads.openwrt.org/snapshots/trunk/brcm63xx/openwrt-AGV2%2bW-cfe-squashfs-cfe.bin" class="urlextern" title="http://downloads.openwrt.org/snapshots/trunk/brcm63xx/openwrt-AGV2%2bW-cfe-squashfs-cfe.bin"  rel="nofollow">openwrt-AGV2+W-cfe-squashfs-cfe.bin</a></div>
+</li>
+</ul>
+
+<p>
+There are several models of Alice Gate out there, that are not supported at the moment.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="hardware">Hardware</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit3" id="info">Info</h3>
+<div class="level3">
+<div class="table sectionedit4"><table class="inline">
+	<tr class="row0">
+		<td class="col0 leftalign"> <strong><a href="http://en.wikipedia.org/wiki/Instruction set" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Instruction set">Architecture</a>:</strong>    </td><td class="col1"> <a href="http://en.wikipedia.org/wiki/MIPS architecture" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/MIPS architecture">MIPS</a> </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 leftalign"> <strong>Vendor:</strong>          </td><td class="col1"> <a href="http://en.wikipedia.org/wiki/Broadcom" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Broadcom">Broadcom</a> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <strong><a href="../../doc/techref/bootloader.1" class="wikilink1" title="doc:techref:bootloader">Bootloader</a>:</strong>     </td><td class="col1"> <a href="../../doc/techref/bootloader/cfe" class="wikilink1" title="doc:techref:bootloader:cfe">CFE</a> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> <strong>Board ID:</strong>      </td><td class="col1"> AGPF-S0 </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/soc.1" class="wikilink1" title="doc:hardware:soc">System-On-Chip</a>:</strong>  </td><td class="col1"> <a href="http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6358" class="urlextern" title="http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6358"  rel="nofollow">BCM6358KFBG </a> </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/cpu" class="wikilink1" title="doc:hardware:cpu">CPU</a>/Speed</strong>        </td><td class="col1"> BMIPS4350 V1.0 / 300 Mhz <a href="../../doc/hardware/soc/soc.broadcom.bcm63xx/smp" class="wikilink1" title="doc:hardware:soc:soc.broadcom.bcm63xx:smp">BMIPS Dual Core</a> </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> <strong>Flash-Chip:</strong>      </td><td class="col1"> Spansion <a href="http://www.spansion.com/datasheets/s29gl-p_00_a11_e.pdf" class="urlextern" title="http://www.spansion.com/datasheets/s29gl-p_00_a11_e.pdf"  rel="nofollow">S29GL128P</a> </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> <strong>Flash size:</strong>      </td><td class="col1"> 16 MiB </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> <strong>RAM:</strong>             </td><td class="col1 leftalign"> NANYA NT5DS16M16CS / DDR-400   </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> <strong>RAM size:</strong>        </td><td class="col1 leftalign"> 32 MiB   </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> <strong>Wireless:</strong>        </td><td class="col1"> BCM4318 (miniPCI) </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> <strong>Ethernet:</strong>        </td><td class="col1"> Broadcom  <a href="../../_media/toh/bcm5325_pinout.png" class="urlextern" title="http://wiki.openwrt.org/_media/toh/bcm5325_pinout.png"  rel="nofollow">BCM5325</a> w/ vlan support <a href="../../doc/uci/network#swconfig" class="wikilink1" title="doc:uci:network">swconfig</a> </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> <strong>Internet:</strong>        </td><td class="col1 leftalign"> ADSL2+  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> <strong>USB:</strong>             </td><td class="col1"> 1x2.0H </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 leftalign"> <strong><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console" class="wikilink1" title="doc:hardware:port.serial">Serial</a>:</strong>          </td><td class="col1"> <a href="agpf#serial" title="toh:pirelli:agpf ↵" class="wikilink1">Yes</a> </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/port.jtag" class="wikilink1" title="doc:hardware:port.jtag">JTAG</a>:</strong>            </td><td class="col1 leftalign"> <a href="agpf#jtag" title="toh:pirelli:agpf ↵" class="wikilink1">Yes</a>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit5" id="photos">Photos</h3>
+<div class="level3">
+
+<p>
+<a href="../../_detail/inbox/alice-agpf.jpg?id=toh%253Apirelli%253Aagpf" class="media" title="inbox:alice-agpf.jpg"><img src="../../_media/inbox/alice-agpf.jpg?w=400&amp;tok=2d58fa" class="media" title="alice-agpf.jpg" alt="alice-agpf.jpg" width="400" /></a>
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="serial">Serial</h3>
+<div class="level3">
+
+<p>
+The serial port is J10, on the left of the switch chip, <a href="agpf#picture_with_highlighted_serial_and_jtag" title="toh:pirelli:agpf ↵" class="wikilink1">see</a>
+</p>
+<div class="table sectionedit7"><table class="inline">
+	<tr class="row0">
+		<td class="col0 rightalign">  6 </td><td class="col1 rightalign">  GND </td><td class="col2 rightalign">  RX </td><td class="col3 rightalign">  5 </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 rightalign">  4 </td><td class="col1 rightalign">  GND </td><td class="col2 rightalign">  Vcc (3.3V) </td><td class="col3 rightalign">  3 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  2 </td><td class="col1 rightalign">  GND </td><td class="col2 rightalign">  TX </td><td class="col3 rightalign">  1 </td>
+	</tr>
+</table></div>
+
+<p>
+Settings are 115200 8N1
+</p>
+
+<p>
+<strong>NB:</strong> a short circuit between pins <code>RX</code> and <code>TX</code> at power up puts the device in a recovery mode with IP <code>192.168.1.1</code> from where a new firmware can be uploaded.  OpenWrt binaries are refused, though, because of invalid CRC.
+</p>
+
+<p>
+You can use a CP210x USB to UART Bridge adapter. The advantage of the usb version is that you don&#039;t need to use battery like the old &quot;com&quot; version.
+</p>
+
+<p>
+If you use Windows you can use HyperTerminal to connect with the router. You have to use the emulated com port, set the speed of 115200 (try other speeds if you see strange caracters).
+</p>
+
+</div>
+
+<h3 class="sectionedit8" id="jtag">JTAG</h3>
+<div class="level3">
+
+<p>
+Jtag port is J9 near the SoC and the minipci socket, <a href="agpf#picture_with_highlighted_serial_and_jtag" title="toh:pirelli:agpf ↵" class="wikilink1">see</a>
+</p>
+
+<p>
+It seems to be a mips e-jtag 14 pin connector with columns swapped (used from the other side?).
+</p>
+<div class="table sectionedit9"><table class="inline">
+	<tr class="row0">
+		<td class="col0 rightalign">  14 </td><td class="col1 rightalign">  DINT </td><td class="col2 rightalign">  VREF </td><td class="col3 rightalign">  13 </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 rightalign">  12 </td><td class="col1 rightalign">  SRST_N </td><td class="col2 rightalign">  GND </td><td class="col3 rightalign">  11 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  10 </td><td class="col1 rightalign">  TCK </td><td class="col2 rightalign">  GND </td><td class="col3 rightalign">  9 </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  8 </td><td class="col1 rightalign">  TMS </td><td class="col2 rightalign">  GND </td><td class="col3 rightalign">  7 </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 rightalign">  6 </td><td class="col1 rightalign">  TDO </td><td class="col2 rightalign">  GND </td><td class="col3 rightalign">  5 </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 rightalign">  4 </td><td class="col1 rightalign">  TDI </td><td class="col2 rightalign">  GND </td><td class="col3 rightalign">  3 </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 rightalign">  2 </td><td class="col1 rightalign">  TRST_N </td><td class="col2 rightalign">  GND </td><td class="col3 rightalign">  1 </td>
+	</tr>
+</table></div>
+
+<p>
+CPU Chip ID: 00000110001101011000000101111111 (0635817F)
+</p>
+
+<p>
+I used the JTAG port with <a href="http://urjtag.org" class="urlextern" title="http://urjtag.org"  rel="nofollow">urjtag</a>, just use the svn version. Useful info on <a href="http://www.neufbox4.org/wiki/index.php?title=Interface_JTAG" class="urlextern" title="http://www.neufbox4.org/wiki/index.php?title=Interface_JTAG"  rel="nofollow">&quot;Neuf Box 4 JTAG&quot; </a>
+</p>
+
+<p>
+You should probably try the <a href="http://openocd.berlios.de/web/" class="urlextern" title="http://openocd.berlios.de/web/"  rel="nofollow">Open On-Chip Debugger</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit10" id="flash">FLASH</h2>
+<div class="level2">
+<div class="table sectionedit11"><table class="inline">
+	<tr class="row0">
+		<td class="col0 rightalign">  CFE </td><td class="col1 rightalign">  128KB </td><td class="col2 rightalign">  0x00000 - 0x1FFFF </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 rightalign">  FIRST IMAGE </td><td class="col1 rightalign">  ~8MB </td><td class="col2 rightalign">  0x020000 - 0x7FFFFF </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  SECOND IMAGE </td><td class="col1 rightalign">  ~8MB </td><td class="col2 rightalign">  0x800000 - 0xFDFFFF </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  FACTORY SETTINGS </td><td class="col1 rightalign">  128KB </td><td class="col2 rightalign">  0xFE0000 - 0xFFFFFF </td>
+	</tr>
+</table></div>
+
+<p>
+More detailed information came from the discuss prompt:
+<pre class="code">Section 00 Type BOOT       Range 0x00000000-0x00020000 MaxSize 0x00020000
+        No more information.
+
+Section 01 Type IMAGE      Range 0x00020000-0x007C0000 MaxSize 0x0079FF6C
+        Size 0x0070BC38 Name &#039;IMAGE&#039;
+        Checksum 0x37FE2BDA Counter 0x00000002 Start Offset 0x00000000
+
+Section 02 Type IMAGE      Range 0x00800000-0x00FA0000 MaxSize 0x0079FF6C
+        Uninitialized.
+
+Section 03 Type CONF       Range 0x00FA0000-0x00FC0000 MaxSize 0x0001FF6C
+        Size 0x0000756B Name &#039;rg_conf&#039;
+        Checksum 0x003A4562 Counter 0x0000002D Start Offset 0x00000000
+
+Section 04 Type CONF       Range 0x00FC0000-0x00FE0000 MaxSize 0x0001FF6C
+        Size 0x0000756B Name &#039;rg_conf&#039;
+        Checksum 0x003A307D Counter 0x0000002E Start Offset 0x00000000
+
+Section 05 Type FACTORY    Range 0x00FE0000-0x00FF0000 MaxSize 0x0000FF6C
+        Size 0x00000506 Name &#039;rg_factory&#039;
+        Checksum 0x00011485 Counter 0x0000001A Start Offset 0x00000000
+
+Section 06 Type UNKNOWN    Range 0x00FF0000-0x01000000 MaxSize 0x00010000</pre>
+
+</p>
+
+<p>
+I don&#039;t understand the MaxSize value of some sections as they leave some space before the next section.
+</p>
+
+<p>
+Note, when you flash from jtag the BASE ADDRESS is 0x1E000000
+</p>
+
+</div>
+
+<h2 class="sectionedit12" id="openwrt_on_the_machine">OpenWrt on the machine :-)</h2>
+<div class="level2">
+
+<p>
+You will need a serial adpater!!
+</p>
+
+<p>
+Don&#039;t even try to go further without a serial adapter!!
+</p>
+
+</div>
+
+<h3 class="sectionedit13" id="backup_of_the_original_firmware">Backup of the original firmware</h3>
+<div class="level3">
+
+<p>
+Connect the serial adapter and let the device complete the boot procedure. You have only to wait and don&#039;t have to short-circuit RX and TX pin.
+At the login prompt use <em>admin</em> as username and password to get to the openrg <em>Discus</em> prompt.
+</p>
+
+<p>
+From the <em>Discus</em> prompt you can do a lot of useful things, but i&#039;ve not explored it due to some lack of interest. To obtain the shell just digit <em>system shell</em>.
+note: the first time you will not see Username, but if you write admin, router will request you the password.
+<pre class="code">Username: admin  
+Password: *****  
+
+Discus&gt; system shell
+
+
+BusyBox v1.01 (2005.09.07-07:38+0000) Built-in shell (lash)
+Enter &#039;help&#039; for a list of built-in commands.
+
+/ #</pre>
+
+</p>
+
+<p>
+Insert an USB flash key into the usb port of the router and mount the new device somewhere, for example in /mnt/backup
+<pre class="code">/ # cd mnt/
+/mnt # mkdir backup
+/mnt # mount /dev/sda
+/mnt # mount /dev/sda1 backup/
+[   90.535] VFS: Can&#039;t find ext3 filesystem on dev sda1.
+[   90.590] VFS: Can&#039;t find an ext2 filesystem on dev sda1.
+[   90.655] cramfs: wrong magic
+/mnt #</pre>
+
+</p>
+
+<p>
+Now just copy the content of the flash in some files on the usb key.
+<pre class="code">/mnt # ls /dev/mtd*
+/dev/mtd0         /dev/mtd_rgconf0  /dev/mtdblock2    /dev/mtdr2
+/dev/mtd1         /dev/mtd_rgconf1  /dev/mtdblock3    /dev/mtdr3
+/dev/mtd2         /dev/mtdblock0    /dev/mtdr0
+/dev/mtd3         /dev/mtdblock1    /dev/mtdr1
+/mnt # dd if=/dev/mtdblock0 of=/mnt/backup/mtdblock
+32768+0 records in
+32768+0 records out</pre>
+
+</p>
+
+<p>
+This will create a 16M file named MTDBLOCK (due to fat limitation). If you prefer you can use an ext2 or ext3 formatted filesystem.
+</p>
+
+<p>
+From this file you can extract all you need to do a full restore of your device, both via jtag or via CFE.
+</p>
+
+<p>
+Now <em>unmount</em> your flash key, put the file in a safe place and reboot the Alice stopping the boot process at the bootloader prompt pressing some keys.
+<pre class="code">/mnt # sync
+/mnt # umount backup/
+/mnt # exit                                          
+
+Returned 0
+Discus&gt; system reboot&lt;Jan  1 01:22:52&gt; 
+Going to reboot!</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit14" id="restore_original_firmware">Restore original firmware</h3>
+<div class="level3">
+
+<p>
+<img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" />
+</p>
+
+</div>
+
+<h3 class="sectionedit15" id="installing_openwrt">Installing OpenWrt</h3>
+<div class="level3">
+
+<p>
+You need to setup a tftp server on some host (I can suggest to use dnsmasq for this) to serve the firmware image to the router.
+If you use Windows you can use tftpd32 to configure the tftpd server and the directory shared (you must connect also by lan your router and your pc).
+</p>
+
+<p>
+Now just download the image for <em>AGV2+W</em> from <a href="http://downloads.openwrt.org/snapshots/trunk/brcm63xx" class="urlextern" title="http://downloads.openwrt.org/snapshots/trunk/brcm63xx"  rel="nofollow">http://downloads.openwrt.org/snapshots/trunk/brcm63xx</a>, skip the jffs2 with 64k erase block as the flash use 128k block, anyway using 64k should not give much problem, just some wasted space and some errors messages. Put the choose image in the right place (see your tftp server configuration), and go to the CFE prompt.
+</p>
+
+<p>
+Now you have to use the <em>flashimage</em> command to load the openwrt image, please don&#039;t use the <em>f</em> command. If you configure (with command <em>c</em>) the host ip address you can avoid it in the <em>flashimage</em> argument.
+To get the CFE prompt you must turn on you router and when you see a countdown and you must press &#039;enter&#039;.
+<pre class="code">CFE&gt; flashimage
+
+     eg. flashimage [hostip:]compressed_image_file_name
+</pre>
+
+</p>
+
+<p>
+That&#039;s all, the device will automaticly reboot and openwrt will be there <img src="../../lib/images/smileys/icon_smile.gif" class="icon" alt=":-)" />
+</p>
+
+<p>
+Using dnsmasq:
+<pre class="code">sudo ifconfig eth0 192.168.1.100 # by default the router use the 192.168.1.1 ip
+sudo dnsmasq -d --enable-tftp --tftp-root=`pwd`</pre>
+
+</p>
+
+<p>
+For example this will result in:
+<pre class="code">CFE&gt; flashimage openwrt-AGV2+W-cfe-jffs2-128k-cfe.bin
+Loading 192.168.1.100:openwrt-AGV2+W-cfe-jffs2-128k-cfe.bin ...
+Finished loading 3670020 bytes
+SGP  tagVersion : 8
+Flashing MAIN image at address: BE020000
+signiture_2: IMAGE
+remaining to flash .......  03276804 </pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit16" id="specific_openwrt_configuration">Specific OpenWrt configuration</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit17" id="working_as_access_point_router">Working as Access Point Router</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="network_config_lan_4_wan">Network config (lan 4 = wan)</h4>
+<div class="level4">
+
+<p>
+I can suggest you to use Alice gate with the following network configuration using serial console:
+</p>
+
+<p>
+For more info read <a href="../../doc/uci/network/switch" class="wikilink1" title="doc:uci:network:switch">switch</a> config.
+</p>
+
+<p>
+You have to use the &quot;vi&quot; editor to edit the file  ect/config/network . To save what you write you must press Esc, then write :w and then press enter to save (CTRL + Z to exit without save).
+</p>
+
+<p>
+<pre class="code">config interface loopback                                                       
+        option ifname   lo                                                      
+        option proto    static                                                  
+        option ipaddr   127.0.0.1                                               
+        option netmask  255.0.0.0                                               
+                                                                                
+config &#039;switch&#039; &#039;eth1&#039;                                                          
+   option &#039;enable&#039;      &#039;1&#039;                                                     
+   option &#039;enable_vlan&#039; &#039;1&#039;                                                     
+   option &#039;reset&#039;       &#039;1&#039;                                                     
+                                                                                
+config &#039;switch_vlan&#039; &#039;vlan0&#039;                                                    
+   option &#039;vlan&#039;       &#039;0&#039;                                                      
+   option &#039;device&#039;     &#039;eth1&#039;                                                   
+   option &#039;ports&#039;      &#039;0 1 2 5*&#039;                                               
+                                                                                
+config &#039;switch_vlan&#039; &#039;vlan1&#039;                                                    
+   option &#039;vlan&#039;       &#039;1&#039;                                                      
+   option &#039;device&#039;     &#039;eth1&#039;                                                   
+   option &#039;ports&#039;      &#039;3 5t&#039;                                                   
+                                                                                
+config interface lan                                                            
+        option ifname   eth1.0 
+        option type     bridge                                                 
+        option proto    static                                                  
+        option ipaddr   192.168.5.1                                             
+        option netmask  255.255.255.0                                           
+        option nat      1                                                       
+                                                                                
+config &#039;interface&#039; wan 
+    option &#039;ifname&#039;  &#039;eth1.1&#039;                                                   
+    option &#039;proto&#039;   &#039;dhcp&#039;</pre>
+
+</p>
+
+<p>
+With the configuration above:  
+* The <abbr title="Local Area Network">LAN</abbr> 4 port became a WAN port.
+* <abbr title="Local Area Network">LAN</abbr> port 1, 2, 3 and Wireless are swithed togheter. 
+* You can connect with your router at the address 192.168.5.1 using telnet protocol or your browser (note: OpenWrt Attitude Adjustment 12.09 is builded with the web interface &#039;luci&#039;).
+</p>
+
+</div>
+
+<h4 id="leds_config">Leds config</h4>
+<div class="level4">
+
+<p>
+Inside /etc/config/system add:
+<pre class="code">config &#039;led&#039;
+	option &#039;sysfs&#039;		&#039;AGPF-S0:red:power&#039;
+	option &#039;trigger&#039;	&#039;heartbeat&#039;
+
+config &#039;led&#039;
+	option name		lan
+	option &#039;sysfs&#039;		&#039;AGPF-S0:red:wifi&#039;
+	option trigger netdev
+	option &#039;dev&#039;	&#039;eth1.0&#039;
+	option mode &#039;rx tx&#039;
+
+config &#039;led&#039;
+	option name		wan
+	option &#039;sysfs&#039;		&#039;AGPF-S0:green:wifi&#039;
+	option trigger netdev
+	option &#039;dev&#039;	&#039;eth1.1&#039;
+	option mode &#039;rx tx&#039;</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit18" id="working_as_client_device">Working as Client Device</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="wireless_config">Wireless config</h4>
+<div class="level4">
+
+<p>
+<pre class="code">#/etc/config/wireless 
+#NOTE: run wifi detect to create this file
+
+config wifi-device &#039;radio0&#039;
+	option type &#039;mac80211&#039;
+	option channel &#039;11&#039;
+	option hwmode &#039;11g&#039;
+	option path &#039;pci0000:00/0000:00:01.0&#039;
+	option txpower &#039;13&#039;
+	option country &#039;US&#039;
+
+config wifi-iface
+	option device &#039;radio0&#039;
+	option ssid &#039;YOUR NETWORK&#039;
+	option mode &#039;sta&#039;
+	option encryption &#039;psk2&#039;
+	option key &#039;ASCI PASSWD&#039;
+	option network &#039;wclient&#039;
+</pre>
+
+</p>
+
+</div>
+
+<h4 id="network_config">Network config</h4>
+<div class="level4">
+
+<p>
+Follow the network config with dhcp enabled on eth interfaces
+<pre class="code">#/etc/conf/network
+config interface &#039;loopback&#039;
+	option ifname &#039;lo&#039;
+	option proto &#039;static&#039;
+	option ipaddr &#039;127.0.0.1&#039;
+	option netmask &#039;255.0.0.0&#039;
+
+config switch &#039;eth1&#039;
+	option enable &#039;1&#039;
+	option enable_vlan &#039;1&#039;
+	option reset &#039;1&#039;
+
+config switch_vlan &#039;vlan0&#039;
+	option vlan &#039;0&#039;
+	option device &#039;eth1&#039;
+	option ports &#039;0 1 2 5*&#039;
+
+config switch_vlan &#039;vlan1&#039;
+	option vlan &#039;1&#039;
+	option device &#039;eth1&#039;
+	option ports &#039;3 5t&#039;
+
+config interface &#039;lan&#039;
+	option ifname &#039;eth1.0&#039;
+	option type &#039;bridge&#039;
+	option proto &#039;static&#039;
+	option ipaddr &#039;192.168.5.1&#039;
+	option netmask &#039;255.255.255.0&#039;
+	option nat &#039;1&#039;
+
+config interface &#039;wan&#039;
+	option ifname &#039;eth1.1&#039;
+	option proto &#039;dhcp&#039;
+	option type &#039;bridge&#039;
+
+config interface &#039;wclient&#039;
+	option _orig_ifname &#039;wlan0&#039;
+	option _orig_bridge &#039;false&#039;
+	option proto &#039;dhcp&#039;</pre>
+
+</p>
+
+</div>
+
+<h4 id="led_config">Led config</h4>
+<div class="level4">
+
+<p>
+Follow the same configuration of access point router.
+</p>
+
+</div>
+
+<h3 class="sectionedit19" id="working_as_3g4g_router">Working as 3G/4G Router</h3>
+<div class="level3">
+
+<p>
+To use you usb modem you have to:
+</p>
+<ol>
+<li class="level1"><div class="li"> install luci (if not installed)</div>
+</li>
+<li class="level1"><div class="li"> install some packages to manage usb modem and other device </div>
+</li>
+<li class="level1"><div class="li"> configure your connection using luci</div>
+</li>
+</ol>
+
+</div>
+
+<h4 id="necessary_packages">Necessary packages</h4>
+<div class="level4">
+
+<p>
+you have to install tfollowing packages:
+</p>
+
+<p>
+kmod-usb-acm
+kmod-usb-net
+kmod-usb-net-sierrawireless
+kmod-usb-ohci
+kmod-usb-serial
+kmod-usb-serial-option
+kmod-usb-serial-qualcomm
+kmod-usb-serial-sierrawireless
+kmod-usb-uhci
+kmod-usb2
+luci-proto-3g
+ppp 	 
+ppp-mod-pppoe 	 
+wpad-mini
+usb-modeswitch 	 
+usb-modeswitch-data 	 
+procps  
+wireless-tools
+</p>
+
+</div>
+
+<h4 id="luci_configuration">Luci configuration</h4>
+<div class="level4">
+
+<p>
+You have to go to Network | Interface | Wan. Then swith to 3G Protocol (select UMTS/GPRS/EV-DO). Select the port of you modem (try all available port), your service, insert you APN, Pin, Username and Password. Finally save you configuration.
+</p>
+
+</div>
+
+<h4 id="net_config_example">Net config example</h4>
+<div class="level4">
+
+<p>
+This is the extracted network configuration for a ZTE MF680 modem:
+</p>
+
+<p>
+<pre class="code">config interface &#039;loopback&#039;       
+        option ifname &#039;lo&#039;        
+        option proto &#039;static&#039;     
+        option ipaddr &#039;127.0.0.1&#039; 
+        option netmask &#039;255.0.0.0&#039;
+                               
+config switch &#039;eth1&#039;           
+        option enable &#039;1&#039;      
+        option enable_vlan &#039;1&#039; 
+        option reset &#039;1&#039;       
+                               
+config switch_vlan &#039;vlan0&#039;     
+        option vlan &#039;0&#039;            
+        option device &#039;eth1&#039;          
+        option ports &#039;0 1 2 5*&#039;       
+                                      
+config switch_vlan &#039;vlan1&#039;            
+        option vlan &#039;1&#039;               
+        option device &#039;eth1&#039;          
+        option ports &#039;3 5t&#039;       
+config interface &#039;lan&#039;         
+        option ifname &#039;eth1.0&#039; 
+        option type &#039;bridge&#039;   
+        option proto &#039;static&#039;  
+        option ipaddr &#039;192.168.5.1&#039;
+        option netmask &#039;255.255.255.0&#039;
+        option nat &#039;1&#039;                
+                                      
+config interface &#039;wan&#039;                
+        option _orig_ifname &#039;eth1.1&#039;  
+        option _orig_bridge &#039;false&#039;   
+        option proto &#039;3g&#039;             
+        option device &#039;/dev/ttyUSB2&#039;  #MAYBE YOU HAVE TO CHANGE THIS
+        option service &#039;umts&#039;         
+        option apn &#039;YOUR APN&#039;
+        option username &#039;YOUR USERNAME&#039;
+        option password &#039;YOUR PASSWORD&#039;     </pre>
+
+</p>
+
+</div>
+
+<h4 id="led_config1">Led config</h4>
+<div class="level4">
+
+<p>
+You have to add the following code to etc/config/system:
+</p>
+
+<p>
+<pre class="code">
+config led                                  
+        option sysfs &#039;AGPF-S0:green:power&#039;  
+        option name &#039;on&#039;                    
+        option default &#039;1&#039;                  
+        option trigger &#039;default-on&#039;         
+                                            
+config led                                  
+        option name &#039;lan&#039;                   
+        option sysfs &#039;AGPF-S0:green:wifi&#039; 
+        option trigger &#039;netdev&#039;           
+        option default &#039;0&#039;                
+        option dev &#039;wlan0&#039;               
+        option mode &#039;tx rx&#039;              
+                                         
+config led                               
+        option name &#039;wan&#039;                
+        option trigger &#039;netdev&#039;          
+        option sysfs &#039;AGPF-S0:green:internet&#039;
+        option default &#039;0&#039;                   
+        option dev &#039;3g-wan&#039;                  
+        option mode &#039;link&#039;  
+</pre>
+
+</p>
+
+</div>
+
+<h4 id="other_suggestions">Other suggestions</h4>
+<div class="level4">
+
+<p>
+Usb modem are not builded to stay turned on 24h/7d, so you could have problem like loss of connection or burned usb modems <img src="../../lib/images/smileys/icon_sad.gif" class="icon" alt=":-(" /> . The problem is not your router, but in the original (normal) use of 3g modems. 
+A good solution is to buy an extention flat usb cable (A-male to B-female) and put your modem in your refrigerator (it maybe strange but 100% works).
+</p>
+
+</div>
+
+<h2 class="sectionedit20" id="bootlogs">Bootlogs</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit21" id="oem_bootlog">OEM bootlog</h3>
+<div class="level3">
+
+<p style="padding: 10px;border:1px solid grey;height:600px;font:10px/14px Georgia, Garamond, Serif;overflow:Auto;background-color:#FFFFFF">
+<code>CFE version 1.0.37-8.7 for AGPF 0007 BCM96358 (32bit,SP,BE)
+Build Date: lun giu 16 10:47:46 CEST 2008 ( gpaolo@buildserver )
+Copyright (C) 2000-2005 Broadcom Corporation.                   
+
+Boot Address 0xbe000000
+
+Initializing Arena.
+Initializing Devices.
+
+Flash info:
+device_id : ............227E
+meminfo.nsect:..........128
+totalSize:..............1000000
+num_erase_blocks:...... 1
+device_size:............1000000
+
+Parallel flash device: name MX29L128DT, id 0x227e, size 16384KB
+CPU type 0x2A010: 300MHz, Bus: 133MHz, Ref: 64MHz
+CPU running TP0
+Total memory: 33554432 bytes (32MB)
+
+Total memory used by CFE:  0x80401000 - 0x80528CB0 (1211568)
+Initialized Data:          0x8041E8A0 - 0x804204C0 (7200)
+BSS Area:                  0x804204C0 - 0x80426CB0 (26608)
+Local Heap:                0x80426CB0 - 0x80526CB0 (1048576)
+Stack Area:                0x80526CB0 - 0x80528CB0 (8192)
+Text (code) segment:       0x80401000 - 0x8041E894 (120980)
+Boot area (physical):      0x00529000 - 0x00569000
+Relocation Factor:         I:00000000 - D:00000000
+
+Board IP address                  : 192.168.1.1:ffffff00
+Host IP address                   : 192.168.1.100
+Gateway IP address                :
+Run from flash/host (f/h)         : f
+Default host run file name        : vmlinux
+Default host flash file name      : openrg.img
+Boot delay (0-9 seconds)          : 1
+Board Id (0-3)                    : AGPF-S0
+Number of MAC Addresses (1-32)    : 13
+Base MAC Address                  : 02:10:18:01:00:01
+PSI Size (1-64) KBytes            : 24
+Main Thread Number [0|1]          : 0
+</code>
+</p>
+
+<p>
+Note that while the tag on the image say this is an AGPF-S0 board, the web interface tell you this is an AGPF-S1.
+</p>
+
+</div>
+
+<h3 class="sectionedit22" id="openwrt_bootlog">OpenWrt bootlog</h3>
+<div class="level3">
+
+<p style="padding: 10px;border:1px solid grey;height:600px;font:10px/14px Georgia, Garamond, Serif;overflow:Auto;background-color:#FFFFFF">
+<code>
+
+CFE version 1.0.37-8.7 for AGPF 0007 BCM96358 (32bit,SP,BE)
+Build Date: lun giu 16 10:47:46 CEST 2008 ( gpaolo@buildserver )
+Copyright (C) 2000-2005 Broadcom Corporation.
+
+Boot Address 0xbe000000
+
+Initializing Arena.
+Initializing Devices.
+
+Flash info:
+device_id : ............227E
+meminfo.nsect:..........128
+totalSize:..............1000000
+num_erase_blocks:...... 1
+device_size:............1000000
+
+Parallel flash device: name MX29L128DT, id 0x227e, size 16384KB
+CPU type 0x2A010: 300MHz, Bus: 133MHz, Ref: 64MHz
+CPU running TP0
+Total memory: 33554432 bytes (32MB)
+
+Total memory used by CFE:  0x80401000 - 0x80528CB0 (1211568)
+Initialized Data:          0x8041E8A0 - 0x804204C0 (7200)
+BSS Area:                  0x804204C0 - 0x80426CB0 (26608)
+Local Heap:                0x80426CB0 - 0x80526CB0 (1048576)
+Stack Area:                0x80526CB0 - 0x80528CB0 (8192)
+Text (code) segment:       0x80401000 - 0x8041E894 (120980)
+Boot area (physical):      0x00529000 - 0x00569000
+Relocation Factor:         I:00000000 - D:00000000
+
+Board IP address                  : 192.168.1.1:ffffff00
+Host IP address                   : 192.168.1.100
+Gateway IP address                :
+Run from flash/host (f/h)         : f
+Default host run file name        : vmlinux
+Default host flash file name      : openrg.img
+Boot delay (0-9 seconds)          : 1
+Board Id (0-3)                    : AGPF-S0
+Number of MAC Addresses (1-32)    : 13
+Base MAC Address                  : 02:10:18:01:00:01
+PSI Size (1-64) KBytes            : 24
+Main Thread Number [0|1]          : 0
+
+*** Press any key to stop auto run (1 seconds) ***
+Auto run second count down: 0
+Sizeof Tag Used : 256
+One only valid image tag found ...
+Trying to boot from FIRST image copy (0x80010000) ...
+ latest imageSequence found: ... 0
+ - Flash Kernel Address: 0xBE020100
+ - Tag->kernelLen: 0x000FFF00
+ - Flash Kernel Address: 0xBE020100
+ - Tag Kernel crc : 0x60CE85C1 - calculated: 0x60CE85C1
+Decompression OK! - starting 0
+Entry at 0x80010000
+
+Distribution:
+Version: cfe
+
+Build Date: –Esquashfs
+
+Closing network.
+Starting program at 0x80010000
+SGP START PARTITION: 0
+[    0.000000] Linux version 3.3.8 (blogic@Debian-60-squeeze-64-minimal) (gcc ve
+rsion 4.6.3 20120201 (prerelease) (Linaro GCC 4.6-2012.02) ) #1 Sat Mar 23 18:09
+:20 UTC 2013
+[    0.000000] Detected Broadcom 0x6358 CPU revision a1
+[    0.000000] CPU frequency is 300 MHz
+[    0.000000] 32MB of RAM installed
+[    0.000000] registering 40 GPIOs
+[    0.000000] gpiochip_add: registered GPIOs 0 to 39 on device: bcm63xx-gpio
+[    0.000000] board_bcm963xx: Boot address 0xbe000000
+[    0.000000] board_bcm963xx: CFE version: AGPF-10-0007
+[    0.000000] bootconsole [early0] enabled
+[    0.000000] CPU revision is: 0002a010 (Broadcom BMIPS4350)
+[    0.000000] board_bcm963xx: board name: AGPF-S0
+[    0.000000] Determined physical RAM map:
+[    0.000000]  memory: 02000000 @ 00000000 (usable)
+[    0.000000] Initrd not found or empty - disabling initrd
+[    0.000000] Zone PFN ranges:
+[    0.000000]   Normal   0x00000000 -> 0x00002000
+[    0.000000] Movable zone start PFN for each node
+[    0.000000] Early memory PFN ranges
+[    0.000000]     0: 0x00000000 -> 0x00002000
+[    0.000000] Reserving 0MB of memory at 0MB for crashkernel
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pag
+es: 8128
+[    0.000000] Kernel command line:  root=/dev/mtdblock2 rootfstype=squashfs,jff
+s2 noinitrd console=ttyS0,115200
+[    0.000000] PID hash table entries: 128 (order: -3, 512 bytes)
+[    0.000000] Dentry cache hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000] Inode-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.000000] Primary instruction cache 32kB, VIPT, 2-way, linesize 16 bytes.
+[    0.000000] Primary data cache 16kB, 2-way, VIPT, cache aliases, linesize 16
+bytes
+[    0.000000] Memory: 29024k/32768k available (2358k kernel code, 3744k reserve
+d, 501k data, 204k init, 0k highmem)
+[    0.000000] NR_IRQS:128
+[    0.000000] Calibrating delay loop... 299.26 BogoMIPS (lpj=598528)
+[    0.036000] pid_max: default: 32768 minimum: 301
+[    0.040000] Mount-cache hash table entries: 512
+[    0.048000] NET: Registered protocol family 16
+[    0.064000] registering PCI controller with io_map_base unset
+[    0.068000] registering PCI controller with io_map_base unset
+[    0.084000] bio: create slab <bio-0> at 0
+[    0.092000] PCI host bridge to bus 0000:00
+[    0.096000] pci_bus 0000:00: root bus resource [mem 0x30000000-0x37ffffff]
+[    0.100000] pci_bus 0000:00: root bus resource [io  0x8000000-0x8007fff]
+[    0.116000] pci 0000:00:01.0: BAR 0: assigned [mem 0x30000000-0x30001fff]
+[    0.120000] PCI host bridge to bus 0000:01
+[    0.124000] pci_bus 0000:01: root bus resource [mem 0x38000000-0x3fffffff]
+[    0.128000] pci_bus 0000:01: root bus resource [io  0x8008000-0x800ffff]
+[    0.132000] pci 0000:01:1e.0: CardBus bridge to [bus 02-05]
+[    0.136000] pci 0000:01:1e.0:   bridge window [io  0x0001-0x0000]
+[    0.140000] pci 0000:01:1e.0:   bridge window [io  0x0001-0x0000]
+[    0.144000] pci 0000:01:1e.0:   bridge window [mem 0x00000001-0x00000000]
+[    0.148000] PCI: Enabling device 0000:01:1e.0 (0000 -> 0003)
+[    0.152000] Switching to clocksource MIPS
+[    0.164000] PCI: Enabling device 0000:00:01.0 (0000 -> 0002)
+[    0.192000] ssb: Found chip with id 0x4318, rev 0x02 and package 0x02
+[    0.244000] ssb: Sonics Silicon Backplane found on PCI device 0000:00:01.0
+[    0.252000] NET: Registered protocol family 2
+[    0.256000] IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.264000] TCP established hash table entries: 1024 (order: 1, 8192 bytes)
+[    0.272000] TCP bind hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.280000] TCP: Hash tables configured (established 1024 bind 1024)
+[    0.288000] TCP reno registered
+[    0.288000] UDP hash table entries: 256 (order: 0, 4096 bytes)
+[    0.296000] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+[    0.304000] NET: Registered protocol family 1
+[    0.312000] audit: initializing netlink socket (disabled)
+[    0.316000] type=2000 audit(0.316:1): initialized
+[    0.324000] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.328000] JFFS2 version 2.2 (NAND) (SUMMARY) (LZMA) (RTIME) (CMODE_PRIORITY
+) (c) 2001-2006 Red Hat, Inc.
+[    0.340000] msgmni has been set to 56
+[    0.344000] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 2
+54)
+[    0.352000] io scheduler noop registered
+[    0.356000] io scheduler deadline registered (default)
+[    0.364000] bcm63xx_uart.0: ttyS0 at MMIO 0xfffe0100 (irq = 10) is a bcm63xx_
+uart
+[    0.372000] console [ttyS0] enabled, bootconsole disabled
+[    0.372000] console [ttyS0] enabled, bootconsole disabled
+[    0.388000] physmap platform flash device: 02000000 at 1e000000
+[    0.396000] physmap-flash.0: Found 1 x16 devices at 0x0 in 16-bit bank. Manuf
+acturer ID 0x0000c2 Chip ID 0x00227e
+[    0.408000] Amd/Fujitsu Extended Query Table at 0x0040
+[    0.412000]   Amd/Fujitsu Extended Query version 1.3.
+[    0.416000] number of CFI chips: 1
+[    0.420000] bcm63xxpart: CFE boot tag found with version 8 and board type AGP
+F-S0
+[    0.428000] bcm63xxpart: Partition 0 is CFE offset 0 and length 20000
+[    0.436000] bcm63xxpart: Partition 1 is kernel offset 20100 and length fff00
+[    0.440000] bcm63xxpart: Partition 2 is rootfs offset 120000 and length ec000
+0
+[    0.448000] bcm63xxpart: Partition 3 is nvram offset fe0000 and length 20000
+[    0.456000] bcm63xxpart: Partition 4 is linux offset 20000 and length fc0000
+[    0.464000] bcm63xxpart: Spare partition is offset 2e0004 and length cffffc
+[    0.472000] 5 bcm63xxpart partitions found on MTD device physmap-flash.0
+[    0.480000] Creating 5 MTD partitions on "physmap-flash.0":
+[    0.484000] 0x000000000000-0x000000020000 : "CFE"
+[    0.492000] 0x000000020100-0x000000120000 : "kernel"
+[    0.496000] mtd: partition "kernel" must either start or end on erase block b
+oundary or be smaller than an erase block -- forcing read-only
+[    0.516000] 0x000000120000-0x000000fe0000 : "rootfs"
+[    0.524000] mtd: partition "rootfs" set to be root filesystem
+[    0.528000] mtd: partition "rootfs_data" created automatically, ofs=2E0000, l
+en=D00000
+[    0.536000] 0x0000002e0000-0x000000fe0000 : "rootfs_data"
+[    0.548000] 0x000000fe0000-0x000001000000 : "nvram"
+[    0.556000] 0x000000020000-0x000000fe0000 : "linux"
+[    0.572000] bcm63xx_enet MII bus: probed
+[    0.576000] bcm63xx_enet bcm63xx_enet.0: attached PHY at address 1 [Broadcom
+BCM63XX (2)]
+[    0.592000] bcm63xx-wdt bcm63xx-wdt:  started, timer margin: 30 sec
+[    0.612000] TCP cubic registered
+[    0.612000] NET: Registered protocol family 17
+[    0.620000] Bridge firewalling registered
+[    0.624000] 8021q: 802.1Q VLAN Support v1.8
+[    0.636000] VFS: Mounted root (squashfs filesystem) readonly on device 31:2.
+[    0.648000] Freeing unused kernel memory: 204k freed
+awk: /proc/cpuinfo: No such file or directory
+[    3.440000] eth1: link forced UP - 100/full - flow control off/off
+[    3.496000] roboswitch: Probing device eth0: Failed to enable switch
+[    3.504000] roboswitch: Probing device eth1: found a 5325! It's a 5350.
+- preinit -
+Press the [f] key and hit [enter] to enter failsafe mode
+- regular preinit -
+[    9.556000] JFFS2 notice: (370) jffs2_build_xattr_subsystem: complete buildin
+g xattr subsystem, 1 of xdatum (1 unchecked, 0 orphan) and 12 of xref (0 dead, 6
+ orphan) found.
+switching to jffs2
+- init -
+
+Please press Enter to activate this console. [   12.564000] Compat-drivers backp
+ort release: compat-drivers-2012-09-04-2-gddac993
+[   12.572000] Backport based on wireless-testing.git master-2012-09-07
+[   12.580000] compat.git: wireless-testing.git
+[   12.636000] cfg80211: Calling CRDA to update world regulatory domain
+[   12.640000] cfg80211: World regulatory domain updated:
+[   12.648000] cfg80211:   (start_freq - end_freq @ bandwidth), (max_antenna_gai
+n, max_eirp)
+[   12.656000] cfg80211:   (2402000 KHz - 2472000 KHz @ 40000 KHz), (300 mBi, 20
+00 mBm)
+[   12.664000] cfg80211:   (2457000 KHz - 2482000 KHz @ 20000 KHz), (300 mBi, 20
+00 mBm)
+[   12.672000] cfg80211:   (2474000 KHz - 2494000 KHz @ 20000 KHz), (300 mBi, 20
+00 mBm)
+[   12.680000] cfg80211:   (5170000 KHz - 5250000 KHz @ 40000 KHz), (300 mBi, 20
+00 mBm)
+[   12.688000] cfg80211:   (5735000 KHz - 5835000 KHz @ 40000 KHz), (300 mBi, 20
+00 mBm)
+[   13.516000] b43-phy0: Broadcom 4318 WLAN found (core revision 9)
+[   13.568000] b43-phy0: Found PHY: Analog 3, Type 2 (G), Revision 7
+[   13.648000] Broadcom 43xx driver loaded [ Features: PNL ]
+[   13.876000] Button Hotplug driver version 0.4.1
+[   14.080000] PPP generic driver version 2.4.2
+[   14.504000] ip_tables: (C) 2000-2006 Netfilter Core Team
+[   14.720000] NET: Registered protocol family 24
+[   14.756000] nf_conntrack version 0.5.0 (456 buckets, 1824 max)
+[   15.244000] input: gpio-keys-polled as /devices/platform/gpio-keys-polled.0/i
+nput/input0
+[   18.672000] eth1: link forced UP - 100/full - flow control off/off
+[   20.592000] eth1: link forced UP - 100/full - flow control off/off
+[   20.604000] device eth1.0 entered promiscuous mode
+[   20.608000] device eth1 entered promiscuous mode
+[   20.620000] br-lan: port 1(eth1.0) entered forwarding state
+[   20.628000] br-lan: port 1(eth1.0) entered forwarding state
+[   22.632000] br-lan: port 1(eth1.0) entered forwarding state
+[   29.084000] b43-phy0: Loading firmware version 666.2 (2011-02-23 01:15:07)
+[   29.232000] device wlan0 entered promiscuous mode
+[   29.396000] b43-phy0: Loading firmware version 666.2 (2011-02-23 01:15:07)
+[   30.484000] br-lan: port 2(wlan0) entered forwarding state
+[   30.488000] br-lan: port 2(wlan0) entered forwarding state
+[   32.492000] br-lan: port 2(wlan0) entered forwarding state
+
+
+
+BusyBox v1.19.4 (2013-03-14 20:30:45 UTC) built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+ ATTITUDE ADJUSTMENT (12.09, r36088)
+ -----------------------------------------------------
+  * 1/4 oz Vodka      Pour all ingredients into mixing
+  * 1/4 oz Gin        tin with ice, strain into glass.
+  * 1/4 oz Amaretto
+  * 1/4 oz Triple sec
+  * 1/4 oz Peach schnapps
+  * 1/4 oz Sour mix
+  * 1 splash Cranberry juice
+ -----------------------------------------------------
+root@OpenWrt:/#
+
+</code>
+</p>
+
+</div>
+
+<h2 class="sectionedit23" id="links">Links</h2>
+<div class="level2">
+
+<p>
+<a href="http://wiki.ninux.org/Hackalicegate" class="urlextern" title="http://wiki.ninux.org/Hackalicegate"  rel="nofollow">http://wiki.ninux.org/Hackalicegate</a>
+<a href="http://www.youtube.com/watch?v=GL5tMry0DlU" class="urlextern" title="http://www.youtube.com/watch?v=GL5tMry0DlU"  rel="nofollow">http://www.youtube.com/watch?v=GL5tMry0DlU</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit24" id="tags">Tags</h2>
+<div class="level2">
+<div class="tags"><span>
+	<a href="../../tag/bcm63xx?do=showtag&amp;tag=bcm63xx" class="wikilink1" title="tag:bcm63xx" rel="tag">bcm63xx</a>,
+	<a href="../../tag/bcm6358?do=showtag&amp;tag=bcm6358" class="wikilink1" title="tag:bcm6358" rel="tag">bcm6358</a>
+</span></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>toh/pirelli/agpf.txt</bdi> · Last modified: 2014/09/08 20:29 by <bdi>francescogmb</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="agpf?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="agpf?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="agpf?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="agpf#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=toh%253Apirelli%253Aagpf&amp;1432266285" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Netgear WNR3500 [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="gigabitethernet,2nic,1wnic,5port,nousb,jtag,serial,802.11bgn,mv88w8361p,mwl8k,3ant,nondetachableantenna,32ram,8flash,arm,armv5,marvell,orion,mv88f5181,crypto"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="wnr3500?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=toh:netgear"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/toh/netgear/wnr3500"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/toh/netgear/wnr3500"/>
+<link rel="canonical" href="wnr3500"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='toh:netgear';var JSINFO = {"id":"toh:netgear:wnr3500","namespace":"toh:netgear"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432278952 166.182.3.101';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="wnr3500#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="wnr3500?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="wnr3500?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="toh:netgear:wnr3500" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="wnr3500?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="wnr3500?do=media&amp;ns=toh%253Anetgear"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="wnr3500?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="toh:start">Table of Hardware</a></bdi> » <bdi><a href="start" class="wikilink1" title="toh:netgear:start">Netgear</a></bdi> » <bdi><span class="curid"><a href="wnr3500" class="wikilink1" title="toh:netgear:wnr3500">Netgear WNR3500</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/toh/netgear/wnr3500" class="media" title="cz:toh:netgear:wnr3500"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/toh/netgear/wnr3500" class="media" title="de:toh:netgear:wnr3500"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="wnr3500" class="media" title="toh:netgear:wnr3500"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/toh/netgear/wnr3500" class="media" title="es:toh:netgear:wnr3500"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/toh/netgear/wnr3500" class="media" title="fr:toh:netgear:wnr3500"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/toh/netgear/wnr3500" class="media" title="hu:toh:netgear:wnr3500"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/toh/netgear/wnr3500" class="media" title="jp:toh:netgear:wnr3500"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/toh/netgear/wnr3500" class="media" title="pl:toh:netgear:wnr3500"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/toh/netgear/wnr3500" class="media" title="pt-br:toh:netgear:wnr3500"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/toh/netgear/wnr3500" class="media" title="ru:toh:netgear:wnr3500"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/toh/netgear/wnr3500" class="media" title="tr:toh:netgear:wnr3500"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/toh/netgear/wnr3500" class="media" title="zh-cn:toh:netgear:wnr3500"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/toh/netgear/wnr3500" class="media" title="zh-tw:toh:netgear:wnr3500"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>toh:netgear:wnr3500</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="wnr3500#openwrt_support">OpenWrt support</a></div></li>
+<li class="level1"><div class="li"><a href="wnr3500#hardware_details">Hardware details</a></div></li>
+<li class="level1"><div class="li"><a href="wnr3500#noteshow_to_build_images_and_flash">Notes / how to build images and flash</a></div></li>
+<li class="level1"><div class="li"><a href="wnr3500#bootloader_output">Bootloader output</a></div></li>
+<li class="level1"><div class="li"><a href="wnr3500#serial_console">Serial console</a></div></li>
+<li class="level1"><div class="li"><a href="wnr3500#oldwiki_content">Oldwiki content</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="wnr3500#hidden_page">Hidden page</a></div></li>
+<li class="level2"><div class="li"><a href="wnr3500#telnet_hack">Telnet hack</a></div></li>
+<li class="level2"><div class="li"><a href="wnr3500#hardware_details1">Hardware details</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="wnr3500#tags">Tags</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="netgear_wnr3500">Netgear WNR3500</h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit2" id="openwrt_support">OpenWrt support</h2>
+<div class="level2">
+
+<p>
+Currently there is <strong>no support for OpenWrt</strong> on this router; initial porting efforts are in progress.
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="hardware_details">Hardware details</h2>
+<div class="level2">
+
+<p>
+This router is similar to the <a href="wnr854t" class="wikilink1" title="toh:netgear:wnr854t">Netgear WNR854T</a>, but is stripped down to some degree.
+</p>
+<ul>
+<li class="level1"><div class="li"> SoC: Marvell 88F5 181 B1 = Marvell Orion SoC</div>
+</li>
+<li class="level1"><div class="li"> CPU: ARM926 @ 500MHz</div>
+</li>
+<li class="level1"><div class="li"> Flash: 8MB</div>
+</li>
+<li class="level1"><div class="li"> RAM: ??</div>
+</li>
+</ul>
+
+<p>
+Unlike the WNR854T everything is on one board; there is no separate mini-PCI wireless card and no USB port.
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="noteshow_to_build_images_and_flash">Notes / how to build images and flash</h2>
+<div class="level2">
+
+<p>
+The base address for the flash is 0xff800000.
+</p>
+
+<p>
+Netgear doesn&#039;t compress their kernel using built-in methods; instead it uses lzma compression and then u-boot decompresses the kernel to 0x400000 before booting it.
+</p>
+
+<p>
+By default, the bootloader does this as a part of the proprietary command &quot;chkFlashImage&quot;; however you can run this custom equivalent command to perform the decompression while bypassing the checksum verification:
+</p>
+
+<p>
+<pre class="code">lzmadecode ff800000 00400000 1048576</pre>
+
+</p>
+
+<p>
+You can make this permanent by running from u-boot over the serial console:
+</p>
+
+<p>
+<pre class="code">setenv bootcmd &#039;lzmadecode ff800000 00400000 1048576; setenv bootargs console=ttyS0,115200 root=/dev/mtdblock2 mtdparts=phys_mapped_flash:1m(kernel),2m@1m(rootfs),1m@3m(uboot)ro; bootm 0x400000;&#039;; saveenv</pre>
+
+</p>
+
+<p>
+If you don&#039;t apply this, you will find that you can boot into OpenWrt once, but after that it will fail the checksum verification and you&#039;ll have to do a TFTP restore to either the stock firmware or OpenWrt.
+</p>
+
+<p>
+To build images that can be flashed into the stock web interface, obtain Netgear&#039;s SDK, cd to the source directory and do:
+</p>
+
+<p>
+<pre class="code">./tools/lzma e /path/to/uImage uImage-lzma
+./tools/packet -k uImage-lzma -f /path/to/root.squashfs -b compatible.txt -ok kernel_image -oall kernel_rootfs_image -or rootfs_image -i ./project/acos/include/ambitCfg.h</pre>
+
+</p>
+
+<p>
+The flashable image will be written to kernel_rootfs_image.chk.
+</p>
+
+<p>
+As for the kernel stuff, I&#039;m still figuring out how to &quot;properly&quot; add a new machine type and tell the kernel what board we&#039;re using so that it loads the correct partition map. It seems to ignore mtdparts on the command line. Right now, I&#039;m patching wnr854t-setup.c which is a terrible kludge.
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="bootloader_output">Bootloader output</h2>
+<div class="level2">
+
+<p>
+<pre class="code">Boot code version : 1.0.3
+
+ ** MARVELL BOARD: RD-88F5181L-VOIP-GE LE 
+
+U-Boot 1.1.1 (Jan 25 2008 - 09:11:36) Marvell version: 1.10.16
+
+DRAM CS[0] base 0x00000000   size  16MB 
+DRAM Total size  16MB 
+[8192kB@ff800000] Flash:  8 MB
+Addresses 12M - 0M are saved for the U-Boot usage.
+Mem malloc Initialization (12M - 8M): Done
+*** Warning - bad CRC, using default environment
+
+
+Soc: 88F5181 B1
+CPU: ARM926 (Rev 0) running @ 500Mhz 
+Orion 1 streaming disabled 
+SysClock = 166Mhz , TClock = 166Mhz 
+
+
+USB 0: host mode
+PCI 0: PCI Express End Point Interface
+PCI 1: Conventional PCI, speed = 33000000
+Net:   egiga0 [PRIME]
+Hit any key to stop autoboot:  0 
+Marvell&gt;&gt;</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="serial_console">Serial console</h2>
+<div class="level2">
+
+<p>
+The header JP2 on the mainboard is a serial console, 115200 8N1. Like most Netgear boards, you need a TTL shifter despite this being the focal point of Netgear&#039;s &quot;My Open Router&quot; campaign. Pinout:
+</p>
+
+<p>
+<a href="../../_detail/toh/netgear/wnr3500_serial_pinout_sm.jpg?id=toh%253Anetgear%253Awnr3500" class="media" title="toh:netgear:wnr3500_serial_pinout_sm.jpg"><img src="../../_media/toh/netgear/wnr3500_serial_pinout_sm.jpg" class="media" title="Serial header pinout" alt="Serial header pinout" /></a>
+</p>
+
+<p>
+* Pin 1: Vcc
+* Pin 2: Tx
+* Pin 3: ununsed
+* Pin 4: unused
+* Pin 5: Rx
+* Pin 6: Ground
+</p>
+
+<p>
+The serial console gives you full access to the bootloader and a root shell once the factory firmware is booted.
+</p>
+<hr />
+
+</div>
+
+<h2 class="sectionedit7" id="oldwiki_content">Oldwiki content</h2>
+<div class="level2">
+
+<p>
+The <a href="http://www.netgear.com/Products/RoutersandGateways/RangeMaxWirelessNRoutersandGateways/WNR3500.aspx" class="urlextern" title="http://www.netgear.com/Products/RoutersandGateways/RangeMaxWirelessNRoutersandGateways/WNR3500.aspx"  rel="nofollow">Netgear WNR3500</a> is a Wireless-N Gigabit Router.  It uses a Marvell TopDog based design.
+</p>
+<ul>
+<li class="level1"><div class="li"> 88F5180 processor</div>
+</li>
+<li class="level1"><div class="li"> 88E6131 8 port gigabit Ethernet switch</div>
+</li>
+<li class="level1"><div class="li"> 88W8363 Baseband/MAC</div>
+</li>
+<li class="level1"><div class="li"> 88E1112 gigabit Ethernet PHY</div>
+</li>
+<li class="level1"><div class="li"> 88W8060 2T3R Transceiver.</div>
+</li>
+</ul>
+
+<p>
+All these parts are the same as in the <a href="http://wiki.openwrt.org/oldwiki/openwrtdocs/hardware/netgear/wnr854t" class="wikilink2" title="oldwiki:openwrtdocs:hardware:netgear:wnr854t" rel="nofollow">WNR854T</a>, except the Baseband/MAC, which is an 88W8161 in the WNR854T.  It&#039;s just a cut down version of the WNR854T:
+</p>
+<ul>
+<li class="level1"><div class="li"> Wireless on pcb instead of mini pci card</div>
+</li>
+<li class="level1"><div class="li"> No Heatsink On The CPU (854T Does)</div>
+</li>
+<li class="level1"><div class="li"> 16 Meg Ram instead of 32 Meg</div>
+</li>
+<li class="level1"><div class="li"> 4 Meg flash instead of 8 Meg</div>
+</li>
+<li class="level1"><div class="li"> 500 Mhz Arm9 CPU = same</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit8" id="hidden_page">Hidden page</h3>
+<div class="level3">
+
+<p>
+In the default firmware (which is based on Linux), there is a hidden wifi configuration page that can be accessed by visiting
+<a href="http://www.routerlogin.net/WiFi_HiddenPage.htm" class="urlextern" title="http://www.routerlogin.net/WiFi_HiddenPage.htm"  rel="nofollow">http://www.routerlogin.net/WiFi_HiddenPage.htm</a>
+</p>
+
+<p>
+For more details see <a href="http://forum1.netgear.com/showthread.php?t=28037" class="urlextern" title="http://forum1.netgear.com/showthread.php?t=28037"  rel="nofollow">netgear forum thread</a>.
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="telnet_hack">Telnet hack</h3>
+<div class="level3">
+
+<p>
+The <a href="telnet.console" class="wikilink1" title="toh:netgear:telnet.console">Telnet Console trick</a> can be used to gain access to a Linux terminal prompt in the default firmware.
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="hardware_details1">Hardware details</h3>
+<div class="level3">
+
+<p>
+Here&#039;s some info from the telnet hack, posted originally in a <a href="http://forum1.netgear.com/showthread.php?t=27618" class="urlextern" title="http://forum1.netgear.com/showthread.php?t=27618"  rel="nofollow">netgear forum thread</a>.
+</p>
+
+<p>
+<pre class="code">BusyBox v1.01 (2008.05.15-09:19+0000) Built-in shell (msh)
+Enter &#039;help&#039; for a list of built-in commands.
+
+# version
+Release version : Netgear Wireless Router WNR3500
+U12H09200/V1.0.22/6.0.22
+Time : Jun 25 2008 09:41:43
+
+# cat /proc/version
+Linux version 2.4.27-vrs1 (weal@hotteam.cs) (gcc version 3.4.4 (release) (CodeSourcery ARM 2005q3-1)) #1 Wed Jun 25 09:39:13 CST 2008
+
+# cat /proc/cpuinfo
+Processor : ARM926EJ-Sid(wb) rev 0 (v5EJl)
+BogoMIPS : 332.59
+Features : swp half thumb fastmult
+
+Hardware : MV-88fxx81
+Revision : 0000
+Serial : 0000000000000000
+
+# cat /proc/meminfo
+total: used: free: shared: buffers: cached:
+Mem: 14909440 14405632 503808 0 880640 2088960
+Swap: 0 0 0
+MemTotal: 14560 kB
+MemFree: 492 kB
+MemShared: 0 kB
+Buffers: 860 kB
+Cached: 2040 kB
+SwapCached: 0 kB
+Active: 3880 kB
+Inactive: 2240 kB
+HighTotal: 0 kB
+HighFree: 0 kB
+LowTotal: 14560 kB
+LowFree: 492 kB
+SwapTotal: 0 kB
+SwapFree: 0 kB
+
+# ps x
+PID Uid VmSize Stat Command
+1 0 416 S init
+2 0 SW [keventd]
+3 0 SWN [ksoftirqd_CPU0]
+4 0 SW [kswapd]
+5 0 SW [bdflush]
+6 0 SW [kupdated]
+7 0 SW [mtdblockd]
+142 0 484 S swresetd
+144 0 380 S dnsRedirectReplyd
+146 0 1212 S httpd
+150 0 592 S dnsmasq -h -n -c 0 -N -i br0 -r /tmp/resolv.conf -u r
+151 0 504 S udhcpd /tmp/udhcpd.conf
+153 0 484 S ddnsd &amp;
+159 0 476 S heartbeat
+163 0 604 S pot run
+165 0 940 S upnpd
+173 0 660 S /usr/sbin/email
+184 0 580 S lld2d br0
+222 0 532 S wpsd
+226 0 648 S wsccmd /tmp/wsc
+231 0 460 S /bin/sh
+234 0 648 S wsccmd /tmp/wsc
+235 0 648 S wsccmd /tmp/wsc
+239 0 572 S /usr/sbin/timesync /sbin/ntpclient
+240 0 440 S udhcpc -i eth0 -p /var/run/udhcpc0.pid -s /tmp/udhcpc
+243 0 648 R wsccmd /tmp/wsc
+248 0 648 R wsccmd /tmp/wsc
+249 0 648 S wsccmd /tmp/wsc
+250 0 648 S wsccmd /tmp/wsc
+251 0 648 S wsccmd /tmp/wsc
+252 0 648 S wsccmd /tmp/wsc
+253 0 648 S wsccmd /tmp/wsc
+254 0 696 S hostapd -W /tmp/wsc/hostapd.conf
+5795 0 536 S telnetd
+10292 0 500 S /bin/sh
+10493 0 552 R ps x
+#</pre>
+
+</p>
+
+<p>
+And here is some additional data. This WNR3500 is running v1.0.29 (binary upgrade file is WNR3500-V1.0.29_8.0.29NA.chk):
+</p>
+
+<p>
+<pre class="code">BusyBox v1.01 (2008.10.17-05:51+0000) Built-in shell (msh)
+Enter &#039;help&#039; for a list of built-in commands.
+
+# version
+Release version : Netgear Wireless Router WNR3500
+                  U12H09200/V1.0.29/8.0.29NA
+           Time : Oct 24 2008 14:31:44
+Bootcode version: NOT supported
+# cat /proc/version
+Linux version 2.4.27-vrs1 (weal@hotteam.cs) (gcc version 3.4.4 (release) (CodeSourcery ARM 2005q3-1)) #1 Fri Oct 24 14:29:18 CST 2008
+# cat /proc/cpuinfo
+Processor       : ARM926EJ-Sid(wb) rev 0 (v5EJl)
+BogoMIPS        : 332.59
+Features        : swp half thumb fastmult
+
+Hardware        : MV-88fxx81
+Revision        : 0000
+Serial          : 0000000000000000
+# routerinfo
+Release version : Netgear Wireless Router WNR3500
+                  U12H09200/V1.0.29/8.0.29NA
+           Time : Oct 24 2008 14:31:44
+Bootcode version: NOT supported
+WSC PIN - 56474947
+LAN mac address - 00:1E:2A:72:78:D9
+WAN mac address - 00:1E:2A:72:78:DA
+WLAN mac address - 00:1e:2a:72:78:d8
+Board ID - U12H092T01_NETGEAR
+serial number -
+# cat /proc/meminfo
+        total:    used:    free:  shared: buffers:  cached:
+Mem:  14909440 14385152   524288        0  1196032  2306048
+Swap:        0        0        0
+MemTotal:        14560 kB
+MemFree:           512 kB
+MemShared:           0 kB
+Buffers:          1168 kB
+Cached:           2252 kB
+SwapCached:          0 kB
+Active:           4008 kB
+Inactive:         2232 kB
+HighTotal:           0 kB
+HighFree:            0 kB
+LowTotal:        14560 kB
+LowFree:           512 kB
+SwapTotal:           0 kB
+SwapFree:            0 kB
+# ps x
+  PID  Uid     VmSize Stat Command
+    1 0           496 S   init
+    2 0               SW  [keventd]
+    3 0               RWN [ksoftirqd_CPU0]
+    4 0               SW  [kswapd]
+    5 0               SW  [bdflush]
+    6 0               SW  [kupdated]
+    7 0               SW  [mtdblockd]
+   17 0           492 S   /sbin/syslogd
+  138 0           408 S   /sbin/iwevent
+  144 0           456 S   swresetd
+  146 0           380 S   dnsRedirectReplyd
+  148 0          1024 S   httpd
+  152 0           496 S   udhcpd /tmp/udhcpd.conf
+  153 0           492 S   dnsmasq -h -n -c 0 -N -i br0 -r /tmp/resolv.conf -u r
+  155 0           476 S   ddnsd &amp;
+  160 0           428 S   heartbeat
+  170 0           840 S   upnpd
+  179 0           660 S   /usr/sbin/email
+  184 0           580 S   lld2d br0
+  218 0           596 S   wpsd
+  224 0          1036 S   wsccmd /tmp/wsc
+  227 0           420 S   udhcpc -i eth0 -p /var/run/udhcpc0.pid -s /tmp/udhcpc
+  229 0           484 S   /bin/sh
+  232 0          1036 S   wsccmd /tmp/wsc
+  233 0          1036 S   wsccmd /tmp/wsc
+  234 0          1036 S   wsccmd /tmp/wsc
+  235 0          1036 R   wsccmd /tmp/wsc
+  236 0          1036 S   wsccmd /tmp/wsc
+  237 0          1036 S   wsccmd /tmp/wsc
+  238 0          1036 S   wsccmd /tmp/wsc
+  239 0          1036 S   wsccmd /tmp/wsc
+  240 0          1036 S   wsccmd /tmp/wsc
+  241 0          1036 S   wsccmd /tmp/wsc
+  242 0           676 S   hostapd -W /tmp/wsc/hostapd.conf
+ 1427 0           388 S   telnetd
+ 1972 0           504 S   /bin/sh
+ 2225 0           560 R   ps x
+</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit11" id="tags">Tags</h2>
+<div class="level2">
+<div class="tags"><span>
+	<a href="../../tag/gigabitethernet?do=showtag&amp;tag=GigabitEthernet" class="wikilink1" title="tag:gigabitethernet" rel="tag">GigabitEthernet</a>,
+	<a href="../../tag/2nic?do=showtag&amp;tag=2NIC" class="wikilink1" title="tag:2nic" rel="tag">2NIC</a>,
+	<a href="../../tag/1wnic?do=showtag&amp;tag=1WNIC" class="wikilink1" title="tag:1wnic" rel="tag">1WNIC</a>,
+	<a href="../../tag/5port?do=showtag&amp;tag=5Port" class="wikilink1" title="tag:5port" rel="tag">5Port</a>,
+	<a href="../../tag/nousb?do=showtag&amp;tag=noUSB" class="wikilink1" title="tag:nousb" rel="tag">noUSB</a>,
+	<a href="../../tag/jtag?do=showtag&amp;tag=JTAG" class="wikilink1" title="tag:jtag" rel="tag">JTAG</a>,
+	<a href="../../tag/serial?do=showtag&amp;tag=Serial" class="wikilink1" title="tag:serial" rel="tag">Serial</a>,
+	<a href="../../tag/802.11bgn?do=showtag&amp;tag=802.11bgn" class="wikilink1" title="tag:802.11bgn" rel="tag">802.11bgn</a>,
+	<a href="../../tag/mv88w8361p?do=showtag&amp;tag=MV88W8361P" class="wikilink1" title="tag:mv88w8361p" rel="tag">MV88W8361P</a>,
+	<a href="../../tag/mwl8k?do=showtag&amp;tag=mwl8k" class="wikilink1" title="tag:mwl8k" rel="tag">mwl8k</a>,
+	<a href="../../tag/3ant?do=showtag&amp;tag=3Ant" class="wikilink1" title="tag:3ant" rel="tag">3Ant</a>,
+	<a href="../../tag/nondetachableantenna?do=showtag&amp;tag=NonDetachableAntenna" class="wikilink1" title="tag:nondetachableantenna" rel="tag">NonDetachableAntenna</a>,
+	<a href="../../tag/32ram?do=showtag&amp;tag=32RAM" class="wikilink1" title="tag:32ram" rel="tag">32RAM</a>,
+	<a href="../../tag/8flash?do=showtag&amp;tag=8Flash" class="wikilink1" title="tag:8flash" rel="tag">8Flash</a>,
+	<a href="../../tag/arm?do=showtag&amp;tag=ARM" class="wikilink1" title="tag:arm" rel="tag">ARM</a>,
+	<a href="../../tag/armv5?do=showtag&amp;tag=ARMv5" class="wikilink1" title="tag:armv5" rel="tag">ARMv5</a>,
+	<a href="../../tag/marvell?do=showtag&amp;tag=marvell" class="wikilink1" title="tag:marvell" rel="tag">marvell</a>,
+	<a href="../../tag/orion?do=showtag&amp;tag=orion" class="wikilink1" title="tag:orion" rel="tag">orion</a>,
+	<a href="../../tag/mv88f5181?do=showtag&amp;tag=MV88F5181" class="wikilink1" title="tag:mv88f5181" rel="tag">MV88F5181</a>,
+	<a href="../../tag/crypto?do=showtag&amp;tag=crypto" class="wikilink1" title="tag:crypto" rel="tag">crypto</a>
+</span></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>toh/netgear/wnr3500.txt</bdi> · Last modified: 2013/06/17 11:50 by <bdi>lorema</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="wnr3500?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="wnr3500?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="wnr3500?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="wnr3500#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=toh%253Anetgear%253Awnr3500&amp;1432278952" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

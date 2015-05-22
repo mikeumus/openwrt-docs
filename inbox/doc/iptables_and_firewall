@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Iptables and firewall [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="inbox,doc,iptables and firewall"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="iptables_and_firewall?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=inbox:doc"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/inbox/doc/iptables_and_firewall"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/inbox/doc/iptables_and_firewall"/>
+<link rel="canonical" href="iptables_and_firewall"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='inbox:doc';var JSINFO = {"id":"inbox:doc:iptables_and_firewall","namespace":"inbox:doc"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432273662 166.182.3.27';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="iptables_and_firewall#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="iptables_and_firewall?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="iptables_and_firewall?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="inbox:doc:iptables_and_firewall" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="iptables_and_firewall?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="iptables_and_firewall?do=media&amp;ns=inbox%253Adoc"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="iptables_and_firewall?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="inbox:start">Build and installation - Few Adjustments - NEW (shiva)</a></bdi> » <bdi><a href="http://wiki.openwrt.org/inbox/doc/start" class="wikilink2" title="inbox:doc:start" rel="nofollow">doc</a></bdi> » <bdi><span class="curid"><a href="iptables_and_firewall" class="wikilink1" title="inbox:doc:iptables_and_firewall">Iptables and firewall</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/inbox/doc/iptables_and_firewall" class="media" title="cz:inbox:doc:iptables_and_firewall"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/inbox/doc/iptables_and_firewall" class="media" title="de:inbox:doc:iptables_and_firewall"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="iptables_and_firewall" class="media" title="inbox:doc:iptables_and_firewall"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/inbox/doc/iptables_and_firewall" class="media" title="es:inbox:doc:iptables_and_firewall"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/inbox/doc/iptables_and_firewall" class="media" title="fr:inbox:doc:iptables_and_firewall"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/inbox/doc/iptables_and_firewall" class="media" title="hu:inbox:doc:iptables_and_firewall"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/inbox/doc/iptables_and_firewall" class="media" title="jp:inbox:doc:iptables_and_firewall"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/inbox/doc/iptables_and_firewall" class="media" title="pl:inbox:doc:iptables_and_firewall"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/inbox/doc/iptables_and_firewall" class="media" title="pt-br:inbox:doc:iptables_and_firewall"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/inbox/doc/iptables_and_firewall" class="media" title="ru:inbox:doc:iptables_and_firewall"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/inbox/doc/iptables_and_firewall" class="media" title="tr:inbox:doc:iptables_and_firewall"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/inbox/doc/iptables_and_firewall" class="media" title="zh-cn:inbox:doc:iptables_and_firewall"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/inbox/doc/iptables_and_firewall" class="media" title="zh-tw:inbox:doc:iptables_and_firewall"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>inbox:doc:iptables_and_firewall</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="iptables_and_firewall#purpose">Purpose</a></div></li>
+<li class="level1"><div class="li"><a href="iptables_and_firewall#remarks">Remarks</a></div></li>
+<li class="level1"><div class="li"><a href="iptables_and_firewall#useful_articles_on_the_openwrt_wiki">Useful articles on the openwrt wiki</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="iptables_and_firewall#about_iptables">About iptables</a></div></li>
+<li class="level2"><div class="li"><a href="iptables_and_firewall#about_routing">About routing</a></div></li>
+<li class="level2"><div class="li"><a href="iptables_and_firewall#network_interfaces">Network interfaces</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="iptables_and_firewall#physical_or_logicalvirtual_interfaces">Physical or logical/virtual interfaces</a></div></li>
+<li class="level3"><div class="li"><a href="iptables_and_firewall#identifier">identifier</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="iptables_and_firewall#iptables">Iptables</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="iptables_and_firewall#tables_chainsoverview_of_sequence_of_evaluation">Tables, chains: overview of sequence of evaluation</a></div></li>
+<li class="level2"><div class="li"><a href="iptables_and_firewall#chains_rules_and_nested_chainsoverview_of_sequence_of_evaluation_and_use_of_targets">Chains, rules and nested chains: overview of sequence of evaluation and use of targets</a></div></li>
+<li class="level2"><div class="li"><a href="iptables_and_firewall#examples_of_iptables_rules">Examples of iptables rules</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="iptables_and_firewall#example_1_with_analysis_and_comments">Example 1 with analysis and comments</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="iptables_and_firewall#iptables_through_uci_config">Iptables through uci config</a></div></li>
+<li class="level1"><div class="li"><a href="iptables_and_firewall#routingips">Routing / IPs</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="iptables_and_firewall#command_examples_on_the_terminal_with_comments">Command examples on the terminal with comments</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="iptables_and_firewall#ip">ip</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="iptables_and_firewall#routingips_through_uci_configs">Routing / IPs  through uci configs</a></div></li>
+<li class="level1"><div class="li"><a href="iptables_and_firewall#effects_of_combination_of_routing_rules_and_iptables_rules">Effects of combination of routing rules and iptables rules</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="iptables_and_firewall#through_uci_config_files">Through uci config files</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="iptables_and_firewall#scenarioforwarding_packets_to_an_host_behind_a_router_that_has_an_additional_external_ip_address">Scenario: forwarding packets to an host, behind a router, that has an additional external ip address</a></div></li>
+<li class="level3"><div class="li"><a href="iptables_and_firewall#scenarioguest_customer_network">Scenario: Guest customer network</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="iptables_and_firewall">Iptables and firewall</h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit2" id="purpose">Purpose</h2>
+<div class="level2">
+
+<p>
+<pre class="file">Explain to beginners how iptables/firewalling/packet flows works with overviews, examples and comments.</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="remarks">Remarks</h2>
+<div class="level2">
+
+<p>
+<pre class="file">- Some knowledge from the internet is used, so could be that the article will be wrong
+  (even because the interpretation of a correct source could be wrong)
+  plus the knowledge of the contributors themselves could be partial, wrong or outdated
+  but this guide, ideally, will be fixed continuously. This is the strength of the wiki.
+- a preformatted text is used to speed up the writing, focusing on the content
+  an less on the wiki syntax. Like the old good plain text files.
+  (feel free to change it anyway, collaborative wikis ftw)</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="useful_articles_on_the_openwrt_wiki">Useful articles on the openwrt wiki</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit5" id="about_iptables">About iptables</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <a href="../../doc/howto/netfilter" class="wikilink1" title="doc:howto:netfilter">netfilter</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../doc/uci/firewall" class="wikilink1" title="doc:uci:firewall">firewall</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit6" id="about_routing">About routing</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <a href="../../doc/networking/routing" class="wikilink1" title="doc:networking:routing">routing</a><br/>
+</div>
+</li>
+<li class="level1"><div class="li"> <a href="../../doc/uci/network" class="wikilink1" title="doc:uci:network">network</a><br/>
+</div>
+</li>
+<li class="level1"><div class="li"> <a href="../../doc/networking/network.interfaces" class="wikilink1" title="doc:networking:network.interfaces">network.interfaces</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit7" id="network_interfaces">Network interfaces</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="physical_or_logicalvirtual_interfaces">Physical or logical/virtual interfaces</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> <a href="../../doc/networking/network.interfaces" class="wikilink1" title="doc:networking:network.interfaces">network.interfaces</a></div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="identifier">identifier</h4>
+<div class="level4">
+
+<p>
+<strong>Remark</strong>: identifier for remote systems, the actual system has different ways to identify (physical or logical) network interfaces.<br/>
+
+* <a href="http://en.wikipedia.org/wiki/IP_address" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/IP_address">IP_address</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="iptables">Iptables</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit9" id="tables_chainsoverview_of_sequence_of_evaluation">Tables, chains: overview of sequence of evaluation</h3>
+<div class="level3">
+
+<p>
+<pre class="file">Conventions:
+  - Using a sort of pseudocode
+
+Steps{
+  Given: a packet is incoming in an interface (physical or logical).
+  
+  PREROUTING phase {
+    The packet is passing the rules in the table MANGLE chain PREROUTING.
+    The packet is passing the rules in the table NAT chain PREROUTING.
+  }
+  
+  Routing phase {
+    The a routing decision is made using the routing table.
+    Comment {
+      In this case the routing rules or routes (shown by the &#039;route&#039; command)
+      are used. In brief routing rules works in this way:
+      &quot;according to the destination that the packet wants to reach
+      i will send it through a certain (physical or logical) network interface&quot;
+      
+      With a practical example you have rules like:
+      Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+      172.22.0.0      *               255.255.240.0   U     0      0        0 br-wan
+      
+      The rule says, if the packets wants to reach an ip address contained in the range:
+      ( 172.22.0.0, 172.22.15.255 ) [this range is calculated using the destination + genmask]
+      then send it through the &quot;br-wan&quot; interface (that is a logical interface that contains one or
+      more physical interfaces).
+      
+      In general, without advanced configuration (ip rules, packet marking and other stuff),
+      the routing decision send the packet using the rule (shown in the routing table)
+      that has the longest match compared to the packet destination. The match is done
+      using the &#039;destination&#039; in the rule plus the &#039;genmask&#039;. That is: if the destination IP
+      is contained in the range destination+genmask the packet is sent using the rule associated
+      to those two values. If more rules matches the packet, then the one will lower metric is chosen,
+      if more rules have the same metric then the first rule (in order) is choosen but maybe
+      this statement should be checked.
+    }
+  }
+  
+  After routing phase {
+    There are two possibilities: 
+    - processing the packet locally
+      (for example let it read by an application on the system or
+      applying some &quot;big&quot; modification to the packet)
+    - (almost) directly sending it through the (physical or logical) network
+      interface
+      
+    The possibilities are chosen depending on the routing phase {
+      In brief packet for local processing are packet routed to
+      the system itself. (For example SSH packets, or
+      packets pointing to an IP owned by the system)
+      Packets with destination different than the system itself,
+      (that means: sent towards an IP identifier belonging to a physical or
+      logical interface of the system)
+      use the second possibility.
+    }
+  }
+  
+  processing the packet locally {
+    INPUT {
+      The packet is passing the rules in the table MANGLE chain INPUT.
+      The packet is passing the rules in the table FILTER chain INPUT.
+    }
+    
+    The the packet (in the case) is processed locally by the system
+    (for example the ssh request or a packet directed to an IP owned by
+    the system)
+    OR (that is quite important) is generated by the system itself.
+    
+    OUTPUT {
+      The packet is passing the rules in the table MANGLE chain OUTPUT.
+      The packet is passing the rules in the table NAT chain OUTPUT.
+      Beware {
+        After the NAT OUTPUT the packet could be changed and requires
+        a new routing. So routing rules are checked again against the packet.
+      }
+      The packet is passing the rules in the table FILTER chain OUTPUT.
+    }
+  }
+  sending the packet (almost) directly sending it through the (physical or logical) network interface {
+    FORWARD {
+      The packet is passing the rules in the table MANGLE chain FORWARD.
+      The packet is passing the rules in the table FILTER chain FORWARD.
+    }
+  }
+  
+  The packet is sent towards the interface (physical or logical) chosen by the last applied routing decision.
+  
+  POSTROUTING {
+    The packet is passing the rules in the table MANGLE chain FORWARD.
+    The packet is passing the rules in the table FILTER chain FORWARD.
+  }
+  
+  The packet is sent out from the interface (physical or logical) chosen by the last applied routing decision.
+}</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="chains_rules_and_nested_chainsoverview_of_sequence_of_evaluation_and_use_of_targets">Chains, rules and nested chains: overview of sequence of evaluation and use of targets</h3>
+<div class="level3">
+
+<p>
+<pre class="file">Conventions{
+  With &#039;TABLE/CHAIN/OTHERCHAIN&#039; is identified the chain named OTHERCHAIN, that is a nested chain of the main
+  chain called CHAIN related to the table TABLE.
+}
+
+A chain is an ordered (from first to last) sequence of rules.
+A chain could have a default policy of actions (called &#039;targets&#039;): ACCEPT, DROP, REJECT or RETURN.
+A rule is a set of condition to match a packet and, in the case that the conditions are met, then an action is
+  performed on the packet (not only the actions written above, an action could also be &quot;marking&quot; the packet&quot;).
+Main targets or actions {
+  ACCEPT: the packet goes through the chain towards the next table/chain pair (or eventually sent out from an
+    physical or logical interface).
+  DROP: the packet is discarded, without any response to the sender, the packet flow is interrupted.
+  REJECT: the packet is discarded but the sender is notified (like &quot;no request&quot;), the packet flow is interrupted.
+  RETURN: this action returns from a nested chain to the &quot;previous chain&quot; this action will be more clear later.
+  Other: there could be other actions on the packet, like &quot;marking&quot;, but they requires way more time to be
+    described properly. In the examples some other target is explained.
+}
+Nested chains {
+  A nested chain could be called as &quot;action&quot; on a packet by a rule in the &quot;main&quot; chain.
+  A nested chain could be seen as a way to organize rules in a chain. Instead of putting the
+    rules all in one chain, rules are grouped somehow in nested chains. Therefore all the rules in
+    the nested chains of a chain effectively are rules of the main chain, thus if a rule
+    in a nested chain ACCEPT the packet, the main chain is passed for the packet and the flow
+    proceeds towards the next table/chain pair.
+  Nested chains could be nested in several levels. A rule from the &quot;main&quot; chain FILTER/FORWARD
+    can call the nested chain FILTER/FORWARD/forwars_nested1 , and a rule from the chain FILTER/FORWARD/forwars_nested1
+    can call the nested chain FILTER/FORWARD/forwars_nested1/forward_nested2 and so on. 
+    (If someone knows the limits please contribute here!)
+  
+  A packet that was checked against all the rules of a nested chain, without matching any on them, 
+    is matched against the next rule of the &quot;calling chain&quot;, let&#039;s say that that rule is called &#039;R&#039;,
+    where the previous rule of &#039;R&#039; is the rule calling the nested chain just left by the packet.
+    The RETURN action has mostly the same effect, a rule in a nested chain is matched by the packet,
+    and the action RETURN is called, this causes the packet going back to the &#039;R&#039; rule described above.
+}
+When a packet was checked against all the rules of a chain, and matched any of them, then the default policy
+  is applied on the packet.
+Meaning of tables {
+  FILTER: default table (for &quot;filtering&quot; packets).
+  NAT: checked when packets establishing a new connection is created, used also for changing data in the packet regarding destination
+    or source of the packet. Therefore after the nat table normally a routing decision comes.
+  MANGLE: altering packets (not only for new connections) in a more general way (therefore routing decisions are needed after
+    the mangle table)
+}</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="examples_of_iptables_rules">Examples of iptables rules</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="example_1_with_analysis_and_comments">Example 1 with analysis and comments</h4>
+<div class="level4">
+
+<p>
+<pre class="file">Issuing the command, on the shell, &quot;iptables-save&quot; we can get something like the following,
+and comments will be added, with &#039;#&#039; at the start. Remember that rules are listed from the first
+to the last.
+
+Remarks {
+  Check the useful links mentioned above for understanding some concepts.
+}
+
+# Generated by iptables-save v1.4.10 on Thu Dec 18 12:21:31 2014
+*nat
+ # this is the table &quot;nat&quot;
+:PREROUTING ACCEPT [81606:7251503]
+  #this is the chain PREROUTING (for the flow, see above) with number of [packets:bytes]
+  #went through the chain. The default policy of the rule is ACCEPT.
+:INPUT ACCEPT [306:82553]
+:OUTPUT ACCEPT [253:19532]
+:POSTROUTING ACCEPT [0:0]
+:nat_reflection_in - [0:0]
+  #this is a nested chains (mostly predefined by the openwrt uci configuration, sometimes without any rule,
+  #just ready to receive some), they have different names than the names written above.
+  #
+  # About the reflection, it will be explained later, analyzing the rules.
+  #
+  # About nested chains, some of them, created by default, are just empty.
+  # They are listed but without containing rules. The drawback is that in the worst
+  # case the CPU has to recall those empty chains nevertheless, spending &#039;not useful&#039; elaboration time
+  # while analyzing a packet.
+:nat_reflection_out - [0:0]
+:postrouting_rule - [0:0]
+:prerouting_lan - [0:0]
+:prerouting_rule - [0:0]
+:prerouting_wan - [0:0]
+:zone_lan_nat - [0:0]
+:zone_lan_prerouting - [0:0]
+:zone_wan_nat - [0:0]
+:zone_wan_prerouting - [0:0]
+-A PREROUTING -j prerouting_rule 
+  # this is a rule for going to a nested chain. It is the first of the chain, therefore means that
+  # every packet that is going through the NAT table, chain PREROUTING will go through the
+  # nested chain &quot;prerouting_rule&quot;
+-A PREROUTING -i br-lan -j zone_lan_prerouting 
+  # this means, if a packet going through the table NAT, chain PREROUTING, is coming from
+  # the input interface (in this case a logical one) &quot;br-lan&quot;, then it has to go
+  # the nested chain &#039;zone_lan_prerouting&#039;
+-A PREROUTING -i br-wan -j zone_wan_prerouting 
+  # similar to above
+-A POSTROUTING -d 192.168.1.0/24 -j MASQUERADE 
+  # Now the chain is changed. This rule means: If a packet, after the routing decisions, is going towards an IP in the range
+  # [192.168.1.0, 192.168.1.255] (shortened with 192.168.1.0/24 aka BASIC-IP-ADDRESS/NETMASK) then apply the concept of
+  # masquerading (and that, for example, is another possible TARGET or action of an iptable rule).
+  # Masquerading means &quot;masking the source of a packet&quot;, or better, changing the source of a packet.
+  # In general it works in this way: a device from a local network communicates with a device in the internet,
+  # through a connection like local_device -&gt; router -&gt; device_internet.
+  # The device in the internet is not able to see the IP of the local_device, but just the ip of the router.
+  # therefore the router has to keep track of the connection, and when a response packet from the internet is coming
+  # back, then it has to change the destination of the packet, from the IP of the router to the IP of the local_device.
+  # The masquerading target will activate that procedure for every packet between local_devices and devices from the internet
+  # (or from other networks)
+-A POSTROUTING -d 192.168.0.0/24 -j MASQUERADE 
+  # as before.
+-A POSTROUTING -j postrouting_rule 
+  # jumping to a nested chain.
+-A POSTROUTING -o br-lan -j zone_lan_nat 
+  # if the output interface is &quot;br-lan&quot; go to the nested chain &#039;zone_lan_nat&#039;
+-A POSTROUTING -o br-wan -j zone_wan_nat 
+  # as before, with a different output interface.
+-A nat_reflection_in -s 192.168.1.0/24 -d 172.22.13.228/32 -p tcp -m tcp --dport 22 -m comment --comment &quot;wan&quot; -j DNAT --to-destination 192.168.1.1:22 
+  # This rule is automatically added when a port is open between two &#039;zones&#039; or interfaces. It means
+  # when some device from the internal network 192.168.1.0/24 (the source) wants to communicate to a device using
+  # the &#039;external&#039; ip &#039;172.22.13.228/32&#039; with TCP protocol on the port 22, recognize that the IP is
+  # the IP of the router itself and therefore the device wants to communicate with the system 192.168.1.1 in reality,
+  # it is just using an external ip. (maybe needed by the system 192.168.1.1)
+-A nat_reflection_in -s 192.168.1.0/24 -d 172.22.13.228/32 -p tcp -m tcp --dport 80 -m comment --comment &quot;wan&quot; -j DNAT --to-destination 192.168.1.1:80 
+-A nat_reflection_in -s 192.168.1.0/24 -d 172.22.13.228/32 -p tcp -m tcp --dport 22 -m comment --comment &quot;wan&quot; -j DNAT --to-destination 192.168.0.1:22 
+-A nat_reflection_in -s 192.168.1.0/24 -d 172.22.13.228/32 -p tcp -m tcp --dport 80 -m comment --comment &quot;wan&quot; -j DNAT --to-destination 192.168.0.1:80 
+-A nat_reflection_out -s 192.168.1.0/24 -d 192.168.1.1/32 -p tcp -m tcp --dport 22 -m comment --comment &quot;wan&quot; -j SNAT --to-source 192.168.1.254 
+-A nat_reflection_out -s 192.168.1.0/24 -d 192.168.1.1/32 -p tcp -m tcp --dport 80 -m comment --comment &quot;wan&quot; -j SNAT --to-source 192.168.1.254 
+-A nat_reflection_out -s 192.168.1.0/24 -d 192.168.0.1/32 -p tcp -m tcp --dport 22 -m comment --comment &quot;wan&quot; -j SNAT --to-source 192.168.1.254 
+-A nat_reflection_out -s 192.168.1.0/24 -d 192.168.0.1/32 -p tcp -m tcp --dport 80 -m comment --comment &quot;wan&quot; -j SNAT --to-source 192.168.1.254 
+-A postrouting_rule -j nat_reflection_out 
+  # this is a rule in a nested chain that is calling another nested chain.
+-A prerouting_rule -j nat_reflection_in 
+-A zone_lan_prerouting -j prerouting_lan 
+-A zone_wan_nat -j MASQUERADE 
+-A zone_wan_prerouting -s 172.22.13.228/32 -p tcp -m tcp --dport 22 -j DNAT --to-destination 192.168.1.1:22 
+  # this is a rule for &quot;if the source of the packet match this ip, port and protocol, change the destination
+  # and the port of the packet to this&quot;
+-A zone_wan_prerouting -s 172.22.13.228/32 -p tcp -m tcp --dport 80 -j DNAT --to-destination 192.168.1.1:80 
+-A zone_wan_prerouting -s 172.22.13.229/32 -p tcp -m tcp --dport 22 -j DNAT --to-destination 192.168.0.1:22 
+-A zone_wan_prerouting -s 172.22.13.229/32 -p tcp -m tcp --dport 80 -j DNAT --to-destination 192.168.0.1:80 
+-A zone_wan_prerouting -j prerouting_wan 
+COMMIT
+
+# if we want to assign the rules of nested chains to the real main chain, we would say that (reading the &#039;calling&#039; rules)
+# NAT/PREROUTING contains the rules of the chain prerouting_rule , zone_lan_prerouting , zone_wan_prerouting , nat_reflection_in,
+# prerouting_lan , zone_wan_prerouting , prerouting_wan . This means that the &quot;main&quot; table is subdivided a lot.
+
+
+# Completed on Thu Dec 18 12:21:31 2014
+# Generated by iptables-save v1.4.10 on Thu Dec 18 12:21:31 2014
+*raw
+# This is a type of table not yet covered.
+:PREROUTING ACCEPT [87936:7812932]
+:OUTPUT ACCEPT [7918:790863]
+:zone_lan_notrack - [0:0]
+:zone_wan_notrack - [0:0]
+-A PREROUTING -i br-lan -j zone_lan_notrack 
+-A PREROUTING -i br-wan -j zone_wan_notrack 
+COMMIT
+# Completed on Thu Dec 18 12:21:31 2014
+# Generated by iptables-save v1.4.10 on Thu Dec 18 12:21:31 2014
+*mangle
+:PREROUTING ACCEPT [87939:7813176]
+:INPUT ACCEPT [70710:6268619]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [7921:791107]
+:POSTROUTING ACCEPT [7921:791107]
+:zone_wan_MSSFIX - [0:0]
+-A FORWARD -j zone_wan_MSSFIX 
+-A zone_wan_MSSFIX -o br-wan -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu 
+  # this is a rule added by default by openwrt
+COMMIT
+# Completed on Thu Dec 18 12:21:31 2014
+# Generated by iptables-save v1.4.10 on Thu Dec 18 12:21:31 2014
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD DROP [0:0]
+:OUTPUT ACCEPT [0:0]
+:forward - [0:0]
+:forwarding_lan - [0:0]
+:forwarding_rule - [0:0]
+:forwarding_wan - [0:0]
+:input - [0:0]
+:input_lan - [0:0]
+:input_rule - [0:0]
+:input_wan - [0:0]
+:nat_reflection_fwd - [0:0]
+:output - [0:0]
+:output_rule - [0:0]
+:reject - [0:0]
+:syn_flood - [0:0]
+:zone_lan - [0:0]
+:zone_lan_ACCEPT - [0:0]
+:zone_lan_DROP - [0:0]
+:zone_lan_REJECT - [0:0]
+:zone_lan_forward - [0:0]
+:zone_wan - [0:0]
+:zone_wan_ACCEPT - [0:0]
+:zone_wan_DROP - [0:0]
+:zone_wan_REJECT - [0:0]
+:zone_wan_forward - [0:0]
+-A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT 
+  # this means that if the packet is routed towards the router itself
+  # and the conenction is tracked, plus the connection type is RELATED,ESTABLISHED
+  # the the packet is accepted
+-A INPUT -i lo -j ACCEPT 
+  # If the packet is coming from the &quot;internal&quot; interface of the router (is created by the
+  # router itself), accept it.
+-A INPUT -p tcp -m tcp --tcp-flags FIN,SYN,RST,ACK SYN -j syn_flood 
+-A INPUT -j input_rule 
+-A INPUT -j input 
+-A FORWARD -s 192.168.0.0/24 -j ACCEPT
+  # If the packet is routed not towards the system itself, and has the source
+  # in the range 192.168.0.0/24, accept it.
+-A FORWARD -d 192.168.0.0/24 -j ACCEPT 
+  # The same, but if the destination matches.
+-A FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT 
+-A FORWARD -j forwarding_rule 
+-A FORWARD -s 192.168.1.0/24 -j ACCEPT 
+-A FORWARD -d 192.168.1.0/24 -j ACCEPT 
+-A FORWARD -j forward 
+-A FORWARD -j reject 
+-A OUTPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT 
+-A OUTPUT -o lo -j ACCEPT 
+-A OUTPUT -j output_rule 
+-A OUTPUT -j output 
+-A forward -i br-lan -j zone_lan_forward 
+-A forward -i br-wan -j zone_wan_forward 
+-A forwarding_rule -j nat_reflection_fwd 
+-A input -i br-lan -j zone_lan 
+-A input -i br-wan -j zone_wan 
+-A nat_reflection_fwd -s 192.168.1.0/24 -d 192.168.1.1/32 -p tcp -m tcp --dport 22 -m comment --comment &quot;wan&quot; -j ACCEPT 
+-A nat_reflection_fwd -s 192.168.1.0/24 -d 192.168.1.1/32 -p tcp -m tcp --dport 80 -m comment --comment &quot;wan&quot; -j ACCEPT 
+-A nat_reflection_fwd -s 192.168.1.0/24 -d 192.168.0.1/32 -p tcp -m tcp --dport 22 -m comment --comment &quot;wan&quot; -j ACCEPT 
+-A nat_reflection_fwd -s 192.168.1.0/24 -d 192.168.0.1/32 -p tcp -m tcp --dport 80 -m comment --comment &quot;wan&quot; -j ACCEPT 
+  # the same &quot;automated rules&quot; for reflection for the forward. This allows the two
+  # internal networks to communicate to each other at least if some ip/port/protocol matches.
+-A output -j zone_lan_ACCEPT 
+-A output -j zone_wan_ACCEPT 
+-A reject -p tcp -j REJECT --reject-with tcp-reset 
+-A reject -j REJECT --reject-with icmp-port-unreachable 
+-A syn_flood -p tcp -m tcp --tcp-flags FIN,SYN,RST,ACK SYN -m limit --limit 25/sec --limit-burst 50 -j RETURN 
+-A syn_flood -j DROP 
+-A zone_lan -j input_lan 
+-A zone_lan -j zone_lan_ACCEPT 
+-A zone_lan_ACCEPT -o br-lan -j ACCEPT 
+-A zone_lan_ACCEPT -i br-lan -j ACCEPT 
+-A zone_lan_DROP -o br-lan -j DROP 
+-A zone_lan_DROP -i br-lan -j DROP 
+-A zone_lan_REJECT -o br-lan -j reject 
+-A zone_lan_REJECT -i br-lan -j reject 
+-A zone_lan_forward -j zone_wan_ACCEPT 
+-A zone_lan_forward -j forwarding_lan 
+-A zone_lan_forward -j zone_lan_REJECT 
+-A zone_wan -p udp -m udp --dport 68 -j ACCEPT 
+-A zone_wan -p icmp -m icmp --icmp-type 8 -j ACCEPT 
+-A zone_wan -p tcp -m tcp --dport 2222 -j ACCEPT 
+-A zone_wan -p tcp -m tcp --dport 8080 -j ACCEPT 
+-A zone_wan -j input_wan 
+-A zone_wan -j zone_wan_REJECT 
+-A zone_wan_ACCEPT -o br-wan -j ACCEPT 
+-A zone_wan_ACCEPT -i br-wan -j ACCEPT 
+-A zone_wan_DROP -o br-wan -j DROP 
+-A zone_wan_DROP -i br-wan -j DROP 
+-A zone_wan_REJECT -o br-wan -j reject 
+-A zone_wan_REJECT -i br-wan -j reject 
+-A zone_wan_forward -s 172.22.13.228/32 -d 192.168.1.1/32 -p tcp -m tcp --dport 22 -j ACCEPT 
+  # this nested chain belongs to FILTER/FORWARD and the rules states that if a packet
+  # comes with source 172.22.13.228/32 and destination 192.168.1.1/32 could be forwarded.
+-A zone_wan_forward -s 172.22.13.228/32 -d 192.168.1.1/32 -p tcp -m tcp --dport 80 -j ACCEPT 
+-A zone_wan_forward -s 172.22.13.229/32 -d 192.168.0.1/32 -p tcp -m tcp --dport 22 -j ACCEPT 
+-A zone_wan_forward -s 172.22.13.229/32 -d 192.168.0.1/32 -p tcp -m tcp --dport 80 -j ACCEPT 
+-A zone_wan_forward -j forwarding_wan 
+-A zone_wan_forward -j zone_wan_REJECT 
+COMMIT
+# Completed on Thu Dec 18 12:21:31 2014</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit12" id="iptables_through_uci_config">Iptables through uci config</h2>
+<div class="level2">
+
+<p>
+See <a href="../../doc/uci/firewall" class="wikilink1" title="doc:uci:firewall">firewall</a> . One interpretation suggest to use as much as possible the uci config (in <strong>/etc/config/firewall</strong> ) 
+because it will be more readable and clean (moreover with rule reported in the web interface) 
+of raw iptables commands. Moreover, as the example in this page reports,
+the uci configurations defines additional nested chains to order the rules.
+If those additional nested chains are unused they creates only additional overhead for the cpu.
+Therefore would be nice to use them through the uci configurations, plus the
+&#039;uci&#039; firewall <strong>uses the hotplug feature so if a cable is disconnected the rules are removed/added
+as needed</strong>.
+</p>
+
+<p>
+Of course, since the uci configuration is just another way 
+of writing iptables rules, it is obvious that raw iptables rules
+are more expressive than the uci configurations.
+Nevertheless to attain the same level of &quot;ordering&quot;, through raw
+iptable commands, it is suggested to use scripts that
+assemble iptable commands and are more readable/ordered than
+literal iptable commands.
+</p>
+
+<p>
+On the other side, to see the effects of rules in uci configurations,
+one of the suggested way is analyzing (but it takes time) the raw iptable commands
+through the &quot;<strong>iptables-save</strong>&quot; command.
+</p>
+
+</div>
+
+<h2 class="sectionedit13" id="routingips">Routing / IPs</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit14" id="command_examples_on_the_terminal_with_comments">Command examples on the terminal with comments</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="ip">ip</h4>
+<div class="level4">
+
+<p>
+<pre class="file">Ip is recommended over ifconfig / route , but is not always available by default.</pre>
+
+<pre class="file"># ip addr show (the new version of ifconfig)
+  Comment {
+    shows the ip addresses and other data related
+    to physical/virtual network interfaces
+  }
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 16436 qdisc noqueue state UNKNOWN
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP qlen 1000
+    link/ether 48:5b:39:e7:eb:3b brd ff:ff:ff:ff:ff:ff
+4: br-lan: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP
+    link/ether 48:5b:39:e7:eb:3b brd ff:ff:ff:ff:ff:ff
+    inet 192.168.1.254/24 brd 192.168.1.255 scope global br-lan
+    inet 192.168.0.254/24 brd 192.168.0.255 scope global br-lan
+  # shows that the internet addresses related to the virtual interface br-lan
+  # are two, one with IP 192.168.1.254, netmask 24 (255.255.255.0)
+5: eth0.0@eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue master br-lan state UP
+    link/ether 48:5b:39:e7:eb:3b brd ff:ff:ff:ff:ff:ff
+6: br-wan: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP
+    link/ether 00:1e:90:fc:98:3d brd ff:ff:ff:ff:ff:ff
+    inet 172.22.13.228/20 brd 172.22.15.255 scope global br-wan
+    inet 172.22.13.229/20 brd 172.22.15.255 scope global secondary br-wan
+7: eth0.1@eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue master br-wan state UP
+    link/ether 48:5b:39:e7:eb:3b brd ff:ff:ff:ff:ff:ff</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit15" id="routingips_through_uci_configs">Routing / IPs  through uci configs</h2>
+<div class="level2">
+
+<p>
+See <a href="../../doc/uci/network" class="wikilink1" title="doc:uci:network">network</a> . One interpretation suggest to use as much as possible the uci config (in <strong>/etc/config/network</strong> ) 
+because it will be more readable and clean (moreover with rule reported in the web interface) 
+of raw <code>ip</code> or  <code>ifconfig</code> or <code>route</code> commands.
+But bear in mind that uci configuration is likely to be less flexible than raw commands.
+</p>
+
+</div>
+
+<h2 class="sectionedit16" id="effects_of_combination_of_routing_rules_and_iptables_rules">Effects of combination of routing rules and iptables rules</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit17" id="through_uci_config_files">Through uci config files</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="scenarioforwarding_packets_to_an_host_behind_a_router_that_has_an_additional_external_ip_address">Scenario: forwarding packets to an host, behind a router, that has an additional external ip address</h4>
+<div class="level4">
+
+</div>
+
+<h5 id="description">Description</h5>
+<div class="level5">
+
+<p>
+<pre class="file">### schema:
+network &lt;---&gt; router &lt;----&gt; hostA
+
+### Description:
+In the network a general request is dispatched to reach a certain Ip address, let&#039;s say &quot;192.168.10.119&quot;,
+in reality the request should be served by the hostA that is behind the router.
+The router IP on the side of the network is 192.168.10.118, while the network between the router and the hostA
+is 192.168.1.1/24 and the hostA has address 192.168.1.223.
+
+Let&#039;s say that the routing in the network for now it is not a problem, the request is dispatched
+to every system in the network, so will reach also the router.
+
+One condition is that the router will expose only one IP on the side of the network, that is
+192.168.10.118, without exposing also the 192.168.10.119. Of course this condition is not a &quot;must&quot;
+in the case that the result cannot be attained.
+
+(for example as an alias in /etc/config/network like (with owrt 12.09):
+
+config interface &#039;wan&#039;
+  option ifname &#039;ethSomething&#039;
+  option type bridge
+  option proto static
+  option ipaddr 192.168.10.118
+  option netmask 255.255.255.0
+  option gateway 192.168.10.1
+
+config interface &#039;wan_alias&#039;
+  option ifname &#039;br-wan&#039;
+  option proto static
+  option ipaddr 192.168.10.119
+  option netmask 255.255.255.0
+
+)
+</pre>
+
+</p>
+
+</div>
+
+<h5 id="first_trialjust_with_snatdnat_rules">First trial: just with SNAT / DNAT rules</h5>
+<div class="level5">
+
+<p>
+<pre class="file">### Configuration
+Since the router wants to catch the packets for the ip 192.168.10.119, we start to define
+DNAT (destination translation) and SNAT (source translation) [note that SNAT and DNAT are
+combined in masquerading, see other articles about firewall in this wiki.
+In brief SNAT rewrites the IP source of a packet, DNAT rewrites the IP destination of a packet].
+The rules in /etc/config/firewall are like the following.
+
+config redirect &#039;testing_dnat_icmp&#039;
+        option src      wan
+        option src_dip  192.168.10.119
+        option proto    icmp
+        option dest     lan
+        option dest_ip  192.168.1.223
+        option target   DNAT
+        list explanation &#039;if a icmp packet wants to reach 192.168.10.119 rewrite the destination to 192.168.1.223&#039;
+        list explanation &#039;the source of this packet should be a network in the zone wan and the destination is&#039;
+        list explanation &#039;all the networks in the zone lan&#039;
+
+config redirect &#039;testing_snat_icmp&#039;
+        option src      lan
+        option src_ip   192.168.1.223
+        option src_dip  192.168.10.119
+        option proto    icmp
+        option dest     wan
+        option dest_ip  &#039;192.168.10.1/24&#039;
+        option target   SNAT
+        list explanation &#039;if a icmp packet is coming from 192.168.1.223 rewrite the source to 192.168.10.119&#039;
+        list explanation &#039;the source of this packet should be a network in the zone lan and the destination is&#039;
+        list explanation &#039;all the networks in the zone wan plus in the subnet 192.168.10.1/24&#039;
+
+### Problems
+
+#### Problems about sending the packet to the Ip address.
+Until now the experience about networks and openwrt of the contributors of this page
+shows that to reach a destination identified by an IPv4 address, the network
+structure should know how to reach that ip address.
+
+This knowledge is obtained issuing ARP request to identify the owner (in terms of
+MAC address identificator) of the IP address or, in the case that the owner is
+not reachable directly, routing rules are used. As explained in this page
+and in other pages about routing/firewalling in this wiki, a routing rule
+tells the router where to send packets that wants to reach a certain destination (in IP addresses terms).
+
+Often the router does not know directly the destination, therefore the strategy is
+&quot;if you want to reach this destination, ask to that other system for it&quot; that other
+system is another router that is called gateway, and it is identified by an IP address as well.
+
+#### Why the solution fails
+For what we said before, the solution cannot work because
+the network does not &quot;see&quot; any owner of the IP address 192.168.10.119,
+because the IP address is not exposed (or attached) to the router&#039;s IP
+addresses. Nor exist a routing rule on the router that is able to
+catch the packet and send it to the internal network to reach the hostA.
+
+Therefore we should think about either exposing the Ip address on the router,
+and then translate the packets going ot 192.168.10.119 towards the hostA&#039;s Ip address
+and viceversa (thus applying DNAT and SNAT); or we can route the packets
+towards the host A, filtering the unwanted packets (to increase the security),
+but then the hostA should be the end point of the packet, therefore having
+the IP address 192.168.10.119.
+
+### Result
+Failure, due to the problems exposed above.</pre>
+
+</p>
+
+</div>
+
+<h5 id="second_trialwith_routing_rules_and_filtering_rules">Second trial: with routing rules and filtering rules</h5>
+<div class="level5">
+
+<p>
+<pre class="file">### Configuration
+We don&#039;t want to give up the condition of not exposing the 192.168.10.119 on the router
+wan side. Therefore we try to use routing rules, filtering rules and hostA configuration.
+
+#### Network configuration on the router
+We should add a route &quot;to the host&quot; therefore in /etc/config/network we add
+config &#039;route&#039; &#039;route_to_inside&#039;
+        option &#039;interface&#039; &#039;lan&#039;
+        option &#039;target&#039; &#039;192.168.10.119&#039;
+        option &#039;netmask&#039; &#039;255.255.255.255&#039;
+        option &#039;gateway&#039; &#039;0.0.0.0&#039;
+        
+This means: if a packet wants to reach the _exact_ destination (note the netmask) 192.168.10.119
+then use the lan interface to send the packet towards no gateway. When the gateway is 0.0.0.0 means everything
+or nothing. That is, there is no specific system to ask, just dispatch the packet on that interface.
+
+This is ok because the packet dispatched on the lan interface will reach directly the hostA.
+We can even use &lt;option &#039;gateway&#039; &#039;192.168.1.223&#039;&gt; if we want, it should work the same.
+
+#### Firewall configuration on the router
+Since we have a route, this route forwards specific packets directly
+from the wan to the lan interface, but the forwarding should be allowed.
+Them according to the documentation of the firewall in this wiki, we write in
+/etc/config/firewall the following:
+config rule &#039;forward_to_ip_test&#039;
+        option src      wan
+        option dest     lan
+        option dest_ip  192.168.10.119
+        option proto    all
+        option target   ACCEPT
+
+This will allow us to forward whatever packet (ok it is not so secure for now)
+to the destination 192.168.10.119 if the packet is coming from wan and
+wants to reach the lan zone.
+
+Don&#039;t forget the right masquerading! Always in /etc/config/firewall:
+config zone
+        option name &#039;wan&#039;
+        option network &#039;wan&#039;
+        option input &#039;REJECT&#039;
+        option output &#039;ACCEPT&#039;
+        option forward &#039;REJECT&#039;
+        option masq &#039;1&#039;
+        option mtu_fix &#039;1&#039;
+        option masq_src &#039;192.168.1.1/24&#039;
+        
+The masquerading follow the order, so first is subject to masquerading
+every connection that has source within the network 192.168.1.1/24
+and then is not subject to masquerading connections with source different from
+the ones just described. Therefore avoiding to
+&#039;destroy&#039; connection due to unwanted SNAT/DNAT.
+
+#### Ip configuration on the hostA
+The host should know, since we are not exposing the IP, the IP address
+therefore we should add the IP address 192.168.10.119 with netmask 255.255.255.255 to the hostA,
+so the hostA will reply as owner of the 192.168.10.119 ip address.
+
+Why do we use a 255.255.255.255 netmask?
+Because if the netmask is less strict, then the system
+will automatically infer that on the interface where the ip address is assigned
+could be possible to reach directly (with an ARP discovery) the Ip addresses of
+the network defined by the pair (ip, netmask). Instead with a &#039;strict&#039; netmask
+it is like to say to the system &#039;you are the only one in this network, don&#039;t
+think that you can reach directly someone else&#039;.
+
+### Problems
+
+#### When an external system &#039;thinks&#039; (or better, is programmed to behave) that can reach that hostA &#039;s ip address directly, 
+#### then the solution does not work
+One problem is when an external system thinks, due to the configuration of its IP addresses/netmask,
+that can reach the 192.168.10.119 directly, then the solution does not work due to
+the ARP protocol (that allows to discover hosts).
+
+When a system has a certain IP and netmask linked to an interface, if the netmask is _not_ 255.255.255.255,
+the system is structured to assume that every other IP addresses in the range of the Ip,netmask
+(for example, with ip 192.168.10.19 and netmask 255.255.255.0, the range is 
+192.168.10.1-192.168.10.255)
+can be directly reachable, this means without additional gateways (unless
+an additional route is defined). 
+
+Therefore the system will just issue discovery requests (ARP requests) that are not
+routed by routers. So in case of ARP request due to systems that
+are configured to reach directly the IP address, this solution is not working.
+
+#### Result
+If the system that requires services on the 192.168.10.119 IP address, does
+not try to reach it directly (for example because there are routers that instruct it
+to ask to gateways. In my case i added the route: &#039;if you want to reach 192.168.10.119/32 ask 192.168.10.118&#039;
+instead of assuming to be able to discover the system immediately), then the solution
+works without exposing an IP address on the router.</pre>
+
+</p>
+
+</div>
+
+<h4 id="scenarioguest_customer_network">Scenario: Guest customer network</h4>
+<div class="level4">
+
+</div>
+
+<h5 id="overview">Overview</h5>
+<div class="level5">
+
+<p>
+Often the customers requires a guest network with internet access, 
+that should not access the local network in terms of customer servers
+and customer systems with important data.
+</p>
+
+<p>
+There are several ways to realize a guest network in a customer
+network, here we will try to list them.
+</p>
+
+</div>
+
+<h5 id="solutionconnecting_the_devices_that_are_in_the_guest_network_directly_to_the_main_gateways">Solution: Connecting the devices that are in the guest network directly to the main gateways</h5>
+<div class="level5">
+
+<p>
+This solution is often preferred for several reason, 
+for example in the case of wifi accesspoints unable to provide dhcp servers
+and therefore the dhcp server of a openwrt gateway was used.
+</p>
+
+<p>
+The drawback is that one or more physical ports on the gateway must be
+dedicated to the guest network, leaving less ports free for other
+work and creating more configuration work on the gateway
+</p>
+
+</div>
+
+<h5 id="solutionconnecting_the_devices_that_are_in_the_guest_network_to_the_gateways_using_the_local_customer_network_without_major_changes_vlan_direct_cable_patching_etc">Solution: Connecting the devices that are in the guest network to the gateways using the local customer network without major changes (Vlan, direct cable patching, etc...)</h5>
+<div class="level5">
+
+<p>
+The idea is based on the almost universal implementation of routing policies on network devices.
+</p>
+
+<p>
+Let&#039;s say that the scenario is the following:
+<pre class="file">  - There is a gateway through which all the traffic to the internet has to pass,
+    that also is connected directly (at maximum through switches) to all the customer networks.
+    Let&#039;s say that those networks are 10.10.10.0/24 ; 10.10.20.0/24; 10.10.30.0/24
+    and the gateway ip addresses in those network are, respectively,
+    10.10.10.1 ; 10.10.20.1 ; 10.10.30.1
+  - Then there are devices able to separate their interfaces in two distinct networks
+    (for example router with wireless) that manage some subnetworks for guest clients.
+    In our case let&#039;s say that we use wifi-routers that create the subnetwork 10.10.50.0/24
+    for guest wifi clients, and let us assign another ip for its &#039;wan&#039;/&#039;external network&#039;
+    side.</pre>
+
+</p>
+
+<p>
+Now the point is: if we connect the devices that handle the guest subnetworks to the local
+customer network, but we assign to them ip addresses in the address space of the local customer network,
+will be possible, for a guest wifi client, to reach a customer system.
+</p>
+
+<p>
+For example the device handling the guest subnetwork (from now on, a wifi router) has a wan address of 10.10.30.9
+and is serving a wifi client with IP 10.10.50.75 . We cannot control the wifi client, so it can
+ask to reach the ip 10.10.30.50 (an ip in the local customer network), and this request will
+be fulfilled because the wifi router, through routing stardards, assumes to be able to
+reach every address in the network 10.10.30.0/24 without further request to other intermediate systems.
+</p>
+
+<p>
+So we should avoid this, a way is the following:
+<pre class="file">  - defining a guest customer network on the logical level within the local network of the customer,
+    for example 10.10.40.0/24 , with the main gateway with an ip in this network, for example 10.10.40.1
+  - every device handling guest subnetworks will have the ip on the &#039;external side&#039;/&#039;wan side&#039; defined in the address space
+    10.10.40.0/24 with gateway pointing to the real gateway, that is 10.10.40.1 .</pre>
+
+</p>
+
+<p>
+In this way, the wifi-routers that create the guest subnetworks will know that to reach any ip address different
+from 10.10.40.x/24 (address in the guest customer network) they will have to ask to the gateway with ip 10.10.40.1,
+and since we (as IT support) define which networks the wifi routers known or not, the wifi client will be powerless
+to go around our definitions (thanks to routing standards).
+</p>
+
+<p>
+On this gateway we can restrict the routing of the packets coming from the guest customer network (that is, it is useful to repeat, 10.10.40.0/24 with eventual subnetworks created by devices connected to this network). We can define, for instance, rules that implement the following condition: &quot;whatever you want to reach a public ip address, you are allowed to, otherwise your request will be rejected&quot;.
+</p>
+
+</div>
+
+<h5 id="with_openwrt_on_the_main_gateway">With Openwrt on the main gateway</h5>
+<div class="level5">
+
+<p>
+With openwrt this solution is quite easy to define, through uci configurations.
+</p>
+
+<p>
+First of all the guest customer network will be attached to the main gateway with an alias interface, like
+<pre class="file">#/etc/config/network
+...lines...
+
+config interface lan
+  option type bridge
+  ...lines...
+
+...lines...
+
+config interface lan_guest
+  option ifname &#039;br-lan&#039;
+    #because normally the guest customer network is part of the lan
+    #cabling within the customer network.
+  option proto static
+  option ipaddr 10.10.40.1
+  option netmask 255.255.255.0
+
+...lines...</pre>
+
+</p>
+
+<p>
+And that is normally enough, due to a subtle detail.
+Even if the lan side on the openwrt has several IPs in different
+networks, requests from a network to another won&#039;t communicate by default,
+even if the networks are attached to the same logical interface (in this case
+<code>br-lan</code>). To let them communicate it is required to forward requests
+within the same zone (that is defined over the logical interfaces), in this way:
+<pre class="file">#/etc/config/firewall
+# given the zone lan configured over the logical interface lan/br-lan
+
+...lines...
+
+config forwardings
+  option src lan
+  option dest lan 
+
+...lines...</pre>
+
+</p>
+
+<p>
+When the forwarding is necessary for other purposes, then we need to
+implement reject/drop rules, those will be written here asap.
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>inbox/doc/iptables_and_firewall.txt</bdi> · Last modified: 2015/05/07 12:47 by <bdi>pier4r</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="iptables_and_firewall?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="iptables_and_firewall?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="iptables_and_firewall?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="iptables_and_firewall#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=inbox%253Adoc%253Aiptables_and_firewall&amp;1432273662" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

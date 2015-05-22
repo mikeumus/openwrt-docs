@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Pirelli FastWeb DRG A226M [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="bcm63xx,bcm6358,5port,pirelli,gpio,serial"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="http://wiki.openwrt.org/toh/pirelli/drg_a226m?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=toh:pirelli"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="http://wiki.openwrt.org/_export/xhtml/toh/pirelli/drg_a226m"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="http://wiki.openwrt.org/_export/raw/toh/pirelli/drg_a226m"/>
+<link rel="canonical" href="drg_a226m"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='toh:pirelli';var JSINFO = {"id":"toh:pirelli:drg_a226m","namespace":"toh:pirelli"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432284064 166.182.3.70';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="drg_a226m#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="http://wiki.openwrt.org/toh/pirelli/drg_a226m?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="http://wiki.openwrt.org/toh/pirelli/drg_a226m?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="toh:pirelli:drg_a226m" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="http://wiki.openwrt.org/toh/pirelli/drg_a226m?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="http://wiki.openwrt.org/toh/pirelli/drg_a226m?do=media&amp;ns=toh%3Apirelli"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="http://wiki.openwrt.org/toh/pirelli/drg_a226m?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="toh:start">Table of Hardware</a></bdi> » <bdi><a href="start" class="wikilink1" title="toh:pirelli:start">Pirelli</a></bdi> » <bdi><span class="curid"><a href="drg_a226m" class="wikilink1" title="toh:pirelli:drg_a226m">Pirelli FastWeb DRG A226M</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/toh/pirelli/drg_a226m" class="media" title="cz:toh:pirelli:drg_a226m"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/toh/pirelli/drg_a226m" class="media" title="de:toh:pirelli:drg_a226m"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="drg_a226m" class="media" title="toh:pirelli:drg_a226m"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/toh/pirelli/drg_a226m" class="media" title="es:toh:pirelli:drg_a226m"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/toh/pirelli/drg_a226m" class="media" title="fr:toh:pirelli:drg_a226m"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/toh/pirelli/drg_a226m" class="media" title="hu:toh:pirelli:drg_a226m"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/toh/pirelli/drg_a226m" class="media" title="jp:toh:pirelli:drg_a226m"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/toh/pirelli/drg_a226m" class="media" title="pl:toh:pirelli:drg_a226m"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/toh/pirelli/drg_a226m" class="media" title="pt-br:toh:pirelli:drg_a226m"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/toh/pirelli/drg_a226m" class="media" title="ru:toh:pirelli:drg_a226m"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/toh/pirelli/drg_a226m" class="media" title="tr:toh:pirelli:drg_a226m"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/toh/pirelli/drg_a226m" class="media" title="zh-cn:toh:pirelli:drg_a226m"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/toh/pirelli/drg_a226m" class="media" title="zh-tw:toh:pirelli:drg_a226m"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>toh:pirelli:drg_a226m</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="drg_a226m#hardware">Hardware</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="drg_a226m#info">Info</a></div></li>
+<li class="level2"><div class="li"><a href="drg_a226m#photos">Photos</a></div></li>
+<li class="level2"><div class="li"><a href="drg_a226m#serial">Serial</a></div></li>
+<li class="level2"><div class="li"><a href="drg_a226m#jtag">JTAG</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="drg_a226m#requirement_to_install_openwrt">Requirement to install OpenWRT</a></div></li>
+<li class="level1"><div class="li"><a href="drg_a226m#backup_of_the_original_firmware">Backup of the original firmware</a></div></li>
+<li class="level1"><div class="li"><a href="drg_a226m#restore_original_firmware">Restore original firmware</a></div></li>
+<li class="level1"><div class="li"><a href="drg_a226m#installing_openwrt">Installing OpenWrt</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="drg_a226m#poweron_the_router_-_stop_the_boot_process">Poweron the router - Stop the boot process</a></div></li>
+<li class="level2"><div class="li"><a href="drg_a226m#flash_the_new_firmware_via_tftp">Flash the new firmware via TFTP</a></div></li>
+<li class="level2"><div class="li"><a href="drg_a226m#openwrt_-_first_boot">OpenWRT - First boot</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="drg_a226m#specific_openwrt_configuration">Specific OpenWrt configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="drg_a226m#network_configuration">Network configuration</a></div></li>
+<li class="level2"><div class="li"><a href="drg_a226m#modify_the_leds_config">Modify the leds config</a></div></li>
+<li class="level2"><div class="li"><a href="drg_a226m#web_interface_luci">Web interface (Luci)</a></div></li>
+<li class="level2"><div class="li"><a href="drg_a226m#module_for_mini-pci_wifi_ralink_rt2661t">Module for mini-pci Wifi Ralink RT2661T</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="drg_a226m#bootlogs">Bootlogs</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="drg_a226m#oem_bootlog">OEM bootlog</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="drg_a226m#tags">Tags</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="pirelli_fastweb_drg_a226m">Pirelli FastWeb DRG A226M</h1>
+<div class="level1">
+
+<p>
+Supported, but without ADSL.
+</p>
+<ul>
+<li class="level1"><div class="li"> Attitude Adjustment (12.09):<br/>
+<a href="http://downloads.openwrt.org/attitude_adjustment/12.09/brcm63xx/generic/openwrt-A226M-cfe-squashfs-cfe.bin" class="urlextern" title="http://downloads.openwrt.org/attitude_adjustment/12.09/brcm63xx/generic/openwrt-A226M-cfe-squashfs-cfe.bin"  rel="nofollow">openwrt-A226M-cfe-squashfs-cfe.bin</a></div>
+</li>
+<li class="level1"><div class="li"> Trunk:<br/>
+<a href="http://downloads.openwrt.org/snapshots/trunk/brcm63xx/openwrt-A226M-cfe-squashfs-cfe.bin" class="urlextern" title="http://downloads.openwrt.org/snapshots/trunk/brcm63xx/openwrt-A226M-cfe-squashfs-cfe.bin"  rel="nofollow">openwrt-A226M-cfe-squashfs-cfe.bin</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit2" id="hardware">Hardware</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit3" id="info">Info</h3>
+<div class="level3">
+<div class="table sectionedit4"><table class="inline">
+	<tr class="row0">
+		<td class="col0 leftalign"> <strong><a href="http://en.wikipedia.org/wiki/Instruction set" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Instruction set">Architecture</a>:</strong>    </td><td class="col1"> <a href="http://en.wikipedia.org/wiki/MIPS architecture" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/MIPS architecture">MIPS</a> </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 leftalign"> <strong>Vendor:</strong>          </td><td class="col1"> <a href="http://en.wikipedia.org/wiki/Broadcom" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Broadcom">Broadcom</a> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <strong><a href="../../doc/techref/bootloader.1" class="wikilink1" title="doc:techref:bootloader">Bootloader</a>:</strong>     </td><td class="col1"> <a href="../../doc/techref/bootloader/cfe" class="wikilink1" title="doc:techref:bootloader:cfe">CFE</a> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> <strong>Board ID:</strong>      </td><td class="col1"> DWV-S0 </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/soc.1" class="wikilink1" title="doc:hardware:soc">System-On-Chip</a>:</strong>  </td><td class="col1"> <a href="http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6358" class="urlextern" title="http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6358"  rel="nofollow">BCM6358KFBG </a> </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/cpu" class="wikilink1" title="doc:hardware:cpu">CPU</a>/Speed</strong>        </td><td class="col1"> BMIPS4350 V1.0 / 300 Mhz <a href="../../doc/hardware/soc/soc.broadcom.bcm63xx/smp" class="wikilink1" title="doc:hardware:soc:soc.broadcom.bcm63xx:smp">BMIPS Dual Core</a> </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> <strong>Flash-Chip:</strong>      </td><td class="col1"> <img src="../../lib/images/smileys/icon_question.gif" class="icon" alt=":?:" /> </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> <strong>Flash size:</strong>      </td><td class="col1"> 8 MiB </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> <strong>RAM:</strong>             </td><td class="col1 leftalign"> 32 MiB   </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> <strong>Wireless:</strong>        </td><td class="col1"> miniPCI (no card connected) </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> <strong>Ethernet:</strong>        </td><td class="col1"> Broadcom  <a href="../../_media/toh/bcm5325_pinout.png" class="urlextern" title="http://wiki.openwrt.org/_media/toh/bcm5325_pinout.png"  rel="nofollow">BCM5325</a> w/ vlan support <a href="../../doc/uci/network#swconfig" class="wikilink1" title="doc:uci:network">swconfig</a> </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> <strong>Internet:</strong>        </td><td class="col1 leftalign"> ADSL2+  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> <strong>USB:</strong>             </td><td class="col1"> 1x2.0H + 1x1.1D </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> <strong><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console" class="wikilink1" title="doc:hardware:port.serial">Serial</a>:</strong>          </td><td class="col1"> <a href="drg_a226m#serial" title="toh:pirelli:drg_a226m ↵" class="wikilink1">Yes</a> </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/port.jtag" class="wikilink1" title="doc:hardware:port.jtag">JTAG</a>:</strong>            </td><td class="col1 leftalign"> <a href="drg_a226m#jtag" title="toh:pirelli:drg_a226m ↵" class="wikilink1">Yes</a>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit5" id="photos">Photos</h3>
+<div class="level3">
+
+<p>
+<a href="http://wiki.openwrt.org/lib/exe/fetch.php?tok=eff7fc&amp;media=https%3A%2F%2Fdl.dropbox.com%2Fu%2F16893292%2Fpirelli_a226m_owrt.jpg" class="media" title="https://dl.dropbox.com/u/16893292/pirelli_a226m_owrt.jpg"><img src="http://wiki.openwrt.org/lib/exe/fetch.php?w=300&amp;tok=597c49&amp;media=https%3A%2F%2Fdl.dropbox.com%2Fu%2F16893292%2Fpirelli_a226m_owrt.jpg" class="media" title="pirelli_a226m_owrt.jpg" alt="pirelli_a226m_owrt.jpg" width="300" /></a>
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="serial">Serial</h3>
+<div class="level3">
+
+<p>
+The serial port is J10, on the left of the switch chip, <a href="drg_a226m#photos" title="toh:pirelli:drg_a226m ↵" class="wikilink1">see photos</a>
+</p>
+<div class="table sectionedit7"><table class="inline">
+	<tr class="row0">
+		<td class="col0 rightalign">  6 </td><td class="col1 rightalign">  GND </td><td class="col2 rightalign">  RX </td><td class="col3 rightalign">  5 </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 rightalign">  4 </td><td class="col1 rightalign">  GND </td><td class="col2 rightalign">  Vcc (3.3V) </td><td class="col3 rightalign">  3 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  2 </td><td class="col1 rightalign">  GND </td><td class="col2 rightalign">  TX </td><td class="col3 rightalign">  1 </td>
+	</tr>
+</table></div>
+
+<p>
+Settings are 115200 8N1
+</p>
+
+<p>
+<strong>NB:</strong> a short circuit between pins <code>RX</code> and <code>TX</code> at power up puts the device in a recovery mode with IP <code>192.168.1.1</code> from where a new firmware can be uploaded.  OpenWrt binaries are refused, though, because of invalid CRC.
+</p>
+
+</div>
+
+<h3 class="sectionedit8" id="jtag">JTAG</h3>
+<div class="level3">
+
+<p>
+Jtag port is J9 near the SoC and the minipci socket, <a href="drg_a226m#photos" title="toh:pirelli:drg_a226m ↵" class="wikilink1">see photos</a>
+</p>
+
+<p>
+It seems to be a mips e-jtag 14 pin connector with columns swapped (used from the other side?).
+</p>
+<div class="table sectionedit9"><table class="inline">
+	<tr class="row0">
+		<td class="col0 rightalign">  14 </td><td class="col1 rightalign">  DINT </td><td class="col2 rightalign">  VREF </td><td class="col3 rightalign">  13 </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 rightalign">  12 </td><td class="col1 rightalign">  SRST_N </td><td class="col2 rightalign">  GND </td><td class="col3 rightalign">  11 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  10 </td><td class="col1 rightalign">  TCK </td><td class="col2 rightalign">  GND </td><td class="col3 rightalign">  9 </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  8 </td><td class="col1 rightalign">  TMS </td><td class="col2 rightalign">  GND </td><td class="col3 rightalign">  7 </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 rightalign">  6 </td><td class="col1 rightalign">  TDO </td><td class="col2 rightalign">  GND </td><td class="col3 rightalign">  5 </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 rightalign">  4 </td><td class="col1 rightalign">  TDI </td><td class="col2 rightalign">  GND </td><td class="col3 rightalign">  3 </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 rightalign">  2 </td><td class="col1 rightalign">  TRST_N </td><td class="col2 rightalign">  GND </td><td class="col3 rightalign">  1 </td>
+	</tr>
+</table></div>
+
+<p>
+CPU Chip ID: 00000110001101011000000101111111 (0635817F)
+</p>
+
+<p>
+I used the JTAG port with <a href="http://urjtag.org" class="urlextern" title="http://urjtag.org"  rel="nofollow">urjtag</a>, just use the svn version. Useful info on <a href="http://www.neufbox4.org/wiki/index.php?title=Interface_JTAG" class="urlextern" title="http://www.neufbox4.org/wiki/index.php?title=Interface_JTAG"  rel="nofollow">&quot;Neuf Box 4 JTAG&quot; </a>
+</p>
+
+<p>
+You should probably try the <a href="http://openocd.berlios.de/web/" class="urlextern" title="http://openocd.berlios.de/web/"  rel="nofollow">Open On-Chip Debugger</a>
+</p>
+
+<p>
+Install OpenWrt on this router <img src="../../lib/images/smileys/icon_smile.gif" class="icon" alt=":-)" />
+</p>
+
+</div>
+
+<h2 class="sectionedit10" id="requirement_to_install_openwrt">Requirement to install OpenWRT</h2>
+<div class="level2">
+
+<p>
+To install OpenWRT you have to stop the system loading through the serial console
+</p>
+
+<p>
+To do that you need a serial adapter/converter (that convert TTL +3.3V of router serial console to RS232 (+/-12V) or USB). I suggest to use USB serial converter!!
+</p>
+
+<p>
+Don&#039;t even try to go further without a serial adapter!!
+</p>
+
+<p>
+You can buy USB serial converter adapter on Ebay (find CP2102 chispet)
+</p>
+
+<p>
+<a href="http://www.ebay.com/sch/i.html?_from=R40&amp;_sacat=0&amp;_nkw=cp2102&amp;_sop=15" class="urlextern" title="http://www.ebay.com/sch/i.html?_from=R40&amp;_sacat=0&amp;_nkw=cp2102&amp;_sop=15"  rel="nofollow">USB serial adapter based on Silicon Labs CP2102 (Ebay)</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit11" id="backup_of_the_original_firmware">Backup of the original firmware</h2>
+<div class="level2">
+
+<p>
+The firmware is based on OpenRG, I don&#039;t know how to backup this firmware. <strong>Continue at  your risk!!!</strong>
+</p>
+
+<p>
+You can try <a href="../../doc/hardware/soc/soc.broadcom.bcm63xx#dumptheflash" class="wikilink1" title="doc:hardware:soc:soc.broadcom.bcm63xx">bcm63xx#dump.the.flash</a> It isn&#039;t a firmware backup but a whole flash backup — <em>danitool 2013/01/23 15:23</em>
+</p>
+
+</div>
+
+<h2 class="sectionedit12" id="restore_original_firmware">Restore original firmware</h2>
+<div class="level2">
+
+<p>
+We need a way to backup it first. <img src="../../lib/images/smileys/icon_smile2.gif" class="icon" alt="=)" />
+</p>
+
+</div>
+
+<h2 class="sectionedit13" id="installing_openwrt">Installing OpenWrt</h2>
+<div class="level2">
+
+<p>
+You need to setup a tftp server on some host (I can suggest to use dnsmasq for this) to serve the firmware image to the router.
+</p>
+
+<p>
+Now just download the image for <em>A226M</em> from 
+</p>
+
+<p>
+<a href="http://downloads.openwrt.org/snapshots/trunk/brcm63xx" class="urlextern" title="http://downloads.openwrt.org/snapshots/trunk/brcm63xx"  rel="nofollow">OpenWRT firmware - Broadcom BRCM63xxx CPU</a>
+</p>
+
+<p>
+You have firmwares for two filesystems (squashfs and jffs2)
+</p>
+
+<p>
+<strong>squashfs</strong> is a filesytem that have system files readonly. more stable and less problems. you cannot destroy importan file
+</p>
+
+<p>
+<strong>jffs2</strong> is a file system completly writable. more powerfull but you can destroy system files.
+</p>
+
+<p>
+to start as novice I sugegst to use squasfs firmwares.
+</p>
+
+<p>
+Skip the jffs2 with 64k erase block as the flash use 128k block, anyway using 64k should not give much problem, just some wasted space and some errors messages. Put the choose image in the right place (see your tftp server configuration), and go to the CFE prompt.
+</p>
+
+<p>
+<a href="http://downloads.openwrt.org/snapshots/trunk/brcm63xx/openwrt-A226M-squashfs-cfe.bin" class="urlextern" title="http://downloads.openwrt.org/snapshots/trunk/brcm63xx/openwrt-A226M-squashfs-cfe.bin"  rel="nofollow">OpenWRT DRGA226M firmware -  CFE squashfs</a>
+</p>
+
+<p>
+<a href="http://downloads.openwrt.org/snapshots/trunk/brcm63xx/openwrt-A226M-cfe-squashfs-cfe.bin" class="urlextern" title="http://downloads.openwrt.org/snapshots/trunk/brcm63xx/openwrt-A226M-cfe-squashfs-cfe.bin"  rel="nofollow">OpenWRT DRG A226M firmware - squashfs CFE</a>
+</p>
+
+<p>
+<a href="http://downloads.openwrt.org/snapshots/trunk/brcm63xx/openwrt-A226M-cfe-jffs2-128k-cfe.bin" class="urlextern" title="http://downloads.openwrt.org/snapshots/trunk/brcm63xx/openwrt-A226M-cfe-jffs2-128k-cfe.bin"  rel="nofollow">OpenWRT DRG A226M firmware - jffs2 128K CFE</a>
+</p>
+
+<p>
+<a href="http://downloads.openwrt.org/snapshots/trunk/brcm63xx/openwrt-A226M-jffs2-128k-cfe.bin" class="urlextern" title="http://downloads.openwrt.org/snapshots/trunk/brcm63xx/openwrt-A226M-jffs2-128k-cfe.bin"  rel="nofollow">OpenWRT DRGA226M firmware - CFE jffs2 128K</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit14" id="poweron_the_router_-_stop_the_boot_process">Poweron the router - Stop the boot process</h3>
+<div class="level3">
+
+<p>
+Through the serial console and a terminal program (like Hyperterminal, Putty portable, Teraterm) setup as 115200, 8 bit data, no parity bit, 1 stop bit, poweron the router and press any key to stop the system loading.
+</p>
+
+</div>
+
+<h3 class="sectionedit15" id="flash_the_new_firmware_via_tftp">Flash the new firmware via TFTP</h3>
+<div class="level3">
+
+<p>
+<em class="u">I suggest to rename the firmware file downloaded as <strong>firmware.bin</strong></em>
+</p>
+
+<p>
+Now you have to use the <em>flashimage</em> command to load the openwrt image, please don&#039;t use the <em>f</em> command. If you configure (with command <em>c</em>) the host ip address you can avoid it in the <em>flashimage</em> argument.
+<pre class="code">CFE&gt; flashimage
+
+     eg. flashimage [hostip:]compressed_image_file_name
+or
+     es: flashimage 192.168.1.100:firmware.bin
+or
+     es: flashimage firmware.bin   </pre>
+
+</p>
+
+<p>
+That&#039;s all, the device will automatically reboot and openwrt will be there <img src="../../lib/images/smileys/icon_smile.gif" class="icon" alt=":-)" />
+</p>
+
+<p>
+Using dnsmasq:
+</p>
+
+<p>
+<pre class="code">dnsmasq -d --enable-tftp --tftp-root=`pwd` #fron the directory where firmware is previously downloaded</pre>
+
+where the 192.168.1.100 is your server tftp
+After the flashing of new firmware the router will reboot.
+</p>
+
+<p>
+You can use also TFTP server like tftp32. Install tftpd32 and put the firmware file (I suggest to rename it as <strong>firmware.bin</strong>) in the same folder where you installed tftpd32.
+</p>
+
+</div>
+
+<h3 class="sectionedit16" id="openwrt_-_first_boot">OpenWRT - First boot</h3>
+<div class="level3">
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> ATM (24 jan 2013) the OPENWRT image is rejected due to wrong CRC in kernel  <img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" />
+Boot detail with crc error:
+<pre class="code">*** Press any key to stop auto run (1 seconds) ***
+Auto run second count down: 0
+Trying to boot from previous MAIN image (0x65dba394) ...
+Code Address: 0x65DBA394, Entry Address: 0x1970acf7
+SGP - Flash Kernel Address: 0xBE020100
+SGP - ulImgCrc : 0xD656A53B  
+SGP - Tag-&gt;kernelLen: 0x0011FF00
+SGP - Flash Kernel Address: 0xBE020100
+Linux kernel CRC error.  Corrupted image?
+SGP - Tag Kernel crc : 0xD656A53B - calculated: 0x9D91518A 
+SGP - Decompression Kernel length: 0x91669AEE pucSrc: 0xBE02010C
+Trying to boot from previous RECOVERY image (0x80010000) ...
+Code Address: 0x80010000, Entry Address: 0x80010000
+SGP - Flash Kernel Address: 0xBE560100
+SGP - ulImgCrc : 0x80DF5773  
+SGP - Tag-&gt;kernelLen: 0x001B008C
+SGP - Flash Kernel Address: 0xBE560100
+SGP - Tag Kernel crc : 0x80DF5773 - calculated: 0x80DF5773 
+SGP - Decompression Kernel length: 0x0000001C pucSrc: 0xBE56010C
+Decompression OK!
+Entry at 0x80010000</pre>
+
+If you receive this error with the test file: openwrt-A226G-cfe-squashfs-cfe.bin I had also prevents this problem and I solved it with this. (31/07/2013)
+</p>
+
+</div>
+
+<h2 class="sectionedit17" id="specific_openwrt_configuration">Specific OpenWrt configuration</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit18" id="network_configuration">Network configuration</h3>
+<div class="level3">
+
+<p>
+To have a better match with DRG A226M functions, I suggest you to use it with the following network configuration.
+Using the interneal editor vi, check and edit <strong>/etc/config/system</strong> file.
+</p>
+
+<p>
+For more info read <a href="http://wiki.openwrt.org/doc/switch" class="wikilink2" title="doc:switch" rel="nofollow">switch</a> config. <img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> To be reviewed
+</p>
+
+<p>
+<pre class="code">config interface loopback                                                       
+        option ifname   lo                                                      
+        option proto    static                                                  
+        option ipaddr   127.0.0.1                                               
+        option netmask  255.0.0.0                                               
+                                                                                
+config &#039;switch&#039; &#039;eth1&#039;                                                          
+   option &#039;enable&#039;      &#039;1&#039;                                                     
+   option &#039;enable_vlan&#039; &#039;1&#039;                                                     
+   option &#039;reset&#039;       &#039;1&#039;                                                     
+                                                                                
+config &#039;switch_vlan&#039; &#039;vlan0&#039;                                                    
+   option &#039;vlan&#039;       &#039;0&#039;                                                      
+   option &#039;device&#039;     &#039;eth1&#039;                                                   
+   option &#039;ports&#039;      &#039;0 1 2 5*&#039;                                               
+                                                                                
+config &#039;switch_vlan&#039; &#039;vlan1&#039;                                                    
+   option &#039;vlan&#039;       &#039;1&#039;                                                      
+   option &#039;device&#039;     &#039;eth1&#039;                                                   
+   option &#039;ports&#039;      &#039;3 5t&#039;                                                   
+                                                                                
+config interface lan                                                            
+        option ifname   eth1.0 
+        option type     bridge                                                 
+        option proto    static                                                  
+        option ipaddr   192.168.5.1                                             
+        option netmask  255.255.255.0                                           
+        option nat      1                                                       
+                                                                                
+config &#039;interface&#039; wan 
+    option &#039;ifname&#039;  &#039;eth1.1&#039;                                                   
+    option &#039;proto&#039;   &#039;dhcp&#039;</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit19" id="modify_the_leds_config">Modify the leds config</h3>
+<div class="level3">
+
+<p>
+To have the led matching DRG A226M features, using the internal editor vi edit the <strong>/etc/config/system</strong> file. Add:
+</p>
+
+<p>
+<pre class="code">config &#039;led&#039;
+	option &#039;sysfs&#039;		&#039;power:red&#039;
+	option &#039;trigger&#039;	&#039;heartbeat&#039;
+
+config &#039;led&#039;
+	option name		lan
+	option &#039;sysfs&#039;		&#039;usr1:red&#039;
+	option trigger netdev
+	option &#039;dev&#039;	&#039;eth1.0&#039;
+	option mode &#039;rx tx&#039;
+
+config &#039;led&#039;
+	option name		wan
+	option &#039;sysfs&#039;		&#039;usr2:red&#039;
+	option trigger netdev
+	option &#039;dev&#039;	&#039;eth1.1&#039;
+	option mode &#039;rx tx&#039;</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit20" id="web_interface_luci">Web interface (Luci)</h3>
+<div class="level3">
+
+<p>
+The OpenWRT firmware don&#039;t provide by default webui. just telnet interface.
+To configure the modem through the web interface you should install WebUI (like Luci).
+To do that you can follow the instructions
+</p>
+
+<p>
+<a href="../../doc/luci" class="urlextern" title="http://wiki.openwrt.org/doc/howto/luci.essentials"  rel="nofollow">OpenWRT - Install WebUI (Luci)</a>
+<pre class="code">opkg update
+
+opkg install luci</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit21" id="module_for_mini-pci_wifi_ralink_rt2661t">Module for mini-pci Wifi Ralink RT2661T</h3>
+<div class="level3">
+
+<p>
+<pre class="code">
+opkg update
+
+opkg install kmod-rt61-pci
+ </pre>
+
+Reboot system for activate WiFi
+</p>
+
+</div>
+
+<h2 class="sectionedit22" id="bootlogs">Bootlogs</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit23" id="oem_bootlog">OEM bootlog</h3>
+<div class="level3">
+
+<p>
+&lt;<abbr title="HyperText Markup Language">HTML</abbr>&gt;
+&lt;p style=&quot;padding: 10px;border:1px solid grey;height:600px;font:10px/14px Georgia, Garamond, Serif;overflow:Auto;background-color:#FFFFFF&quot;&gt;
+<pre class="code">CFE version 1.0.37-8.7 for BCM96358 (32bit,SP,BE)
+Build Date: lun apr  2 10:48:55 CEST 2007 (gpaolo@buildserver)
+Copyright (C) 2000-2005 Broadcom Corporation.
+
+Boot Address 0xbe000000
+
+Initializing Arena.
+Initializing Devices.
+Parallel flash device: name AM29LV320MT, id 0x2201, size 8192KB
+CPU type 0x2A010: 300MHz, Bus: 133MHz, Ref: 64MHz
+CPU running TP0
+Total memory: 33554432 bytes (32MB)
+
+Total memory used by CFE:  0x80401000 - 0x80527ED0 (1208016)
+Initialized Data:          0x8041D940 - 0x8041F700 (7616)
+BSS Area:                  0x8041F700 - 0x80425ED0 (26576)
+Local Heap:                0x80425ED0 - 0x80525ED0 (1048576)
+Stack Area:                0x80525ED0 - 0x80527ED0 (8192)
+Text (code) segment:       0x80401000 - 0x8041D938 (117048)
+Boot area (physical):      0x00528000 - 0x00568000
+Relocation Factor:         I:00000000 - D:00000000
+
+Resetting Secondary CPU... 
+
+Board IP address                  : 192.168.1.1:ffffff00  
+Host IP address                   : 192.168.1.100  
+Gateway IP address                :   
+Run from flash/host (f/h)         : f  
+Default host run file name        : vmlinux  
+Default host flash file name      : bcm963xx_fs_kernel  
+Boot delay (0-9 seconds)          : 1  
+Boot image (0=latest, 1=previous) : 0  
+Board Id (0-6)                    : DWV-S0  
+Number of MAC Addresses (1-32)    : 13  
+Base MAC Address                  : 02:10:18:xxxxxxxxx  
+PSI Size (1-64) KBytes            : 24  
+Main Thread Number [0|1]          : 0  
+
+*** Press any key to stop auto run (1 seconds) ***
+Auto run second count down: 1
+web info: Waiting for connection on socket 0.
+CFE&gt; </pre>
+
+</p>
+
+</div>
+
+<h1 class="sectionedit24" id="links">Links</h1>
+<div class="level1">
+
+<p>
+<a href="http://www.fastweb.it/downloads/PDF/famiglia/installazione/pirelli.pdf" class="urlextern" title="http://www.fastweb.it/downloads/PDF/famiglia/installazione/pirelli.pdf"  rel="nofollow">Pirelli A226M - User manual (italian)- PDF</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit25" id="tags">Tags</h2>
+<div class="level2">
+<div class="tags"><span>
+	<a href="../../tag/bcm63xx?do=showtag&amp;tag=bcm63xx" class="wikilink1" title="tag:bcm63xx" rel="tag">bcm63xx</a>,
+	<a href="../../tag/bcm6358?do=showtag&amp;tag=bcm6358" class="wikilink1" title="tag:bcm6358" rel="tag">bcm6358</a>,
+	<a href="../../tag/5port?do=showtag&amp;tag=5port" class="wikilink1" title="tag:5port" rel="tag">5port</a>,
+	<a href="http://wiki.openwrt.org/tag/pirelli?do=showtag&amp;tag=pirelli" class="wikilink1" title="tag:pirelli" rel="tag">pirelli</a>,
+	<a href="../../tag/gpio?do=showtag&amp;tag=gpio" class="wikilink1" title="tag:gpio" rel="tag">gpio</a>,
+	<a href="../../tag/serial?do=showtag&amp;tag=serial" class="wikilink1" title="tag:serial" rel="tag">serial</a>
+</span></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>toh/pirelli/drg_a226m.txt</bdi> · Last modified: 2013/07/31 02:02 (external edit)</div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="http://wiki.openwrt.org/toh/pirelli/drg_a226m?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="http://wiki.openwrt.org/toh/pirelli/drg_a226m?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="http://wiki.openwrt.org/toh/pirelli/drg_a226m?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="drg_a226m#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="http://wiki.openwrt.org/lib/exe/indexer.php?id=toh%3Apirelli%3Adrg_a226m&amp;1432284064" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

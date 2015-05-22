@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Bluetooth Audio [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="wiki,bluetooth.audio"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../index.html"/>
+<link rel="contents" href="bluetooth.audio?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../feed.php?mode=list&amp;ns=wiki"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../_export/xhtml/wiki/bluetooth.audio"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../_export/raw/wiki/bluetooth.audio"/>
+<link rel="canonical" href="bluetooth.audio"/>
+<link rel="stylesheet" type="text/css" href="../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='wiki';var JSINFO = {"id":"wiki:bluetooth.audio","namespace":"wiki"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267159 166.182.3.14';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="bluetooth.audio#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../start"  accesskey="h" title="[H]"><img src="../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="bluetooth.audio?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="bluetooth.audio?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="wiki:bluetooth.audio" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="bluetooth.audio?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="bluetooth.audio?do=media&amp;ns=wiki"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="bluetooth.audio?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="http://wiki.openwrt.org/wiki/start" class="wikilink2" title="wiki:start" rel="nofollow">wiki</a></bdi> » <bdi><span class="curid"><a href="bluetooth.audio" class="wikilink1" title="wiki:bluetooth.audio">Bluetooth Audio</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/wiki/bluetooth.audio" class="media" title="cz:wiki:bluetooth.audio"><img src="../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/wiki/bluetooth.audio" class="media" title="de:wiki:bluetooth.audio"><img src="../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="bluetooth.audio" class="media" title="wiki:bluetooth.audio"><img src="../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/wiki/bluetooth.audio" class="media" title="es:wiki:bluetooth.audio"><img src="../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/wiki/bluetooth.audio" class="media" title="fr:wiki:bluetooth.audio"><img src="../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/wiki/bluetooth.audio" class="media" title="hu:wiki:bluetooth.audio"><img src="../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/wiki/bluetooth.audio" class="media" title="jp:wiki:bluetooth.audio"><img src="../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/wiki/bluetooth.audio" class="media" title="pl:wiki:bluetooth.audio"><img src="../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/wiki/bluetooth.audio" class="media" title="pt-br:wiki:bluetooth.audio"><img src="../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/wiki/bluetooth.audio" class="media" title="ru:wiki:bluetooth.audio"><img src="../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/wiki/bluetooth.audio" class="media" title="tr:wiki:bluetooth.audio"><img src="../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/wiki/bluetooth.audio" class="media" title="zh-cn:wiki:bluetooth.audio"><img src="../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/wiki/bluetooth.audio" class="media" title="zh-tw:wiki:bluetooth.audio"><img src="../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>wiki:bluetooth.audio</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="bluetooth.audio#bluetooth_audio">Bluetooth Audio</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="bluetooth.audio#foreword">Foreword</a></div></li>
+<li class="level2"><div class="li"><a href="bluetooth.audio#device_pairing">Device Pairing</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="bluetooth.audio#adding_bluetooth_source_to_trusted_devices">Adding bluetooth source to trusted devices</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="bluetooth.audio#dbus_access_control">dbus access control</a></div></li>
+<li class="level2"><div class="li"><a href="bluetooth.audio#problems">Problems</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="bluetooth.audio#bluetooth_debugging">bluetooth debugging</a></div></li>
+<li class="level3"><div class="li"><a href="bluetooth.audio#sound_debugging">sound debugging</a></div></li>
+<li class="level3"><div class="li"><a href="bluetooth.audio#uinput_missing">uinput missing</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="bluetooth.audio#todo">TODO</a></div></li>
+<li class="level2"><div class="li"><a href="bluetooth.audio#links_and_documentation">Links and Documentation</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h2 class="sectionedit1" id="bluetooth_audio">Bluetooth Audio</h2>
+<div class="level2">
+
+<p>
+This wiki entry should enable you to play audio from a bluetooth source to an OpenWrt router that has sound output capabilities.
+It is working with: Android mobile (Sony Xperia M) as bluetooth source (use &quot;Throw&quot; in Walkman App) to
+an TI omap BeagleBoard (onboard soundcard, noname Bluetooth 2.1+ USB 1.1 micro dongle) as bluetooth/audio sink.
+</p>
+
+<p>
+Required OpenWrt packages:
+</p>
+<ol>
+<li class="level1"><div class="li"> kmod-input-uinput (new)</div>
+</li>
+<li class="level1"><div class="li"> pulseaudio 6</div>
+</li>
+<li class="level1"><div class="li"> sbc library (new)</div>
+</li>
+<li class="level1"><div class="li"> bluez5</div>
+</li>
+<li class="level1"><div class="li"> dbus (because bluez5)</div>
+</li>
+</ol>
+
+<p>
+Hardware:
+</p>
+<ol>
+<li class="level1"><div class="li"> Bluetooth dongle</div>
+</li>
+<li class="level1"><div class="li"> Bluetooth sender (Android mobile)</div>
+</li>
+</ol>
+
+<p>
+<img src="../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Some USB Hardware on Routers does not support USB 1.1 (such Bluetooth dongles) directly attached to USB ports (2.0 devices only). You have to use an USB hub in this case.
+</p>
+
+</div>
+
+<h3 class="sectionedit2" id="foreword">Foreword</h3>
+<div class="level3">
+
+<p>
+Getting bluetooth to run is difficult. Bluetooth development is fast, not documented and
+there are issues with the bluez userspace development in general. [1]
+So there are a ton of outdated documentation using bluez3 or bluez4.
+Using Audio with bluez5 requires DBUS and pulseaudio.
+Pulseaudio 6 supports bluez4 and blue5.
+</p>
+
+<p>
+Recommended/Not in this guide: Python because the test tools make use of python.
+Test tools can supply legacy methods via commandline for pairing.
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="device_pairing">Device Pairing</h3>
+<div class="level3">
+
+<p>
+Bluetooth radio is disabled by default (&quot;DOWN&quot;).
+Enable bluetooth from commandline to make OpenWrt device discoverable.
+<pre class="code">hciconfig -a hci0
+hciconfig -a hci0 up
+hciconfig -a hci0 piscan
+hciconfig -a hci0 sspmode enable</pre>
+
+</p>
+
+<p>
+hciconfig -a output after commands
+<pre class="code">hci0:   Type: BR/EDR  Bus: USB
+        BD Address: XX:XX:XX:XX:XX:XX  ACL MTU: 310:10  SCO MTU: 64:8
+        UP RUNNING PSCAN ISCAN 
+        RX bytes:6513036 acl:21980 sco:0 events:597 errors:0
+        TX bytes:10451 acl:316 sco:0 commands:128 errors:0
+        Features: 0xff 0xff 0x8f 0xfe 0x9b 0xff 0x59 0x83
+        Packet type: DM1 DM3 DM5 DH1 DH3 DH5 HV1 HV2 HV3 
+        Link policy: RSWITCH HOLD SNIFF PARK 
+        Link mode: SLAVE ACCEPT 
+        Name: &#039;BlueZOmap&#039;
+        Class: 0x0c0000
+        Service Classes: Rendering, Capturing
+        Device Class: Miscellaneous, 
+        HCI Version: 2.1 (0x4)  Revision: 0x12e7
+        LMP Version: 2.1 (0x4)  Subversion: 0x12e7
+        Manufacturer: Cambridge Silicon Radio (10)</pre>
+
+*Name can be set via /etc/bluetooth/main.conf*
+</p>
+
+</div>
+
+<h4 id="adding_bluetooth_source_to_trusted_devices">Adding bluetooth source to trusted devices</h4>
+<div class="level4">
+
+<p>
+You will see an entry like this
+<pre class="code">bluetoothd[2285]: Authentication attempt without agent
+bluetoothd[2285]: Access denied: org.bluez.Error.Rejected</pre>
+
+</p>
+
+<p>
+run 
+<pre class="code">bluetoothctl</pre>
+
+with
+<pre class="code">trust AA:BB:CC:DD:EE:FF
+[CHG] Device AA:BB:CC:DD:EE:FF Trusted: yes
+Changing AA:BB:CC:DD:EE:FF trust succeeded</pre>
+
+AA:BB:CC:DD:EE:FF … Bluetooth device mac that is audio source (mobile)
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="dbus_access_control">dbus access control</h3>
+<div class="level3">
+
+<p>
+add entry to a policy section in /etc/dbus-1/system.d/<strong>bluetooth</strong>.conf:
+<pre class="code">...
+&lt;policy user=&quot;root&quot;&gt;
+...
+    &lt;allow send_type=&quot;method_call&quot;/&gt;
+    &lt;allow send_type=&quot;method_return&quot;/&gt;
+&lt;/policy&gt;
+...</pre>
+
+</p>
+
+<p>
+add entry to a policy section in /etc/dbus-1/system.d/<strong>pulseaudio</strong>.conf:
+<pre class="code">	&lt;allow send_type=&quot;method_call&quot;/&gt;
+	&lt;allow send_type=&quot;method_return&quot;/&gt;</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="problems">Problems</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> Reloading daemons might be necessary</div>
+</li>
+<li class="level1"><div class="li"> Check logread or run daemons in foreground with multiple SSH connections</div>
+</li>
+</ol>
+
+</div>
+
+<h4 id="bluetooth_debugging">bluetooth debugging</h4>
+<div class="level4">
+
+<p>
+Bluetoothd can run in foreground with very verbose debugging.
+</p>
+
+<p>
+<pre class="code">bluetoothd -n -d</pre>
+
+</p>
+<pre class="code">Note multiple arguments to -d can be specified, colon, comma or space
+separated. The arguments are relative source code filenames for which
+debugging output should be enabled; output shell-style globs are
+accepted (e.g.: &#039;plugins/*:src/main.c&#039;).</pre>
+
+</div>
+
+<h4 id="sound_debugging">sound debugging</h4>
+<div class="level4">
+
+<p>
+Pulseaudio can run in foreground. See /etc/init.d/pulseaudio for commandline arguments
+</p>
+
+<p>
+Pulseaudio runs in system mode. This is unsupported and you should check access rights (group &amp; module parameters)
+<img src="../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> The main problem is that bluetooth devices appear &amp; disappear from playback.
+This might require to allow runtime module loading permanently.
+</p>
+
+<p>
+Check if you have pulseaudio output with
+<pre class="code">paplay &lt;filename&gt;</pre>
+
+</p>
+
+<p>
+Check access rights via /etc/group
+<pre class="code">pulse-rt:x:53:
+pulse-access:x:54:root</pre>
+
+<img src="../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> and see pulse-access group added as module parameter below
+</p>
+
+<p>
+Check if you have error when loading modules.
+For this guide allow module loading by removing
+<pre class="code"> --disallow-module-loading</pre>
+
+from /etc/init.d/pulseaudio
+<img src="../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Security risk
+</p>
+
+<p>
+Check if you load the right modules in /etc/pulse/system.pa
+<pre class="code">#!/usr/bin/pulseaudio -nF
+#
+# This file is part of PulseAudio.
+
+### Automatically load driver modules depending on the hardware available
+.ifexists module-detect.so
+
+### Use the static hardware detection module (for systems that lack udev/hal support)
+load-module module-detect
+.endif
+
+### Automatically restore the volume of streams and devices
+load-module module-stream-restore
+load-module module-device-restore
+load-module module-card-restore
+
+
+### Automatically restore the default sink/source when changed by the user
+### during runtime
+### NOTE: This should be loaded as early as possible so that subsequent modules
+### that look up the default sink/source get the right value
+# load-module module-default-device-restore
+
+### Bluetooth
+load-module module-bluetooth-discover
+load-module module-bluetooth-policy
+
+load-module module-zeroconf-publish
+
+### Should be after module-*-restore but before module-*-detect
+load-module module-switch-on-port-available
+
+### Automatically move streams to the default sink if the sink they are
+### connected to dies, similar for sources
+load-module module-rescue-streams
+
+### Make sure we always have a sink around, even if it is a null sink.
+load-module module-always-sink
+
+### Honour intended role device property
+load-module module-intended-roles
+
+### Automatically suspend sinks/sources that become idle for too long
+load-module module-suspend-on-idle
+
+### Enable positioned event sounds
+load-module module-position-event-sounds
+
+### Load several protocols
+.ifexists module-esound-protocol-unix.so
+load-module module-esound-protocol-unix
+.endif
+load-module module-native-protocol-unix auth-group=pulse-access
+
+### Load the RTP receiver module (also configured via paprefs, see above)
+load-module module-rtp-recv
+
+### Load the RTP sender module (also configured via paprefs, see above)
+load-module module-null-sink sink_name=rtp format=s16be channels=2 rate=44100 sink_properties=&quot;device.description=&#039;RTP Multicast Sink&#039;&quot;
+load-module module-rtp-send source=rtp.monitor
+
+### Modules to allow autoloading of filters (such as echo cancellation)
+### on demand. module-filter-heuristics tries to determine what filters
+### make sense, and module-filter-apply does the heavy-lifting of
+### loading modules and rerouting streams.
+load-module module-filter-heuristics
+load-module module-filter-apply
+
+#load-module module-loopback source=bluez_source.AA_BB_CC_DD_EE_FF sink=_name=alsa_output.0.analog-stereo rate=44100 adjust_time=0</pre>
+
+</p>
+
+<p>
+You can load modules with <strong>pactl</strong>
+</p>
+
+</div>
+
+<h4 id="uinput_missing">uinput missing</h4>
+<div class="level4">
+
+<p>
+If you dont have kmod-input-uinput installed you will see errors like
+<pre class="code">Wed Apr  1 14:53:21 2015 daemon.err bluetoothd[2285]: AVRCP: failed to init uinput for AA:BB:CC:DD:EE:FF</pre>
+
+</p>
+
+<p>
+Successful kmod-input-uinput message
+<pre class="code">kern.info kernel: [  681.020385] input: AA:BB:CC:DD:EE:FF as /devices/virtual/input/input2
+bluetoothd[2530]: profiles/audio/avctp.c:init_uinput() AVRCP: uinput initialized for AA:BB:CC:DD:EE:FF</pre>
+
+<img src="../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> You should see start/stop messages in the log whe you start/stop playback.
+</p>
+
+<p>
+<img src="../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> If you have no sound at this point check pulseaudio settings (modules!), reload pulseaudio, enable the audio sink
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="todo">TODO</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> commandline / uci foo</div>
+</li>
+<li class="level1"><div class="li"> role of /var/lib/bluetooth/nn:nn:nn:nn:nn:nn/ with devices</div>
+</li>
+<li class="level1"><div class="li"> Headset buttons/ uinput: /etc/modules-load.d/uinput.conf</div>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit7" id="links_and_documentation">Links and Documentation</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <a href="http://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/User/Modules" class="urlextern" title="http://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/User/Modules"  rel="nofollow">pulseaudio modules</a></div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>wiki/bluetooth.audio.txt</bdi> · Last modified: 2015/04/02 12:50 by <bdi>theoradicus</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="bluetooth.audio?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="bluetooth.audio?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="bluetooth.audio?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="bluetooth.audio#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../lib/exe/indexer.php?id=wiki%253Abluetooth.audio&amp;1432267159" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

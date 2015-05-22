@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Openwrt running as metarouter on mikrotik routerOS [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="inbox,doc,mikrotik metarouter openwrt"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="mikrotik_metarouter_openwrt?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=inbox:doc"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/inbox/doc/mikrotik_metarouter_openwrt"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/inbox/doc/mikrotik_metarouter_openwrt"/>
+<link rel="canonical" href="mikrotik_metarouter_openwrt"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='inbox:doc';var JSINFO = {"id":"inbox:doc:mikrotik_metarouter_openwrt","namespace":"inbox:doc"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432277105 166.182.3.118';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="mikrotik_metarouter_openwrt#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="mikrotik_metarouter_openwrt?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="mikrotik_metarouter_openwrt?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="inbox:doc:mikrotik_metarouter_openwrt" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="mikrotik_metarouter_openwrt?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="mikrotik_metarouter_openwrt?do=media&amp;ns=inbox%253Adoc"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="mikrotik_metarouter_openwrt?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="inbox:start">Build and installation - Few Adjustments - NEW (shiva)</a></bdi> » <bdi><a href="http://wiki.openwrt.org/inbox/doc/start" class="wikilink2" title="inbox:doc:start" rel="nofollow">doc</a></bdi> » <bdi><span class="curid"><a href="mikrotik_metarouter_openwrt" class="wikilink1" title="inbox:doc:mikrotik_metarouter_openwrt">Openwrt running as metarouter on mikrotik routerOS</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/inbox/doc/mikrotik_metarouter_openwrt" class="media" title="cz:inbox:doc:mikrotik_metarouter_openwrt"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/inbox/doc/mikrotik_metarouter_openwrt" class="media" title="de:inbox:doc:mikrotik_metarouter_openwrt"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="mikrotik_metarouter_openwrt" class="media" title="inbox:doc:mikrotik_metarouter_openwrt"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/inbox/doc/mikrotik_metarouter_openwrt" class="media" title="es:inbox:doc:mikrotik_metarouter_openwrt"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/inbox/doc/mikrotik_metarouter_openwrt" class="media" title="fr:inbox:doc:mikrotik_metarouter_openwrt"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/inbox/doc/mikrotik_metarouter_openwrt" class="media" title="hu:inbox:doc:mikrotik_metarouter_openwrt"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/inbox/doc/mikrotik_metarouter_openwrt" class="media" title="jp:inbox:doc:mikrotik_metarouter_openwrt"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/inbox/doc/mikrotik_metarouter_openwrt" class="media" title="pl:inbox:doc:mikrotik_metarouter_openwrt"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/inbox/doc/mikrotik_metarouter_openwrt" class="media" title="pt-br:inbox:doc:mikrotik_metarouter_openwrt"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/inbox/doc/mikrotik_metarouter_openwrt" class="media" title="ru:inbox:doc:mikrotik_metarouter_openwrt"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/inbox/doc/mikrotik_metarouter_openwrt" class="media" title="tr:inbox:doc:mikrotik_metarouter_openwrt"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/inbox/doc/mikrotik_metarouter_openwrt" class="media" title="zh-cn:inbox:doc:mikrotik_metarouter_openwrt"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/inbox/doc/mikrotik_metarouter_openwrt" class="media" title="zh-tw:inbox:doc:mikrotik_metarouter_openwrt"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>inbox:doc:mikrotik_metarouter_openwrt</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="mikrotik_metarouter_openwrt#premises">Premises</a></div></li>
+<li class="level1"><div class="li"><a href="mikrotik_metarouter_openwrt#resources">Resources</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="mikrotik_metarouter_openwrt#discussion_forums">Discussion forums</a></div></li>
+<li class="level2"><div class="li"><a href="mikrotik_metarouter_openwrt#articles">Articles</a></div></li>
+<li class="level2"><div class="li"><a href="mikrotik_metarouter_openwrt#openwrt_metarouter_images_and_repositories">Openwrt metarouter images and repositories</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="mikrotik_metarouter_openwrt#providing_alternatives_mirrors">Providing alternatives mirrors</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="mikrotik_metarouter_openwrt#experiences">Experiences</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="mikrotik_metarouter_openwrt#routerboard_r493g_routeros_627_openwrt_1209_mips_compiled_by_liquidcz">Routerboard r493g , routerOS 6.27 , openwrt 12.09 mips compiled by liquidcz</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="openwrt_running_as_metarouter_on_mikrotik_routeros">Openwrt running as metarouter on mikrotik routerOS</h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit2" id="premises">Premises</h2>
+<div class="level2">
+
+<p>
+Openwrt as metarouter is highly experimental but is also very promising,
+therefore if someone knows useful resources, please contribute!
+This should be valid for the entire openwrt wiki in general.
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="resources">Resources</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit4" id="discussion_forums">Discussion forums</h3>
+<div class="level3">
+
+<p>
+One obvious resource is the mikrotik forum and related searches
+on it. For example with google <code>site:miktrotik.com openwrt metarouter</code>.
+</p>
+
+<p>
+Discussion about patching the openwrt sources to get the metarouter image working:
+<a href="http://forum.mikrotik.com/viewtopic.php?t=75849" class="urlextern" title="http://forum.mikrotik.com/viewtopic.php?t=75849"  rel="nofollow">http://forum.mikrotik.com/viewtopic.php?t=75849</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="articles">Articles</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <a href="http://naberius.de/2015/01/10/openwrt-barrier-breaker-metarouter-instance-on-mikrotik-rb-2011/" class="urlextern" title="http://naberius.de/2015/01/10/openwrt-barrier-breaker-metarouter-instance-on-mikrotik-rb-2011/"  rel="nofollow">http://naberius.de/2015/01/10/openwrt-barrier-breaker-metarouter-instance-on-mikrotik-rb-2011/</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../toh/mikrotik/metarouter" class="wikilink1" title="toh:mikrotik:metarouter">metarouter</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit6" id="openwrt_metarouter_images_and_repositories">Openwrt metarouter images and repositories</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> A resource is provided by a user of the mikrotik forum, <strong>liquidcz</strong>, that is providing patched metarouter images with openwrt for mips and pppc architectures, here: <a href="http://forum.mikrotik.com/viewtopic.php?p=414386#p414386" class="urlextern" title="http://forum.mikrotik.com/viewtopic.php?p=414386#p414386"  rel="nofollow">http://forum.mikrotik.com/viewtopic.php?p=414386#p414386</a> . Thanks a ton to this guy.</div>
+</li>
+<li class="level1"><div class="li"> Mirror based on the liquicz&#039;s work: <a href="http://download.bmsoft.de/mikrotik/12.09/metarouter/" class="urlextern" title="http://download.bmsoft.de/mikrotik/12.09/metarouter/"  rel="nofollow">http://download.bmsoft.de/mikrotik/12.09/metarouter/</a></div>
+</li>
+<li class="level1"><div class="li"> Repository for openwrt metarouter: <a href="https://github.com/TheSkorm/openwrt-metarouter-cjdns" class="urlextern" title="https://github.com/TheSkorm/openwrt-metarouter-cjdns"  rel="nofollow">https://github.com/TheSkorm/openwrt-metarouter-cjdns</a></div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="providing_alternatives_mirrors">Providing alternatives mirrors</h4>
+<div class="level4">
+
+<p>
+The metarouter image is based on a &#039;proper patch&#039; for building the openwrt sources,
+so everyone can build its own version. The point is that (a) publishing the compiled packages
+online is not for everyone (b) providing the right procedure to build a mips/ppc version of openwrt
+is not for everyone. Therefore providing mirror of already compiled packages or
+informations (for example in this wiki) is highly reccomended - as in every open source/community project.
+</p>
+
+</div>
+
+<h5 id="use_alternative_mirrors">Use alternative mirrors</h5>
+<div class="level5">
+
+<p>
+Editing <code>/etc/opkg.conf</code> like
+</p>
+
+<p>
+<pre class="code">src/gz packages http://download.bmsoft.de/mikrotik/12.09/metarouter/mr-mips/packages
+#src/gz packages http://openwrt.wk.cz/attitude_adjustment/mr-mips/packages
+dest root /
+dest ram /tmp
+lists_dir ext /var/opkg-lists
+option overlay_root /overlay</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="experiences">Experiences</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit8" id="routerboard_r493g_routeros_627_openwrt_1209_mips_compiled_by_liquidcz">Routerboard r493g , routerOS 6.27 , openwrt 12.09 mips compiled by liquidcz</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> CPU usage when idle, checked by winbox and routerOS: Around 15%. Around 8% if winbox shows few information.</div>
+</li>
+<li class="level1"><div class="li"> Ping answers when idle, direct connection: around 3000 ms.</div>
+</li>
+<li class="level1"><div class="li"> mwan3 version 1.4-24 works.</div>
+</li>
+<li class="level1"><div class="li"> With 2 wan connections: each wan connection seems to achieve an quite stable average of 25 Mbit/s using mwan3 (100+ firewall rules shown by <code>iptables-save</code>), and the CPU stays on an average of 40%. Could be that the test setup was limiting the system somehow, maybe due to the overhead in processing the IRQ request, like: when the IRQ is processed natively one can send more data, while with the hypervisor one can send less data, but then it is strange that both the flow from 2 wan connections goes through one lan connection without problems.</div>
+</li>
+<li class="level1"><div class="li"> Openvpn connection able to send or receive (not made synchronous tests) 6.5 ~ 7 Mbit/s of data. used by a system that use a metarouter as gateway. Could be the same problem of the speed through wan connections, that is the IRQ processing is the bottleneck.</div>
+</li>
+<li class="level1"><div class="li"> The system can be shut down like a normal openwrt or the metarouter can be shut down (via &#039;disable&#039;) or started (via &#039;enable&#039;) forcefully. On the mikrotik terminal a way to disable/enable is: <code>metarouter disable &lt;metarouter_name&gt; ; ping count=2 127.0.0.1 ; metarouter enable &lt;metarouter_name&gt;</code></div>
+</li>
+<li class="level1"><div class="li"> When the mikrotik (re)starts, if the metatarouter is enabled, it starts too, finishing the start procedure in 4-5 minutes.</div>
+</li>
+<li class="level1"><div class="li"> Long time &#039;30s+&#039; to restart single services (firewall, dropbear, etc…)</div>
+</li>
+<li class="level1"><div class="li"> Software reboot of the metarouter itself takes 4-5 minutes to show up the system again (except for ping, that replies way earlier. Note that the openwrt is almost a basic installation).</div>
+</li>
+<li class="level1"><div class="li"> &#039;Forced&#039; reboot (disable-enable in the RouterOS) takes 4-5 minutes to be completed.</div>
+</li>
+<li class="level1"><div class="li"> Long term usage (+ 30 days) has to be tested.</div>
+</li>
+<li class="level1"><div class="li"> Rebooting/power outage tests has to be done.</div>
+</li>
+<li class="level1"><div class="li"> The &#039;console&#039; management, using winbox, is way better through the terminal. New terminal → metarouter console &lt;metarouter_name&gt; . But remember that openwrt offer one global console therefore opening two console is not possible, in that case try to go by ssh.</div>
+</li>
+<li class="level1"><div class="li"> It seems possible to assign a miximum of 7 interfaces out of 9, over 7 openwrt won&#039;t recognize the other interface.</div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>inbox/doc/mikrotik_metarouter_openwrt.txt</bdi> · Last modified: 2015/05/20 13:57 by <bdi>pier4r</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="mikrotik_metarouter_openwrt?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="mikrotik_metarouter_openwrt?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="mikrotik_metarouter_openwrt?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="mikrotik_metarouter_openwrt#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=inbox%253Adoc%253Amikrotik_metarouter_openwrt&amp;1432277105" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

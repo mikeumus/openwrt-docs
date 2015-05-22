@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>TCOM Speedport W 500V [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="bcm63xx,bcm6348"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="spw500v?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=toh:t-com"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/toh/t-com/spw500v"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/toh/t-com/spw500v"/>
+<link rel="canonical" href="spw500v"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='toh:t-com';var JSINFO = {"id":"toh:t-com:spw500v","namespace":"toh:t-com"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266260 166.182.3.99';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="spw500v#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="spw500v?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="spw500v?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="toh:t-com:spw500v" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="spw500v?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="spw500v?do=media&amp;ns=toh%253At-com"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="spw500v?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="toh:start">Table of Hardware</a></bdi> » <bdi><a href="start" class="wikilink1" title="toh:t-com:start">T-Com</a></bdi> » <bdi><span class="curid"><a href="spw500v" class="wikilink1" title="toh:t-com:spw500v">TCOM Speedport W 500V</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/toh/t-com/spw500v" class="media" title="cz:toh:t-com:spw500v"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/toh/t-com/spw500v" class="media" title="de:toh:t-com:spw500v"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="spw500v" class="media" title="toh:t-com:spw500v"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/toh/t-com/spw500v" class="media" title="es:toh:t-com:spw500v"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/toh/t-com/spw500v" class="media" title="fr:toh:t-com:spw500v"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/toh/t-com/spw500v" class="media" title="hu:toh:t-com:spw500v"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/toh/t-com/spw500v" class="media" title="jp:toh:t-com:spw500v"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/toh/t-com/spw500v" class="media" title="pl:toh:t-com:spw500v"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/toh/t-com/spw500v" class="media" title="pt-br:toh:t-com:spw500v"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/toh/t-com/spw500v" class="media" title="ru:toh:t-com:spw500v"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/toh/t-com/spw500v" class="media" title="tr:toh:t-com:spw500v"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/toh/t-com/spw500v" class="media" title="zh-cn:toh:t-com:spw500v"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/toh/t-com/spw500v" class="media" title="zh-tw:toh:t-com:spw500v"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>toh:t-com:spw500v</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="spw500v#hardware_highlights">Hardware Highlights</a></div></li>
+<li class="level1"><div class="li"><a href="spw500v#factory_firmware">Factory Firmware</a></div></li>
+<li class="level1"><div class="li"><a href="spw500v#tftp_and_serial_port_method">TFTP and serial port method</a></div></li>
+<li class="level1"><div class="li"><a href="spw500v#hardware">Hardware</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="spw500v#info">Info</a></div></li>
+<li class="level2"><div class="li"><a href="spw500v#pictures">Pictures:</a></div></li>
+<li class="level2"><div class="li"><a href="spw500v#serial">Serial</a></div></li>
+<li class="level2"><div class="li"><a href="spw500v#gpios">GPIOs</a></div></li>
+<li class="level2"><div class="li"><a href="spw500v#relays">Relays</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="spw500v#bootlogs">Bootlogs</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="spw500v#oem_bootlog">OEM bootlog</a></div></li>
+<li class="level2"><div class="li"><a href="spw500v#openwrt_bootlog">OpenWrt bootlog</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="spw500v#tags">Tags</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="tcom_speedport_w_500v">TCOM Speedport W 500V</h1>
+<div class="level1">
+
+<p>
+The Speedport W500V is a Broadband Router with integrated DSL Modem, WLan Module and ISDN + Analog PBX capability for VoIP. Manufactured by Hitachi High Technologies and OEM&#039;ed primarily through the T-Com in germany. 
+</p>
+
+<p>
+The device is also sold by Lidl under the name <strong>Targa WR 500 VoIP</strong>.
+</p>
+
+<p>
+What makes the Speedport W500V a quite attractive device is the PBX part. It can route incoming calls from either landline and VoIP onto the connected analog phones. Comparable to what the AVM FritzBox FON Routers can do. For outgoing rules can be set to either route the call into landline or over a VoIP SIP Provider.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="hardware_highlights">Hardware Highlights</h2>
+<div class="level2">
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> SoC </th><th class="col1"> Ram </th><th class="col2"> Flash </th><th class="col3"> <abbr title="Local Area Network">LAN</abbr> </th><th class="col4"> USB </th><th class="col5"> Serial </th><th class="col6"> JTag </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">Broadcom BCM6348@256MHz </td><td class="col1"> 16MiB </td><td class="col2"> 4MiB </td><td class="col3"> 1 x 1 WAN</td><td class="col4"> USB 1.1 Host supported by the SoC connection on the board unknown </td><td class="col5"> Yes </td><td class="col6"> ? </td>
+	</tr>
+</table></div>
+
+<p>
+OpenWRT is supported since 2010-06. There are already Images in the trunk (openwrt-SPW500V-*), e.g.: <a href="http://downloads.openwrt.org/attitude_adjustment/12.09/brcm63xx/generic/openwrt-SPW500V-squashfs-cfe.bin" class="urlextern" title="http://downloads.openwrt.org/attitude_adjustment/12.09/brcm63xx/generic/openwrt-SPW500V-squashfs-cfe.bin"  rel="nofollow">http://downloads.openwrt.org/attitude_adjustment/12.09/brcm63xx/generic/openwrt-SPW500V-squashfs-cfe.bin</a>
+</p>
+
+<p>
+<a href="http://dl.dropbox.com/u/4295670/speedport/speedportW500v_bootup_openwrt.txt" class="urlextern" title="http://dl.dropbox.com/u/4295670/speedport/speedportW500v_bootup_openwrt.txt"  rel="nofollow">Here is a bootlog running the r30483</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="factory_firmware">Factory Firmware</h2>
+<div class="level2">
+
+<p>
+The box uses CFE as bootloader and run a Linux based firmware.
+<a href="http://dl.dropbox.com/u/4295670/speedport/speedportW500V_factory_bootup.txt" class="urlextern" title="http://dl.dropbox.com/u/4295670/speedport/speedportW500V_factory_bootup.txt"  rel="nofollow">See here the original bootlog from the serial port.</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="tftp_and_serial_port_method">TFTP and serial port method</h2>
+<div class="level2">
+<div class="table sectionedit6"><table class="inline">
+	<tr class="row0">
+		
+	</tr>
+</table></div>
+
+<p>
+This method needs access to the device serial port. You will need a level shifter to connect an RS232 port, or alternatively you may be able to use one of the older USB to mobile phone serial connection cable, or even something like the BusPirate. The DG834GT operates at 3.3V, so whatever you use must be able to interface at this voltage.
+</p>
+<ul>
+<li class="level1"><div class="li"> Connect to the serial port on the DG834GT with the power off on the device.</div>
+</li>
+<li class="level1"><div class="li"> Set your PC to have a static IP address in the 192.168.1.xxx/24 range.</div>
+</li>
+<li class="level1"><div class="li"> Start a TFTP server on your PC, and put the OpenWrt firmware file in it&#039;s root directory. (E.G. openwrt-DG834GT_DG834PN-squashfs-cfe.bin)</div>
+</li>
+<li class="level1"><div class="li"> Ensure you have your terminal software set to 115200 baud, 8N1.</div>
+</li>
+<li class="level1"><div class="li"> Power the DG834GT up, and hit any key on your terminal.</div>
+</li>
+<li class="level1"><div class="li"> This should get you the CFE prompt. If you just got random rubbish on the screen, you have a DG834GT that has problems with the serial port and bootloader. You may have to try using NFTP or the Netgear Firmware Recovery tool instead.</div>
+</li>
+<li class="level1"><div class="li"> In the serial terminal, type <pre class="code">flashimage [your_pc_ip_address]:openwrt-SPW500V-jffs2-64k-cfe.bin</pre>
+</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit7" id="hardware">Hardware</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit8" id="info">Info</h3>
+<div class="level3">
+<div class="table sectionedit9"><table class="inline">
+	<tr class="row0">
+		<td class="col0 leftalign"> <strong><a href="http://en.wikipedia.org/wiki/Instruction set" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Instruction set">Architecture</a>:</strong>    </td><td class="col1"> <a href="http://en.wikipedia.org/wiki/MIPS architecture" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/MIPS architecture">MIPS</a> </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 leftalign"> <strong>Vendor:</strong>          </td><td class="col1"> <a href="http://en.wikipedia.org/wiki/Broadcom" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Broadcom">Broadcom</a> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <strong><a href="../../doc/techref/bootloader.1" class="wikilink1" title="doc:techref:bootloader">Bootloader</a>:</strong>     </td><td class="col1"> <a href="../../doc/techref/bootloader/cfe" class="wikilink1" title="doc:techref:bootloader:cfe">CFE</a> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> <strong>Board Id:</strong>     </td><td class="col1"> 96348GW </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/soc.1" class="wikilink1" title="doc:hardware:soc">System-On-Chip</a>:</strong>  </td><td class="col1"> Broadcom 6348KPBG </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/cpu" class="wikilink1" title="doc:hardware:cpu">CPU</a>/Speed</strong>        </td><td class="col1"> BMIPS3300 V0.7 / 256 <abbr title="Megahertz">MHz</abbr> </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> <strong>Flash-Chip:</strong>      </td><td class="col1"> MX 29LV320ATTC-70G </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> <strong>Flash size:</strong>      </td><td class="col1"> 4 MiB </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> <strong>RAM:</strong>             </td><td class="col1"> HYNIX HY57V641620ETP-H  / 2x8 MiB / SDR-133 </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> <strong>Wireless:</strong>        </td><td class="col1"> BCM4318 802.11b/g (onboard) </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> <strong>Ethernet:</strong>        </td><td class="col1"> internal PHY (SoC) </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> <strong>Internet:</strong>        </td><td class="col1 leftalign"> ADSL2+  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> <strong>USB:</strong>             </td><td class="col1"> possible with mod </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> <strong><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console" class="wikilink1" title="doc:hardware:port.serial">Serial</a>:</strong>          </td><td class="col1"> <a href="spw500v#serial" title="toh:t-com:spw500v ↵" class="wikilink1">Yes</a> </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/port.jtag" class="wikilink1" title="doc:hardware:port.jtag">JTAG</a>:</strong>            </td><td class="col1 leftalign"> <a href="spw500v#jtag" title="toh:t-com:spw500v ↵" class="wikilink1">?</a>  </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 leftalign"> <strong>Power:</strong>  </td><td class="col1"> 16V DC/0.9A </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit10" id="pictures">Pictures:</h3>
+<div class="level3">
+
+<p>
+Mainboard:
+</p>
+<div class="sortable"><div class="table sectionedit11"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> Top View </td><td class="col1"> Bottom View </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> <a href="../../_detail/toh/t-com/speedport_w500v_top.jpg?id=toh%253At-com%253Aspw500v" class="media" title="toh:t-com:speedport_w500v_top.jpg"><img src="../../_media/toh/t-com/speedport_w500v_top.jpg?w=420&amp;h=300&amp;tok=8840ce" class="mediacenter" title="speedport_w500v_top.jpg" alt="speedport_w500v_top.jpg" width="420" height="300" /></a> </td><td class="col1"> <a href="../../_detail/toh/t-com/speedport_w500v_main_bot.jpg?id=toh%253At-com%253Aspw500v" class="media" title="toh:t-com:speedport_w500v_main_bot.jpg"><img src="../../_media/toh/t-com/speedport_w500v_main_bot.jpg?w=420&amp;h=300&amp;tok=d7a15b" class="mediacenter" title="speedport_w500v_main_bot.jpg" alt="speedport_w500v_main_bot.jpg" width="420" height="300" /></a> </td>
+	</tr>
+</table></div>
+</div><div class="table sectionedit12"><table class="inline">
+	<tr class="row0">
+		<td class="col0" colspan="2"> There is a DSP daughterboard soldered to the mainboard trougn the J2 </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"><a href="../../_detail/toh/t-com/speedport_w500v_dsp_top.jpg?id=toh%253At-com%253Aspw500v" class="media" title="toh:t-com:speedport_w500v_dsp_top.jpg"><img src="../../_media/toh/t-com/speedport_w500v_dsp_top.jpg?w=250&amp;h=150&amp;tok=9bbcf2" class="mediacenter" title="speedport_w500v_dsp_top.jpg" alt="speedport_w500v_dsp_top.jpg" width="250" height="150" /></a> </td><td class="col1"> <a href="../../_detail/toh/t-com/speedport_w500v_dsp_bot.jpg?id=toh%253At-com%253Aspw500v" class="media" title="toh:t-com:speedport_w500v_dsp_bot.jpg"><img src="../../_media/toh/t-com/speedport_w500v_dsp_bot.jpg?w=250&amp;h=150&amp;tok=00ee1e" class="mediacenter" title="speedport_w500v_dsp_bot.jpg" alt="speedport_w500v_dsp_bot.jpg" width="250" height="150" /></a> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit13" id="serial">Serial</h3>
+<div class="level3">
+
+<p>
+Serial console is J3. Default settings are: 115200, 8, n, 1
+</p>
+<div class="table sectionedit14"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> pin </th><th class="col1"> signal </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> 1 </td><td class="col1"> 3V3 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> 2 </td><td class="col1"> TX </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> 3 </td><td class="col1"> RX </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> 4 </td><td class="col1"> GND </td>
+	</tr>
+</table></div>
+
+<p>
+The pin closer to the Ethernet port side is the 1st pin (it has square pad)
+</p>
+
+</div>
+
+<h3 class="sectionedit15" id="gpios">GPIOs</h3>
+<div class="level3">
+
+<p>
+Known GPIOs:
+</p>
+<div class="table sectionedit16"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> GPIO </th><th class="col1"> function </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> 0 </td><td class="col1"> Power LED green (LED301) </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> 1 </td><td class="col1"> Power LED red (LED301) </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> 3 </td><td class="col1"> PPP led (D20) </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> 6 </td><td class="col1"> DSP reset </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> 7 </td><td class="col1"> K1 relay drive </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> 28 </td><td class="col1"> PSTN led (D21) </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> 32 </td><td class="col1"> VOIP led (D24) </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> 33 </td><td class="col1"> reset button </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> 34 </td><td class="col1"> DSP interrupt (J604 pin 7)</td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> 35 </td><td class="col1"> K2 relay drive (relay and the driver part is unpopulated)</td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit17" id="relays">Relays</h3>
+<div class="level3">
+
+<p>
+The board has two strange connectors at the middle of the device: J604,  J605. On my board the J604 was wired trough 2 0Ohm resistor to the J606 (phone connector), and the second one was wired through the K1 Relay to the same phone connector. The relay is a Takamisawa NA5W-K. It is able to switch 250VAC or 220V DC @ 2A. The K1 relay is operated by the GPIO7. Low GPIO disconnects the two connectors both pins, and a high connects them. It is also possible to populate the K2. In this case the following comoponents should be changed:
+</p>
+
+</div>
+
+<h2 class="sectionedit18" id="bootlogs">Bootlogs</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit19" id="oem_bootlog">OEM bootlog</h3>
+<div class="level3">
+
+<p style="padding: 10px;border:1px solid grey;height:600px;font:10px/14px Georgia, Garamond, Serif;overflow:Auto;background-color:#FFFFFF">
+<code>CFE version 1.0.37-0.6 for BCM96348 (32bit,SP,BE)
+Build Date: Mon Oct 24 11:50:58 CST 2005 (root@leander_compiler)
+Copyright (C) 2000,2001,2002,2003 Broadcom Corporation.
+Initializing Arena.
+Initializing Devices.
+Auto-negotiation timed-out
+10 MB Half-Duplex (assumed)
+CPU type 0x29107: 256MHz, Bus: 128MHz, Ref: 32MHz
+Total memory used by CFE:  0x80401000 - 0x80522E90 (1187472)
+Initialized Data:          0x8041AFE0 - 0x8041C830 (6224)
+BSS Area:                  0x8041C830 - 0x80420E90 (18016)
+Local Heap:                0x80420E90 - 0x80520E90 (1048576)
+Stack Area:                0x80520E90 - 0x80522E90 (8192)
+Text (code) segment:       0x80401000 - 0x8041AFDC (106460)
+Boot area (physical):      0x00523000 - 0x00563000
+Relocation Factor:         I:00000000 - D:00000000
+Board IP address                : 192.168.1.1:ffffff00
+Host IP address                 : 192.168.1.100
+Gateway IP address              :
+Run from flash/host (f/h)       : f
+Default host run file name      : vmlinux
+Default host flash file name    : bcm963xx_fs_kernel
+Boot delay (0-9 seconds)        : 1
+Board Id Name                   : 96348GW
+Psi size in KB                  : 32
+Number of MAC Addresses (1-32)  : 11
+Base MAC Address                : 00:16:38:6c:12:6c
+Ethernet PHY Type               : Internal
+Memory size in MB               : 16
+*** Press any key to stop auto run (1 seconds) ***
+Auto run second count down: 110
+Code Address: 0x80010000, Entry Address: 0x80182018
+Decompression OK!
+Entry at 0x80182018
+Closing network.
+Starting program at 0x80182018
+Linux version 2.6.8.1 (root@leander_compiler) (gcc version 3.4.2) #1 Fri Dec 23 19:36:02 CST 2005
+Total Flash size: 4096K with 71 sectors
+96348GW prom init
+CPU revision is: 00029107
+mpi: No Card is in the PCMCIA slot
+Determined physical RAM map:
+ memory: 00fa0000 @ 00000000 (usable)
+On node 0 totalpages: 4000
+  DMA zone: 4000 pages, LIFO batch:1
+  Normal zone: 0 pages, LIFO batch:1
+  HighMem zone: 0 pages, LIFO batch:1
+Built 1 zonelists
+Kernel command line: root=31:0 ro noinitrd
+brcm mips: enabling icache and dcache...
+Primary instruction cache 16kB, physically tagged, 2-way, linesize 16 bytes.
+Primary data cache 8kB 2-way, linesize 16 bytes.
+PID hash table entries: 64 (order 6: 512 bytes)
+Using 128.000 MHz high precision timer.
+Dentry cache hash table entries: 4096 (order: 2, 16384 bytes)
+Inode-cache hash table entries: 2048 (order: 1, 8192 bytes)
+Memory: 14140k/16000k available (1278k kernel code, 1840k reserved, 197k data, 72k init, 0k highmem)
+Calibrating delay loop... 253.95 BogoMIPS
+Mount-cache hash table entries: 512 (order: 0, 4096 bytes)
+Checking for 'wait' instruction...  unavailable.
+NET: Registered protocol family 16
+Can't analyze prologue code at 8014e0f4
+PPP generic driver version 2.4.2
+NET: Registered protocol family 24
+Using noop io scheduler
+bcm963xx_mtd driver v1.0
+brcmboard: brcm_board_init entry
+bcm963xx_serial driver v2.0
+NET: Registered protocol family 2
+IP: routing cache hash table of 512 buckets, 4Kbytes
+TCP: Hash tables configured (established 512 bind 1024)
+NET: Registered protocol family 1
+NET: Registered protocol family 17
+Ebtables v2.0 registered
+NET: Registered protocol family 8
+NET: Registered protocol family 20
+VFS: Mounted root (squashfs filesystem) readonly.
+Freeing unused kernel memory: 72k freed
+init started:  BusyBox v1.00 (2005.12.23-11:39+0000) multi-call binary
+Algorithmics/MIPS FPU Emulator v1.5
+BusyBox v1.00 (2005.12.23-11:39+0000) Built-in shell (msh)
+Enter 'help' for a list of built-in commands.
+Loading drivers and kernel modules...
+atmapi: module license 'Proprietary' taints kernel.
+blaadd: blaa_detect entry
+adsl: adsl_init entry
+Broadcom BCMPROCFS v1.0 initialized
+Broadcom BCM6348A2 Ethernet Network Device v0.3 Dec 23 2005 19:34:51
+Config Internal PHY Through MDIO
+BCM63xx_ENET: Auto-negotiation timed-out
+BCM63xx_ENET: 10 MB Half-Duplex (assumed)
+eth0: MAC Address: 00:16:38:6C:12:6C
+PCI: Setting latency timer of device 0000:00:01.0 to 64
+PCI: Enabling device 0000:00:01.0 (0004 -> 0006)
+wl: srom not detected, using main memory mapped srom info (wombo board)
+wl0: wlc_attach: using main board MAC address base in NVRAM (wombo board)
+wl0 MAC Address: 00:16:38:6C:12:6D
+wl0: Broadcom BCM4318 802.11 Wireless Controller 3.91.41.0
+Endpoint: endpoint_init entry
+BOS: Enter bosInit
+BOS: Enter bosAppInit
+BOS: Exit bosAppInit
+BOS: Exit bosInit
+Endpoint: endpoint_init COMPLETED
+BcmAdsl_Initialize=0xC004F2A8, g_pFnNotifyCallback=0xC0062424
+AdslCoreHwReset: AdslOemDataAddr = 0xA0FED8E0
+ip_tables: (C) 2000-2002 Netfilter core team
+ip_conntrack version 2.1 (125 buckets, 0 max) - 368 bytes per conntrack
+Echo***bin/traffic_daemon
+==>   Bcm963xx Software Version: SpeedportW500V.01.23.v7.300L01.V27.sip.faxr.LE9500.B2pB018a4.d15h   <==
+device eth0 entered promiscuous mode
+br0: port 1(eth0) entering learning state
+br0: topology change detected, propagating
+br0: port 1(eth0) entering forwarding state
+Setting country code "DE"
+Setting country code "DE"
+device wl0 entered promiscuous mode
+br0: port 2(wl0) entering learning state
+br0: topology change detected, propagating
+br0: port 2(wl0) entering forwarding state
+can't open the PcListFile
+A9 5F 0B A5 BE 75 C1 D7 89 C4 88 5B 27 1D 2D BA 88 FF B0 9F ****eric****=======retrieve account tonline failed==================================
+****eric****=======retrieve account  another failed==================================
+****eric****=======retrieve outgoing block failed==================================
+****eric****=======retrieve incoming block failed==================================
+****eric****=======retrieve quick call failed==================================
+tecomVoipCfgMngr: start vodsl with default configuration ...
+ vodsl cmdline is vodsl sipstart -p 0.0.0.0:5060 -r 0.0.0.0:5060 -l 192.168.10.100:55555 -i br0 --x1 101 --x2 102 --pwd1 101 --pwd2 102
+BOS: Enter bosInit
+BOS: Enter bosAppInit
+BOS: Exit bosAppInit
+BOS: Exit bosInit
+00:00:32 Starting the SIP call client with the following parameters:
+00:00:32    Proxy IP address = 0.0.0.0
+00:00:32    Proxy port = 5060
+00:00:32    Registrar IP address = 0.0.0.0
+00:00:32    Registrar port = 5060
+00:00:32    Log IP address = 192.168.10.100
+00:00:32    Log port = 55555
+00:00:32    PSTN dial plan = 911|112
+00:00:32    Domain name =
+00:00:32    Interface name = br0
+00:00:32    Locale profile =
+00:00:32    Prefered codec =
+00:00:32    Prefered ptime = 0
+00:00:32    Extension1 = 101
+00:00:32    Password1 = 101
+00:00:32    Extension2 = 102
+00:00:32    Password2 = 102
+00:00:32    Authname =
+00:00:32 Process 358 priority is 0
+00:00:32 Process 358: old priority 0, new priority -15
+BOS: Created task CMGR
+00:00:32
+Broadcom Canada, SIP Call Manager.
+	Version: 1.5.1.
+	Build Date: Dec 23 2005 19:38:01.
+00:00:32 cmMainThread (PID = 360)
+can not open OUTGOING_CALL_LOG_FILE_EP0
+can not open OUTGOING_CALL_LOG_FILE_EP1
+can not open INCOMING_CALL_LOG_FILE_EP0
+can not open INCOMING_CALL_LOG_FILE_EP1
+call log: outgoingIndex[0] = 0 incomingIndex[0] = 0
+call log: outgoingIndex[1] = 0 incomingIndex[1] = 0
+00:00:32 Cannot map country string  to country code
+00:00:32 Using default country (DEU)
+kernel::endpoint_open
+kernel::endpoint_open COMPLETED
+00:00:32 Endpoint Event task started with pid 361...
+BOS: Created task eptEvent
+00:00:32 Endpoint Packet task started with pid 362 ...
+BOS: Created task eptPacket
+BOS: Enter bosStartApp
+BOS: bosAppRootTask() - Is it morning already? Spawning app task (epoch #0)...
+BOS: Enter TaskCreate aoAP
+BOS: TaskCreate - spawn new task aoAP
+bcmOsTaskCreate:
+ TASK NAME      = aoAP
+ TASK_PRIORITY  = 1
+BOS: Exit TaskCreate
+BOS: AppResetDetectionEnable() - Enabled reset detection.
+bcmOsTaskCreate:
+ TASK NAME      = aoRT
+ TASK_PRIORITY  = 1
+BOS: Exit bosStartApp
+Reseting the 3341
+voipResetGpio = 6
+PASS: mmr
+PASS: chipCtl
+PASS: mspi
+PASS: scratchSram
+PASS: apmregs
+PASS: apm0
+PASS: apm1
+PASS: hvg
+PASS: slic
+PASS: vpm
+PASS: mbox
+3341 diagnostics passed!
+Reseting the 3341
+voipResetGpio = 6
+Initializing 3341 drivers
+-------------- TDM DMA setup strt --------------
+SAMPLESIZE = 8
+DESCRIPTORP = 0xb7fe6300 INGRESSP = 0xb7fe6310 EGRESSP = 0xb7fe6330
+Initializing Memory: 8 (16-bit locations)
+Priming TX FIFO....
+Completed TDM3341 init!!!!
+MSPI driver init SUCCESSFUL
+MSPI driver registers update SUCCESSFUL
+BOARDHAL Enabling relays
+Loading 3341 Zsp with Hausware app.
+Loading 3341 overlay to 0xb7fc0000.
+Verifying overlay...
+Done verifying overlay.
+BOS: Enter TaskCreate 3341_ASSERT_IST
+BOS: TaskCreate - spawn new task 3341_ASSERT_IST
+bcmOsTaskCreate:
+ TASK NAME      = 3341_ASSERT_IST
+ TASK_PRIORITY  = 1
+BOS: Exit TaskCreate
+DSP Handshake.  Hausware ZSP app initialized properly.
+bosMsgQCreate: Created message queue VRGEVQ at address 0x0
+BOS: Enter TaskCreate VRGEVPR
+BOS: TaskCreate - spawn new task VRGEVPR
+bcmOsTaskCreate:
+ TASK NAME      = VRGEVPR
+ TASK_PRIORITY  = 1
+BOS: Exit TaskCreate
+BOS: Enter TaskCreate HCAS
+BOS: TaskCreate - spawn new task HCAS
+bcmOsTaskCreate:
+ TASK NAME      = HCAS
+ TASK_PRIORITY  = 1
+BOS: Exit TaskCreate
+ENDPT: Creating hausware task
+BOS: Enter TaskCreate HTSK
+BOS: TaskCreate - spawn new task HTSK
+bcmOsTaskCreate:
+ TASK NAME      = HTSK
+ TASK_PRIORITY  = 1
+BOS: Exit TaskCreate
+DAA DBG: MSPI Hdl = 0x500
+DAA DBG: GPIO Hdl = 0xb
+     DAA DBG: Successful READ!!!! count = 0
+ DAA DBG: ISOCAP lock count = 0
+Si3050 SLAC Initialised, Line side device = Si: 3019 (0x3)
+System dev rev: 0x4, Line dev rev: 0x3
+Line dev status: FDT:0x1, LCS: 0x0
+DAA Device Init completed
+DAA init successful
+ENDPT: 'HAPI_RM_OPEN_VHD_EVT' (0x80c1), hdl:0x30, op1:0x50, op2:0x1
+ENDPT: hdspVhdOpen Secondary Connection VHD success. VHD (0x50) of type: 0x0
+ENDPT: 'HAPI_RM_OPEN_VHD_EVT' (0x80c1), hdl:0x30, op1:0x51, op2:0x1
+ENDPT: hdspVhdOpen Secondary Connection VHD success. VHD (0x51) of type: 0x0
+bosMsgQCreate: Created message queue PSTN_CTL_EVQ at address 0x8001
+BOS: Enter TaskCreate PSTN
+BOS: TaskCreate - spawn new task PSTN
+bcmOsTaskCreate:
+ TASK NAME      = PSTN
+ TASK_PRIORITY  = 0
+BOS: Exit TaskCreate
+pstnCtlInit successful
+vrgendptCreate: capabilities.endptType = 0
+ENDPT: 'HAPI_RM_OPEN_VHD_EVT' (0x80c1), hdl:0x30, op1:0x52, op2:0x1
+ENDPT: hdspVhdOpen Endpt VHD success. VHD (0x52) of type: 0x2
+ENDPT: TX Gain set to 1000
+ENDPT: RX Gain set to 1000
+ENDPT: 'HAPI_ECAN_STATE_EVT' (0x3ac0), hdl:0x0, op1:0x7, op2:0x0
+boardHalCasGetDriver: chan = 0
+Default value for provItemId '41' did not exist
+ENDPT: Initialization completed successfully for endpt 0
+vrgendptCreate: capabilities.endptType = 0
+ENDPT: 'HAPI_RM_OPEN_VHD_EVT' (0x80c1), hdl:0x30, op1:0x53, op2:0x1
+ENDPT: hdspVhdOpen Endpt VHD success. VHD (0x53) of type: 0x2
+ENDPT: TX Gain set to 1000
+ENDPT: RX Gain set to 1000
+ENDPT: 'HAPI_ECAN_STATE_EVT' (0x3ac0), hdl:0x1, op1:0x7, op2:0x0
+boardHalCasGetDriver: chan = 1
+Default value for provItemId '41' did not exist
+ENDPT: Initialization completed successfully for endpt 1
+vrgendptCreate: capabilities.endptType = 1
+ENDPT: 'HAPI_RM_OPEN_VHD_EVT' (0x80c1), hdl:0x30, op1:0x54, op2:0x1
+ENDPT: hdspVhdOpen PSTN VHD success. VHD (0x54) of type: 0x6
+ENDPT: TX Gain set to 1000
+ENDPT: RX Gain set to 1000
+ENDPT: 'HAPI_ECAN_STATE_EVT' (0x3ac0), hdl:0x2, op1:0x7, op2:0x0
+Default value for provItemId '41' did not exist
+ENDPT: Initialization completed successfully for endpt 2
+00:00:36 Start Provisioning
+00:00:36 Waiting for interface br0 to go up before proceeding with voice app...
+00:00:36 Interface br0 is UP! Proceeding with the voice app
+00:00:36 *** Local IP address = 192.168.2.1 ***
+00:00:36 Log IP: 192.168.10.100:55555
+00:00:36 Proxy IP: 0.0.0.0:5060
+00:00:36 Registrar IP: 0.0.0.0:5060
+00:00:36 User0: 1001 <1001@192.168.2.1>, password 101 authname
+00:00:36 User1: 2001 <2001@192.168.2.1>, password 102 authname
+Unknown Thread's thread has PID 370
+DAA: Going OnHook
+DAA: Enable on-hook Caller ID receive.
+Unknown Thread's thread has PID 371
+00:00:36 cmEptEventCb: op1 2, op2 18
+DAA: Going OnHook
+DAA: Enable on-hook Caller ID receive.
+SipEngine's thread has PID 372
+DnsResolver's thread has PID 373
+TransmissionMgr's thread has PID 374
+00:00:36 Call Control SIP Ver. 1.5.1.0 MxSF 3.2.6.26
+00:00:36 Protocol: SIP
+00:00:36 DigitMap: xxxxxxxxxxxxxxxxxxxx
+BOS: Created task RTCP
+00:00:36 rtpInit: RTCP task created, taskId = 9226
+00:00:36  RTP read thread started with pid 376
+BOS: Created task RTP0
+00:00:36  RTP read thread started with pid 377
+BOS: Created task RTP1
+00:00:36 cmStreamCodecOnlyG11: set 3 values
+00:00:36 cmStreamSetPrefPtime: ptime=0
+00:00:36 ccPstnInit: Init PSTN module with dial-plan = 911|112
+00:00:36  RTCP thread started with pid 375
+Tcm_updateSipDialplanTbls: begin mmap!
+Tcm_updateSipDialplanTbls: xmlFileStat.st_size is 2912
+Tcm_updateSipDialplanTbls: begin search <TecomVoipCfg> tag!
+Tcm_updateSipDialplanTbls: value of pXmlBuf pointer is 0x2aaaf000
+Tcm_updateSipDialplanTbls: after pTcmVoipcfgBufHead!, value of pointer is 0x2aaaf00a
+Tcm_updateSipDialplanTbls: after pTcmVoipcfgBufTail!value of pointer is 0x2aaaf363
+Tcm_updateSipDialplanTbls:pXmlBufsize is 857
+Tcm_updateSipDialplanTbls: update in process with updateType 64
+Tcm_updatePortsetting: begin parse tag!
+Tcm_updatePortsetting: dialplanParms.primaryLine is 0
+Tcm_updatePortsetting: dialplanParms.alternateLine is 0
+Tcm_updatePortsetting: dialplanParms.enable_Analog is 1
+Tcm_updatePortsetting: dialplanParms.enable_Anklopfen is 0
+Tcm_updatePortsetting: dialplanParms.numberHide is 0
+Tcm_updatePortsetting: dialplanParms.enable_CLIP is 0
+Tcm_updatePortsetting: dialplanParms.enable_Fallback is 0
+Tcm_updateEmgTbl:begin parse tag!
+Tcm_updateEmgTbl:update success!
+Tcm_updateShortTbl:begin parse tag!
+Tcm_updateShortTbl: <quick /> not found!
+Tcm_updatePartialTbl: parse conf file start!
+Tcm_updatePartialTbl: update 5 entries!
+Tcm_updatePartialTbl: update success!
+Tcm_updateSipDialplanTbls: updateState is 1
+00:00:36 Line 0 (1001) idle
+00:00:36 Line 1 (2001) idle
+Echo***********FXO-Status=0
+00:00:36 CAS EVENT line 2: CMEVT_ONHOOK
+00:00:36 cmEndpt: 2, cx -1: CMEVT_ONHOOK in CMST_ONHOOK endpt state
+call Tcm_updateDialplanTblbyEvent
+Tcm_handlesigUpdate:open update option file failed!
+00:00:36 CallEvent -1, CCEVT_STATUS: reason CCRSN_CFG_OK
+00:00:36 Line 0: In Service
+00:00:36 Line 1: In Service
+call Tcm_updateDialplanTblbyEvent
+Tcm_handlesigUpdate:open update option file failed!
+TCM_GetFXOState, generate cas event = "18"
+00:00:36 cmEptEventCb: op1 2, op2 43
+00:00:36 cmGateway.c:223, cmProcessEptEvent, callmgr recv "EPEVT_FXO_NOT_CONNECTED" event
+00:00:36 cmEndpt: 0, cx -1: CMEVT_FXO_NOT_CONNECTED in CMST_ONHOOK endpt state
+00:00:36 cmEndpt: 1, cx -1: CMEVT_FXO_NOT_CONNECTED in CMST_ONHOOK endpt state
+call Tcm_updateDialplanTblbyEvent
+Tcm_handlesigUpdate:open update option file failed!
+pvc2684d: Interface "nas_1_32" created sucessfully
+pvc2684d: Communicating over ATM 0.1.32, encapsulation: LLC
+device nas_1_32 entered promiscuous mode
+br0: port 3(nas_1_32) entering learning state
+br0: topology change detected, propagating
+br0: port 3(nas_1_32) entering forwarding state
+app: no DNS information from DSL router
+/proc/sys/net/ipv4/conf/ppp_1_32_1/rp_filter: cannot create
+iptables: Chain already exists
+br0: port 1(eth0) entering disabled state
+
+</code>
+</p>
+
+</div>
+
+<h3 class="sectionedit20" id="openwrt_bootlog">OpenWrt bootlog</h3>
+<div class="level3">
+
+<p style="padding: 10px;border:1px solid grey;height:600px;font:10px/14px Georgia, Garamond, Serif;overflow:Auto;background-color:#FFFFFF">
+<code>CFE version 1.0.37-0.6 for BCM96348 (32bit,SP,BE)
+Build Date: Mon Oct 24 11:50:58 CST 2005 (root@leander_compiler)
+Copyright (C) 2000,2001,2002,2003 Broadcom Corporation.
+
+Initializing Arena.
+Initializing Devices.
+100 MB Full-Duplex (auto-neg)
+CPU type 0x29107: 256MHz, Bus: 128MHz, Ref: 32MHz
+
+Total memory used by CFE:  0x80401000 - 0x80522E90 (1187472)
+Initialized Data:          0x8041AFE0 - 0x8041C830 (6224)
+BSS Area:                  0x8041C830 - 0x80420E90 (18016)
+Local Heap:                0x80420E90 - 0x80520E90 (1048576)
+Stack Area:                0x80520E90 - 0x80522E90 (8192)
+Text (code) segment:       0x80401000 - 0x8041AFDC (106460)
+Boot area (physical):      0x00523000 - 0x00563000
+Relocation Factor:         I:00000000 - D:00000000
+
+Board IP address                : 192.168.1.1:ffffff00  
+Host IP address                 : 192.168.1.100  
+Gateway IP address              :   
+Run from flash/host (f/h)       : f  
+Default host run file name      : vmlinux  
+Default host flash file name    : bcm963xx_fs_kernel  
+Boot delay (0-9 seconds)        : 1  
+Board Id Name                   : 96348GW  
+Psi size in KB                  : 32
+Number of MAC Addresses (1-32)  : 11  
+Base MAC Address                : 00:16:38:6c:12:6c  
+Ethernet PHY Type               : Internal
+Memory size in MB               : 16
+
+*** Press any key to stop auto run (1 seconds) ***
+Auto run second count down: 110
+Code Address: 0x80010000, Entry Address: 0x80010000
+Decompression OK!
+Entry at 0x80010000
+Closing network.
+Starting program at 0x80010000
+[    0.000000] Linux version 3.0.18 (mm@lapos) (gcc version 4.6.3 20120201 (prerelease) (Linaro GCC 4.6-2012.02) ) #1 Mon Feb 13 19:26:51 CET 2012
+[    0.000000] Detected Broadcom 0x6348 CPU revision a2
+[    0.000000] CPU frequency is 256 MHz
+[    0.000000] 16MB of RAM installed
+[    0.000000] registering 37 GPIOs
+[    0.000000] board_bcm963xx: Boot address 0xbfc00000
+[    0.000000] board_bcm963xx: CFE version: 1.0.37-0.6
+[    0.000000] Overriding boardid with 'SPW500V'
+[    0.000000] bootconsole [early0] enabled
+[    0.000000] CPU revision is: 00029107 (Broadcom BMIPS3300)
+[    0.000000] board_bcm963xx: board name: SPW500V
+[    0.000000] Determined physical RAM map:
+[    0.000000]  memory: 01000000 @ 00000000 (usable)
+[    0.000000] Initrd not found or empty - disabling initrd
+[    0.000000] Zone PFN ranges:
+[    0.000000]   Normal   0x00000000 -> 0x00001000
+[    0.000000] Movable zone start PFN for each node
+[    0.000000] early_node_map[1] active PFN ranges
+[    0.000000]     0: 0x00000000 -> 0x00001000
+[    0.000000] Reserving 0MB of memory at 0MB for crashkernel
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping off.  Total pages: 4064
+[    0.000000] Kernel command line:  root=/dev/mtdblock2 rootfstype=squashfs,jffs2 noinitrd console=ttyS0,115200
+[    0.000000] PID hash table entries: 64 (order: -4, 256 bytes)
+[    0.000000] Dentry cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.000000] Inode-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.000000] Primary instruction cache 16kB, VIPT, 2-way, linesize 16 bytes.
+[    0.000000] Primary data cache 8kB, 2-way, VIPT, no aliases, linesize 16 bytes
+[    0.000000] Memory: 13324k/16384k available (2107k kernel code, 3060k reserved, 363k data, 172k init, 0k highmem)
+[    0.000000] NR_IRQS:128
+[    0.000000] Calibrating delay loop... 254.46 BogoMIPS (lpj=508928)
+[    0.036000] pid_max: default: 32768 minimum: 301
+[    0.040000] Mount-cache hash table entries: 512
+[    0.060000] NET: Registered protocol family 16
+[    0.080000] registering PCI controller with io_map_base unset
+[    0.096000] bio: create slab <bio-0> at 0
+[    0.124000] pci 0000:00:01.0: BAR 0: assigned [mem 0x30000000-0x30001fff]
+[    0.128000] pci 0000:00:01.0: BAR 0: set to [mem 0x30000000-0x30001fff] (PCI address [0x30000000-0x30001fff])
+[    0.132000] Switching to clocksource MIPS
+[    0.148000] PCI: Enabling device 0000:00:01.0 (0000 -> 0002)
+[    0.236000] ssb: Sonics Silicon Backplane found on PCI device 0000:00:01.0
+[    0.248000] NET: Registered protocol family 2
+[    0.252000] IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.260000] TCP established hash table entries: 512 (order: 0, 4096 bytes)
+[    0.268000] TCP bind hash table entries: 512 (order: -1, 2048 bytes)
+[    0.272000] TCP: Hash tables configured (established 512 bind 512)
+[    0.280000] TCP reno registered
+[    0.284000] UDP hash table entries: 256 (order: 0, 4096 bytes)
+[    0.288000] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+[    0.296000] NET: Registered protocol family 1
+[    0.308000] audit: initializing netlink socket (disabled)
+[    0.312000] type=2000 audit(0.312:1): initialized
+[    0.320000] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.328000] JFFS2 version 2.2 (NAND) (SUMMARY) (LZMA) (RTIME) (CMODE_PRIORITY) (c) 2001-2006 Red Hat, Inc.
+[    0.340000] msgmni has been set to 26
+[    0.344000] io scheduler noop registered
+[    0.348000] io scheduler deadline registered (default)
+[    0.356000] bcm63xx_uart.0: ttyS0 at MMIO 0xfffe0300 (irq = 10) is a bcm63xx_uart
+[    0.364000] console [ttyS0] enabled, bootconsole disabled
+[    0.364000] console [ttyS0] enabled, bootconsole disabled
+[    0.384000] bcm963xx-flash bcm963xx-flash.0: 0x00400000 at 0x1fc00000
+[    0.388000] bcm963xx: Found 1 x16 devices at 0x0 in 16-bit bank. Manufacturer ID 0x0000c2 Chip ID 0x0022a7
+[    0.400000] Amd/Fujitsu Extended Query Table at 0x0040
+[    0.404000]   Amd/Fujitsu Extended Query version 1.1.
+[    0.408000] bcm963xx: Swapping erase regions for top-boot CFI table.
+[    0.416000] number of CFI chips: 1
+[    0.420000] bcm963xx_flash: Read Signature value of CFE1CFE1
+[    0.424000] bcm963xx-flash bcm963xx-flash.0: CFE bootloader detected
+[    0.432000] bcm963xx_flash: CFE boot tag found with version 6 and board type 96348GW
+[    0.440000] bcm963xx_flash: Partition 0 is CFE offset 0 and length 10000
+[    0.448000] bcm963xx_flash: Partition 1 is kernel offset 10100 and length dff00
+[    0.456000] bcm963xx_flash: Partition 2 is rootfs offset f0000 and length 300000
+[    0.464000] bcm963xx_flash: Partition 3 is nvram offset 3f0000 and length 10000
+[    0.472000] bcm963xx_flash: Partition 4 is linux offset 10000 and length 3e0000
+[    0.480000] bcm963xx_flash: Spare partition is 380000 offset and length 70000
+[    0.484000] Creating 5 MTD partitions on "bcm963xx":
+[    0.492000] 0x000000000000-0x000000010000 : "CFE"
+[    0.500000] 0x000000010100-0x0000000f0000 : "kernel"
+[    0.508000] mtd: partition "kernel" must either start or end on erase block boundary or be smaller than an erase block -- forcing read-only
+[    0.524000] 0x0000000f0000-0x0000003f0000 : "rootfs"
+[    0.536000] mtd: partition "rootfs" set to be root filesystem
+[    0.544000] split_squashfs: no squashfs found in "bcm963xx"
+[    0.548000] 0x0000003f0000-0x000000400000 : "nvram"
+[    0.560000] 0x000000010000-0x0000003f0000 : "linux"
+[    0.580000] bcm63xx_enet MII bus: probed
+[    0.588000] bcm63xx-wdt bcm63xx-wdt.0:  started, timer margin: 30 sec
+[    0.604000] TCP westwood registered
+[    0.608000] NET: Registered protocol family 17
+[    0.616000] 802.1Q VLAN Support v1.8
+[    1.204000] JFFS2 notice: (1) jffs2_build_xattr_subsystem: complete building xattr subsystem, 0 of xdatum (0 unchecked, 0 orphan) and 0 of xref (0 dead, 0 orphan) found.
+[    1.220000] VFS: Mounted root (jffs2 filesystem) readonly on device 31:2.
+[    1.232000] Freeing unused kernel memory: 172k freed
+awk: /proc/cpuinfo: No such file or directory
+[    4.300000] bcm63xx_enet bcm63xx_enet.0: attached PHY at address 1 [Broadcom BCM63XX (1)]
+[    4.720000] roboswitch: Probing device eth0: Failed to enable switch
+[    4.728000] roboswitch: Probing device eth1: No such device
+[    4.732000] roboswitch: Probing device eth2: No such device
+[    4.740000] roboswitch: Probing device eth3: No such device
+[    6.916000] eth0: link UP - 100/full - flow control off
+[    7.060000] input: gpio-buttons as /devices/platform/gpio-buttons.0/input/input0
+[    7.112000] Button Hotplug driver version 0.4.1
+- preinit -
+Press the [f] key and hit [enter] to enter failsafe mode
+- regular preinit -
+- init -
+
+Please press Enter to activate this console. 
+[   12.576000] Compat-wireless backport release: compat-wireless-2012-01-16-14-g02166d5
+[   12.584000] Backport based on wireless-testing.git master-2012-02-06
+[   12.828000] cfg80211: Calling CRDA to update world regulatory domain
+[   13.236000] cfg80211: World regulatory domain updated:
+[   13.244000] cfg80211:   (start_freq - end_freq @ bandwidth), (max_antenna_gain, max_eirp)
+[   13.252000] cfg80211:   (2402000 KHz - 2472000 KHz @ 40000 KHz), (300 mBi, 2000 mBm)
+[   13.260000] cfg80211:   (2457000 KHz - 2482000 KHz @ 20000 KHz), (300 mBi, 2000 mBm)
+[   13.268000] cfg80211:   (2474000 KHz - 2494000 KHz @ 20000 KHz), (300 mBi, 2000 mBm)
+[   13.276000] cfg80211:   (5170000 KHz - 5250000 KHz @ 40000 KHz), (300 mBi, 2000 mBm)
+[   13.284000] cfg80211:   (5735000 KHz - 5835000 KHz @ 40000 KHz), (300 mBi, 2000 mBm)
+[   13.312000] There is already a switch registered on the device 'eth0'
+[   13.316000] roboswitch: Probing device eth1: No such device
+[   13.324000] roboswitch: Probing device eth2: No such device
+[   13.328000] roboswitch: Probing device eth3: No such device
+[   13.580000] usbcore: registered new interface driver usbfs
+[   13.584000] usbcore: registered new interface driver hub
+[   13.600000] usbcore: registered new device driver usb
+[   14.500000] ip_tables: (C) 2000-2006 Netfilter Core Team
+[   14.972000] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[   15.088000] nf_conntrack version 0.5.0 (210 buckets, 840 max)
+[   15.804000] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[   15.888000] uhci_hcd: USB Universal Host Controller Interface driver
+[   16.016000] i2c /dev entries driver
+[   18.400000] bcm63xx-spi bcm63xx-spi.0: at 0xfffe0c00 (irq 9, FIFOs size 63) v0.1.2
+[   21.412000] bcm63xx_enet bcm63xx_enet.0: attached PHY at address 1 [Broadcom BCM63XX (1)]
+[   22.076000] device eth0 entered promiscuous mode
+[   22.168000] br-lan: port 1(eth0) entering forwarding state
+[   22.176000] br-lan: port 1(eth0) entering forwarding state
+[   23.412000] eth0: link UP - 100/full - flow control off
+[   26.408000] device eth0 left promiscuous mode
+[   26.412000] br-lan: port 1(eth0) entering forwarding state
+</code>
+</p>
+
+</div>
+
+<h2 class="sectionedit21" id="tags">Tags</h2>
+<div class="level2">
+<div class="tags"><span>
+	<a href="../../tag/bcm63xx?do=showtag&amp;tag=bcm63xx" class="wikilink1" title="tag:bcm63xx" rel="tag">bcm63xx</a>,
+	<a href="../../tag/bcm6348?do=showtag&amp;tag=bcm6348" class="wikilink1" title="tag:bcm6348" rel="tag">bcm6348</a>
+</span></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>toh/t-com/spw500v.txt</bdi> · Last modified: 2013/07/12 20:48 (external edit)</div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="spw500v?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="spw500v?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="spw500v?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="spw500v#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=toh%253At-com%253Aspw500v&amp;1432266260" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

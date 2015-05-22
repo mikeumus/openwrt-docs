@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Arcadyan ARV4518PW (SMC-7908-ISP) [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="fastethernet,4port,usb,spi,ath5k,64ram,4flash,mips32,24k,adsl2,fxo,1wnic,lantiq,danube"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="arv4518pw?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=toh:arcadyan"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/toh/arcadyan/arv4518pw"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/toh/arcadyan/arv4518pw"/>
+<link rel="canonical" href="arv4518pw"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='toh:arcadyan';var JSINFO = {"id":"toh:arcadyan:arv4518pw","namespace":"toh:arcadyan"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432268151 166.182.3.13';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="arv4518pw#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="arv4518pw?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="arv4518pw?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="toh:arcadyan:arv4518pw" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="arv4518pw?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="arv4518pw?do=media&amp;ns=toh%253Aarcadyan"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="arv4518pw?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="toh:start">Table of Hardware</a></bdi> » <bdi><a href="../arcadyan.1" class="wikilink1" title="toh:arcadyan">Arcadyan</a></bdi> » <bdi><span class="curid"><a href="arv4518pw" class="wikilink1" title="toh:arcadyan:arv4518pw">Arcadyan ARV4518PW (SMC-7908-ISP)</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/toh/arcadyan/arv4518pw" class="media" title="cz:toh:arcadyan:arv4518pw"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/toh/arcadyan/arv4518pw" class="media" title="de:toh:arcadyan:arv4518pw"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="arv4518pw" class="media" title="toh:arcadyan:arv4518pw"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/toh/arcadyan/arv4518pw" class="media" title="es:toh:arcadyan:arv4518pw"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/toh/arcadyan/arv4518pw" class="media" title="fr:toh:arcadyan:arv4518pw"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/toh/arcadyan/arv4518pw" class="media" title="hu:toh:arcadyan:arv4518pw"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/toh/arcadyan/arv4518pw" class="media" title="jp:toh:arcadyan:arv4518pw"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/toh/arcadyan/arv4518pw" class="media" title="pl:toh:arcadyan:arv4518pw"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/toh/arcadyan/arv4518pw" class="media" title="pt-br:toh:arcadyan:arv4518pw"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/toh/arcadyan/arv4518pw" class="media" title="ru:toh:arcadyan:arv4518pw"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/toh/arcadyan/arv4518pw" class="media" title="tr:toh:arcadyan:arv4518pw"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/toh/arcadyan/arv4518pw" class="media" title="zh-cn:toh:arcadyan:arv4518pw"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/toh/arcadyan/arv4518pw" class="media" title="zh-tw:toh:arcadyan:arv4518pw"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>toh:arcadyan:arv4518pw</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="arv4518pw#known_supported_versions">Known Supported Versions</a></div></li>
+<li class="level1"><div class="li"><a href="arv4518pw#hardware_highlights">Hardware Highlights</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="arv4518pw#openwrt_status">Openwrt status</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="arv4518pw#installation">Installation</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="arv4518pw#flash_layout">Flash Layout</a></div></li>
+<li class="level2"><div class="li"><a href="arv4518pw#original_flash_layout">Original flash layout</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="arv4518pw#hardware_info">Hardware info</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="arv4518pw#switch_ports_for_vlans">Switch Ports (for VLANs)</a></div></li>
+<li class="level2"><div class="li"><a href="arv4518pw#leds">LEDS</a></div></li>
+<li class="level2"><div class="li"><a href="arv4518pw#photos">Photos</a></div></li>
+<li class="level2"><div class="li"><a href="arv4518pw#bootlog">BOOTLOG</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="arv4518pw#openwrt_bootlog">Openwrt bootlog</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="arv4518pw#serial_port">Serial Port</a></div></li>
+<li class="level2"><div class="li"><a href="arv4518pw#u-boot_images">U-Boot images</a></div></li>
+<li class="level2"><div class="li"><a href="arv4518pw#uart_boot">UART boot</a></div></li>
+<li class="level2"><div class="li"><a href="arv4518pw#spi">SPI</a></div></li>
+<li class="level2"><div class="li"><a href="arv4518pw#todo">TODO</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="arv4518pw#tags">Tags</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="arcadyan_arv4518pw_smc-7908-isp">Arcadyan ARV4518PW (SMC-7908-ISP)</h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit2" id="known_supported_versions">Known Supported Versions</h2>
+<div class="level2">
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0" colspan="3"> OpenWrt Versions Supported </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> Backfire 10.03.1</td><td class="col1">Attitude adjustment</td><td class="col2">Barrier breaker</td>
+	</tr>
+</table></div>
+
+<p>
+There are two hardware revisions. The revision is in the bottom label:
+</p>
+
+<p>
+- R01: Backfire 10.03.1, but without wifi. Doesn&#039;t work with Attitude Adjustment because nobody tested the patches. Full support since <a href="https://dev.openwrt.org/changeset/35352" class="urlextern" title="https://dev.openwrt.org/changeset/35352"  rel="nofollow">R35352</a>.
+</p>
+
+<p>
+- R01A: Since Backfire 10.03.1.
+</p>
+
+<p>
+Although the boards seems to be identical, the R01A has a 33 <abbr title="Megahertz">MHz</abbr> independent crystal for the PCI bus clock in the back side of the board, while the R01 uses the Danube 33MHz internal clock as blogic noted.
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="hardware_highlights">Hardware Highlights</h2>
+<div class="level2">
+<div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> CPU </th><th class="col1"> Ram </th><th class="col2"> Flash </th><th class="col3"> Network </th><th class="col4"> USB </th><th class="col5"> Serial </th><th class="col6"> UART </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> Lantiq Xway Danube @333Mhz </td><td class="col1"> 64MB </td><td class="col2"> 4MB </td><td class="col3"> 4 Ports </td><td class="col4"> 1x </td><td class="col5"> Yes </td><td class="col6"> ? </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit6" id="openwrt_status">Openwrt status</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> ADSL modem is working with Annex A.</div>
+</li>
+<li class="level1"><div class="li"> FXS works and can be used with Asterisk or <a href="http://code.google.com/p/danube-voip/" class="urlextern" title="http://code.google.com/p/danube-voip/"  rel="nofollow">danube-voip</a>.</div>
+</li>
+<li class="level1"><div class="li"> USB works.</div>
+</li>
+<li class="level1"><div class="li"> WIFI works in trunk since <a href="https://dev.openwrt.org/changeset/34939/trunk" class="urlextern" title="https://dev.openwrt.org/changeset/34939/trunk"  rel="nofollow">R34939</a> and in AA since <a href="https://dev.openwrt.org/changeset/36510/" class="urlextern" title="https://dev.openwrt.org/changeset/36510/"  rel="nofollow">R36510</a></div>
+</li>
+</ul>
+
+<p>
+Note: When using integrated ADSL the SoC runs very hot, so would be a good idea to replace the stock heatsink to avoid issues, while working only as a router the heat emission is low.
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="installation">Installation</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> → <a href="../../doc/howto/obtain.firmware" class="wikilink1" title="doc:howto:obtain.firmware">obtain.firmware</a></div>
+</li>
+<li class="level1"><div class="li"> → <a href="../../doc/howto/installing" class="wikilink1" title="doc:howto:generic.flashing">Install OpenWrt (generic explanation)</a></div>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit8" id="flash_layout">Flash Layout</h3>
+<div class="level3">
+
+<p>
+Please check out the article <a href="http://wiki.openwrt.org/doc/techref/flashlayout" class="wikilink2" title="doc:techref:flashlayout" rel="nofollow">FlashLayout</a>. It contains an example and a couple of explanations.
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="original_flash_layout">Original flash layout</h3>
+<div class="level3">
+
+<p>
+<pre class="code">---------------------------------------
+    Area            Address      Length 
+---------------------------------------
+[0] Boot            0xB0000000     128K
+[1] Configuration   0xB0020000     256K
+[2] Web Image       0xB0060000    3648K
+[3] Code Image      0xB0060000    3648K
+[4] Boot Params     0xB03F0000      64K
+[5] Flash Image     0xB0000000    4096K
+---------------------------------------</pre>
+
+</p>
+<div class="table sectionedit10"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign" colspan="5">  OpenWRT Flash Layout  </th>
+	</tr>
+	<tr class="row1">
+		<th class="col0"> partition </th><th class="col1"> start </th><th class="col2"> end </th><th class="col3"> size </th><th class="col4"> description </th>
+	</tr>
+	</thead>
+	<tr class="row2">
+		<td class="col0"> mtd0 </td><td class="col1"> 0x00000000 </td><td class="col2"> 0x00010000 </td><td class="col3"> 64KB </td><td class="col4"> u-boot </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> mtd1 </td><td class="col1"> 0x00010000 </td><td class="col2"> 0x00030000 </td><td class="col3"> 128KB </td><td class="col4"> u-boot environment </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> mtd2 </td><td class="col1"> 0x00030000 </td><td class="col2"> 0x003f0000 </td><td class="col3"> 3932KB </td><td class="col4"> linux </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> mtd3 </td><td class="col1"> 0x003f0000 </td><td class="col2"> 0x00400000 </td><td class="col3"> 64KB </td><td class="col4"> calibration data </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit11" id="hardware_info">Hardware info</h2>
+<div class="level2">
+<div class="table sectionedit12"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <strong>Architecture:</strong> </td><td class="col1"> <a href="http://www.eettaiwan.com/STATIC/PDF/200808/EETOL_2008IIC_MIPS_AN_02.pdf?SOURCES=DOWNLOAD" class="urlextern" title="http://www.eettaiwan.com/STATIC/PDF/200808/EETOL_2008IIC_MIPS_AN_02.pdf?SOURCES=DOWNLOAD"  rel="nofollow">MIPS32 24KEc</a> </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> <strong>Target:</strong> </td><td class="col1"> <a href="../../doc/hardware/soc/soc.lantiq" class="wikilink1" title="doc:hardware:soc:soc.lantiq">Lantiq</a> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <strong>Vendor:</strong> </td><td class="col1"> <a href="../arcadyan.1" class="wikilink1" title="toh:arcadyan">Arcadyan</a> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <strong>Bootloader:</strong> </td><td class="col1"> <a href="../../doc/techref/bootloader/brnboot" class="wikilink1" title="doc:techref:bootloader:brnboot">brnboot</a> </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <strong>System-On-Chip:</strong> </td><td class="col1"> <a href="http://www.lantiq.com/uploads/tx_abzlantiqproducts/PB-e-0029-v1_lres.pdf/" class="urlextern" title="http://www.lantiq.com/uploads/tx_abzlantiqproducts/PB-e-0029-v1_lres.pdf/"  rel="nofollow">Lantiq Danube PSB 50702 E Rev 1.3 (MIPS 24Kec)</a></td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <strong>CPU Speed:</strong> </td><td class="col1"> 333 Mhz </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <strong>Flash chip:</strong> </td><td class="col1"> MXIC MX29LV320 </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <strong>Flash size:</strong> </td><td class="col1"> 4 MiB </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <strong>RAM chip:</strong> </td><td class="col1"> PSC A3S12D40ETP (Zentel)</td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <strong>RAM size:</strong> </td><td class="col1"> 64 MiB DDR </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> <strong>WAN:</strong> </td><td class="col1"> 1x RJ11 </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> <strong>Ethernet:</strong> </td><td class="col1"> Realtek RTL8306SD 4x <abbr title="Local Area Network">LAN</abbr> 10/100Mbit/s with VLAN support</td>
+	</tr>
+	<tr class="row12">
+		<td class="col0"> <strong>Wireless:</strong> </td><td class="col1"> <a href="http://www.wikidevi.com/files/Atheros/specsheets/AR5007G_(AR2417).pdf" class="urlextern" title="http://www.wikidevi.com/files/Atheros/specsheets/AR5007G_(AR2417).pdf"  rel="nofollow"> Atheros AR2417, 802.11b/g </a></td>
+	</tr>
+	<tr class="row13">
+		<td class="col0"> <strong>Phone:</strong> </td><td class="col1"> 2x FXS (TAE ports which provide POTS via a SIP gateway) </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0"> <strong>Serial:</strong> </td><td class="col1"> yes </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0"> <strong>JTAG:</strong> </td><td class="col1"> ? </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0"> <strong>Buttons:</strong> </td><td class="col1"> power switch, WLAN button, reset button </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0"> <strong>Power:</strong> </td><td class="col1"> external PSU, 15V DC, 1A, polarity: -(+) </td>
+	</tr>
+</table></div>
+
+<p>
+CPU info:
+<pre class="code">system type: Danube rev 1.3 - ARV4518PW - SMC7908A-ISP, Airties WAV-221
+processor: 0
+cpu model: MIPS 24KEc V4.1
+BogoMIPS: 221.18
+wait instruction: yes
+microsecond timers: yes
+tlb_entries: 16
+extra interrupt vector: yes
+hardware watchpoint: yes, count: 4, address/irw mask: [0x0ffc, 0x0ffc, 0x0ffb, 0x0ffb]
+ASEs implemented: mips16 dsp
+shadow register sets: 1
+kscratch registers: 0
+core: 0
+VCED exceptions: not available
+VCEI exceptions: not available</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit13" id="switch_ports_for_vlans">Switch Ports (for VLANs)</h3>
+<div class="level3">
+
+<p>
+Port 5 is the internal connection to the router itself.
+</p>
+<div class="table sectionedit14"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> External label </th><th class="col1"> Switch port </th><th class="col2"> Mode </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <abbr title="Local Area Network">LAN</abbr> 1 </td><td class="col1"> 3 </td><td class="col2"> lan </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <abbr title="Local Area Network">LAN</abbr> 2 </td><td class="col1"> 2 </td><td class="col2"> lan </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <abbr title="Local Area Network">LAN</abbr> 3 </td><td class="col1"> 1 </td><td class="col2"> lan </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <abbr title="Local Area Network">LAN</abbr> 4 </td><td class="col1"> 0 </td><td class="col2"> lan </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> </td><td class="col1"> 5 </td><td class="col2"> Internal CPU port </td>
+	</tr>
+</table></div>
+
+<p>
+For now por based VLANs are not supported (wip).
+</p>
+
+</div>
+
+<h3 class="sectionedit15" id="leds">LEDS</h3>
+<div class="level3">
+<div class="table sectionedit16"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Colour </th><th class="col2"> Gpio </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">Power</td><td class="col1"> red</td><td class="col2">7</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">Power</td><td class="col1"> green</td><td class="col2">2</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">Wifi</td><td class="col1"> green</td><td class="col2">6</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">Adsl</td><td class="col1"> green</td><td class="col2">4</td>
+	</tr>
+	<tr class="row5">
+		<td class="col0">Internet</td><td class="col1"> green</td><td class="col2">5</td>
+	</tr>
+	<tr class="row6">
+		<td class="col0">Internet</td><td class="col1"> red</td><td class="col2">8</td>
+	</tr>
+	<tr class="row7">
+		<td class="col0">Voip</td><td class="col1"> green</td><td class="col2">100</td>
+	</tr>
+	<tr class="row8">
+		<td class="col0">Phone 1</td><td class="col1"> green</td><td class="col2">101</td>
+	</tr>
+	<tr class="row9">
+		<td class="col0">Phone 2</td><td class="col1"> green</td><td class="col2">102</td>
+	</tr>
+	<tr class="row10">
+		<td class="col0">Noname</td><td class="col1"> Orange</td><td class="col2">103</td>
+	</tr>
+	<tr class="row11">
+		<td class="col0">USB</td><td class="col1"> green</td><td class="col2">19</td>
+	</tr>
+	<tr class="row12">
+		<td class="col0">wps</td><td class="col1"> Orange</td><td class="col2">104</td>
+	</tr>
+	<tr class="row13">
+		<td class="col0">wps</td><td class="col1"> Green</td><td class="col2">105</td>
+	</tr>
+	<tr class="row14">
+		<td class="col0">wps</td><td class="col1"> Red</td><td class="col2">106</td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit17" id="photos">Photos</h3>
+<div class="level3">
+
+<p>
+PCB R01A<br/>
+
+<a href="../../_detail/toh/arcadyan/arv4518pw.jpg?id=toh%253Aarcadyan%253Aarv4518pw" class="media" title="toh:arcadyan:arv4518pw.jpg"><img src="../../_media/toh/arcadyan/arv4518pw.jpg?w=500&amp;h=300&amp;tok=5c23bf" class="media" alt="" width="500" height="300" /></a>
+</p>
+
+<p>
+PCB R01<br/>
+
+</p>
+<div class="table sectionedit18"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <a href="../../_detail/media/arv4518pw-r01_top.jpg?id=toh%253Aarcadyan%253Aarv4518pw" class="media" title="media:arv4518pw-r01_top.jpg"><img src="../../_media/media/arv4518pw-r01_top.jpg?w=500&amp;h=300&amp;tok=e6b38a" class="media" alt="" width="500" height="300" /></a> </td><td class="col1"> <a href="../../_detail/media/arv4518pw-r01_bottom.jpg?id=toh%253Aarcadyan%253Aarv4518pw" class="media" title="media:arv4518pw-r01_bottom.jpg"><img src="../../_media/media/arv4518pw-r01_bottom.jpg?w=500&amp;h=300&amp;tok=62f418" class="media" alt="" width="500" height="300" /></a> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit19" id="bootlog">BOOTLOG</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="openwrt_bootlog">Openwrt bootlog</h4>
+<div class="level4">
+
+<p style="padding: 10px;border:1px solid grey;height:600px;font:10px/14px Georgia, Garamond, Serif;overflow:Auto;background-color:#FFFFFF">
+<code>ROM VER: 1.0.3
+CFG 01
+Read\0xfc
+ROM VER: 1.0.3
+CFG 01
+Read EEPROMX
+ X
+
+
+U-Boot 2010.03 (Sep 19 2012 - 22:34:24)
+
+Board: ARV4518PW
+SoC: Danube/Twinpass/Vinax-VE V1.3, DDR Speed 166 MHz, CPU Speed 333 MHz
+DRAM:  64 MB
+Flash:  4 MB
+Net:   
+searching for rtl8306 switch ... found
+lq_cpe_eth
+Hit any key to stop autoboot:  2 \0x08\0x08\0x08 1 \0x08\0x08\0x08 0 
+## Booting kernel from Legacy Image at b0020000 ...
+   Image Name:   MIPS OpenWrt Linux-3.7.1
+   Created:      2013-01-05  14:23:41 UTC
+   Image Type:   MIPS Linux Kernel Image (lzma compressed)
+   Data Size:    1110216 Bytes =  1.1 MB
+   Load Address: 80002000
+   Entry Point:  80002000
+   Verifying Checksum ... OK
+   Uncompressing Kernel Image ... OK
+
+Starting kernel ...
+[    0.000000] Linux version 3.7.1 (pepe@debian) (gcc version 4.6.4 20121106 (prerelease) (Linaro GCC 4.6-2012.11) ) 
+#1 Sat Jan 5 15:23:35 CET 2013
+[    0.000000] SoC: Danube rev 1.3
+[    0.000000] bootconsole [early0] enabled
+[    0.000000] CPU revision is: 00019641 (MIPS 24KEc)
+[    0.000000] Board: ARV4518PW - SMC7908A-ISP, Airties WAV-221
+[    0.000000] Determined physical RAM map:
+[    0.000000]  memory: 04000000 @ 00000000 (usable)
+[    0.000000] Initrd not found or empty - disabling initrd
+[    0.000000] Zone ranges:
+[    0.000000]   Normal   [mem 0x00000000-0x03ffffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x00000000-0x03ffffff]
+[    0.000000] On node 0 totalpages: 4096
+[    0.000000] free_area_init_node: node 0, pgdat 80316770, node_mem_map 81002ce0
+[    0.000000]   Normal zone: 8 pages used for memmap
+[    0.000000]   Normal zone: 0 pages reserved
+[    0.000000]   Normal zone: 4088 pages, LIFO batch:0
+[    0.000000] Primary instruction cache 16kB, VIPT, 4-way, linesize 32 bytes.
+[    0.000000] Primary data cache 16kB, 4-way, VIPT, no aliases, linesize 32 bytes
+[    0.000000] pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768
+[    0.000000] pcpu-alloc: [0] 0 
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping off.  Total pages: 4088
+[    0.000000] Kernel command line: console=ttyLTQ0,115200 init=/etc/preinit
+[    0.000000] PID hash table entries: 256 (order: -4, 1024 bytes)
+[    0.000000] Dentry cache hash table entries: 8192 (order: 1, 32768 bytes)
+[    0.000000] Inode-cache hash table entries: 4096 (order: 0, 16384 bytes)
+[    0.000000] __ex_table already sorted, skipping sort
+[    0.000000] Writing ErrCtl register=00074fb8
+[    0.000000] Readback ErrCtl register=00074fb8
+[    0.000000] Memory: 61600k/65536k available (2557k kernel code, 3936k reserved, 597k data, 224k init, 0k highmem)
+[    0.000000] SLUB: Genslabs=11, HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] NR_IRQS:256
+[    0.000000] CPU Clock: 333MHz
+[    0.036000] Calibrating delay loop... 221.18 BogoMIPS (lpj=442368)
+[    0.036000] pid_max: default: 32768 minimum: 301
+[    0.040000] Mount-cache hash table entries: 2048
+[    0.044000] pinctrl core: initialized pinctrl subsystem
+[    0.048000] NET: Registered protocol family 16
+[    0.068000] pinctrl-xway 1e100b10.pinmux: Init done
+[    0.072000] dma-xway 1e104100.dma: Init done - hw rev: 3, ports: 5, channels: 20
+[    0.080000] PCI host bridge /fpi@10000000/pci@E105400 ranges:
+[    0.084000]  MEM 0x0000000018000000..0x0000000019ffffff
+[    0.088000]   IO 0x000000001ae00000..0x000000001affffff
+[    0.108000] bio: create slab <bio-0> at 0
+[    0.116000] usbcore: registered new interface driver usbfs
+[    0.120000] usbcore: registered new interface driver hub
+[    0.124000] usbcore: registered new device driver usb
+[    0.128000] PCI host bridge to bus 0000:00
+[    0.132000] pci_bus 0000:00: root bus resource [mem 0x18000000-0x19ffffff]
+[    0.136000] pci_bus 0000:00: root bus resource [io  0x1ae00000-0x1affffff]
+[    0.140000] pci_bus 0000:00: No busn resource found for root bus, will use [bus 00-ff]
+[    0.144000] pci 0000:00:0e.0: [168c:ff1a] type 00 class 0x020000
+[    0.144000] pci 0000:00:0e.0: reg 10: [mem 0x00000000-0x0000ffff]
+[    0.144000] pci 0000:00:0e.0: unsupported PM cap regs version (4)
+[    0.148000] pci_bus 0000:00: busn_res: [bus 00-ff] end is updated to 00
+[    0.148000] pci 0000:00:0e.0: BAR 0: assigned [mem 0x18000000-0x1800ffff]
+[    0.152000] pci 0000:00:0e.0: SLOT:14 PIN:1 IRQ:30
+[    0.156000] Switching to clocksource MIPS
+[    0.164000] NET: Registered protocol family 2
+[    0.172000] TCP established hash table entries: 2048 (order: 0, 16384 bytes)
+[    0.176000] TCP bind hash table entries: 2048 (order: -1, 8192 bytes)
+[    0.184000] TCP: Hash tables configured (established 2048 bind 2048)
+[    0.192000] TCP: reno registered
+[    0.196000] UDP hash table entries: 1024 (order: 0, 16384 bytes)
+[    0.200000] UDP-Lite hash table entries: 1024 (order: 0, 16384 bytes)
+[    0.208000] NET: Registered protocol family 1
+[    0.212000] PCI: CLS 0 bytes, default 32
+[    0.212000] gptu: totally 6 16-bit timers/counters
+[    0.216000] gptu: misc_register on minor 63
+[    0.220000] gptu: succeeded to request irq 126
+[    0.228000] gptu: succeeded to request irq 127
+[    0.232000] gptu: succeeded to request irq 128
+[    0.236000] gptu: succeeded to request irq 129
+[    0.240000] gptu: succeeded to request irq 130
+[    0.244000] gptu: succeeded to request irq 131
+[    0.252000] ath5k,eeprom 103f0400.ath5k_eep: loaded ath5k eeprom
+[    0.264000] lantiq,vmmc 1f103000.vmmc: requested GPIO 255
+[    0.272000] lantiq,vmmc 1f103000.vmmc: reserved 1MB at 0x02200000
+[    0.312000] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.320000] jffs2: version 2.2 (NAND) (SUMMARY) (LZMA) (RTIME) (CMODE_PRIORITY) (c) 2001-2006 Red Hat, Inc.
+[    0.332000] msgmni has been set to 120
+[    0.336000] io scheduler noop registered
+[    0.340000] io scheduler deadline registered (default)
+[    0.344000] 1e100c00.serial: ttyLTQ0 at MMIO 0x1e100c00 (irq = 112) is a lantiq,asc
+[    0.352000] console [ttyLTQ0] enabled, bootconsole disabled
+[    0.368000] ltq_nor: Found 1 x16 devices at 0x0 in 16-bit bank. Manufacturer ID 0x00007f Chip ID 0x0022f9
+[    0.376000] ltq_nor: Found an alias at 0x400000 for the chip at 0x0
+[    0.376000] ltq_nor: Found an alias at 0x800000 for the chip at 0x0
+[    0.376000] ltq_nor: Found an alias at 0xc00000 for the chip at 0x0
+[    0.376000] Amd/Fujitsu Extended Query Table at 0x0040
+[    0.380000]   Amd/Fujitsu Extended Query version 1.1.
+[    0.388000] number of CFI chips: 1
+[    0.388000] 4 ofpart partitions found on MTD device ltq_nor
+[    0.396000] Creating 4 MTD partitions on "ltq_nor":
+[    0.400000] 0x000000000000-0x000000010000 : "uboot"
+[    0.408000] 0x000000010000-0x000000020000 : "uboot_env"
+[    0.416000] 0x000000020000-0x0000003f0000 : "linux"
+[    0.420000] found squashfs behind kernel
+[    0.424000] Creating 2 MTD partitions on "ltq_nor":
+[    0.428000] 0x000000020000-0x00000012f108 : "kernel"
+[    0.432000] mtd: partition "kernel" must either start or end on erase block boundary or 
+be smaller than an erase block -- forcing read-only
+[    0.448000] 0x00000012f108-0x0000003f0000 : "rootfs"
+[    0.452000] mtd: partition "rootfs" must either start or end on erase block boundary or 
+be smaller than an erase block -- forcing read-only
+[    0.468000] mtd: partition "rootfs" set to be root filesystem
+[    0.472000] mtd: partition "rootfs_data" created automatically, ofs=390000, len=60000 
+[    0.480000] 0x000000390000-0x0000003f0000 : "rootfs_data"
+[    0.488000] 0x0000003f0000-0x000000400000 : "boardconfig"
+[    0.516000] libphy: ltq_mii: probed
+[    0.548000] Registering RTL8306SD switch with Chip ID: 0x5988, version: 0x0000
+[    0.552000] eth0: attached PHY [Realtek RTL8306S] (phy_addr=1e180000.etop-ff:00, irq=-1)
+[    0.564000] wdt 1f8803f0.watchdog: Init done
+[    0.568000] leds-gpio gpio-leds.5: pins are not configured from the driver
+[    0.576000] Registered led device: power
+[    0.576000] Registered led device: dsl
+[    0.576000] Registered led device: online
+[    0.576000] Registered led device: wifi
+[    0.576000] Registered led device: wps
+[    0.576000] Registered led device: dsl2
+[    0.580000] Registered led device: usb
+[    0.580000] Registered led device: voice
+[    0.580000] Registered led device: fxs1
+[    0.580000] Registered led device: fxs2
+[    0.580000] Registered led device: fxo
+[    0.584000] TCP: cubic registered
+[    0.584000] NET: Registered protocol family 17
+[    0.588000] 8021q: 802.1Q VLAN Support v1.8
+[    0.608000] VFS: Mounted root (squashfs filesystem) readonly on device 31:4.
+[    0.616000] Freeing unused kernel memory: 224k freed
+[    8.464000] jffs2: notice: (489) jffs2_build_xattr_subsystem: complete building xattr subsystem, 
+1 of xdatum (0 unchecked, 0 orphan) and 9 of xref (0 dead, 2 orphan) found.
+[    9.056000] SCSI subsystem initialized
+[    9.192000] Initializing USB Mass Storage driver...
+[    9.196000] usbcore: registered new interface driver usb-storage
+[    9.204000] USB Mass Storage support registered.
+[   17.260000] Compat-drivers backport release: compat-drivers-2012-12-04
+[   17.264000] Backport based on wireless-testing.git master-2012-12-06
+[   17.268000] compat.git: wireless-testing.git
+[   17.316000] cfg80211: Calling CRDA to update world regulatory domain
+[   17.320000] cfg80211: World regulatory domain updated:
+[   17.324000] cfg80211:   (start_freq - end_freq @ bandwidth), (max_antenna_gain, max_eirp)
+[   17.332000] cfg80211:   (2402000 KHz - 2472000 KHz @ 40000 KHz), (300 mBi, 2000 mBm)
+[   17.340000] cfg80211:   (2457000 KHz - 2482000 KHz @ 20000 KHz), (300 mBi, 2000 mBm)
+[   17.348000] cfg80211:   (2474000 KHz - 2494000 KHz @ 20000 KHz), (300 mBi, 2000 mBm)
+[   17.356000] cfg80211:   (5170000 KHz - 5250000 KHz @ 40000 KHz), (300 mBi, 2000 mBm)
+[   17.364000] cfg80211:   (5735000 KHz - 5835000 KHz @ 40000 KHz), (300 mBi, 2000 mBm)
+[   18.600000] PCI: Enabling device 0000:00:0e.0 (0000 -> 0002)
+[   18.600000] ath5k 0000:00:0e.0: registered as 'phy0'
+[   18.612000] ath: EEPROM regdomain: 0x60
+[   18.612000] ath: EEPROM indicates we should expect a direct regpair map
+[   18.612000] ath: Country alpha2 being used: 00
+[   18.612000] ath: Regpair used: 0x60
+[   18.612000] ieee80211 phy0: Selected rate control algorithm 'minstrel_ht'
+[   18.612000] ath5k: phy0: Atheros AR2417 chip found (MAC: 0xf0, PHY: 0x70)
+[   18.736000] NET: Registered protocol family 8
+[   18.740000] NET: Registered protocol family 20
+[   19.436000] PPP generic driver version 2.4.2
+[   20.056000] ip_tables: (C) 2000-2006 Netfilter Core Team
+[   20.352000] NET: Registered protocol family 24
+[   20.540000] nf_conntrack version 0.5.0 (966 buckets, 3864 max)
+[   21.008000] IFX MEI Version 5.00.00
+[   21.040000] IFXUSB: ifxusb_hcd: version 3.2 B110801
+[   21.548000] IFXUSB: USB core #0 soft-reset
+[   21.748000] IFXUSB: USB core #0 soft-reset
+[   21.752000] ifxusb_hcd ifxusb_hcd: IFX USB Controller
+[   21.756000] ifxusb_hcd ifxusb_hcd: new USB bus registered, assigned bus number 1
+[   21.764000] ifxusb_hcd ifxusb_hcd: irq 62, io mem 0xbe101000
+[   21.768000] IFXUSB: Mode Mismatch Interrupt: currently in Host mode
+[   21.776000] IFXUSB: Mode Mismatch Interrupt: currently in Host mode
+[   21.784000] IFXUSB: Init: Power Port (0)
+[   21.788000] hub 1-0:1.0: USB hub found
+[   21.788000] hub 1-0:1.0: 1 port detected
+[   21.796000] ifxusb_hcd ifxusb_hcd: requested GPIO 238
+[   21.972000] 
+[   21.972000] 
+[   21.972000] Infineon CPE API Driver version: DSL CPE API V3.24.4.4
+[   21.996000] ATM1.0.26    ATM (A1) firmware version 0.17
+[   22.000000] ifxmips_atm: ATM init succeed
+[   30.840000] device eth0 entered promiscuous mode
+[   30.952000] br-lan: port 1(eth0) entered forwarding state
+[   30.956000] br-lan: port 1(eth0) entered forwarding state
+[   32.960000] br-lan: port 1(eth0) entered forwarding state
+
+
+BusyBox v1.19.4 (2013-01-05 15:10:36 CET) built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+ BARRIER BREAKER (Bleeding Edge, r35016)
+ -----------------------------------------------------
+  * 1/2 oz Galliano         Pour all ingredients into
+  * 4 oz cold Coffee        an irish coffee mug filled
+  * 1 1/2 oz Dark Rum       with crushed ice. Stir.
+  * 2 tsp. Creme de Cacao
+ -----------------------------------------------------
+root@OpenWrt:/#</code>
+</p>
+
+</div>
+
+<h3 class="sectionedit20" id="serial_port">Serial Port</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Serial port is at 3.3v and the bitrate is 115200.</div>
+</li>
+<li class="level1"><div class="li"> Going horizontally from the marked pin (1): 2:RX, 3:TX, 5:GND, ( 6.+3.3v No need to plug this one). <a href="../../_detail/toh/arcadyan/danube_serial.png?id=toh%253Aarcadyan%253Aarv4518pw" class="media" title="toh:arcadyan:danube_serial.png"><img src="../../_media/toh/arcadyan/danube_serial.png" class="media" alt="" /></a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit21" id="u-boot_images">U-Boot images</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> uboot-lantiq-arv4518PW_brnboot meant to be loaded from brnboot as a 2nd stage bootloader, on memory.</div>
+</li>
+<li class="level1"><div class="li"> uboot-lantiq-arv4518PW_flash meant to be flashed into the unit as the main bootloader, at 0xB0000000-0xB000FFFF.</div>
+</li>
+<li class="level1"><div class="li"> uboot-lantiq-arv4518PW_ramboot meant to be uploaded via UART by the cpu if flash&#039;s bootloader is broken, for rescue purposes.</div>
+</li>
+<li class="level1"><div class="li"> If kernel ignores parameters from u-boot, remove the preceding - in linux&#039;s hardcoded cmdline. </div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit22" id="uart_boot">UART boot</h3>
+<div class="level3">
+
+<p>
+To enable UART booting in the ARV4518 board, just shortcut R80 and put the left side of R65 to +3.3V and…
+</p>
+
+<p>
+<pre class="code">ROM VER: 1.0.3
+CFG 04
+Read EEPROMX
+X
+UART</pre>
+
+</p>
+
+<p>
+<strong>Done!</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> Then upload the uboot.asc version from uboot-lantiq-arv4518PW_ramboot.</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit23" id="spi">SPI</h3>
+<div class="level3">
+
+<p>
+<strong><a href="http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus">Serial Peripheral Interface</a></strong>
+</p>
+
+<p>
+The Lantiq Danube has a SPI interface. In some boards it is used to drive a SI3050, while in others like the ARV4518PW only the solder pads are present, so could be a chance to attach a SPI device to the board. In this board the possible location of the SPI pads is in U41.
+</p>
+
+<p>
+The SPI interface signals should be the same that there are in the Huawei <a href="../huawei/hg556a#spi" class="wikilink1" title="toh:huawei:hg556a">HG556 </a>
+</p>
+
+<p>
+This is still work in progress.
+</p>
+
+</div>
+
+<h3 class="sectionedit24" id="todo">TODO</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Enable vlan support as default, like in some other boards.<a href="https://dev.openwrt.org/browser/branches/attitude_adjustment/target/linux/lantiq/base-files/etc/uci-defaults/network" class="urlextern" title="https://dev.openwrt.org/browser/branches/attitude_adjustment/target/linux/lantiq/base-files/etc/uci-defaults/network"  rel="nofollow">UCI Defaults</a></div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Add support for hardware revision R01 in Attitude Adjustment. Possible <a href="http://www.mediafire.com/?7csza44e5xcyocg" class="urlextern" title="http://www.mediafire.com/?7csza44e5xcyocg"  rel="nofollow">patch</a>.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit25" id="tags">Tags</h2>
+<div class="level2">
+<div class="tags"><span>
+	<a href="../../tag/fastethernet?do=showtag&amp;tag=FastEthernet" class="wikilink1" title="tag:fastethernet" rel="tag">FastEthernet</a>,
+	<a href="../../tag/4port?do=showtag&amp;tag=4Port" class="wikilink1" title="tag:4port" rel="tag">4Port</a>,
+	<a href="../../tag/usb?do=showtag&amp;tag=USB" class="wikilink1" title="tag:usb" rel="tag">USB</a>,
+	<a href="../../tag/spi?do=showtag&amp;tag=spi" class="wikilink1" title="tag:spi" rel="tag">spi</a>,
+	<a href="../../tag/ath5k?do=showtag&amp;tag=ath5k" class="wikilink1" title="tag:ath5k" rel="tag">ath5k</a>,
+	<a href="../../tag/64ram?do=showtag&amp;tag=64RAM" class="wikilink1" title="tag:64ram" rel="tag">64RAM</a>,
+	<a href="../../tag/4flash?do=showtag&amp;tag=4Flash" class="wikilink1" title="tag:4flash" rel="tag">4Flash</a>,
+	<a href="../../tag/mips32?do=showtag&amp;tag=MIPS32" class="wikilink1" title="tag:mips32" rel="tag">MIPS32</a>,
+	<a href="../../tag/24k?do=showtag&amp;tag=24K" class="wikilink1" title="tag:24k" rel="tag">24K</a>,
+	<a href="../../tag/adsl2?do=showtag&amp;tag=ADSL2%252B" class="wikilink1" title="tag:adsl2" rel="tag">ADSL2+</a>,
+	<a href="../../tag/fxo?do=showtag&amp;tag=fxo" class="wikilink1" title="tag:fxo" rel="tag">fxo</a>,
+	<a href="../../tag/1wnic?do=showtag&amp;tag=1WNIC" class="wikilink1" title="tag:1wnic" rel="tag">1WNIC</a>,
+	<a href="../../tag/lantiq?do=showtag&amp;tag=lantiq" class="wikilink1" title="tag:lantiq" rel="tag">lantiq</a>,
+	<a href="../../tag/danube?do=showtag&amp;tag=danube" class="wikilink1" title="tag:danube" rel="tag">danube</a>
+</span></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>toh/arcadyan/arv4518pw.txt</bdi> · Last modified: 2015/05/06 12:46 by <bdi>theoradicus</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="arv4518pw?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="arv4518pw?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="arv4518pw?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="arv4518pw#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=toh%253Aarcadyan%253Aarv4518pw&amp;1432268151" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

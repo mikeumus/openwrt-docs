@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Devolo dLAN USB Extender [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="arm,armv5,arm926ej-s,1nic,no switch,usb,16ram,8flash"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="dlan-usb-extender?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=toh:devolo"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/toh/devolo/dlan-usb-extender"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/toh/devolo/dlan-usb-extender"/>
+<link rel="canonical" href="dlan-usb-extender"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='toh:devolo';var JSINFO = {"id":"toh:devolo:dlan-usb-extender","namespace":"toh:devolo"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432276528 166.182.3.160';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="dlan-usb-extender#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="dlan-usb-extender?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="dlan-usb-extender?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="toh:devolo:dlan-usb-extender" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="dlan-usb-extender?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="dlan-usb-extender?do=media&amp;ns=toh%253Adevolo"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="dlan-usb-extender?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="toh:start">Table of Hardware</a></bdi> » <bdi><a href="start" class="wikilink1" title="toh:devolo:start">Devolo</a></bdi> » <bdi><span class="curid"><a href="dlan-usb-extender" class="wikilink1" title="toh:devolo:dlan-usb-extender">Devolo dLAN USB Extender</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/toh/devolo/dlan-usb-extender" class="media" title="cz:toh:devolo:dlan-usb-extender"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/toh/devolo/dlan-usb-extender" class="media" title="de:toh:devolo:dlan-usb-extender"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="dlan-usb-extender" class="media" title="toh:devolo:dlan-usb-extender"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/toh/devolo/dlan-usb-extender" class="media" title="es:toh:devolo:dlan-usb-extender"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/toh/devolo/dlan-usb-extender" class="media" title="fr:toh:devolo:dlan-usb-extender"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/toh/devolo/dlan-usb-extender" class="media" title="hu:toh:devolo:dlan-usb-extender"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/toh/devolo/dlan-usb-extender" class="media" title="jp:toh:devolo:dlan-usb-extender"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/toh/devolo/dlan-usb-extender" class="media" title="pl:toh:devolo:dlan-usb-extender"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/toh/devolo/dlan-usb-extender" class="media" title="pt-br:toh:devolo:dlan-usb-extender"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/toh/devolo/dlan-usb-extender" class="media" title="ru:toh:devolo:dlan-usb-extender"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/toh/devolo/dlan-usb-extender" class="media" title="tr:toh:devolo:dlan-usb-extender"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/toh/devolo/dlan-usb-extender" class="media" title="zh-cn:toh:devolo:dlan-usb-extender"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/toh/devolo/dlan-usb-extender" class="media" title="zh-tw:toh:devolo:dlan-usb-extender"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>toh:devolo:dlan-usb-extender</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="dlan-usb-extender#status">Status</a></div></li>
+<li class="level1"><div class="li"><a href="dlan-usb-extender#building_openwrt_for_the_dlan_usb_extender">Building OpenWrt for the dLAN USB Extender</a></div></li>
+<li class="level1"><div class="li"><a href="dlan-usb-extender#installing_openwrt">Installing OpenWrt</a></div></li>
+<li class="level1"><div class="li"><a href="dlan-usb-extender#hardware">Hardware</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="dlan-usb-extender#info">Info</a></div></li>
+<li class="level2"><div class="li"><a href="dlan-usb-extender#photos">Photos</a></div></li>
+<li class="level2"><div class="li"><a href="dlan-usb-extender#opening_the_case">Opening the case</a></div></li>
+<li class="level2"><div class="li"><a href="dlan-usb-extender#soc">SoC</a></div></li>
+<li class="level2"><div class="li"><a href="dlan-usb-extender#serial">Serial</a></div></li>
+<li class="level2"><div class="li"><a href="dlan-usb-extender#cipher_engine">Cipher Engine</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="dlan-usb-extender#bootlogs">Bootlogs</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="dlan-usb-extender#oem_bootlog">OEM bootlog</a></div></li>
+<li class="level2"><div class="li"><a href="dlan-usb-extender#openwrt_bootlog">OpenWrt bootlog</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="dlan-usb-extender#projects">Projects</a></div></li>
+<li class="level1"><div class="li"><a href="dlan-usb-extender#tags">Tags</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="devolo_dlan_usb_extender">Devolo dLAN USB Extender</h1>
+<div class="level1">
+
+<p>
+The Devolo dLAN USB Extender is based on the Moschip MCS8140 SoC, runs Linux and serves USB devices over the Power Line interface.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="status">Status</h2>
+<div class="level2">
+
+<p>
+The dLAN USB Extender device is fully supported thanks to a contract work with Devolo AG. Support for this device requires the following:
+</p>
+<ul>
+<li class="level1"><div class="li"> OpenWrt trunk (mcs814x target)</div>
+</li>
+<li class="level1"><div class="li"> <a href="https://github.com/ffainelli/dlan-usb-extender-3rd-party" class="urlextern" title="https://github.com/ffainelli/dlan-usb-extender-3rd-party"  rel="nofollow">Repository of external third party packages</a></div>
+</li>
+</ul>
+
+<p>
+The third party repository contains the Flashless Boot Utility (foot) and the Qualcomm Atheros/Intellon 6300 firmware for the on-board Power Line Communication chip. Those are binaries, and this are not part of the standard OpenWrt package set due to their.
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="building_openwrt_for_the_dlan_usb_extender">Building OpenWrt for the dLAN USB Extender</h2>
+<div class="level2">
+
+<p>
+Detailed instructions about how to build OpenWrt from scratch for this device can be found <a href="https://github.com/ffainelli/dlan-usb-extender-3rd-party/blob/master/HOWTO" class="urlextern" title="https://github.com/ffainelli/dlan-usb-extender-3rd-party/blob/master/HOWTO"  rel="nofollow">here</a>. The steps involved in building and flashing can be summed up like this:
+</p>
+<ul>
+<li class="level1"><div class="li"> download OpenWrt trunk</div>
+</li>
+<li class="level1"><div class="li"> select Moschip MCS814x target</div>
+</li>
+<li class="level1"><div class="li"> select dLAN USB Extender profile</div>
+</li>
+<li class="level1"><div class="li"> build OpenWrt for this target</div>
+</li>
+</ul>
+
+<p>
+Once the build is finished, proceed to install the firmware
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="installing_openwrt">Installing OpenWrt</h2>
+<div class="level2">
+
+<p>
+You will first need to flash your existing dLAN USB Extender device with a transitional firmware which is available <a href="https://github.com/ffainelli/dlan-usb-extender-3rd-party/blob/master/devolo2openWRT_update.zip" class="urlextern" title="https://github.com/ffainelli/dlan-usb-extender-3rd-party/blob/master/devolo2openWRT_update.zip"  rel="nofollow">here</a>. Once this transitionnal has been installed and running, it can now accept specific updates using a file on a USB stick.
+</p>
+
+<p>
+Once the build finishes. Prepare a USB stick formatted using FAT and whose label is &quot;autoupdate&quot;. To do so, you can do the following
+</p>
+
+<p>
+<pre class="code">(use fdisk to create a FAT partition)
+mkfs.vfat /dev/sdc1
+mlabel -i /dev/sdc1 ::autoupdate</pre>
+
+</p>
+
+<p>
+Now, copy bin/mcs814x/openwrt-mcs814x-dlan-usb-extender-upgrade-squashfs.bin to /dev/sdc1/autoupdate_image, like this:
+</p>
+
+<p>
+<pre class="code">mount /dev/sdc1 /mnt/
+cp bin/mcs814x/openwrt-mcs814x-dlan-usb-extender-upgrade-squashfs.bin /mnt/autoupdate_image
+sync
+umount /mnt</pre>
+
+</p>
+
+<p>
+Now plug the USB stick in your dLAN USB Extender device, power cycle it, and wait for the update to begin. The update process will make the USB LED blink fast, then slowly for a couple of minutes. Once done, you will see the Power LED becoming solid green, indicating that the device is fully ready.
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="hardware">Hardware</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit6" id="info">Info</h3>
+<div class="level3">
+<div class="table sectionedit7"><table class="inline">
+	<tr class="row0">
+		<td class="col0 leftalign"> <strong><a href="http://en.wikipedia.org/wiki/Instruction set" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Instruction set">Instruction set</a>:</strong>               </td><td class="col1" colspan="2"> <a href="http://en.wikipedia.org/wiki/ARM architecture" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/ARM architecture">ARM</a> </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 leftalign"> <strong>Vendor:</strong>                               </td><td class="col1" colspan="2"> <a href="http://www.moschip.com/" class="urlextern" title="http://www.moschip.com/"  rel="nofollow">Moschip</a> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <strong><a href="../../doc/techref/bootloader.1" class="wikilink1" title="doc:techref:bootloader">Bootloader</a>:</strong>           </td><td class="col1" colspan="2"> <a href="../../doc/techref/bootloader/uboot" class="wikilink1" title="doc:techref:bootloader:uboot">U-Boot</a> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/soc.1" class="wikilink1" title="doc:hardware:soc">System-On-Chip</a>:</strong>  </td><td class="col1" colspan="2"> Moschip MCS8140 </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/cpu" class="wikilink1" title="doc:hardware:cpu">CPU</a> @Frq</strong>         </td><td class="col1" colspan="2"> ARM926EJ-S @175MHz </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> <strong>Flash size:</strong>                 </td><td class="col1" colspan="2"> 8MB </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign" rowspan="2"> <strong>Flash Chip:</strong>                 </td><td class="col1" rowspan="2"> ST M29W640GB </td><td class="col2"> 8KB block size x 8 bottom boot blocks </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> 64KB block size x 127 main blocks </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> <strong>RAM size:</strong>                   </td><td class="col1" colspan="2"> 16MB </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> <strong>RAM Chip:</strong>                   </td><td class="col1" colspan="2"> Micron MT48LC4M32B2B5-7:G (FBGA) / SDR-143 </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> <strong>Ethernet:</strong>    </td><td class="col1 leftalign" colspan="2"> 1x (SoC) → Power Line  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> <strong>USB:</strong>                        </td><td class="col1" colspan="2"> 1 x 2.0 Host </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0"> <strong>Power Line:</strong> </td><td class="col1" colspan="2"> IC: Qualcomm Atheros/Intellon INT6300<br/>
+RAM: Zentel A3V28S40FTP-G6 / SDR-166 </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> <strong><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console" class="wikilink1" title="doc:hardware:port.serial">Serial</a>:</strong>  </td><td class="col1" colspan="2"> <a href="dlan-usb-extender#serial" title="toh:devolo:dlan-usb-extender ↵" class="wikilink1">Yes</a> </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/port.jtag" class="wikilink1" title="doc:hardware:port.jtag">JTAG</a>:</strong>      </td><td class="col1 leftalign" colspan="2"> <a href="dlan-usb-extender#jtag" title="toh:devolo:dlan-usb-extender ↵" class="wikilink1">?</a>   </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit8" id="photos">Photos</h3>
+<div class="level3">
+
+<p>
+<strong>Casing</strong><br/>
+
+<a href="../../_detail/media/toh/devolo/dlan-200-av-usb-extender-front.jpg?id=toh%253Adevolo%253Adlan-usb-extender" class="media" title="media:toh:devolo:dlan-200-av-usb-extender-front.jpg"><img src="../../_media/media/toh/devolo/dlan-200-av-usb-extender-front.jpg?w=300&amp;tok=85e47f" class="media" alt="" width="300" /></a>
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="opening_the_case">Opening the case</h3>
+<div class="level3">
+
+<p>
+<strong>Note:</strong> This will void your warranty!
+</p>
+<ul>
+<li class="level1"><div class="li">To remove the cover:</div>
+</li>
+</ul>
+<div class="table sectionedit10"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <a href="../../_detail/media/toh/devolo/dlan-200-av-usb-casing-r1.jpg?id=toh%253Adevolo%253Adlan-usb-extender" class="media" title="media:toh:devolo:dlan-200-av-usb-casing-r1.jpg"><img src="../../_media/media/toh/devolo/dlan-200-av-usb-casing-r1.jpg?w=200&amp;tok=470fbe" class="media" alt="" width="200" /></a></td><td class="col1"> remove the screw (Torx 10) hidden under the label at the back of casing </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> <a href="../../_detail/media/toh/devolo/dlan-200-av-usb-casing-r2.jpg?id=toh%253Adevolo%253Adlan-usb-extender" class="media" title="media:toh:devolo:dlan-200-av-usb-casing-r2.jpg"><img src="../../_media/media/toh/devolo/dlan-200-av-usb-casing-r2.jpg?w=350&amp;tok=25e3b5" class="media" alt="" width="350" /></a> </td><td class="col1"> with a thin screwdriver push the inner flaps, and carefully separate both parts of the casing </td>
+	</tr>
+</table></div>
+
+<p>
+<strong>Board</strong><br/>
+
+<a href="../../_detail/media/toh/devolo/dlan-200-av-usb-board1.jpg?id=toh%253Adevolo%253Adlan-usb-extender" class="media" title="media:toh:devolo:dlan-200-av-usb-board1.jpg"><img src="../../_media/media/toh/devolo/dlan-200-av-usb-board1.jpg?w=400&amp;h=250&amp;tok=891558" class="media" alt="" width="400" height="250" /></a><a href="../../_detail/media/toh/devolo/dlan-200-av-usb-board2.jpg?id=toh%253Adevolo%253Adlan-usb-extender" class="media" title="media:toh:devolo:dlan-200-av-usb-board2.jpg"><img src="../../_media/media/toh/devolo/dlan-200-av-usb-board2.jpg?w=400&amp;h=250&amp;tok=a83823" class="media" alt="" width="400" height="250" /></a>
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="soc">SoC</h3>
+<div class="level3">
+
+<p>
+<a href="../../_detail/media/toh/devolo/dlan-200-av-usb-soc.png?id=toh%253Adevolo%253Adlan-usb-extender" class="media" title="media:toh:devolo:dlan-200-av-usb-soc.png"><img src="../../_media/media/toh/devolo/dlan-200-av-usb-soc.png?w=270&amp;h=250&amp;tok=f3323d" class="media" alt="" width="270" height="250" /></a> <a href="../../_detail/media/toh/devolo/dlan-200-av-usb-socb.jpg?id=toh%253Adevolo%253Adlan-usb-extender" class="media" title="media:toh:devolo:dlan-200-av-usb-socb.jpg"><img src="../../_media/media/toh/devolo/dlan-200-av-usb-socb.jpg?w=270&amp;h=250&amp;tok=c774b9" class="media" alt="" width="270" height="250" /></a>
+</p>
+
+</div>
+
+<h3 class="sectionedit12" id="serial">Serial</h3>
+<div class="level3">
+
+<p>
+Serial console can be found below the PCBA of the device. To solder a serial console device, you must unsolder the two big soldering footprints which provide 110/220V AC current to the PCBA. The test points pinout is the following:
+</p>
+<div class="table sectionedit13"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <a href="../../_detail/media/toh/devolo/dlan-200-av-usb-serial.jpg?id=toh%253Adevolo%253Adlan-usb-extender" class="media" title="media:toh:devolo:dlan-200-av-usb-serial.jpg"><img src="../../_media/media/toh/devolo/dlan-200-av-usb-serial.jpg?w=350&amp;tok=4c4152" class="media" alt="" width="350" /></a> </td><td class="col1"> <pre class="code">TP10 GND
+TP16 Tx
+TP15 Rx
+
+(3V3TTL)</pre>
+ </td>
+	</tr>
+</table></div>
+
+<p>
+Serials console baudrate is : 57600,8n1
+</p>
+
+</div>
+
+<h3 class="sectionedit14" id="cipher_engine">Cipher Engine</h3>
+<div class="level3">
+
+<p>
+→ <a href="../../doc/hardware/cryptographic.hardware.accelerators" class="wikilink1" title="doc:hardware:cryptographic.hardware.accelerators">Cryptographic Hardware Accelerators</a>
+</p>
+
+<p>
+The Moschip MCS8140 has some crypto hardware accelerators:
+</p>
+<ul>
+<li class="level1"><div class="li"> AES and DES/3DES hardware encryption and decryption</div>
+</li>
+<li class="level1"><div class="li"> SHA1, SHA256 and MD5 authentication in hardware</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit15" id="bootlogs">Bootlogs</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit16" id="oem_bootlog">OEM bootlog</h3>
+<div class="level3">
+
+<p style="padding: 10px;border:1px solid grey;height:600px;font:10px/14px Georgia, Garamond, Serif;overflow:Auto;background-color:#FFFFFF">
+<code>U-Boot 1.1.6 (Feb  9 2011 - 15:22:47)
+
+U-Boot code: 00E00000 -> 00E2A050  BSS: -> 00E6EAFC
+IRQ Stack: 00f6faf8
+FIQ Stack: 00f70af8
+SDRAM size       : 16 MB
+DRAM:  16 MB
+## Unknown FLASH on Bank 2 - Size = 0x00000000 = 0 MB
+Flash:  8 MB
+Using default environment
+
+In:    serial
+Out:   serial
+Err:   serial
+Eth0 address not set. Using default address: 00:0B:3B:00:00:01
+Hit any key to stop autoboot:  0 
+## Booting image at 1c050000 ...
+## Copy image from flash 1c050000 to ram 00007fc0 ...
+   Image Name:   
+   Image Type:   ARM Linux Kernel Image (uncompressed)
+   Data Size:    934312 Bytes = 912.4 kB
+   Load Address: 00008000
+   Entry Point:  00008000
+   Verifying Checksum ... OK
+OK
+bootargs is root=/dev/mtdblock4 rootfstype=jffs2
+
+Starting kernel ...
+
+Uncompressing Linux.............................................................. done, booting the kernel.
+Linux version 2.6.15 (mbeckers@devolo-mbeckers) (gcc version 3.4.4) #14 Wed Feb 9 15:24:26 UTC 2011
+CPU: ARM926EJ-Sid(wb) [41069264] revision 4 (ARMv5TEJ)
+Machine: Secure Communication Processor
+Memory policy: ECC disabled, Data cache writeback
+CPU0: D VIVT write-back cache
+CPU0: I cache: 16384 bytes, associativity 4, 32 byte lines, 128 sets
+CPU0: D cache: 16384 bytes, associativity 4, 32 byte lines, 128 sets
+Built 1 zonelists
+Kernel command line: root=/dev/mtdblock4 rootfstype=jffs2
+PID hash table entries: 128 (order: 7, 2048 bytes)
+Dentry cache hash table entries: 4096 (order: 2, 16384 bytes)
+Inode-cache hash table entries: 2048 (order: 1, 8192 bytes)
+Memory: 16MB 0MB 0MB 0MB = 16MB total
+Memory: 14200KB available (1560K code, 348K data, 72K init)
+Mount-cache hash table entries: 512
+CPU: Testing write buffer coherency: ok
+NET: Registered protocol family 16
+usbcore: registered new driver usbfs
+usbcore: registered new driver hub
+NetWinder Floating Point Emulator V0.97 (double precision)
+JFFS2 version 2.2. (C) 2001-2003 Red Hat, Inc.
+io scheduler noop registered
+io scheduler deadline registered
+ttyMCS0 at I/O 0xff0dc000 (irq = 21) is a SCP serial port(16550)
+RAMDISK driver initialized: 16 RAM disks of 4096K size 1024 blocksize
+MCS8140 MAC eth0
+Flash chip probe: 800000 at 1c000000
+scp_flash: Found 1 x16 devices at 0x0 in 8-bit bank
+ Amd/Fujitsu Extended Query Table at 0x0040
+number of CFI chips: 1
+cfi_cmdset_0002: Disabling erase-suspend-program due to code brokenness.
+cmdlinepart partition parsing not available
+Using SCP partition definition
+Creating 6 MTD partitions on "scp_flash":
+0x00000000-0x00030000 : "ArmBoot"
+0x00030000-0x00040000 : "Config1"
+0x00040000-0x00050000 : "Config2"
+0x00050000-0x00150000 : "bZimage"
+0x00150000-0x00510000 : "UserFS"
+0x00050000-0x00510000 : "Combined"
+NUPORT : Software workaround for EHCI
+nuport_ehci_hcd nuport_ehci_hcd.0: NUPORT EHCI Host Controller
+nuport_ehci_hcd nuport_ehci_hcd.0: new USB bus registered, assigned bus number 1
+nuport_ehci_hcd nuport_ehci_hcd.0: irq 2, io mem 0x400fc000
+nuport_ehci_hcd nuport_ehci_hcd.0: park 3
+nuport_ehci_hcd nuport_ehci_hcd.0: USB 2.0 initialized, EHCI 1.00, driver 28 Mar 2006
+hub 1-0:1.0: USB hub found
+hub 1-0:1.0: 4 ports detected
+Device ID is 0
+ohci_hcd ohci_hcd.0: OHCI Host Controller
+ohci_hcd ohci_hcd.0: new USB bus registered, assigned bus number 2
+ohci_hcd ohci_hcd.0: irq 11, io mem 0x400fd000
+hub 2-0:1.0: USB hub found
+hub 2-0:1.0: 2 ports detected
+Device ID is 1
+ohci_hcd ohci_hcd.1: OHCI Host Controller
+ohci_hcd ohci_hcd.1: new USB bus registered, assigned bus number 3
+ohci_hcd ohci_hcd.1: irq 12, io mem 0x400fe000
+hub 3-0:1.0: USB hub found
+hub 3-0:1.0: 2 ports detected
+NET: Registered protocol family 2
+IP route cache hash table entries: 256 (order: -2, 1024 bytes)
+TCP established hash table entries: 1024 (order: 0, 4096 bytes)
+TCP bind hash table entries: 1024 (order: 0, 4096 bytes)
+TCP: Hash tables configured (established 1024 bind 1024)
+TCP reno registered
+TCP bic registered
+NET: Registered protocol family 1
+NET: Registered protocol family 17
+NET: Registered protocol family 15
+VFS: Mounted root (jffs2 filesystem).
+Freeing init memory: 72K
+Starting Logging Services                               : [  OK  ]
+Starting Mounting and checking file systems             : [  OK  ]
+Starting Inserting USB/IP Modules                       : [  OK  ]
+Starting Network                                        : [  OK  ]
+Starting Device Manager                                 : [  OK  ]
+Starting USB/IP Broadcast                               : [  OK  ]
+Starting USB/IP Daemons                                 : [  OK  ]
+Starting Webserver                                      : [  OK  ]
+Starting POST                                           : [  OK  ]
+Starting FAQ                                            : [  OK  ]
+
+# cat /proc/cpuinfo
+Processor       : ARM926EJ-Sid(wb) rev 4 (v5l)
+BogoMIPS        : 87.24
+Features        : swp half thumb fastmult edsp java 
+CPU implementer : 0x41
+CPU architecture: 5TEJ
+CPU variant     : 0x0
+CPU part        : 0x926
+CPU revision    : 4
+Cache type      : write-back
+Cache clean     : cp15 c7 ops
+Cache lockdown  : format C
+Cache format    : Harvard
+I size          : 16384
+I assoc         : 4
+I line length   : 32
+I sets          : 128
+D size          : 16384
+D assoc         : 4
+D line length   : 32
+D sets          : 128
+
+Hardware        : Secure Communication Processor
+Revision        : 0000
+Serial          : 0000000000000000
+#  
+
+
+</code>
+</p>
+
+</div>
+
+<h3 class="sectionedit17" id="openwrt_bootlog">OpenWrt bootlog</h3>
+<div class="level3">
+
+<p style="padding: 10px;border:1px solid grey;height:600px;font:10px/14px Georgia, Garamond, Serif;overflow:Auto;background-color:#FFFFFF">
+<code>
+U-Boot 1.1.6 (Jul  9 2012 - 09:53:21)
+
+U-Boot code: 00E00000 -> 00E2B10C  BSS: -> 00E6FBFC
+IRQ Stack: 00f70bf8
+FIQ Stack: 00f71bf8
+SDRAM size       : 16 MB
+DRAM:  16 MB
+## Unknown FLASH on Bank 2 - Size = 0x00000000 = 0 MB
+Flash:  8 MB
+Using default environment
+
+In:    serial
+Out:   serial
+Err:   serial
+Eth0 address not set. Using default address: 00:0B:3B:00:00:01
+Hit any key to stop autoboot:  0 
+
+### Start autoupdate function via USB ###
+### This is USB autoupdate function ###
+## Booting image at 1c050000 ...
+## Copy image from flash 1c050000 to ram 00007fc0 ...
+   Image Name:   ARM OpenWrt Linux-3.3.8
+   Image Type:   ARM Linux Kernel Image (uncompressed)
+   Data Size:    800526 Bytes = 781.8 kB
+   Load Address: 00008000
+   Entry Point:  00008000
+   Verifying Checksum ... OK
+OK
+bootargs is root=/dev/mtdblock4 rootfstype=jffs2
+
+Starting kernel ...
+
+Uncompressing Linux... done, booting the kernel.
+[    0.000000] Booting Linux on physical CPU 0
+[    0.000000] Linux version 3.3.8 (dani@tool) (gcc version 4.6.3 20120201 (prerelease) (Linaro GCC 4.6-2012.02) ) #2 Thu Jan 23 14:30:13 CET 2014
+[    0.000000] CPU: ARM926EJ-S [41069264] revision 4 (ARMv5TEJ), cr=00053177
+[    0.000000] CPU: VIVT data cache, VIVT instruction cache
+[    0.000000] Machine: Moschip MCS8140 board, model: Devolo dLAN USB Extender
+[    0.000000] Memory policy: ECC disabled, Data cache writeback
+[    0.000000] CPU frequency: 175000 (kHz)
+[    0.000000] SDRAM frequency: 100 (MHz)
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping off.  Total pages: 4064
+[    0.000000] Kernel command line: earlyprintk mem=16M console=ttyS0,57600
+[    0.000000] PID hash table entries: 64 (order: -4, 256 bytes)
+[    0.000000] Dentry cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.000000] Inode-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.000000] Memory: 16MB = 16MB total
+[    0.000000] Memory: 13792k/13792k available, 2592k reserved, 0K highmem
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+[    0.000000]     vmalloc : 0xc1800000 - 0xff000000   ( 984 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xc1000000   (  16 MB)
+[    0.000000]     modules : 0xbf000000 - 0xc0000000   (  16 MB)
+[    0.000000]       .text : 0xc0008000 - 0xc0206000   (2040 kB)
+[    0.000000]       .init : 0xc0206000 - 0xc021e000   (  96 kB)
+[    0.000000]       .data : 0xc021e000 - 0xc022eb00   (  67 kB)
+[    0.000000]        .bss : 0xc022eb24 - 0xc0256e3c   ( 161 kB)
+[    0.000000] NR_IRQS:32
+[    0.000000] Timer frequency: 50000 (kHz)
+[    0.000000] Calibrating delay loop... 86.93 BogoMIPS (lpj=434688)
+[    0.090000] pid_max: default: 32768 minimum: 301
+[    0.090000] Mount-cache hash table entries: 512
+[    0.090000] CPU: Testing write buffer coherency: ok
+[    0.090000] Setting up static identity map for 0x1c4d18 - 0x1c4d54
+[    0.100000] NET: Registered protocol family 16
+[    0.120000] gpiochip_add: registered GPIOs 236 to 255 on device: 400d0000.gpio
+[    0.130000] gpiochip_add: registered GPIOs 232 to 235 on device: 400d4000.gpio
+[    0.150000] CPU mode: External MII
+[    0.180000] bio: create slab <bio-0> at 0
+[    0.220000] NET: Registered protocol family 2
+[    0.220000] IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.220000] TCP established hash table entries: 512 (order: 0, 4096 bytes)
+[    0.220000] TCP bind hash table entries: 512 (order: -1, 2048 bytes)
+[    0.220000] TCP: Hash tables configured (established 512 bind 512)
+[    0.220000] TCP reno registered
+[    0.220000] UDP hash table entries: 256 (order: 0, 4096 bytes)
+[    0.220000] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+[    0.230000] NET: Registered protocol family 1
+[    0.240000] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.240000] JFFS2 version 2.2 (NAND) (ZLIB) (LZO) (LZMA) (RTIME) (RUBIN) (CMODE_PRIORITY) (c) 2001-2006 Red Hat, Inc.
+[    0.240000] msgmni has been set to 26
+[    0.240000] io scheduler noop registered
+[    0.240000] io scheduler deadline registered (default)
+[    0.250000] Serial: 8250/16550 driver, 2 ports, IRQ sharing disabled
+[    0.250000] 400dc000.serial: ttyS0 at MMIO 0x400dc000 (irq = 21) is a 16550
+[    0.260000] console [ttyS0] enabled
+[    0.270000] mcs814x-rng 4009c000.rng: registered
+[    0.290000] 1c000000.flash: Found 1 x16 devices at 0x0 in 8-bit bank. Manufacturer ID 0x000020 Chip ID 0x00007e
+[    0.300000] Amd/Fujitsu Extended Query Table at 0x0040
+[    0.310000]   Amd/Fujitsu Extended Query version 1.3.
+[    0.320000] number of CFI chips: 1
+[    0.330000] 6 ofpart partitions found on MTD device 1c000000.flash
+[    0.340000] Creating 6 MTD partitions on "1c000000.flash":
+[    0.350000] 0x000000000000-0x000000030000 : "ArmBoot"
+[    0.370000] 0x000000030000-0x000000040000 : "Config1"
+[    0.390000] 0x000000040000-0x000000050000 : "Config2"
+[    0.410000] 0x000000050000-0x000000150000 : "kernel"
+[    0.430000] 0x000000150000-0x000000510000 : "rootfs"
+[    0.450000] mtd: partition "rootfs" set to be root filesystem
+[    0.460000] mtd: partition "rootfs_data" created automatically, ofs=2F0000, len=220000 
+[    0.470000] 0x0000002f0000-0x000000510000 : "rootfs_data"
+[    0.490000] 0x000000050000-0x000000510000 : "linux"
+[    0.520000] nuport-mac-mii: probed
+[    0.530000] nuport-mac 40084000.ethernet: attached PHY driver [Generic PHY] (mii_bus:phy_addr=8)
+[    0.540000] nuport-mac 40084000.ethernet: registered (MAC: 00:0b:3b:00:00:01)
+[    0.560000] TCP cubic registered
+[    0.570000] NET: Registered protocol family 17
+[    0.580000] NET: Registered protocol family 15
+[    0.610000] VFS: Mounted root (squashfs filesystem) readonly on device 31:4.
+[    0.620000] Freeing init memory: 96K
+- preinit -
+Press the [f] key and hit [enter] to enter failsafe mode
+- regular preinit -
+[   10.840000] JFFS2 notice: (315) jffs2_build_xattr_subsystem: complete building xattr subsystem, 1 of xdatum (0 unchecked, 0 orphan) and 3 of xref (0 dead, 0 orphan) found.
+switching to jffs2
+- init -
+
+Please press Enter to activate this console. [   12.590000] SCSI subsystem initialized
+[   13.170000] usbcore: registered new interface driver usbfs
+[   13.180000] usbcore: registered new interface driver hub
+[   13.200000] usbcore: registered new device driver usb
+[   13.900000] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[   13.910000] mcs814x-ehci 400fc000.ehci: MCS814X EHCI Host Controller
+[   13.920000] mcs814x-ehci 400fc000.ehci: new USB bus registered, assigned bus number 1
+[   13.960000] mcs814x-ehci 400fc000.ehci: irq 2, io mem 0x400fc000
+[   13.990000] mcs814x-ehci 400fc000.ehci: USB 0.0 started, EHCI 1.00
+[   14.000000] hub 1-0:1.0: USB hub found
+[   14.010000] hub 1-0:1.0: 4 ports detected
+[   14.020000] mcs814x-ehci 400fc000.ehci: added MCS814X EHCI driver
+[   14.130000] mcs814x-wdt 400f8014.watchdog: registered
+[   14.190000] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[   14.200000] mcs814x-ohci 400fd000.ohci: MCS814X OHCI
+[   14.210000] mcs814x-ohci 400fd000.ohci: new USB bus registered, assigned bus number 2
+[   14.220000] mcs814x-ohci 400fd000.ohci: irq 11, io mem 0x400fd000
+[   14.290000] hub 2-0:1.0: USB hub found
+[   14.300000] hub 2-0:1.0: 2 ports detected
+[   14.310000] mcs814x-ohci 400fe000.ohci: MCS814X OHCI
+[   14.320000] mcs814x-ohci 400fe000.ohci: new USB bus registered, assigned bus number 3
+[   14.330000] mcs814x-ohci 400fe000.ohci: irq 12, io mem 0x400fe000
+[   14.400000] hub 3-0:1.0: USB hub found
+[   14.410000] hub 3-0:1.0: 2 ports detected
+[   14.480000] usbcore: registered new interface driver usbserial
+[   14.500000] USB Serial support registered for generic
+[   14.510000] usbcore: registered new interface driver usbserial_generic
+[   14.520000] usbserial: USB Serial Driver core
+[   14.600000] Initializing USB Mass Storage driver...
+[   14.610000] usbcore: registered new interface driver usb-storage
+[   14.620000] USB Mass Storage support registered.
+[   14.710000] USB Serial support registered for FTDI USB Serial Device
+[   14.720000] usbcore: registered new interface driver ftdi_sio
+[   14.730000] ftdi_sio: v1.6.0:USB FTDI Serial Converters Driver
+[   20.480000] eth0: link UP - 0/half
+[   32.210000] Trying 100/FULL
+[   33.310000] eth0: link UP - 100/full
+
+
+
+BusyBox v1.19.4 (2014-01-23 13:44:22 CET) built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+ ATTITUDE ADJUSTMENT (Attitude Adjustment, r39154)
+ -----------------------------------------------------
+  * 1/4 oz Vodka      Pour all ingredients into mixing
+  * 1/4 oz Gin        tin with ice, strain into glass.
+  * 1/4 oz Amaretto
+  * 1/4 oz Triple sec
+  * 1/4 oz Peach schnapps
+  * 1/4 oz Sour mix
+  * 1 splash Cranberry juice
+ -----------------------------------------------------
+root@OpenWrt:/# 
+
+</code>
+</p>
+
+</div>
+
+<h2 class="sectionedit18" id="projects">Projects</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="../../doc/howto/devolo-stream-radio" class="wikilink1" title="doc:howto:devolo-stream-radio">Devolo streaming radio</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://23secure.com/wiki/doku.php?id=blog:openwrt:dlan_usb_extender" class="urlextern" title="http://23secure.com/wiki/doku.php?id=blog:openwrt:dlan_usb_extender"  rel="nofollow">USB-ethernet</a></div>
+</li>
+</ul>
+
+<p>
+Special thanks to <a href="http://www.devolo.com/" class="urlextern" title="http://www.devolo.com/"  rel="nofollow">Devolo</a> for donating this nice device to the OpenWrt community
+</p>
+
+</div>
+
+<h2 class="sectionedit19" id="tags">Tags</h2>
+<div class="level2">
+<div class="tags"><span>
+	<a href="../../tag/arm?do=showtag&amp;tag=ARM" class="wikilink1" title="tag:arm" rel="tag">ARM</a>,
+	<a href="../../tag/armv5?do=showtag&amp;tag=ARMv5" class="wikilink1" title="tag:armv5" rel="tag">ARMv5</a>,
+	<a href="../../tag/arm926ej-s?do=showtag&amp;tag=ARM926EJ-S" class="wikilink1" title="tag:arm926ej-s" rel="tag">ARM926EJ-S</a>,
+	<a href="../../tag/1nic?do=showtag&amp;tag=1NIC" class="wikilink1" title="tag:1nic" rel="tag">1NIC</a>,
+	<a href="../../tag/no_switch?do=showtag&amp;tag=no_switch" class="wikilink1" title="tag:no_switch" rel="tag">no switch</a>,
+	<a href="../../tag/usb?do=showtag&amp;tag=USB" class="wikilink1" title="tag:usb" rel="tag">USB</a>,
+	<a href="../../tag/16ram?do=showtag&amp;tag=16RAM" class="wikilink1" title="tag:16ram" rel="tag">16RAM</a>,
+	<a href="../../tag/8flash?do=showtag&amp;tag=8Flash" class="wikilink1" title="tag:8flash" rel="tag">8Flash</a>
+</span></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>toh/devolo/dlan-usb-extender.txt</bdi> · Last modified: 2014/04/24 14:23 (external edit)</div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="dlan-usb-extender?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="dlan-usb-extender?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="dlan-usb-extender?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="dlan-usb-extender#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=toh%253Adevolo%253Adlan-usb-extender&amp;1432276528" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

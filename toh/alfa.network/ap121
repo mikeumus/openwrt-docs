@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>ALFA Network AP121 [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="fastethernet,2nic,1wnic,devboard,ar9331,no switch,serial,802.11bgn,1ant,integrated,32ram,8flash,mips,mips32,24k,ap121,ar7240,ath9k"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="ap121?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=toh:alfa.network"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/toh/alfa.network/ap121"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/toh/alfa.network/ap121"/>
+<link rel="canonical" href="ap121"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='toh:alfa.network';var JSINFO = {"id":"toh:alfa.network:ap121","namespace":"toh:alfa.network"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267596 166.182.3.170';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="ap121#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="ap121?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="ap121?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="toh:alfa.network:ap121" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="ap121?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="ap121?do=media&amp;ns=toh%253Aalfa.network"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="ap121?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="toh:start">Table of Hardware</a></bdi> » <bdi><a href="start" class="wikilink1" title="toh:alfa.network:start">ALFA Network</a></bdi> » <bdi><span class="curid"><a href="ap121" class="wikilink1" title="toh:alfa.network:ap121">ALFA Network AP121</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/toh/alfa.network/ap121" class="media" title="cz:toh:alfa.network:ap121"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/toh/alfa.network/ap121" class="media" title="de:toh:alfa.network:ap121"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="ap121" class="media" title="toh:alfa.network:ap121"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/toh/alfa.network/ap121" class="media" title="es:toh:alfa.network:ap121"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/toh/alfa.network/ap121" class="media" title="fr:toh:alfa.network:ap121"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/toh/alfa.network/ap121" class="media" title="hu:toh:alfa.network:ap121"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/toh/alfa.network/ap121" class="media" title="jp:toh:alfa.network:ap121"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/toh/alfa.network/ap121" class="media" title="pl:toh:alfa.network:ap121"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/toh/alfa.network/ap121" class="media" title="pt-br:toh:alfa.network:ap121"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/toh/alfa.network/ap121" class="media" title="ru:toh:alfa.network:ap121"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/toh/alfa.network/ap121" class="media" title="tr:toh:alfa.network:ap121"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/toh/alfa.network/ap121" class="media" title="zh-cn:toh:alfa.network:ap121"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/toh/alfa.network/ap121" class="media" title="zh-tw:toh:alfa.network:ap121"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>toh:alfa.network:ap121</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="ap121#supported_versions">Supported Versions</a></div></li>
+<li class="level1"><div class="li"><a href="ap121#hardware_highlights">Hardware Highlights</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="ap121#extra_info">Extra info</a></div></li>
+<li class="level2"><div class="li"><a href="ap121#bootlog">Bootlog</a></div></li>
+<li class="level2"><div class="li"><a href="ap121#tags">Tags</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="alfa_network_ap121">ALFA Network AP121</h1>
+<div class="level1">
+
+<p>
+For a detailed description see <a href="hornet-ub" class="wikilink1" title="toh:alfa.network:hornet-ub">Hornet-UB</a>. The Hornet UB is the baseboard of the AP121U, which is the AP121 with an USB jack.
+</p>
+
+<p>
+The AP121 design is very similar to the Atheros AP121 reference design which is the base design of many routers. See AP121 tag below.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="supported_versions">Supported Versions</h2>
+<div class="level2">
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Version/Model </th><th class="col1"> Launch Date </th><th class="col2"> S/N </th><th class="col3"> OpenWrt Version Supported </th><th class="col4"> Model Specific Notes </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> v1   </td><td class="col1 centeralign">  2012-01  </td><td class="col2"> - </td><td class="col3"> Trunk <a href="https://dev.openwrt.org/changeset/29637/trunk" class="urlextern" title="https://dev.openwrt.org/changeset/29637/trunk"  rel="nofollow">R29637</a> </td><td class="col4"> AR9331 chipset </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> RO1 (?)   </td><td class="col1 centeralign">  ?  </td><td class="col2"> 1349AP12100012 Case, 1204HAP0004122 Board </td><td class="col3"> Stable 12.09 &quot;Attitude Adjustment&quot; 2013-04-25 r36088 </td><td class="col4"> AR9331 chipset </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit4" id="hardware_highlights">Hardware Highlights</h2>
+<div class="level2">
+<div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> CPU </th><th class="col1"> Ram </th><th class="col2"> Flash </th><th class="col3"> Network </th><th class="col4"> USB </th><th class="col5"> Serial </th><th class="col6"> JTag </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> Atheros AR9331@400MHz </td><td class="col1"> 32MiB </td><td class="col2"> 8MiB </td><td class="col3"> 2x 100Mbit </td><td class="col4"> Yes </td><td class="col5"> Yes </td><td class="col6"> ? </td>
+	</tr>
+</table></div>
+<ul>
+<li class="level1"><div class="li"> SoC: Atheros AR9331 rev 1</div>
+</li>
+<li class="level1"><div class="li"> 802.11 b/g/n 150Mbps</div>
+</li>
+<li class="level1"><div class="li"> 2x Ethernet ports 1 with PoE (Power over Ethernet)</div>
+</li>
+<li class="level1"><div class="li"> Powered via 12V or 5V type M barrel connector (though power to the USB port can be marginal with only 5V system input)</div>
+</li>
+<li class="level1"><div class="li"> Tiny form factor</div>
+<ul>
+<li class="level2"><div class="li"> 8.5cm x 6cm PCB</div>
+</li>
+<li class="level2"><div class="li"> 9.3cm x 7cm x 2.6cm casing</div>
+</li>
+<li class="level2"><div class="li"> weight 74g</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit6" id="extra_info">Extra info</h3>
+<div class="level3">
+<div class="table sectionedit7"><table class="inline">
+	<tr class="row0">
+		<td class="col0 leftalign"> <strong><a href="http://en.wikipedia.org/wiki/Instruction set" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Instruction set">Architecture</a>:</strong>    </td><td class="col1 leftalign"> <a href="http://en.wikipedia.org/wiki/MIPS architecture" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/MIPS architecture">MIPS</a>  </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 leftalign"> <strong>Vendor:</strong>          </td><td class="col1"> <a href="http://en.wikipedia.org/wiki/Qualcomm Atheros" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Qualcomm Atheros">Qualcomm Atheros</a> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <strong><a href="../../doc/techref/bootloader.1" class="wikilink1" title="doc:techref:bootloader">Bootloader</a>:</strong>     </td><td class="col1"> <a href="../../doc/techref/bootloader/uboot" class="wikilink1" title="doc:techref:bootloader:uboot">U-Boot</a> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/soc.1" class="wikilink1" title="doc:hardware:soc">System-On-Chip</a>:</strong>  </td><td class="col1"> Atheros AR9331 (MIPS 24Kc V7.4) </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/cpu" class="wikilink1" title="doc:hardware:cpu">CPU</a>/Speed</strong>        </td><td class="col1"> 400 Mhz </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> <strong>BogoMIPS</strong>         </td><td class="col1"> 265.42 </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> <strong>Flash-Chip:</strong>      </td><td class="col1"> mx25l6405d </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> <strong>Flash size:</strong>      </td><td class="col1"> 8 MiB </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> <strong>RAM:</strong>             </td><td class="col1 leftalign"> 32 MiB   </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> <strong>Wireless:</strong>        </td><td class="col1"> Atheros AR9330 </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> <strong>Ethernet:</strong>        </td><td class="col1"> Atheros AG71xx </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> <strong>USB:</strong>             </td><td class="col1 centeralign">  -   </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> <strong><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console" class="wikilink1" title="doc:hardware:port.serial">Serial</a>:</strong>   </td><td class="col1"> <a href="ap121#serial" title="toh:alfa.network:ap121 ↵" class="wikilink1">Yes</a> </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/port.jtag" class="wikilink1" title="doc:hardware:port.jtag">JTAG</a>:</strong>       </td><td class="col1 leftalign"> <a href="ap121#jtag" title="toh:alfa.network:ap121 ↵" class="wikilink1">?</a>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit8" id="bootlog">Bootlog</h3>
+<div class="level3">
+
+<p>
+For comparing with other routers based on AP121 design (i.e. TP-Link) the complete bootlog:
+</p>
+
+<p>
+<pre class="code">AP121-8MB (ar9331) U-boot
+DRAM:  32 MB
+Top of RAM usable for U-Boot at: 82000000
+Reserving 248k for U-Boot at: 81fc0000
+Reserving 192k for malloc() at: 81f90000
+Reserving 44 Bytes for Board Info at: 81f8ffd4
+Reserving 36 Bytes for Global Data at: 81f8ffb0
+Reserving 128k for boot params() at: 81f6ffb0
+Stack Pointer at: 81f6ff98
+Now running in RAM - U-Boot at: 81fc0000
+id read 0x100000ff
+flash size 8388608, sector count = 128
+Flash:  8 MB
+In:    serial
+Out:   serial
+Err:   serial
+Net:   ag7240_enet_initialize...
+Fetching MAC Address from 0x81feb688
+Fetching MAC Address from 0x81feb688
+: cfg1 0x5 cfg2 0x7114
+eth0: 00:c0:ca:67:2c:c9
+eth0 up
+: cfg1 0xf cfg2 0x7214
+eth1: 00:c0:ca:67:2c:c8
+athrs26_reg_init_lan
+ATHRS26: resetting s26
+ATHRS26: s26 reset done
+eth1 up
+eth0, eth1
+
+Please choose the operation:
+   1: Entr boot command line interface.
+   2: Load system code then write to Flash via TFTP.
+   3: Boot system code via Flash (default).
+
+You choosed
+                                                                          0
+
+
+ System Boot system code via Flash.
+## Booting image at 9f650000 ...
+   Image Name:   Linux Kernel Image
+   Created:      2012-07-31   6:25:27 UTC
+   Image Type:   MIPS Linux Kernel Image (lzma compressed)
+   Data Size:    1390190 Bytes =  1.3 MB
+   Load Address: 80002000
+   Entry Point:  8030c560
+   Verifying Checksum at 0x9f650040 ...OK
+   Uncompressing Kernel Image ... OK
+No initrd
+## Transferring control to Linux (at address 8030c560) ...
+## Giving linux memsize in bytes, 33554432
+
+Starting kernel ...
+
+Booting AR9330(Hornet)...
+Linux version 2.6.31--LSDK-9.2.0_U10.1020 (elvis@elvis-CentOS) (gcc version 4.3.3 (GCC) ) #1 Tue Jul 31 14:25:09 CST 2012
+flash_size passed from bootloader = 8
+arg 1: console=ttyS0,115200
+arg 2: root=31:02
+arg 3: init=/sbin/init
+arg 4: mtdparts=ar7240-nor0:256k(u-boot),64k(u-boot-env),6144k(rootfs),1600k(uImage),64k(NVRAM),64k(ART)
+arg 5: python
+arg 6: mem=32M
+CPU revision is: 00019374 (MIPS 24Kc)
+Determined physical RAM map:
+ memory: 02000000 @ 00000000 (usable)
+User-defined physical RAM map:
+ memory: 02000000 @ 00000000 (usable)
+Zone PFN ranges:
+  Normal   0x00000000 -&gt; 0x00002000
+Movable zone start PFN for each node
+early_node_map[1] active PFN ranges
+    0: 0x00000000 -&gt; 0x00002000
+Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 8128
+Kernel command line: console=ttyS0,115200 root=31:02 init=/sbin/init mtdparts=ar7240-nor0:256k(u-boot),64k(u-boot-env),6144k(rootfs),1600k(uImage),64k(NVRAM),64k(ART) python mem=32M
+PID hash table entries: 128 (order: 7, 512 bytes)
+Dentry cache hash table entries: 4096 (order: 2, 16384 bytes)
+Inode-cache hash table entries: 2048 (order: 1, 8192 bytes)
+Primary instruction cache 64kB, VIPT, 4-way, linesize 32 bytes.
+Primary data cache 32kB, 4-way, VIPT, cache aliases, linesize 32 bytes
+Writing ErrCtl register=00000000
+Readback ErrCtl register=00000000
+Memory: 28312k/32768k available (3130k kernel code, 4456k reserved, 747k data, 164k init, 0k highmem)
+NR_IRQS:128
+plat_time_init: plat time init done
+Calibrating delay loop... 266.24 BogoMIPS (lpj=532480)
+Mount-cache hash table entries: 512
+NET: Registered protocol family 16
+===== ar7240_platform_init: 0
+bio: create slab &lt;bio-0&gt; at 0
+SCSI subsystem initialized
+NET: Registered protocol family 2
+IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+TCP established hash table entries: 1024 (order: 1, 8192 bytes)
+TCP bind hash table entries: 1024 (order: 0, 4096 bytes)
+TCP: Hash tables configured (established 1024 bind 1024)
+TCP reno registered
+NET: Registered protocol family 1
+AR7240 GPIOC major 0
+squashfs: version 4.0 (2009/01/31) Phillip Lougher
+JFFS2 version 2.2 (ZLIB) (RTIME) (c) 2001-2006 Red Hat, Inc.
+fuse init (API version 7.12)
+msgmni has been set to 55
+alg: No test for lzma (lzma-generic)
+alg: No test for stdrng (krng)
+Block layer SCSI generic (bsg) driver version 0.4 loaded (major 254)
+io scheduler noop registered
+io scheduler deadline registered (default)
+HDLC line discipline maxframe=4096
+N_HDLC line discipline registered.
+Serial: 8250/16550 driver, 1 ports, IRQ sharing disabled
+ttyS0: detected caps 00000000 should be 00000100
+serial8250.0: ttyS0 at MMIO 0xb8020000 (irq = 19) is a 16550A
+console [ttyS0] enabled
+brd: module loaded
+PPP generic driver version 2.4.2
+PPP Deflate Compression module registered
+PPP BSD Compression module registered
+PPP MPPE Compression module registered
+NET: Registered protocol family 24
+PPPoL2TP kernel driver, V1.0
+IMQ driver loaded successfully.
+        Hooking IMQ before NAT on PREROUTING.
+        Hooking IMQ after NAT on POSTROUTING.
+ATHR_GMAC: Length per segment 1536
+ATHR_GMAC: fifo cfg 3 01f00140
+ATHR_GMAC: Mac address for unit 0
+ATHR_GMAC: 00:c0:ca:67:2c:c9
+ATHR_GMAC: Max segments per packet :   1
+ATHR_GMAC: Max tx descriptor count :   40
+ATHR_GMAC: Max rx descriptor count :   252
+ATHR_GMAC: Mac capability flags    :   4201
+ATHR_GMAC: Mac address for unit 1
+ATHR_GMAC: 00:c0:ca:67:2c:c8
+ATHR_GMAC: Max segments per packet :   1
+ATHR_GMAC: Max tx descriptor count :   40
+ATHR_GMAC: Max rx descriptor count :   252
+ATHR_GMAC: Mac capability flags    :   4C81
+6 cmdlinepart partitions found on MTD device ar7240-nor0
+Creating 6 MTD partitions on &quot;ar7240-nor0&quot;:
+0x000000000000-0x000000040000 : &quot;u-boot&quot;
+0x000000040000-0x000000050000 : &quot;u-boot-env&quot;
+0x000000050000-0x000000650000 : &quot;rootfs&quot;
+0x000000650000-0x0000007e0000 : &quot;uImage&quot;
+0x0000007e0000-0x0000007f0000 : &quot;NVRAM&quot;
+0x0000007f0000-0x000000800000 : &quot;ART&quot;
+NET: Registered protocol family 26
+GACT probability on
+Mirror/redirect action on
+netem: version 1.2
+u32 classifier
+    Performance counters on
+    input device check on
+    Actions configured
+Netfilter messages via NETLINK v0.30.
+nf_conntrack version 0.5.0 (512 buckets, 2048 max)
+CONFIG_NF_CT_ACCT is deprecated and will be removed soon. Please use
+nf_conntrack.acct=1 kernel parameter, acct=1 nf_conntrack module option or
+sysctl net.netfilter.nf_conntrack_acct=1 to enable it.
+ctnetlink v0.93: registering with nfnetlink.
+xt_time: kernel timezone is -0000
+IPv4 over IPv4 tunneling driver
+ip_tables: (C) 2000-2006 Netfilter Core Team
+arp_tables: (C) 2002 David S. Miller
+TCP bic registered
+TCP cubic registered
+TCP westwood registered
+TCP htcp registered
+NET: Registered protocol family 10
+IPv6 over IPv4 tunneling driver
+NET: Registered protocol family 17
+Bridge firewalling registered
+RPC: Registered udp transport module.
+RPC: Registered tcp transport module.
+802.1Q VLAN Support v1.8 Ben Greear &lt;greearb@candelatech.com&gt;
+All bugs added by David S. Miller &lt;davem@redhat.com&gt;
+arch/mips/ar7240/gpio_ap121.c (ar7240_simple_config_init) AP_RESET_GPIO: 12
+arch/mips/ar7240/gpio_ap121.c (ar7240_simple_config_init) JUMPSTART_GPIO: 11
+ar7240wdt_init: Registering WDT success
+VFS: Mounted root (squashfs filesystem) readonly on device 31:2.
+Freeing unused kernel memory: 164k freed
+athr_gmac_ring_alloc Allocated 640 at 0x81de7000
+athr_gmac_ring_alloc Allocated 4032 at 0x81def000
+Setting Drop CRC Errors, Pause Frames and Length Error frames
+Setting PHY...
+ADDRCONF(NETDEV_UP): eth0: link is not ready
+athr_gmac_ring_alloc Allocated 640 at 0x81de7400
+athr_gmac_ring_alloc Allocated 4032 at 0x81e88000
+Setting Drop CRC Errors, Pause Frames and Length Error frames
+ATHRS26: resetting s26
+ATHRS26: s26 reset done
+Setting PHY...
+ADDRCONF(NETDEV_UP): eth1: link is not ready
+ar7240wdt_ioctl: called
+**** drop_caches_sysctl_handler: all done timer added ...****
+device eth1 entered promiscuous mode
+br0: starting userspace STP failed, starting kernel STP
+Args: 1
+asf: module license &#039;Proprietary&#039; taints kernel.
+Disabling lock debugging due to kernel taint
+ath_hal: 0.9.17.1 (AR9380, DEBUG, REGOPS_FUNC, WRITE_EEPROM, 11D)
+ath_rate_atheros: Copyright (c) 2001-2005 Atheros Communications, Inc, All Rights Reserved
+ath_dev: Copyright (c) 2001-2007 Atheros Communications, Inc, All Rights Reserved
+ath_ahb: 9.2.0_U10.1020 (Atheros/multi-bss)
+__ath_attach: Set global_scn[0]
+ACBKMinfree = 48
+ACBEMinfree = 32
+ACVIMinfree = 16
+ACVOMinfree = 0
+CABMinfree = 48
+UAPSDMinfree = 0
+Bootstrap clock 25MHz
+ar9300RadioAttach: Need analog access recipe!!
+Restoring Cal data from Flash
+ath_get_caps[5105] rx chainmask mismatch actual 1 sc_chainmak 0
+ath_get_caps[5080] tx chainmask mismatch actual 1 sc_chainmak 0
+SC Callback Registration for wifi0
+wifi0: Atheros 9380: mem=0xb8100000, irq=2
+Creating ap for Blackbird on
+wlan_vap_create : enter. devhandle=0x815782c0, opmode=IEEE80211_M_HOSTAP, flags=0x1
+wlan_vap_create : exit. devhandle=0x815782c0, opmode=IEEE80211_M_HOSTAP, flags=0x1.
+VAP device ath0 created
+Added ath0 mode master
+Configuring RF . . .
+
+ DES SSID SET=Blackbird
+ ieee80211_ioctl_siwmode: imr.ifm_active=131712, new mode=3, valid=1
+Created ath0 mode ap for Blackbird
+device ath0 entered promiscuous mode
+br0: topology change detected, propagating
+br0: port 2(ath0) entering forwarding state
+ARPING to 192.168.2.1 from 192.168.2.1 via br0
+Sent 1 probe(s) (1 broadcast(s))
+Received 0 reply (0 request(s), 0 broadcast(s))
+&gt;&gt;&gt;&gt;&gt; WPS MODE, 0
+CHH: System Configuration
+ ieee80211_ioctl_siwmode: imr.ifm_active=393856, new mode=3, valid=1
+br0: port 2(ath0) entering disabled state
+ DEVICE IS DOWN ifname=ath0
+ DEVICE IS DOWN ifname=ath0
+br0: topology change detected, propagating
+br0: port 2(ath0) entering forwarding state
+Setting Max Stations:127
+
+ ALFA mips #1 Tue Jul 31 14:25:09 CST 2012 (none)
+ALFA login:</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="tags">Tags</h3>
+<div class="level3">
+<div class="tags"><span>
+	<a href="../../tag/fastethernet?do=showtag&amp;tag=FastEthernet" class="wikilink1" title="tag:fastethernet" rel="tag">FastEthernet</a>,
+	<a href="../../tag/2nic?do=showtag&amp;tag=2NIC" class="wikilink1" title="tag:2nic" rel="tag">2NIC</a>,
+	<a href="../../tag/1wnic?do=showtag&amp;tag=1WNIC" class="wikilink1" title="tag:1wnic" rel="tag">1WNIC</a>,
+	<a href="../../tag/devboard?do=showtag&amp;tag=DevBoard" class="wikilink1" title="tag:devboard" rel="tag">DevBoard</a>,
+	<a href="../../tag/ar9331?do=showtag&amp;tag=ar9331" class="wikilink1" title="tag:ar9331" rel="tag">ar9331</a>,
+	<a href="../../tag/no_switch?do=showtag&amp;tag=no_switch" class="wikilink1" title="tag:no_switch" rel="tag">no switch</a>,
+	<a href="../../tag/serial?do=showtag&amp;tag=Serial" class="wikilink1" title="tag:serial" rel="tag">Serial</a>,
+	<a href="../../tag/802.11bgn?do=showtag&amp;tag=802.11bgn" class="wikilink1" title="tag:802.11bgn" rel="tag">802.11bgn</a>,
+	<a href="../../tag/1ant?do=showtag&amp;tag=1Ant" class="wikilink1" title="tag:1ant" rel="tag">1Ant</a>,
+	<a href="../../tag/integrated?do=showtag&amp;tag=integrated" class="wikilink1" title="tag:integrated" rel="tag">integrated</a>,
+	<a href="../../tag/32ram?do=showtag&amp;tag=32RAM" class="wikilink1" title="tag:32ram" rel="tag">32RAM</a>,
+	<a href="../../tag/8flash?do=showtag&amp;tag=8Flash" class="wikilink1" title="tag:8flash" rel="tag">8Flash</a>,
+	<a href="../../tag/mips?do=showtag&amp;tag=MIPS" class="wikilink1" title="tag:mips" rel="tag">MIPS</a>,
+	<a href="../../tag/mips32?do=showtag&amp;tag=MIPS32" class="wikilink1" title="tag:mips32" rel="tag">MIPS32</a>,
+	<a href="../../tag/24k?do=showtag&amp;tag=24k" class="wikilink1" title="tag:24k" rel="tag">24k</a>,
+	<a href="../../tag/ap121?do=showtag&amp;tag=AP121" class="wikilink1" title="tag:ap121" rel="tag">AP121</a>,
+	<a href="../../tag/ar7240?do=showtag&amp;tag=AR7240" class="wikilink1" title="tag:ar7240" rel="tag">AR7240</a>,
+	<a href="../../tag/ar9331?do=showtag&amp;tag=AR9331" class="wikilink1" title="tag:ar9331" rel="tag">AR9331</a>,
+	<a href="../../tag/ath9k?do=showtag&amp;tag=ath9k" class="wikilink1" title="tag:ath9k" rel="tag">ath9k</a>
+</span></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>toh/alfa.network/ap121.txt</bdi> · Last modified: 2013/11/03 12:26 (external edit)</div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="ap121?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="ap121?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="ap121?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="ap121#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=toh%253Aalfa.network%253Aap121&amp;1432267596" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

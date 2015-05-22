@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Ubiquiti NanoStation 2 [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="fastethernet,1nic,1wnic,no switch,poe,jtag,serial,802.11bg,internalantenna,16ram,4flash,outdoor,32ram,8flash"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="nanostation?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=toh:ubiquiti"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/toh/ubiquiti/nanostation"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/toh/ubiquiti/nanostation"/>
+<link rel="canonical" href="nanostation"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='toh:ubiquiti';var JSINFO = {"id":"toh:ubiquiti:nanostation","namespace":"toh:ubiquiti"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266262 166.182.3.99';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="nanostation#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="nanostation?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="nanostation?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="toh:ubiquiti:nanostation" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="nanostation?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="nanostation?do=media&amp;ns=toh%253Aubiquiti"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="nanostation?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="toh:start">Table of Hardware</a></bdi> » <bdi><a href="start" class="wikilink1" title="toh:ubiquiti:start">Ubiquiti</a></bdi> » <bdi><span class="curid"><a href="nanostation" class="wikilink1" title="toh:ubiquiti:nanostation">Ubiquiti NanoStation 2</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/toh/ubiquiti/nanostation" class="media" title="cz:toh:ubiquiti:nanostation"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/toh/ubiquiti/nanostation" class="media" title="de:toh:ubiquiti:nanostation"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="nanostation" class="media" title="toh:ubiquiti:nanostation"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/toh/ubiquiti/nanostation" class="media" title="es:toh:ubiquiti:nanostation"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/toh/ubiquiti/nanostation" class="media" title="fr:toh:ubiquiti:nanostation"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/toh/ubiquiti/nanostation" class="media" title="hu:toh:ubiquiti:nanostation"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/toh/ubiquiti/nanostation" class="media" title="jp:toh:ubiquiti:nanostation"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/toh/ubiquiti/nanostation" class="media" title="pl:toh:ubiquiti:nanostation"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/toh/ubiquiti/nanostation" class="media" title="pt-br:toh:ubiquiti:nanostation"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/toh/ubiquiti/nanostation" class="media" title="ru:toh:ubiquiti:nanostation"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/toh/ubiquiti/nanostation" class="media" title="tr:toh:ubiquiti:nanostation"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/toh/ubiquiti/nanostation" class="media" title="zh-cn:toh:ubiquiti:nanostation"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/toh/ubiquiti/nanostation" class="media" title="zh-tw:toh:ubiquiti:nanostation"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>toh:ubiquiti:nanostation</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="nanostation#hardware">Hardware</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="nanostation#info">Info</a></div></li>
+<li class="level2"><div class="li"><a href="nanostation#opening_the_case">Opening the case</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="nanostation#serial">Serial</a></div></li>
+<li class="level1"><div class="li"><a href="nanostation#jtag">JTAG</a></div></li>
+<li class="level1"><div class="li"><a href="nanostation#jtag_and_serial_headers">JTAG and Serial Headers</a></div></li>
+<li class="level1"><div class="li"><a href="nanostation#openwrt">OpenWrt</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="nanostation#installing">Installing</a></div></li>
+<li class="level2"><div class="li"><a href="nanostation#upgrading">Upgrading</a></div></li>
+<li class="level2"><div class="li"><a href="nanostation#loading_via_tftp">Loading via tftp</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="nanostation#requirements">Requirements</a></div></li>
+<li class="level3"><div class="li"><a href="nanostation#procedure">Procedure</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="nanostation#restore_original_airos_firmware_on_nanostation">Restore Original AirOS firmware on Nanostation</a></div></li>
+<li class="level2"><div class="li"><a href="nanostation#wifi_failure_632nd_bit">wifi failure, 632nd bit</a></div></li>
+<li class="level2"><div class="li"><a href="nanostation#switching_antenna">Switching antenna</a></div></li>
+<li class="level2"><div class="li"><a href="nanostation#oem_bootlog">OEM bootlog</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="nanostation#tags">Tags</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="ubiquiti_nanostation_2">Ubiquiti NanoStation 2</h1>
+<div class="level1">
+
+<p>
+<strong>NanoStation2, NanoStation Loco2, LiteStation 2 and PicoStation 2</strong>
+</p>
+
+<p>
+The following devices are not NanoStations but these devices use the same image as well. They most probably <strong>require snapshot builds</strong>.
+</p>
+<ul>
+<li class="level1"><div class="li"> LiteStation 2 - uses openwrt-atheros-ubnt2-squashfs.bin . Steps for flashing are the same as NanoStation2</div>
+</li>
+</ul>
+
+<p>
+Models of the Ubiquiti NanoStation family are quite similar to each other so the same images and instructions can be used for the listed devices.
+</p>
+
+<p>
+Datasheets for all models are available from Ubiquiti.
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://www.ubnt.com/downloads/ns2_datasheet.pdf" class="urlextern" title="http://www.ubnt.com/downloads/ns2_datasheet.pdf"  rel="nofollow">NanoStation 2</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.ubnt.com/downloads/loco2_datasheet.pdf" class="urlextern" title="http://www.ubnt.com/downloads/loco2_datasheet.pdf"  rel="nofollow">NanoStation Loco2</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.ubnt.com/downloads/ls2_datasheet.pdf" class="urlextern" title="http://www.ubnt.com/downloads/ls2_datasheet.pdf"  rel="nofollow">LiteStation 2</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.ubnt.com/downloads/ps2_datasheet.pdf" class="urlextern" title="http://www.ubnt.com/downloads/ps2_datasheet.pdf"  rel="nofollow">PicoStation 2</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://dl.ubnt.com/wiki/UBNT-AOS_prod-specs-gen_5.pdf" class="urlextern" title="http://dl.ubnt.com/wiki/UBNT-AOS_prod-specs-gen_5.pdf"  rel="nofollow">Ubiquiti AirOS-based general product specs</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit2" id="hardware">Hardware</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit3" id="info">Info</h3>
+<div class="level3">
+<div class="table sectionedit4"><table class="inline">
+	<tr class="row0">
+		<td class="col0 leftalign"> <strong><a href="http://en.wikipedia.org/wiki/Instruction set" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Instruction set">Instruction set</a>:</strong>               </td><td class="col1"> <a href="http://en.wikipedia.org/wiki/MIPS architecture" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/MIPS architecture">MIPS</a> </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 leftalign"> <strong>Vendor:</strong>                               </td><td class="col1"> <a href="http://en.wikipedia.org/wiki/Qualcomm Atheros" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Qualcomm Atheros">Qualcomm Atheros</a> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <strong><a href="../../doc/techref/bootloader.1" class="wikilink1" title="doc:techref:bootloader">Bootloader</a>:</strong>           </td><td class="col1"> <a href="../../doc/techref/bootloader/redboot" class="wikilink1" title="doc:techref:bootloader:redboot">RedBoot</a> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/soc.1" class="wikilink1" title="doc:hardware:soc">System-On-Chip</a>:</strong>  </td><td class="col1"> Atheros AR2315 </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/cpu" class="wikilink1" title="doc:hardware:cpu">CPU</a> @Frq</strong>         </td><td class="col1"> MIPS 4Kc @180MHz </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> <strong>Flash size:</strong>                 </td><td class="col1"> 4 MiB</td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> <strong>Flash Chip:</strong>                 </td><td class="col1"> ST 25P32V6P </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> <strong>RAM size:</strong>                   </td><td class="col1 leftalign"> 16 MiB   </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> <strong>RAM Chip:</strong>                   </td><td class="col1"> ISSI IS42S1680A-7TL / SDR-100 </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> <strong>Wireless:</strong>               </td><td class="col1 leftalign"> <em>SoC-integrated</em>: Atheros 802.11b/g (400mW)  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> <strong>Ethernet:</strong>    </td><td class="col1 leftalign"> 1 port connected to the CPU  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> <strong>USB:</strong>                        </td><td class="col1 leftalign"> No  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0"> <strong>Power:</strong> </td><td class="col1"> passive POE (pairs 4,5+; 7,8 return) 12 to 24 VDC (POE injector included in the package) </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> <strong><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console" class="wikilink1" title="doc:hardware:port.serial">Serial</a>:</strong>  </td><td class="col1"> <a href="nanostation#serial" title="toh:ubiquiti:nanostation ↵" class="wikilink1">Yes</a> </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 leftalign"> <strong><a href="../../doc/hardware/port.jtag" class="wikilink1" title="doc:hardware:port.jtag">JTAG</a>:</strong>      </td><td class="col1 leftalign"> <a href="nanostation#jtag" title="toh:ubiquiti:nanostation ↵" class="wikilink1">Yes</a>   </td>
+	</tr>
+</table></div>
+
+<p>
+This device is an integrated wifi spot designed to be used outdoor. With Ubiquiti Firmware, AirOS 3 actually, it can act as station, station WDS, client, client wds… There is a dual patch antenna system able to work in vertical or horizontal polarity, or to send RF to an external RP-SMA female or SMA female connector (depending of date of manufacturing) - This feature is software selectable with AirOS.
+</p>
+
+<p>
+<a href="http://ubnt.com/downloads/press_nano.jpg" class="urlextern" title="http://ubnt.com/downloads/press_nano.jpg"  rel="nofollow">http://ubnt.com/downloads/press_nano.jpg</a>
+</p>
+<ul>
+<li class="level1"><div class="li"> The Nanostation comes with a 12V power supply, the internal DC-Converter seems to be realized with a AP1510 PWM Control 3A Step-Down Converter. This can handle up to 23V. (untested)</div>
+</li>
+</ul>
+
+<p>
+also, hardware partically compatibility with <a href="../tp-link/tl-wa5210g" class="wikilink1" title="toh:tp-link:tl-wa5210g">TP-Link TL-WA5210G</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="opening_the_case">Opening the case</h3>
+<div class="level3">
+
+<p>
+There are two screws under the label on the back. The newer M2 and M5 versions have just one screw under the label and two plastic pins that can be lifted out of their holes by pushing a plastic cable tie end next to them.  After removing these, the board can be removed.
+</p>
+
+<p>
+<a href="../../_detail/oldwiki/openwrtdocs/hardware/ubiquiti/unscrewed_ns2.jpg?id=toh%253Aubiquiti%253Ananostation" class="media" title="oldwiki:openwrtdocs:hardware:ubiquiti:unscrewed_ns2.jpg"><img src="../../_media/oldwiki/openwrtdocs/hardware/ubiquiti/unscrewed_ns2.jpg" class="media" title="unscrewed_ns2.jpg" alt="unscrewed_ns2.jpg" /></a>
+</p>
+
+<p>
+<a href="../../_detail/oldwiki/openwrtdocs/hardware/ubiquiti/opening_ns2.jpg?id=toh%253Aubiquiti%253Ananostation" class="media" title="oldwiki:openwrtdocs:hardware:ubiquiti:opening_ns2.jpg"><img src="../../_media/oldwiki/openwrtdocs/hardware/ubiquiti/opening_ns2.jpg" class="media" title="opening_ns2.jpg" alt="opening_ns2.jpg" /></a>
+</p>
+
+<p>
+NanoStation Loco 2 :
+</p>
+
+<p>
+<a href="../../_detail/oldwiki/openwrtdocs/hardware/ubiquiti/serial_ns2.jpg?id=toh%253Aubiquiti%253Ananostation" class="media" title="oldwiki:openwrtdocs:hardware:ubiquiti:serial_ns2.jpg"><img src="../../_media/oldwiki/openwrtdocs/hardware/ubiquiti/serial_ns2.jpg" class="media" title="serial_ns2.jpg" alt="serial_ns2.jpg" /></a>
+</p>
+
+<p>
+NanoStation Loco 5:
+</p>
+
+<p>
+<a href="../../_detail/inbox/serial_ns5.jpg?id=toh%253Aubiquiti%253Ananostation" class="media" title="inbox:serial_ns5.jpg"><img src="../../_media/inbox/serial_ns5.jpg" class="media" alt="" /></a>
+</p>
+
+<p>
+NanoStation Loco M5:
+</p>
+
+<p>
+<a href="../../_detail/toh/ubiquiti/serial_ns5m.jpg?id=toh%253Aubiquiti%253Ananostation" class="media" title="toh:ubiquiti:serial_ns5m.jpg"><img src="../../_media/toh/ubiquiti/serial_ns5m.jpg?w=500&amp;tok=ae59b3" class="media" alt="" width="500" /></a>
+</p>
+
+<p>
+NanoStation 5:
+</p>
+
+<p>
+<a href="../../_detail/toh/ubiquiti/sterialnanostation5.jpeg?id=toh%253Aubiquiti%253Ananostation" class="media" title="toh:ubiquiti:sterialnanostation5.jpeg"><img src="../../_media/toh/ubiquiti/sterialnanostation5.jpeg" class="media" alt="" /></a>
+</p>
+
+<p>
+LiteStation 2:
+</p>
+
+<p>
+<a href="../../_detail/media/ubiquiti/serial_ls2.jpg?id=toh%253Aubiquiti%253Ananostation" class="media" title="media:ubiquiti:serial_ls2.jpg"><img src="../../_media/media/ubiquiti/serial_ls2.jpg" class="media" alt="" /></a>
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="serial">Serial</h2>
+<div class="level2">
+
+<p>
+<pre class="code">pin 1 - vcc
+pin 3 - RX
+pin 7 - TX
+pin 9 - gnd
+
+(9600 8n1)</pre>
+
+</p>
+
+<p>
+<pre class="code">RedBoot&gt; fconfig
+[...]
+Local IP address: 192.168.1.20
+Local IP address mask: 255.255.255.0
+[...]</pre>
+
+</p>
+
+<p>
+<pre class="code">$ echo -e &quot;\0377\0364\0377\0375\0006&quot; &gt; break
+$ nc -vvv 192.168.1.20 9000 &lt; break ; telnet 192.168.1.20 9000</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="jtag">JTAG</h2>
+<div class="level2">
+
+<p>
+<pre class="code">pin 1 - TRST  pin 2 - GND
+pin 3 - TDI   pin 4 - GND 
+pin 5 - TDO   pin 6 - GND
+pin 7 - TMS   pin 8 - 3V3
+pin 9 - TCK   pin 10 - COLD_RST</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="jtag_and_serial_headers">JTAG and Serial Headers</h2>
+<div class="level2">
+
+<p>
+<pre class="code">Do note that the 10 pin headers used for both JTAG and Serial have a hart-to-hart pin distance, &#039;pitch&#039;, of 2 mm.
+Not the common 1/10&quot; / 2.54 mm.</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit9" id="openwrt">OpenWrt</h2>
+<div class="level2">
+
+<p>
+Both NanoStation 2 and NanoStation 5 are supported by the OpenWrt <a href="http://wiki.openwrt.org/oldwiki/atherosport" class="wikilink2" title="oldwiki:atherosport" rel="nofollow">AtherosPort</a>. It is available as a pre-built image and can be built through buildroot.
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="installing">Installing</h3>
+<div class="level3">
+
+<p>
+The OpenWrt buildroot generates images that can be directly flashed to the NanoStation, usually with a name like openwrt-atheros-ubnt2-squashfs.bin (for the NS2 and Loco2).
+</p>
+
+<p>
+When flashing those images, the Ubiquiti web interface will show a warning about unsupported third-party firmware.
+This warning can be ignored.
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="upgrading">Upgrading</h3>
+<div class="level3">
+
+<p>
+In order to upgrade from OpenWrt to a newer version, both the kernel mtd and filesystem mtd must be reflashed.  The kernel is likely lzma compressed.  If either mtd block isn&#039;t big enough, reflashing can not be completed through OpenWrt, but must be done through the <a href="../../doc/techref/bootloader/redboot" class="wikilink1" title="doc:techref:bootloader:redboot">RedBoot bootloader</a>.
+</p>
+
+<p>
+Recent versions of OpenWrt (8.09.2 and newer) support <em>sysupgrade</em> on this platform. To upgrade, put a <em>combined</em> firmware image into <code>/tmp</code> on the device and flash it using the sysupgrade command as outlined below.
+</p>
+
+<p>
+<pre class="code">cd /tmp
+wget http://example.org/openwrt-atheros-combined.img
+sysupgrade openwrt-atheros-combined.img</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit12" id="loading_via_tftp">Loading via tftp</h3>
+<div class="level3">
+
+<p>
+This can also be used to upgrade a device if you don&#039;t mind loosing your old config.
+</p>
+
+</div>
+
+<h4 id="requirements">Requirements</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Ethernet cable connection between PC and NanoStation.  A switched connection or a bridged connection seems to work fine.</div>
+</li>
+<li class="level1"><div class="li"> Network settings of PC: 192.168.1.254/255.255.255.0</div>
+</li>
+<li class="level1"><div class="li"> TFTP client on PC</div>
+</li>
+<li class="level1"><div class="li"> NanoStation firmware file from Ubiquiti (not an OpenWrt image)</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="procedure">Procedure</h4>
+<div class="level4">
+<ol>
+<li class="level1"><div class="li"> Turn off the device</div>
+</li>
+<li class="level1"><div class="li"> Press the reset button</div>
+</li>
+<li class="level1"><div class="li"> Turn on the device</div>
+</li>
+<li class="level1"><div class="li"> Release the reset button ~10 seconds (but not longer) after turning the device on.  You will know it&#039;s ready when the LEDs change.</div>
+</li>
+<li class="level1"><div class="li"> Ping 192.168.1.20.  If it works, you&#039;re ready to upload an image, if not, go back to step 1.</div>
+</li>
+<li class="level1"><div class="li"> tftp the image in binary mode to 192.168.1.20 as &#039;flash_update&#039;.</div>
+</li>
+</ol>
+
+<p>
+<pre class="code">tftp 192.168.1.20
+tftp&gt; bin
+tftp&gt; put openwrt-atheros-ubnt5-squashfs.bin flash_update
+Sent 1965199 bytes in 28.8 seconds
+tftp&gt; quit</pre>
+
+</p>
+
+<p>
+or in Windows Dos prompt
+<pre class="code">tftp -i 192.168.1.20 put openwrt-atheros-ubnt5-squashfs.bin flash_update</pre>
+
+</p>
+
+<p>
+ 7. Signal LEDs might be blinking during the upgrade.  On a Nano5L, the power lights go back and forth.
+ 7. Wait ~7 minutes before restarting or until the power lights stop their back and forth blinking.
+ 7. Restart.  The device should be back to its old configuration (OpenWrt doesn&#039;t overwrite or modify the NVRAM settings).
+</p>
+
+<p>
+ 8. telnet to 192.168.1.1 and set a password with
+<pre class="code">passwd</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit13" id="restore_original_airos_firmware_on_nanostation">Restore Original AirOS firmware on Nanostation</h3>
+<div class="level3">
+
+<p>
+To restore original firmware back you can&#039;t use mtd or sysupgrade but you have to use tftp method.
+</p>
+
+<p>
+First put Nanostation in recovery mode via reset button on power on, and then flash original flash image via tftp.
+</p>
+
+</div>
+
+<h3 class="sectionedit14" id="wifi_failure_632nd_bit">wifi failure, 632nd bit</h3>
+<div class="level3">
+
+<p>
+If wireless does not work with eg. backfire 10.03.1 prebuilt firmware, and you get (in dmesg) &quot;wifi%d: ath_attach failed: -22&quot;, then you may need to run the following <a href="http://forum.ubnt.com/showthread.php?t=43773&amp;page=2" class="urlextern" title="http://forum.ubnt.com/showthread.php?t=43773&amp;page=2"  rel="nofollow">script by Bill Moffitt</a>.  WARNING: This script might brick your router (but it worked for me, User:green, on a NanoStation Loco2).
+<pre class="code bash"><span class="co0">#!/bin/sh</span>
+<span class="co0"># By Bill Moffitt - this script puts a zero in the 632nd byte of the appropriate device</span>
+<span class="co0">#</span>
+<span class="kw2">date</span> <span class="sy0">&gt;&gt;/</span>etc<span class="sy0">/</span>firstbootlog
+<span class="kw3">echo</span> <span class="st0">&quot;Starting regdomain-script.sh&quot;</span> <span class="sy0">&gt;&gt;/</span>etc<span class="sy0">/</span>firstbootlog
+<span class="re2">partn</span>=<span class="sy0">`</span><span class="kw2">grep</span> boardconfig <span class="sy0">/</span>proc<span class="sy0">/</span>mtd <span class="sy0">|</span><span class="kw2">awk</span> <span class="st_h">'{print $1}'</span> <span class="sy0">|</span><span class="kw2">cut</span> -d: -f1<span class="sy0">`</span>
+<span class="re2">byte</span>=$<span class="br0">&#40;</span><span class="kw2">hexdump</span> <span class="re5">-b</span> <span class="sy0">/</span>dev<span class="sy0">/</span><span class="re1">$partn</span> <span class="sy0">|</span><span class="kw2">grep</span> 0000270 <span class="sy0">|</span><span class="kw2">awk</span> <span class="st_h">'{print $9}'</span><span class="br0">&#41;</span>
+<span class="kw3">echo</span> <span class="st0">&quot;Going to work on partition <span class="es2">$partn</span> where regdomain is <span class="es2">$byte</span>&quot;</span>
+<span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re1">$byte</span> == <span class="st0">&quot;000&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+   <span class="kw3">echo</span> <span class="st0">&quot;success&quot;</span> <span class="sy0">&gt;/</span>tmp<span class="sy0">/</span>regdomain_success
+   <span class="kw3">exit</span>
+<span class="kw1">fi</span>
+<span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re1">$partn</span> <span class="re5">-a</span> <span class="sy0">!</span> <span class="re1">$byte</span> == <span class="st0">&quot;000&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+   <span class="kw3">echo</span> <span class="st0">&quot;Setting up regdomain on partition /dev/<span class="es2">$partn</span>&quot;</span> <span class="sy0">&gt;&gt;/</span>etc<span class="sy0">/</span>firstbootlog
+   <span class="kw2">dd</span> <span class="re2">if</span>=<span class="sy0">/</span>dev<span class="sy0">/</span><span class="re1">$partn</span> <span class="re2">of</span>=<span class="sy0">/</span>tmp<span class="sy0">/</span>mtdfile <span class="re2">bs</span>=<span class="nu0">1</span> <span class="re2">count</span>=<span class="nu0">631</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">echo</span> <span class="st0">&quot;got the first 631 bytes&quot;</span> <span class="sy0">&gt;&gt;/</span>etc<span class="sy0">/</span>firstbootlog
+   <span class="kw2">dd</span> <span class="re2">if</span>=<span class="sy0">/</span>dev<span class="sy0">/</span>zero <span class="re2">bs</span>=<span class="nu0">1</span> <span class="re2">count</span>=<span class="nu0">1</span> <span class="sy0">&gt;&gt;/</span>tmp<span class="sy0">/</span>mtdfile <span class="sy0">&amp;&amp;</span> <span class="kw3">echo</span> <span class="st0">&quot;put in the zero&quot;</span> <span class="sy0">&gt;&gt;/</span>etc<span class="sy0">/</span>firstbootlog
+   <span class="kw2">dd</span> <span class="re2">if</span>=<span class="sy0">/</span>dev<span class="sy0">/</span><span class="re1">$partn</span> <span class="re2">bs</span>=<span class="nu0">1</span> <span class="re2">skip</span>=<span class="nu0">632</span> <span class="sy0">&gt;&gt;/</span>tmp<span class="sy0">/</span>mtdfile <span class="sy0">&amp;&amp;</span> <span class="kw3">echo</span> <span class="st0">&quot;got the rest of the file&quot;</span> <span class="sy0">&gt;&gt;/</span>etc<span class="sy0">/</span>firstbootlog
+   mtd erase <span class="re1">$partn</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">echo</span> <span class="st0">&quot;erased the partition&quot;</span> <span class="sy0">&gt;&gt;/</span>etc<span class="sy0">/</span>firstbootlog
+   <span class="kw2">dd</span> <span class="re2">if</span>=<span class="sy0">/</span>tmp<span class="sy0">/</span>mtdfile <span class="re2">of</span>=<span class="sy0">/</span>dev<span class="sy0">/</span><span class="re1">$partn</span> <span class="nu0">2</span><span class="sy0">&gt;&gt;/</span>etc<span class="sy0">/</span>firstbootlog <span class="sy0">&amp;&amp;</span> <span class="kw3">echo</span> <span class="st0">&quot;Finished flashing partition <span class="es2">$partn</span>&quot;</span> <span class="sy0">&gt;&gt;/</span>etc<span class="sy0">/</span>firstbootlog
+   <span class="kw3">wait</span>
+   <span class="kw2">sync</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">echo</span> <span class="st0">&quot;Sync succeeded&quot;</span> <span class="sy0">&gt;&gt;/</span>etc<span class="sy0">/</span>firstbootlog
+   <span class="re2">byte</span>=$<span class="br0">&#40;</span><span class="kw2">hexdump</span> <span class="re5">-b</span> <span class="sy0">/</span>dev<span class="sy0">/</span><span class="re1">$partn</span> <span class="sy0">|</span><span class="kw2">grep</span> 0000270 <span class="sy0">|</span><span class="kw2">awk</span> <span class="st_h">'{print $9}'</span><span class="br0">&#41;</span>
+   <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re1">$byte</span> <span class="re5">-eq</span> <span class="st0">&quot;000&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+      <span class="kw3">echo</span> <span class="st0">&quot;regdomain is zero&quot;</span> <span class="sy0">&gt;&gt;/</span>etc<span class="sy0">/</span>firstbootlog
+      <span class="kw2">sync</span> <span class="sy0">&amp;&amp;</span>
+      <span class="kw2">rm</span> <span class="sy0">/</span>tmp<span class="sy0">/</span>mtdfile
+      <span class="kw2">date</span> <span class="sy0">&gt;&gt;/</span>etc<span class="sy0">/</span>firstbootlog
+      <span class="kw3">echo</span> <span class="st0">&quot;done with regdomain&quot;</span> <span class="sy0">&gt;&gt;/</span>etc<span class="sy0">/</span>firstbootlog
+      <span class="kw3">echo</span> <span class="st0">&quot;success&quot;</span> <span class="sy0">&gt;/</span>tmp<span class="sy0">/</span>regdomain_success
+   <span class="kw1">else</span>
+      <span class="kw3">echo</span> <span class="st0">&quot;FAIL writing the file back to /dev/<span class="es2">$partn</span> - regdomain remains <span class="es2">$byte</span>&quot;</span>
+   <span class="kw1">fi</span>
+<span class="kw1">else</span>
+   <span class="kw3">echo</span> <span class="st0">&quot;Could not find partition&quot;</span> <span class="sy0">&gt;&gt;/</span>etc<span class="sy0">/</span>firstbootlog
+<span class="kw1">fi</span></pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit15" id="switching_antenna">Switching antenna</h3>
+<div class="level3">
+
+<p>
+The two internal antennas work more or less automatically, using the driver&#039;s &quot;diversity&quot; setting to choose the correct one.  Using an external antenna requires manually setting a few things:
+</p>
+
+<p>
+<pre class="code">sysctl set dev.wifi0.softled 0
+gpioctl 7 0</pre>
+
+</p>
+
+<p>
+These can be added to an init file in /etc/rc.d and /etc/init.d
+</p>
+
+<p>
+In recent OpenWrt versions (8.09.1+) the antenna setting is covered by the wireless configuration.
+The corresponding option is called <code>antenna</code> and should be set within the <code>wifi-iface</code> section.
+</p>
+
+<p>
+<pre class="code">uci set wireless.@wifi-iface[0].antenna=mode
+uci commit wireless
+wifi</pre>
+
+</p>
+<div class="table sectionedit16"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Value (<em>mode</em>) </th><th class="col1"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>vertical</code> </td><td class="col1"> Use internal antenna with vertical polarization </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>horizontal</code> </td><td class="col1"> Use internal antenna with horizontal polarization </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>external</code> </td><td class="col1"> Use external antenna port </td>
+	</tr>
+</table></div>
+<hr />
+
+<p>
+Some photos on this page © <a href="http://www.flickr.com/photos/mattw/" class="urlextern" title="http://www.flickr.com/photos/mattw/"  rel="nofollow">Matt Westervelt</a> and available for use under a <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/deed.en" class="urlextern" title="http://creativecommons.org/licenses/by-nc-sa/2.0/deed.en"  rel="nofollow">Creative Commons license</a> for non-commercial works.
+</p>
+
+</div>
+
+<h3 class="sectionedit17" id="oem_bootlog">OEM bootlog</h3>
+<div class="level3">
+
+<p>
+NanoStation2
+</p>
+
+<p style="padding: 10px;border:1px solid grey;height:600px;font:10px/14px Georgia, Garamond, Serif;overflow:Auto;background-color:#FFFFFF">
+<code>+Ethernet eth0: MAC address 00:15:6d:a8:b9:c2
+IP: 0.0.0.0/255.255.255.0, Gateway: 0.0.0.0
+Default server: 0.0.0.0
+
+RedBoot(tm) bootstrap and debug environment [ROMRAM]
+Ubiquiti Networks certified release, version 0.9.00483.1103151313 - built 13:14:44, Mar 15 2011
+
+Copyright (C) 2000, 2001, 2002, 2003, 2004 Red Hat, Inc.
+
+Board: Ubiquiti Ubiquiti AR2315/6/7/8 based board (Ubiquiti NanoStation2 detected)
+
+ Arch: ar2316
+  RAM: 0x80000000-0x81000000, [0x80040b80-0x80fe1000] available
+Flash: 0xbfc00000-0xbfff0000, in 64 blocks of 0x00010000 bytes each
+== Executing boot script in 1.000 seconds - enter ^C to abort
+RedBoot> cache off
+RedBoot> fis load -d -e kernel
+Trying LZMA decompression...
+Image loaded from 0x80041000-0x801df25c
+Entry point: 0x80196040, address range: 0x80042000-0x801bf000
+RedBoot> go
+[    0.000000] CPU revision is: 00019064
+[    0.000000] Primary instruction cache 16kB, physically tagged, 4-way, linesize 16 bytes.
+[    0.000000] Primary data cache 16kB 4-way, linesize 16 bytes.
+[    0.000000] Linux version 2.4.27-ubnt0 (buildd@builder) (gcc version 3.3.3) #2 Thu Mar 28 10:55:48 EET 2013
+[    0.000000] Determined physical RAM map:
+[    0.000000]  memory: 01000000 @ 00000000 (usable)
+[    0.000000] On node 0 totalpages: 4096
+[    0.000000] zone(0): 4096 pages.
+[    0.000000] zone(1): 0 pages.
+[    0.000000] zone(2): 0 pages.
+[    0.000000] Kernel command line: console=ttyS0,9600 console=ttyS0,9600 root=/dev/mtdblock2 rootfstype=squashfs init=/linuxrc ro
+[    0.000000] Using 92.000 MHz high precision timer.
+[    0.010000] Calibrating delay loop... 181.45 BogoMIPS
+[    0.290000] Memory: 14228k/16384k available (1351k kernel code, 2156k reserved, 88k data, 68k init, 0k highmem)
+[    0.410000] Dentry cache hash table entries: 2048 (order: 2, 16384 bytes)
+[    0.490000] Inode cache hash table entries: 1024 (order: 1, 8192 bytes)
+[    0.570000] Mount cache hash table entries: 512 (order: 0, 4096 bytes)
+[    0.650000] Buffer cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.730000] Page-cache hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.810000] Checking for 'wait' instruction...  unavailable.
+[    0.870000] POSIX conformance testing by UNIFIX
+[    0.930000] Linux NET4.0 for Linux 2.4
+[    0.970000] Based upon Swansea University Computer Society NET3.039
+[    1.050000] Initializing RT netlink socket
+[    1.100000] Starting kswapd
+[    1.130000] Squashfs 2.2-r2 (released 2005/09/08) (C) 2002-2005 Phillip Lougher
+[    1.220000] pty: 256 Unix98 ptys configured
+[    1.270000] Serial driver version 5.05c (2001-07-08) with no serial options enabled
+[    1.360000] ttyS00 at 0xb1100003 (irq = 37) is a 16550A
+[    1.430000] PPP generic driver version 2.4.2
+[    1.480000] PPP Deflate Compression module registered
+[    1.540000] MPPE/MPPC encryption/compression module registered
+[    1.610000] spiflash: JEDEC compatible device detected (Manufacturer: 0x20; device: 0x2016)
+[    1.710000] mtd: adjusted dev mtd2 size from 61440 to 65536 bytes
+[    1.790000] Creating 8 MTD partitions on "spiflash":
+[    1.850000] 0x00000000-0x00030000 : "RedBoot"
+[    1.900000] 0x00030000-0x00100000 : "kernel"
+[    1.950000] 0x00100000-0x003c0000 : "cramfs"
+[    2.000000] 0x003c0000-0x003e0000 : "cfg"
+[    2.050000] 0x003e0000-0x003f0000 : "FIS directory"
+[    2.110000] 0x003ef000-0x003f0000 : "RedBoot config"
+[    2.170000] mtd: partition "RedBoot config" doesn't start on an erase block boundary -- force read-only
+[    2.280000] 0x003f0000-0x00400000 : "EEPROM"
+[    2.330000] 0x00030000-0x003e0000 : "Working flash"
+[    2.390000] Initializing Cryptographic API
+[    2.440000] NET4: Linux TCP/IP 1.0 for NET4.0
+[    2.490000] IP: routing cache hash table of 512 buckets, 4Kbytes
+[    2.560000] TCP: Hash tables configured (established 1024 bind 2048)
+[    2.640000] IPv4 over IPv4 tunneling driver
+[    2.690000] GRE over IPv4 tunneling driver
+[    2.740000] Linux IP multicast router 0.06 plus PIM-SM
+[    2.800000] NET4: Unix domain sockets 1.0/SMP for Linux NET4.0.
+[    2.870000] Ebtables v2.0 registered
+[    2.910000] NET4: Ethernet Bridge 008 for NET4.0
+[    2.970000] Bridge firewalling registered
+[    3.020000] 802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
+[    3.100000] All bugs added by David S. Miller <davem@redhat.com>
+[    3.180000] VFS: Mounted root (squashfs filesystem) readonly.
+[    3.250000] Freeing unused kernel memory: 68k freed
+[    3.310000] Warning: unable to open an initial console.
+[    3.760000] Algorithmics/MIPS FPU Emulator v1.5
+
+UBNT login: ubnt
+Password: 
+Mar 28 10:58:13 login[297]: root login  on `ttyS0'
+
+
+
+BusyBox v1.01 (2013.03.28-08:56+0000) Built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+XS2.ar2316.v4.0.3.5058.130328.1054# cat /proc/cpuinfo 
+system type             : Atheros AR5315
+processor               : 0
+cpu model               : unknown V6.4
+BogoMIPS                : 181.45
+wait instruction        : no
+microsecond timers      : yes
+tlb_entries             : 16
+extra interrupt vector  : yes
+hardware watchpoint     : no
+VCED exceptions         : not available
+VCEI exceptions         : not available
+XS2.ar2316.v4.0.3.5058.130328.1054#
+
+</code>
+</p>
+
+</div>
+
+<h2 class="sectionedit18" id="tags">Tags</h2>
+<div class="level2">
+
+<p>
+For some Help with the Tags, please have a look here: <a href="../../meta/tags" class="wikilink1" title="meta:tags">tags</a>
+</p>
+
+<p>
+NanoStation2 and NanoStation Loco2: 
+</p>
+<div class="tags"><span>
+	<a href="../../tag/fastethernet?do=showtag&amp;tag=FastEthernet" class="wikilink1" title="tag:fastethernet" rel="tag">FastEthernet</a>,
+	<a href="../../tag/1nic?do=showtag&amp;tag=1NIC" class="wikilink1" title="tag:1nic" rel="tag">1NIC</a>,
+	<a href="../../tag/1wnic?do=showtag&amp;tag=1WNIC" class="wikilink1" title="tag:1wnic" rel="tag">1WNIC</a>,
+	<a href="../../tag/no_switch?do=showtag&amp;tag=no_switch" class="wikilink1" title="tag:no_switch" rel="tag">no switch</a>,
+	<a href="../../tag/poe?do=showtag&amp;tag=PoE" class="wikilink1" title="tag:poe" rel="tag">PoE</a>,
+	<a href="../../tag/jtag?do=showtag&amp;tag=JTAG" class="wikilink1" title="tag:jtag" rel="tag">JTAG</a>,
+	<a href="../../tag/serial?do=showtag&amp;tag=Serial" class="wikilink1" title="tag:serial" rel="tag">Serial</a>,
+	<a href="../../tag/802.11bg?do=showtag&amp;tag=802.11bg" class="wikilink1" title="tag:802.11bg" rel="tag">802.11bg</a>,
+	<a href="../../tag/internalantenna?do=showtag&amp;tag=InternalAntenna" class="wikilink1" title="tag:internalantenna" rel="tag">InternalAntenna</a>,
+	<a href="../../tag/16ram?do=showtag&amp;tag=16RAM" class="wikilink1" title="tag:16ram" rel="tag">16RAM</a>,
+	<a href="../../tag/4flash?do=showtag&amp;tag=4Flash" class="wikilink1" title="tag:4flash" rel="tag">4Flash</a>,
+	<a href="../../tag/outdoor?do=showtag&amp;tag=Outdoor" class="wikilink1" title="tag:outdoor" rel="tag">Outdoor</a>
+</span></div>
+
+<p>
+LiteStation2: 
+</p>
+<div class="tags"><span>
+	<a href="../../tag/fastethernet?do=showtag&amp;tag=FastEthernet" class="wikilink1" title="tag:fastethernet" rel="tag">FastEthernet</a>,
+	<a href="../../tag/1nic?do=showtag&amp;tag=1NIC" class="wikilink1" title="tag:1nic" rel="tag">1NIC</a>,
+	<a href="../../tag/1wnic?do=showtag&amp;tag=1WNIC" class="wikilink1" title="tag:1wnic" rel="tag">1WNIC</a>,
+	<a href="../../tag/no_switch?do=showtag&amp;tag=no_switch" class="wikilink1" title="tag:no_switch" rel="tag">no switch</a>,
+	<a href="../../tag/poe?do=showtag&amp;tag=PoE" class="wikilink1" title="tag:poe" rel="tag">PoE</a>,
+	<a href="../../tag/jtag?do=showtag&amp;tag=JTAG" class="wikilink1" title="tag:jtag" rel="tag">JTAG</a>,
+	<a href="../../tag/serial?do=showtag&amp;tag=Serial" class="wikilink1" title="tag:serial" rel="tag">Serial</a>,
+	<a href="../../tag/802.11bg?do=showtag&amp;tag=802.11bg" class="wikilink1" title="tag:802.11bg" rel="tag">802.11bg</a>,
+	<a href="../../tag/internalantenna?do=showtag&amp;tag=InternalAntenna" class="wikilink1" title="tag:internalantenna" rel="tag">InternalAntenna</a>,
+	<a href="../../tag/16ram?do=showtag&amp;tag=16RAM" class="wikilink1" title="tag:16ram" rel="tag">16RAM</a>,
+	<a href="../../tag/4flash?do=showtag&amp;tag=4Flash" class="wikilink1" title="tag:4flash" rel="tag">4Flash</a>
+</span></div>
+
+<p>
+PicoStation2: 
+</p>
+<div class="tags"><span>
+	<a href="../../tag/fastethernet?do=showtag&amp;tag=FastEthernet" class="wikilink1" title="tag:fastethernet" rel="tag">FastEthernet</a>,
+	<a href="../../tag/1nic?do=showtag&amp;tag=1NIC" class="wikilink1" title="tag:1nic" rel="tag">1NIC</a>,
+	<a href="../../tag/1wnic?do=showtag&amp;tag=1WNIC" class="wikilink1" title="tag:1wnic" rel="tag">1WNIC</a>,
+	<a href="../../tag/no_switch?do=showtag&amp;tag=no_switch" class="wikilink1" title="tag:no_switch" rel="tag">no switch</a>,
+	<a href="../../tag/poe?do=showtag&amp;tag=PoE" class="wikilink1" title="tag:poe" rel="tag">PoE</a>,
+	<a href="../../tag/jtag?do=showtag&amp;tag=JTAG" class="wikilink1" title="tag:jtag" rel="tag">JTAG</a>,
+	<a href="../../tag/serial?do=showtag&amp;tag=Serial" class="wikilink1" title="tag:serial" rel="tag">Serial</a>,
+	<a href="../../tag/802.11bg?do=showtag&amp;tag=802.11bg" class="wikilink1" title="tag:802.11bg" rel="tag">802.11bg</a>,
+	<a href="../../tag/internalantenna?do=showtag&amp;tag=InternalAntenna" class="wikilink1" title="tag:internalantenna" rel="tag">InternalAntenna</a>,
+	<a href="../../tag/32ram?do=showtag&amp;tag=32RAM" class="wikilink1" title="tag:32ram" rel="tag">32RAM</a>,
+	<a href="../../tag/8flash?do=showtag&amp;tag=8Flash" class="wikilink1" title="tag:8flash" rel="tag">8Flash</a>
+</span></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>toh/ubiquiti/nanostation.txt</bdi> · Last modified: 2014/11/04 14:03 by <bdi>bernd</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="nanostation?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="nanostation?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="nanostation?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="nanostation#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=toh%253Aubiquiti%253Ananostation&amp;1432266262" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>OpenSSL Benchmarks [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="crypto"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../index.html"/>
+<link rel="contents" href="benchmark.openssl?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../feed.php?mode=list&amp;ns=inbox"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../_export/xhtml/inbox/benchmark.openssl"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../_export/raw/inbox/benchmark.openssl"/>
+<link rel="canonical" href="benchmark.openssl"/>
+<link rel="stylesheet" type="text/css" href="../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='inbox';var JSINFO = {"id":"inbox:benchmark.openssl","namespace":"inbox"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265558 166.182.3.5';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="benchmark.openssl#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../start"  accesskey="h" title="[H]"><img src="../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="benchmark.openssl?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="benchmark.openssl?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="inbox:benchmark.openssl" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="benchmark.openssl?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="benchmark.openssl?do=media&amp;ns=inbox"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="benchmark.openssl?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="start" class="wikilink1" title="inbox:start">Build and installation - Few Adjustments - NEW (shiva)</a></bdi> » <bdi><span class="curid"><a href="benchmark.openssl" class="wikilink1" title="inbox:benchmark.openssl">OpenSSL Benchmarks</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/inbox/benchmark.openssl" class="media" title="cz:inbox:benchmark.openssl"><img src="../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/inbox/benchmark.openssl" class="media" title="de:inbox:benchmark.openssl"><img src="../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="benchmark.openssl" class="media" title="inbox:benchmark.openssl"><img src="../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/inbox/benchmark.openssl" class="media" title="es:inbox:benchmark.openssl"><img src="../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/inbox/benchmark.openssl" class="media" title="fr:inbox:benchmark.openssl"><img src="../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/inbox/benchmark.openssl" class="media" title="hu:inbox:benchmark.openssl"><img src="../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/inbox/benchmark.openssl" class="media" title="jp:inbox:benchmark.openssl"><img src="../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/inbox/benchmark.openssl" class="media" title="pl:inbox:benchmark.openssl"><img src="../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/inbox/benchmark.openssl" class="media" title="pt-br:inbox:benchmark.openssl"><img src="../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/inbox/benchmark.openssl" class="media" title="ru:inbox:benchmark.openssl"><img src="../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/inbox/benchmark.openssl" class="media" title="tr:inbox:benchmark.openssl"><img src="../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/inbox/benchmark.openssl" class="media" title="zh-cn:inbox:benchmark.openssl"><img src="../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/inbox/benchmark.openssl" class="media" title="zh-tw:inbox:benchmark.openssl"><img src="../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>inbox:benchmark.openssl</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="benchmark.openssl#procedure">Procedure</a></div></li>
+<li class="level1"><div class="li"><a href="benchmark.openssl#new_benchmark_table">New Benchmark Table</a></div></li>
+<li class="level1"><div class="li"><a href="benchmark.openssl#benchmark_table_other_operating_systems">Benchmark Table (other operating systems)</a></div></li>
+<li class="level1"><div class="li"><a href="benchmark.openssl#comparison_to_other_common_systems">Comparison to other common Systems</a></div></li>
+<li class="level1"><div class="li"><a href="benchmark.openssl#old_benchmark_table">Old Benchmark Table</a></div></li>
+<li class="level1"><div class="li"><a href="benchmark.openssl#enable_hardware_acceleration">Enable hardware acceleration</a></div></li>
+<li class="level1"><div class="li"><a href="benchmark.openssl#tags">Tags</a></div></li>
+<li class="level1"><div class="li"><a href="benchmark.openssl#notes">Notes</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="openssl_benchmarks">OpenSSL Benchmarks</h1>
+<div class="level1">
+
+<p>
+These benchmarks provide a rough estimate of how OpenSSL performance varies on various hardware and software configurations.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="procedure">Procedure</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> Install <code>openssl-utils</code> (with its depencies this will require about 790KiB of storage) <pre class="code bash">opkg <span class="kw2">install</span> openssl-util</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> Simply drop the following line into the shell:<pre class="code bash">openssl speed md5 sha1 sha256 sha512 des des-ede3 aes-<span class="nu0">128</span>-cbc aes-<span class="nu0">192</span>-cbc aes-<span class="nu0">256</span>-cbc rsa2048 dsa2048 <span class="sy0">|</span> <span class="kw2">tee</span> <span class="sy0">/</span>tmp<span class="sy0">/</span>sslspeed
+<span class="kw3">echo</span> <span class="st0">&quot;|&quot;</span> <span class="sy0">`</span><span class="kw2">awk</span> <span class="st_h">'match($0,/r[0-9]+/) {print substr($0,RSTART,RLENGTH)}'</span> <span class="sy0">/</span>etc<span class="sy0">/</span>banner<span class="sy0">`</span> <span class="sy0">`</span><span class="kw2">awk</span> <span class="re5">-v</span> <span class="re2">FS</span>=<span class="st0">&quot;: &quot;</span> <span class="re5">-v</span> <span class="re2">ORS</span>=<span class="st0">&quot;&quot;</span> <span class="st_h">'/(Processor|BogoMIPS|Hardware|machine|cpu model|system type)/ { print &quot;| &quot; $2 &quot; &quot; } END { print &quot;&quot; }'</span> <span class="sy0">/</span>proc<span class="sy0">/</span>cpuinfo<span class="sy0">`</span> <span class="sy0">`</span><span class="kw2">awk</span> <span class="re5">-v</span> <span class="re2">ORS</span>=<span class="st0">&quot;&quot;</span> <span class="st_h">'$1 ~ /OpenSSL/ {print &quot;| &quot; $2 &quot; |&quot;} $1 ~ /(md5|sha)/ {print &quot;  &quot; $5 &quot; |&quot;} $1 ~ /(des|aes)/ {b = b &quot;  &quot; $6 &quot; |&quot;} $1 ~ /(rsa|dsa)/ {print b &quot;  &quot; $6 &quot; |  &quot; $7 &quot; &quot;;b=&quot;&quot;} END { print &quot;|&quot; }'</span> <span class="sy0">/</span>tmp<span class="sy0">/</span>sslspeed <span class="sy0">|</span> <span class="kw2">sed</span> <span class="st_h">'s/\.\(..\)k/\10/g'</span><span class="sy0">`</span>
+<span class="kw3">echo</span> </pre>
+</div>
+</li>
+<li class="level1"><div class="li"> copy-paste the result into this wiki-page</div>
+</li>
+<li class="level1"><div class="li"> Afterwards you can remove the package and it&#039;s dependencies (if not needed by other packages) again with:<pre class="code bash">opkg remove openssl-util libopenssl zlib</pre>
+</div>
+</li>
+</ol>
+
+</div>
+
+<h2 class="sectionedit3" id="new_benchmark_table">New Benchmark Table</h2>
+<div class="level2">
+<div class="sortable"><div class="table sectionedit4"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> <abbr title="Operating System">OS</abbr> </th><th class="col1"> SoC </th><th class="col2"> Device </th><th class="col3"> <a href="../doc/hardware/cpu" class="wikilink1" title="doc:hardware:cpu">CPU</a> </th><th class="col4"> BogoMIPS </th><th class="col5"> OpenSSL Version </th><th class="col6"> <a href="http://en.wikipedia.org/wiki/MD5" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/MD5">MD5</a> </th><th class="col7"> <a href="http://en.wikipedia.org/wiki/Secure Hash Algorithm" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Secure Hash Algorithm">SHA-1</a> </th><th class="col8"> SHA-256 </th><th class="col9"> SHA-512 </th><th class="col10"> <a href="http://en.wikipedia.org/wiki/Data Encryption Standard" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Data Encryption Standard">DES</a> </th><th class="col11"> 3DES </th><th class="col12"> <a href="http://en.wikipedia.org/wiki/Advanced Encryption Standard" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Advanced Encryption Standard">AES-128</a> </th><th class="col13"> AES-192 </th><th class="col14"> AES-256 </th><th class="col15"> <a href="http://en.wikipedia.org/wiki/RSA (algorithm)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/RSA (algorithm)">RSA</a> Sign </th><th class="col16"> RSA Verify </th><th class="col17"> <a href="http://en.wikipedia.org/wiki/Digital Signature Algorithm" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Digital Signature Algorithm">DSA</a> Sign </th><th class="col18 leftalign"> DSA Verify  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> r42624 </td><td class="col1"> Atheros AR9341 rev 1 </td><td class="col2"> TP-LINK TL-WA901ND v3 </td><td class="col3"> MIPS 74Kc V4.12 </td><td class="col4"> 266.64 </td><td class="col5"> 1.0.1i </td><td class="col6"> 33378630 </td><td class="col7"> 20237990 </td><td class="col8"> 9319080 </td><td class="col9"> 4224680 </td><td class="col10"> 4900860 </td><td class="col11"> 1728130 </td><td class="col12"> 9565180 </td><td class="col13"> 8257070 </td><td class="col14"> 7306920 </td><td class="col15"> 9.4 </td><td class="col16"> 333.7 33.5 </td><td class="col17"> 27.1 </td><td class="col18"></td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> r42624 </td><td class="col1"> Atheros AR7241 rev 1 </td><td class="col2"> Ubiquiti Nanostation M </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 259.27 </td><td class="col5"> 1.0.1i </td><td class="col6"> 20551820 </td><td class="col7"> 13403440 </td><td class="col8"> 6302220 </td><td class="col9"> 2806440 </td><td class="col10"> 3035580 </td><td class="col11"> 1088850 </td><td class="col12"> 5023440 </td><td class="col13"> 4332540 </td><td class="col14"> 3805640 </td><td class="col15"> 4.6 </td><td class="col16"> 160.1 16.2 </td><td class="col17"> 13.1 </td><td class="col18"></td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> r44258 </td><td class="col1"> Atheros AR9344 rev 2 </td><td class="col2"> TP-LINK CPE210/220/510/520 </td><td class="col3"> MIPS 74Kc V4.12 </td><td class="col4"> 278.93 </td><td class="col5"> 1.0.1l </td><td class="col6"> 35040450 </td><td class="col7"> 20354920 </td><td class="col8"> 9353910 </td><td class="col9"> 4306340 </td><td class="col10"> 4908600 </td><td class="col11"> 1724890 </td><td class="col12"> 9627330 </td><td class="col13"> 8457550 </td><td class="col14"> 7331080 </td><td class="col15"> 9.0 </td><td class="col16"> 327.5 32.9 </td><td class="col17"></td><td class="col18"></td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> r42625 </td><td class="col1"> Geode(TM) Integrated Processor by AMD PCS </td><td class="col2"> <a href="../toh/pcengines/alix" class="wikilink1" title="toh:pcengines:alix">Alix2d13</a> </td><td class="col3"> 500 <abbr title="Megahertz">MHz</abbr> AMD Geode LX800 </td><td class="col4"> 996.04 </td><td class="col5"> 1.0.2a </td><td class="col6"> 27292880 </td><td class="col7"> 7038780 </td><td class="col8"> 3793640 </td><td class="col9"> 2515220 </td><td class="col10"> 3370930 </td><td class="col11"> 1218460 </td><td class="col12"> 4092210 </td><td class="col13"> 3543870 </td><td class="col14"> 3138990 </td><td class="col15"> 3.4 </td><td class="col16"> 114.3 12.0 </td><td class="col17"> 9.8 </td><td class="col18"></td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> r44622 - dual core test w/ ASM</td><td class="col1"> Marvell MV78230-B0 1.2GHZ dual core </td><td class="col2"> <a href="../toh/linksys/wrt1900ac" class="urlextern" title="http://wiki.openwrt.org/toh/linksys/wrt1900ac"  rel="nofollow">Linksys WRT1900AC</a> </td><td class="col3"> ARMv7 Processor rev 2 (v7l) </td><td class="col4"> 1191.1</td><td class="col5"> 1.0.2 </td><td class="col6"> 233786370 </td><td class="col7"> 163329370 </td><td class="col8"> 122471420 </td><td class="col9"> 40191660 </td><td class="col10"> 31650470 </td><td class="col11"> 11242840 </td><td class="col12"> 77554690 </td><td class="col13"> 70677500 </td><td class="col14"> 64082260 </td><td class="col15"> 52.1 </td><td class="col16"> 1745.3 171.7 </td><td class="col17"> 144.8 </td><td class="col18"></td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> r44622 - single core test /w ASM</td><td class="col1"> Marvell MV78230-B0 1.2GHZ dual core </td><td class="col2"> <a href="../toh/linksys/wrt1900ac" class="urlextern" title="http://wiki.openwrt.org/toh/linksys/wrt1900ac"  rel="nofollow">Linksys WRT1900AC</a> </td><td class="col3"> ARMv7 Processor rev 2 (v7l) </td><td class="col4"> 595.55</td><td class="col5"> 1.0.2 </td><td class="col6"> 114807870 </td><td class="col7"> 74934810 </td><td class="col8"> 31048300 </td><td class="col9"> 20115460 </td><td class="col10"> 15791790 </td><td class="col11"> 5645990 </td><td class="col12"> 39312010 </td><td class="col13"> 35553350 </td><td class="col14"> 32188420 </td><td class="col15"> 26.0 </td><td class="col16"> 876.5 86.3 </td><td class="col17"> 73.3 </td><td class="col18"></td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> r44528 </td><td class="col1"> Ralink MT7620N ver:2 eco:3 </td><td class="col2"> <a href="../toh/nexx/wt3020" class="urlextern" title="http://wiki.openwrt.org/toh/nexx/wt3020"  rel="nofollow">Nexx WT3020</a> </td><td class="col3"> MIPS 24KEc V5.0 </td><td class="col4"> 766.77 </td><td class="col5"> 1.0.2 </td><td class="col6"> 34831810 </td><td class="col7"> 28455560 </td><td class="col8"> 13487540 </td><td class="col9"> 4191870 </td><td class="col10"> 4919990 </td><td class="col11"> 1765100 </td><td class="col12"> 8126810 </td><td class="col13"> 7029180 </td><td class="col14"> 6178780 </td><td class="col15"> 7.0 </td><td class="col16"> 245.3 </td><td class="col17"> 25.3 </td><td class="col18"> 18.7 </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> r44379 </td><td class="col1"> ARMv7 Processor rev 5 (v7l) </td><td class="col2"> Raspberry PI 2 Model B </td><td class="col3"> BCM2709 </td><td class="col4"> 38.40 </td><td class="col5"> 1.0.2 </td><td class="col6"> 39024980 </td><td class="col7"> 11390630 </td><td class="col8"> 8862380 </td><td class="col9"> 3876520 </td><td class="col10"> 5043200 </td><td class="col11"> 1778690 </td><td class="col12"> 7845210 </td><td class="col13"> 6810970 </td><td class="col14"> 6017370 </td><td class="col15"> 10.2 </td><td class="col16"> 371.2 </td><td class="col17"> 36.2 </td><td class="col18"> 29.8 </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> r44379 </td><td class="col1"> ARMv7 Processor rev 5 (v7l) </td><td class="col2"> Raspberry PI 2 Model B </td><td class="col3"> BCM2709 </td><td class="col4"> 38.40 *4 (Quad Core) </td><td class="col5"> 1.0.2 </td><td class="col6"> 155895130 </td><td class="col7"> 45490180 </td><td class="col8"> 35416750 </td><td class="col9"> 15486290 </td><td class="col10"> 20149250 </td><td class="col11"> 7100070 </td><td class="col12"> 31322790 </td><td class="col13"> 27199150 </td><td class="col14"> 24032260 </td><td class="col15"> 40.9 </td><td class="col16"> 1484.6 </td><td class="col17"> 144.7 </td><td class="col18"> 119.0 </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> r44053 </td><td class="col1"> Qualcomm Atheros QCA9558 rev 0 </td><td class="col2"> TP-LINK Archer C5 </td><td class="col3"> MIPS 74Kc V5.0 </td><td class="col4"> 358.80 </td><td class="col5"> 1.0.1l </td><td class="col6"> 46047700 </td><td class="col7"> 27052160 </td><td class="col8"> 12525440 </td><td class="col9"> 5673230 </td><td class="col10"> 6498800 </td><td class="col11"> 2248020 </td><td class="col12"> 12720890 </td><td class="col13"> 11052330 </td><td class="col14"> 9776970 </td><td class="col15"> 11.9 </td><td class="col16"> 431.8 </td><td class="col17"> 43.5 </td><td class="col18"> 35.2 </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> r43771 </td><td class="col1"> Atheros AR9132 rev 2 </td><td class="col2"> TP-LINK TL-WR1043ND </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 265.42 </td><td class="col5"> 1.0.1j </td><td class="col6"> 20987560 </td><td class="col7"> 13735980 </td><td class="col8"> 6501030 </td><td class="col9"> 2884380 </td><td class="col10"> 3093160 </td><td class="col11"> 1105240 </td><td class="col12"> 5153910 </td><td class="col13"> 4484840 </td><td class="col14"> 3889490 </td><td class="col15"> 4.6 </td><td class="col16"> 163.3 </td><td class="col17"> 16.4 </td><td class="col18"> 13.7 </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0"> r43321 </td><td class="col1"> Atheros AR9344 rev 2 </td><td class="col2"> TP-LINK TL-WDR3600/4300/4310 </td><td class="col3"> MIPS 74Kc V4.12 </td><td class="col4"> 278.93 </td><td class="col5"> 1.0.1j </td><td class="col6"> 34678980 </td><td class="col7"> 20888490 </td><td class="col8"> 9631860 </td><td class="col9"> 4359000 </td><td class="col10"> 5092170 </td><td class="col11"> 1778370 </td><td class="col12"> 9893240 </td><td class="col13"> 8509180 </td><td class="col14"> 7590590 </td><td class="col15"> 9.6 </td><td class="col16"> 342.8 34.5 </td><td class="col17"> 28.2 </td><td class="col18"></td>
+	</tr>
+	<tr class="row13">
+		<td class="col0"> r43321 </td><td class="col1"> Atheros AR9132 rev 2 </td><td class="col2"> TP-LINK TL-WR1043ND </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 265.42 </td><td class="col5"> 1.0.1j </td><td class="col6"> 20888840 </td><td class="col7"> 13662920 </td><td class="col8"> 6468960 </td><td class="col9"> 281939</td><td class="col10"> 11540 </td><td class="col11"> 5136490 </td><td class="col12"> 4447660 </td><td class="col13"> 3890120 </td><td class="col14"> 4.7 </td><td class="col15"> 162.4 16.3 </td><td class="col16"> 13.3 </td><td class="col17"></td><td class="col18"></td>
+	</tr>
+	<tr class="row14">
+		<td class="col0"> r42056 </td><td class="col1"> Qualcomm Atheros QCA9558 rev 0 </td><td class="col2"> TP-LINK Archer C7 </td><td class="col3"> MIPS 74Kc V5.0 </td><td class="col4"> 358.80 </td><td class="col5"> 1.0.1i </td><td class="col6"> 48201030 </td><td class="col7"> 26489800 </td><td class="col8"> 12468980 </td><td class="col9"> 5741250 </td><td class="col10"> 6431000 </td><td class="col11"> 2313460 </td><td class="col12"> 12628150 </td><td class="col13"> 10951790 </td><td class="col14"> 9591940 </td><td class="col15"> 12.4 </td><td class="col16"> 441.7 </td><td class="col17"> 44.9 </td><td class="col18"> 35.8 </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0"> r42297 </td><td class="col1"> Freescale IMX6Q </td><td class="col2"> Gateworks Ventana GW5104 </td><td class="col3"> ARMv7 Processor rev 10 (v7l) </td><td class="col4"> 1581.05 </td><td class="col5"> 1.0.1i </td><td class="col6"> 94399830 </td><td class="col7"> 24815960 </td><td class="col8"> 20170750 </td><td class="col9"> 7612760 </td><td class="col10"> 10856450 </td><td class="col11"> 3889490 </td><td class="col12"> 18355200 </td><td class="col13"> 16259750 </td><td class="col14"> 14509740 </td><td class="col15"> 18.9 </td><td class="col16"> 660.5 </td><td class="col17"> 66.9 </td><td class="col18"> 54.5 </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0"> r42328 </td><td class="col1"> Freescale P1014 </td><td class="col2"> TP-Link TL-WDR4900 v1 </td><td class="col3"> PowerPC e500v2 </td><td class="col4"> 99.99 </td><td class="col5"> 1.0.1i </td><td class="col6"> 40339740 </td><td class="col7"> 29738410 </td><td class="col8"> 22216320 </td><td class="col9"> 8258420 </td><td class="col10"> 14423670 </td><td class="col11"> 5276350 </td><td class="col12"> 23153400 </td><td class="col13"> 21997950 </td><td class="col14"> 18524400 </td><td class="col15"> 14.6 </td><td class="col16"> 524.7 </td><td class="col17"> 52.5 </td><td class="col18"> 43.1 </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0"> r42309 </td><td class="col1"> Freescale P1014 </td><td class="col2"> TP-Link TL-WDR4900 v1 </td><td class="col3"> PowerPC e500v2 </td><td class="col4"> 99.99 </td><td class="col5"> 1.0.1i </td><td class="col6"> 84563980 </td><td class="col7"> 23805210 </td><td class="col8"> 16618110 </td><td class="col9"> 7016300 </td><td class="col10"> 10510900 </td><td class="col11"> 3701570 </td><td class="col12"> 18429590 </td><td class="col13"> 16105660 </td><td class="col14"> 14391160 </td><td class="col15"> 14.2 </td><td class="col16"> 516.0 </td><td class="col17"> 51.9 </td><td class="col18"> 42.6 </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0"> r36088 </td><td class="col1"> Atheros AR7161 rev 2 </td><td class="col2"> NETGEAR WNDR3700/WNDR3800/WNDRMAC </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 452.19 </td><td class="col5"> 1.0.1e </td><td class="col6"> 36215580 </td><td class="col7"> 23202860 </td><td class="col8"> 10995730 </td><td class="col9"> 4811410 </td><td class="col10"> 4946550 </td><td class="col11"> 1776220 </td><td class="col12"> 8524800 </td><td class="col13"> 7496740 </td><td class="col14"> 6571550 </td><td class="col15"> 8.0 </td><td class="col16"> 281.3 </td><td class="col17"> 27.9 </td><td class="col18"> 22.6 </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0"> r41097 </td><td class="col1"> Atheros AR9341 rev 3 </td><td class="col2"> TP-LINK TL-MR3420 v2 </td><td class="col3"> MIPS 74Kc V4.12 </td><td class="col4"> 266.64 </td><td class="col5"> 1.0.1h </td><td class="col6"> 31103660 </td><td class="col7"> 19177470 </td><td class="col8"> 8885930 </td><td class="col9"> 4121940 </td><td class="col10"> 4962300 </td><td class="col11"> 1762990 </td><td class="col12"> 9133740 </td><td class="col13"> 7910060 </td><td class="col14"> 6975830 </td><td class="col15"> 8.5 </td><td class="col16"> 300.3 </td><td class="col17"> 31.2 </td><td class="col18"> 25.2 </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0"> r38891 </td><td class="col1"> Freescale P2020 1200 <abbr title="Megahertz">MHz</abbr> </td><td class="col2"> Project Turris </td><td class="col3"> PowerPC e500v2 </td><td class="col4"> 300 </td><td class="col5"> 1.0.1g </td><td class="col6"> 123487210 </td><td class="col7"> 44921510 </td><td class="col8"> 34958680 </td><td class="col9"> 10877950 </td><td class="col10"> 22366690 </td><td class="col11"> 7951700 </td><td class="col12"> 34714280 </td><td class="col13"> 30778030 </td><td class="col14"> 27643900 </td><td class="col15"> 21.7 </td><td class="col16"> 781.5 </td><td class="col17"> 78.4 </td><td class="col18"> 64.0 </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0"> r42272 </td><td class="col1"> BCM4708A0 </td><td class="col2"> Northstar Prototype </td><td class="col3"> ARMv7 Processor rev 0 (v7l) </td><td class="col4"> 1599.07 </td><td class="col5"> 1.0.0m </td><td class="col6"> 76479830 </td><td class="col7"> 42613760 </td><td class="col8"> 30027090 </td><td class="col9"> 13764270 </td><td class="col10"> 12665170 </td><td class="col11"> 4823720 </td><td class="col12"> 27129170 </td><td class="col13"> 22683470 </td><td class="col14"> 20373850 </td><td class="col15"> 22.3 </td><td class="col16"> 736.5 </td><td class="col17"> 75.8 </td><td class="col18"> 64.1 </td>
+	</tr>
+	<tr class="row22">
+		<td class="col0"> r41337 </td><td class="col1"> Atheros AR9132 rev 2 </td><td class="col2"> TP-LINK TL-WR1043ND </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 286.31 (overclocked 430MHZ) </td><td class="col5"> 1.0.1h </td><td class="col6"> 22489090 </td><td class="col7"> 14695080 </td><td class="col8"> 6939310 </td><td class="col9"> 3079510 </td><td class="col10"> 3322880 </td><td class="col11"> 1187160 </td><td class="col12"> 5534390 </td><td class="col13"> 4770680 </td><td class="col14"> 4179630 </td><td class="col15"> 5.0 </td><td class="col16"> 175.1 </td><td class="col17"> 17.6 </td><td class="col18"> 14.3 </td>
+	</tr>
+	<tr class="row23">
+		<td class="col0"> trunk r40462 (gcc-4.8-linaro; mtune=24kc) </td><td class="col1"> Atheros AR7161 rev 2 (overclocked 800mhz) </td><td class="col2"> Buffalo WZR-HP-AG300H/WZR-600DHP </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 531.66 </td><td class="col5"> 1.0.1g </td><td class="col6"> 42137260 </td><td class="col7"> 27525050 </td><td class="col8"> 12856850 </td><td class="col9"> 5183020 </td><td class="col10"> 6554970 </td><td class="col11"> 2332670 </td><td class="col12"> 10652010 </td><td class="col13"> 9063420 </td><td class="col14"> 7929860 </td><td class="col15"> 9.4 </td><td class="col16"> 326.2 </td><td class="col17"> 32.6 </td><td class="col18"> 27.1 </td>
+	</tr>
+	<tr class="row24">
+		<td class="col0"> trunk r40462 (gcc-4.8-linaro; mtune=24kc) </td><td class="col1"> Atheros AR7161 rev 2 </td><td class="col2"> Buffalo WZR-HP-AG300H/WZR-600DHP </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 452.19 </td><td class="col5"> 1.0.1g </td><td class="col6"> 35419100 </td><td class="col7"> 22987430 </td><td class="col8"> 10748250 </td><td class="col9"> 4329470 </td><td class="col10"> 5451780 </td><td class="col11"> 1953790 </td><td class="col12"> 8901270 </td><td class="col13"> 7607640 </td><td class="col14"> 6648830 </td><td class="col15"> 7.8 </td><td class="col16"> 272.7 </td><td class="col17"> 27.4 </td><td class="col18"> 22.3 </td>
+	</tr>
+	<tr class="row25">
+		<td class="col0"> r40335 </td><td class="col1"> AMD Sempron™ Processor 210U </td><td class="col2"> Wyse R90L ThinClient </td><td class="col3"> x86-64 </td><td class="col4"> 2999.82 </td><td class="col5"> 1.0.1f </td><td class="col6"> 198452910 </td><td class="col7"> 68489220 </td><td class="col8"> 32900880 </td><td class="col9"> 16330750 </td><td class="col10"> 22723930 </td><td class="col11"> 7842680 </td><td class="col12"> 24113320 </td><td class="col13"> 20579670 </td><td class="col14"> 17918290 </td><td class="col15"> 24.9 </td><td class="col16"> 884.7 </td><td class="col17"> 88.9 </td><td class="col18"> 71.6 </td>
+	</tr>
+	<tr class="row26">
+		<td class="col0"> r39969 </td><td class="col1"> Atheros AR7161 rev 2 </td><td class="col2"> Ubiquiti RouterStation Pro </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 479.23 </td><td class="col5"> 1.0.1f </td><td class="col6"> 37291180 </td><td class="col7"> 24408190 </td><td class="col8"> 11942760 </td><td class="col9"> 5179060 </td><td class="col10"> 5579940 </td><td class="col11"> 1984980 </td><td class="col12"> 9260970 </td><td class="col13"> 7947210 </td><td class="col14"> 7050270 </td><td class="col15"> 8.4 </td><td class="col16"> 270.2 </td><td class="col17"> 29.6 </td><td class="col18"> 23.8 </td>
+	</tr>
+	<tr class="row27">
+		<td class="col0"> r39789 </td><td class="col1"> Atheros AR9344 rev 1 </td><td class="col2"> D-Link DIR-835 rev. A1 </td><td class="col3"> MIPS 74Kc V4.12 </td><td class="col4"> 278.93 </td><td class="col5"> 1.0.1e </td><td class="col6"> 33743550 </td><td class="col7"> 20258770 </td><td class="col8"> 9637390 </td><td class="col9"> 4421370 </td><td class="col10"> 4882070 </td><td class="col11"> 1719270 </td><td class="col12"> 9812690 </td><td class="col13"> 8376570 </td><td class="col14"> 7332550 </td><td class="col15"> 9.4 </td><td class="col16"> 340.5 </td><td class="col17"> 34.2 </td><td class="col18"> 28.3 </td>
+	</tr>
+	<tr class="row28">
+		<td class="col0"> trunk r39753 </td><td class="col1"> QCA9558@720MHz </td><td class="col2"> TP-Link TL-WR1043nd v2 </td><td class="col3"> MIPS 74Kc V5.0 </td><td class="col4"> 358.80 </td><td class="col5"> 1.0.1e </td><td class="col6 rightalign">  45876220 </td><td class="col7 rightalign">  27233280 </td><td class="col8 rightalign">  12434770 </td><td class="col9 rightalign">  5766490 </td><td class="col10 rightalign">  6425940 </td><td class="col11 rightalign">  2307600 </td><td class="col12 rightalign">  12816040 </td><td class="col13 rightalign">  11099140 </td><td class="col14 rightalign">  9820130 </td><td class="col15 rightalign">  8.3 </td><td class="col16 rightalign">  422.5 </td><td class="col17 rightalign">  44.4 </td><td class="col18 rightalign">  36.4 </td>
+	</tr>
+	<tr class="row29">
+		<td class="col0"> trunk r38924 </td><td class="col1"> QCA9558 </td><td class="col2"> Sitecom WLR-8100 </td><td class="col3"> MIPS 74Kc V5.0 </td><td class="col4"> 358.80 </td><td class="col5"> 1.0.1e </td><td class="col6 rightalign">  46189570 </td><td class="col7 rightalign">  27330220 </td><td class="col8 rightalign">  12483580 </td><td class="col9 rightalign">  5770240 </td><td class="col10 rightalign">  6431060 </td><td class="col11 rightalign">  2298540 </td><td class="col12 rightalign">  12819110 </td><td class="col13 rightalign">  11144480 </td><td class="col14 rightalign">  9795930 </td><td class="col15 rightalign">  12.4 </td><td class="col16 rightalign">  443.9 </td><td class="col17 rightalign">  44.6 </td><td class="col18 rightalign">  36.5 </td>
+	</tr>
+	<tr class="row30">
+		<td class="col0"> trunk r36211</td><td class="col1"> Atheros AR7161 rev 2 </td><td class="col2"> Netgear WNDR3700v2 </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 452.19 </td><td class="col5"> 1.0.1e </td><td class="col6 rightalign">  35389740 </td><td class="col7 rightalign">  23983300 </td><td class="col8 rightalign">  10766940 </td><td class="col9 rightalign">  4929350 </td><td class="col10 rightalign">  4899090 </td><td class="col11 rightalign">  1697560 </td><td class="col12 rightalign">  8727710 </td><td class="col13 rightalign">  7525860 </td><td class="col14 rightalign">  6629860 </td><td class="col15 rightalign">  8.0 </td><td class="col16 rightalign">  281.8 </td><td class="col17 rightalign">  28.1 </td><td class="col18 rightalign">  22.9 </td>
+	</tr>
+	<tr class="row31">
+		<td class="col0"> 14.07-rc3 r42056 </td><td class="col1"> Freescale P1014 </td><td class="col2"> TP-Link TL-WDR4900 v1 </td><td class="col3"> PowerPC e500v2 </td><td class="col4"> 99.99 </td><td class="col5"> 1.0.1i </td><td class="col6 rightalign">  80655810 </td><td class="col7 rightalign">  23427260 </td><td class="col8 rightalign">  17796980 </td><td class="col9 rightalign">  7603720 </td><td class="col10"> 10518090 </td><td class="col11 rightalign">  3699500 </td><td class="col12 rightalign">  18462690 </td><td class="col13 rightalign">  16263330 </td><td class="col14"> 14519500 </td><td class="col15 rightalign">  14.3 </td><td class="col16 rightalign">  519.1 </td><td class="col17 rightalign">  52.0 </td><td class="col18 rightalign">  42.5 </td>
+	</tr>
+	<tr class="row32">
+		<td class="col0"> 14.07-rc2 r41815 </td><td class="col1"> Freescale P1014 </td><td class="col2"> TP-Link TL-WDR4900 v1 </td><td class="col3"> PowerPC e500v2 </td><td class="col4"> 99.99 </td><td class="col5"> 1.0.1h </td><td class="col6 rightalign">  80679170 </td><td class="col7 rightalign">  23829550 </td><td class="col8 rightalign">  18253980 </td><td class="col9 rightalign">  7538720 </td><td class="col10"> 10425840 </td><td class="col11 rightalign">  3654010 </td><td class="col12 rightalign">  17688740 </td><td class="col13 rightalign">  15597210 </td><td class="col14 rightalign">  13996280 </td><td class="col15 rightalign">  14.1 </td><td class="col16 rightalign">  519.6 </td><td class="col17 rightalign">  51.3 </td><td class="col18 rightalign">  42.5 </td>
+	</tr>
+	<tr class="row33">
+		<td class="col0"> trunk r36102 </td><td class="col1"> Freescale P1014 </td><td class="col2"> TP-Link TL-WDR4900 v1 </td><td class="col3"> PowerPC e500v2 </td><td class="col4"> 99.99 </td><td class="col5"> 1.0.1e </td><td class="col6 rightalign">  78254570 </td><td class="col7 rightalign">  20711270 </td><td class="col8 rightalign">  17345730 </td><td class="col9 rightalign">  7272490 </td><td class="col10 rightalign">  9575090 </td><td class="col11 rightalign">  3354900 </td><td class="col12 rightalign">  17875420 </td><td class="col13 rightalign">  15547790 </td><td class="col14 rightalign">  13725050 </td><td class="col15 rightalign">  13.3 </td><td class="col16 rightalign">  477.7 </td><td class="col17 rightalign">  48.1 </td><td class="col18 rightalign">  39.7 </td>
+	</tr>
+	<tr class="row34">
+		<td class="col0"> trunk r37759 </td><td class="col1"> Atheros AR9344 rev 2 </td><td class="col2"> TP-LINK TL-WDR3600 </td><td class="col3"> MIPS 74Kc V4.12 </td><td class="col4"> 278.93 </td><td class="col5"> 1.0.1e </td><td class="col6 rightalign">  34957780 </td><td class="col7 rightalign">  20501170 </td><td class="col8 rightalign">  9654800 </td><td class="col9 rightalign">  4426250 </td><td class="col10 rightalign">  4904920 </td><td class="col11 rightalign">  1718250 </td><td class="col12 rightalign">  9812620 </td><td class="col13 rightalign">  8487910 </td><td class="col14 rightalign">  7457060 </td><td class="col15 rightalign">  9.5 </td><td class="col16 rightalign">  336.8 </td><td class="col17 rightalign">  34.3 </td><td class="col18 rightalign">  27.4 </td>
+	</tr>
+	<tr class="row35">
+		<td class="col0"> trunk r36736 </td><td class="col1"> Atheros AR9344 rev 2 </td><td class="col2"> TP-LINK TL-WDR3600 </td><td class="col3"> MIPS 74Kc V4.12 </td><td class="col4"> 278.93 </td><td class="col5"> 1.0.1e </td><td class="col6 rightalign">  36066450 </td><td class="col7 rightalign">  20959700 </td><td class="col8 rightalign">  9810830 </td><td class="col9 rightalign">  4495950 </td><td class="col10 rightalign">  5140000 </td><td class="col11 rightalign">  1817170 </td><td class="col12 rightalign">  10008730 </td><td class="col13 rightalign">  8603320 </td><td class="col14 rightalign">  7565920 </td><td class="col15 rightalign">  9.5 </td><td class="col16 rightalign">  344.4 </td><td class="col17 rightalign">  35.4 </td><td class="col18 rightalign">  28.5 </td>
+	</tr>
+	<tr class="row36">
+		<td class="col0"> Attitude Adjustment 12.09 r36088 </td><td class="col1"> Atheros AR9344 rev 2 </td><td class="col2"> TP-LINK TL-WDR3600 v1.5 </td><td class="col3"> MIPS 74Kc V4.12 </td><td class="col4"> 278.93 </td><td class="col5"> 1.0.1g </td><td class="col6"> 36008280 </td><td class="col7"> 20788220 </td><td class="col8"> 9738920 </td><td class="col9"> 4502530 </td><td class="col10"> 5168470 </td><td class="col11"> 1836400 </td><td class="col12"> 9955330 </td><td class="col13"> 8643580 </td><td class="col14"> 7624700 </td><td class="col15"> 7.0 </td><td class="col16"> 348.5 </td><td class="col17"> 35.1 </td><td class="col18"> 29.3 </td>
+	</tr>
+	<tr class="row37">
+		<td class="col0"> trunk r32510 </td><td class="col1"> Atheros AR9344 rev 2 </td><td class="col2"> TP-LINK TL-WDR4300 </td><td class="col3"> MIPS 74Kc V4.12 </td><td class="col4"> 278.93 </td><td class="col5"> 1.0.1c </td><td class="col6 rightalign">  36544160 </td><td class="col7 rightalign">  12057270 </td><td class="col8 rightalign">  7958320 </td><td class="col9 rightalign">  4476150 </td><td class="col10 rightalign">  5037210 </td><td class="col11 rightalign">  1841890 </td><td class="col12 rightalign">  9245010 </td><td class="col13 rightalign">  8053560 </td><td class="col14 rightalign">  7086260 </td><td class="col15 rightalign">  8.0 </td><td class="col16 rightalign">  277.1 </td><td class="col17 rightalign">  27.8 </td><td class="col18 rightalign">  23.0 </td>
+	</tr>
+	<tr class="row38">
+		<td class="col0"> trunk r30830 </td><td class="col1"> Ralink RT3052   id:1 rev:3 </td><td class="col2"> Aztech HW550-3G </td><td class="col3"> MIPS 24KEc V4.12 </td><td class="col4"> 255.59 </td><td class="col5"> 1.0.0g </td><td class="col6 rightalign">  23318870 </td><td class="col7 rightalign">  6779780 </td><td class="col8 rightalign">  4492590 </td><td class="col9 rightalign">  2746530 </td><td class="col10 rightalign">  2800300 </td><td class="col11 rightalign">  992390 </td><td class="col12 rightalign">  4740100 </td><td class="col13 rightalign">  4123060 </td><td class="col14 rightalign">  3625920 </td><td class="col15 rightalign">  3.4 </td><td class="col16 rightalign">  116.8 </td><td class="col17 rightalign">  11.7 </td><td class="col18 rightalign">  9.6 </td>
+	</tr>
+	<tr class="row39">
+		<td class="col0"> trunk r30624 </td><td class="col1"> Lantiq AR9 rev 1.2 </td><td class="col2"> <a href="../toh/buffalo/wbmr-hp-g300h" class="urlextern" title="http://wiki.openwrt.org/toh/buffalo/wbmr-hp-g300h"  rel="nofollow">Buffalo WBMR-HP-G300H</a> </td><td class="col3"> MIPS 34Kc V4.12 </td><td class="col4"> 221.18 </td><td class="col5"> 1.0.0g </td><td class="col6 rightalign">  17321240 </td><td class="col7 rightalign">  5692940 </td><td class="col8 rightalign">  3833600 </td><td class="col9 rightalign">  2371060 </td><td class="col10 rightalign">  2384510 </td><td class="col11 rightalign">  858720 </td><td class="col12 rightalign">  4028600 </td><td class="col13 rightalign">  3525280 </td><td class="col14 rightalign">  3116620 </td><td class="col15 rightalign">  2.9 </td><td class="col16 rightalign">  100.1 </td><td class="col17 rightalign">  10.3 </td><td class="col18 rightalign">  8.3 </td>
+	</tr>
+	<tr class="row40">
+		<td class="col0"> trunk r30310 </td><td class="col1"> Atheros AR7241 rev 1 </td><td class="col2"> <a href="../toh/tp-link/tl-wr841nd" class="urlextern" title="http://wiki.openwrt.org/toh/tp-link/tl-wr841nd"  rel="nofollow">TP-LINK TL-WR841ND</a> </td><td class="col3"> MIPS 24Kc V7.2 </td><td class="col4"> 265.42 </td><td class="col5"> 1.0.0g </td><td class="col6 rightalign">  21948430 </td><td class="col7 rightalign">  6993710 </td><td class="col8 rightalign">  4697510 </td><td class="col9 rightalign">  2891400 </td><td class="col10 rightalign">  2951430 </td><td class="col11 rightalign">  1031560 </td><td class="col12 rightalign">  5012670 </td><td class="col13 rightalign">  4303920 </td><td class="col14 rightalign">  3804770 </td><td class="col15 rightalign">  3.6 </td><td class="col16 rightalign">  123.1 </td><td class="col17 rightalign">  12.2 </td><td class="col18 rightalign">  9.9 </td>
+	</tr>
+	<tr class="row41">
+		<td class="col0"> trunk r26232 </td><td class="col1"> Atheros AR7161 </td><td class="col2"> Netgear WNDR3700v1 </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 452.19 </td><td class="col5"> 1.0.0d </td><td class="col6 rightalign">  37445910 </td><td class="col7 rightalign">  11610610 </td><td class="col8 rightalign">  7947790 </td><td class="col9 rightalign">  4891150 </td><td class="col10 rightalign">  4916260 </td><td class="col11 rightalign">  1774700 </td><td class="col12 rightalign">  8031440 </td><td class="col13 rightalign">  7067370 </td><td class="col14 rightalign">  6395730 </td><td class="col15 rightalign">  5.7 </td><td class="col16 rightalign">  192.1 </td><td class="col17 rightalign">  19.2 </td><td class="col18 rightalign">  15.5 </td>
+	</tr>
+	<tr class="row42">
+		<td class="col0"> trunk r39770 </td><td class="col1"> Atheros AR9331 </td><td class="col2"> <a href="../toh/tp-link/tl-wr710n" class="urlextern" title="http://wiki.openwrt.org/toh/tp-link/tl-wr710n"  rel="nofollow">TP-Link TL-WR710N</a> </td><td class="col3"> MIPS 24Kc </td><td class="col4"> 266.24 </td><td class="col5"> 1.0.1e </td><td class="col6 rightalign">  21197480 </td><td class="col7 rightalign">  13745150 </td><td class="col8 rightalign">  6514560 </td><td class="col9 rightalign">  2891090 </td><td class="col10 rightalign">  3101700 </td><td class="col11 rightalign">  1108310 </td><td class="col12 rightalign">  5160960 </td><td class="col13 rightalign">  4460390 </td><td class="col14 rightalign">  3923050 </td><td class="col15 rightalign">  4.8 </td><td class="col16 rightalign">  165.0 </td><td class="col17 rightalign">  16.6 </td><td class="col18 rightalign">  13.4 </td>
+	</tr>
+	<tr class="row43">
+		<td class="col0"> r42420 </td><td class="col1"> Ralink RT5350 id:1 rev:3 </td><td class="col2"> HAME MPR-A2 </td><td class="col3"> MIPS 24KEc V4.12 </td><td class="col4"> 239.61 </td><td class="col5"> 1.0.1i </td><td class="col6"> 21382140 </td><td class="col7"> 12057860 </td><td class="col8"> 5592270 </td><td class="col9"> 2586620 </td><td class="col10"> 3054590 </td><td class="col11"> 1103450 </td><td class="col12"> 4688480 </td><td class="col13"> 4033330 </td><td class="col14"> 3529390 </td><td class="col15"> 4.2 </td><td class="col16"> 146.2 </td><td class="col17"> 14.7 </td><td class="col18"> 11.8 </td>
+	</tr>
+	<tr class="row44">
+		<th class="col0"> <abbr title="Operating System">OS</abbr> </th><th class="col1"> SoC </th><th class="col2"> Device </th><th class="col3"> <a href="../doc/hardware/cpu" class="wikilink1" title="doc:hardware:cpu">CPU</a> </th><th class="col4"> BogoMIPS </th><th class="col5"> OpenSSL Version </th><th class="col6"> <a href="http://en.wikipedia.org/wiki/MD5" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/MD5">MD5</a> </th><th class="col7"> <a href="http://en.wikipedia.org/wiki/Secure Hash Algorithm" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Secure Hash Algorithm">SHA-1</a> </th><th class="col8"> SHA-256 </th><th class="col9"> SHA-512 </th><th class="col10"> <a href="http://en.wikipedia.org/wiki/Data Encryption Standard" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Data Encryption Standard">DES</a> </th><th class="col11"> 3DES </th><th class="col12"> <a href="http://en.wikipedia.org/wiki/Advanced Encryption Standard" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Advanced Encryption Standard">AES-128</a> </th><th class="col13"> AES-192 </th><th class="col14"> AES-256 </th><th class="col15"> <a href="http://en.wikipedia.org/wiki/RSA (algorithm)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/RSA (algorithm)">RSA</a> Sign </th><th class="col16"> RSA Verify </th><th class="col17"> <a href="http://en.wikipedia.org/wiki/Digital Signature Algorithm" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Digital Signature Algorithm">DSA</a> Sign </th><th class="col18 leftalign"> DSA Verify  </th>
+	</tr>
+	<tr class="row45">
+		<td class="col0"> trunk r34054 (gcc 4.7.3 linaro; mtune=24kc) </td><td class="col1"> Atheros AR7161 </td><td class="col2"> Netgear WNDR3700v1 </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 452.19 </td><td class="col5"> 1.0.1c </td><td class="col6 rightalign">  36851370 </td><td class="col7 rightalign">  23923030 </td><td class="col8"> 11097900 </td><td class="col9 rightalign">  4999850 </td><td class="col10 rightalign">  5333390 </td><td class="col11 rightalign">  1905530 </td><td class="col12 rightalign">  8781480 </td><td class="col13 rightalign">  7592330 </td><td class="col14 rightalign">  6651560 </td><td class="col15 rightalign">  8.1 </td><td class="col16 rightalign">  281.7 </td><td class="col17 rightalign">  28.3 </td><td class="col18 rightalign">  23.1 </td>
+	</tr>
+	<tr class="row46">
+		<td class="col0"> trunk r27984 </td><td class="col1"> Atheros AR7161 rev 2 </td><td class="col2"> Netgear WNDR3700v2 </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 452.19 </td><td class="col5"> 1.0.0d </td><td class="col6 rightalign">  36540250 </td><td class="col7 rightalign">  11552240 </td><td class="col8 rightalign">  7955350 </td><td class="col9 rightalign">  4922860 </td><td class="col10 rightalign">  4921730 </td><td class="col11 rightalign">  1760040 </td><td class="col12 rightalign">  8275440 </td><td class="col13 rightalign">  7196270 </td><td class="col14 rightalign">  6291260 </td><td class="col15 rightalign">  5.6 </td><td class="col16 rightalign">  191.5 </td><td class="col17 rightalign">  19.2 </td><td class="col18 rightalign">  15.9 </td>
+	</tr>
+	<tr class="row47">
+		<td class="col0"> Backfire 10.03.1 </td><td class="col1"> Atheros AR7161 rev 2 </td><td class="col2"> Netgear WNDR3800 </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 452.19 </td><td class="col5"> 0.9.8r </td><td class="col6 rightalign">  36774910 </td><td class="col7 rightalign">  11649040 </td><td class="col8 rightalign">  8470140 </td><td class="col9 rightalign">  4236330 </td><td class="col10 rightalign">  5319320 </td><td class="col11 rightalign">  1893720 </td><td class="col12 rightalign">  8255440 </td><td class="col13 rightalign">  7222310 </td><td class="col14 rightalign">  6330590 </td><td class="col15 rightalign">  6.7 </td><td class="col16 rightalign">  243.9 </td><td class="col17 rightalign">  24.6 </td><td class="col18 rightalign">  20.6 </td>
+	</tr>
+	<tr class="row48">
+		<td class="col0"> Backfire 10.03.1-rc6 </td><td class="col1"> Atheros AR7161 </td><td class="col2"> DIR-825 </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 452.19 </td><td class="col5"> 0.9.8p + <a href="../doc/howto/vpn.ipsec.basics#openssltuning" class="wikilink1" title="doc:howto:vpn.ipsec.basics">patch</a> </td><td class="col6 rightalign">  36995460 </td><td class="col7 rightalign">  11623780 </td><td class="col8 rightalign">  8425420 </td><td class="col9 rightalign">  4241990 </td><td class="col10 rightalign">  5350830 </td><td class="col11 rightalign">  1916890 </td><td class="col12 rightalign">  <strong>8915670</strong> </td><td class="col13 rightalign">  <strong>7623830</strong> </td><td class="col14 rightalign">  6704630 </td><td class="col15 rightalign">  6.7 </td><td class="col16 rightalign">  244.4 </td><td class="col17 rightalign">  24.8 </td><td class="col18 rightalign">  20.9 </td>
+	</tr>
+	<tr class="row49">
+		<td class="col0"> Backfire 10.03.1 </td><td class="col1"> Atheros AR7161 </td><td class="col2"> DIR-825 </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 452.19 </td><td class="col5"> 0.9.8r </td><td class="col6 rightalign">  37355180 </td><td class="col7 rightalign">  11622740 </td><td class="col8 rightalign">  8443560 </td><td class="col9 rightalign">  4243180 </td><td class="col10 rightalign">  5339820 </td><td class="col11 rightalign">  1911130 </td><td class="col12 rightalign">  8249000 </td><td class="col13 rightalign">  7174490 </td><td class="col14 rightalign">  6351530 </td><td class="col15 rightalign">  6.7 </td><td class="col16 rightalign">  244.8 </td><td class="col17 rightalign">  24.8 </td><td class="col18 rightalign">  21.0 </td>
+	</tr>
+	<tr class="row50">
+		<td class="col0"> r40877 </td><td class="col1"> Atheros AR7161 rev 2 </td><td class="col2"> D-Link DIR-825 rev. B1 </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 452.19 </td><td class="col5"> 1.0.1g </td><td class="col6"> 34862390 </td><td class="col7"> 22486220 </td><td class="col8"> 10781160 </td><td class="col9"> 4731160 </td><td class="col10"> 4797680 </td><td class="col11"> 1719700 </td><td class="col12"> 8483050 </td><td class="col13"> 7242380 </td><td class="col14"> 6291610 </td><td class="col15"> 7.6 </td><td class="col16"> 265.0 </td><td class="col17"> 27.1 </td><td class="col18"> 21.7 </td>
+	</tr>
+	<tr class="row51">
+		<td class="col0"> r42625 </td><td class="col1"> Atheros AR7161 rev 2 </td><td class="col2"> D-Link DIR-825 rev. B1 </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 452.19 </td><td class="col5"> 1.0.1i </td><td class="col6"> 35764570 </td><td class="col7"> 23299940 </td><td class="col8"> 10971480 </td><td class="col9"> 4872870 </td><td class="col10"> 5359740 </td><td class="col11"> 1890650 </td><td class="col12"> 8890340 </td><td class="col13"> 7544380 </td><td class="col14"> 6617640 </td><td class="col15"> 8.1 </td><td class="col16"> 278.7 </td><td class="col17"> 28.2 </td><td class="col18"> 23.1 </td>
+	</tr>
+	<tr class="row52">
+		<td class="col0"> trunk r26588 </td><td class="col1"> Marvell Orion-1 </td><td class="col2"> Netgear WNR854T </td><td class="col3"> ARMv5-TE </td><td class="col4"> 332.59 </td><td class="col5"> 1.0.0d </td><td class="col6 rightalign">  22291590 </td><td class="col7 rightalign">  7915040 </td><td class="col8 rightalign">  5486650 </td><td class="col9 rightalign">  2371980 </td><td class="col10 rightalign">  3312760 </td><td class="col11 rightalign">  1188050 </td><td class="col12 rightalign">  5568640 </td><td class="col13 rightalign">  4895610 </td><td class="col14 rightalign">  4337100 </td><td class="col15 rightalign">  5.8 </td><td class="col16 rightalign">  205.6 </td><td class="col17 rightalign">  20.7 </td><td class="col18 rightalign">  16.5 </td>
+	</tr>
+	<tr class="row53">
+		<td class="col0"> Backfire 10.03.1 </td><td class="col1"> Broadcom BCM47XX </td><td class="col2"> Asus 500G Premium v2 </td><td class="col3"> BCM3302 V2.9 </td><td class="col4"> 239.10 </td><td class="col5"> 0.9.8t </td><td class="col6 rightalign">  10680320 </td><td class="col7 rightalign">  3528210 </td><td class="col8 rightalign">  2177780 </td><td class="col9 rightalign">  1442780 </td><td class="col10 rightalign">  1559990 </td><td class="col11 rightalign">  555080 </td><td class="col12 rightalign">  2796550 </td><td class="col13 rightalign">  2420400 </td><td class="col14 rightalign">  2058910 </td><td class="col15 rightalign">  2.7 </td><td class="col16 rightalign">  101.8 </td><td class="col17 rightalign">  10.3 </td><td class="col18 rightalign">  8.7 </td>
+	</tr>
+	<tr class="row54">
+		<td class="col0"> Backfire 10.03.1 </td><td class="col1"> Atheros AR9132 rev 2 </td><td class="col2"> Buffalo WZR-HP-G300NH </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 266.24 </td><td class="col5"> 0.9.8t </td><td class="col6 rightalign">  22143570 </td><td class="col7 rightalign">  6842030 </td><td class="col8 rightalign">  4978220 </td><td class="col9 rightalign">  2494240 </td><td class="col10 rightalign">  3157330 </td><td class="col11 rightalign">  1122950 </td><td class="col12 rightalign">  4812800 </td><td class="col13 rightalign">  4190100 </td><td class="col14 rightalign">  3769420 </td><td class="col15 rightalign">  3.9 </td><td class="col16 rightalign">  143.6 </td><td class="col17 rightalign">  14.5 </td><td class="col18 rightalign">  12.0 </td>
+	</tr>
+	<tr class="row55">
+		<td class="col0"> Barrier Breaker 14.07 (r42625) </td><td class="col1"> Atheros AR9132 rev 2 </td><td class="col2"> Buffalo WZR-HP-G300NH </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 265.42 </td><td class="col5"> 1.0.2 </td><td class="col6 rightalign">  21454190 </td><td class="col7 rightalign">  18579030 </td><td class="col8 rightalign">  9360730 </td><td class="col9 rightalign">  2862690 </td><td class="col10 rightalign">  3143650 </td><td class="col11 rightalign">  1106470 </td><td class="col12 rightalign">  5578210 </td><td class="col13 rightalign">  4826980 </td><td class="col14 rightalign">  4211460 </td><td class="col15 rightalign">  4.7 </td><td class="col16 rightalign">  168.6 </td><td class="col17 rightalign">  16.5 </td><td class="col18 rightalign">  13.7 </td>
+	</tr>
+	<tr class="row56">
+		<td class="col0"> trunk r31678 </td><td class="col1"> Atheros AR7242 rev 1 </td><td class="col2"> Buffalo WZR-HP-G300NH2 </td><td class="col3"> MIPS 24Kc </td><td class="col4"> 265.42</td><td class="col5"> 1.0.1b </td><td class="col6 rightalign">  21572950 </td><td class="col7 rightalign">  6916970 </td><td class="col8 rightalign">  4674900 </td><td class="col9 rightalign">  2868220 </td><td class="col10 rightalign">  2932270 </td><td class="col11 rightalign">  1040040 </td><td class="col12 rightalign">  4962460 </td><td class="col13 rightalign">  4321420 </td><td class="col14 rightalign">  3795290 </td><td class="col15 rightalign">  3.6 </td><td class="col16 rightalign">  122.3 </td><td class="col17 rightalign">  12.3 </td><td class="col18 rightalign">  9.8 </td>
+	</tr>
+	<tr class="row57">
+		<td class="col0"> trunk r31753 </td><td class="col1"> Atheros AR7161 rev 2 </td><td class="col2"> Buffalo WZR-HP-AG300H </td><td class="col3"> MIPS 24Kc </td><td class="col4"> 452.19 </td><td class="col5"> 1.0.1b </td><td class="col6 rightalign">  36650330 </td><td class="col7 rightalign">  11757230 </td><td class="col8 rightalign">  7950340 </td><td class="col9 rightalign">  4878340 </td><td class="col10 rightalign">  4969810 </td><td class="col11 rightalign">  1769130 </td><td class="col12 rightalign">  8440980 </td><td class="col13 rightalign">  7304870 </td><td class="col14 rightalign">  6453590 </td><td class="col15 rightalign">  6.1 </td><td class="col16 rightalign">  207.9 </td><td class="col17 rightalign">  20.8 </td><td class="col18 rightalign">  16.8 </td>
+	</tr>
+	<tr class="row58">
+		<th class="col0"> <abbr title="Operating System">OS</abbr> </th><th class="col1"> SoC </th><th class="col2"> Device </th><th class="col3"> <a href="../doc/hardware/cpu" class="wikilink1" title="doc:hardware:cpu">CPU</a> </th><th class="col4"> BogoMIPS </th><th class="col5"> OpenSSL Version </th><th class="col6"> <a href="http://en.wikipedia.org/wiki/MD5" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/MD5">MD5</a> </th><th class="col7"> <a href="http://en.wikipedia.org/wiki/Secure Hash Algorithm" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Secure Hash Algorithm">SHA-1</a> </th><th class="col8"> SHA-256 </th><th class="col9"> SHA-512 </th><th class="col10"> <a href="http://en.wikipedia.org/wiki/Data Encryption Standard" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Data Encryption Standard">DES</a> </th><th class="col11"> 3DES </th><th class="col12"> <a href="http://en.wikipedia.org/wiki/Advanced Encryption Standard" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Advanced Encryption Standard">AES-128</a> </th><th class="col13"> AES-192 </th><th class="col14"> AES-256 </th><th class="col15"> <a href="http://en.wikipedia.org/wiki/RSA (algorithm)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/RSA (algorithm)">RSA</a> Sign </th><th class="col16"> RSA Verify </th><th class="col17"> <a href="http://en.wikipedia.org/wiki/Digital Signature Algorithm" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Digital Signature Algorithm">DSA</a> Sign </th><th class="col18 leftalign"> DSA Verify  </th>
+	</tr>
+	<tr class="row59">
+		<td class="col0"> trunk r32520 </td><td class="col1"> Atheros AR7242 </td><td class="col2"> TP-Link TL-WR2543N/ND v1 </td><td class="col3"> MIPS 24Kc </td><td class="col4"> 265.42 </td><td class="col5"> 1.0.1c </td><td class="col6 rightalign">  21521180 </td><td class="col7 rightalign">  6878670 </td><td class="col8 rightalign">  4687300 </td><td class="col9 rightalign">  2853110 </td><td class="col10 rightalign">  2899630 </td><td class="col11 rightalign">  1040890 </td><td class="col12 rightalign">  4938650 </td><td class="col13 rightalign">  4277780 </td><td class="col14 rightalign">  3799140 </td><td class="col15 rightalign">  3.6 </td><td class="col16 rightalign">  121.3 </td><td class="col17 rightalign">  12.1 </td><td class="col18 rightalign">  9.7 </td>
+	</tr>
+	<tr class="row60">
+		<td class="col0"> trunk r32680 </td><td class="col1"> Marvell Orion </td><td class="col2"> Linksys WRT350N v2.0 </td><td class="col3"> ARMv5-TE </td><td class="col4"> 331.77 </td><td class="col5"> 1.0.1c (OpenWRT trunk package) </td><td class="col6 rightalign">  26015820 </td><td class="col7 rightalign">  8024510 </td><td class="col8 rightalign">  6201460 </td><td class="col9 rightalign">  2270210 </td><td class="col10 rightalign">  2271760 </td><td class="col11 rightalign">  900950 </td><td class="col12 rightalign">  5267640 </td><td class="col13 rightalign">  4623970 </td><td class="col14 rightalign">  4144510 </td><td class="col15 rightalign">  6.3 </td><td class="col16 rightalign">  230.6 </td><td class="col17 rightalign">  22.9 </td><td class="col18 rightalign">  18.6 </td>
+	</tr>
+	<tr class="row61">
+		<td class="col0"> trunk r32680 </td><td class="col1"> Marvell Orion </td><td class="col2"> Linksys WRT350N v2.0 </td><td class="col3"> ARMv5-TE </td><td class="col4"> 331.77 </td><td class="col5"> 1.0.1c (local compile w/ hardware support) </td><td class="col6 rightalign">  25814360 </td><td class="col7 rightalign">  8053760 </td><td class="col8 rightalign">  3082580 </td><td class="col9 rightalign">  2300930 </td><td class="col10 rightalign">  3373740 </td><td class="col11 rightalign">  1189550 </td><td class="col12 rightalign">  5343980 </td><td class="col13 rightalign">  4691290 </td><td class="col14 rightalign">  4187480 </td><td class="col15 rightalign">  6.4 </td><td class="col16 rightalign">  229.1 </td><td class="col17 rightalign">  21.3 </td><td class="col18 rightalign">  19.3 </td>
+	</tr>
+	<tr class="row62">
+		<td class="col0"> trunk r36529 </td><td class="col1"> bcm6368 </td><td class="col2"> <a href="../toh/comtrend/ct5813" class="urlextern" title="http://wiki.openwrt.org/toh/comtrend/ct5813"  rel="nofollow"> Comtrend WAP-5813n</a> </td><td class="col3"> Broadcom BMIPS4350 V3.1 </td><td class="col4"> 397.82 + 400.38 (SMP Dual Core) </td><td class="col5"> 1.0.1e </td><td class="col6 rightalign">  38863190 </td><td class="col7 rightalign">  28821500 </td><td class="col8 rightalign">  12872700 </td><td class="col9 rightalign">  5159940 </td><td class="col10 rightalign">  4926810 </td><td class="col11 rightalign">  1774590 </td><td class="col12 rightalign">  9000960 </td><td class="col13 rightalign">  7752020 </td><td class="col14 rightalign">  6839300 </td><td class="col15 rightalign">  10.2 </td><td class="col16 rightalign">  356.8 </td><td class="col17 rightalign">  37.0 </td><td class="col18 rightalign">  30.4 </td>
+	</tr>
+	<tr class="row63">
+		<td class="col0"> trunk r36529 </td><td class="col1"> bcm6368 </td><td class="col2"> <a href="../toh/comtrend/ct5813" class="urlextern" title="http://wiki.openwrt.org/toh/comtrend/ct5813"  rel="nofollow"> Comtrend WAP-5813n</a> </td><td class="col3"> Broadcom BMIPS4350 V3.1 </td><td class="col4"> 397.82 </td><td class="col5"> 1.0.1e </td><td class="col6 rightalign">  19735800 </td><td class="col7 rightalign">  14578010 </td><td class="col8 rightalign">  6461440 </td><td class="col9 rightalign">  2623150 </td><td class="col10 rightalign">  2514260 </td><td class="col11 rightalign">  907900 </td><td class="col12 rightalign">  5058560 </td><td class="col13 rightalign">  4366680 </td><td class="col14 rightalign">  3847510 </td><td class="col15 rightalign">  5.5 </td><td class="col16 rightalign">  193.1 </td><td class="col17 rightalign">  19.1 </td><td class="col18 rightalign">  15.3 </td>
+	</tr>
+	<tr class="row64">
+		<td class="col0"> trunk r33275 </td><td class="col1"> bcm6328 </td><td class="col2"> <a href="../toh/comtrend/ar5381u" class="urlextern" title="http://wiki.openwrt.org/toh/comtrend/ar5381u"  rel="nofollow"> Comtrend AR-5381u</a> </td><td class="col3"> Broadcom BMIPS4350 V7.5 </td><td class="col4"> 318.46 </td><td class="col5"> 1.0.1c </td><td class="col6 rightalign">  15655520 </td><td class="col7 rightalign">  11652370 </td><td class="col8 rightalign">  5168810 </td><td class="col9 rightalign">  2093060 </td><td class="col10 rightalign">  2034350 </td><td class="col11 rightalign">  724650 </td><td class="col12 rightalign">  4094630 </td><td class="col13 rightalign">  3531260 </td><td class="col14 rightalign">  3105790 </td><td class="col15 rightalign">  4.4 </td><td class="col16 rightalign">  153.9 </td><td class="col17 rightalign">  15.5 </td><td class="col18 rightalign">  12.8 </td>
+	</tr>
+	<tr class="row65">
+		<td class="col0"> trunk r33275 </td><td class="col1"> bcm6358 </td><td class="col2"> <a href="../toh/huawei/hg553" class="urlextern" title="http://wiki.openwrt.org/toh/huawei/hg553"  rel="nofollow"> HG553 </a> </td><td class="col3"> Broadcom BMIPS4350 V1.0 </td><td class="col4"> 299.26 </td><td class="col5"> 1.0.1c </td><td class="col6 rightalign">  12010940 </td><td class="col7 rightalign">  10096500 </td><td class="col8 rightalign">  4787200 </td><td class="col9 rightalign">  1949010 </td><td class="col10 rightalign">  1903330 </td><td class="col11 rightalign">  676520 </td><td class="col12 rightalign">  3818940 </td><td class="col13 rightalign">  3283970 </td><td class="col14 rightalign">  2894600 </td><td class="col15 rightalign">  4.1 </td><td class="col16 rightalign">  142.2 </td><td class="col17 rightalign">  14.2 </td><td class="col18"> 11.6 </td>
+	</tr>
+	<tr class="row66">
+		<td class="col0"> Backfire 10.03.1 </td><td class="col1"> bcm6348 </td><td class="col2"> 96348GW-11 </td><td class="col3"> Broadcom BCM6348 V0.7 </td><td class="col4"> 254.97 </td><td class="col5"> 0.9.8x </td><td class="col6 rightalign">  10117600 </td><td class="col7 rightalign">  3764570 </td><td class="col8 rightalign">  2343520 </td><td class="col9 rightalign">  1240750 </td><td class="col10 rightalign">  1959050 </td><td class="col11 rightalign">  706900 </td><td class="col12 rightalign">  2814790 </td><td class="col13 rightalign">  2455550 </td><td class="col14 rightalign">  2124200 </td><td class="col15 rightalign">  2.2 </td><td class="col16 rightalign">  84.6 </td><td class="col17 rightalign">  8.6 </td><td class="col18 rightalign">  7.2 </td>
+	</tr>
+	<tr class="row67">
+		<td class="col0"> Attitude Adjustment 12.09-b2 </td><td class="col1"> <a href="http://lihuen.info.unlp.edu.ar/bajar/olpc/geode-gx-databook.pdf" class="urlextern" title="http://lihuen.info.unlp.edu.ar/bajar/olpc/geode-gx-databook.pdf"  rel="nofollow"> AMD Geode GX 466</a> </td><td class="col2"> <a href="http://www.parkytowers.me.uk/thin/wyse/s10/index.shtml" class="urlextern" title="http://www.parkytowers.me.uk/thin/wyse/s10/index.shtml"  rel="nofollow"> Wyse Winterm S10</a> </td><td class="col3"> X86 </td><td class="col4"> 666.57 </td><td class="col5"> 1.0.1c </td><td class="col6 rightalign">  15593020 </td><td class="col7 rightalign">  4234460 </td><td class="col8 rightalign">  2605210 </td><td class="col9 rightalign">  1649970 </td><td class="col10 rightalign">  1897310 </td><td class="col11 rightalign">  673110 </td><td class="col12 rightalign">  2748020 </td><td class="col13 rightalign">  2392960 </td><td class="col14 rightalign">  2125740 </td><td class="col15 rightalign">  2.1 </td><td class="col16 rightalign">  71.6 </td><td class="col17 rightalign">  7.1 </td><td class="col18 rightalign">  5.8 </td>
+	</tr>
+	<tr class="row68">
+		<td class="col0"> Attitude Adjustment 12.09-rc1 </td><td class="col1"> Via Eden 600Mhz </td><td class="col2"> Igel -3/4 mikro PC</td><td class="col3"> X86 </td><td class="col4"> 1197 </td><td class="col5"> 1.0.1c </td><td class="col6 rightalign">  31060990 </td><td class="col7 rightalign">  10968060 </td><td class="col8 rightalign">  5960020 </td><td class="col9 rightalign">  2595500 </td><td class="col10 rightalign">  3868860 </td><td class="col11 rightalign">  1346560 </td><td class="col12 rightalign">  5465770 </td><td class="col13 rightalign">  4723370 </td><td class="col14 rightalign">  4157780 </td><td class="col15 rightalign">  3.2 </td><td class="col16 rightalign">  110.0 </td><td class="col17 rightalign">  10.9 </td><td class="col18 rightalign">  9.0 </td>
+	</tr>
+	<tr class="row69">
+		<th class="col0"> <abbr title="Operating System">OS</abbr> </th><th class="col1"> SoC </th><th class="col2"> Device </th><th class="col3"> <a href="../doc/hardware/cpu" class="wikilink1" title="doc:hardware:cpu">CPU</a> </th><th class="col4"> BogoMIPS </th><th class="col5"> OpenSSL Version </th><th class="col6"> <a href="http://en.wikipedia.org/wiki/MD5" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/MD5">MD5</a> </th><th class="col7"> <a href="http://en.wikipedia.org/wiki/Secure Hash Algorithm" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Secure Hash Algorithm">SHA-1</a> </th><th class="col8"> SHA-256 </th><th class="col9"> SHA-512 </th><th class="col10"> <a href="http://en.wikipedia.org/wiki/Data Encryption Standard" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Data Encryption Standard">DES</a> </th><th class="col11"> 3DES </th><th class="col12"> <a href="http://en.wikipedia.org/wiki/Advanced Encryption Standard" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Advanced Encryption Standard">AES-128</a> </th><th class="col13"> AES-192 </th><th class="col14"> AES-256 </th><th class="col15"> <a href="http://en.wikipedia.org/wiki/RSA (algorithm)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/RSA (algorithm)">RSA</a> Sign </th><th class="col16"> RSA Verify </th><th class="col17"> <a href="http://en.wikipedia.org/wiki/Digital Signature Algorithm" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Digital Signature Algorithm">DSA</a> Sign </th><th class="col18 leftalign"> DSA Verify  </th>
+	</tr>
+	<tr class="row70">
+		<td class="col0"> trunk r25513 </td><td class="col1"> Atheros AR9132 rev 2 </td><td class="col2"> TP-LINK TL-WR1043ND </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 266.24 </td><td class="col5"> 1.0.0d </td><td class="col6 rightalign">  21389570 </td><td class="col7 rightalign">  6779290 </td><td class="col8 rightalign">  5000360 </td><td class="col9 rightalign">  2556530 </td><td class="col10 rightalign">  3268580 </td><td class="col11 rightalign">  1166810 </td><td class="col12 rightalign">  4763150 </td><td class="col13 rightalign">  4130930 </td><td class="col14 rightalign">  3665850 </td><td class="col15 rightalign">  3.3 </td><td class="col16 rightalign">  113.0 </td><td class="col17 rightalign">  11.3 </td><td class="col18 rightalign">  9.0 </td>
+	</tr>
+	<tr class="row71">
+		<td class="col0"> trunk r33883 </td><td class="col1"> AR9331 </td><td class="col2"> TP-Link TL-MR3020 </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 265.42 </td><td class="col5"> 1.0.1c </td><td class="col6 rightalign">  21573970 </td><td class="col7 rightalign">  14029820 </td><td class="col8 rightalign">  6491480 </td><td class="col9 rightalign">  2862760 </td><td class="col10 rightalign">  2916690 </td><td class="col11 rightalign">  1038340 </td><td class="col12 rightalign">  5173430 </td><td class="col13 rightalign">  4444840 </td><td class="col14 rightalign">  3905190 </td><td class="col15 rightalign">  4.8 </td><td class="col16 rightalign">  165.2 </td><td class="col17 rightalign">  16.6 </td><td class="col18 rightalign">  13.5 </td>
+	</tr>
+	<tr class="row72">
+		<td class="col0"> truck r39469 (mtune=24kc) </td><td class="col1"> Atheros AR9330 rev 1 </td><td class="col2"> TP-Link TL-MR11U v1.1 </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 265.42 </td><td class="col5"> 1.0.1e </td><td class="col6 rightalign">  21781750 </td><td class="col7 rightalign">  14095580 </td><td class="col8 rightalign">  6483630 </td><td class="col9 rightalign">  2895530 </td><td class="col10 rightalign">  3098280 </td><td class="col11 rightalign">  1109330 </td><td class="col12 rightalign">  5156180 </td><td class="col13 rightalign">  4452350 </td><td class="col14 rightalign">  3905540 </td><td class="col15 rightalign">  4.8 </td><td class="col16 rightalign">  165.1 </td><td class="col17 rightalign">  16.6 </td><td class="col18 rightalign">  13.8 </td>
+	</tr>
+	<tr class="row73">
+		<td class="col0"> truck r39469 </td><td class="col1"> Atheros AR9330 rev 1 </td><td class="col2"> TP-Link TL-MR11U v1.1 </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 265.42 </td><td class="col5"> 1.0.1e </td><td class="col6 rightalign">  21095430 </td><td class="col7 rightalign">  13867790 </td><td class="col8 rightalign">  6454300 </td><td class="col9 rightalign">  2866860 </td><td class="col10 rightalign">  3085150 </td><td class="col11 rightalign">  1093860 </td><td class="col12 rightalign">  5082110 </td><td class="col13 rightalign">  4395320 </td><td class="col14 rightalign">  3873050 </td><td class="col15 rightalign">  4.7 </td><td class="col16 rightalign">  163.6 </td><td class="col17 rightalign">  16.5 </td><td class="col18 rightalign">  13.2 </td>
+	</tr>
+	<tr class="row74">
+		<td class="col0"> trunk r39211 </td><td class="col1"> AR9331 </td><td class="col2"> TP-Link WR720N V3 </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 282.62 </td><td class="col5"> 1.0.1e </td><td class="col6 rightalign">  22632450 </td><td class="col7 rightalign">  14632580 </td><td class="col8 rightalign">  6848130 </td><td class="col9 rightalign">  3054530 </td><td class="col10 rightalign">  3266220 </td><td class="col11 rightalign">  1161570 </td><td class="col12 rightalign">  5400650 </td><td class="col13 rightalign">  4685660 </td><td class="col14 rightalign">  4101190 </td><td class="col15 rightalign">  5.0 </td><td class="col16 rightalign">  173.7 </td><td class="col17 rightalign">  17.6 </td><td class="col18 rightalign">  14.2 </td>
+	</tr>
+	<tr class="row75">
+		<td class="col0"> trunk r38631 </td><td class="col1"> BCM6358 </td><td class="col2"> DareGlobal DB120 </td><td class="col3 leftalign"> Broadcom BMIPS4350 V1.0  </td><td class="col4"> 299.26 </td><td class="col5"> 1.0.1e </td><td class="col6 rightalign">  13341650 </td><td class="col7 rightalign">  10698750 </td><td class="col8 rightalign">  4739260 </td><td class="col9 rightalign">  1917860 </td><td class="col10 rightalign">  1830750 </td><td class="col11 rightalign">  664740 </td><td class="col12 rightalign">  3458460 </td><td class="col13 rightalign">  3217700 </td><td class="col14 rightalign">  2850130 </td><td class="col15 rightalign">  4.0 </td><td class="col16 rightalign">  138.3 </td><td class="col17 rightalign">  14.1 </td><td class="col18 rightalign">  11.6 </td>
+	</tr>
+	<tr class="row76">
+		<td class="col0"> trunk r38361 </td><td class="col1"> BCM6358 </td><td class="col2"> DareGlobal DB120 </td><td class="col3 leftalign"> Broadcom BMIPS4350 V1.0  </td><td class="col4"> 397.82 (over clock) </td><td class="col5"> 1.0.1e </td><td class="col6 rightalign">  16755560 </td><td class="col7 rightalign">  13957190 </td><td class="col8 rightalign">  5846020 </td><td class="col9 rightalign">  2561750 </td><td class="col10 rightalign">  2493350 </td><td class="col11 rightalign">  887120 </td><td class="col12 rightalign">  4982660 </td><td class="col13 rightalign">  4324400 </td><td class="col14 rightalign">  3805810 </td><td class="col15 rightalign">  5.2 </td><td class="col16 rightalign">  187.9 </td><td class="col17 rightalign">  18.9 </td><td class="col18 rightalign">  14.8 </td>
+	</tr>
+	<tr class="row77">
+		<td class="col0"> trunk r38647 </td><td class="col1"> AR7240 </td><td class="col2"> Buffalo WHR-G300N2 </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 265.42 </td><td class="col5"> 1.0.1e </td><td class="col6 rightalign">  20969320 </td><td class="col7 rightalign">  13574570 </td><td class="col8 rightalign">  6292600 </td><td class="col9 rightalign">  2797680 </td><td class="col10 rightalign">  3017360 </td><td class="col11 rightalign">  1078640 </td><td class="col12 rightalign">  5041730 </td><td class="col13 rightalign">  4316900 </td><td class="col14 rightalign">  3805640 </td><td class="col15 rightalign">  4.6 </td><td class="col16 rightalign">  160.6 </td><td class="col17 rightalign">  16.2 </td><td class="col18 rightalign">  13.0 </td>
+	</tr>
+	<tr class="row78">
+		<td class="col0"> trunk r38537 </td><td class="col1"> Ralink RT3052 </td><td class="col2"> Huawei HG255d </td><td class="col3"> MIPS 24KEc V4.12 </td><td class="col4"> 255.59 </td><td class="col5"> 1.0.1e </td><td class="col6 rightalign">  21733700 </td><td class="col7 rightalign">  11772880 </td><td class="col8 rightalign">  5621930 </td><td class="col9 rightalign">  2077150 </td><td class="col10 rightalign">  3378150 </td><td class="col11 rightalign">  1237830 </td><td class="col12 rightalign">  4810700 </td><td class="col13 rightalign">  4041600 </td><td class="col14 rightalign">  3667850 </td><td class="col15 rightalign">  4.3 </td><td class="col16 rightalign">  148.7 </td><td class="col17 rightalign">  15.1 </td><td class="col18 rightalign">  12.6 </td>
+	</tr>
+	<tr class="row79">
+		<td class="col0"> trunk r39183 GCC 4.8-linaro</td><td class="col1"> Ralink RT3052 </td><td class="col2"> ALPHA ASL-26555 </td><td class="col3"> MIPS 24KEc V4.12 </td><td class="col4"> 255.59 </td><td class="col5"> 1.0.1e </td><td class="col6 rightalign">  23119800 </td><td class="col7 rightalign">  12817410 </td><td class="col8 rightalign">  5963430 </td><td class="col9 rightalign">  2761050 </td><td class="col10 rightalign">  3250520 </td><td class="col11 rightalign">  1164970 </td><td class="col12 rightalign">  4931580 </td><td class="col13 rightalign">  4239020 </td><td class="col14 rightalign">  3737600 </td><td class="col15 rightalign">  4.4 </td><td class="col16 rightalign">  155.5 </td><td class="col17 rightalign">  15.6 </td><td class="col18 rightalign">  12.9 </td>
+	</tr>
+	<tr class="row80">
+		<td class="col0"> trunk r38297 </td><td class="col1"> BCM5358 </td><td class="col2"> Alcatel RG200E-CA </td><td class="col3"> MIPS 74Kv V4.9 </td><td class="col4"> 249.34 </td><td class="col5"> 1.0.1e </td><td class="col6 rightalign">  28502360 </td><td class="col7 rightalign">  16692920 </td><td class="col8 rightalign">  8331610 </td><td class="col9 rightalign">  4019720 </td><td class="col10 rightalign">  4219780 </td><td class="col11 rightalign">  1499820 </td><td class="col12 rightalign">  8890180 </td><td class="col13 rightalign">  7710380 </td><td class="col14 rightalign">  6783480 </td><td class="col15 rightalign">  8.3 </td><td class="col16 rightalign">  297.8 </td><td class="col17 rightalign">  30.1 </td><td class="col18 rightalign">  24.6 </td>
+	</tr>
+	<tr class="row81">
+		<td class="col0"> trunk r38636 </td><td class="col1"> Atheros AR9341 </td><td class="col2"> Mercury MW300R </td><td class="col3"> MIPS 74Kc V4.12 </td><td class="col4"> 266.64 </td><td class="col5"> 1.0.1e </td><td class="col6 rightalign">  33600600 </td><td class="col7 rightalign">  19494230 </td><td class="col8 rightalign">  8995740 </td><td class="col9 rightalign">  4164610 </td><td class="col10 rightalign">  4646490 </td><td class="col11 rightalign">  1648270 </td><td class="col12 rightalign">  9179700 </td><td class="col13 rightalign">  7981400 </td><td class="col14 rightalign">  7037770 </td><td class="col15 rightalign">  8.9 </td><td class="col16 rightalign">  317.9 </td><td class="col17 rightalign">  32.1 </td><td class="col18 rightalign">  26.3 </td>
+	</tr>
+	<tr class="row82">
+		<td class="col0"> Backfire (10.03, r20728)</td><td class="col1">TI AR7 (TNETD7300)</td><td class="col2">Netgear DG834GB</td><td class="col3">MIPS 4KEc V4.8</td><td class="col4">149.50</td><td class="col5"> 0.9.8m </td><td class="col6 rightalign">  6937260 </td><td class="col7 rightalign">  2350080 </td><td class="col8 rightalign">  1468070 </td><td class="col9 rightalign">  941400 </td><td class="col10 rightalign">  1016150 </td><td class="col11 rightalign">  358740 </td><td class="col12 rightalign">  1792000 </td><td class="col13 rightalign">  1556140 </td><td class="col14 rightalign">  1374550 </td><td class="col15 rightalign">  2.0 </td><td class="col16 rightalign">  72.8 </td><td class="col17 rightalign">  7.4 </td><td class="col18 rightalign">  6.0 </td>
+	</tr>
+	<tr class="row83">
+		<th class="col0"> <abbr title="Operating System">OS</abbr> </th><th class="col1"> SoC </th><th class="col2"> Device </th><th class="col3"> <a href="../doc/hardware/cpu" class="wikilink1" title="doc:hardware:cpu">CPU</a> </th><th class="col4"> BogoMIPS </th><th class="col5"> OpenSSL Version </th><th class="col6"> <a href="http://en.wikipedia.org/wiki/MD5" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/MD5">MD5</a> </th><th class="col7"> <a href="http://en.wikipedia.org/wiki/Secure Hash Algorithm" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Secure Hash Algorithm">SHA-1</a> </th><th class="col8"> SHA-256 </th><th class="col9"> SHA-512 </th><th class="col10"> <a href="http://en.wikipedia.org/wiki/Data Encryption Standard" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Data Encryption Standard">DES</a> </th><th class="col11"> 3DES </th><th class="col12"> <a href="http://en.wikipedia.org/wiki/Advanced Encryption Standard" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Advanced Encryption Standard">AES-128</a> </th><th class="col13"> AES-192 </th><th class="col14"> AES-256 </th><th class="col15"> <a href="http://en.wikipedia.org/wiki/RSA (algorithm)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/RSA (algorithm)">RSA</a> Sign </th><th class="col16"> RSA Verify </th><th class="col17"> <a href="http://en.wikipedia.org/wiki/Digital Signature Algorithm" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Digital Signature Algorithm">DSA</a> Sign </th><th class="col18 leftalign"> DSA Verify  </th>
+	</tr>
+	<tr class="row84">
+		<td class="col0">ATTITUDE ADJUSTMENT (12.09-beta, r33312)</td><td class="col1">Atheros AR7240 rev 2</td><td class="col2">TP-LINK TL-WR741ND</td><td class="col3">MIPS 24Kc V7.4</td><td class="col4">232.24</td><td class="col5"> 1.0.1c </td><td class="col6 rightalign">  18559320 </td><td class="col7 rightalign">  5891940 </td><td class="col8 rightalign">  3999080 </td><td class="col9 rightalign">  2459320 </td><td class="col10 rightalign">  2495610 </td><td class="col11 rightalign">  885980 </td><td class="col12 rightalign">  4255630 </td><td class="col13 rightalign">  3708960 </td><td class="col14 rightalign">  3264730 </td><td class="col15 rightalign">  3.1 </td><td class="col16 rightalign">  104.7 </td><td class="col17 rightalign">  10.5 </td><td class="col18 rightalign">  8.5 </td>
+	</tr>
+	<tr class="row85">
+		<td class="col0">ATTITUDE ADJUSTMENT (12.09, r36088)</td><td class="col1">Danube rev 1.3</td><td class="col2">Speedport W502V</td><td class="col3">MIPS 24KEc V4.1</td><td class="col4">221.18</td><td class="col5"> 1.0.1e </td><td class="col6 rightalign">  17339040 </td><td class="col7 rightalign">  10788990 </td><td class="col8 rightalign">  5233020 </td><td class="col9 rightalign">  2353830 </td><td class="col10 rightalign">  2376090 </td><td class="col11 rightalign">  855160 </td><td class="col12 rightalign">  4263340 </td><td class="col13 rightalign">  3656950 </td><td class="col14 rightalign">  3219610 </td><td class="col15 rightalign">  3.9 </td><td class="col16 rightalign">  134.8 </td><td class="col17 rightalign">  13.6 </td><td class="col18 rightalign">  11.1 </td>
+	</tr>
+	<tr class="row86">
+		<td class="col0">ATTITUDE ADJUSTMENT (12.09, r36088) </td><td class="col1"> XScale-IXP420 rev 1 (266MHz) </td><td class="col2"> <a href="../toh/linksys/nslu2" class="urlextern" title="http://wiki.openwrt.org/toh/linksys/nslu2"  rel="nofollow"> LINKSYS NSLU2</a> </td><td class="col3"> ARMv5TE </td><td class="col4"> 265.42 </td><td class="col5"> 1.0.1e </td><td class="col6 rightalign">  16627370 </td><td class="col7 rightalign">  4577280 </td><td class="col8 rightalign">  3554300 </td><td class="col9 rightalign">  1427110 </td><td class="col10 rightalign">  2004990 </td><td class="col11 rightalign">  702810 </td><td class="col12 rightalign">  3233990 </td><td class="col13 rightalign">  2818390 </td><td class="col14 rightalign">  2503340 </td><td class="col15 rightalign">  3.8 </td><td class="col16 rightalign">  140.2 </td><td class="col17 rightalign">  14.0 </td><td class="col18 rightalign">  11.7 </td>
+	</tr>
+	<tr class="row87">
+		<td class="col0"> Attitude Adjustment (12.09, r36088) </td><td class="col1"> BCM2708 </td><td class="col2"> <a href="../toh/raspberry_pi" class="urlextern" title="http://wiki.openwrt.org/toh/raspberry_pi"  rel="nofollow"> Raspberry Pi Model B</a> </td><td class="col3"> ARM1176JZF-S </td><td class="col4"> 697.95 </td><td class="col5"> 1.0.1e </td><td class="col6 rightalign">  13225220 </td><td class="col7 rightalign">  4608750 </td><td class="col8 rightalign">  2451050 </td><td class="col9 rightalign">  1546240 </td><td class="col10 rightalign">  2159960 </td><td class="col11 rightalign">  790190 </td><td class="col12 rightalign">  2747390 </td><td class="col13 rightalign">  2405380 </td><td class="col14 rightalign">  2143570 </td><td class="col15 rightalign">  1.7 </td><td class="col16 rightalign">  58.2 </td><td class="col17 rightalign">  5.8 </td><td class="col18 rightalign">  4.7 </td>
+	</tr>
+	<tr class="row88">
+		<td class="col0">Attitude Adjustment (12.09,r36088) </td><td class="col1"> Broadcom BCM47XX </td><td class="col2"> Netgear WGT634U </td><td class="col3"> Broadcom BMIPS3300 V0.7 </td><td class="col4"> 197.63 Mhz </td><td class="col5"> 1.0.1e </td><td class="col6 rightalign">  5712210 </td><td class="col7 rightalign">  4118190 </td><td class="col8 rightalign">  2551750 </td><td class="col9 rightalign">  1233580 </td><td class="col10 rightalign">  1206830 </td><td class="col11 rightalign">  434260 </td><td class="col12 rightalign">  2415270 </td><td class="col13 rightalign">  2103350 </td><td class="col14 rightalign">  1850240 </td><td class="col15 rightalign">  2.5 </td><td class="col16 rightalign">  89.9 </td><td class="col17 rightalign">  8.8 </td><td class="col18 rightalign">  7.5 </td>
+	</tr>
+	<tr class="row89">
+		<td class="col0">ATTITUDE ADJUSTMENT (12.09, r37838)</td><td class="col1">TI AR7 (TNETD7200)</td><td class="col2">FRITZ!Box Fon 5140</td><td class="col3">MIPS 4KEc V4.8</td><td class="col4">211.35</td><td class="col5"> 1.0.1e </td><td class="col6 rightalign">  9671000 </td><td class="col7 rightalign">  6647610 </td><td class="col8 rightalign">  3264850 </td><td class="col9 rightalign">  1532870 </td><td class="col10 rightalign">  1518590 </td><td class="col11 rightalign">  539900 </td><td class="col12 rightalign">  2733450 </td><td class="col13 rightalign">  2358270 </td><td class="col14 rightalign">  2066110 </td><td class="col15 rightalign">  2.9 </td><td class="col16 rightalign">  102.5 </td><td class="col17 rightalign">  10.5 </td><td class="col18 rightalign">  8.6 </td>
+	</tr>
+	<tr class="row90">
+		<td class="col0"> trunk r40019 </td><td class="col1"> Atheros AR9344 rev 2 </td><td class="col2"> MikroTik RouterBOARD RB2011UiAS-RM </td><td class="col3"> MIPS 74Kc V4.12 </td><td class="col4"> 299.82 </td><td class="col5"> 1.0.1f </td><td class="col6"> 36916570 </td><td class="col7"> 22695470 </td><td class="col8"> 10506580 </td><td class="col9"> 4752180 </td><td class="col10"> 5502290 </td><td class="col11"> 1942860 </td><td class="col12"> 10736640 </td><td class="col13"> 9283810 </td><td class="col14"> 8200870 </td><td class="col15"> 9.0 </td><td class="col16"> 375.7 </td><td class="col17"> 37.8 </td><td class="col18"> 30.7 </td>
+	</tr>
+	<tr class="row91">
+		<td class="col0"> trunk r21341 </td><td class="col1"> Atheros AR7161 rev 2 </td><td class="col2"> MikroTik RouterBOARD 450G </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 452.19 </td><td class="col5"> 0.9.8m </td><td class="col6"> 36776630 </td><td class="col7"> 11551760 </td><td class="col8"> 8425070 </td><td class="col9"> 4243370 </td><td class="col10"> 5383520 </td><td class="col11"> 1902160 </td><td class="col12"> 8235640 </td><td class="col13"> 7163490 </td><td class="col14"> 6349140 </td><td class="col15"> 6.6 </td><td class="col16"> 243.2 </td><td class="col17"> 24.3 </td><td class="col18"> 20.6 </td>
+	</tr>
+	<tr class="row92">
+		<td class="col0"> trunk r42671 </td><td class="col1"> Ralink RT3883 ver:1 eco:5 </td><td class="col2"> Asus RT-N56U </td><td class="col3"> MIPS 74Kc V4.12 </td><td class="col4"> 249.44 </td><td class="col5 leftalign"> 1.0.1i  </td><td class="col6"> 31172950 </td><td class="col7"> 17290870 </td><td class="col8"> 8386560 </td><td class="col9"> 3905540 </td><td class="col10"> 4856490 </td><td class="col11"> 1738410 </td><td class="col12"> 8935770 </td><td class="col13"> 7741440 </td><td class="col14"> 6829400 </td><td class="col15"> 7.6 </td><td class="col16"> 312.5 </td><td class="col17"> 31.5 </td><td class="col18"> 25.4 </td>
+	</tr>
+	<tr class="row93">
+		<td class="col0"> r36088 </td><td class="col1"> Atheros AR7161 rev 2 </td><td class="col2"> MikroTik RouterBOARD 493G </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 452.19 </td><td class="col5"> 1.0.1h </td><td class="col6"> 36533930 </td><td class="col7"> 23329790 </td><td class="col8"> 10977620 </td><td class="col9"> 4874650 </td><td class="col10"> 4947630 </td><td class="col11"> 1762650 </td><td class="col12"> 8752470 </td><td class="col13"> 7534250 </td><td class="col14"> 6623810 </td><td class="col15"> 8.1 </td><td class="col16"> 280.8 </td><td class="col17"> 28.1 </td><td class="col18"> 23.1 </td>
+	</tr>
+	<tr class="row94">
+		<td class="col0"> r42625 </td><td class="col1"> Atheros AR9341 rev 3 </td><td class="col2"> TP-LINK TL-WR842N/ND v2 </td><td class="col3"> MIPS 74Kc V4.12 </td><td class="col4"> 266.64 </td><td class="col5"> 1.0.2a </td><td class="col6"> 33160190 </td><td class="col7"> 27082920 </td><td class="col8"> 13453310 </td><td class="col9"> 4046170 </td><td class="col10"> 4689920 </td><td class="col11"> 1658200 </td><td class="col12"> 9226240 </td><td class="col13"> 7966040 </td><td class="col14"> 7009620 </td><td class="col15"> 8.3 </td><td class="col16"> 328.7 </td><td class="col17"> 32.3 </td><td class="col18"> 26.4 </td>
+	</tr>
+	<tr class="row95">
+		<td class="col0"> r44952 </td><td class="col1"> Atheros AR9344 rev 2 </td><td class="col2"> NETGEAR WNDR4300 </td><td class="col3"> MIPS 74Kc V4.12 </td><td class="col4"> 278.93 </td><td class="col5"> 1.0.2a </td><td class="col6"> 36082470 </td><td class="col7"> 29321020 </td><td class="col8"> 14674400 </td><td class="col9"> 4398100 </td><td class="col10"> 5097410 </td><td class="col11"> 1798220 </td><td class="col12"> 10027520 </td><td class="col13"> 8690100 </td><td class="col14"> 7627160 </td><td class="col15"> 9.8 </td><td class="col16"> 359.1 </td><td class="col17"> 35.1 </td><td class="col18"> 28.5 </td>
+	</tr>
+</table></div>
+</div>
+</div>
+
+<h2 class="sectionedit5" id="benchmark_table_other_operating_systems">Benchmark Table (other operating systems)</h2>
+<div class="level2">
+<div class="sortable"><div class="table sectionedit6"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> <abbr title="Operating System">OS</abbr> </th><th class="col1"> SoC </th><th class="col2"> Device </th><th class="col3"> <a href="../doc/hardware/cpu" class="wikilink1" title="doc:hardware:cpu">CPU</a> </th><th class="col4"> BogoMIPS </th><th class="col5"> OpenSSL Version </th><th class="col6"> <a href="http://en.wikipedia.org/wiki/MD5" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/MD5">MD5</a> </th><th class="col7"> <a href="http://en.wikipedia.org/wiki/Secure Hash Algorithm" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Secure Hash Algorithm">SHA-1</a> </th><th class="col8"> SHA-256 </th><th class="col9"> SHA-512 </th><th class="col10"> <a href="http://en.wikipedia.org/wiki/Data Encryption Standard" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Data Encryption Standard">DES</a> </th><th class="col11"> 3DES </th><th class="col12"> <a href="http://en.wikipedia.org/wiki/Advanced Encryption Standard" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Advanced Encryption Standard">AES-128</a> </th><th class="col13"> AES-192 </th><th class="col14"> AES-256 </th><th class="col15"> <a href="http://en.wikipedia.org/wiki/RSA (algorithm)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/RSA (algorithm)">RSA</a> Sign </th><th class="col16"> RSA Verify </th><th class="col17"> <a href="http://en.wikipedia.org/wiki/Digital Signature Algorithm" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Digital Signature Algorithm">DSA</a> Sign </th><th class="col18 leftalign"> DSA Verify  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> Debian Squeeze </td><td class="col1 leftalign"> Marvell Kirkwood  </td><td class="col2"> Seagate Dockstar </td><td class="col3"> ARM926EJ-S </td><td class="col4"> 1192.75 </td><td class="col5"> 0.9.8o </td><td class="col6 rightalign">  64436310 </td><td class="col7 rightalign">  35282110 </td><td class="col8 rightalign">  13595910 </td><td class="col9 rightalign">  2452450 </td><td class="col10 rightalign">  8938700 </td><td class="col11 rightalign">  3158300 </td><td class="col12 rightalign">  10294290 </td><td class="col13 rightalign">  8814670 </td><td class="col14 rightalign">  7662930 </td><td class="col15 rightalign">  14.5 </td><td class="col16 rightalign">  564.8 </td><td class="col17 rightalign">  56.9 </td><td class="col18 rightalign">  47.6 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> PlugApps 2011.01 </td><td class="col1"> Marvell Kirkwood </td><td class="col2"> Seagate FreeAgent DockStar </td><td class="col3"> Feroceon<br/>
+88FR131 rev 1 (v5l) </td><td class="col4"> 1192.75 </td><td class="col5"> 1.0.0d </td><td class="col6 rightalign">  66374010 </td><td class="col7 rightalign">  34723630 </td><td class="col8 rightalign">  25502810 </td><td class="col9 rightalign">  10917150 </td><td class="col10 rightalign">  9368560 </td><td class="col11 rightalign">  3349230 </td><td class="col12 rightalign">  17767610 </td><td class="col13 rightalign">  15220020 </td><td class="col14 rightalign">  13334410 </td><td class="col15 rightalign">  26.2 </td><td class="col16 rightalign">  861.5 </td><td class="col17 rightalign">  89.0 </td><td class="col18 rightalign">  73.8 </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> Debian Squeeze </td><td class="col1"> OMAP3430 </td><td class="col2"> Palm Pre Plus </td><td class="col3"> ARMv7 Processor rev 3 (v7l) </td><td class="col4"> 498.07 </td><td class="col5"> 0.9.8o </td><td class="col6 rightalign">  47695960 </td><td class="col7 rightalign">  26683350 </td><td class="col8 rightalign">  10204780 </td><td class="col9 rightalign">  1866110 </td><td class="col10 rightalign">  6693560 </td><td class="col11 rightalign">  2465400 </td><td class="col12 rightalign">  6971450 </td><td class="col13 rightalign">  6008960 </td><td class="col14 rightalign">  5374010 </td><td class="col15 rightalign">  6.9 </td><td class="col16 rightalign">  262.3 </td><td class="col17 rightalign">  26.4 </td><td class="col18 rightalign">  22.2 </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> Archlinux ARM (2013-07-01, kernel 3.5.7, recompiled glibc, ran benchmark over SSH, but with LXDM idling in the background) </td><td class="col1"> OMAP3430 </td><td class="col2"> Nokia N900 (running from microSD) </td><td class="col3"> ARMv7 Processor rev 3 (v7l) </td><td class="col4"> 248.51 </td><td class="col5"> 1.0.1e </td><td class="col6 rightalign">  54252730 </td><td class="col7 rightalign">  41556270 </td><td class="col8 rightalign">  32946400 </td><td class="col9 rightalign">  21166120 </td><td class="col10 rightalign">  12200230 </td><td class="col11 rightalign">  4412150 </td><td class="col12 rightalign">  26342220 </td><td class="col13 rightalign">  22642890 </td><td class="col14 rightalign">  19974090 </td><td class="col15 rightalign">  15.2 </td><td class="col16 rightalign">  496.2 </td><td class="col17 rightalign">  51.6 </td><td class="col18 rightalign">  43.5 </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0">Arch Linux ARM - 3.11.5</td><td class="col1">Marvell Kirkwood</td><td class="col2">Seagate GoFlex Net</td><td class="col3">Feroceon 88FR131 rev 1 (v5l)</td><td class="col4">1191.11</td><td class="col5">1.0.1e </td><td class="col6 rightalign">  69482680 </td><td class="col7 rightalign">  36106920 </td><td class="col8 rightalign">  26092820 </td><td class="col9 rightalign">  11256470 </td><td class="col10 rightalign">  9391350 </td><td class="col11 rightalign">  3362420 </td><td class="col12 rightalign">  17881300 </td><td class="col13 rightalign">  15305550 </td><td class="col14 rightalign">  13363370 </td><td class="col15 rightalign">  27.8 </td><td class="col16 rightalign">  892.7 </td><td class="col17 rightalign">  94.6 </td><td class="col18 rightalign">  82.1 </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0">EdgeOS 1.1.0 </td><td class="col1"> Cavium Octeon+ </td><td class="col2"> Ubiquiti EdgeRouter Lite (e100) </td><td class="col3"> MIPS64</td><td class="col4">1000.0</td><td class="col5"> 0.9.8o w/o hw crypto</td><td class="col6 rightalign">  38823590 </td><td class="col7 rightalign">  27464020 </td><td class="col8 rightalign">  10354350 </td><td class="col9 rightalign">  4249940 </td><td class="col10 rightalign">  5946030 </td><td class="col11 rightalign">  2134360 </td><td class="col12 rightalign">  10099370 </td><td class="col13 rightalign">  8791040 </td><td class="col14 rightalign">  7765960 </td><td class="col15 rightalign">  5.7 </td><td class="col16 rightalign">  213.6 </td><td class="col17 rightalign">  21.4 </td><td class="col18 rightalign">  17.5 </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> Debian Wheezy </td><td class="col1"> AMD Geode </td><td class="col2"> alix2d13 </td><td class="col3"> Geode LX800 (500MHz) </td><td class="col4"> 996.17 </td><td class="col5"> 1.0.1e </td><td class="col6 rightalign">  35458480 </td><td class="col7 rightalign">  17701960 </td><td class="col8 rightalign">  6549850 </td><td class="col9 rightalign">  3985380 </td><td class="col10 rightalign">  6255300 </td><td class="col11 rightalign">  2191150 </td><td class="col12 rightalign">  8067950 </td><td class="col13 rightalign">  6862520 </td><td class="col14 rightalign">  5937880 </td><td class="col15 rightalign">  5.6 </td><td class="col16 rightalign">  190.6 </td><td class="col17 rightalign">  18.8 </td><td class="col18 rightalign">  15.5 </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> Debian Wheezy </td><td class="col1"> Ingenic Xburst </td><td class="col2"> ci20 </td><td class="col3"> JZ4780 </td><td class="col4"> 1196.85 </td><td class="col5"> 1.0.1e </td><td class="col6"> 52097020 </td><td class="col7"> 35421870 </td><td class="col8"> 13398360 </td><td class="col9"> 7226370 </td><td class="col10"> 8324100 </td><td class="col11"> 2955560 </td><td class="col12"> 17193300 </td><td class="col13"> 14832640 </td><td class="col14"> 13043710 </td><td class="col15"> 11.9 </td><td class="col16"> 433.9 </td><td class="col17"> 43.9 </td><td class="col18"> 37.3 </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> Iomega StorCenter ix2-200  </td><td class="col1"> </td><td class="col2"> Feroceon-KW </td><td class="col3 rightalign">  Feroceon 88FR131 rev 1 (v5l) </td><td class="col4"> 992.87 </td><td class="col5"> 0.9.8g </td><td class="col6"> 59547030 </td><td class="col7"> 22940430 </td><td class="col8"> 11692470 </td><td class="col9"> 2034240 </td><td class="col10"> 7142580 </td><td class="col11"> 2495720 </td><td class="col12"> 9096600 </td><td class="col13"> 7637470 </td><td class="col14"> 6713030 </td><td class="col15"> 11.9 </td><td class="col16"> 462.1 </td><td class="col17"> 46.9 </td><td class="col18"> 39.6 </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> Qnap Hs-210 </td><td class="col1 leftalign">  </td><td class="col2"> Feroceon-KW ARM </td><td class="col3"> Feroceon 88F6282 rev 1 (v5l) @ 1.6 <abbr title="Gigahertz">GHz</abbr> </td><td class="col4"> 1587.60 </td><td class="col5"> 1.0.1l </td><td class="col6"> 19111400 </td><td class="col7"> 13336180 </td><td class="col8"> 6995060 </td><td class="col9"> 2580680 </td><td class="col10"> 3597780 </td><td class="col11"> 1282180 </td><td class="col12"> 7840580 </td><td class="col13"> 6763080 </td><td class="col14"> 5941980 </td><td class="col15"> 4.2 </td><td class="col16"> 167.5 </td><td class="col17"> 16.7 </td><td class="col18"> 14.0 </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> Qnap TS-119P II </td><td class="col1 leftalign">  </td><td class="col2"> Feroceon-KW ARM </td><td class="col3"> Feroceon 88F6282 rev 1 (v5l) @ 2 <abbr title="Gigahertz">GHz</abbr></td><td class="col4"> 1980.82 </td><td class="col5"> 1.0.1l </td><td class="col6"> 23918850 </td><td class="col7"> 16737400 </td><td class="col8"> 8949140 </td><td class="col9"> 2990080 </td><td class="col10"> 4595810 </td><td class="col11"> 1590480 </td><td class="col12"> 9802570 </td><td class="col13"> 8396460 </td><td class="col14"> 7392390 </td><td class="col15"> 5.4 </td><td class="col16"> 211.0 </td><td class="col17"> 21.2 </td><td class="col18"> 17.3 </td>
+	</tr>
+</table></div>
+
+<p>
+
+</p>
+</div>
+</div>
+
+<h2 class="sectionedit7" id="comparison_to_other_common_systems">Comparison to other common Systems</h2>
+<div class="level2">
+
+<p>
+just one Core is used
+</p>
+<div class="sortable"><div class="table sectionedit8"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> CPU </th><th class="col1"> Frq </th><th class="col2"> OpenSSL Version </th><th class="col3"> MD5 </th><th class="col4"> SHA-1 </th><th class="col5"> SHA-256 </th><th class="col6"> SHA-512 </th><th class="col7"> DES </th><th class="col8"> 3DES </th><th class="col9"> AES-128 </th><th class="col10"> AES-192 </th><th class="col11"> AES-256 </th><th class="col12"> RSA Sign </th><th class="col13"> RSA Verify </th><th class="col14"> DSA Sign </th><th class="col15 leftalign"> DSA Verify  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> Intel Celeron G1610 </td><td class="col1"> 2.6GHz </td><td class="col2"> 1.0.1 </td><td class="col3 rightalign">  439118260 </td><td class="col4 rightalign">  467458740 </td><td class="col5 rightalign">  188084910 </td><td class="col6 rightalign">  272975530 </td><td class="col7 rightalign">  54444260 </td><td class="col8 rightalign">  20387530 </td><td class="col9 rightalign">  105964890 </td><td class="col10 rightalign">  88460240 </td><td class="col11 rightalign">  75760250 </td><td class="col12 rightalign">  624.3 </td><td class="col13 rightalign">  20248.7 </td><td class="col14 rightalign">  2039.0 </td><td class="col15 rightalign">  1703.2 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> Intel Celeron G1610 / Vbox4.2.16 @ Ubuntu 13.04 </td><td class="col1"> 2.6GHz </td><td class="col2"> 1.0.1e </td><td class="col3 rightalign">  266205040 </td><td class="col4 rightalign">  124131320 </td><td class="col5 rightalign">  60176710 </td><td class="col6 rightalign">  29479590 </td><td class="col7 rightalign">  38917980 </td><td class="col8 rightalign">  14238460 </td><td class="col9 rightalign">  75328750 </td><td class="col10 rightalign">  64528720 </td><td class="col11 rightalign">  58970040 </td><td class="col12 rightalign">  43.0 </td><td class="col13 rightalign">  1466.4 </td><td class="col14 rightalign">  146.8 </td><td class="col15 rightalign">  117.1 </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> Intel Celeron 847 </td><td class="col1"> 1.1GHz </td><td class="col2"> 1.0.1e </td><td class="col3 rightalign">  173392900 </td><td class="col4 rightalign">  155067390 </td><td class="col5 rightalign">  58545150 </td><td class="col6 rightalign">  85354150 </td><td class="col7 rightalign">  21220350 </td><td class="col8 rightalign">  8056830 </td><td class="col9 rightalign">  36710740 </td><td class="col10 rightalign">  30482430 </td><td class="col11 rightalign">  26006190 </td><td class="col12 rightalign">  243.8 </td><td class="col13 rightalign">  7911.6 </td><td class="col14 rightalign">  794.7 </td><td class="col15 rightalign">  668.2 </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> AMD G-Series G-T40N / debian wheezy amd64 </td><td class="col1"> 1.00GHz </td><td class="col2"> 1.0.1e </td><td class="col3 rightalign">  191449430 </td><td class="col4 rightalign">  86963540 </td><td class="col5 rightalign">  51141290 </td><td class="col6 rightalign">  75085820 </td><td class="col7 rightalign">  24561660 </td><td class="col8 rightalign">  9498620 </td><td class="col9 rightalign">  68813830 </td><td class="col10 rightalign">  58355710 </td><td class="col11 rightalign">  50722130 </td><td class="col12 rightalign">  176.8 </td><td class="col13 rightalign">  5887.8 </td><td class="col14 rightalign">  592.7 </td><td class="col15 rightalign">  495.2 </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> AMD E-350 </td><td class="col1"> 1.6GHz </td><td class="col2"> 1.0.1 </td><td class="col3 rightalign">  214850330 </td><td class="col4 rightalign">  103554830 </td><td class="col5 rightalign">  65162020 </td><td class="col6 rightalign">  95568150 </td><td class="col7 rightalign">  31645350 </td><td class="col8 rightalign">  12288340 </td><td class="col9 rightalign">  90075140 </td><td class="col10 rightalign">  76489390 </td><td class="col11 rightalign">  66681580 </td><td class="col12 rightalign">  226.0 </td><td class="col13 rightalign">  7499.6 </td><td class="col14 rightalign">  755.4 </td><td class="col15 rightalign">  632.0 </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> AMD FX-6100 (no-aes-ni) </td><td class="col1"> 3.3GHz </td><td class="col2"> 1.0.0e </td><td class="col3 rightalign">  308474690 </td><td class="col4 rightalign">  160753320 </td><td class="col5 rightalign">  81856170 </td><td class="col6 rightalign">  120036010 </td><td class="col7 rightalign">  33686530 </td><td class="col8 rightalign">  13283330 </td><td class="col9 rightalign">  53698220 </td><td class="col10 rightalign">  44554580 </td><td class="col11 rightalign">  37129220 </td><td class="col12 rightalign">  211.3 </td><td class="col13 rightalign">  7908.7 </td><td class="col14 rightalign">  820.7 </td><td class="col15 rightalign">  714.5 </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> AMD FX-6100 (aes-ni) </td><td class="col1"> 3.3GHz</td><td class="col2"> 1.0.1 </td><td class="col3 rightalign">  434154500 </td><td class="col4 rightalign">  545881770 </td><td class="col5 rightalign">  153739260 </td><td class="col6 rightalign">  226136530 </td><td class="col7 rightalign">  61332140 </td><td class="col8 rightalign">  23838380 </td><td class="col9 rightalign">  227130370 </td><td class="col10 rightalign">  194936490 </td><td class="col11 rightalign">  158338730 </td><td class="col12 rightalign">  555.6 </td><td class="col13 rightalign">  17506.6 </td><td class="col14 rightalign">  1787.8 </td><td class="col15 rightalign">  1532.5 </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> AMD FX-6100 (aes-ni+mt) </td><td class="col1"> 3.3GHz </td><td class="col2"> 1.1.0-dev </td><td class="col3 rightalign">  2932684460 </td><td class="col4 rightalign">  2178283860 </td><td class="col5 rightalign">  779844600 </td><td class="col6 rightalign">  1503571290 </td><td class="col7 rightalign">  329867490 </td><td class="col8 rightalign">  127427240 </td><td class="col9 rightalign">  930302630 </td><td class="col10 rightalign">  817427110 </td><td class="col11 rightalign">  613974020 </td><td class="col12 rightalign">  2901.7 </td><td class="col13 rightalign">  93797.3 </td><td class="col14 rightalign">  9460.6 </td><td class="col15 rightalign">  7341.3 </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> AMD Sempron mobile 3300+ LV (K8NF3-VSTA)</td><td class="col1"> 2GHz</td><td class="col2"> 0.9.8o </td><td class="col3 rightalign">  287077130 </td><td class="col4 rightalign">  208404620 </td><td class="col5 rightalign">  60258790 </td><td class="col6 rightalign">  70649830 </td><td class="col7 rightalign">  52067690 </td><td class="col8 rightalign">  17907740 </td><td class="col9 rightalign">  108538950 </td><td class="col10 rightalign">  94007900 </td><td class="col11 rightalign">  81876880 </td><td class="col12 rightalign">  64.5 </td><td class="col13 rightalign">  2532.6 </td><td class="col14 rightalign">  259.9 </td><td class="col15 rightalign">  215.7 </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> Intel Core2Duo </td><td class="col1 leftalign"> 2.1GHz  </td><td class="col2"> 1.0.1 </td><td class="col3 rightalign">  256146770 </td><td class="col4 rightalign">  194247280 </td><td class="col5 rightalign">  83254970 </td><td class="col6 rightalign">  80870950 </td><td class="col7 rightalign">  32603610 </td><td class="col8 rightalign">  15082900 </td><td class="col9 rightalign">  100415570 </td><td class="col10 rightalign">  80765470 </td><td class="col11 rightalign">  66734360 </td><td class="col12 rightalign">  78.6 </td><td class="col13 rightalign">  2796.3 </td><td class="col14 rightalign">  290.4 </td><td class="col15 rightalign">  244.3 </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> Intel Core2Duo T5670</td><td class="col1"> 1.8GHz </td><td class="col2"> 1.0.1 </td><td class="col3 rightalign">  310586030 </td><td class="col4 rightalign">  279875640 </td><td class="col5 rightalign">  116648670 </td><td class="col6 rightalign">  171446270 </td><td class="col7 rightalign">  39449340 </td><td class="col8 rightalign">  15203330 </td><td class="col9 rightalign">  135999870 </td><td class="col10 rightalign">  115148800 </td><td class="col11 rightalign">  98666680 </td><td class="col12 rightalign">  301.0 </td><td class="col13 rightalign">  9904.8 </td><td class="col14 rightalign">  975.4 </td><td class="col15 rightalign">  774.1 </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0"> Intel Xeon E31230 </td><td class="col1"> 3.2GHz </td><td class="col2"> 1.0.0-fips </td><td class="col3 rightalign">  517524140 </td><td class="col4 rightalign">  542249100 </td><td class="col5 rightalign">  166468950 </td><td class="col6 rightalign">  245192360 </td><td class="col7 rightalign">  62701910 </td><td class="col8 rightalign">  23737000 </td><td class="col9 rightalign">  256884390 </td><td class="col10 rightalign">  217357310 </td><td class="col11 rightalign">  188289020 </td><td class="col12 rightalign">  552.6 </td><td class="col13 rightalign">  18584.0 </td><td class="col14 rightalign">  1829.5 </td><td class="col15 rightalign">  1588.8 </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0"> Via Eden </td><td class="col1"> 600Mhz </td><td class="col2"> 1.0.1c </td><td class="col3 rightalign">  31060990 </td><td class="col4 rightalign">  10968060 </td><td class="col5 rightalign">  5960020 </td><td class="col6 rightalign">  2595500 </td><td class="col7 rightalign">  3868860 </td><td class="col8 rightalign">  1346560 </td><td class="col9 rightalign">  5465770 </td><td class="col10 rightalign">  4723370 </td><td class="col11 rightalign">  4157780 </td><td class="col12 rightalign">  3.2 </td><td class="col13 rightalign">  110.0 </td><td class="col14 rightalign">  10.9 </td><td class="col15 rightalign">  9.0 </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0"> Atom 230 1.6GHz </td><td class="col1"> D945GCLF Trunk r31073 </td><td class="col2"> 1.0.1 </td><td class="col3 rightalign">  106859330 </td><td class="col4 rightalign">  33679390 </td><td class="col5 rightalign">  19225000 </td><td class="col6 rightalign">  10126710 </td><td class="col7 rightalign">  11673600 </td><td class="col8 rightalign">  4063000 </td><td class="col9 rightalign">  19162750 </td><td class="col10 rightalign">  16731680 </td><td class="col11 rightalign">  14840860 </td><td class="col12 rightalign">  13.0 </td><td class="col13 rightalign">  454.9 </td><td class="col14 rightalign">  45.5 </td><td class="col15 rightalign">  36.6 </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0"> Intel Core i7 4960X </td><td class="col1"> 4.0Ghz </td><td class="col2"> 1.0.1f </td><td class="col3"> 526048940 </td><td class="col4"> 567604910 </td><td class="col5"> 228535570 </td><td class="col6"> 332849830 </td><td class="col7"> 79409830 </td><td class="col8"> 29612710 </td><td class="col9"> 122543000 </td><td class="col10"> 115217410 </td><td class="col11"> 94291560 </td><td class="col12"> 747.7 </td><td class="col13"> 23847.8 </td><td class="col14"> 2438.4 </td><td class="col15"> 2111.3 </td>
+	</tr>
+</table></div>
+</div>
+</div>
+
+<h2 class="sectionedit9" id="old_benchmark_table">Old Benchmark Table</h2>
+<div class="level2">
+<div class="sortable col_6_numeric col_7_numeric col_8_numeric col_9_numeric col_10_numeric col_11_numeric col_12_numeric col_13_numeric col_14_numeric col_15_numeric col_16_numeric col_17_numeric col_18_numeric"><div class="table sectionedit10"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Router Make and Model </th><th class="col1 leftalign"> bogomips  </th><th class="col2"> OpenWRT Version </th><th class="col3"> CPU Model </th><th class="col4"> OpenSSL Version </th><th class="col5"> MD5 </th><th class="col6"> SHA-1 </th><th class="col7"> SHA-256 </th><th class="col8"> SHA-512 </th><th class="col9"> DES </th><th class="col10"> 3DES </th><th class="col11"> AES-128 </th><th class="col12"> AES-192 </th><th class="col13"> AES-256 </th><th class="col14"> RSA Sign </th><th class="col15"> RSA Verify </th><th class="col16"> DSA Sign </th><th class="col17 leftalign"> DSA Verify  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> Linksys WAG354G v2 </td><td class="col1 rightalign">  211.35 </td><td class="col2"> 7.09 </td><td class="col3"> MIPS 4KEc V4.8 </td><td class="col4"> 0.9.8e </td><td class="col5 rightalign">  7082610 </td><td class="col6 rightalign">  3202770 </td><td class="col7 rightalign">  2173660 </td><td class="col8 rightalign">  1135430 </td><td class="col9 rightalign">  1750870 </td><td class="col10 rightalign">  635230 </td><td class="col11 rightalign">  2369780 </td><td class="col12 rightalign">  2109580 </td><td class="col13 rightalign">  1851160 </td><td class="col14 rightalign">  2.2 </td><td class="col15 rightalign">  80.0 </td><td class="col16 rightalign">  8.3 </td><td class="col17 rightalign">  7.0 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> LaFonera FON2100A/B/G </td><td class="col1 rightalign">  183.50 </td><td class="col2"> 7.09 </td><td class="col3"> MIPS 4KEc V6.4 </td><td class="col4"> 0.9.8e 23 Feb 2007 </td><td class="col5 rightalign">  8072310 </td><td class="col6 rightalign">  2888560 </td><td class="col7 rightalign">  1812340 </td><td class="col8 rightalign">  934820 </td><td class="col9 rightalign">  1539730 </td><td class="col10 rightalign">  554050 </td><td class="col11 rightalign">  2279590 </td><td class="col12 rightalign">  1941870 </td><td class="col13 rightalign">  1699770 </td><td class="col14 rightalign">  1.9 </td><td class="col15 rightalign">  69.5 </td><td class="col16 rightalign">  7.2 </td><td class="col17 rightalign">  5.9 </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> Linksys WRT-54G V. 3 </td><td class="col1 rightalign">  215.44 </td><td class="col2"> 0.9 </td><td class="col3"> BCM3302 V0.7 </td><td class="col4"> 0.9.8d 28 Sep 2006 </td><td class="col5 rightalign">  4890970 </td><td class="col6 rightalign">  3312300 </td><td class="col7 rightalign">  2037420 </td><td class="col8 rightalign">  918530 </td><td class="col9 rightalign">  1682090 </td><td class="col10 rightalign">  423250 </td><td class="col11 rightalign">  1529860 </td><td class="col12 rightalign">  1297750 </td><td class="col13 rightalign">  1090900 </td><td class="col14 rightalign">  1.7 </td><td class="col15 rightalign">  67.2 </td><td class="col16 rightalign">  7.1 </td><td class="col17 rightalign">  5.8 </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> Linksys WRTSL54GS </td><td class="col1 rightalign">  262.14 </td><td class="col2"> Kamikaze r9504/2.6 </td><td class="col3"> Broadcom BCM3302 V0.6 </td><td class="col4"> 0.9.8e 23 Feb 2007 </td><td class="col5 rightalign">  10388570 </td><td class="col6 rightalign">  4002310 </td><td class="col7 rightalign">  2042120 </td><td class="col8 rightalign">  741790 </td><td class="col9 rightalign">  3138870 </td><td class="col10 rightalign">  2719140 </td><td class="col11 rightalign">  2278220 </td><td class="col12 rightalign">  2440360 </td><td class="col13 rightalign">  1307270 </td><td class="col14 rightalign">  2.3 </td><td class="col15 rightalign">  90.6 </td><td class="col16 rightalign">  9.3 </td><td class="col17 rightalign">  7.8 </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> Asus 500G Premium </td><td class="col1 rightalign">  262.96 </td><td class="col2"> Kamikaze 7.09 2.4 </td><td class="col3"> Broadcom BCM3302 V0.6 </td><td class="col4"> 0.9.8e 23 Feb 2007 </td><td class="col5 rightalign">  10649260 </td><td class="col6 rightalign">  4264960 </td><td class="col7 rightalign">  2501970 </td><td class="col8 rightalign">  1203810 </td><td class="col9 rightalign">  2112170 </td><td class="col10 rightalign">  768000 </td><td class="col11 rightalign">  2762220 </td><td class="col12 rightalign">  2402800 </td><td class="col13 rightalign">  2105000 </td><td class="col14 rightalign">  2.5 </td><td class="col15 rightalign">  91.9 </td><td class="col16 rightalign">  9.4 </td><td class="col17 rightalign">  8.0 </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> Asus 500G Premium v1 </td><td class="col1 rightalign">  263.16 </td><td class="col2"> Kamikaze r11349/2.6 </td><td class="col3"> Broadcom BCM3302 V0.6 </td><td class="col4"> 0.9.8h-1 </td><td class="col5 rightalign">  11612780 </td><td class="col6 rightalign">  4072630 </td><td class="col7 rightalign">  2081680 </td><td class="col8 rightalign">  750590 </td><td class="col9 rightalign">  3121660 </td><td class="col10 rightalign">  2706380 </td><td class="col11 rightalign">  2405020 </td><td class="col12 rightalign">  2524830 </td><td class="col13 rightalign">  1296380 </td><td class="col14 rightalign">  2.4 </td><td class="col15 rightalign">  91.8 </td><td class="col16 rightalign">  9.2 </td><td class="col17 rightalign">  7.9 </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> Buffalo WLA2-G54L </td><td class="col1 rightalign">  199.47 </td><td class="col2"> 0.9 / FFF </td><td class="col3"> Broadcom BCM3302 V0.7 </td><td class="col4"> 0.9.8d 28 Sep 2006 </td><td class="col5 rightalign">  3871000 </td><td class="col6 rightalign">  2865000 </td><td class="col7 rightalign">  1791000 </td><td class="col8 rightalign">  812000 </td><td class="col9 rightalign">  1393000 </td><td class="col10 rightalign">  357000 </td><td class="col11 rightalign">  1258000 </td><td class="col12 rightalign">  1025000 </td><td class="col13 rightalign">  903000 </td><td class="col14 rightalign">  1.4 </td><td class="col15 rightalign">  59.5 </td><td class="col16 rightalign">  6.1 </td><td class="col17 rightalign">  5.1 </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> Buffalo WHR-G54S </td><td class="col1 rightalign">  199.47 </td><td class="col2"> 0.9 / FFF </td><td class="col3"> Broadcom BCM3302 V0.8 </td><td class="col4"> 0.9.8d 28 Sep 2006 </td><td class="col5 rightalign">  7685000 </td><td class="col6 rightalign">  3075000 </td><td class="col7 rightalign">  1831000 </td><td class="col8 rightalign">  822000 </td><td class="col9 rightalign">  1520000 </td><td class="col10 rightalign">  556000 </td><td class="col11 rightalign">  1914000 </td><td class="col12 rightalign">  1653000 </td><td class="col13 rightalign">  1439000 </td><td class="col14 rightalign">  1.7 </td><td class="col15 rightalign">  63 </td><td class="col16 rightalign">  6.5 </td><td class="col17 rightalign">  5.5 </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> RouterBoard 532a </td><td class="col1 rightalign">  398.95 </td><td class="col2"> Kamikazi r9763/2.6 </td><td class="col3"> MIPS 4Kc V0.10 </td><td class="col4"> 0.9.8e 23 Feb 2007 </td><td class="col5 rightalign">  10037570 </td><td class="col6 rightalign">  5904280 </td><td class="col7 rightalign">  3796600 </td><td class="col8 rightalign">  1021290 </td><td class="col9 rightalign">  3029950 </td><td class="col10 rightalign">  1035870 </td><td class="col11 rightalign">  4622580 </td><td class="col12 rightalign">  4039710 </td><td class="col13 rightalign">  3525680 </td><td class="col14 rightalign">  3.2 </td><td class="col15 rightalign">  131.7 </td><td class="col16 rightalign">  13.8 </td><td class="col17 rightalign">  11.2 </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> Atmel NGW100 </td><td class="col1 rightalign">  400.30 </td><td class="col2"> Kamikaze 7.09 </td><td class="col3"> AVR32B AP7000 </td><td class="col4"> 0.9.8e 23 Feb2007 </td><td class="col5 rightalign">  9653500 </td><td class="col6 rightalign">  3460170 </td><td class="col7 rightalign">  1768020 </td><td class="col8 rightalign">  1008690 </td><td class="col9 rightalign">  2169790 </td><td class="col10 rightalign">  771230 </td><td class="col11 rightalign">  2120800 </td><td class="col12 rightalign">  1819730 </td><td class="col13 rightalign">  1593830 </td><td class="col14 rightalign">  1.9 </td><td class="col15 rightalign">  67.1 </td><td class="col16 rightalign">  6.8 </td><td class="col17 rightalign">  5.4 </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> PC Engines Alix 2c2 </td><td class="col1 rightalign">  997.36 </td><td class="col2"> Kamikaze r11534/2.6 </td><td class="col3"> AMD Geode LX </td><td class="col4"> 0.9.8h-1 </td><td class="col5 rightalign">  25760230 </td><td class="col6 rightalign">  7595970 </td><td class="col7 rightalign">  3089350 </td><td class="col8 rightalign">  1106330 </td><td class="col9 rightalign">  4515500 </td><td class="col10 rightalign">  3915090 </td><td class="col11 rightalign">  3457450 </td><td class="col12 rightalign">  3929300 </td><td class="col13 rightalign">  2379010 </td><td class="col14 rightalign">  2.5 </td><td class="col15 rightalign">  87.9 </td><td class="col16 rightalign">  8.9 </td><td class="col17 rightalign">  7.4 </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0"> <a href="http://www.intel.com/Products/Desktop/Motherboards/D945GCLF2/D945GCLF2-overview.htm" class="urlextern" title="http://www.intel.com/Products/Desktop/Motherboards/D945GCLF2/D945GCLF2-overview.htm"  rel="nofollow">D945GCLF2</a> </td><td class="col1 rightalign">  3192.22 </td><td class="col2 leftalign">  </td><td class="col3"> Intel Atom 330 </td><td class="col4"> 0.9.8g-13 </td><td class="col5 rightalign">  182998700 </td><td class="col6 rightalign">  83235840 </td><td class="col7 rightalign">  31920810 </td><td class="col8 rightalign">  45277180 </td><td class="col9 rightalign">  17599150 </td><td class="col10 rightalign">  6398630 </td><td class="col11 rightalign">  24503300 </td><td class="col12 rightalign">  21340160 </td><td class="col13 rightalign">  18899970 </td><td class="col14 rightalign">  50.7 </td><td class="col15 rightalign">  1876.5 </td><td class="col16 rightalign">  193.0 </td><td class="col17 rightalign">  161.9 </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0"> SE505 v2 @ 264MHz/16MB </td><td class="col1 rightalign">  262.96 </td><td class="col2"> Kamikaze r13624/2.6 </td><td class="col3"> Broadcom BCM3302 V0.7 </td><td class="col4"> 0.9.8i </td><td class="col5 rightalign">  6832970 </td><td class="col6 rightalign">  3887050 </td><td class="col7 rightalign">  2607000 </td><td class="col8 rightalign">  1175000 </td><td class="col9 rightalign">  1841000 </td><td class="col10 rightalign">  428000 </td><td class="col11 rightalign">  1743000 </td><td class="col12 rightalign">  1439000 </td><td class="col13 rightalign">  1186000 </td><td class="col14 rightalign">  1.8 </td><td class="col15 rightalign">  79 </td><td class="col16 rightalign">  7.7 </td><td class="col17 rightalign">  6.8 </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0"> Netgear WNR854T </td><td class="col1 rightalign">  332.59 </td><td class="col2"> Attitude r25661 </td><td class="col3"> Marvell Orion </td><td class="col4"> 1.0.0d 8 Feb 2011 </td><td class="col5 rightalign">  26144300 </td><td class="col6 rightalign">  7654230 </td><td class="col7 rightalign">  5116210 </td><td class="col8 rightalign">  1558070 </td><td class="col9 rightalign">  4094630 </td><td class="col10 rightalign">  1445240 </td><td class="col11 rightalign">  2511210 </td><td class="col12 rightalign">  2128140 </td><td class="col13 rightalign">  1873440 </td><td class="col14 rightalign">  5.1 </td><td class="col15 rightalign">  191.7 </td><td class="col16 rightalign">  19.3 </td><td class="col17 rightalign">  15.9 </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0"> Netgear WNR854T </td><td class="col1 rightalign">  332.59 </td><td class="col2"> Attitude r26358 </td><td class="col3"> Marvell Orion/<a href="benchmark.openssl#enablehardwareacceleration" title="inbox:benchmark.openssl ↵" class="wikilink1">CESA</a> </td><td class="col4"> 1.0.0d 8 Feb 2011 </td><td class="col5 rightalign">  21206450 </td><td class="col6 rightalign">  7789990 </td><td class="col7 rightalign">  5474620 </td><td class="col8 rightalign">  1647680 </td><td class="col9 rightalign">  3339680 </td><td class="col10 rightalign">  1182570 </td><td class="col11 rightalign">  4511460 </td><td class="col12 rightalign">  4581880 </td><td class="col13 rightalign">  4087070 </td><td class="col14 rightalign">  5.8 </td><td class="col15 rightalign">  204.8 </td><td class="col16 rightalign">  20.4 </td><td class="col17 rightalign">  16.7 </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0"> Seagate Dockstar </td><td class="col1 rightalign">  1192.75 </td><td class="col2"> Debian Squeeze </td><td class="col3"> Feroceon 88FR131 rev 1 (v5l)(Kirkwood) </td><td class="col4"> 0.9.8o 01 Jun 2010 </td><td class="col5 rightalign">  64419190 </td><td class="col6 rightalign">  35285530 </td><td class="col7 rightalign">  8908460 </td><td class="col8 rightalign">  3155560 </td><td class="col9 rightalign">  10294640 </td><td class="col10 rightalign">  8814300 </td><td class="col11 rightalign">  7705770 </td><td class="col12 rightalign">  13608240 </td><td class="col13 rightalign">  2454520 </td><td class="col14 rightalign">  14.4 </td><td class="col15 rightalign">  565.8 </td><td class="col16 rightalign">  57.0 </td><td class="col17 rightalign">  48.3 </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0 leftalign"> TL-WR1043ND  </td><td class="col1 rightalign">  266.24 </td><td class="col2"> trunk r25513 </td><td class="col3"> MIPS 24Kc V7.4 </td><td class="col4"> 1.0.0d 8 Feb 2011 </td><td class="col5 rightalign">  20962650 </td><td class="col6 rightalign">  6852760 </td><td class="col7 rightalign">  3280970 </td><td class="col8 rightalign">  1161910 </td><td class="col9 rightalign">  4694250 </td><td class="col10 rightalign">  4105340 </td><td class="col11 rightalign">  3696880 </td><td class="col12 rightalign">  4971940 </td><td class="col13 rightalign">  2499810 </td><td class="col14 rightalign">  3.3 </td><td class="col15 rightalign">  112.8 </td><td class="col16 rightalign">  11.2 </td><td class="col17 rightalign">  9.1 </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0"> TP-LINK TL-MR3420 </td><td class="col1 rightalign">  266.24 </td><td class="col2"> Kamikaze r25302 </td><td class="col3"> Atheros AR7241 rev 1 </td><td class="col4"> 0.9.8p </td><td class="col5 rightalign">  21704980 </td><td class="col6 rightalign">  6848650 </td><td class="col7 rightalign">  4955600 </td><td class="col8 rightalign">  2481390 </td><td class="col9 rightalign">  3140960 </td><td class="col10 rightalign">  1107750 </td><td class="col11 rightalign">  4877870 </td><td class="col12 rightalign">  4184980 </td><td class="col13 rightalign">  3679010 </td><td class="col14 rightalign">  3.9 </td><td class="col15 rightalign">  143.8 </td><td class="col16 rightalign">  14.6 </td><td class="col17 rightalign">  12.2 </td>
+	</tr>
+</table></div>
+</div>
+</div>
+
+<h2 class="sectionedit11" id="enable_hardware_acceleration">Enable hardware acceleration</h2>
+<div class="level2">
+
+<p>
+You have to compile libopenssl with hardware acceleration if your hardware support it to get better score:
+<pre class="code">make menuconfig
+Libraries -&gt; 
+SSL -&gt; 
+libopenssl: m
+Configuration -&gt;
+Crypto acceleration support: y</pre>
+
+</p>
+
+<p>
+ARM platform gets a 70% boost after <a href="https://dev.openwrt.org/changeset/44618" class="urlextern" title="https://dev.openwrt.org/changeset/44618"  rel="nofollow">r44618</a>!
+</p>
+
+<p>
+Also you can read more about <a href="../doc/hardware/cryptographic.hardware.accelerators" class="wikilink1" title="doc:hardware:cryptographic.hardware.accelerators">cryptographic hardware accelerators</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit12" id="tags">Tags</h2>
+<div class="level2">
+<div class="tags"><span>
+	<a href="../tag/crypto?do=showtag&amp;tag=crypto" class="wikilink1" title="tag:crypto" rel="tag">crypto</a>
+</span></div>
+
+</div>
+
+<h2 class="sectionedit13" id="notes">Notes</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> There is quick note on performance of <a href="../doc/howto/snippets#ellipticcurvesinopenssh" class="wikilink1" title="doc:howto:snippets">elliptic curves</a> in OpenSSH.</div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>inbox/benchmark.openssl.txt</bdi> · Last modified: 2015/04/24 01:20 by <bdi>baranator</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="benchmark.openssl?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="benchmark.openssl?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="benchmark.openssl?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="benchmark.openssl#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../lib/exe/indexer.php?id=inbox%253Abenchmark.openssl&amp;1432265558" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

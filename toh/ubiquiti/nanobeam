@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Ubiquiti NanoBeam M5 [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="toh,ubiquiti,nanobeam"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="http://wiki.openwrt.org/toh/ubiquiti/nanobeam?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=toh:ubiquiti"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="http://wiki.openwrt.org/_export/xhtml/toh/ubiquiti/nanobeam"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="http://wiki.openwrt.org/_export/raw/toh/ubiquiti/nanobeam"/>
+<link rel="canonical" href="nanobeam"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='toh:ubiquiti';var JSINFO = {"id":"toh:ubiquiti:nanobeam","namespace":"toh:ubiquiti"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432283411 166.182.3.213';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="nanobeam#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="http://wiki.openwrt.org/toh/ubiquiti/nanobeam?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="http://wiki.openwrt.org/toh/ubiquiti/nanobeam?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="toh:ubiquiti:nanobeam" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="http://wiki.openwrt.org/toh/ubiquiti/nanobeam?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="http://wiki.openwrt.org/toh/ubiquiti/nanobeam?do=media&amp;ns=toh%3Aubiquiti"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="http://wiki.openwrt.org/toh/ubiquiti/nanobeam?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="toh:start">Table of Hardware</a></bdi> » <bdi><a href="start" class="wikilink1" title="toh:ubiquiti:start">Ubiquiti</a></bdi> » <bdi><span class="curid"><a href="nanobeam" class="wikilink1" title="toh:ubiquiti:nanobeam">Ubiquiti NanoBeam M5</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/toh/ubiquiti/nanobeam" class="media" title="cz:toh:ubiquiti:nanobeam"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/toh/ubiquiti/nanobeam" class="media" title="de:toh:ubiquiti:nanobeam"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="nanobeam" class="media" title="toh:ubiquiti:nanobeam"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/toh/ubiquiti/nanobeam" class="media" title="es:toh:ubiquiti:nanobeam"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/toh/ubiquiti/nanobeam" class="media" title="fr:toh:ubiquiti:nanobeam"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/toh/ubiquiti/nanobeam" class="media" title="hu:toh:ubiquiti:nanobeam"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/toh/ubiquiti/nanobeam" class="media" title="jp:toh:ubiquiti:nanobeam"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/toh/ubiquiti/nanobeam" class="media" title="pl:toh:ubiquiti:nanobeam"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/toh/ubiquiti/nanobeam" class="media" title="pt-br:toh:ubiquiti:nanobeam"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/toh/ubiquiti/nanobeam" class="media" title="ru:toh:ubiquiti:nanobeam"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/toh/ubiquiti/nanobeam" class="media" title="tr:toh:ubiquiti:nanobeam"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/toh/ubiquiti/nanobeam" class="media" title="zh-cn:toh:ubiquiti:nanobeam"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/toh/ubiquiti/nanobeam" class="media" title="zh-tw:toh:ubiquiti:nanobeam"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>toh:ubiquiti:nanobeam</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="nanobeam#supported_versions">Supported versions</a></div>
+<ul class="toc">
+<li class="clear">
+<ul class="toc">
+<li class="level3"><div class="li"><a href="nanobeam#old_models">Old Models</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="nanobeam#boot_and_system_logs">Boot and system logs</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="nanobeam#original_firmware_dmesg">Original firmware dmesg</a></div></li>
+<li class="level3"><div class="li"><a href="nanobeam#proccpuinfo">/proc/cpuinfo</a></div></li>
+<li class="level3"><div class="li"><a href="nanobeam#proccpuinfo_nbe-m5-300_barrier_breaker_1407">/proc/cpuinfo (NBE-M5-300, Barrier Breaker 14.07)</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="nanobeam#flashing">Flashing</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="nanobeam#flashing_from_the_original_firmware_via_ssh">Flashing from the original firmware via SSH</a></div></li>
+<li class="level3"><div class="li"><a href="nanobeam#flashing_from_the_original_firmware_via_tftp_rescue_mode">Flashing from the original firmware via TFTP (rescue mode)</a></div></li>
+<li class="level3"><div class="li"><a href="nanobeam#flashing_process_log">Flashing process log</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="ubiquiti_nanobeam_m5">Ubiquiti NanoBeam M5</h1>
+<div class="level1">
+
+<p>
+The <a href="http://www.ubnt.com/airmax/nanobeamm/" class="urlextern" title="http://www.ubnt.com/airmax/nanobeamm/"  rel="nofollow">Ubiquiti Networks® NanoBeam®M</a> devices are CPE equipment for customer locations with one Ethernet port and a 802.11n 2T/2R 5 <abbr title="Gigahertz">GHz</abbr> 300Mbps wireless interface.
+</p>
+
+<p>
+<del>The NanoBeam devices are not supported. Please see <a href="https://dev.openwrt.org/ticket/16796" class="urlextern" title="https://dev.openwrt.org/ticket/16796"  rel="nofollow">https://dev.openwrt.org/ticket/16796</a></del>
+</p>
+
+<p>
+The first four devices (NBE-M2-400, NBE-M5-300, NBE-M5-400, NBE-M5-620) are supported by the <a href="https://downloads.openwrt.org/snapshots/trunk/ar71xx/generic/openwrt-ar71xx-generic-ubnt-loco-m-xw-squashfs-factory.bin" class="urlextern" title="https://downloads.openwrt.org/snapshots/trunk/ar71xx/generic/openwrt-ar71xx-generic-ubnt-loco-m-xw-squashfs-factory.bin"  rel="nofollow">trunk loco-m-xw</a> image. (at least NBE-M5-300, tested with r45453) <strong>Remember that pre-built trunk images do not come with any web interface or <abbr title="Graphical User Interface">GUI</abbr></strong>. Have a look at <a href="../../doc/howto/firstlogin" class="urlextern" title="http://wiki.openwrt.org/doc/howto/firstlogin"  rel="nofollow">First Login</a>.
+</p>
+
+<p>
+Once the trunk Loco image is installed, it is possible to <a href="../../doc/howto/generic.sysupgrade" class="urlextern" title="http://wiki.openwrt.org/doc/howto/generic.sysupgrade"  rel="nofollow">downgrade</a> to <a href="https://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/generic/openwrt-ar71xx-generic-ubnt-nano-m-xw-squashfs-sysupgrade.bin" class="urlextern" title="https://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/generic/openwrt-ar71xx-generic-ubnt-nano-m-xw-squashfs-sysupgrade.bin"  rel="nofollow">Barrier Breaker 14.07 nano-m-xw</a> to have a more stable device. (12.09 doesn&#039;t work). (tested with NBE-M5-300, r45453)
+Preserving old settings is not necessary.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="supported_versions">Supported versions</h2>
+<div class="level2">
+
+<p>
+There are two models of NanoBeam devices:
+</p>
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Version/Model </th><th class="col1"> Launch Date </th><th class="col2"> OpenWrt version supported </th><th class="col3"> Chip </th><th class="col4"> Download latest stable version </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> NBE-M5-16 </td><td class="col1"> 2014 </td><td class="col2"> trunk <a href="https://dev.openwrt.org/changeset/42549" class="urlextern" title="https://dev.openwrt.org/changeset/42549"  rel="nofollow">r42549</a>, 14.07 </td><td class="col3"> Atheros AR934x </td><td class="col4"> <a href="http://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/generic/openwrt-ar71xx-generic-ubnt-nano-m-xw-squashfs-factory.bin" class="urlextern" title="http://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/generic/openwrt-ar71xx-generic-ubnt-nano-m-xw-squashfs-factory.bin"  rel="nofollow">14.07</a> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> NBE-M5-19 </td><td class="col1"> 2014 </td><td class="col2"> trunk <a href="https://dev.openwrt.org/changeset/42549" class="urlextern" title="https://dev.openwrt.org/changeset/42549"  rel="nofollow">r42549</a>, 14.07 </td><td class="col3"> Atheros AR934x </td><td class="col4"> <a href="http://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/generic/openwrt-ar71xx-generic-ubnt-nano-m-xw-squashfs-factory.bin" class="urlextern" title="http://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/generic/openwrt-ar71xx-generic-ubnt-nano-m-xw-squashfs-factory.bin"  rel="nofollow">14.07</a> </td>
+	</tr>
+</table></div>
+
+<p>
+Initially there were four more devices (with a separate feed and dish antenna) that were later renamed by Ubiquiti as <a href="http://www.ubnt.com/airmax/powerbeam" class="urlextern" title="http://www.ubnt.com/airmax/powerbeam"  rel="nofollow">PowerBeam</a>, which are also <a href="powerbeam" class="urlextern" title="http://wiki.openwrt.org/toh/ubiquiti/powerbeam"  rel="nofollow">supported by OpenWrt</a>.
+</p>
+
+</div>
+
+<h4 id="old_models">Old Models</h4>
+<div class="level4">
+<div class="table sectionedit4"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Version/Model </th><th class="col1"> Launch Date </th><th class="col2"> OpenWrt version supported </th><th class="col3"> Chip </th><th class="col4"> Download trunk image (loco-m-xw) </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> NBE-M2-400 </td><td class="col1"> 2013 (?) </td><td class="col2"> ? </td><td class="col3"> Atheros AR934x </td><td class="col4"> - </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> NBE-M5-300 </td><td class="col1"> 2013 (?) </td><td class="col2"> trunk <a href="https://dev.openwrt.org/changeset/45453" class="urlextern" title="https://dev.openwrt.org/changeset/45453"  rel="nofollow">r45453</a> </td><td class="col3"> Atheros AR9342 rev2 </td><td class="col4"> <a href="https://downloads.openwrt.org/snapshots/trunk/ar71xx/generic/openwrt-ar71xx-generic-ubnt-loco-m-xw-squashfs-factory.bin" class="urlextern" title="https://downloads.openwrt.org/snapshots/trunk/ar71xx/generic/openwrt-ar71xx-generic-ubnt-loco-m-xw-squashfs-factory.bin"  rel="nofollow">trunk loco-m-xw</a> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> NBE-M5-400 </td><td class="col1"> 2013 (?) </td><td class="col2"> ? </td><td class="col3"> Atheros AR934x </td><td class="col4"> - </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> NBE-M5-620 </td><td class="col1"> 2013 (?) </td><td class="col2"> ? </td><td class="col3"> Atheros AR934x </td><td class="col4"> - </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit5" id="boot_and_system_logs">Boot and system logs</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="original_firmware_dmesg">Original firmware dmesg</h4>
+<div class="level4">
+
+<p>
+<pre class="code">[    0.000000] Linux version 2.6.32.60 (buildd@builder) (gcc version 4.1.2) #1 Thu Apr 3 18:01:56 EEST 2014
+[    0.000000] flash_size passed from bootloader = 8
+[    0.000000] CPU revision is: 0001974c (MIPS 74Kc)
+[    0.000000] ath_sys_frequency: cpu srif ddr srif cpu 535 ddr 400 ahb 200
+[    0.000000] Determined physical RAM map:
+[    0.000000]  memory: 04000000 @ 00000000 (usable)
+[    0.000000] User-defined physical RAM map:
+[    0.000000]  memory: 04000000 @ 00000000 (usable)
+[    0.000000] Initrd not found or empty - disabling initrd
+[    0.000000] Zone PFN ranges:
+[    0.000000]   Normal   0x00000000 -&gt; 0x00004000
+[    0.000000] Movable zone start PFN for each node
+[    0.000000] early_node_map[1] active PFN ranges
+[    0.000000]     0: 0x00000000 -&gt; 0x00004000
+[    0.000000] On node 0 totalpages: 16384
+[    0.000000] free_area_init_node: node 0, pgdat 802a4a50, node_mem_map 81000000
+[    0.000000]   Normal zone: 128 pages used for memmap
+[    0.000000]   Normal zone: 0 pages reserved
+[    0.000000]   Normal zone: 16256 pages, LIFO batch:3
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 16256
+[    0.000000] Kernel command line: console=tty0 root=31:03 rootfstype=squashfs init=/init mtdparts=ath-nor0:256k(u-boot),64k(u-boot-env),1024k(kernel),6528k(rootfs),256k(cfg),64k(EEPROM) mem=64M panic=3 quiet 
+[    0.000000] PID hash table entries: 256 (order: -2, 1024 bytes)
+[    0.000000] Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.000000] Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000] Primary instruction cache 64kB, VIPT, 4-way, linesize 32 bytes.
+[    0.000000] Primary data cache 32kB, 4-way, VIPT, cache aliases, linesize 32 bytes
+[    0.000000] Writing ErrCtl register=00000000
+[    0.000000] Readback ErrCtl register=00000000
+[    0.000000] Memory: 61916k/65536k available (2179k kernel code, 3548k reserved, 524k data, 136k init, 0k highmem)
+[    0.000000] Hierarchical RCU implementation.
+[    0.000000] NR_IRQS:128
+[    0.000000] plat_time_init: plat time init done
+[    0.000000] Console: colour dummy device 80x25
+[    0.000000] console [tty0] enabled
+[    0.000000] Calibrating delay loop... 266.24 BogoMIPS (lpj=133120)
+[    0.022000] Mount-cache hash table entries: 512
+[    0.025000] NET: Registered protocol family 16
+[    0.033000] bio: create slab &lt;bio-0&gt; at 0
+[    0.035000] Switching to clocksource MIPS
+[    0.037000] NET: Registered protocol family 2
+[    0.038000] IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.039000] TCP established hash table entries: 2048 (order: 2, 16384 bytes)
+[    0.039000] TCP bind hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.039000] TCP: Hash tables configured (established 2048 bind 2048)
+[    0.039000] TCP reno registered
+[    0.040000] NET: Registered protocol family 1
+[    0.040000] ATH GPIOC major 0
+[    0.042000] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.042000] JFFS2 version 2.2 (NAND) (SUMMARY) (LZMA) (RTIME) (CMODE_PRIORITY) (c) 2001-2006 Red Hat, Inc.
+[    0.042000] msgmni has been set to 121
+[    0.043000] io scheduler noop registered (default)
+[    0.066000] Serial: 8250/16550 driver, 1 ports, IRQ sharing disabled
+[    0.068000] serial8250.0: ttyS0 at MMIO 0xb8020000 (irq = 19) is a 16550A
+[    0.069000] 6 cmdlinepart partitions found on MTD device ath-nor0
+[    0.069000] Creating 6 MTD partitions on &quot;ath-nor0&quot;:
+[    0.069000] 0x000000000000-0x000000040000 : &quot;u-boot&quot;
+[    0.070000] 0x000000040000-0x000000050000 : &quot;u-boot-env&quot;
+[    0.072000] 0x000000050000-0x000000150000 : &quot;kernel&quot;
+[    0.073000] 0x000000150000-0x0000007b0000 : &quot;rootfs&quot;
+[    0.074000] mtd: partition &quot;rootfs&quot; set to be root filesystem
+[    0.074000] 0x0000007b0000-0x0000007f0000 : &quot;cfg&quot;
+[    0.075000] 0x0000007f0000-0x000000800000 : &quot;EEPROM&quot;
+[    0.077000] u32 classifier
+[    0.077000]     Performance counters on
+[    0.077000]     input device check on 
+[    0.077000]     Actions configured 
+[    0.078000] TCP westwood registered
+[    0.078000] NET: Registered protocol family 10
+[    0.082000] NET: Registered protocol family 17
+[    0.082000] Bridge firewalling registered
+[    0.082000] 802.1Q VLAN Support v1.8 Ben Greear &lt;greearb@candelatech.com&gt;
+[    0.082000] All bugs added by David S. Miller &lt;davem@redhat.com&gt;
+[    0.082000] athwdt_init: Registering WDT success
+[    0.082000] ath_otp_init: Registering OTP success
+[    0.083000] ath_clksw_init: Registering Clock Switch Interface success
+[    0.089000] VFS: Mounted root (squashfs filesystem) readonly on device 31:3.
+[    0.090000] Freeing unused kernel memory: 136k freed
+[    0.098000] Please be patient, while AirOS loads ...
+[    0.894000] Algorithmics/MIPS FPU Emulator v1.5
+[    5.674000] ar7240-gpio 1.1 initialised
+[    5.814000] ATHR_GMAC: Length per segment 1536
+[    5.814000] ATHR_GMAC: skb_overhead 64, shinfo: 344
+[    5.814000] ATHR_GMAC: RX sizes - 2k_fit: 1610, reserve: 0
+[    5.814000] ATHR_GMAC: fifo cfg 3 01f00140
+[    5.814000] AR8035 Detected
+[    5.814000] ATHR_GMAC: Mac address for unit 0:bfff0000
+[    5.814000] ATHR_GMAC: fa:ba:da:fa:ba:da 
+[    6.371000] mac:0 Registering S27....
+[    6.372000] ATHR_GMAC: Max segments per packet :   1
+[    6.372000] ATHR_GMAC: Max tx descriptor count :   128
+[    6.372000] ATHR_GMAC: Max rx descriptor count :   252
+[    6.372000] ATHR_GMAC: Mac capability flags    :   4380
+[    6.372000] phy 0 with phyid 0x0000:0x004d - vs AR8236 - 0x004d:0xd043
+[    6.372000] ATHR_GMAC: Mac address for unit 1:bfff0006
+[    6.372000] ATHR_GMAC: fa:ba:da:fa:ba:da 
+[    6.929000] mac:1 Registering S27....
+[    6.929000] ATHR_GMAC: Max segments per packet :   1
+[    6.929000] ATHR_GMAC: Max tx descriptor count :   128
+[    6.929000] ATHR_GMAC: Max rx descriptor count :   252
+[    6.929000] ATHR_GMAC: Mac capability flags    :   4B80
+[    7.361000] PPP generic driver version 2.4.2
+[    7.518000] PPP MPPE Compression module registered
+[    7.545000] NET: Registered protocol family 24
+[    7.689000] urd: module license &#039;Proprietary&#039; taints kernel.
+[    7.689000] Disabling lock debugging due to kernel taint
+[    7.693000] URD Init
+[    8.540000] ath_hal: 0.9.17.1 (AR9380, DEBUG, REGOPS_FUNC, 11D)
+[    8.994000] ath_rate_atheros: Copyright (c) 2001-2005 Atheros Communications, Inc, All Rights Reserved
+[    9.634000] ath_dev: Copyright (c) 2001-2007 Atheros Communications, Inc, All Rights Reserved
+[   10.594000] ath_ahb: 9.2.0_U11.14 (Atheros/multi-bss)
+[   10.594000] __ath_attach: Set global_scn[0]
+[   10.594000] ACBKMinfree = 48
+[   10.594000] ACBEMinfree = 32
+[   10.594000] ACVIMinfree = 16
+[   10.594000] ACVOMinfree = 0
+[   10.594000] CABMinfree = 48
+[   10.594000] UAPSDMinfree = 0
+[   10.599000] Bootstrap clock 40MHz
+[   10.603000] ar9300Attach: This Mac Chip Rev 0x300.2 PCI devid 0x31
+[   10.603000] Wasp Enterprise mode: 0x00000000
+[   10.603000] ar9300RadioAttach: Need analog access recipe!!
+[   10.627000] Restoring Cal data from Flash
+[   10.628000] Using Cal data from Flash 0xbfff1000
+[   10.628000] ath_hal: Ubiquiti Osprey (0777:e825)
+[   10.633000] ath_get_caps[5384] rx chainmask mismatch actual 3 sc_chainmak 0
+[   10.633000] ath_get_caps[5359] tx chainmask mismatch actual 3 sc_chainmak 0
+[   10.650000] wifi0: Atheros 9340: mem=0xb8100000, irq=2
+[   11.287000] ubnt_poll: Initializing polling module...
+[   11.287000] ubnt_poll: Initializing packet classifier...
+[   11.287000] ubnt_poll: OS timer frequency 1000 Hz
+[   11.360000] rssi-leds 1.2 loaded
+[   11.431000] ubnt_poll: Attaching hooks...
+[   11.514000] wlan_vap_create : enter. devhandle=0x83b602c0, opmode=IEEE80211_M_STA, flags=0x3
+[   11.514000] ubnt_poll: TX CTRL configured with 0/18/200/0/6
+[   11.514000] ubnt_poll: Initializing STA ranging engine
+[   11.514000] VAP attach: burst beacon mode.
+[   11.514000] wlan_vap_create : exit. devhandle=0x83b602c0, opmode=IEEE80211_M_STA, flags=0x3.
+[   12.181000] Ebtables v2.0 registered
+[   12.572000] device eth0 entered promiscuous mode
+[   12.578000] device ath0 entered promiscuous mode
+[   12.586000] ERROR:_s27_rd_phy failed:phy:3 reg:0 rd_data:80000000
+[   12.589000] ERROR:_s27_rd_phy failed:phy:3 reg:11 rd_data:80000000
+[   12.592000] ERROR:_s27_rd_phy failed:phy:3 reg:11 rd_data:80000000
+[   12.595000] ERROR:_s27_rd_phy failed:phy:3 reg:11 rd_data:80000000
+[   12.595000] device eth1 entered promiscuous mode
+[   12.621000] athr_gmac_ring_alloc Allocated 2048 at 0x83315800
+[   12.622000] athr_gmac_ring_alloc Allocated 4032 at 0x83304000
+[   12.921000] athr_gmac_mii_setup 0
+[   12.921000] WASP ----&gt; AR8035 PHY
+[   12.921000] MAC0 MDC is 11 at line 591
+[   12.921000] Setting Drop CRC Errors, Pause Frames and Length Error frames 
+[   12.923000] Setting PHY...
+[   15.944000] ADDRCONF(NETDEV_UP): eth0: link is not ready
+[   15.949000] ADDRCONF(NETDEV_UP): eth0: link is not ready
+[   15.954000] ubnt_poll: Setting timing params to min:1000 max:3000 offset:3000 tx_time: 3000 init: 5
+[   15.954000] ubnt_poll: Setting aggregation params to non-txop:0 tx-op:0 scheduling:0
+[   15.954000] ubnt_poll: Setting TXOP Window parameters to size:25 timeout-perc:5
+[   15.954000] ubnt_poll: Module started in STA mode
+[   18.965000] ADDRCONF(NETDEV_UP): ath0: link is not ready
+[   18.971000] ADDRCONF(NETDEV_UP): ath0: link is not ready
+[   24.068000] athr_gmac_ring_alloc Allocated 2048 at 0x8285b000
+[   24.068000] athr_gmac_ring_alloc Allocated 4032 at 0x83318000
+[   24.369000] athr_gmac_mii_setup 1
+[   24.369000] phy 1 with phyid 0x004d:0xd042 - vs AR8032 - 0x004d:0xd023
+[   24.369000] phy 1 with phyid 0x004d:0xd042 - vs AR8032 - 0x004d:0xd023
+[   24.370000] phy 1 with phyid 0x004d:0xd042 - vs AR8032 - 0x004d:0xd023
+[   24.370000] phy 1 with phyid 0x004d:0xd042 - vs AR8032 - 0x004d:0xd023
+[   24.370000] phy 1 with phyid 0x004d:0xd042 - vs AR8032 - 0x004d:0xd023
+[   24.370000] phy 1 with phyid 0x004d:0xd042 - vs AR8032 - 0x004d:0xd023
+[   24.370000] phy 4 with phyid 0x004d:0xd042 - vs AR8035 - 0x004d:0xd072
+[   24.370000] WASP ----&gt; S27 PHY MDIO
+[   24.370000] MAC1 MDC is 7 at line 659
+[   24.370000] Setting Drop CRC Errors, Pause Frames and Length Error frames 
+[   24.370000] ATHRS27: resetting s27
+[   24.472000] ATHRS27: s27 reset done
+[   24.486000] Setting PHY...
+[   25.556000] ADDRCONF(NETDEV_UP): eth1: link is not ready
+[   25.562000] ADDRCONF(NETDEV_UP): eth1: link is not ready
+[   30.944000] ATH_MAC_TIMER: MAC 0 PHY 0x04 - LINK NOW UP [link=UP speed=100Mbps duplex=full duplex carrier=0]
+[   30.944000] ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+[   30.945000] br0: port 1(eth0) entering learning state
+[   31.945000] br0: port 1(eth0) entering forwarding state
+[   34.966000] br0: no IPv6 routers present
+[   40.996000] eth0: no IPv6 routers present</pre>
+
+</p>
+
+</div>
+
+<h4 id="proccpuinfo">/proc/cpuinfo</h4>
+<div class="level4">
+
+<p>
+<pre class="code">system type		: Atheros AR934x
+processor		: 0
+cpu model		: MIPS 74Kc V4.12
+BogoMIPS		: 266.24
+wait instruction	: yes
+microsecond timers	: yes
+tlb_entries		: 32
+extra interrupt vector	: yes
+hardware watchpoint	: yes, count: 4, address/irw mask: [0x0000, 0x01b0, 0x05a0, 0x0000]
+ASEs implemented	: mips16 dsp
+shadow register sets	: 1
+core			: 0
+VCED exceptions		: not available
+VCEI exceptions		: not available</pre>
+
+</p>
+
+</div>
+
+<h4 id="proccpuinfo_nbe-m5-300_barrier_breaker_1407">/proc/cpuinfo (NBE-M5-300, Barrier Breaker 14.07)</h4>
+<div class="level4">
+
+<p>
+<pre class="code">system type		: Atheros AR9342 rev 2
+machine			: Ubiquiti Nanostation M XW
+processor		: 0
+cpu model		: MIPS 74Kc V4.12
+BogoMIPS		: 266.64
+wait instruction	: yes
+microsecond timers	: yes
+tlb_entries		: 32
+extra interrupt vector	: yes
+hardware watchpoint	: yes, count: 4, address/irw mask: [0x0000, 0x0ff8, 0x0ff8, 0x0ff8]
+isa			: mips1 mips2 mips32r1 mips32r2
+ASEs implemented	: mips16 dsp dsp2
+shadow register sets	: 1
+kscratch registers	: 0
+core			: 0
+VCED exceptions		: not available
+VCEI exceptions		: not available</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="flashing">Flashing</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="flashing_from_the_original_firmware_via_ssh">Flashing from the original firmware via SSH</h4>
+<div class="level4">
+
+<p>
+To flash a new firmware image from the original one, follow these steps:
+</p>
+
+<p>
+- Find the appropriate image for the device (openwrt-ar71xx-generic-ubnt-loco-m-xw-squashfs-factory.bin) in the <a href="https://downloads.openwrt.org/snapshots/trunk/ar71xx" class="urlextern" title="https://downloads.openwrt.org/snapshots/trunk/ar71xx"  rel="nofollow">downloads page</a> and download it (or upload it from your computer) to the /tmp directory of the device
+- Use SSH to log into the device and use the fwupdate.real utility:
+<pre class="code">fwupdate.real -m firmware_image_file.bin -d</pre>
+
+</p>
+
+</div>
+
+<h4 id="flashing_from_the_original_firmware_via_tftp_rescue_mode">Flashing from the original firmware via TFTP (rescue mode)</h4>
+<div class="level4">
+
+<p>
+To flash a new firmware image via TFTP, follow these steps:
+</p>
+
+<p>
+- Enter the rescue mode. Power off the device, push the reset button on the device (or the PoE) and keep it pressed. Power on the device, while still pushing the reset button. When all the leds blink at the same time, release the reset button.
+- Upload the firmware image file via TFTP:
+<pre class="code">tftp 192.168.1.20
+tftp&gt; bin
+tftp&gt; trace
+Packet tracing on.
+tftp&gt; put firmware_image.bin</pre>
+
+</p>
+
+</div>
+
+<h4 id="flashing_process_log">Flashing process log</h4>
+<div class="level4">
+
+<p>
+<pre class="code">XW.v5.5.6# fwupdate.real -m openwrt-ar71xx-generic-ubnt-nano-m-xw-squashfs-factory.bin -d
+Found mtd block: /dev/mtd0(u-boot)
+Found mtd block: /dev/mtd1(u-boot-env)
+Found mtd block: /dev/mtd2(kernel)
+Found mtd block: /dev/mtd3(rootfs)
+Found mtd block: /dev/mtd4(cfg)
+Found mtd block: /dev/mtd5(EEPROM)
+Got U-Boot variable: mtdparts = mtdparts=ath-nor0:256k(u-boot),64k(u-boot-env),1024k(kernel),6528k(rootfs),256k(cfg),64k(EEPROM)
+Adding U-Boot partition: u-boot 9F000000 00040000
+Adding U-Boot partition: u-boot-env 9F040000 00010000
+Adding U-Boot partition: kernel 9F050000 00100000
+Adding U-Boot partition: rootfs 9F150000 00660000
+Adding U-Boot partition: cfg 9F7B0000 00040000
+Adding U-Boot partition: EEPROM 9F7F0000 00010000
+Calculating flash size:
+Adding block: /dev/mtd0(&quot;u-boot&quot;) - size: 00040000
+Adding block: /dev/mtd1(&quot;u-boot-env&quot;) - size: 00010000
+Adding block: /dev/mtd2(&quot;kernel&quot;) - size: 00100000
+Adding block: /dev/mtd3(&quot;rootfs&quot;) - size: 00660000
+Adding block: /dev/mtd4(&quot;cfg&quot;) - size: 00040000
+Adding block: /dev/mtd5(&quot;EEPROM&quot;) - size: 00010000
+Total flash size: 00800000
+Flash start: 9F000000
+Flash end: 9F800000
+Header MAGIC &#039;OPEN&#039;
+Current: XW.ar934x.v5.5.6.18861.130830.1623
+
+New ver: XW.ar934x.v6.0.0-OpenWrt-r42092
+Versions: New(393216) 6.0.0, Required(328966) 5.5.6
+FW Part: &quot;kernel&quot;(1), MAGIC: &#039;PART&#039;, Base: 0x9F050000, DLen: 0x00100000, PLen: 0x00100000
+FW Part: &quot;rootfs&quot;(2), MAGIC: &#039;PART&#039;, Base: 0x9F150000, DLen: 0x001E0004, PLen: 0x005A0000
+Adding adjusted FW partition:
+name:	&#039;kernel&#039;
+flash_base:	0x9F050000
+mem_base:	0x80002000
+size:		0x00100000
+entry_point:	0x80002000
+data_len:	0x00100000
+desc_cksum:	0x00000000
+file_cksum:	0x00000000
+===========================
+Adding adjusted FW partition:
+name:	&#039;rootfs&#039;
+flash_base:	0x9F150000
+mem_base:	0xBDBDBDBD
+size:		0x005A0000
+entry_point:	0xBDBDBDBD
+data_len:	0x001E0004
+desc_cksum:	0x00000000
+file_cksum:	0x00000000
+===========================
+Signature MAGIC &#039;END.&#039;
+Working(1) with block: /dev/mtd0
+Skipping: artificial: 0, unallocated: 0,writeable: 1024(WRITEABLE: 400, flags: C00), fw.flash_base: 9F050000 &lt; blk-&gt;base: 9F000000 + blk-&gt;size: 40000
+Copying FIS partition: 0 =&gt;
+name:	&#039;u-boot&#039;
+flash_base:	0x9F000000
+mem_base:	0xBDBDBDBD
+size:		0x00040000
+entry_point:	0xBDBDBDBD
+data_len:	0x00040000
+desc_cksum:	0xBDBDBDBD
+file_cksum:	0xBDBDBDBD
+===========================
+Working(1) with block: /dev/mtd1
+Skipping: artificial: 0, unallocated: 0,writeable: 1024(WRITEABLE: 400, flags: C00), fw.flash_base: 9F050000 &lt; blk-&gt;base: 9F040000 + blk-&gt;size: 10000
+Copying FIS partition: 1 =&gt;
+name:	&#039;u-boot-env&#039;
+flash_base:	0x9F040000
+mem_base:	0xBDBDBDBD
+size:		0x00010000
+entry_point:	0xBDBDBDBD
+data_len:	0x00010000
+desc_cksum:	0xBDBDBDBD
+file_cksum:	0xBDBDBDBD
+===========================
+Working(1) with block: /dev/mtd2
+Working(2) with block: /dev/mtd2
+End check: 9F050000 + 00100000 &lt;= 9F150000
+Creating FIS partition: 2 =&gt;
+name:	&#039;kernel&#039;
+flash_base:	0x9F050000
+mem_base:	0x80002000
+size:		0x00100000
+entry_point:	0x80002000
+data_len:	0x00100000
+desc_cksum:	0x00000000
+file_cksum:	0x00000000
+===========================
+Working(1) with block: /dev/mtd2
+Skipping: artificial: 0, unallocated: 0,writeable: 1024(WRITEABLE: 400, flags: C00), fw.flash_base: 9F150000 &lt; blk-&gt;base: 9F050000 + blk-&gt;size: 100000
+Working(1) with block: /dev/mtd3
+Working(2) with block: /dev/mtd3
+End check: 9F150000 + 005A0000 &lt;= 9F7B0000
+Creating FIS partition: 3 =&gt;
+name:	&#039;rootfs&#039;
+flash_base:	0x9F150000
+mem_base:	0xBDBDBDBD
+size:		0x005A0000
+entry_point:	0xBDBDBDBD
+data_len:	0x001E0004
+desc_cksum:	0x00000000
+file_cksum:	0x00000000
+===========================
+Working(3) with block: /dev/mtd4
+Copying FIS partition: 4 &lt;=
+name:	&#039;cfg&#039;
+flash_base:	0x9F7B0000
+mem_base:	0xBDBDBDBD
+size:		0x00040000
+entry_point:	0xBDBDBDBD
+data_len:	0x00040000
+desc_cksum:	0xBDBDBDBD
+file_cksum:	0xBDBDBDBD
+===========================
+Working(3) with block: /dev/mtd5
+Copying FIS partition: 5 &lt;=
+name:	&#039;EEPROM&#039;
+flash_base:	0x9F7F0000
+mem_base:	0xBDBDBDBD
+size:		0x00010000
+entry_point:	0xBDBDBDBD
+data_len:	0x00010000
+desc_cksum:	0xBDBDBDBD
+file_cksum:	0xBDBDBDBD
+===========================
+New FIS entries count 6
+Executing: &#039;/bin/updatefix.sh 328966 393216&#039;
+&#039;/bin/updatefix.sh 328966 393216&#039; result: 0
+Working(1) with block: /dev/mtd0
+Skipping: artificial: 0, unallocated: 0,writeable: 1024(WRITEABLE: 400, flags: C00), fw.flash_base: 9F050000 &lt; blk-&gt;base: 9F000000 + blk-&gt;size: 40000
+Copying FIS partition: 0 =&gt;
+name:	&#039;u-boot&#039;
+flash_base:	0x9F000000
+mem_base:	0xBDBDBDBD
+size:		0x00040000
+entry_point:	0xBDBDBDBD
+data_len:	0x00040000
+desc_cksum:	0xBDBDBDBD
+file_cksum:	0xBDBDBDBD
+===========================
+Working(1) with block: /dev/mtd1
+Skipping: artificial: 0, unallocated: 0,writeable: 1024(WRITEABLE: 400, flags: C00), fw.flash_base: 9F050000 &lt; blk-&gt;base: 9F040000 + blk-&gt;size: 10000
+Copying FIS partition: 1 =&gt;
+name:	&#039;u-boot-env&#039;
+flash_base:	0x9F040000
+mem_base:	0xBDBDBDBD
+size:		0x00010000
+entry_point:	0xBDBDBDBD
+data_len:	0x00010000
+desc_cksum:	0xBDBDBDBD
+file_cksum:	0xBDBDBDBD
+===========================
+Working(1) with block: /dev/mtd2
+Working(2) with block: /dev/mtd2
+Unlocking /dev/mtd2(kernel) ...
+Unlocking device failed: ioctl(MEMUNLOCK): Operation not supported
+Writing &#039;kernel         &#039; to /dev/mtd2(kernel         ) ...  
+Writing: 0x00100000 bytes with offset 0x00000000
+[%0  ]
+Block on &#039;/dev/mtd2&#039; at 00000000(len: 00010000) has changes.
+[%6  ]
+Block on &#039;/dev/mtd2&#039; at 00010000(len: 00010000) has changes.
+[%12 ]
+Block on &#039;/dev/mtd2&#039; at 00020000(len: 00010000) has changes.
+[%18 ]
+Block on &#039;/dev/mtd2&#039; at 00030000(len: 00010000) has changes.
+[%25 ]
+Block on &#039;/dev/mtd2&#039; at 00040000(len: 00010000) has changes.
+[%31 ]
+Block on &#039;/dev/mtd2&#039; at 00050000(len: 00010000) has changes.
+[%37 ]
+Block on &#039;/dev/mtd2&#039; at 00060000(len: 00010000) has changes.
+[%43 ]
+Block on &#039;/dev/mtd2&#039; at 00070000(len: 00010000) has changes.
+[%50 ]
+Block on &#039;/dev/mtd2&#039; at 00080000(len: 00010000) has changes.
+[%56 ]
+Block on &#039;/dev/mtd2&#039; at 00090000(len: 00010000) has changes.
+[%62 ]
+Block on &#039;/dev/mtd2&#039; at 000A0000(len: 00010000) has changes.
+[%68 ]
+Block on &#039;/dev/mtd2&#039; at 000B0000(len: 00010000) has changes.
+[%75 ]
+Block on &#039;/dev/mtd2&#039; at 000C0000(len: 00010000) has changes.
+[%81 ]
+Block on &#039;/dev/mtd2&#039; at 000D0000(len: 00010000) has changes.
+[%87 ]
+Block on &#039;/dev/mtd2&#039; at 000E0000(len: 00010000) has changes.
+[%93 ]
+Block on &#039;/dev/mtd2&#039; at 000F0000(len: 00010000) has changes.
+[%100]
+
+End check: 9F050000 + 00100000 &lt;= 9F150000
+Creating FIS partition: 2 =&gt;
+name:	&#039;kernel&#039;
+flash_base:	0x9F050000
+mem_base:	0x80002000
+size:		0x00100000
+entry_point:	0x80002000
+data_len:	0x00100000
+desc_cksum:	0x00000000
+file_cksum:	0x00000000
+===========================
+Working(1) with block: /dev/mtd2
+Skipping: artificial: 0, unallocated: 0,writeable: 1024(WRITEABLE: 400, flags: C00), fw.flash_base: 9F150000 &lt; blk-&gt;base: 9F050000 + blk-&gt;size: 100000
+Working(1) with block: /dev/mtd3
+Working(2) with block: /dev/mtd3
+Unlocking /dev/mtd3(rootfs) ...
+Unlocking device failed: ioctl(MEMUNLOCK): Operation not supported
+Writing &#039;rootfs         &#039; to /dev/mtd3(rootfs         ) ...  
+Writing: 0x001E0004 bytes with offset 0x00000000
+[%0  ]
+Block on &#039;/dev/mtd3&#039; at 00000000(len: 00010000) has changes.
+[%3  ]
+Block on &#039;/dev/mtd3&#039; at 00010000(len: 00010000) has changes.
+[%6  ]
+Block on &#039;/dev/mtd3&#039; at 00020000(len: 00010000) has changes.
+[%9  ]
+Block on &#039;/dev/mtd3&#039; at 00030000(len: 00010000) has changes.
+[%13 ]
+Block on &#039;/dev/mtd3&#039; at 00040000(len: 00010000) has changes.
+[%16 ]
+Block on &#039;/dev/mtd3&#039; at 00050000(len: 00010000) has changes.
+[%19 ]
+Block on &#039;/dev/mtd3&#039; at 00060000(len: 00010000) has changes.
+[%23 ]
+Block on &#039;/dev/mtd3&#039; at 00070000(len: 00010000) has changes.
+[%26 ]
+Block on &#039;/dev/mtd3&#039; at 00080000(len: 00010000) has changes.
+[%29 ]
+Block on &#039;/dev/mtd3&#039; at 00090000(len: 00010000) has changes.
+[%33 ]
+Block on &#039;/dev/mtd3&#039; at 000A0000(len: 00010000) has changes.
+[%36 ]
+Block on &#039;/dev/mtd3&#039; at 000B0000(len: 00010000) has changes.
+[%39 ]
+Block on &#039;/dev/mtd3&#039; at 000C0000(len: 00010000) has changes.
+[%43 ]
+Block on &#039;/dev/mtd3&#039; at 000D0000(len: 00010000) has changes.
+[%46 ]
+Block on &#039;/dev/mtd3&#039; at 000E0000(len: 00010000) has changes.
+[%49 ]
+Block on &#039;/dev/mtd3&#039; at 000F0000(len: 00010000) has changes.
+[%53 ]
+Block on &#039;/dev/mtd3&#039; at 00100000(len: 00010000) has changes.
+[%56 ]
+Block on &#039;/dev/mtd3&#039; at 00110000(len: 00010000) has changes.
+[%59 ]
+Block on &#039;/dev/mtd3&#039; at 00120000(len: 00010000) has changes.
+[%63 ]
+Block on &#039;/dev/mtd3&#039; at 00130000(len: 00010000) has changes.
+[%66 ]
+Block on &#039;/dev/mtd3&#039; at 00140000(len: 00010000) has changes.
+[%69 ]
+Block on &#039;/dev/mtd3&#039; at 00150000(len: 00010000) has changes.
+[%73 ]
+Block on &#039;/dev/mtd3&#039; at 00160000(len: 00010000) has changes.
+[%76 ]
+Block on &#039;/dev/mtd3&#039; at 00170000(len: 00010000) has changes.
+[%79 ]
+Block on &#039;/dev/mtd3&#039; at 00180000(len: 00010000) has changes.
+[%83 ]
+Block on &#039;/dev/mtd3&#039; at 00190000(len: 00010000) has changes.
+[%86 ]
+Block on &#039;/dev/mtd3&#039; at 001A0000(len: 00010000) has changes.
+[%89 ]
+Block on &#039;/dev/mtd3&#039; at 001B0000(len: 00010000) has changes.
+[%93 ]
+Block on &#039;/dev/mtd3&#039; at 001C0000(len: 00010000) has changes.
+[%96 ]
+Block on &#039;/dev/mtd3&#039; at 001D0000(len: 00010000) has changes.
+[%99 ]
+Block on &#039;/dev/mtd3&#039; at 001E0000(len: 00000004) has changes.
+[%100]
+
+End check: 9F150000 + 005A0000 &lt;= 9F7B0000
+Creating FIS partition: 3 =&gt;
+name:	&#039;rootfs&#039;
+flash_base:	0x9F150000
+mem_base:	0xBDBDBDBD
+size:		0x005A0000
+entry_point:	0xBDBDBDBD
+data_len:	0x001E0004
+desc_cksum:	0x00000000
+file_cksum:	0x00000000
+===========================
+Working(3) with block: /dev/mtd4
+Copying FIS partition: 4 &lt;=
+name:	&#039;cfg&#039;
+flash_base:	0x9F7B0000
+mem_base:	0xBDBDBDBD
+size:		0x00040000
+entry_point:	0xBDBDBDBD
+data_len:	0x00040000
+desc_cksum:	0xBDBDBDBD
+file_cksum:	0xBDBDBDBD
+===========================
+Working(3) with block: /dev/mtd5
+Copying FIS partition: 5 &lt;=
+name:	&#039;EEPROM&#039;
+flash_base:	0x9F7F0000
+mem_base:	0xBDBDBDBD
+size:		0x00010000
+entry_point:	0xBDBDBDBD
+data_len:	0x00010000
+desc_cksum:	0xBDBDBDBD
+file_cksum:	0xBDBDBDBD
+===========================
+New FIS entries count 6
+FIS Change: change in partition entry &#039;kernel&#039;.
+FIS Change: change in partition entry &#039;rootfs&#039;.
+FIS Change: added partition terminator instead of 0xBD.
+New partition count: 6, changes: 3
+Writing U-Boot &#039;mtdparts=ath-nor0:256k(u-boot),64k(u-boot-env),1024k(kernel),5760k(rootfs),256k(cfg),64k(EEPROM)&#039;
+Writing U-Boot environment to /dev/mtd1</pre>
+
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>toh/ubiquiti/nanobeam.txt</bdi> · Last modified: 2015/04/19 00:45 by <bdi>mjc</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="http://wiki.openwrt.org/toh/ubiquiti/nanobeam?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="http://wiki.openwrt.org/toh/ubiquiti/nanobeam?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="http://wiki.openwrt.org/toh/ubiquiti/nanobeam?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="nanobeam#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="http://wiki.openwrt.org/lib/exe/indexer.php?id=toh%3Aubiquiti%3Ananobeam&amp;1432283411" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

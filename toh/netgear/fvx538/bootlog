@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Netgear firmware boot log [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="toh,netgear,fvx538,bootlog"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../../index.html"/>
+<link rel="contents" href="bootlog?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../../feed.php?mode=list&amp;ns=toh:netgear:fvx538"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../../_export/xhtml/toh/netgear/fvx538/bootlog"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../../_export/raw/toh/netgear/fvx538/bootlog"/>
+<link rel="canonical" href="bootlog"/>
+<link rel="stylesheet" type="text/css" href="../../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='toh:netgear:fvx538';var JSINFO = {"id":"toh:netgear:fvx538:bootlog","namespace":"toh:netgear:fvx538"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432272540 166.182.3.240';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="bootlog#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../../start"  accesskey="h" title="[H]"><img src="../../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="bootlog?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="bootlog?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="toh:netgear:fvx538:bootlog" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="bootlog?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="bootlog?do=media&amp;ns=toh%253Anetgear%253Afvx538"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="bootlog?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../../start" class="wikilink1" title="toh:start">Table of Hardware</a></bdi> » <bdi><a href="../start" class="wikilink1" title="toh:netgear:start">Netgear</a></bdi> » <bdi><a href="../fvx538" class="wikilink1" title="toh:netgear:fvx538">Netgear FVX538</a></bdi> » <bdi><span class="curid"><a href="bootlog" class="wikilink1" title="toh:netgear:fvx538:bootlog">Netgear firmware boot log</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/toh/netgear/fvx538/bootlog" class="media" title="cz:toh:netgear:fvx538:bootlog"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/toh/netgear/fvx538/bootlog" class="media" title="de:toh:netgear:fvx538:bootlog"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="bootlog" class="media" title="toh:netgear:fvx538:bootlog"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/toh/netgear/fvx538/bootlog" class="media" title="es:toh:netgear:fvx538:bootlog"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/toh/netgear/fvx538/bootlog" class="media" title="fr:toh:netgear:fvx538:bootlog"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/toh/netgear/fvx538/bootlog" class="media" title="hu:toh:netgear:fvx538:bootlog"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/toh/netgear/fvx538/bootlog" class="media" title="jp:toh:netgear:fvx538:bootlog"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/toh/netgear/fvx538/bootlog" class="media" title="pl:toh:netgear:fvx538:bootlog"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/toh/netgear/fvx538/bootlog" class="media" title="pt-br:toh:netgear:fvx538:bootlog"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/toh/netgear/fvx538/bootlog" class="media" title="ru:toh:netgear:fvx538:bootlog"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/toh/netgear/fvx538/bootlog" class="media" title="tr:toh:netgear:fvx538:bootlog"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/toh/netgear/fvx538/bootlog" class="media" title="zh-cn:toh:netgear:fvx538:bootlog"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/toh/netgear/fvx538/bootlog" class="media" title="zh-tw:toh:netgear:fvx538:bootlog"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>toh:netgear:fvx538:bootlog</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    
+<h1 class="sectionedit1" id="netgear_firmware_boot_log">Netgear firmware boot log</h1>
+<div class="level1">
+
+<p>
+<pre class="code">Initiating BCM5380 ... ok
++starting api entry
+Ethernet eth0: MAC address 00:14:6c:cb:xx:xx
+IP: 192.168.16.244/255.255.255.0, Gateway: 0.0.0.0
+Default server: 192.168.16.1, DNS server IP: 0.0.0.0
+RedBoot(tm) bootstrap and debug environment [ROM]
+Red Hat certified release, version 1.92p1 - built 19:39:46, Dec 11 2004
+Platform: NetGear FVX538 (XScale)
+Copyright (C) 2000, 2001, 2002, Red Hat, Inc.
+RAM: 0x00000000-0x02000000, 0x0001e758-0x01fdd000 available
+FLASH: 0x50000000 - 0x51000000, 128 blocks of 0x00020000 bytes each.
+RedBoot&gt; boot
+Partition    Priority Firm/Cfg-Ver   BuildTime                FileName
+appimg1(V)          3 2.0.1-5/1.0   Tue Nov 21 14:24:47 2006 fvx538_v2.0.1-5.img
+appimg2(V)          4 2.0.1-5/1.0   Tue Nov 21 14:24:47 2006 fvx538_v2.0.1-5.img
+Booting application image from partition appimg2 ...
+Downloading Image to RAM location 0x1600000 ...
+Transfering control to downloading Image at address 0x160024c ...
+powering down the PHYs
+Uncompressing Linux............................................................................................................. done, booting the kernel.
+Linux version 2.6.10_mvl401 (build@TeamF1 Copyright (c) 2006, TeamF1, Inc.) (gcc version 3.4.3 (MontaVista 3.4.3-25.0.30.0501131 2005-07-23)) #164 Tue Nov 21 14:24:29 IST 2006
+CPU: XScale-IXP42x Family [690541c1] revision 1 (ARMv5TE)
+CPU0: D VIVT undefined 5 cache
+CPU0: I cache: 32768 bytes, associativity 32, 32 byte lines, 32 sets
+CPU0: D cache: 32768 bytes, associativity 32, 32 byte lines, 32 sets
+Machine: Netgear FVX538
+Memory policy: ECC disabled, Data cache writeback
+Built 1 zonelists
+Kernel command line: console=ttyS0,115200
+PID hash table entries: 256 (order: 8, 4096 bytes)
+Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
+Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
+Memory: 32MB = 32MB total
+Memory: 28672KB available (1612K code, 454K data, 1668K init)
+Mount-cache hash table entries: 512 (order: 0, 4096 bytes)
+CPU: Testing write buffer coherency: ok
+spawn_desched_task(00000000)
+desched cpu_callback 3/00000000
+ksoftirqd started up.
+desched cpu_callback 2/00000000
+desched thread 0 started up.
+NET: Registered protocol family 16
+PCI: IXP4xx is host
+PCI: IXP4xx Using direct access for memory space
+PCI: bus0: Fast back to back transfers enabled
+dmabounce: registered device 0000:00:01.0 on pci bus
+dmabounce: registered device 0000:00:0f.0 on pci bus
+Serial: 8250/16550 driver $Revision: 1.90 $ 2 ports, IRQ sharing disabled
+ttyS0 at MMIO 0xc8001000 (irq = 13) is a XScale
+io scheduler noop registered
+io scheduler anticipatory registered
+io scheduler deadline registered
+io scheduler cfq registered
+RAMDISK driver initialized: 16 RAM disks of 8192K size 1024 blocksize
+loop: loaded (max 8 devices)
+PPP generic driver version 2.4.2
+PPP BSD Compression module registered
+NET: Registered protocol family 24
+r8169 Gigabit Ethernet driver 1.2 loaded
+eth0: RTL8169 at 0xc280e000, 00:14:6c:cb:xx:xx, IRQ 7
+elevator: using anticipatory as default io scheduler
+IXP4XX-Flash0: Found 1 x16 devices at 0x0 in 16-bit bank
+ Intel/Sharp Extended Query Table at 0x0031
+Using buffer write method
+cfi_cmdset_0001: Erase suspend on write enabled
+Searching for RedBoot partition table in IXP4XX-Flash0 at offset 0xfe0000
+6 RedBoot partitions found on MTD device IXP4XX-Flash0
+Creating 6 MTD partitions on &quot;IXP4XX-Flash0&quot;:
+0x00000000-0x00040000 : &quot;RedBoot&quot;
+0x00040000-0x007c0000 : &quot;appimg1&quot;
+0x007c0000-0x00f40000 : &quot;appimg2&quot;
+0x00f40000-0x00fc0000 : &quot;igwpri&quot;
+0x00fc0000-0x00fc1000 : &quot;RedBoot config&quot;
+0x00fe0000-0x01000000 : &quot;FIS directory&quot;
+NET: Registered protocol family 2
+IP: routing cache hash table of 512 buckets, 4Kbytes
+TCP: Hash tables configured (established 2048 bind 4096)
+ip_conntrack version 2.1 (256 buckets, 2048 max) - 360 bytes per conntrack
+ip_conntrack_rtsp v0.01 loading
+ip_nat_rtsp v0.01 loading
+ip_tables: (C) 2000-2002 Netfilter core team
+netfilter PSD loaded - (c) astaro AG
+ipt_account 0.1.7 : Piotr Gasid³o , http://www.barbara.eu.org/~quaker/ipt_account/
+ipt_time loading
+NET: Registered protocol family 1
+NET: Registered protocol family 17
+802.1Q VLAN Support v1.8 Ben Greear 
+All bugs added by David S. Miller 
+Freeing init memory: 1668K
+Booting XScale UserSpace
+Linux (none) 2.6.10_mvl401 #164 Tue Nov 21 14:24:29 IST 2006 armv5teb unknown
+Starting system...
+Mounting /proc: done.
+Mounting &#039;/&#039; read-write: done.
+Brining up loopback interface: done.
+Mounting /tmp: mount: Mounting /tmpfs on /tmp failed: Invalid argument
+done.
+Starting portmap: done.
+Setting Hostname: done.
+Running ixpInit
+ixp400_eth: Initializing IXP400 NPE Ethernet driver software v. 1.5.1
+ixp400_eth: CPU clock speed (approx) = 532 MHz
+ixp400_eth: ixp0 is using NPEB and the PHY at address 4
+ixp400_eth: ixp1 is using NPEC and the PHY at address 12
+ixp400_eth: Use default MAC address 00:02:b3:01:xx:xx for port 0
+ixp400_eth: Use default MAC address 00:02:b3:02:xx:xx for port 1
+done.
+Running usrInit
+Enabling Quite Boot...Done
+Initializing interfaces...Done
+Loading Modules...Done
+Creating devices...Done
+Enabling Cavium...Done
+Enabling Forwarding...Done
+Setting hostname as FVX538...Done
+Initializing System Files...Done
+Starting DNS Proxy...Done
+Starting Cron...Done
+Starting Inetd...Done
+Starting HTTP Daemon...Done
+Starting WAN daemon...Done
+Starting Lan Scanner...Done
+Starting Factory Reset Daemon...Done
+Starting IKE Daemon...Done
+Resetting Configuration...Done
+Loading Configuration...Done
+Copyright (c) 2006, TeamF1, Inc.
+done.
+System started.
+FVX538 login: exovii
+Password:
+********************************************************************************
+               Welcome To The Netgear FVX538 Command Line Interface
+********************************************************************************
+FVX538$</pre>
+
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>toh/netgear/fvx538/bootlog.txt</bdi> · Last modified: 2010/10/04 22:12 by <bdi>jow</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="bootlog?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="bootlog?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="bootlog?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="bootlog#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../../lib/exe/indexer.php?id=toh%253Anetgear%253Afvx538%253Abootlog&amp;1432272540" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>
