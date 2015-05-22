@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Shorewall on OpenWRT  20130530 [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="wip"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="shorewall-on-openwrt?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:recipes"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/recipes/shorewall-on-openwrt"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/recipes/shorewall-on-openwrt"/>
+<link rel="canonical" href="shorewall-on-openwrt"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:recipes';var JSINFO = {"id":"doc:recipes:shorewall-on-openwrt","namespace":"doc:recipes"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432269799 166.182.3.55';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="shorewall-on-openwrt#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="shorewall-on-openwrt?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="shorewall-on-openwrt?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:recipes:shorewall-on-openwrt" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="shorewall-on-openwrt?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="shorewall-on-openwrt?do=media&amp;ns=doc%253Arecipes"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="shorewall-on-openwrt?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:recipes:start">Recipes</a></bdi> » <bdi><span class="curid"><a href="shorewall-on-openwrt" class="wikilink1" title="doc:recipes:shorewall-on-openwrt">Shorewall on OpenWRT  20130530</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/recipes/shorewall-on-openwrt" class="media" title="cz:doc:recipes:shorewall-on-openwrt"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/recipes/shorewall-on-openwrt" class="media" title="de:doc:recipes:shorewall-on-openwrt"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="shorewall-on-openwrt" class="media" title="doc:recipes:shorewall-on-openwrt"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/recipes/shorewall-on-openwrt" class="media" title="es:doc:recipes:shorewall-on-openwrt"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/recipes/shorewall-on-openwrt" class="media" title="fr:doc:recipes:shorewall-on-openwrt"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/recipes/shorewall-on-openwrt" class="media" title="hu:doc:recipes:shorewall-on-openwrt"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/recipes/shorewall-on-openwrt" class="media" title="jp:doc:recipes:shorewall-on-openwrt"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/recipes/shorewall-on-openwrt" class="media" title="pl:doc:recipes:shorewall-on-openwrt"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/recipes/shorewall-on-openwrt" class="media" title="pt-br:doc:recipes:shorewall-on-openwrt"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/recipes/shorewall-on-openwrt" class="media" title="ru:doc:recipes:shorewall-on-openwrt"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/recipes/shorewall-on-openwrt" class="media" title="tr:doc:recipes:shorewall-on-openwrt"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/recipes/shorewall-on-openwrt" class="media" title="zh-cn:doc:recipes:shorewall-on-openwrt"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/recipes/shorewall-on-openwrt" class="media" title="zh-tw:doc:recipes:shorewall-on-openwrt"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:recipes:shorewall-on-openwrt</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level3"><div class="li"><a href="shorewall-on-openwrt#about_openwrt_uci_firewall">About OpenWRT UCI Firewall:</a></div></li>
+<li class="level3"><div class="li"><a href="shorewall-on-openwrt#about_shorewall">About Shorewall:</a></div></li>
+<li class="level3"><div class="li"><a href="shorewall-on-openwrt#example_installation">Example Installation</a></div></li>
+<li class="level3"><div class="li"><a href="shorewall-on-openwrt#the_nanny_setup">The Nanny Setup:</a></div></li>
+<li class="level3"><div class="li"><a href="shorewall-on-openwrt#the_openwrt_host_setup">The OpenWRT Host Setup</a></div></li>
+<li class="level2"><div class="li"><a href="shorewall-on-openwrt#complete_example_with_qos">Complete example with QoS</a></div></li>
+<li class="level3"><div class="li"><a href="shorewall-on-openwrt#introduction">Introduction</a></div></li>
+<li class="level3"><div class="li"><a href="shorewall-on-openwrt#shorewall_setup_on_the_host">Shorewall setup on the host</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="shorewall_on_openwrt_20130530">Shorewall on OpenWRT  20130530</h1>
+<div class="level1">
+
+<p>
+Both, Shorewall and the <a href="../uci/firewall" class="wikilink1" title="doc:uci:firewall">OpenWrt UCI firewall</a>, are wrappers for <a href="../howto/netfilter" class="wikilink1" title="doc:howto:netfilter">netfilter</a>.
+</p>
+
+</div>
+
+<h4 id="about_openwrt_uci_firewall">About OpenWRT UCI Firewall:</h4>
+<div class="level4">
+
+<p>
+For most users, the current default OpenWrt UCI firewall manager will be their best choice.  For those managing different generations of OpenWRT routers, or those who want to use the same firewall manager on all their Linux based devices, Shorewall may be a better answer.  
+</p>
+
+</div>
+
+<h4 id="about_shorewall">About Shorewall:</h4>
+<div class="level4">
+
+<p>
+The Shoreline firewall is a well designed firewall manager for Linux netfilters (<a href="http://www.shorewall.net/shorewall_index.htm#WhatIs" class="urlextern" title="http://www.shorewall.net/shorewall_index.htm#WhatIs"  rel="nofollow">http://www.shorewall.net/shorewall_index.htm#WhatIs</a>).  A runtime package, Shorewall-Lite, can be hosted on one device, e.g: an OpenWRT router, but built on another (the &quot;nanny&quot;).  Shorewall-Lite is otherwise nearly identical to the full Shorewall package.  Shorewall is one of the oldest ongoing Linux netfilter firewall managers around, offering a stable user interface to zone based firewalling across platforms for more than a decade.  
+</p>
+
+<p>
+Shorewall meshes well with OpenWRT.  The other components of UCI/Luci, and tools like the firewall/IP chain report perform as intended.  Shorewall or Shorewall-Lite has been available on most OpenWRT releases (WR,BF,AA, etc). This example will use the Shorewall-Lite package.  
+</p>
+
+<p>
+By design, Shorewall offers the user a script based fine grained startup, runtime, and shutdown sequence.  This file based sequence works around the different generations and implementations of run levels and network initializations found in the real world of Linux versions and distributions. Once you have developed a set of networks, routes, zones, rules and policies, you can readily duplicate those  across all your Shorewall installations on those networks.  Shorewall is a single setup and firewall solution that makes extending, altering and managing a heterogeneous system of networks easier.  See the bottom of this document for URLs to Shorewall.
+</p>
+
+<p>
+<em class="u">If you do not need Shorewall, stick with the OpenWRT UCI firewall.  You will likely not get Shorewall support from OpenWRT staff.</em>
+</p>
+
+</div>
+
+<h4 id="example_installation">Example Installation</h4>
+<div class="level4">
+
+<p>
+Firewall zones isolate networks, sub-networks, and individual machines from other networks and nodes.  Port traffic is firewalled (blocked) across zones, subject to the policies and rules you define to manage cross zone traffic.  For many situations, limiting network access to resources is handy, if not necessary.  Constraining infection vectors to their zones advances basic digital hygiene.
+</p>
+
+<p>
+The firewall in this example is Procrustean, set to cut off all traffic as a policy.  You must set rules to ACCEPT port traffic.  Only the ports, networks, and if you like, machine MAC addresses explicitly allowed in the Shorewall rules configuration file will pass traffic between zones.  Most firewall policies are more relaxed than this, but such policies make for a good exercise, and with management, good firewalls. Manifestly, you can relax Shorewall policy and rules to allow packets and choose to log, inspect then build DENY rules, for a lighter touch.  The firewall in this example has one inbound (net) port open and forwarded to a single workstation in Lan1, all other inbound net connections are dropped.  Outbound connections from the Lan zones that meet the rules are connected to the net.  In this example the Lan zones are firewalled from one another.  You can find additional instruction for a similar example in the Shorewall documentation: <a href="http://www.shorewall.net/three-interface.htm" class="urlextern" title="http://www.shorewall.net/three-interface.htm"  rel="nofollow">http://www.shorewall.net/three-interface.htm</a>
+</p>
+
+<p>
+The use of the labels &quot;Lan1&quot; and &quot;Lan2&quot; in this example is inductive, and one can add more zones, e.g.: &quot;Lan3&quot;..&quot;LanN&quot;, using the first pair as models by editing the Shorewall configuration. The &quot;Lan&quot; label used in the OpenWRT configuration files (below), and it it&#039;s permutations (&quot;<abbr title="Local Area Network">LAN</abbr>&quot;,&quot;<abbr title="Local Area Network">LAN</abbr>_&quot;, etc), is arbitrary, and you may use your own naming system for zones, networks, and SSIDs, using the example files found here as a model. 
+</p>
+
+<p>
+In this example scenario, two distinct groups of users need to share one OpenWRT router.  One group is working with secure financial data and public monies in a managed work environment with a fixed group of antiviral scanned PCs and known applications, the second group is an undisciplined revolving public meeting group with all manners and generations of wireless devices with unknown applications, any of which may be a malware vector. This second group also requires certain streaming media access that is not allowed to the first group. Both groups will share a router, firewall, and internet gateway.  Each group has a zone to itself, with differing rules based on those zones.
+</p>
+
+<p>
+In this example the host router must be Multi-SSID capable. As a demonstration, an ar71xx chip set router is setup as a single 802.11G radio and two VAP WPA2-PSK radio interfaces, two Ethernet interfaces, and a bridge from one of the radio interfaces to one of the Ethernet (LAN1+Eth0), called &quot;br-LAN1&quot;.  The SSIDs are &#039;LAN1&#039; and &#039;LAN2&#039;.  VLAN zones could be substituted for the VAP&#039;s, but that won&#039;t be described here.
+</p>
+
+<p>
+LAN1 is this example is the 192.168.1.0/24 net. LAN1, as a member of the firewall zone &#039;Lan1&#039;, allows no dhcp, nor any packets from LAN2 (Shorewall zone Lan2).  This example firewall will DNAT forward a single zone, &quot;net&quot;, (inbound from the internet) ssh port to Lan1, and has some zone specific firewall rules and policies.  
+</p>
+
+<p>
+LAN2 is the 192.168.2.0/24 net. LAN2 has a dhcp server, and no firewall prohibitions on the requisite ports (53, 67, 68). LAN2 is the &#039;Lan2&#039; zone in Shorewall, and has it&#039;s own specific firewall rules and policies.  
+</p>
+
+<p>
+Two more Shorewall zones are defined in this example, the firewall itself ($FW), and the internet (net).  Generally, connections can initiate from any zone, but most often, they originate from within the Lan zones (outbound packets), or from the net zone as inbound internet packets. Policies and rules control the permission for traffic to cross the firewall zones.  
+</p>
+
+</div>
+
+<h5 id="software_versions_in_this_example">Software Versions in this example</h5>
+<div class="level5">
+<ul>
+<li class="level1"><div class="li"> OpenWRT ATTITUDE ADJUSTMENT (12.09, r36088), using &quot;<a href="http://downloads.openwrt.org/attitude_adjustment/12.09/ar71xx/generic/" class="urlextern" title="http://downloads.openwrt.org/attitude_adjustment/12.09/ar71xx/generic/"  rel="nofollow">http://downloads.openwrt.org/attitude_adjustment/12.09/ar71xx/generic/</a>&quot;, </div>
+</li>
+<li class="level1"><div class="li"> Shorewall-lite version 4.4.27.3, Shorewall version: 4.4.11.6-3</div>
+</li>
+</ul>
+
+<p>
+  Your versions will likely differ from the examples above, adjust as necessary to conform to your router and current software releases as you work through the below.                                                                                                                   
+</p>
+
+<p>
+To use Shorewall with recent (20130530+) OpenWRT releases (AA, snapshot, etc), one must disable the default OpenWRT UCI firewall, and substitute the Shorewall-Lite package.  Shorewall-Lite needs a nanny machine  to compile and load the firewall to the OpenWRT (Shorewall-Lite host) router.  The nanny will manage all the configuration files and needs a net connection to load the compiled firewall to the OpenWRT host device. 
+</p>
+
+</div>
+
+<h4 id="the_nanny_setup">The Nanny Setup:</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> In this example the nanny has the IP 192.168.1.30, but you can assign other values in the Lan1 zone.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Download and install Shorewall (not Shorewall-Lite) on the nanny. The nanny&#039;s Shorewall and host&#039;s Shorewall-Lite versions should be the same major.minor release.  Check the OpenWRT package dir, e.g.:</div>
+</li>
+</ul>
+
+<p>
+      &quot;<a href="http://downloads.openwrt.org/attitude_adjustment/12.09/ar71xx/generic/package/" class="urlextern" title="http://downloads.openwrt.org/attitude_adjustment/12.09/ar71xx/generic/package/"  rel="nofollow">http://downloads.openwrt.org/attitude_adjustment/12.09/ar71xx/generic/package/</a>&quot; 
+for the available Shorewall-Lite major.minor release for your router&#039;s chip set.  
+</p>
+
+<p>
+Note the &quot;ar71xx&quot; in the above <abbr title="Uniform Resource Locator">URL</abbr>:  substitute your router&#039;s chip set acronym into the <abbr title="Uniform Resource Locator">URL</abbr>, e.g.: ar7, brcm47xx, ramips etcetera, to  find the correct package for your router and OpenWRT release.  Conform the nanny&#039;s Shorewall release to that version.  
+</p>
+
+<p>
+For general instructions see <a href="http://www.shorewall.net/CompiledPrograms.html" class="urlextern" title="http://www.shorewall.net/CompiledPrograms.html"  rel="nofollow">http://www.shorewall.net/CompiledPrograms.html</a>.
+</p>
+<ul>
+<li class="level1"><div class="li"> Shorewall offers this regarding the nanny:  Note to Debian Users-</div>
+</li>
+</ul>
+
+<p>
+If you install using the .deb, you will find that your /etc/Shorewall directory is empty. This is intentional. The released configuration file skeletons may be found on your system in the directory /usr/share/doc/Shorewall/default-config. Simply copy the files you need from that directory to /etc/Shorewall and modify the copies. 
+</p>
+<ul>
+<li class="level1"><div class="li"> If your /etc/Shorewall directory is empty after a vanilla Shorewall install, sort that out before proceeding.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Assert the following in the nanny&#039;s /etc/Shorewall.conf </div>
+</li>
+</ul>
+
+<p>
+<pre>
+
+      CONFIG_PATH=/usr/share/Shorewall
+      STARTUP_LOG=/var/log/Shorewall-lite-init.log
+
+</pre>
+</p>
+<ul>
+<li class="level1"><div class="li"> Make the directory ~/Oexample/ and copy all the /etc/Shorewall files (masq, rules, etc) to it.  This is your working directory for the OpenWRT host&#039;s firewall configuration, analogous to /etc/Shorewall/. You can choose your own directory name, and substitute it for ~/Oexample/.  Edit these files to configure the OpenWRT host&#039;s firewall.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> First, edit the ~/Oexample/routestopped file to add the IP address of the nanny machine like:  eth0 192.168.1.30  source,dest.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Next, construct your ~/Oexample/ Shorewall files.  The example below shows a file name header ( init:, interfaces, etc) followed by the contents of the file for each Shorewall file needed in this example. Edit your files to conform to the examples below:</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<pre>
+
+* * * * * * * * * * * * * * * * * *   B E G I N    S H O R E W A L L    C O N F I G     F I L E S    * * * * * * * * * * * * * * * * * * * * 
+init:
+# Use this file to set the machine state before the firewall starts, 
+# e.g: to assure that the internet interface is ready, 
+# or to set static routes and the like.  It is very handy to have a common system across the networks to assign routes.
+#
+# Example-uncomment the ## lines below to delay Shorewall while a tardy DSL gateway negotiates it&#039;s IP,
+# &amp; to assert static routes through .1.7 to .5.0, .51.0, and .51.0 
+#
+# example workaround DSL not starting before firewall
+##/sbin/ifup ppp0
+##sleep 5
+# example set up static routes example (add a system of networks, use .1.7 as it&#039;s gateway)
+##route add -net 192.168.5.0 netmask 255.255.255.0 gw 192.168.1.7 
+##route add -net 192.168.50.0 netmask 255.255.255.0 gw 192.168.1.7
+##route add -net 192.168.51.0/24 gw 192.168.1.7
+#LAST LINE -- ADD YOUR ENTRIES BEFORE THIS ONE -- DO NOT REMOVE
+
+interfaces:
+#ZONE   INTERFACE       BROADCAST       OPTIONS
+net     eth1
+lan1    br-LAN1
+lan2    wlan0-1
+
+masq:
+#INTERFACE:DEST         SOURCE          ADDRESS         PROTO   PORT(S) IPSEC   MARK    USER/
+#                                                                                       GROUP
+eth1            br-LAN1
+eth1            wlan0-1
+
+policy:
+#SOURCE DEST    POLICY          LOG     LIMIT:          CONNLIMIT:
+$FW    net     DROP    info
+lan1   all     REJECT  info
+lan2   all     REJECT  info
+net    all     DROP
+all    all     DROP
+
+routestopped:
+#INTERFACE      HOST(S)                 OPTIONS         PROTO   DEST    SOURCE
+#                                                               PORT(S) PORT(S)
+br-LAN1 192.168.1.3  source,dest
+
+rules:
+#SECTION ESTABLISHED
+#SECTION RELATED
+SECTION NEW
+
+#ftp fw to net (for updates, uncomment only as needed)
+##ACCEPT        $FW     net     tcp     ftp     -       -       -       -
+#http, https: fw to net (blocked outbound)
+##ACCEPT        $FW     net     tcp     http    -       -       -       - 
+##ACCEPT        $FW     net     tcp     https   -       -       -       - 
+
+ACCEPT  lan1    net                     tcp     82       	# XFER Utility (TCP/UDP)
+DNAT    net     lan1:192.168.1.3:22     tcp     53260    	# inbound ssh on oddball port (53260), bound to a single machine
+ACCEPT  lan1    net     tcp     53260   -       -       -       -  #outbound nanny ssh, also on oddball port 
+
+# Use first rules for lower latency-streaming
+ACCEPT lan1    net     tcp     554 - # realaudio-outbound tcp
+ACCEPT lan1    net     tcp     7070 - # realaudio-outbound tcp
+ACCEPT lan1    net     tcp     7071 - # realaudio
+ACCEPT lan1    net     tcp     8080 - # realaudio-outbound tcp
+ACCEPT lan1    net     tcp     8081 - # realaudio
+ACCEPT lan1    net     tcp     rtsp - # realaudio-outbound call                                  
+ACCEPT lan2    net     tcp     554 - # realaudio-outbound tcp
+ACCEPT lan2    net     tcp     7070 - # realaudio-outbound tcp
+ACCEPT lan2    net     tcp     7071 - # realaudio
+ACCEPT lan2    net     tcp     8080 - # realaudio-outbound tcp
+ACCEPT lan2    net     tcp     8081 - # realaudio
+ACCEPT lan2    net     tcp     rtsp - # realaudio-outbound call                                  
+ACCEPT lan1    net     tcp     8000:8003 - #realaudio-outbound tcp
+ACCEPT lan1    net     udp     8000:8003 - # realaudio-outbound tcp
+ACCEPT lan2    net     tcp     8000:8003 - #realaudio-outbound tcp
+ACCEPT lan2    net     udp     8000:8003 - # realaudio-outbound tcp
+ACCEPT lan1     net     tcp     1755    -       #windowsmedia
+#ACCEPT net     lan1    tcp     1755    -       #windowsmedia
+ACCEPT lan2    net     tcp     1755    -       #windowsmedia
+#ACCEPT net     lan2   tcp     1755    -       #windowsmedia
+ACCEPT  lan1    net     udp     53      -       -       -       -          #dns
+ACCEPT  lan1    net     tcp     53      -       -       -       -          #dns
+ACCEPT  lan2    net     udp     53      -       -       -       -          #dns
+ACCEPT  lan2    net     tcp     53      -       -       -       -          #dns
+ACCEPT  lan1    $FW     tcp     53      -       -       -       -          #dns
+ACCEPT  lan1    $FW     udp     53      -       -       -       -          #dns
+ACCEPT  lan2    $FW     tcp     53      -       -       -       -          #dns
+ACCEPT  lan2    $FW     udp     53      -       -       -       -          #dns
+ACCEPT  $FW     net     tcp     53      -       -       -       -          #dns
+ACCEPT  $FW     net     udp     53      -       -       -       -          #dns
+ACCEPT  $FW     lan1    tcp     53      -       -       -       -          #dns
+ACCEPT  $FW     lan1    udp     53      -       -       -       -          #dns
+ACCEPT  $FW     lan2    tcp     53      -       -       -       -          #dns
+ACCEPT  $FW     lan2    udp     53      -       -       -       -          #dns
+#ACCEPT  lan1    net     udp     67:68      -       -       -       -          #dhcp 
+#ACCEPT  lan2    net     udp     67:68      -       -       -       -          #dhcp
+ACCEPT  lan1    $FW     udp     67:68      -       -       -       -          #dhcp
+ACCEPT  lan2    $FW     udp     67:68      -       -       -       -          #dhcp
+ACCEPT  $FW     net     udp     67:68      -       -       -       -          #dhcp
+ACCEPT  $FW     lan1    udp     67:68      -       -       -       -          #dhcp
+ACCEPT  $FW     lan2    udp     67:68      -       -       -       -          #dhcp
+
+# smb: lan1 &lt;-&gt; $FW
+ACCEPT  lan1    $FW     tcp     137:139         -       -       -       -  #Enable SMB on LAN1
+ACCEPT  lan1    $FW     tcp     443     -       -       -       -  #http protocol over TLS/SSL
+ACCEPT  $FW     lan1    tcp     137:139         -       -       -       -  #Enable SMB on LAN1
+ACCEPT  $FW     lan1    tcp     443     -       -       -       -  #http protocol over TLS/SSL
+# smb: lan2 &lt;-&gt; $FW
+#ACCEPT  lan2    $FW     tcp     137:139         -       -       -       -  #Enable SMB on LAN1
+#ACCEPT  lan2    $FW     tcp     443     -       -       -       -  #http protocol over TLS/SSL
+#ACCEPT  $FW     lan2    tcp     137:139         -       -       -       -  #Enable SMB on LAN1
+#ACCEPT  $FW     lan2    tcp     443     -       -       -       -  #http protocol over TLS/SSL
+
+#web: outbound (lan to net)  http, https, ssh, ftp, time, imap
+ACCEPT  lan1    net     tcp     http    -       -       -       -
+ACCEPT  lan1    net     tcp     https   -       -       -       -
+ACCEPT  lan1    net     tcp     443     -       -       -       -  #http protocol over TLS/SSL
+ACCEPT  lan1    net     tcp     ssh     -       -       -       -
+ACCEPT  lan1    net     tcp     ftp     -       -       -       -     
+ACCEPT  lan1    net     tcp     nntp    -       -       -       -
+ACCEPT  lan1    net     tcp     37      -       -       -       -  #nttp timesync
+ACCEPT  lan1    net     tcp     imap    -       -       -       -
+ACCEPT  lan2    net     tcp     http    -       -       -       -
+ACCEPT  lan2    net     tcp     https   -       -       -       -
+ACCEPT  lan2    net     tcp     443     -       -       -       -
+ACCEPT  lan2    net     tcp     ssh     -       -       -       -
+ACCEPT  lan2    net     tcp     ftp     -       -       -       -     
+ACCEPT  lan2    net     tcp     nntp    -       -       -       -
+ACCEPT  lan2    net     tcp     37      -       -       -       -
+ACCEPT  lan2    net     tcp     imap    -       -       -       -
+ACCEPT  lan1    net     udp     http    -       -       -       -
+ACCEPT  lan1    net     udp     https   -       -       -       -
+ACCEPT  lan1    net     udp     443     -       -       -       -
+ACCEPT  lan1    net     udp     ssh     -       -       -       -
+ACCEPT  lan1    net     udp     37      -       -       -       -
+ACCEPT  lan1    net     udp     imap    -       -       -       -
+ACCEPT  lan2    net     udp     http    -       -       -       -
+ACCEPT  lan2    net     udp     https   -       -       -       -
+ACCEPT  lan2    net     udp     443     -       -       -       -
+ACCEPT  lan2    net     udp     ssh     -       -       -       -
+ACCEPT  lan2    net     udp     37      -       -       -       -
+ACCEPT  lan2    net     udp     imap    -       -       -       -
+#ACCEPT lan1    net     tcp     6667 - # irc
+#ACCEPT lan1    net     udp     6667 - # irc
+ACCEPT lan2    net     tcp     6667 - # irc
+ACCEPT lan2    net     udp     6667 - # irc
+
+ACCEPT lan1 net tcp 993           # imap4 protocol over TLS | SSL (TCP/UDP) (secure telnet)
+ACCEPT lan1 net udp 993
+
+ACCEPT lan1              net     tcp     11371          #OpenPGP HTTP key server
+ACCEPT lan1              net     udp     11371          #OpenPGP HTTP key server
+ACCEPT lan1              net     tcp     6420           #OpenPGP HTTP key server
+ACCEPT lan1              net     udp     6420           #OpenPGP HTTP key server
+ACCEPT  lan1            net     udp     123     -       -       -       -#  check time
+ACCEPT  lan1            net     tcp     123     -       -       -       -#  check time
+ACCEPT lan2            net     udp     123     -       -       -       - #  check time
+ACCEPT lan2            net     tcp     123     -       -       -       - #  check time
+ACCEPT  $FW             net     udp     123     -       -       -       -#  check time
+ACCEPT  $FW             net     tcp     123     -       -       -       -#  check time
+
+#mail
+#ACCEPT $FW     net     tcp     pop3    -       -       -       -
+ACCEPT  lan1    net     tcp     pop3    -       -       -       -
+ACCEPT lan2    net     tcp     pop3    -       -       -       -
+#ACCEPT  $FW     net     tcp     smtp    -       -       -       -
+ACCEPT  lan1    net     tcp     smtp    -       -       -       -
+ACCEPT lan2    net     tcp     smtp    -       -       -       -
+#fw mail IP when chg rqrs port 25
+#ACCEPT $FW     net     tcp     25      -       -       -       -
+#ACCEPT $FW             net             tcp     80      -       -       -       -
+#ACCEPT $FW             net             udp     80              -       -       -
+DROP    $FW             net             tcp     80      -       -       -       -	#explicitly kill $FW outbound to net on port 80
+DROP    $FW             net             udp     80              -       -       -
+DROP    net             $FW             tcp     80      -       -       -       -
+DROP    net             $FW             udp     80              -       -       -
+#mail
+
+#authent
+DROP    net     $FW     tcp     113     -       -       -       - #
+#ACCEPT net     $FW     tcp     113     -       -       -       -
+
+#ping: fw to lanx, lanx to net &amp; fw, lanx to lany
+ACCEPT  $FW     lan1    icmp    8       -       -       -       -
+ACCEPT $FW     lan2    icmp    8       -       -       -       -
+ACCEPT  lan1    $FW     icmp    8       -       -       -       -
+ACCEPT lan2    $FW     icmp    8       -       -       -       -
+ACCEPT  lan1    net     icmp    8       -       -       -       -
+ACCEPT lan2    net     icmp    8       -       -       -       -
+
+ACCEPT  $FW     net     tcp     ssh     -       -       -       -  #Enable FW to SSH out
+ACCEPT  $FW     net     udp     ssh     -       -       -       -  
+
+# ssh: lan1 to/from fw on std ports
+ACCEPT  $FW     lan1    tcp     ssh     -       -       -       -
+ACCEPT  $FW     lan1    udp     ssh     -       -       -       -
+ACCEPT  lan1    $FW     tcp     ssh     -       -       -       -
+ACCEPT  lan1    $FW     udp     ssh     -       -       -       -
+
+# httpd/s on fw visible only to lan1
+ACCEPT  lan1    $FW     tcp     http    -       -       -       -
+ACCEPT lan1    $FW     udp     http    -       -       -       -
+ACCEPT  lan1    $FW     tcp     https   -       -       -       -
+ACCEPT  lan1    $FW     udp     https   -       -       -       -
+
+#==============================================================
+#LAST LINE -- ADD YOUR ENTRIES BEFORE THIS ONE -- DO NOT REMOVE
+            
+
+zones:
+#ZONE 
+fw        firewall
+net      ipv4          #Internet
+lan1    ipv4
+lan2    ipv4
+
+
+Shorewall.conf: 
+Is largely default, tho you may need to set the startup var to 1.
+* * * * * * * * * * * * * * * * * *   E O F    S H O R E W A L L    C O N F I G     F I L E S    * * * * * * * * * * * * * * * * * * * * * *
+
+</pre>
+</p>
+<hr />
+
+</div>
+
+<h4 id="the_openwrt_host_setup">The OpenWRT Host Setup</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Setup the OpenWRT host.  See the wiki (<a href="../../toh/start" class="urlextern" title="http://wiki.openwrt.org/toh/start"  rel="nofollow">http://wiki.openwrt.org/toh/start</a>) for your specific hardware, and flash the OpenWRT host router.  </div>
+</li>
+</ul>
+
+<p>
+Use UCI/Luci setup (<a href="../uci.1" class="urlextern" title="http://wiki.openwrt.org/doc/uci"  rel="nofollow">http://wiki.openwrt.org/doc/uci</a>) to setup IP addressing on the router (see below):                                                                                                           
+<pre>
+Wan 192.168.11.1                                                                                                          
+Lan 192.168.10.1                                                                                                          
+<abbr title="Local Area Network">LAN</abbr>_1 192.168.13.1                                                                                                       
+<abbr title="Local Area Network">LAN</abbr>_2 192.168.2.1                                                                                                 
+br-LAN1 192.168.1.1                                                                                                                                                                                                                                                       
+</pre>
+</p>
+<hr />
+
+<p>
+<pre>
+* * * * * * * * * * * * * * * * * *   B E G I N    O P E N W R T    C O N F I G     F I L E S    * * * * * * * * * * * * * * * * * * * * * *
+#Working configs to boot up OpenWRT router w/ AA 12.09
+
+Interfaces defined by Luci:
+br-LAN1 Link encap:Ethernet  HWaddr 00:26:5A:D2:33:77  
+          inet addr:192.168.1.1  Bcast:192.168.1.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:513 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:64859 (63.3 KiB)  TX bytes:0 (0.0 B)
+
+eth0      Link encap:Ethernet  HWaddr 00:26:5A:D2:33:77  
+          inet addr:192.168.1.1  Bcast:192.168.1.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:248895 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:232281 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:36434590 (34.7 MiB)  TX bytes:21143615 (20.1 MiB)
+          Interrupt:5 
+
+eth1      Link encap:Ethernet  HWaddr 00:26:5A:D2:33:76  
+          inet addr:192.168.11.1  Bcast:192.168.11.255  Mask:255.255.255.0
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+          Interrupt:4 
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:1277856 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1277856 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:86894208 (82.8 MiB)  TX bytes:86894208 (82.8 MiB)
+
+wlan0     Link encap:Ethernet  HWaddr 00:26:5A:D2:33:76  
+          inet addr:192.168.13.1  Bcast:192.168.13.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:3 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:32 
+          RX bytes:0 (0.0 B)  TX bytes:192 (192.0 B)
+
+wlan0-1   Link encap:Ethernet  HWaddr 02:26:5A:D2:33:77  
+          inet addr:192.168.2.1  Bcast:192.168.2.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:32 
+          RX bytes:0 (0.0 B)  TX bytes:420 (420.0 B)
+
+
+Firewall:		#&lt;===== These are temporary and will be overwritten when Shorewall-lite loads.	
+config defaults
+        option syn_flood &#039;1&#039;
+        option input &#039;ACCEPT&#039;
+        option output &#039;ACCEPT&#039;
+        option forward &#039;ACCEPT&#039;
+
+config zone				
+        option name &#039;lan&#039;
+        option network &#039;lan&#039; &#039;LAN_1&#039; &#039;LAN_2&#039;
+        option input &#039;ACCEPT&#039;
+        option output &#039;ACCEPT&#039;
+        option forward &#039;ACCEPT&#039;
+        
+config zone						
+        option name &#039;wan&#039;
+        option network &#039;wan&#039; 
+        option input &#039;ACCEPT&#039;
+        option output &#039;ACCEPT&#039;
+        option forward &#039;ACCEPT&#039;        
+
+config include
+        option path &#039;/etc/firewall.user&#039;
+
+Wireless:
+config wifi-device &#039;radio0&#039;
+        option type &#039;mac80211&#039;
+        option macaddr &#039;00:26:5a:d2:43:71&#039;
+        option hwmode &#039;11ng&#039;
+        option htmode &#039;HT20&#039;
+        list ht_capab &#039;SHORT-GI-40&#039;
+        list ht_capab &#039;TX-STBC&#039;
+        list ht_capab &#039;RX-STBC1&#039;
+        list ht_capab &#039;DSSS_CCK-40&#039;
+        option channel &#039;1&#039;
+        option txpower &#039;20&#039;
+        option country &#039;US&#039;
+
+config wifi-iface
+        option device &#039;radio0&#039;
+        option encryption &#039;psk2&#039;
+        option mode &#039;ap&#039;
+        option key &#039;ThisIsSupposedToBeASecretPassphrase&#039;
+        option ssid &#039;LAN1&#039;
+        option network &#039;LAN_1&#039;
+
+config wifi-iface
+        option device &#039;radio0&#039;
+        option mode &#039;ap&#039;
+        option ssid &#039;LAN2&#039;
+        option network &#039;LAN_2&#039;
+        option encryption &#039;psk2&#039;
+        option key &#039;ThisOneIsAlsoSupposedToBeASecret&#039;
+       
+network:
+config interface &#039;loopback&#039;
+        option ifname &#039;lo&#039;
+        option proto &#039;static&#039;
+        option ipaddr &#039;127.0.0.1&#039;
+        option netmask &#039;255.0.0.0&#039;
+
+config interface &#039;lan&#039;
+        option ifname &#039;eth0&#039;
+        option proto &#039;static&#039;
+        option ipaddr &#039;192.168.10.1&#039;
+        option netmask &#039;255.255.255.0&#039;
+
+config interface &#039;wan&#039;
+        option ifname &#039;eth1&#039;
+        option proto &#039;static&#039;
+        option ipaddr &#039;192.168.11.1&#039;
+        option netmask &#039;255.255.255.0&#039;
+
+config switch
+        option name &#039;eth0&#039;
+        option reset &#039;1&#039;
+
+config switch_vlan
+        option device &#039;eth0&#039;
+        option vlan &#039;1&#039;
+        option ports &#039;0 1 2 3 4&#039;
+        option vid &#039;1&#039;
+
+config interface &#039;LAN_1&#039;
+        option proto &#039;static&#039;
+        option ifname &#039;wlan0&#039;
+        option ipaddr &#039;192.168.13.1&#039;
+        option netmask &#039;255.255.255.0&#039;
+
+config interface &#039;LAN_2&#039;
+        option proto &#039;static&#039;
+        option ipaddr &#039;192.168.2.1&#039;
+        option netmask &#039;255.255.255.0&#039;
+        option _orig_ifname &#039;wlan0&#039;
+        option _orig_bridge &#039;false&#039;
+
+config interface &#039;all_COM&#039;
+        option type &#039;bridge&#039;
+        option proto &#039;static&#039;
+        option ifname &#039;eth0&#039;
+        option ipaddr &#039;192.168.1.1&#039;
+        option netmask &#039;255.255.255.0&#039;
+        option dns &#039;123.231.132.213&#039;       &lt;=  ASSIGN YOUR ISP&#039;s DNS HERE
+        
+System:
+config system
+        option hostname &#039;COM_ap&#039;
+        option zonename &#039;UTC&#039;
+        option timezone &#039;GMT0&#039;
+        option conloglevel &#039;8&#039;
+        option cronloglevel &#039;8&#039;
+
+config timeserver &#039;ntp&#039;
+        list server &#039;0.OpenWRT.pool.ntp.org&#039;
+        list server &#039;1.OpenWRT.pool.ntp.org&#039;
+        list server &#039;2.OpenWRT.pool.ntp.org&#039;
+        list server &#039;3.OpenWRT.pool.ntp.org&#039;
+        option enable_server &#039;1&#039;
+
+config led &#039;led_wan&#039;
+        option name &#039;WAN&#039;
+        option sysfs &#039;d-link:green:wan&#039;
+        option trigger &#039;netdev&#039;
+        option dev &#039;eth1&#039;
+        option mode &#039;link tx rx&#039;
+
+config led &#039;led_lan1&#039;
+        option name &#039;LAN1&#039;
+        option sysfs &#039;d-link:green:lan1&#039;
+        option trigger &#039;switch0&#039;
+        option port_mask &#039;0x02&#039;
+
+config led &#039;led_lan2&#039;
+        option name &#039;LAN2&#039;
+        option sysfs &#039;d-link:green:lan2&#039;
+        option trigger &#039;switch0&#039;
+        option port_mask &#039;0x04&#039;
+
+config led &#039;led_lan3&#039;
+        option name &#039;LAN3&#039;
+        option sysfs &#039;d-link:green:lan3&#039;
+        option trigger &#039;switch0&#039;
+        option port_mask &#039;0x08&#039;
+
+config led &#039;led_lan4&#039;
+        option name &#039;LAN4&#039;
+        option sysfs &#039;d-link:green:lan4&#039;
+        option trigger &#039;switch0&#039;
+        option port_mask &#039;0x10&#039;      
+* * * * * * * * * * * * * * * * * *   E O F    O P E N W R T    C O N F I G     F I L E S    * * * * * * * * * * * * * * * * * * * * * *
+
+</pre>
+</p>
+<hr />
+<ul>
+<li class="level1"><div class="li"> Install the Shorewall-lite IPK files to the OpenWRT router (e.g.:  Shorewall-lite_4.4.27.3-4_ar71xx.ipk).  May work best from command line as opkg update; opkg install Shorewall-lite</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Have both the host and OpenWRT router up, running and networked.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Check the OpenWRT router&#039;s /etc/config/dropbear file to assure the interfaces listed there are valid, use the uci to show the dropbear settings:</div>
+</li>
+</ul>
+
+<p>
+<pre>
+
+  uci show dropbear
+        option PasswordAuth &#039;on&#039;
+        option Port &#039;22&#039;
+        option Interface &#039;br-LAN1&#039;  
+
+  Edit /etc/config/dropbear to repair as needed and then run   uci commit    when done.
+
+</pre>
+</p>
+<ul>
+<li class="level1"><div class="li"> From the host OpenWRT router, create and copy the Shorewall capabilities file to the nanny:</div>
+</li>
+</ul>
+
+<p>
+<pre>
+
+cd /usr/share/Shorewall-lite
+./shorecap &gt;/tmp/capabilities
+scp /tmp/capabilities [Your Home Directory Here]@192.168.1.30:~/Oexample/.
+
+</pre>
+</p>
+<ul>
+<li class="level1"><div class="li"> Check the work, sort out your recovery route (fail-safe mode, etc) in case you need it.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Use UCI|Luci interface System/Startup/initscripts to set the router to not start the OpenWRT firewall on boot.  You may, as an alternative suited to safe-mode recovery, edit the OpenWRT router /etc/init.d dir and move the firewall script to say, ../firewall.initd, and if you want, you can restore it to /etc/init.d/firewall .</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> To avoid a reporting error, create the file /usr/sbin/tac as:</div>
+</li>
+</ul>
+
+<p>
+
+#!/bin/sh
+if ! [ $# -gt 0 ]; then
+  exit 
+fi
+if [ &quot;$1&quot; != &quot;&quot; ]; then
+  grep -n . $1 | sort -r -n
+fi
+
+</p>
+<ul>
+<li class="level1"><div class="li"> On the nanny, </div>
+</li>
+</ul>
+
+<p>
+
+  cd ~/Oexample then run
+  /sbin/Shorewall load 192.168.1.1  
+
+where the 192.168.1.1 is the OpenWRT host router&#039;s IP address. You&#039;ll need to fix compiler errors and hand off passwords until the command succeeds,  then the firewall will be copied to and launched on the the OpenWRT router.  To test it from the install session, use the  Shorewall-lite status and dump commands on the OpenWRT router, and send test packets to/from each zone.  When you restart the OpenWRT router, the pre-existing session connections of the last session are lost.  NB:  you can readily lock yourself out editing the policies in this example, but that&#039;s the point of a firewall. Fail-Safe mode will allow you to mount_root and hand edit the /etc files.  Revert to the OpenWRT firewall and reboot to revise and reload your Shorewall-Lite settings.
+</p>
+<hr />
+<ul>
+<li class="level1"><div class="li"> When things are right, you will see something like this:</div>
+</li>
+</ul>
+
+<p>
+<pre>
+
+root@192.168.1.1&#039;s password: 
+root@192.168.1.1&#039;s password: 
+Compiling...
+Processing ~/Oexample/params ...
+Processing ~/Oexample/Shorewall.conf...
+   WARNING: Unknown capability (RAWPOST_TABLE) ignored : ~/Oexample/capabilities (line 26)
+   WARNING: Unknown capability (ULOG_TARGET) ignored : ~/Oexample/capabilities (line 50)
+   WARNING: Unknown capability (NFLOG_TARGET) ignored : ~/Oexample/capabilities (line 51)
+   WARNING: Unknown capability (CONDITION_MATCH) ignored : ~/Oexample/capabilities (line 61)
+   WARNING: Unknown capability (IPTABLES_S) ignored : ~/Oexample/capabilities (line 62)
+   WARNING: Unknown capability (BASIC_FILTER) ignored : ~/Oexample/capabilities (line 63)
+   WARNING: Unknown capability (CT_TARGET) ignored : ~/Oexample/capabilities (line 64)
+Compiling ~/Oexample/zones...
+Compiling ~/Oexample/interfaces...
+Determining Hosts in Zones...
+Locating Action Files...
+Compiling /usr/share/Shorewall/action.Drop for chain Drop...
+Compiling /usr/share/Shorewall/action.Broadcast for chain Broadcast...
+Compiling /usr/share/Shorewall/action.Invalid for chain Invalid...
+Compiling /usr/share/Shorewall/action.NotSyn for chain NotSyn...
+Compiling /usr/share/Shorewall/action.Reject for chain Reject...
+Compiling ~/Oexample/policy...
+Running ~/Oexample/initdone...
+Compiling Kernel Route Filtering...
+Compiling Martian Logging...
+Compiling ~/Oexample/masq...
+   WARNING: Using an interface as the masq SOURCE requires the interface to be up and configured when Shorewall starts/restarts : ~/Oexample/masq (line 12)
+Compiling MAC Filtration -- Phase 1...
+Compiling ~/Oexample/rules...
+Compiling MAC Filtration -- Phase 2...
+Applying Policies...
+Generating Rule Matrix...
+Creating iptables-restore input...
+Compiling ~/Oexample/routestopped...
+Shorewall configuration compiled to ~/Oexample/firewall
+Copying ~/Oexample/firewall and ~/Oexample/firewall.conf to 192.168.1.1:/etc/shorewall-lite/state...
+root@192.168.1.1&#039;s password: 
+firewall                                                                                   100%   69KB  69.3KB/s   00:00    
+firewall.conf                                                                              100%  981     1.0KB/s   00:00    
+Copy complete
+root@192.168.1.1&#039;s password: 
+System 192.168.1.1 loaded
+
+</pre>
+</p>
+<hr />
+<ul>
+<li class="level1"><div class="li"> Shorewall-Lite is now running.  Use UCI|Luci interface System/Startup/initscripts to enable &#039;Shorewall&#039;. </div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> To change any of the rules, zones, or other Shorewall settings on the OpenWRT router, revise the files in ~/Oexample and run the above &quot;Shorewall load&quot; command again.  If the capabilities of the OpenWRT router change, then rerun /usr/share/Shorewall-lite/shorecap and re scp it to the host, and re-run Shorewall load. </div>
+</li>
+</ul>
+
+<p>
+Shorewall Documentation:
+</p>
+<ul>
+<li class="level1"><div class="li">  <a href="http://www.shorewall.net/" class="urlextern" title="http://www.shorewall.net/"  rel="nofollow">http://www.shorewall.net/</a></div>
+</li>
+<li class="level1"><div class="li">  <a href="http://www.shorewall.net/GettingStarted.html" class="urlextern" title="http://www.shorewall.net/GettingStarted.html"  rel="nofollow"> http://www.shorewall.net/GettingStarted.html</a></div>
+</li>
+<li class="level1"><div class="li">  <a href="http://www.shorewall.net/Documentation_Index.html" class="urlextern" title="http://www.shorewall.net/Documentation_Index.html"  rel="nofollow"> http://www.shorewall.net/Documentation_Index.html</a></div>
+</li>
+<li class="level1"><div class="li">  <a href="http://www.shorewall.net/configuration_file_basics.html" class="urlextern" title="http://www.shorewall.net/configuration_file_basics.html"  rel="nofollow"> http://www.shorewall.net/configuration_file_basics.html</a></div>
+</li>
+<li class="level1"><div class="li">  <a href="http://www.shorewall.net/Notices.html" class="urlextern" title="http://www.shorewall.net/Notices.html"  rel="nofollow"> http://www.shorewall.net/Notices.html</a></div>
+</li>
+<li class="level1"><div class="li">  <a href="http://www.shorewall.net/starting_and_stopping_shorewall.htm" class="urlextern" title="http://www.shorewall.net/starting_and_stopping_shorewall.htm"  rel="nofollow"> http://www.shorewall.net/starting_and_stopping_shorewall.htm   esp: &quot;Shorewall State Diagram&quot; for more.</a></div>
+</li>
+</ul>
+<div class="tags"><span>
+	<a href="../../tag/wip?do=showtag&amp;tag=wip" class="wikilink1" title="tag:wip" rel="tag">wip</a>
+</span></div>
+
+</div>
+
+<h3 class="sectionedit2" id="complete_example_with_qos">Complete example with QoS</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="introduction">Introduction</h4>
+<div class="level4">
+
+<p>
+In this section you will find a complete example of a working firewall configuration in openwrt using shorewall-lite.
+</p>
+
+</div>
+
+<h5 id="setup">Setup</h5>
+<div class="level5">
+
+<p>
+In this example the host is a debian wheezy box with shorewall 4.5.5.3-3 (debian version). The target is a TP-Link WDR3600 with BARRIER BREAKER (Bleeding Edge, r38408).
+</p>
+
+<p>
+Goals:
+</p>
+<ul>
+<li class="level1"><div class="li"> manage the router&#039;s QoS configuration with shorewall.</div>
+</li>
+</ul>
+
+<p>
+In this setup, we assume a working OpenWrt configuration, so we will focus on the firewall configuration only.
+</p>
+
+</div>
+
+<h5 id="required_packages">Required packages</h5>
+<div class="level5">
+
+<p>
+The following additional packages were used in the setup:
+</p>
+<ul>
+<li class="level1"><div class="li"> conntrack-tools</div>
+</li>
+<li class="level1"><div class="li"> kmod-ipt-nathelper-extra</div>
+</li>
+<li class="level1"><div class="li"> shorewall-lite</div>
+</li>
+<li class="level1"><div class="li"> kmod-sched</div>
+</li>
+<li class="level1"><div class="li"> iptables-mod-extra</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="shorewall_setup_on_the_host">Shorewall setup on the host</h4>
+<div class="level4">
+
+<p>
+This setup work for me. Please adapt to your needs.
+</p>
+
+<p>
+When satisfied, disable the built-in firewall and enable shorewall-lite.
+</p>
+
+</div>
+
+<h5 id="zones">zones</h5>
+<div class="level5">
+
+<p>
+<pre>
+
+fw	firewall
+lan	ipv4
+wan	ipv4
+
+</pre>
+</p>
+
+</div>
+
+<h5 id="interfaces">interfaces</h5>
+<div class="level5">
+
+<p>
+<pre>
+
+wan	eth0.2		detect		dhcp
+lan	br-lan		X.X.X.X 	routeback,bridge,dhcp
+
+</pre>
+</p>
+
+</div>
+
+<h5 id="policy">policy</h5>
+<div class="level5">
+
+<p>
+<pre>
+
+$FW		all		ACCEPT
+lan		wan		ACCEPT
+# THE FOLLOWING POLICY MUST BE LAST
+all             all             DROP		info
+
+</pre>
+</p>
+
+</div>
+
+<h5 id="masq">masq</h5>
+<div class="level5">
+
+<p>
+<pre>
+
+eth0.2			X.X.X.X/Y	detect
+
+</pre>
+</p>
+
+</div>
+
+<h5 id="routestopped">routestopped</h5>
+<div class="level5">
+
+<p>
+<pre>
+
+br-lan		-			-		tcp	22
+
+</pre>
+</p>
+
+</div>
+
+<h5 id="rules">rules</h5>
+<div class="level5">
+
+<p>
+<pre>
+
+SSH(ACCEPT)	all		$FW
+HTTP(ACCEPT)	all		$FW
+NTP(ACCEPT)	all		$FW
+ACCEPT		all		$FW		udp	domain,mdns
+ACCEPT		all		$FW		tcp	domain,mdns
+ACCEPT		lan		wan		udp	sip
+ACCEPT		lan		wan		tcp	sip
+ACCEPT		all		$FW		icmp	echo-request
+ACCEPT		all		$FW		icmp	echo-reply
+ACCEPT		lan		wan		icmp
+
+</pre>
+</p>
+
+</div>
+
+<h5 id="tcpri">tcpri</h5>
+<div class="level5">
+
+<p>
+<pre>
+
+COMMENT email traffic
+3	tcp	143,220,993,110,995
+COMMENT http traffic
+2	tcp	80
+COMMENT https traffic
+2	tcp	443
+COMMENT ssh traffic
+2	tcp	22
+COMMENT openvpn traffic
+2	tcp	1194
+COMMENT fast ping
+1	icmp	echo-reply
+1	icmp	echo-request
+COMMENT dns traffic
+1	udp	53,5353
+COMMENT ntp traffic
+1	udp	123
+COMMENT SIP traffic 
+1	udp	5060		-		-		sip
+1	tcp	5060		-		-		sip
+
+</pre>
+</p>
+
+</div>
+
+<h5 id="tcinterfaces">tcinterfaces</h5>
+<div class="level5">
+
+<p>
+<pre>
+
+eth0.2		external	80mbit:90mbit		80mbit:90mbit:10ms
+
+</pre>
+</p>
+
+</div>
+
+<h5 id="tcrules">tcrules</h5>
+<div class="level5">
+
+<p>
+<pre>
+
+COMMENT SIP traffic
+1:CT   		0.0.0.0/0	0.0.0.0/0	udp	5060 - - - - - - sip
+1:CT   		0.0.0.0/0	0.0.0.0/0	tcp	5060 - - - - - - sip
+
+COMMENT check and restore connection marks to packages
+RESTORE:T  	0.0.0.0/0	0.0.0.0/0       all     -     -        -      0
+CONTINUE:T 	0.0.0.0/0	0.0.0.0/0       all     -     -        -      !0:C
+
+COMMENT save connection marks
+SAVE:T     	0.0.0.0/0	0.0.0.0/0	all     -     -        -      !0
+
+</pre>
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/recipes/shorewall-on-openwrt.txt</bdi> · Last modified: 2013/10/28 08:24 by <bdi>lorema</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="shorewall-on-openwrt?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="shorewall-on-openwrt?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="shorewall-on-openwrt?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="shorewall-on-openwrt#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Arecipes%253Ashorewall-on-openwrt&amp;1432269799" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

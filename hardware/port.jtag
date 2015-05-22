@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>JTAG [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,hardware,port.jtag"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="port.jtag?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:hardware"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/hardware/port.jtag"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/hardware/port.jtag"/>
+<link rel="canonical" href="port.jtag"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:hardware';var JSINFO = {"id":"doc:hardware:port.jtag","namespace":"doc:hardware"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265477 166.182.3.232';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="port.jtag#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="port.jtag?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="port.jtag?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:hardware:port.jtag" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="port.jtag?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="port.jtag?do=media&amp;ns=doc%253Ahardware"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="port.jtag?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:hardware:start">Hardware</a></bdi> » <bdi><span class="curid"><a href="port.jtag" class="wikilink1" title="doc:hardware:port.jtag">JTAG</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/hardware/port.jtag" class="media" title="cz:doc:hardware:port.jtag"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/hardware/port.jtag" class="media" title="de:doc:hardware:port.jtag"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="port.jtag" class="media" title="doc:hardware:port.jtag"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/hardware/port.jtag" class="media" title="es:doc:hardware:port.jtag"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/hardware/port.jtag" class="media" title="fr:doc:hardware:port.jtag"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/hardware/port.jtag" class="media" title="hu:doc:hardware:port.jtag"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/hardware/port.jtag" class="media" title="jp:doc:hardware:port.jtag"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/hardware/port.jtag" class="media" title="pl:doc:hardware:port.jtag"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/hardware/port.jtag" class="media" title="pt-br:doc:hardware:port.jtag"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/hardware/port.jtag" class="media" title="ru:doc:hardware:port.jtag"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/hardware/port.jtag" class="media" title="tr:doc:hardware:port.jtag"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/hardware/port.jtag" class="media" title="zh-cn:doc:hardware:port.jtag"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/hardware/port.jtag" class="media" title="zh-tw:doc:hardware:port.jtag"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:hardware:port.jtag</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="port.jtag#jtag_automate">JTAG automate</a></div></li>
+<li class="level1"><div class="li"><a href="port.jtag#identifying_jtag_connector">Identifying JTAG connector</a></div></li>
+<li class="level1"><div class="li"><a href="port.jtag#headers">Headers</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="port.jtag#pin_header">10 Pin Header</a></div></li>
+<li class="level2"><div class="li"><a href="port.jtag#pin_header1">12 Pin Header</a></div></li>
+<li class="level2"><div class="li"><a href="port.jtag#pin_header2">14 Pin Header</a></div></li>
+<li class="level2"><div class="li"><a href="port.jtag#pin_header3">16 Pin Header</a></div></li>
+<li class="level2"><div class="li"><a href="port.jtag#pin_header_-_1_row">8 Pin Header - 1 row</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="port.jtag#jtag_software">JTAG software</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="port.jtag#hairydairymaid">Hairydairymaid</a></div></li>
+<li class="level2"><div class="li"><a href="port.jtag#urjtag">UrJTAG</a></div></li>
+<li class="level2"><div class="li"><a href="port.jtag#openocd">OpenOCD</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="port.jtag#links">Links</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="jtag">JTAG</h1>
+<div class="level1">
+
+<p>
+JTAG stands for <a href="http://en.wikipedia.org/wiki/Joint Test Action Group" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Joint Test Action Group">Joint Test Action Group</a>, which is an <a href="http://en.wikipedia.org/wiki/Institute of Electrical and Electronics Engineers" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Institute of Electrical and Electronics Engineers">IEEE</a> work group defining an electrical interface for <a href="ic" class="wikilink1" title="doc:hardware:ic">integrated circuit</a> <strong><em>testing</em></strong> and <strong><em>programming</em></strong>.
+</p>
+<ul>
+<li class="level1"><div class="li"> → <span class="curid"><a href="port.jtag" class="wikilink1" title="doc:hardware:port.jtag">port.JTAG</a></span> (this article)</div>
+<ul>
+<li class="level2"><div class="li"> → <a href="port.jtag.cables" class="wikilink1" title="doc:hardware:port.jtag.cables">port.JTAG.cables</a> (homemade cables)</div>
+<ul>
+<li class="level3"><div class="li"> → <a href="port.jtag.cable.buffered" class="wikilink1" title="doc:hardware:port.jtag.cable.buffered">port.JTAG.cable.buffered</a> or <a href="port.jtag.cables#buffered" class="wikilink1" title="doc:hardware:port.jtag.cables">buffered</a> + redirect from something.wiggler to this article</div>
+</li>
+<li class="level3"><div class="li"> → <a href="port.jtag.cable.unbuffered" class="wikilink1" title="doc:hardware:port.jtag.cable.unbuffered">port.JTAG.cable.unbuffered</a> or  <a href="port.jtag.cables#unbuffered" class="wikilink1" title="doc:hardware:port.jtag.cables">unbuffered</a> </div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> → <a href="port.jtag.utilization" class="wikilink1" title="doc:hardware:port.jtag.utilization">port.JTAG.utilization</a></div>
+<ul>
+<li class="level3"><div class="li"> → <a href="../howto/generic.debrick" class="wikilink1" title="doc:howto:generic.debrick">generic.debrick</a> there is content on utilizing JTAG  (link to it or from it, don&#039;t leave double content!)</div>
+</li>
+<li class="level3"><div class="li"> → <a href="../../toh/davolink/dv-201amr#jtag" class="wikilink1" title="toh:davolink:dv-201amr">jtag</a> there is content on utilizing JTAG  (link to it or from it, don&#039;t leave double content! unless specific)</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> <a href="https://forum.openwrt.org/viewtopic.php?id=34993" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=34993"  rel="nofollow">Debrick Routers with AR724x processors Using JTAG</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit2" id="jtag_automate">JTAG automate</h2>
+<div class="level2">
+
+<p>
+There is always a JTAG automate (JTAG logic) integrated into your <a href="soc.1" class="wikilink1" title="doc:hardware:soc">SoC</a> or <a href="cpu" class="wikilink1" title="doc:hardware:cpu">CPU</a> and usually this is connected to a JTAG header on the PCB. You can test and program the IC by issuing <code>JTAG commands</code> to it through the JTAG.
+</p>
+
+<p>
+To do that, you need to connect the <a href="http://en.wikipedia.org/wiki/parallel port" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/parallel port">parallel port</a> of your PC with the JTAG header on the PCB via a bought or a homemade &quot;JTAG cable&quot;. You then run a special JTAG software on your PC, which allows you to comfortably control the JTAG automate and make it perform commands like reads and writes at arbitrary locations.
+</p>
+
+<p>
+As already stated the primal intention of the JTAG automate is to test the IC itself. But of course it can additionally be utilized to recover a device if you erased the bootloader resident on the flash. Because, through the JTAG automate in the SoC, you can also write to the Flash Chip.
+</p>
+
+<p>
+A JTAG port can be used without any software running on the IC itself, but the IC still has to be powered by a separate power supply. This means, you can solder a lonely SoC to a PCB, no Flash-Chip, no RAM; then connect to it via JTAG and interact with the SoC. Of course, on the PC itself, you should have some sort of software, to make this interaction with the hardware on the lowest level possible a bit more comfortable.
+</p>
+
+<p>
+Of course, if there is a flash chips soldered onto the PCB, you could access this chip by programming the SoC via JTAG. It&#039;s one of those amazingly useful things that allows you to recover from pretty much anything that doesn&#039;t involve a hardware failure.
+</p>
+
+<p>
+The JTAG Automate is not a standardized system. Different SoCs/CPUs/ISAs have different JTAG automate behavior and reset sequence, most likely you will find ARM and MIPS CPUs, both having their standard to allow controlling the CPU behavior using JTAG.
+</p>
+
+<p>
+Finding JTAG connector on a PCB can be a little easier than finding the UART since most vendors leave those headers unpopulated after production. JTAG connectors are usually 12, 14, or 20-pins headers with one side of the connector having some signals at 3.3V and the other side being connected to GND.
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="identifying_jtag_connector">Identifying JTAG connector</h2>
+<div class="level2">
+
+</div>
+
+<h2 class="sectionedit4" id="headers">Headers</h2>
+<div class="level2">
+
+<p>
+There are two major JTAG header arrangements used in SOHO routers based on MIPS CPUs. One uses 12 pins and the other uses 14 pins. While not radically different, you should be familiar with both. Other JTAG pinouts can be found at <a href="http://www.jtagtest.com/pinouts/" class="urlextern" title="http://www.jtagtest.com/pinouts/"  rel="nofollow">http://www.jtagtest.com/pinouts/</a>.
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="pin_header">10 Pin Header</h3>
+<div class="level3">
+
+<p>
+Found in many Huawei routers:
+</p>
+<div class="table sectionedit6"><table class="inline">
+	<tr class="row0">
+		<td class="col0 rightalign">  TCK </td><th class="col1 centeralign">  1  </th><th class="col2 centeralign">  2  </th><td class="col3"> GND </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 rightalign">  TDO </td><th class="col1 centeralign">  3  </th><th class="col2 centeralign">  4  </th><td class="col3 leftalign"> VREF  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  TMS </td><th class="col1 centeralign">  5  </th><th class="col2 centeralign">  6  </th><td class="col3"> nSRST </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  -   </td><th class="col1 centeralign">  7  </th><th class="col2 centeralign">  8  </th><td class="col3"> nTRST </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 rightalign">  TDI </td><th class="col1 centeralign">  9  </th><th class="col2 centeralign">  10  </th><td class="col3"> GND </td>
+	</tr>
+</table></div>
+
+<p>
+It matches with the ALTERA ByteBlasterMV 10-pin cable, but without the nSRST, nTRST pins.
+</p>
+
+</div>
+
+<h3 class="sectionedit7" id="pin_header1">12 Pin Header</h3>
+<div class="level3">
+
+<p>
+Found in Linksys routers such as the WRT54G and WRT54GS, the 12-pin header has the following arrangement of JTAG signals and pins:
+</p>
+<div class="table sectionedit8"><table class="inline">
+	<tr class="row0">
+		<td class="col0 rightalign">  nTRST </td><th class="col1 centeralign">  1  </th><th class="col2 centeralign">  2  </th><td class="col3"> GND </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 rightalign">  TDI </td><th class="col1 centeralign">  3  </th><th class="col2 centeralign">  4  </th><td class="col3 leftalign"> GND  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  TDO </td><th class="col1 centeralign">  5  </th><th class="col2 centeralign">  6  </th><td class="col3"> GND </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  TMS </td><th class="col1 centeralign">  7  </th><th class="col2 centeralign">  8  </th><td class="col3"> GND </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 rightalign">  TCK </td><th class="col1 centeralign">  9  </th><th class="col2 centeralign">  10  </th><td class="col3"> GND </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 rightalign">  nSRST </td><th class="col1 centeralign">  11  </th><th class="col2 centeralign">  12  </th><td class="col3"> GND </td>
+	</tr>
+</table></div>
+
+<p>
+Seems, this header is a truncated version of the full EJTAG header.
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="pin_header2">14 Pin Header</h3>
+<div class="level3">
+
+<p>
+This header is fully MIPS EJTAG 2.6 compatible and described in the EJTAG 2.6 standard. Found in Edimax routers (and other brands that are Edimax clones), the 14-pin header has the following arrangement of JTAG signals and pins:
+</p>
+<div class="table sectionedit10"><table class="inline">
+	<tr class="row0">
+		<td class="col0 rightalign">  nTRST </td><th class="col1 centeralign">  1  </th><th class="col2 centeralign">  2  </th><td class="col3"> GND </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 rightalign">  TDI </td><th class="col1 centeralign">  3  </th><th class="col2 centeralign">  4  </th><td class="col3"> GND </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  TDO </td><th class="col1 centeralign">  5  </th><th class="col2 centeralign">  6  </th><td class="col3"> GND </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  TMS </td><th class="col1 centeralign">  7  </th><th class="col2 centeralign">  8  </th><td class="col3"> GND </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 rightalign">  TCK </td><th class="col1 centeralign">  9  </th><th class="col2 centeralign">  10  </th><td class="col3"> GND </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 rightalign">  nSRST </td><th class="col1 centeralign">  11  </th><th class="col2 centeralign">  12  </th><td class="col3"> n/a </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 rightalign">  n/a </td><th class="col1 centeralign">  13  </th><th class="col2 centeralign">  14  </th><td class="col3"> Vcc </td>
+	</tr>
+</table></div>
+
+<p>
+A buffered cable such as the Wiggler requires an external Vcc voltage supply. The 14-pin header conveniently supplies this voltage on pin 14. The typical unbuffered cable, however, does not require an external voltage in order to function. Formally, the pin 14 is called VREF and used to indicate a JTAG signal levels: 5V, 3.3V or 2.5V. On the most devices this pin is tied to the device&#039;s Vcc and may be used to power a buffer IC chip (and to generate an appropriate levels as result). Note that the 12-pin JTAG header arrangement does not provide Vcc.
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="pin_header3">16 Pin Header</h3>
+<div class="level3">
+
+<p>
+Usually found in IBM 4XX powerpc platform, this layout is also known as JTAG RISCWATCH
+</p>
+<div class="table sectionedit12"><table class="inline">
+	<tr class="row0">
+		<td class="col0 rightalign">  TDO </td><td class="col1 centeralign">  o  </td><th class="col2"> 1 </th><th class="col3"> 2 </th><td class="col4 centeralign">  nc  </td><td class="col5 leftalign"> -  </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 rightalign">  TDI </td><td class="col1 centeralign">  i  </td><th class="col2"> 3 </th><th class="col3"> 4 </th><td class="col4 centeralign">  i  </td><td class="col5 leftalign"> nTRST  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  HALTED </td><td class="col1 centeralign">  o  </td><th class="col2"> 5 </th><th class="col3"> 6 </th><td class="col4 centeralign">  p  </td><td class="col5 leftalign"> VREF  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  TCK </td><td class="col1 centeralign">  i  </td><th class="col2"> 7 </th><th class="col3"> 8 </th><td class="col4 centeralign">  nc  </td><td class="col5 leftalign"> -  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 rightalign">  TMS </td><td class="col1 centeralign">  i  </td><th class="col2"> 9 </th><th class="col3"> 10 </th><td class="col4 centeralign">  nc  </td><td class="col5 leftalign"> -  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 rightalign">  HALT </td><td class="col1 centeralign">  i  </td><th class="col2"> 11 </th><th class="col3"> 12 </th><td class="col4 centeralign">  p  </td><td class="col5 leftalign"> GND  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 rightalign">  nSRST </td><td class="col1 centeralign">  od  </td><th class="col2"> 13 </th><th class="col3"> 14 </th><td class="col4 centeralign">  k  </td><td class="col5 leftalign"> KEY  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 rightalign">  - </td><td class="col1 centeralign">  nc  </td><th class="col2"> 15 </th><th class="col3"> 16 </th><td class="col4 centeralign">  p  </td><td class="col5 leftalign"> GND  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit13" id="pin_header_-_1_row">8 Pin Header - 1 row</h3>
+<div class="level3">
+
+<p>
+Not a common layout, found in some Thomson routers.
+</p>
+<div class="table sectionedit14"><table class="inline">
+	<tr class="row0">
+		<td class="col0 rightalign">  ? </td><th class="col1"> 1 </th>
+	</tr>
+	<tr class="row1">
+		<td class="col0 rightalign">  nTRST </td><th class="col1"> 2 </th>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  TCK </td><th class="col1"> 3 </th>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  TMS </td><th class="col1"> 4 </th>
+	</tr>
+	<tr class="row4">
+		<td class="col0 rightalign">  GND </td><th class="col1"> 5 </th>
+	</tr>
+	<tr class="row5">
+		<td class="col0 rightalign">  TDO </td><th class="col1"> 6 </th>
+	</tr>
+	<tr class="row6">
+		<td class="col0 rightalign">  TDI </td><th class="col1"> 7 </th>
+	</tr>
+	<tr class="row7">
+		<td class="col0 rightalign">  GND </td><th class="col1"> 8 </th>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit15" id="jtag_software">JTAG software</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit16" id="hairydairymaid">Hairydairymaid</h3>
+<div class="level3">
+
+<p>
+The most famous software for JTAG is probably the Linksys De-Brick Utility by Hairydairymaid (aka Lightbulb). As of 12 September 2006 the most recent version is v4.8. Virtually everyone who uses this software opts for an unbuffered cable, and the software itself, by default, expects this type of cable to be used.
+</p>
+
+<p>
+The utility CAN operate on most any MIPS based cpu supporting EJTAG by using PrAcc routines (non-dma mode) - use the /nodma switch. It is not limited to WRT54G/GS units.
+</p>
+
+<p>
+If you don&#039;t have a PC with parallel port but instead own a <a href="http://en.wikipedia.org/wiki/Raspberry_Pi" class="urlextern" title="http://en.wikipedia.org/wiki/Raspberry_Pi"  rel="nofollow">Raspberry Pi</a>, you can use a <a href="https://github.com/oxplot/tjtag-pi" class="urlextern" title="https://github.com/oxplot/tjtag-pi"  rel="nofollow">Raspberry Pi version</a> of this software instead which uses <a href="http://elinux.org/RPi_Low-level_peripherals#General_Purpose_Input.2FOutput_.28GPIO.29" class="urlextern" title="http://elinux.org/RPi_Low-level_peripherals#General_Purpose_Input.2FOutput_.28GPIO.29"  rel="nofollow">the onboard GPIO pins</a> to drive the JTAG lines.
+</p>
+
+<p>
+Downloads:<br/>
+
+<a href="https://docs.google.com/leaf?id=0B07LcVZMfvdkZTc1MDA5MjUtZTMzYy00OGQzLWE5MjAtODFiN2RkMTJmNDQ5&amp;sort=name&amp;layout=list&amp;num=50" class="urlextern" title="https://docs.google.com/leaf?id=0B07LcVZMfvdkZTc1MDA5MjUtZTMzYy00OGQzLWE5MjAtODFiN2RkMTJmNDQ5&amp;sort=name&amp;layout=list&amp;num=50"  rel="nofollow">HairyDairyMaid_WRT54G_Debrick_Utility_v48~cshore2.zip</a><br/>
+
+<a href="http://downloads.openwrt.org/utils/HairyDairyMaid_WRT54G_Debrick_Utility_v48.zip" class="urlextern" title="http://downloads.openwrt.org/utils/HairyDairyMaid_WRT54G_Debrick_Utility_v48.zip"  rel="nofollow">HairyDairyMaid_WRT54G_Debrick_Utility_v48.zip</a><br/>
+
+<a href="http://sourceforge.net/projects/zjtag/files/hairydairymaid/" class="urlextern" title="http://sourceforge.net/projects/zjtag/files/hairydairymaid/"  rel="nofollow">http://sourceforge.net/projects/zjtag/files/hairydairymaid/</a>
+</p>
+
+<p>
+<strong>Hairydairymaid variants:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="https://github.com/oxplot/tjtag-pi" class="urlextern" title="https://github.com/oxplot/tjtag-pi"  rel="nofollow">tjtag-pi</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://sourceforge.net/p/freetzlinux/code/HEAD/tree/trunk/wrtjp/" class="urlextern" title="http://sourceforge.net/p/freetzlinux/code/HEAD/tree/trunk/wrtjp/"  rel="nofollow">freetzlinux-wrtjp</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://sourceforge.net/projects/zjtag/files/" class="urlextern" title="http://sourceforge.net/projects/zjtag/files/"  rel="nofollow">zjtag</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://sourceforge.net/projects/zjtag/files/brjtag/" class="urlextern" title="http://sourceforge.net/projects/zjtag/files/brjtag/"  rel="nofollow">brjtag</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://sourceforge.net/projects/zjtag/files/TJTAG/" class="urlextern" title="http://sourceforge.net/projects/zjtag/files/TJTAG/"  rel="nofollow">tjtag</a> (AKA Tornado MOD)</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit17" id="urjtag">UrJTAG</h3>
+<div class="level3">
+
+<p>
+Another popular JTAG utility is <a href="http://openwince.sourceforge.net/jtag/" class="urlextern" title="http://openwince.sourceforge.net/jtag/"  rel="nofollow">Openwince JTAG</a>. But is no longer developed. In late 2007, development of the openwince JTAG tools has been resumed in a new project named <a href="http://urjtag.sourceforge.net" class="urlextern" title="http://urjtag.sourceforge.net"  rel="nofollow">UrJTAG</a>, with improvements like support for USB cables.
+</p>
+
+<p>
+<pre class="code">jtag&gt; print
+No. Manufacturer Part Stepping Instruction Register
+---------------------------------------------------------------------------------------------
+0 Lexra LX5280 1 BYPASS BR
+Active bus:
+*0: EJTAG compatible bus driver via PrAcc (JTAG part No. 0)
+start: 0x00000000, length: 0x20000000, data width: 8 bit
+start: 0x20000000, length: 0x20000000, data width: 16 bit
+start: 0x40000000, length: 0x20000000, data width: 32 bit</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit18" id="openocd">OpenOCD</h3>
+<div class="level3">
+
+<p>
+OpenOCD is more complex than Hairydairymaid or UrJTAG since it is mainly used for debugging. But it can be also used for debricking.
+</p>
+
+<p>
+<a href="http://openocd.sourceforge.net/" class="urlextern" title="http://openocd.sourceforge.net/"  rel="nofollow">http://openocd.sourceforge.net/</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit19" id="links">Links</h2>
+<div class="level2">
+
+</div>
+<div class="plugin_include_content plugin_include__meta:infobox:cleanup" id="plugin_include__meta__infobox__cleanup">
+<div class="level2">
+
+<p>
+
+<table class="inline" style="width:70%; margin-left:15%">
+  <tr>
+    <td style="border-left:6px solid #f57900; vertical-align:middle">
+      <img src="../../_media/meta/icons/tango/48px-cleanup.svg.png" alt="" style="float:left; margin-right:0.5em" />
+      <strong>Cleanup Required!</strong><br />
+      This page or section needs cleanup. You can <a href="port.jtag?do=edit">edit</a> this page to fix wiki markup, redundant content or outdated information.
+    </td>
+  </tr>
+</table>
+
+</p>
+
+</div>
+</div>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="http://downloads.openwrt.org/utils/" class="urlextern" title="http://downloads.openwrt.org/utils/"  rel="nofollow">http://downloads.openwrt.org/utils/</a> HairyDairyMaid_WRT54G_Debrick_Utility</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.linux-mips.org/wiki/JTAG" class="urlextern" title="http://www.linux-mips.org/wiki/JTAG"  rel="nofollow">EJTAG</a> at the Linux-MIPS Wiki</div>
+<ul>
+<li class="level2"><div class="li"> <a href="http://wiki.openwrt.org/oldwiki/target.ar7#jtag" class="wikilink2" title="oldwiki:target.ar7" rel="nofollow">AR7 (oldwiki)</a> some more on this subject</div>
+</li>
+<li class="level2"><div class="li"> <a href="http://ar7.wikispaces.com/JTAG" class="urlextern" title="http://ar7.wikispaces.com/JTAG"  rel="nofollow">AR7 JTAG</a></div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> <a href="http://forum.amilda.org/viewtopic.php?id=43" class="urlextern" title="http://forum.amilda.org/viewtopic.php?id=43"  rel="nofollow">Two examples</a> of successful Wiggler-style cable projects</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.imgtec.com/mips/docs/ejtag/mips-ejtag-app-01.00.pdf" class="urlextern" title="http://www.imgtec.com/mips/docs/ejtag/mips-ejtag-app-01.00.pdf"  rel="nofollow">EJTAG Specification</a> from MIPS Technologies, Inc. (Now a direct link to the pdf)</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://midge.vlad.org.ua/forum/viewtopic.php?t=121" class="urlextern" title="http://midge.vlad.org.ua/forum/viewtopic.php?t=121"  rel="nofollow">Debrick example</a> using OpenwinCE with EJTAG driver.</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://openwince.sourceforge.net/jtag/" class="urlextern" title="http://openwince.sourceforge.net/jtag/"  rel="nofollow">Openwince JTAG</a>, &quot;Supported hardware&quot; section for other types of the JTAG cables.</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.k9spud.com/jtag/" class="urlextern" title="http://www.k9spud.com/jtag/"  rel="nofollow">K9SPUD JTAG</a> another Wiggler schematic</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://ixo-jtag.sourceforge.net/" class="urlextern" title="http://ixo-jtag.sourceforge.net/"  rel="nofollow">USB JTAG</a> a budget USB JTAG adapter</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.asset-intertech.com/products/free_resources.htm" class="urlextern" title="http://www.asset-intertech.com/products/free_resources.htm"  rel="nofollow">FREE JTAG Resources</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.jtagtest.com/pinouts/" class="urlextern" title="http://www.jtagtest.com/pinouts/"  rel="nofollow">JTAG Pinouts</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.armkits.com/Product/jtagcable.asp" class="urlextern" title="http://www.armkits.com/Product/jtagcable.asp"  rel="nofollow">http://www.armkits.com/Product/jtagcable.asp</a></div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/hardware/port.jtag.txt</bdi> · Last modified: 2015/02/01 14:13 by <bdi>danitool</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="port.jtag?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="port.jtag?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="port.jtag?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="port.jtag#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahardware%253Aport.jtag&amp;1432265477" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

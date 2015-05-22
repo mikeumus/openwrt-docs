@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Fstab Configuration [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,uci,fstab"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="fstab?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:uci"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/uci/fstab"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/uci/fstab"/>
+<link rel="canonical" href="fstab"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:uci';var JSINFO = {"id":"doc:uci:fstab","namespace":"doc:uci"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432287771 166.182.3.7';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="fstab?s[]=fstab#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="fstab?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="fstab?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:uci:fstab" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="fstab?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="fstab?do=media&amp;ns=doc%253Auci"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="fstab?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../uci.1" class="wikilink1" title="doc:uci">The UCI System</a></bdi> » <bdi><span class="curid"><a href="fstab" class="wikilink1" title="doc:uci:fstab">Fstab Configuration</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/uci/fstab" class="media" title="cz:doc:uci:fstab"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/uci/fstab" class="media" title="de:doc:uci:fstab"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="fstab" class="media" title="doc:uci:fstab"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/uci/fstab" class="media" title="es:doc:uci:fstab"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/uci/fstab" class="media" title="fr:doc:uci:fstab"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/uci/fstab" class="media" title="hu:doc:uci:fstab"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/uci/fstab" class="media" title="jp:doc:uci:fstab"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/uci/fstab" class="media" title="pl:doc:uci:fstab"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/uci/fstab" class="media" title="pt-br:doc:uci:fstab"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../ru/doc/uci/fstab" class="media" title="ru:doc:uci:fstab"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/uci/fstab" class="media" title="tr:doc:uci:fstab"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../zh-cn/doc/uci/fstab" class="media" title="zh-cn:doc:uci:fstab"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/uci/fstab" class="media" title="zh-tw:doc:uci:fstab"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:uci:fstab</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="fstab?s[]=fstab#initial_configuration">Initial Configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="fstab?s[]=fstab#package_installation">Package Installation</a></div></li>
+<li class="level2"><div class="li"><a href="fstab?s[]=fstab#creating_initial_fstab_automatically">Creating Initial <span class="search_hit">fstab</span> Automatically</a></div></li>
+<li class="level2"><div class="li"><a href="fstab?s[]=fstab#enable_fstab_at_boot">Enable <span class="search_hit">fstab</span> at Boot</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="fstab?s[]=fstab#configuration">Configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="fstab?s[]=fstab#example_configuration">Example Configuration</a></div></li>
+<li class="level2"><div class="li"><a href="fstab?s[]=fstab#automount">Automount</a></div></li>
+<li class="level2"><div class="li"><a href="fstab?s[]=fstab#autoswap">Autoswap</a></div></li>
+<li class="level2"><div class="li"><a href="fstab?s[]=fstab#mounting_filesystem">Mounting Filesystem</a></div></li>
+<li class="level2"><div class="li"><a href="fstab?s[]=fstab#adding_swap_partitions">Adding Swap Partitions</a></div></li>
+<li class="level2"><div class="li"><a href="fstab?s[]=fstab#the_right_amount_of_swap">The right amount of SWAP</a></div></li>
+<li class="level2"><div class="li"><a href="fstab?s[]=fstab#supersizingtmp_directory">Supersizing /tmp directory</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="fstab?s[]=fstab#troubleshooting">Troubleshooting</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="fstab?s[]=fstab#sleep_before_startup">Sleep before startup</a></div></li>
+<li class="level2"><div class="li"><a href="fstab?s[]=fstab#fstab_does_not_mount_partition_on_boot"><span class="search_hit">Fstab</span> does not mount partition on boot</a></div></li>
+<li class="level2"><div class="li"><a href="fstab?s[]=fstab#wait_for_mount_is_done">Wait for mount is done</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="fstab?s[]=fstab#notes">Notes</a></div></li>
+<li class="level1"><div class="li"><a href="fstab?s[]=fstab#uuid_or_label_mount">UUID or Label mount</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="fstab_configuration"><span class="search_hit">Fstab</span> Configuration</h1>
+<div class="level1">
+
+<p>
+The <a href="http://en.wikipedia.org/wiki/Fstab" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Fstab"><span class="search_hit">Fstab</span></a>, or <strong>f</strong>ile <strong>s</strong>ystems <strong>tab</strong>le, is a central configuration that defines how file systems (usually on block devices) should be mounted if requested (such as on booting the device or connecting it physically). This way, you don&#039;t have to manually mount your devices when you want to access them. The mounting configuration can consist of static file systems but also swap partitions. The <span class="search_hit">fstab</span> <a href="../uci.1" class="wikilink1" title="doc:uci">UCI</a> configuration file is where all the options for all devices and file systems to be mounted are defined and is located at… <pre class="code">/etc/config/<span class="search_hit">fstab</span></pre>
+
+</p>
+
+<p>
+The package <strong><code>block-mount</code></strong> (see <a href="../techref/block_mount" class="wikilink1" title="doc:techref:block_mount">block_mount</a> for details) contains several scripts necessary for mounting the entries in this configuration. For example, block-mount contains scripts that run the mounting process at boot or upon insertion of a USB hot-plug storage device, all according to the specified <span class="search_hit">Fstab</span> configuration. It also contains the <a href="../howto/extroot" class="wikilink1" title="doc:howto:extroot">Extroot</a> load script. This article explains how the UCI <span class="search_hit">Fstab</span> configuration should be configured.
+</p>
+
+<p>
+Please read the <a href="fstab?s[]=fstab#notes" title="doc:uci:fstab ↵" class="wikilink1">Notes</a> before proceeding. Also read <a href="../howto/storage" class="wikilink1" title="doc:howto:storage">Storage</a> for general information on partitioning devices, formatting and mounting file systems manually. 
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> BTRFS, JFS, UBI, XFS and potentially other (F2FS…) are not supported in /etc/config/<span class="search_hit">fstab</span>. Use manual scripting.
+</p>
+<div class="table sectionedit2"><table class="inline">
+	<tr class="row0">
+		<td class="col0 rightalign">  <img src="../../_media/meta/icons/tango/48px-outdated.svg.png" class="media" alt="" /> </td><td class="col1 leftalign"> In <a href="https://dev.openwrt.org/changeset/36988" class="urlextern" title="https://dev.openwrt.org/changeset/36988"  rel="nofollow">r36988</a> the package <code>block-mount</code> was changed. For <span class="search_hit">fstab</span> functionality, the new block-mount package now contains the executable <code>block</code> which facilitates mounting. The new package <code><a href="../techref/ubox" class="wikilink1" title="doc:techref:ubox">ubox</a></code> which is automatically installed as dependency of <code>block-mount</code> replaced its mounting functionality. You can run <code>block &lt;info|mount|umount|detect&gt;</code>.  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit3" id="initial_configuration">Initial Configuration</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit4" id="package_installation">Package Installation</h3>
+<div class="level3">
+
+<p>
+The package <strong><code>block-mount</code></strong> is required for <span class="search_hit">fstab</span> functionality. Its functionality is now provided by <code><a href="../techref/ubox" class="wikilink1" title="doc:techref:ubox">ubox</a></code>. It is set up as a standard <a href="../techref/initscripts" class="wikilink1" title="doc:techref:initscripts">init.d</a> configuration:
+</p>
+<ol>
+<li class="level1"><div class="li"> Install <pre class="code">opkg update
+opkg install block-mount </pre>
+</div>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit5" id="creating_initial_fstab_automatically">Creating Initial <span class="search_hit">fstab</span> Automatically</h3>
+<div class="level3">
+
+<p>
+After <a href="https://dev.openwrt.org/changeset/36988" class="urlextern" title="https://dev.openwrt.org/changeset/36988"  rel="nofollow">r36988</a>, when installing <code>block-mount</code>, you can use the new <code>block</code> utility. Call <code>block detect</code> to get a sample <a href="../uci.1" class="wikilink1" title="doc:uci">UCI</a> configuration file. You can change this to your liking. 
+</p>
+
+<p>
+You can quickly install this standard configuration using:
+<pre class="code">block detect &gt; /etc/config/<span class="search_hit">fstab</span></pre>
+
+</p>
+
+<p>
+Next, edit your <span class="search_hit">fstab</span>, as per the configuration below:
+<pre class="code">vi /etc/config/<span class="search_hit">fstab</span></pre>
+
+</p>
+
+<p>
+If the mount target is <code>/</code> then it will be used as external root upon boot. See <a href="../howto/extroot" class="wikilink1" title="doc:howto:extroot">Extroot</a> for more information. Running <code>block info</code> is also valid to get the uuid of different file systems. Also see this guide: <a href="../techref/block_mount" class="wikilink1" title="doc:techref:block_mount">block_mount</a> for technical details of the mounting process and scripts involved.
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="enable_fstab_at_boot">Enable <span class="search_hit">fstab</span> at Boot</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> enable (make it start automatically on every boot up) <pre class="code">/etc/init.d/<span class="search_hit">fstab</span> enable</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> and start (right now) <pre class="code">block mount</pre>
+</div>
+</li>
+</ol>
+
+<p>
+Whenever you change your configuration, restart this to make it take effect: <pre class="code">block umount;block mount</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="configuration">Configuration</h2>
+<div class="level2">
+
+<p>
+The configuration file consists of mount sections defining file systems to be mounted and swap partitions to be activated.
+</p>
+
+</div>
+
+<h3 class="sectionedit8" id="example_configuration">Example Configuration</h3>
+<div class="level3">
+
+<p>
+A sample configuration looks as follows:
+<pre class="code">#### Global options
+
+config &#039;global&#039;
+        # mount swap devices that don&#039;t have their own config section
+        option  anon_swap       &#039;0&#039;
+        # mount block devices that don&#039;t have their own config section   
+        option  anon_mount      &#039;0&#039;
+        # automatically mount block devices when they appear
+        option  auto_swap       &#039;1&#039;
+        # automatically mount swap devices when they appear
+        option  auto_mount      &#039;1&#039;
+        # wait X seconds before trying to mount root devices on boot
+        option  delay_root      &#039;0&#039;
+        # run e2fsck on device prior to a mount
+        option  check_fs        &#039;0&#039;
+
+#### Mount sections. Note that partitions/devices can either be defined it by their device file,
+#### mount point or UUID (or more at the same time).
+
+# a swap partition
+config &#039;swap&#039;
+        option  device  &#039;sda1&#039;
+        option  uuid    &#039;d3c87695-886f-4579-ae94-0a3bb3eb6046&#039;
+
+# a swap file
+config &#039;swap&#039;
+        option  device  &#039;/mnt/shared/swap&#039;
+
+# a swap device by label (mkswap -L swap /dev/sdb2)
+config &#039;swap&#039;
+        option  label &#039;swap&#039;
+
+# a pivot overlay device (ext4) for extroot
+config &#039;mount&#039;
+        option  target  &#039;/overlay&#039;
+        option  uuid    &#039;998d4bfc-81b5-469a-be2a-999ed2b81d88&#039;
+
+# and a data partition (vfat)
+config &#039;mount&#039;
+        option  target  &#039;/data&#039;
+        option  uuid    &#039;e10e-6812&#039;</pre>
+
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> the sections below are often related to old versions before trunk r36988. <img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" />
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="automount">Automount</h3>
+<div class="level3">
+
+<p>
+There is one <code>global</code> section named <code>automount</code> which defines the hotplug automounting behaviour.
+</p>
+
+<p>
+This example is included by default:
+</p>
+<div class="table sectionedit10"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;global&#039; &#039;automount&#039;
+        option &#039;from_<span class="search_hit">fstab</span>&#039; &#039;1&#039;
+        option &#039;anon_mount&#039; &#039;1&#039;
+</code> </td>
+	</tr>
+</table></div>
+
+<p>
+The <code>automount</code> section contains these settings:
+</p>
+<div class="table sectionedit11"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>from_<span class="search_hit">fstab</span></code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>1</code> </td><td class="col4"> Whether to use <code>mount</code> sections when doing hotplug mounts </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>anon_mount</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>1</code> </td><td class="col4"> When using hotplug mounts, whether to automatically mount filesystems not defined in a <code>mount</code> section under /mnt/$device </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit12" id="autoswap">Autoswap</h3>
+<div class="level3">
+
+<p>
+There is one <code>global</code> section named <code>autoswap</code> which defines the hotplug auto swap behaviour.
+</p>
+
+<p>
+This example is included by default:
+</p>
+<div class="table sectionedit13"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;global&#039; &#039;autoswap&#039;
+        option &#039;from_<span class="search_hit">fstab</span>&#039; &#039;1&#039;
+        option &#039;anon_swap&#039; &#039;0</code>&#039; </td>
+	</tr>
+</table></div>
+
+<p>
+The <code>autoswap</code> section contains these settings:
+</p>
+<div class="table sectionedit14"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>from_<span class="search_hit">fstab</span></code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>1</code> </td><td class="col4"> Whether to use <code>swap</code> sections when doing hotplug swap on </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>anon_swap</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> When using hotplug swapon, whether to automatically swapon devices not defined in a <code>swap</code> section </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit15" id="mounting_filesystem">Mounting Filesystem</h3>
+<div class="level3">
+
+<p>
+Each <code>mount</code> section defines a filesystem to be mounted at boot. Filesystems must be formatted before they can be used.
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <code>mount</code> section can not be renamed by user (such as &quot;storage&quot; instead of &quot;mount&quot;).
+</p>
+
+<p>
+This example is included by default:
+</p>
+<div class="table sectionedit16"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;mount&#039;
+        option &#039;target&#039;   &#039;/home&#039;
+        option &#039;device&#039;   &#039;/dev/sda1&#039;
+        option &#039;fstype&#039;   &#039;ext4&#039;
+        option &#039;options&#039;  &#039;rw,sync&#039;
+        option &#039;enabled&#039;  &#039;0&#039;
+        option &#039;enabled_fsck&#039; &#039;0</code>&#039; </td>
+	</tr>
+</table></div>
+
+<p>
+The <code>mount</code> section contains these settings:
+</p>
+<div class="table sectionedit17"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>device</code> </td><td class="col1"> string </td><td class="col2"> yes or <code>uuid</code> or <code>label</code> </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Device (partition) to mount the filesystem from.  If <code>uuid</code> or <code>label</code> are specified, they are used, rather than <code>device</code>. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>uuid</code> </td><td class="col1"> string </td><td class="col2"> yes or <code>device</code> or <code>label</code> </td><td class="col3"> <em>(none)</em> </td><td class="col4"> UUID of device (partition) to mount the filesystem from, as shown by <code>blkid</code>.  If <code>uuid</code> is present in the <code>mount</code> section, it is used in preference to <code>label</code> or <code>device</code>. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>label</code> </td><td class="col1"> string </td><td class="col2"> yes or <code>device</code> or <code>uuid</code> </td><td class="col3"> <em>(none)</em> </td><td class="col4"> LABEL of device (partition) to mount the filesystem from, as shown by <code>blkid</code>.  If <code>uuid</code> is present in the <code>mount</code> section, it takes precedence.  <code>label</code> takes precedence over <code>device</code>.</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>enabled</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>1</code> </td><td class="col4"> Whether to mount this filesystem automatically at boot. </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>fstype</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>auto</code> </td><td class="col4"> Type of the filesystem (i.e. <code>ext3</code>). <a href="https://forum.openwrt.org/viewtopic.php?id=32812" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=32812"  rel="nofollow">remote file systems</a> </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>options</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>rw</code> </td><td class="col4"> Mount options for this filesystem. </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <code>target</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Target directory to mount the filesystem onto.  After <a href="https://dev.openwrt.org/changeset/25787/trunk" class="urlextern" title="https://dev.openwrt.org/changeset/25787/trunk"  rel="nofollow">trunk r25787</a> specifying <code>&#039;/overlay</code>&#039; here means this filesystem will be mounted as the overlay-based rootfs, while after <a href="https://dev.openwrt.org/changeset/26109/trunk" class="urlextern" title="https://dev.openwrt.org/changeset/26109/trunk"  rel="nofollow">trunk r26109</a> specifying <code>&#039;/</code>&#039; here means the filesystem will be mounted as regular rootfs (that is not overlay-based) (see <a href="../howto/extroot" class="wikilink1" title="doc:howto:extroot">extroot</a>). Neither <code>&#039;/</code>&#039; nor <code>&#039;/overlay</code>&#039; aplies to Backfire. </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <code>enabled_fsck</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Whether to automatically check for/repair errors before mounting the filesystem. </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <code>is_rootfs</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> »Please read the particular article <strong><a href="../howto/extroot" class="wikilink1" title="doc:howto:extroot">extroot</a></strong> for this functionality!«<br/>
+<img src="../../_media/meta/icons/tango/48px-outdated.svg.png?w=24&amp;tok=3f2da0" class="media" alt="" width="24" /> deprecated after <a href="https://dev.openwrt.org/changeset/25787/trunk" class="urlextern" title="https://dev.openwrt.org/changeset/25787/trunk"  rel="nofollow">trunk r25787</a>, still needed in Backfire.<br/>
+<strong>Before r25787 it is required for block-extroot mounts </strong> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit18" id="adding_swap_partitions">Adding Swap Partitions</h3>
+<div class="level3">
+
+<p>
+Each <code>swap</code> section defines a swap partition to be activated at boot.<br/>
+
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Swap partitions must be formatted before they can be used and the <code>swap-utils</code> package needs to be installed!<br/>
+
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Swap partitions must be first defined (i.e. formatted and hex type 82 (LINUX_SWAP) selected as its partition type) using the <code>mkswap /dev/device</code> command!
+</p>
+
+<p>
+This example is included by default:
+</p>
+<div class="table sectionedit19"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;swap&#039;
+        option &#039;device&#039;   &#039;/dev/sda2&#039;
+        option &#039;enabled&#039;  &#039;0</code>&#039; </td>
+	</tr>
+</table></div>
+
+<p>
+The <code>swap</code> section contains these settings:
+</p>
+<div class="table sectionedit20"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>device</code> </td><td class="col1"> string </td><td class="col2"> yes or <code>uuid</code> or <code>label</code> </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Device (partition) to mount the swap from. <code>uuid</code> and <code>label</code> take precedence </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>uuid</code> </td><td class="col1"> string </td><td class="col2"> yes or <code>device</code> or <code>label</code> </td><td class="col3"> <em>(none)</em> </td><td class="col4"> UUID of device (partition) to mount the swap from, as shown by blkid.  If uuid is present in the <code>mount</code> section, it is used in preference to <code>label</code> or <code>device</code>. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>label</code> </td><td class="col1"> string </td><td class="col2"> yes or <code>device</code> or <code>uuid</code> </td><td class="col3"> <em>(none)</em> </td><td class="col4"> LABEL of device (partition) to mount the swap from, as shown by blkid.  If uuid is present in the <code>mount</code> section, it takes precedence.  <code>label</code> takes precedence over <code>device</code>.</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>enabled</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>1</code> </td><td class="col4"> Whether to activate this swap partition automatically at boot. </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit21" id="the_right_amount_of_swap">The right amount of SWAP</h3>
+<div class="level3">
+
+<p>
+If you ask people or search the net, you will find as a general rule of thumb <em>double RAM</em> for machines with 512MiB of RAM or less than, and <em>same amount as RAM</em> for machines with more. But this very rough estimate does apply for your embedded device! Be aware that there are exactly two differences between RAM and SWAP, that matter: the <strong>access time</strong> and the <strong>price</strong>. A CUPS spooling server will run just fine, when only SWAP is available, whereas some applications may perform very poorly when their data it stored on the SWAP rather then being kept in the &quot;real&quot; RAM. The decision which data is kept in the RAM and which is stored on the SWAP is made by the system. As explained here <a href="http://wiki.debianforum.de/LinuxSpeichermanagement#head-9146624b4965952684a04aeaad765ab62896c711" class="urlextern" title="http://wiki.debianforum.de/LinuxSpeichermanagement#head-9146624b4965952684a04aeaad765ab62896c711"  rel="nofollow">Debian Forum (german)</a> since Kernel 2.6 you can define the <code>swapiness</code> of your system:
+</p>
+
+<p>
+<pre class="code">root@OpenWrt:~# sysctl -w vm.swappiness=60
+root@OpenWrt:~# echo 60 &gt; /proc/sys/vm/swappiness</pre>
+
+</p>
+
+<p>
+In contrast to other operating systems, Linux makes ample use of memory, so that your system runs smoother and more efficiently. If memory is then needed by an application, the system will unload stuff again, and make memory available. For OpenWrt, let us just say to use as much SWAP-Space as <em>needed</em> by your applications running. If this should not perform well, because of the poor access time, it would not help to decrease the amount of SWAP, but only to run fewer services at the same time or increase the amount of RAM with a soldering iron <img src="../../lib/images/smileys/icon_wink.gif" class="icon" alt=";-)" />
+</p>
+
+<p>
+OpenWrt vanilla will run just fine, with no SWAP at all. But after you installed a couple of applications, you could try to mount a SWAP-Partition and see what is does for you. Do not worry, you can not brake anything by doing that. The manual commands are <code>swapon /dev/sdaX</code> to mount respectivly <code>swapoff /dev/sdaX</code> to unmount. Type in <code>free</code> to see the usage of memory:
+</p>
+
+<p>
+<pre class="code">root@OpenWrt:~# free
+              total         used         free       shared      buffers
+  Mem:        29484        28540          944            0         1116
+ Swap:       524280         2336       521944
+Total:       553764        30876       522888</pre>
+
+</p>
+
+<p>
+In this example there is 32MiB of RAM and 512MiB of SWAP. SWAP is a SWAP-formated 512MiB-Partition on a large USB-Harddisk. In this example, only 2MiB of swap are being used! And you do not see here, that actually a TMPFS-Directory is allowed to use as much as half the RAM. Use <code>df</code> to see that:
+<pre class="code">root@OpenWrt:~# df  
+Filesystem           1K-blocks      Used Available Use% Mounted on
+/dev/root                 1280      1280         0 100% /rom
+tmpfs                    14744       116     14628   1% /tmp       &lt;= //Up to 14MiB of RAM may be used here, the//
+tmpfs                      512         0       512   0% /dev         //tmpfs directories grow and shrink with usage!//
+/dev/mtdblock3            5440      4988       452  92% /overlay
+mini_fo:/overlay          1280      1280         0 100% /
+/dev/sda2              2709204     86276   2485284   3% /mnt/sda2
+/dev/sda3              7224600    147320   6710196   2% /mnt/sda3</pre>
+
+</p>
+
+<p>
+In this example, it would probably perform better, to mount the /tmp-directory on the USB-Harddisk and not use TMPFS at all, rather than using a 512MiB-Swap Partition. But you can also see, that <code>overlay</code> has only 8% space left to install programs on. So in this example it would be even better to use the exroot option. See <a href="../howto/extroot" class="wikilink1" title="doc:howto:extroot">extroot</a>
+for that.
+</p>
+
+</div>
+
+<h3 class="sectionedit22" id="supersizingtmp_directory">Supersizing /tmp directory</h3>
+<div class="level3">
+
+<p>
+If you want to store large amount of data in your <code>/tmp</code> folder you may hit size limit of tmpfs partitions, which is by default 50 % of your RAM. Because your RAM size is limited and probably better utilized by applications, you want the files in <code>/tmp</code> to be moved to swap as soon as applications need more RAM for themself.
+</p>
+<ol>
+<li class="level1"><div class="li"> We will remove the limit of 50 % of RAM. You can set <code>size</code> parameter to the size of your swap.</div>
+<ul>
+<li class="level2"><div class="li"> temporarily: <pre class="code">mount -t tmpfs -o remount,rw,nosuid,nodev,noatime,size=256M tmpfs /tmp</pre>
+</div>
+</li>
+<li class="level2"><div class="li"> permanently in <code>/etc/config/<span class="search_hit">fstab</span></code>:<pre class="code">config &#039;mount&#039;
+  option &#039;target&#039; &#039;/tmp&#039;
+  option &#039;device&#039; &#039;tmpfs&#039;
+  option &#039;fstype&#039; &#039;tmpfs&#039;
+  option &#039;options&#039; &#039;remount,rw,nosuid,nodev,noatime,size=256M&#039;
+  option &#039;enabled_fsck&#039; &#039;0&#039;
+  option &#039;enabled&#039; &#039;1&#039;</pre>
+</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> And we will set <code>/tmp</code> files to be more likely swapped than applications in RAM. </div>
+<ul>
+<li class="level2"><div class="li"> temporarily: <pre class="code">echo 5 &gt; /proc/sys/vm/swappiness</pre>
+</div>
+</li>
+<li class="level2"><div class="li"> permanently: <pre class="code">sysctl -w vm.swappiness=5</pre>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+
+<p>
+You can revert the changes by:
+<pre class="code">mount -t tmpfs -o remount,rw,nosuid,nodev,noatime,size=50% tmpfs /tmp</pre>
+
+<pre class="code">echo 60 &gt; /proc/sys/vm/swappiness</pre>
+
+<pre class="code">sysctl -w vm.swappiness=60</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit23" id="troubleshooting">Troubleshooting</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit24" id="sleep_before_startup">Sleep before startup</h3>
+<div class="level3">
+
+<p>
+I installed the packages, enabled the <span class="search_hit">fstab</span>, and changed my <span class="search_hit">fstab</span> config file. When I restart, the drive does NOT show up.  I can issue an <code>/etc/init.d/<span class="search_hit">fstab</span> start</code> and I get an error that it can&#039;t find a file (<code>/tmp/<span class="search_hit">fstab</span></code>) but the drive mounts. I took the advice from this posting <a href="https://forum.openwrt.org/viewtopic.php?id=27210" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=27210"  rel="nofollow">https://forum.openwrt.org/viewtopic.php?id=27210</a> and put &quot;sleep 15&quot; in the start function of the <code>/etc/init.d/<span class="search_hit">fstab</span></code> file.  (I&#039;m using a USB stick) That fixed the problem.
+</p>
+<div class="table sectionedit25"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>start() {
+        sleep 15
+        config_load <span class="search_hit">fstab</span>
+        mkdir -p /var/lock
+        lock /var/lock/<span class="search_hit">fstab</span>.lck
+        #echo &#039;# WARNING: this is an auto generated file, please use uci to set defined filesystems&#039; &gt; /etc/<span class="search_hit">fstab</span>
+        lock -u /var/lock/<span class="search_hit">fstab</span>.lck
+        config_foreach do_mount mount
+        config_foreach do_swapon swap
+}</code> </td>
+	</tr>
+</table></div>
+
+<p>
+<a href="https://forum.openwrt.org/viewtopic.php?id=28311" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=28311"  rel="nofollow">https://forum.openwrt.org/viewtopic.php?id=28311</a>
+</p>
+
+<p>
+This may be obsolete for Barier Breaker since block-mount suports option delay_root (wait X seconds before trying to mount root devices on boot) <img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" />
+</p>
+
+</div>
+
+<h3 class="sectionedit26" id="fstab_does_not_mount_partition_on_boot"><span class="search_hit">Fstab</span> does not mount partition on boot</h3>
+<div class="level3">
+
+<p>
+<strong>Symptoms</strong>: You can mount your partition with <code>mount -t ext4 /dev/sda1 /mnt -o rw,sync</code>, but <span class="search_hit">fstab</span> won&#039;t mount it automatically on reboot. You are using Backfire or older version.
+</p>
+
+<p>
+<strong>Solution</strong>: Despite you have installed <code>block-mount</code> try to install <code>block-hotplug</code> separately:
+</p>
+
+<p>
+<pre class="code">opkg update
+opkg install block-hotplug</pre>
+
+</p>
+
+<p>
+<strong>Note</strong>: This may or may not apply also to <code>block-extroot</code>. This problem should not occur in Attitude Adjustment.
+</p>
+
+</div>
+
+<h3 class="sectionedit27" id="wait_for_mount_is_done">Wait for mount is done</h3>
+<div class="level3">
+
+<p>
+<strong>Symptoms</strong>: When you use <span class="search_hit">fstab</span> to mount external drives that are used by transmission, samba or etc, you can face with issue of late mount. It means that transmission could start earlier when <code>block-mount</code> finishes mounting <span class="search_hit">fstab</span>. In this case transmission tries to look up for directories, can&#039;t find and create it in root fs under your mount point folder.
+</p>
+
+<p>
+<strong>Solution</strong>: Usually is needed to postpone starting transmission, samba or other daemons on start. It could be done by following script:
+</p>
+
+<p>
+<pre class="code">#!/bin/sh /etc/rc.common
+
+START=41
+TIMEOUT=60
+
+start()
+{
+        idx=0
+        res=`uci -q get <span class="search_hit">fstab</span>.@mount[$idx].enabled`
+        while [ $? -eq 0 ];
+        do
+                if [ $res -ne 0 ]
+                then
+                        res=`uci -q get <span class="search_hit">fstab</span>.@mount[$idx].wait4mounted`
+                        if [ $? -ne 0 ] || [ $res -ne 0 ]
+                        then
+                                res=`uci -q get <span class="search_hit">fstab</span>.@mount[$idx].target`
+                                mnt=$(printf &#039;%s\n%s&#039; $mnt $res)
+                        fi
+                fi
+
+                idx=$(($idx+1))
+                res=`uci -q get <span class="search_hit">fstab</span>.@mount[$idx].enabled`
+        done
+
+        notReady=&quot;all&quot;
+        timeout=$TIMEOUT
+
+        while [ -n &quot;$notReady&quot; ] &amp;&amp; [ $timeout -gt 0 ];
+        do
+                if [ &quot;$notReady&quot; != &quot;all&quot; ]
+                then
+                        sleep 5
+                        timeout=$(($timeout-5))
+                fi
+
+                notReady=&quot;&quot;
+
+                for m in $mnt; do
+                        res=`mount | grep -iw $m`
+                        if [ -z &quot;$res&quot; ]
+                        then
+                                notReady=$(printf &#039;%s %s&#039; $notReady $m)
+                        fi
+                done
+        done
+
+        if [ -n &quot;$notReady&quot; ]
+        then
+                echo &quot;Following mount points were not ready during $TIMEOUT seconds: $notReady&quot;
+                exit 1
+        fi
+
+        exit 0
+}</pre>
+
+</p>
+
+<p>
+<strong>Steps to make it works</strong>:
+</p>
+<ol>
+<li class="level1"><div class="li"> goto <code>/etc/init.d</code> folder</div>
+</li>
+<li class="level1"><div class="li"> create file <code>wait4mount</code> and put script above</div>
+</li>
+<li class="level1"><div class="li"> run <code>chmod 755 wait4mount</code> to make it executable</div>
+</li>
+<li class="level1"><div class="li"> run <code>/etc/init.d/wait2mount enable</code> to enable it on start</div>
+</li>
+</ol>
+
+<p>
+<strong>How does it work?</strong>
+Script runs just after <code><span class="search_hit">fstab</span></code> script, reads from <code>/etc/config/<span class="search_hit">fstab</span></code> entries <code>config mount</code>, checks if entry enabled and waits for mount points will be ready. If some of them will not be ready during 60 seconds, script exits with message what mount points were not ready.
+</p>
+
+<p>
+In case you want to wait only for one mounting point, you can use <code>option wait4mounted 1|0</code>. By default, <code>wait4mounted=1</code>.
+</p>
+
+<p>
+<strong>Example:</strong>
+<pre class="code">config &#039;global&#039;
+        option  anon_swap       &#039;0&#039;
+        option  anon_mount      &#039;0&#039;
+        option  auto_swap       &#039;1&#039;
+        option  auto_mount      &#039;1&#039;
+        option  delay_root      &#039;5&#039;
+        option  check_fs        &#039;0&#039;
+
+# By default, script will wait for &#039;/home&#039;
+config mount
+        option target   /home
+        option uuid     4b76ee08-eaa5-4288-8cb1-c2ca26c594bd
+        option fstype   ext4
+        option options  rw,sync
+        option enabled  1
+
+# Script doesn&#039;t care about &#039;/home2&#039; because of &#039;wait4mounted=0&#039;
+config mount
+        option target   /home2
+        option uuid     a09273df-0dd6-4526-b7ba-181283e45e5a
+        option fstype   ext4
+        option options  rw,sync
+        option enabled  1
+        option wait4mounted 0
+
+# Script doesn&#039;t care about &#039;/raid1&#039; because of &#039;enabled=0&#039; and &#039;wait4mounted&#039; was ignored
+config mount
+       option target   /raid1
+       option uuid     beb33a09-e6a9-40d4-891e-b09535104572
+       option fstype   ext4
+       option options  rw,sync
+       option enabled  0
+</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit28" id="notes">Notes</h2>
+<div class="level2">
+<div class="table sectionedit29"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>block-mount</code>: Scripts used to mount and check block devices (file systems and swap), as well as hotplug scripts to automount and check block devices when hotplug event (e.g. from plugging in a device) occurs. Also includes preinit scripts for mounting a block device as the root filesystem. This allows one to have the root filesystem on devices other than the built in flash device.</td>
+	</tr>
+</table></div>
+<div class="table sectionedit30"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/48px-outdated.svg.png" class="media" alt="" /> </td><td class="col1 leftalign"> As of <a href="https://dev.openwrt.org/changeset/26314/trunk" class="urlextern" title="https://dev.openwrt.org/changeset/26314/trunk"  rel="nofollow">trunk r26314</a> <code>block-extroot</code> and <code>block-hotplug</code> have been merged with <strong><code>block-mount</code></strong>, they&#039;re still separate in Backfire.  </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/48px-outdated.svg.png" class="media" alt="" /> </td><td class="col1"> In the OpenWrt &#039;Backfire&#039; 10.03 release there is a bug. Solution is: <code>vi /etc/init.d/<span class="search_hit">fstab</span></code> and put a <code>#</code> in front of the line: <pre class="code">echo &#039;# WARNING: this is an auto generated file, please use UCI to set defined filesystems&#039; &gt; /etc/<span class="search_hit">fstab</span></pre>
+ This creates the file <code>/etc/<span class="search_hit">fstab</span></code> and thus prevents creating a symlink to <code>/tmp/<span class="search_hit">fstab</span></code>. In order for UCI to work, there need to be symlink! In case the bug has already taken place, delete /etc/<span class="search_hit">fstab</span> and then type this code to busybox. <pre class="code">ln -s /tmp/<span class="search_hit">fstab</span> /etc/<span class="search_hit">fstab</span></pre>
+ It will create a symlink to the /tmp/<span class="search_hit">fstab</span> file, fixing the bug completely. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/48px-outdated.svg.png" class="media" alt="" /> </td><td class="col1"> In the OpenWrt &#039;Backfire&#039; 14.07 release, the tmpfs resize option via <span class="search_hit">fstab</span> config does not work</td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit31" id="uuid_or_label_mount">UUID or Label mount</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> remove mount, umount provided by BusyBox</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">rm /bin/mount
+rm /bin/umount</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> install mount-utils</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">opkg update
+opkg install mount-utils</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> find UUID or Label</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">blkid /dev/sda1</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> mount a disk</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">mount LABEL=xxx /mnt
+mount UUID=xxx /mnt</pre>
+
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/uci/fstab.txt</bdi> · Last modified: 2015/01/30 18:05 by <bdi>andreas85</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="fstab?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="fstab?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="fstab?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="fstab?s[]=fstab#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="http://wiki.openwrt.org/lib/exe/indexer.php?id=doc%3Auci%3Afstab&amp;1432287771" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

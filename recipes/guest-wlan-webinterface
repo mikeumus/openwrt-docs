@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Configure a guest WLAN using the Luci web-interface [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,recipes,guest-wlan-webinterface"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="guest-wlan-webinterface?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:recipes"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/recipes/guest-wlan-webinterface"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/recipes/guest-wlan-webinterface"/>
+<link rel="canonical" href="guest-wlan-webinterface"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:recipes';var JSINFO = {"id":"doc:recipes:guest-wlan-webinterface","namespace":"doc:recipes"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267147 166.182.3.14';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="guest-wlan-webinterface#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="guest-wlan-webinterface?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="guest-wlan-webinterface?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:recipes:guest-wlan-webinterface" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="guest-wlan-webinterface?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="guest-wlan-webinterface?do=media&amp;ns=doc%253Arecipes"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="guest-wlan-webinterface?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:recipes:start">Recipes</a></bdi> » <bdi><span class="curid"><a href="guest-wlan-webinterface" class="wikilink1" title="doc:recipes:guest-wlan-webinterface">Configure a guest WLAN using the Luci web-interface</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/recipes/guest-wlan-webinterface" class="media" title="cz:doc:recipes:guest-wlan-webinterface"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/recipes/guest-wlan-webinterface" class="media" title="de:doc:recipes:guest-wlan-webinterface"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="guest-wlan-webinterface" class="media" title="doc:recipes:guest-wlan-webinterface"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/recipes/guest-wlan-webinterface" class="media" title="es:doc:recipes:guest-wlan-webinterface"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/recipes/guest-wlan-webinterface" class="media" title="fr:doc:recipes:guest-wlan-webinterface"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/recipes/guest-wlan-webinterface" class="media" title="hu:doc:recipes:guest-wlan-webinterface"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/recipes/guest-wlan-webinterface" class="media" title="jp:doc:recipes:guest-wlan-webinterface"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/recipes/guest-wlan-webinterface" class="media" title="pl:doc:recipes:guest-wlan-webinterface"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/recipes/guest-wlan-webinterface" class="media" title="pt-br:doc:recipes:guest-wlan-webinterface"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/recipes/guest-wlan-webinterface" class="media" title="ru:doc:recipes:guest-wlan-webinterface"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/recipes/guest-wlan-webinterface" class="media" title="tr:doc:recipes:guest-wlan-webinterface"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/recipes/guest-wlan-webinterface" class="media" title="zh-cn:doc:recipes:guest-wlan-webinterface"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/recipes/guest-wlan-webinterface" class="media" title="zh-tw:doc:recipes:guest-wlan-webinterface"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:recipes:guest-wlan-webinterface</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="guest-wlan-webinterface#create_and_configure_a_new_wireless_controller">Create and configure a new wireless controller</a></div></li>
+<li class="level1"><div class="li"><a href="guest-wlan-webinterface#configure_the_new_interface">Configure the new interface</a></div></li>
+<li class="level1"><div class="li"><a href="guest-wlan-webinterface#configure_the_firewall">Configure the firewall</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="configure_a_guest_wlan_using_the_luci_web-interface">Configure a guest WLAN using the Luci web-interface</h1>
+<div class="level1">
+
+<p>
+Guest WLAN provides internet access to your network members. It also provides firewall security rules to isolate your guest network from the rest. This recipe is based on the more comprehensive <a href="guest-wlan" class="wikilink1" title="doc:recipes:guest-wlan">Guest WLAN page</a>, providing a more user-friendly approach through the Luci web-interface.
+</p>
+
+<p>
+Note that all MAC addresses have been erased from the screenshots.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="create_and_configure_a_new_wireless_controller">Create and configure a new wireless controller</h2>
+<div class="level2">
+
+<p>
+After logging into the web-interface, manoeuvre to the <strong>Wifi</strong> page under <strong>Network</strong>. Click <strong>Add</strong> over the wireless controller (e.g., the 2.4 <abbr title="Gigahertz">GHz</abbr> radio) you want to have your guest network on. A new interface will be added as shown here:
+<br/>
+<br/>
+<a href="../../_detail/doc/recipes/createwireless.png?id=doc%253Arecipes%253Aguest-wlan-webinterface" class="media" title="doc:recipes:createwireless.png"><img src="../../_media/doc/recipes/createwireless.png" class="media" alt="" /></a><br/>
+<br/>
+<br/>
+
+As you can see, our new wireless controller is created, and we named it guest. Next up is configuring it. Choose the <strong>Edit</strong> option for the controller. You will need to create a new network, as you can see we named our new network guest here:
+<br/>
+<br/>
+<a href="../../_detail/doc/recipes/editwirelessforguest.png?id=doc%253Arecipes%253Aguest-wlan-webinterface" class="media" title="doc:recipes:editwirelessforguest.png"><img src="../../_media/doc/recipes/editwirelessforguest.png" class="media" alt="" /></a><br/>
+<br/>
+
+Also, make sure to set up wireless security if you want to protect the connection.<br/>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="configure_the_new_interface">Configure the new interface</h2>
+<div class="level2">
+
+<p>
+Now if you manoeuvre to the Interfaces page under Network, and you should see your new interface, looking similar to this:
+<br/>
+<br/>
+<a href="../../_detail/doc/recipes/guestinterfacecreated.png?id=doc%253Arecipes%253Aguest-wlan-webinterface" class="media" title="doc:recipes:guestinterfacecreated.png"><img src="../../_media/doc/recipes/guestinterfacecreated.png" class="media" alt="" /></a><br/>
+<br/>
+<br/>
+
+You will need to configure you interface before it is useful. Choose <strong>Edit</strong>, pick the protocol <strong>Static address</strong>, and fill out your chosen IPv4 address. We chose 192.168.3.1 here, but you may have different preferences. However, avoid using 192.168.1.1 or 10.0.0.1 as they may already be in use and prevent your guests from acquiring IP-addresses. Remember to set the netmask. You will also need to enable DHCP, we chose to go with the default options here except for the Leasetime wich is only one hour, suitable for environments where a large number of guests connect and leave through a day.
+<br/>
+<br/>
+<a href="../../_detail/media/doc/recipes/editinterfaceforguest.png?id=doc%253Arecipes%253Aguest-wlan-webinterface" class="media" title="media:doc:recipes:editinterfaceforguest.png"><img src="../../_media/media/doc/recipes/editinterfaceforguest.png" class="media" title="Set IP address and netmask for the guests and enable DHCP" alt="Set IP address and netmask for the guests and enable DHCP" /></a><br/>
+<br/>
+<br/>
+
+Notice that you have a <strong>Firewall Settings</strong> tab to the far right of the  <strong>General Setup</strong> tab. Make sure you visit this tab, and create a new zone for your guest, like we have done here:
+<br/>
+<br/>
+<a href="../../_detail/doc/recipes/createfirewallzoneforguest.png?id=doc%253Arecipes%253Aguest-wlan-webinterface" class="media" title="doc:recipes:createfirewallzoneforguest.png"><img src="../../_media/doc/recipes/createfirewallzoneforguest.png" class="media" alt="" /></a><br/>
+<br/>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="configure_the_firewall">Configure the firewall</h2>
+<div class="level2">
+
+<p>
+Now you are just about done. That last thing we need to do, is to open up for traffic between you guest network and WAN in the firewall. Go to the <strong>Firewall</strong> page under <strong>Network</strong>, choose <strong>Edit</strong> for your guest zone. Set <strong>Input</strong> to <strong>REJECT</strong> and tick wan under <strong>Allow forward to destination zones</strong>. Correctly configured it should look like this:
+<br/>
+<br/>
+<a href="../../_detail/media/guest-wlan-firewall-setup.png?id=doc%253Arecipes%253Aguest-wlan-webinterface" class="media" title="media:guest-wlan-firewall-setup.png"><img src="../../_media/media/guest-wlan-firewall-setup.png" class="media" title="Check that your Guest interface has access to WAN and that Input is set to REJECT" alt="Check that your Guest interface has access to WAN and that Input is set to REJECT" /></a><br/>
+<br/>
+
+Remember to click <strong>Save &amp; Apply</strong>. The last thing we need to do is to give our guests access to the Internet.<br/>
+
+</p>
+
+<p>
+Right now neither <abbr title="Domain Name System">DNS</abbr> nor DHCP traffic will be accepted. We need to create two rules, which we can do from the <strong>Traffic rules</strong> tab under the <strong>Firewall</strong> tab. Both rules can be put in under <strong>Open ports on router:</strong>. We name the first one <strong>Guest <abbr title="Domain Name System">DNS</abbr></strong> here (you can name it what you want), setting both TCP and UDP traffic and port 53:
+<br/>
+<br/>
+<a href="../../_detail/media/doc/recipes/guest-wlan-dns-setup.png?id=doc%253Arecipes%253Aguest-wlan-webinterface" class="media" title="media:doc:recipes:guest-wlan-dns-setup.png"><img src="../../_media/media/doc/recipes/guest-wlan-dns-setup.png" class="media" title="Enter new rule to allow DNS traffic from guests" alt="Enter new rule to allow DNS traffic from guests" /></a><br/>
+<br/>
+<br/>
+
+We need to configure the rule, so choose to edit it. Set <strong>Source zone</strong> to <strong>guest</strong>, and set <strong>Destination zone</strong> to <strong>Device (input)</strong> like shown here:
+<br/>
+<br/>
+<a href="../../_detail/media/doc/recipes/guest-wlan-dns-config.png?id=doc%253Arecipes%253Aguest-wlan-webinterface" class="media" title="media:doc:recipes:guest-wlan-dns-config.png"><img src="../../_media/media/doc/recipes/guest-wlan-dns-config.png" class="media" title="Set Source zone to Guest and Destination zone to Device" alt="Set Source zone to Guest and Destination zone to Device" /></a><br/>
+<br/>
+<br/>
+
+Similarly, create a new rule to allow DHCP for guests. We name this rule Guest DHCP, choose UDP as protocol, and set 67-68 for ports. Again edit the rule, setting <strong>Source zone</strong> to <strong>guest</strong>, and set <strong>Destination zone</strong> to <strong>Device (input)</strong>. When you are done it should look like this:<br/>
+<br/>
+<a href="../../_detail/media/doc/recipes/guest-wlan-firewall-config.png?id=doc%253Arecipes%253Aguest-wlan-webinterface" class="media" title="media:doc:recipes:guest-wlan-firewall-config.png"><img src="../../_media/media/doc/recipes/guest-wlan-firewall-config.png" class="media" title="Cross check that your two rules have the same set-up" alt="Cross check that your two rules have the same set-up" /></a>
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/recipes/guest-wlan-webinterface.txt</bdi> · Last modified: 2013/10/11 12:25 by <bdi>sourcejedi</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="guest-wlan-webinterface?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="guest-wlan-webinterface?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="guest-wlan-webinterface?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="guest-wlan-webinterface#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Arecipes%253Aguest-wlan-webinterface&amp;1432267147" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

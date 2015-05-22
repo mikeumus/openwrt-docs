@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Bridged Client [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,recipes,bridgedclient"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="bridgedclient?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:recipes"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/recipes/bridgedclient"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/recipes/bridgedclient"/>
+<link rel="canonical" href="bridgedclient"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:recipes';var JSINFO = {"id":"doc:recipes:bridgedclient","namespace":"doc:recipes"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266330 166.182.3.117';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="bridgedclient#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="bridgedclient?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="bridgedclient?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:recipes:bridgedclient" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="bridgedclient?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="bridgedclient?do=media&amp;ns=doc%253Arecipes"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="bridgedclient?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:recipes:start">Recipes</a></bdi> » <bdi><span class="curid"><a href="bridgedclient" class="wikilink1" title="doc:recipes:bridgedclient">Bridged Client</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/recipes/bridgedclient" class="media" title="cz:doc:recipes:bridgedclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/recipes/bridgedclient" class="media" title="de:doc:recipes:bridgedclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="bridgedclient" class="media" title="doc:recipes:bridgedclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/recipes/bridgedclient" class="media" title="es:doc:recipes:bridgedclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/recipes/bridgedclient" class="media" title="fr:doc:recipes:bridgedclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/recipes/bridgedclient" class="media" title="hu:doc:recipes:bridgedclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/recipes/bridgedclient" class="media" title="jp:doc:recipes:bridgedclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/recipes/bridgedclient" class="media" title="pl:doc:recipes:bridgedclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/recipes/bridgedclient" class="media" title="pt-br:doc:recipes:bridgedclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/recipes/bridgedclient" class="media" title="ru:doc:recipes:bridgedclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/recipes/bridgedclient" class="media" title="tr:doc:recipes:bridgedclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/recipes/bridgedclient" class="media" title="zh-cn:doc:recipes:bridgedclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/recipes/bridgedclient" class="media" title="zh-tw:doc:recipes:bridgedclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:recipes:bridgedclient</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="bridgedclient#configuration">Configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="bridgedclient#step_1configure_wireless">Step 1: Configure wireless</a></div></li>
+<li class="level2"><div class="li"><a href="bridgedclient#step_2disable_the_dhcp_server">Step 2: Disable the DHCP server</a></div></li>
+<li class="level2"><div class="li"><a href="bridgedclient#step_3disable_the_firewall">Step 3: Disable the firewall</a></div></li>
+<li class="level2"><div class="li"><a href="bridgedclient#step_4specify_gateway">Step 4: Specify gateway</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="bridgedclient#see_also">See also</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="bridged_client">Bridged Client</h1>
+<div class="level1">
+
+<p>
+For routers based on the Broadcom chipset, the OpenWrt <em>brcm-2.4</em> target supports <em>bridged client mode</em> through the <code>proprietary</code> <em>wl.o</em> driver.
+</p>
+
+<p>
+This configuration will not work for routers that are on other platforms, such as Atheros chipsets - see <a href="../howto/clientmode#bridgedclientmodeissues" class="wikilink1" title="doc:howto:clientmode">Bridged Client Mode Issues</a>.  The UI will <em>not</em> display any warnings if this is attempted on a non-compatible chipset; it will silently fail in the fashion described in the &quot;Issues&quot; article.  Some possible alternatives include <a href="relayclient" class="wikilink1" title="doc:recipes:relayclient">Routed Client with relayd (Pseudobridge)</a> or <a href="atheroswds" class="wikilink1" title="doc:recipes:atheroswds">WDS (Atheros)</a>.
+</p>
+
+<p>
+An advantage of this operation mode is the possibility to extend an existing wireless network without changing the existing setup.
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/802.11-wet.png?id=doc%253Arecipes%253Abridgedclient" class="media" title="doc:howto:802.11-wet.png"><img src="../../_media/doc/howto/802.11-wet.png" class="media" title="WET Mode" alt="WET Mode" /></a>
+</p>
+
+<p>
+In contrast to the <em>routed client mode</em> all broadcasts are forwarded via the wireless connection allowing all connected hosts to see each other as if they&#039;re connected to the same ethernet switch.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="configuration">Configuration</h2>
+<div class="level2">
+
+<p>
+The changes below assume an OpenWrt Kamikaze or Backfire version, the relevant files are:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="../uci/wireless" class="wikilink1" title="doc:uci:wireless">/etc/config/wireless</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../uci/wireless" class="wikilink1" title="doc:uci:wireless">/etc/config/dhcp</a></div>
+</li>
+</ul>
+
+<p>
+In order to enable the bridged client mode, the mode of the existing wireless network is changed to <code>sta</code> and channel, SSID and encryption are changed to correspond to the wireless network we connect to.
+</p>
+
+<p>
+Since the default configuration already bridges the wireless to the lan interface, no further changes are necessary. 
+</p>
+
+<p>
+Before doing any actual configuration, the wifi interface must be enabled in order to be able to scan for networks in the vincinity:
+</p>
+
+<p>
+<pre class="code">uci del wireless.wl0.disabled
+uci commit wireless
+uci set wireless.wl0.country=DE
+wifi</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Remove the <em>disable 1</em> option from the wireless configuration</div>
+</li>
+<li class="level1"><div class="li"> Save changed configuration file</div>
+</li>
+<li class="level1"><div class="li"> Select your country, this is important because some countries don&#039;t support wifi channels 12,13,etc</div>
+</li>
+<li class="level1"><div class="li"> Start wireless using the <em>wifi</em> command</div>
+</li>
+</ul>
+
+<p>
+Now we can issue the <code>iwlist scan</code> command to list networks in range, the required information is highlighted:
+</p>
+<div class="table sectionedit3"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>iwlist wl0 scan
+wl0       Scan completed :
+          Cell 01 - Address: 00:1D:19:0E:03:8F
+                    ESSID:&quot;<strong>Vodafone-0E0301</strong>&quot;
+                    Mode:Managed
+                    Channel:<strong>9</strong>
+                    Quality:3/5  Signal level:-69 dBm  Noise level:-92 dBm
+                    <abbr title="Internet Explorer">IE</abbr>: <strong>IEEE 802.11i/WPA2 Version 1</strong>
+                        Group Cipher : TKIP
+                        Pairwise Ciphers (2) : TKIP CCMP
+                        Authentication Suites (1) : PSK
+                       Preauthentication Supported
+                    <abbr title="Internet Explorer">IE</abbr>: <strong>WPA Version 1</strong>
+                        Group Cipher : TKIP
+                        Pairwise Ciphers (2) : TKIP CCMP
+                        Authentication Suites (1) : PSK
+                    Encryption key:on
+                    Bit Rates:1 Mb/s; 2 Mb/s; 5.5 Mb/s; 6 Mb/s; 9 Mb/s
+                              11 Mb/s; 12 Mb/s; 18 Mb/s; 24 Mb/s; 36 Mb/s
+                              48 Mb/s; 54 Mb/s
+          Cell 02 - Address: 00:1A:4F:8F:48:50
+                    ESSID:&quot;<strong>FRITZ!Box Fon WLAN 7141</strong>&quot;
+                    Mode:Managed
+                    Channel:<strong>4</strong>
+                    Quality:1/5  Signal level:-83 dBm  Noise level:-92 dBm
+                    <abbr title="Internet Explorer">IE</abbr>: <strong>WPA Version 1</strong>
+                        Group Cipher : TKIP
+                        Pairwise Ciphers (1) : TKIP
+                        Authentication Suites (1) : PSK
+                    Encryption key:on
+                    Bit Rates:1 Mb/s; 2 Mb/s; 5.5 Mb/s; 11 Mb/s; 6 Mb/s
+                              9 Mb/s; 12 Mb/s; 18 Mb/s; 24 Mb/s; 36 Mb/s
+                              48 Mb/s; 54 Mb/s 
+          Cell 03 - Address: 00:22:2D:0E:58:F1
+                    ESSID:&quot;<strong>WLAN_SUHA</strong>&quot;
+                    Mode:Managed
+                    Channel:2
+                    Quality:4/5  Signal level:-61 dBm  Noise level:-92 dBm
+                    Encryption key:on
+                    Bit Rates:1 Mb/s; 2 Mb/s; 5.5 Mb/s; 6 Mb/s; 9 Mb/s
+                              11 Mb/s; 12 Mb/s; 18 Mb/s; 24 Mb/s; 36 Mb/s
+                              48 Mb/s; 54 Mb/s</code> </td>
+	</tr>
+</table></div>
+<ul>
+<li class="level1"><div class="li"> <em>ESSID</em> is the name of the network</div>
+</li>
+<li class="level1"><div class="li"> <em>Channel</em> specifies at which frequency the corresponding network is operating on</div>
+</li>
+<li class="level1"><div class="li"> The lines starting with <em><abbr title="Internet Explorer">IE</abbr>:</em> report which encryption capabilities are supported by the access point:</div>
+<ul>
+<li class="level2"><div class="li"> <em>IEEE 802.11i/WPA2 Version 1</em> indicates WPA2</div>
+</li>
+<li class="level2"><div class="li"> <em>WPA Version 1</em> indicates WPA</div>
+</li>
+<li class="level2"><div class="li"> If both WPA and WPA2 are present, the network is most likely operating in WPA/WPA2 mixed mode</div>
+</li>
+<li class="level2"><div class="li"> If no <em><abbr title="Internet Explorer">IE</abbr>:</em> appears after the scanning like in <em>Cell 03</em> network from the example, the wireless could be using WEP mode. </div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit4" id="step_1configure_wireless">Step 1: Configure wireless</h3>
+<div class="level3">
+
+<p>
+Supposed we want to connect to the network called &quot;Vodafone-0E0301&quot;, the previous scan result revealed the following information:
+</p>
+<ul>
+<li class="level1"><div class="li"> ESSID is <code>Vodafone-0E0301</code></div>
+</li>
+<li class="level1"><div class="li"> Channel is <code>9</code></div>
+</li>
+<li class="level1"><div class="li"> The network uses WPA/WPA2 mixed mode<br/>
+</div>
+</li>
+</ul>
+
+<p>
+<br/>
+
+</p>
+
+<p>
+Edit <code>/etc/config/wireless</code> and change the mode of the existing wireless network to <code>sta</code>, the channel to <code>9</code> and the ESSID to <code>Vodafone-0E0301</code>:
+</p>
+<div class="table sectionedit5"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;wifi-device&#039; &#039;wl0&#039;
+        option &#039;type&#039;       &#039;broadcom&#039;
+        option &#039;country&#039;    &#039;DE&#039;
+        option &#039;channel&#039;    &#039;<strong>9</strong>&#039;
+
+config &#039;wifi-iface&#039;
+        option &#039;device&#039;     &#039;wl0&#039;
+        option &#039;network&#039;    &#039;lan&#039;
+        option &#039;mode&#039;       &#039;<strong>sta</strong>&#039;
+        option &#039;ssid&#039;       &#039;<strong>Vodafone-0E0301</strong>&#039;
+        option &#039;encryption&#039; &#039;<strong>psk2</strong>&#039;
+        option &#039;key&#039;        &#039;<strong>secret-key</strong>&#039; </code> </td>
+	</tr>
+</table></div>
+<ul>
+<li class="level1"><div class="li"> <em>encryption psk2</em> requests WPA2-PSK for the client connection (see <a href="../uci/wireless#wpamodes" class="wikilink1" title="doc:uci:wireless">WPA modes</a>)</div>
+</li>
+<li class="level1"><div class="li"> <em>key secret-key</em> specifies the secret encryption key used on this wireless network<br/>
+</div>
+</li>
+</ul>
+
+<p>
+<br/>
+
+</p>
+
+<p>
+Proceed with calling <em>wifi</em> to apply the new wireless configuration and check the result using <em>iwconfig</em>:
+</p>
+
+<p>
+<pre class="code">wifi
+iw dev wl0 link
+Connected to 00:1D:19:0E:03:8F (on wl0)
+	SSID: tesla-5g-bcm
+	freq: 2432
+	RX: 49716623 bytes (211199 packets)
+	TX: 22865049 bytes (98041 packets)
+	signal: -43 dBm
+	tx bitrate: 300.0 MBit/s MCS 15 40MHz short GI
+
+	bss flags:	short-slot-time
+	dtim period:	0
+	beacon int:	100
+  * //Access Point: 00:1D:19:0E:03:8F// indicates a successful connection
+  * //Access Point: Not-Associated// would indicate a connection or authentication problem\\</pre>
+
+</p>
+<div class="table sectionedit6"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/48px-dialog-warning.svg.png" class="media" alt="" /> </td><td class="col1"> If the target network uses the 192.168.1.0/24 subnet, you <strong>must</strong> change the default <abbr title="Local Area Network">LAN</abbr> IP address to the same subnet, e.g. to 192.168.1.<strong>10</strong><br/>
+</td>
+	</tr>
+</table></div>
+
+<p>
+At this point hosts connected to the <abbr title="Local Area Network">LAN</abbr> ports of the OpenWrt router should be able to receive DHCP directly from the remote access point.
+</p>
+
+</div>
+
+<h3 class="sectionedit7" id="step_2disable_the_dhcp_server">Step 2: Disable the DHCP server</h3>
+<div class="level3">
+
+<p>
+Since the device is operating as client in another network and relays all communication from the associated Access Point to its <abbr title="Local Area Network">LAN</abbr> hosts,
+the local DHCP server should be disabled to avoid collisions.
+</p>
+
+<p>
+Edit <code>/etc/config/dhcp</code> and set the predefined <abbr title="Local Area Network">LAN</abbr> <a href="../uci/dhcp#dhcppools" class="wikilink1" title="doc:uci:dhcp">DHCP pool</a> to ignore:
+</p>
+<div class="table sectionedit8"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;dhcp&#039; &#039;lan&#039;
+        option &#039;interface&#039;  <strong>&#039;lan&#039;</strong>
+        option &#039;start&#039;      &#039;100&#039;
+        option &#039;limit&#039;      &#039;150&#039;
+        option &#039;leasetime&#039;  &#039;12h&#039;
+        <strong>option &#039;ignore&#039;     &#039;1&#039;</strong> </code> </td>
+	</tr>
+</table></div>
+
+<p>
+Apply the change by restarting <em>dnsmasq</em>:
+</p>
+
+<p>
+<pre class="code">/etc/init.d/dnsmasq restart</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="step_3disable_the_firewall">Step 3: Disable the firewall</h3>
+<div class="level3">
+
+<p>
+This step is not strictly required but disabling the firewall saves resources when operating as a dumb bridge -
+there is no need to filter traffic running from wifi to ethernet and back.
+</p>
+
+<p>
+Stop and disable the firewall by using the init script:
+</p>
+
+<p>
+<pre class="code">/etc/init.d/firewall stop
+/etc/init.d/firewall disable</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="step_4specify_gateway">Step 4: Specify gateway</h3>
+<div class="level3">
+
+<p>
+In my case, after following this recipe through all three steps, the network was working fine, but internet was not accessible. To make internet work I needed to additionally add a gateway route (in my case 192.168.1.1) and to make domains resolve I needed to add a dns server address (for example 8.8.8.8) for the lan interface in <strong>/etc/config/network</strong>:
+</p>
+<div class="table sectionedit11"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;interface&#039; &#039;lan&#039;
+	…
+	<strong>option &#039;dns&#039; &#039;8.8.8.8&#039;
+	option &#039;gateway&#039; &#039;192.168.1.1&#039; </strong> </code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit12" id="see_also">See also</h2>
+<div class="level2">
+
+<p>
+For more on wireless client mode see <a href="../howto/clientmode" class="wikilink1" title="doc:howto:clientmode">clientmode</a>
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/recipes/bridgedclient.txt</bdi> · Last modified: 2014/12/01 13:36 by <bdi>jow</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="bridgedclient?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="bridgedclient?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="bridgedclient?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="bridgedclient#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Arecipes%253Abridgedclient&amp;1432266330" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

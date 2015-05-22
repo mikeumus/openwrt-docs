@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Router Advertisement (radvd) configuration [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,uci,radvd"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="radvd?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:uci"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/uci/radvd"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/uci/radvd"/>
+<link rel="canonical" href="radvd"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:uci';var JSINFO = {"id":"doc:uci:radvd","namespace":"doc:uci"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266635 166.182.3.141';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="radvd#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="radvd?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="radvd?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:uci:radvd" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="radvd?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="radvd?do=media&amp;ns=doc%253Auci"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="radvd?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../uci.1" class="wikilink1" title="doc:uci">The UCI System</a></bdi> » <bdi><span class="curid"><a href="radvd" class="wikilink1" title="doc:uci:radvd">Router Advertisement (radvd) configuration</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/uci/radvd" class="media" title="cz:doc:uci:radvd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/uci/radvd" class="media" title="de:doc:uci:radvd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="radvd" class="media" title="doc:uci:radvd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/uci/radvd" class="media" title="es:doc:uci:radvd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/uci/radvd" class="media" title="fr:doc:uci:radvd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/uci/radvd" class="media" title="hu:doc:uci:radvd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/uci/radvd" class="media" title="jp:doc:uci:radvd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/uci/radvd" class="media" title="pl:doc:uci:radvd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/uci/radvd" class="media" title="pt-br:doc:uci:radvd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/uci/radvd" class="media" title="ru:doc:uci:radvd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/uci/radvd" class="media" title="tr:doc:uci:radvd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../zh-cn/doc/uci/radvd" class="media" title="zh-cn:doc:uci:radvd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/uci/radvd" class="media" title="zh-tw:doc:uci:radvd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:uci:radvd</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="radvd#sections">Sections</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="radvd#interface">Interface</a></div></li>
+<li class="level2"><div class="li"><a href="radvd#prefix">Prefix</a></div></li>
+<li class="level2"><div class="li"><a href="radvd#route">Route</a></div></li>
+<li class="level2"><div class="li"><a href="radvd#rdnss">RDNSS</a></div></li>
+<li class="level2"><div class="li"><a href="radvd#dnssl">DNSSL</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="radvd#bypassing_uci">Bypassing UCI</a></div></li>
+<li class="level1"><div class="li"><a href="radvd#examples">Examples</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="router_advertisement_radvd_configuration">Router Advertisement (radvd) configuration</h1>
+<div class="level1">
+
+<p>
+The <em>radvd</em> configuration is located in <code>/etc/config/radvd</code>.
+This configuration is responsible for defining <em>interface settings</em>, <em>prefixes</em>, <em>routes</em> and <em>RDNSS announcements</em>.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="sections">Sections</h2>
+<div class="level2">
+
+<p>
+Below is an overview of the section types that may be defined in the radvd configuration.
+A minimal radvd configuration for a local network usually consists of at least one <em>interface</em> (<code>lan</code>) and one <em>prefix</em> section.
+Each section type may occur multiple times in the config but <code>interface</code> sections are limited to one section per interface.
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="interface">Interface</h3>
+<div class="level3">
+
+<p>
+Sections of type <code>interface</code> specify global, interface specific options for <em>radvd</em>.
+The default configuration defines one section for the <code>lan</code> <a href="network#interfaces" class="wikilink1" title="doc:uci:network">interface</a>:
+</p>
+
+<p>
+<code>config &#039;interface&#039;
+        option &#039;interface&#039;          &#039;lan&#039;
+        option &#039;AdvSendAdvert&#039;      &#039;1&#039;
+        option &#039;AdvManagedFlag&#039;     &#039;0&#039;
+        option &#039;AdvOtherConfigFlag&#039; &#039;0&#039;
+        option &#039;ignore&#039;             &#039;1&#039; </code>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>lan</code> is the <em>logical interface name</em> this section applies to</div>
+</li>
+<li class="level1"><div class="li"> <code>AdvSendAdvert 1</code> enables router advertisements and solicitations</div>
+</li>
+<li class="level1"><div class="li"> <code>AdvManagedFlag 0</code> disables the additional stateful administered autoconfiguration protocol (<a href="http://tools.ietf.org/html/rfc2462#section-5.2" class="urlextern" title="http://tools.ietf.org/html/rfc2462#section-5.2"  rel="nofollow">RFC2462</a>)</div>
+</li>
+<li class="level1"><div class="li"> <code>AdvOtherConfigFlag 0</code> disables the autoconfiguration of additional, non address information (<a href="http://tools.ietf.org/html/rfc2462#section-5.2" class="urlextern" title="http://tools.ietf.org/html/rfc2462#section-5.2"  rel="nofollow">RFC2462</a>) </div>
+</li>
+<li class="level1"><div class="li"> <code>ignore 1</code> disables any advertisements on this interface. It must be set to <code>0</code> or removed in order to enable <em>radvd</em> for this interface</div>
+</li>
+</ul>
+
+<p>
+Each interface requires a separate interface declaration (i.e. the <code>interface</code> option only accepts a single interface name).
+</p>
+
+<p>
+Below is the listing of defined options for <code>interface</code> sections.
+</p>
+<div class="table sectionedit4"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>interface</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Specifies the <em>logical interface name</em> this section belongs to </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>ignore</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Tells <em>radvd</em> to ignore this interface </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>client</code> </td><td class="col1"> list of IPv6 addresses </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> If defined, <em>radvd</em> only does unicast communication with the specified hosts instead of using the default multicast address </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>IgnoreIfMissing</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Don&#039;t fail if the related interface does not exist yet </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>UnicastOnly</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Indicates that the underlying link is not broadcast capable, prevents unsolicited advertisements from being sent </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>AdvSendAdvert</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Enables router advertisements and solicitations </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <code>AdvManagedFlag</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Enables the additional stateful administered autoconfiguration protocol (<a href="http://tools.ietf.org/html/rfc2462#section-5.2" class="urlextern" title="http://tools.ietf.org/html/rfc2462#section-5.2"  rel="nofollow">RFC2462</a>) </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <code>AdvOtherConfigFlag</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Enables the autoconfiguration of additional, non address information (<a href="http://tools.ietf.org/html/rfc2462#section-5.2" class="urlextern" title="http://tools.ietf.org/html/rfc2462#section-5.2"  rel="nofollow">RFC2462</a>) </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <code>AdvSourceLLAddress</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>1</code> </td><td class="col4"> Includes the link-layer address of the outgoing interface in the RA </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> <code>MinRtrAdvInterval</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <code>198</code> </td><td class="col4"> The minimum time allowed between sending unsolicited multicast router advertisements from the interface, in seconds </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> <code>MaxRtrAdvInterval</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <code>600</code> </td><td class="col4"> The maximum time allowed between sending unsolicited multicast router advertisements from the interface, in seconds </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0"> <code>MinDelayBetweenRAs</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <code>3</code> </td><td class="col4"> The minimum time allowed between sending multicast router advertisements from the interface, in seconds </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0"> <code>AdvLinkMTU</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Advertises the given link MTU in the RA if specified. <code>0</code> disables MTU advertisements </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0"> <code>AdvReachableTime</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Advertises assumed reachability time in milliseconds of neighbours in the RA if specified. <code>0</code> disables reachability advertisements </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0"> <code>AdvRetransTimer</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Advertises wait time in milliseconds between Neighbor Solicitation messages in the RA if specified. <code>0</code> disables retransmit advertisements </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0"> <code>AdvCurHopLimit</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <code>64</code> </td><td class="col4"> Advertises the default Hop Count value for outgoing unicast packets in the RA. <code>0</code> disables hopcount advertisements </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0"> <code>AdvDefaultLifetime</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <code>1800</code> </td><td class="col4"> Advertises the lifetime of the default router in seconds. <code>0</code> indicates that the node is no default router </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0"> <code>AdvDefaultPreference</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>medium</code> </td><td class="col4"> Advertises the default router preference (<code>low</code>, <code>medium</code> or <code>high</code>) </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0"> <code>AdvHomeAgentFlag</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Advertises Mobile IPv6 Home Agent capability (<a href="http://tools.ietf.org/html/rfc3775#section-7.1" class="urlextern" title="http://tools.ietf.org/html/rfc3775#section-7.1"  rel="nofollow">RFC3775</a>) </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0"> <code>AdvHomeAgentInfo</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Include Home Agent Information in the RA, depends on <code>AdvHomeAgentFlag</code> being enabled </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0"> <code>AdvMobRtrSupportFlag</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Advertises Mobile Router registration capability (NEMO Basic), depends on <code>AdvHomeAgentInfo</code> being enabled </td>
+	</tr>
+	<tr class="row22">
+		<td class="col0"> <code>AdvIntervalOpt</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Include Mobile IPv6 Advertisement Interval option to RA </td>
+	</tr>
+	<tr class="row23">
+		<td class="col0"> <code>HomeAgentLifetime</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <code>1800</code> </td><td class="col4"> Advertises the time in seconds the router is offering Mobile IPv6 Home Agent services. Depends on <code>AdvHomeAgentInfo</code> being set </td>
+	</tr>
+	<tr class="row24">
+		<td class="col0"> <code>HomeAgentPreference</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> The preference  for  the Home Agent sending this RA. Depends on <code>AdvHomeAgentInfo</code> being set </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit5" id="prefix">Prefix</h3>
+<div class="level3">
+
+<p>
+The <code>prefix</code> sections declare IPv6 subnets where client addresses are derived from.
+In the default config, one example <em>prefix</em> section is included with the following values:
+</p>
+
+<p>
+<code>config &#039;prefix&#039;
+        option &#039;interface&#039;     &#039;lan&#039;
+        option &#039;AdvOnLink&#039;     &#039;1&#039;
+        option &#039;AdvAutonomous&#039; &#039;1&#039;
+        option &#039;AdvRouterAddr&#039; &#039;0&#039;
+        option &#039;ignore&#039;        &#039;1&#039; </code>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>lan</code> is the <em>logical interface name</em> this section applies to</div>
+</li>
+<li class="level1"><div class="li"> <code>AdvOnLink 1</code> specifies that the announced prefix can be used for on-link determination (<a href="http://tools.ietf.org/html/rfc4861#section-2.1" class="urlextern" title="http://tools.ietf.org/html/rfc4861#section-2.1"  rel="nofollow">RFC4861</a>)</div>
+</li>
+<li class="level1"><div class="li"> <code>AdvAutonomous 1</code> indicates that the announced prefix can be used for autonomous address configuration (<a href="http://tools.ietf.org/html/rfc4862#section-5.5.3" class="urlextern" title="http://tools.ietf.org/html/rfc4862#section-5.5.3"  rel="nofollow">RFC4862</a>)</div>
+</li>
+<li class="level1"><div class="li"> <code>AdvRouterAddr 0</code> forced <em>radvd</em> to send the network prefix instead of the sending interface address</div>
+</li>
+<li class="level1"><div class="li"> <code>ignore</code> disables this prefix declaration</div>
+</li>
+</ul>
+
+<p>
+All defined options for the <code>prefix</code> section are listed below.
+</p>
+<div class="table sectionedit6"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>interface</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Specifies the <em>logical interface name</em> this section belongs to </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>ignore</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Ignore this prefix declaration </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>prefix</code> </td><td class="col1"> IPv6 address </td><td class="col2"> no </td><td class="col3"> <em>(current prefix of interface)</em> </td><td class="col4"> Override the advertised prefix (CIDR notation) </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>AdvOnLink</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>1</code> </td><td class="col4"> Indicates that this prefix can be used for on-link determination (<a href="http://tools.ietf.org/html/rfc4861#section-2.1" class="urlextern" title="http://tools.ietf.org/html/rfc4861#section-2.1"  rel="nofollow">RFC4861</a>) </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>AdvAutonomous</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>1</code> </td><td class="col4"> Indicates that this prefix can be used for autonomous address configuration (<a href="http://tools.ietf.org/html/rfc4862#section-5.5.3" class="urlextern" title="http://tools.ietf.org/html/rfc4862#section-5.5.3"  rel="nofollow">RFC4862</a>) </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>AdvRouterAddr</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Indicates that the address of interface is sent instead of network prefix, as is required by Mobile IPv6 </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <code>AdvValidLifetime</code> </td><td class="col1"> integer/string </td><td class="col2"> no </td><td class="col3"> <code>86400</code> </td><td class="col4"> Advertises the length of time in seconds that the prefix is valid for the purpose of on-link determination. The special value <code>infinity</code> means forever </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <code>AdvPreferredLifetime</code> </td><td class="col1"> integer/string </td><td class="col2"> no </td><td class="col3"> <code>14400</code> </td><td class="col4"> Advertises the length of time in seconds that addresses generated from the prefix via stateless address autoconfiguration remain preferred. The special value <code>infinity</code> means forever </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <code>Base6to4Interface</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Specifies a <em>logical interface name</em> to derive a 6to4 prefix from. The interfaces public IPv4 address is combined with <code>2002::/3</code> and the value of the <code>prefix</code> option specified in the same section. If the referenced interface is not avilable at configuration time, <em>radvd</em> will leave it disabled until a <em>SIGHUP</em> signal is received or <em>radvd</em> is restarted </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit7" id="route">Route</h3>
+<div class="level3">
+
+<p>
+Sections of type <code>route</code> define arbritary IPv6 CIDR routes to advertise to clients.
+A minimal section may look like this:
+</p>
+
+<p>
+<code>config &#039;route&#039;
+        option &#039;interface&#039;        &#039;lan&#039;
+        option &#039;prefix&#039;           &#039;2001:0DB8:1234:5678::/64&#039;
+        option &#039;AdvRouteLifetime&#039; &#039;infinity&#039; </code>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>lan</code> is the <em>logical interface name</em> this section applies to</div>
+</li>
+<li class="level1"><div class="li"> <code>2001:0DB8:1234:5678::/64</code> specifies the prefix to advertise</div>
+</li>
+<li class="level1"><div class="li"> <code>AdvRouteLifetime infinity</code> sets the route lifetime to forever</div>
+</li>
+</ul>
+
+<p>
+The defined options for <code>route</code> sections are:
+</p>
+<div class="table sectionedit8"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>interface</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Specifies the logical interface name this section belongs to </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>ignore</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Ignore this route declaration </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>prefix</code> </td><td class="col1"> IPv6 address </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Specifies the advertised IPv6 route prefix (CIDR notation) </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>AdvRouteLifetime</code> </td><td class="col1"> integer/string </td><td class="col2"> no </td><td class="col3"> <code>1800</code> </td><td class="col4"> Specifies the lifetime associated with the route in seconds. The special value <code>infinity</code> means forever </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>AdvRoutePreference</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>medium</code> </td><td class="col4"> Specifies the preference associated with the default router (<code>low</code>, <code>medium</code> or <code>high</code>) </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit9" id="rdnss">RDNSS</h3>
+<div class="level3">
+
+<p>
+Recursive <abbr title="Domain Name System">DNS</abbr> Server (<code>rdnss</code>) sections define <abbr title="Domain Name System">DNS</abbr> server advertisements as specified in <a href="http://tools.ietf.org/html/rfc5006" class="urlextern" title="http://tools.ietf.org/html/rfc5006"  rel="nofollow">RFC5006</a>.
+A minimal <code>rdnss</code> section contains the interface and optionally an IPv6 address pointing to a recursive <abbr title="Domain Name System">DNS</abbr> resolver:
+</p>
+
+<p>
+<code>config &#039;rdnss&#039;
+        option &#039;interface&#039; &#039;lan&#039;
+        list &#039;addr&#039;      &#039;2001:DB8:1234:5678::1&#039; </code>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>lan</code> is the <em>logical interface name</em> this section applies to</div>
+</li>
+<li class="level1"><div class="li"> <code>2001:DB8:1234:5678::1</code> specifies the <abbr title="Domain Name System">DNS</abbr> server used for resolving</div>
+</li>
+</ul>
+
+<p>
+The options below are defined for <code>rdnss</code> sections:
+</p>
+<div class="table sectionedit10"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>interface</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Specifies the <em>logical interface name</em> this section belongs to </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>ignore</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Ignore this <abbr title="Domain Name System">DNS</abbr> declaration </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>addr</code> </td><td class="col1"> list of IPv6 addresses </td><td class="col2"> no </td><td class="col3"> <em>(link-local address of interface)</em> </td><td class="col4"> Specifies the advertised IPv6 <abbr title="Domain Name System">DNS</abbr> servers. Note that leaving this unspecified advertises the link-local address of the interface, which generally does not work for <abbr title="Domain Name System">DNS</abbr> clients, causing <abbr title="Domain Name System">DNS</abbr> timeouts and weirdness, so it is best to specify the global-scope IPv6 address of your interface here. </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>AdvRDNSSPreference</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <code>8</code> </td><td class="col4"> Specifies the preference of the <abbr title="Domain Name System">DNS</abbr> server, compared to other <abbr title="Domain Name System">DNS</abbr> servers advertised and used.  0 to 7 means less important than manually configured nameservers in resolv.conf, while 12 to 15 means more important<br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong>This feature was removed from the final <abbr title="Request for Comments">RFC</abbr> but can still be used for experimental purposes</strong> <br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong>Recent <em>radvd</em> versions (1.7+) ignore this option</strong> </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>AdvRDNSSOpen</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Indicates whether that RDNSS continues to be available to hosts even if they moved to a different subnet <br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong>Recent <em>radvd</em> versions (1.7+) ignore this option</strong> </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>AdvRDNSSLifetime</code> </td><td class="col1"> integer/string </td><td class="col2"> no </td><td class="col3"> <code>1200</code> </td><td class="col4"> Specifies the maximum duration how long the RDNSS entries are used for name resolution. A value of 0 means the nameserver should no longer be used. The special value <code>infinity</code> means forever </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit11" id="dnssl">DNSSL</h3>
+<div class="level3">
+
+<p>
+<abbr title="Domain Name System">DNS</abbr> search list (<code>dnssl</code>) sections provide domain search suffixes as defined in <a href="http://tools.ietf.org/html/rfc6106#section-5.2" class="urlextern" title="http://tools.ietf.org/html/rfc6106#section-5.2"  rel="nofollow">RFC6106</a>.
+A minimal <code>dnssl</code> section contains the corresponding interface and at least one domain suffix:
+</p>
+
+<p>
+<code>config &#039;dnssl&#039;
+        option &#039;interface&#039; &#039;lan&#039;
+        list   &#039;suffix&#039;    &#039;company.local&#039;
+        list   &#039;suffix&#039;    &#039;local&#039; </code>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>lan</code> is the <em>logical interface name</em> this section applies to</div>
+</li>
+<li class="level1"><div class="li"> <code>company.local</code> and <code>local</code> specify the advertised domain suffixes</div>
+</li>
+</ul>
+
+<p>
+The options below are defined for <code>dnssl</code> sections:
+</p>
+<div class="table sectionedit12"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>interface</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Specifies the <em>logical interface name</em> this section belongs to </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>ignore</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Ignore this search list declaration </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>suffix</code> </td><td class="col1"> list of domain suffixes </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Specifies the advertised domain suffixes </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>AdvDNSSLLifetime</code> </td><td class="col1"> integer/string </td><td class="col2"> no </td><td class="col3"> <code>1200</code> </td><td class="col4"> Specifies the maximum duration how long the DNSSL entries are used for name resolution. A value of 0 means the suffix should no longer be used. The special value <code>infinity</code> means forever </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit13" id="bypassing_uci">Bypassing UCI</h2>
+<div class="level2">
+
+<p>
+It is possible to use a traditional <code>radvd.conf</code> file and bypass the autogeneration from UCI values by defining the following section in <code>/etc/config/radvd</code>:
+</p>
+
+<p>
+<code>config &#039;radvd&#039;
+        option &#039;config_file&#039; &#039;/etc/radvd.conf&#039; </code>
+</p>
+
+</div>
+
+<h2 class="sectionedit14" id="examples">Examples</h2>
+<div class="level2">
+
+<p>
+<em class="u">Simple example:</em> advertising on two internal interfaces, <code>wired</code> and <code>wifi</code>, using the default configuration.
+</p>
+
+<p>
+<pre class="code">config interface
+        option interface        wired
+
+config prefix
+        option interface        wired
+
+config rdnss
+        option interface        wired
+
+
+config interface
+        option interface        wifi
+
+config prefix
+        option interface        wifi
+
+config rdnss
+        option interface        wifi</pre>
+
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/uci/radvd.txt</bdi> · Last modified: 2012/07/05 00:16 by <bdi>kenyon</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="radvd?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="radvd?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="radvd?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="radvd#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Auci%253Aradvd&amp;1432266635" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>IPsec Site To Site Using Openswan [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,vpn.ipsec.site2site.openswan"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="vpn.ipsec.site2site.openswan?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/vpn.ipsec.site2site.openswan"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/vpn.ipsec.site2site.openswan"/>
+<link rel="canonical" href="vpn.ipsec.site2site.openswan"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:vpn.ipsec.site2site.openswan","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432273851 166.182.3.179';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="vpn.ipsec.site2site.openswan#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="vpn.ipsec.site2site.openswan?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="vpn.ipsec.site2site.openswan?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:vpn.ipsec.site2site.openswan" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="vpn.ipsec.site2site.openswan?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="vpn.ipsec.site2site.openswan?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="vpn.ipsec.site2site.openswan?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="vpn.ipsec.site2site.openswan" class="wikilink1" title="doc:howto:vpn.ipsec.site2site.openswan">IPsec Site To Site Using Openswan</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/vpn.ipsec.site2site.openswan" class="media" title="cz:doc:howto:vpn.ipsec.site2site.openswan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/vpn.ipsec.site2site.openswan" class="media" title="de:doc:howto:vpn.ipsec.site2site.openswan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="vpn.ipsec.site2site.openswan" class="media" title="doc:howto:vpn.ipsec.site2site.openswan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/vpn.ipsec.site2site.openswan" class="media" title="es:doc:howto:vpn.ipsec.site2site.openswan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/vpn.ipsec.site2site.openswan" class="media" title="fr:doc:howto:vpn.ipsec.site2site.openswan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/vpn.ipsec.site2site.openswan" class="media" title="hu:doc:howto:vpn.ipsec.site2site.openswan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/vpn.ipsec.site2site.openswan" class="media" title="jp:doc:howto:vpn.ipsec.site2site.openswan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/vpn.ipsec.site2site.openswan" class="media" title="pl:doc:howto:vpn.ipsec.site2site.openswan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/vpn.ipsec.site2site.openswan" class="media" title="pt-br:doc:howto:vpn.ipsec.site2site.openswan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/vpn.ipsec.site2site.openswan" class="media" title="ru:doc:howto:vpn.ipsec.site2site.openswan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/vpn.ipsec.site2site.openswan" class="media" title="tr:doc:howto:vpn.ipsec.site2site.openswan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/vpn.ipsec.site2site.openswan" class="media" title="zh-cn:doc:howto:vpn.ipsec.site2site.openswan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/vpn.ipsec.site2site.openswan" class="media" title="zh-tw:doc:howto:vpn.ipsec.site2site.openswan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:vpn.ipsec.site2site.openswan</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="vpn.ipsec.site2site.openswan#background">Background</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.site2site.openswan#preparation">Preparation</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="vpn.ipsec.site2site.openswan#background_reading">Background Reading</a></div></li>
+<li class="level2"><div class="li"><a href="vpn.ipsec.site2site.openswan#required_packages">Required Packages</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="vpn.ipsec.site2site.openswan#server_openwrt">Server (OpenWrt)</a></div></li>
+<li class="level3"><div class="li"><a href="vpn.ipsec.site2site.openswan#server_rhel_6xcentos_6x">Server (RHEL 6.x / Centos 6.x)</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.site2site.openswan#installation">Installation</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.site2site.openswan#configuration">Configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="vpn.ipsec.site2site.openswan#openwrt">OpenWrt</a></div></li>
+<li class="level2"><div class="li"><a href="vpn.ipsec.site2site.openswan#rhel_6xcentos_6x__any_other_openswan_server">RHEL 6.x / Centos 6.x ... any other openswan server</a></div></li>
+<li class="level2"><div class="li"><a href="vpn.ipsec.site2site.openswan#chap_configuration">Chap configuration</a></div></li>
+<li class="level2"><div class="li"><a href="vpn.ipsec.site2site.openswan#dns">DNS</a></div></li>
+<li class="level2"><div class="li"><a href="vpn.ipsec.site2site.openswan#start_on_boot">Start on boot</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.site2site.openswan#troubleshooting">Troubleshooting</a></div>
+<ul class="toc">
+<li class="clear">
+<ul class="toc">
+<li class="level3"><div class="li"><a href="vpn.ipsec.site2site.openswan#usefull_commands">Usefull Commands</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.site2site.openswan#notes">Notes</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="ipsec_site_to_site_using_openswan">IPsec Site To Site Using Openswan</h1>
+<div class="level1">
+<div class="table sectionedit2"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> For an overview over all existing Virtual private network (VPN)-related articles in the OpenWrt wiki, please visit <a href="vpn.overview" class="wikilink1" title="doc:howto:vpn.overview">vpn.overview</a> </td>
+	</tr>
+</table></div>
+
+<p>
+For all those people who want to use openswan for a site to site connection here are the gory details…
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="background">Background</h2>
+<div class="level2">
+
+<p>
+In our office environment we use Centos on many of our internet faceing servers. In RedHat Enterprise Linux 5 the IPsec implementation was provided by racoon (KAME), userland tools, and NETKEY in the kernel. We set up our six office WAN using this and when it&#039;s up and running it seems to be stable, however adding a new site to the WAN seems to require reseting all of the IPsec server accross the WAN. This can be accomplished by killing off the racoon service and starting it again. This is not particularly helpfull. RedHat have decided to move to openswan for their Enterprise Linux 6 release as the default IPsec implementation using pluto for the userland tools but keeping with NETKEY for the kernel stack. We are now in the process of migrating all our IPsec VPN connections to Centos 6.x.
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="preparation">Preparation</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit5" id="background_reading">Background Reading</h3>
+<div class="level3">
+
+<p>
+<a href="https://www.openswan.org/projects/openswan/" class="urlextern" title="https://www.openswan.org/projects/openswan/"  rel="nofollow">Openswan</a>
+</p>
+
+<p>
+<a href="http://en.wikipedia.org/wiki/IPsec" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/IPsec">IPsec</a> <a href="http://www.linuxjournal.com/article/9916" class="urlextern" title="http://www.linuxjournal.com/article/9916"  rel="nofollow">Linux Journal IPsec article</a> A good explanation IPsec implementations in linux. A good grounding on openSwan and openVPN with discussion about the two kernel stacks KLIPS and NETKEY as well as the userland tools pluto (openswan) and racoon (KAME). Note KLIPS is used in openWRT and NETKEY is used in RHEL 6.x / CENTOS 6.x the pecularities of this are discussed later.
+</p>
+
+<p>
+<a href="https://www.openswan.org/projects/openswan/" class="urlextern" title="https://www.openswan.org/projects/openswan/"  rel="nofollow">IPtables</a>
+</p>
+
+<p>
+<a href="https://www.openswan.org/projects/openswan/" class="urlextern" title="https://www.openswan.org/projects/openswan/"  rel="nofollow">dnsmasq</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="required_packages">Required Packages</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="server_openwrt">Server (OpenWrt)</h4>
+<div class="level4">
+
+<p>
+You need to install the openswan package
+</p>
+
+</div>
+
+<h4 id="server_rhel_6xcentos_6x">Server (RHEL 6.x / Centos 6.x)</h4>
+<div class="level4">
+
+<p>
+yum install openswan
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="installation">Installation</h2>
+<div class="level2">
+
+<p>
+Use the graphical package manager to install openswan
+</p>
+
+<p>
+or
+</p>
+
+<p>
+from the command prompt using <a href="../techref/opkg" class="wikilink1" title="doc:techref:opkg">opkg</a>
+</p>
+
+<p>
+<pre class="code"># opkg install openswan</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="configuration">Configuration</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit9" id="openwrt">OpenWrt</h3>
+<div class="level3">
+
+<p>
+Edit <strong>/etc/ipsec.conf</strong> file and add this to the bottom of the file. ( You may only have to uncomment the line )
+<pre class="code">include /etc/ipsec.d/*.conf</pre>
+
+</p>
+
+<p>
+Edit <strong>/etc/ipsec.secrets</strong> file and add this to the bottom of the file. 
+<pre class="code">include /etc/ipsec.d/*.secret</pre>
+
+</p>
+
+<p>
+These two lines allow you to create separate configuration and secret files in the <strong>/etc/ipsec.d/</strong> directory for each connection.
+</p>
+
+<p>
+By convention it makes sense to name these files :-
+</p>
+
+<p>
+<strong>&lt;connection name&gt;.conf</strong><br/>
+
+<strong>&lt;connection name&gt;.secrets</strong>
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="rhel_6xcentos_6x__any_other_openswan_server">RHEL 6.x / Centos 6.x ... any other openswan server</h3>
+<div class="level3">
+
+<p>
+<pre class="code"></pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="chap_configuration">Chap configuration</h3>
+<div class="level3">
+
+</div>
+
+<h3 class="sectionedit12" id="dns">DNS</h3>
+<div class="level3">
+
+<p>
+Connecting two private networks opens an interesting <abbr title="Domain Name System">DNS</abbr> challenge. The ACME <abbr title="Domain Name System">DNS</abbr> server does not only resolve official server names to IP addresses but also those of ACME internal servers. E.g. hobbit.acme.inc and its IP 10.1.2.42. As we have established a VPN connection we already can reach this host by its address. To get it by its name too we have to offer a name resolution in our home domain. With OpenWrt being very powerful we assume that our router has an active Dnsmasq <abbr title="Domain Name System">DNS</abbr> server. So we have two possibilities to resolve acme.inc addresses.
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>Manually</strong>: Each acme.inc server and its IP address is put into the OpenWrt local hosts file. Dnsmasq will read this list and answer <abbr title="Domain Name System">DNS</abbr> requests for those ACME machines correctly. This should only be an option if we have a very restrictive VPN connection.</div>
+</li>
+<li class="level1"><div class="li"> <strong>Automatically</strong>: Dnsmasq forwards requests for acme.inc through the tunnel to the ACME <abbr title="Domain Name System">DNS</abbr> server. This avoids double work.  </div>
+</li>
+</ul>
+
+<p>
+<abbr title="Domain Name System">DNS</abbr> fowarding through VPN tunnels is almost the same as normal <abbr title="Domain Name System">DNS</abbr> forwarding with one exception. Dnsmasq must use the correct source interface. By default it will use the OpenWrt internet IP for it&#039;s requests but this cannot be tunneled. So just expand the Dnsmasq forward settings in LuCI with the OpenWrt internal IP address. In our scenario we wan&#039;t to reach ACME <abbr title="Domain Name System">DNS</abbr> at 10.1.2.250 by using our internal IP 192.168.2.82. Don&#039;t forget to add this domain on the whitelist otherwise Dnsmasq will detect rebind attacks and discard requests.
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/ipsec_dns.png?id=doc%253Ahowto%253Avpn.ipsec.site2site.openswan" class="media" title="doc:howto:ipsec_dns.png"><img src="../../_media/doc/howto/ipsec_dns.png" class="media" alt="" /></a>
+</p>
+
+</div>
+
+<h3 class="sectionedit13" id="start_on_boot">Start on boot</h3>
+<div class="level3">
+
+<p>
+To enable/disable start on boot:
+</p>
+
+<p>
+<code>/etc/init.d/ipsec enable</code>  this simply creates a symlink: <code>/etc/rc.d/S60ipsec → /etc/init.d/ipsec</code><br/>
+
+<code>/etc/init.d/ipsec disable</code> this removes the symlink again<br/>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit14" id="troubleshooting">Troubleshooting</h2>
+<div class="level2">
+
+<p>
+If you are having problems getting the IPsec stuff to work try dropping the firewalls
+<pre class="code">Try `iptables -h&#039; or &#039;iptables --help&#039; for more information.</pre>
+
+then bla bla bla
+</p>
+
+</div>
+
+<h4 id="usefull_commands">Usefull Commands</h4>
+<div class="level4">
+
+<p>
+<pre class="code bash"><span class="co0"># ping -I &lt;local internal interface | local internal ip&gt; &lt;remote internal ip&gt;</span>
+&nbsp;
+<span class="co0"># tcpdump -i &lt;external interface&gt;</span>
+&nbsp;
+<span class="co0"># tcpdump -i &lt;internal interface&gt;</span>
+&nbsp;
+<span class="co0"># ipsec look &lt;connection name&gt;</span>
+&nbsp;
+<span class="co0"># ipsec auto --add &lt;connection name&gt;</span>
+&nbsp;
+<span class="co0"># ipsec auto --up &lt;connection name&gt;</span>
+&nbsp;
+<span class="co0"># ipsec auto --down &lt;connection name&gt;</span>
+&nbsp;
+<span class="co0"># ipsec auto --delete &lt;connection name&gt;</span>
+&nbsp;
+<span class="co0"># route</span>
+&nbsp;
+<span class="co0"># ifconfig</span>
+&nbsp;
+<span class="co0"># ip xfrm policy</span>
+&nbsp;
+<span class="co0"># ip xfrm state</span></pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit15" id="notes">Notes</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> The Project Homepage: <a href="http://mumble.sourceforge.net/" class="urlextern" title="http://mumble.sourceforge.net/"  rel="nofollow">http://mumble.sourceforge.net/</a></div>
+</li>
+<li class="level1"><div class="li"> a very good tutorial: <a href="http://www.frozentux.net/iptables-tutorial/iptables-tutorial.html" class="urlextern" title="http://www.frozentux.net/iptables-tutorial/iptables-tutorial.html"  rel="nofollow">http://www.frozentux.net/iptables-tutorial/iptables-tutorial.html</a></div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/vpn.ipsec.site2site.openswan.txt</bdi> · Last modified: 2013/10/28 08:30 by <bdi>lorema</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="vpn.ipsec.site2site.openswan?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="vpn.ipsec.site2site.openswan?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="vpn.ipsec.site2site.openswan?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="vpn.ipsec.site2site.openswan#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Avpn.ipsec.site2site.openswan&amp;1432273851" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

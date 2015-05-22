@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Client Mode Wireless [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,clientmode"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="clientmode?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/clientmode"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/clientmode"/>
+<link rel="canonical" href="clientmode"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:clientmode","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266329 166.182.3.117';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="clientmode#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="clientmode?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="clientmode?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:clientmode" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="clientmode?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="clientmode?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="clientmode?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="clientmode" class="wikilink1" title="doc:howto:clientmode">Client Mode Wireless</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/clientmode" class="media" title="cz:doc:howto:clientmode"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/clientmode" class="media" title="de:doc:howto:clientmode"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="clientmode" class="media" title="doc:howto:clientmode"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/clientmode" class="media" title="es:doc:howto:clientmode"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/clientmode" class="media" title="fr:doc:howto:clientmode"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/clientmode" class="media" title="hu:doc:howto:clientmode"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/clientmode" class="media" title="jp:doc:howto:clientmode"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/clientmode" class="media" title="pl:doc:howto:clientmode"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/clientmode" class="media" title="pt-br:doc:howto:clientmode"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/clientmode" class="media" title="ru:doc:howto:clientmode"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/clientmode" class="media" title="tr:doc:howto:clientmode"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/clientmode" class="media" title="zh-cn:doc:howto:clientmode"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/clientmode" class="media" title="zh-tw:doc:howto:clientmode"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:clientmode</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="clientmode#wds_-_wireless_distribution_system">WDS - Wireless Distribution System</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="clientmode#broadcom_wds">Broadcom WDS</a></div></li>
+<li class="level2"><div class="li"><a href="clientmode#ap-to-sta_wds_madwifi_mac80211">AP-to-Sta WDS (Madwifi, mac80211)</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="clientmode#routed_client_mode">Routed Client Mode</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="clientmode#masqueraded">Masqueraded</a></div></li>
+<li class="level2"><div class="li"><a href="clientmode#routed">Routed</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="clientmode#bridged_client_mode_brcm-24_only">Bridged Client Mode (brcm-2.4 only)</a></div></li>
+<li class="level1"><div class="li"><a href="clientmode#bridged_client_mode_with_relayd">Bridged Client Mode (with relayd)</a></div></li>
+<li class="level1"><div class="li"><a href="clientmode#bridged_client_mode_issues">Bridged Client Mode Issues</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="clientmode#problem_using_standard_client_mode">Problem using standard client mode</a></div></li>
+<li class="level2"><div class="li"><a href="clientmode#solution_using_wds">Solution using WDS</a></div></li>
+<li class="level2"><div class="li"><a href="clientmode#why_it_works_on_brcm-24">Why it works on brcm-2.4</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="clientmode#clientmode_without_authentication_open">ClientMode without authentication (open)</a></div></li>
+<li class="level1"><div class="li"><a href="clientmode#client_mode_with_wpa2_enterprise_peap-gtc_authentication">Client Mode with WPA2 Enterprise PEAP-GTC Authentication</a></div></li>
+<li class="level1"><div class="li"><a href="clientmode#bridged_and_routed_client_modes">Bridged and routed client modes</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="clientmode#bridged">Bridged</a></div></li>
+<li class="level2"><div class="li"><a href="clientmode#routed1">Routed</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="clientmode#finding_networks">Finding networks</a></div></li>
+<li class="level1"><div class="li"><a href="clientmode#useful_commands">Useful Commands</a></div></li>
+<li class="level1"><div class="li"><a href="clientmode#tips">Tips</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="clientmode#wpa_supplicant_with_hidden_aps_and_virtual_aps_vap">wpa_supplicant with hidden APs and virtual APs (VAP)</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="client_mode_wireless">Client Mode Wireless</h1>
+<div class="level1">
+
+<p>
+This article outlines several methods of connecting devices wirelessly using <a href="http://wiki.openwrt.org/doc/howto/client_mode" class="wikilink2" title="doc:howto:client_mode" rel="nofollow">Client</a> or <a href="http://wiki.openwrt.org/doc/howto/station_mode" class="wikilink2" title="doc:howto:station_mode" rel="nofollow">Station</a> mode.
+</p>
+
+<p>
+There are a variety of different possibilities:
+</p>
+<ul>
+<li class="level1"><div class="li"> Connect a single device or <a href="http://en.wikipedia.org/wiki/Network_segment" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Network_segment">network segment</a> to a <a href="http://en.wikipedia.org/wiki/Wireless_access_point" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Wireless_access_point">wireless access point</a>.</div>
+</li>
+<li class="level1"><div class="li"> Create a point-to-point link, </div>
+</li>
+<li class="level1"><div class="li"> Reverse the roles of access point and client to accomodate driver limitations.</div>
+</li>
+<li class="level1"><div class="li"> Allow shutting down a single device without affecting the rest of the network.</div>
+</li>
+</ul>
+
+<p>
+OpenWrt supports various client modes, including bridging using <em><a href="http://en.wikipedia.org/wiki/Wireless_distribution_system" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Wireless_distribution_system">WDS (Wireless Distribution System)</a></em>, <em>routed client mode</em> or a <em>bridged client mode</em> implemented only on (old) <em>brcm-2.4</em> hardware).
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="wds_-_wireless_distribution_system">WDS - Wireless Distribution System</h2>
+<div class="level2">
+
+<p>
+WDS mode is a non-standard extension to the wireless <a href="http://en.wikipedia.org/wiki/802.11" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/802.11">802.11</a> standard using a <em>4-address-format</em> to allow transparent ethernet bridging on the station and to implement seamless <em>hand-over</em> for wireless clients roaming between different access points.
+</p>
+
+<p>
+Due to its non-standard nature, WDS is often implemented differently in wireless drivers and vendor firmwares making them incompatible with each other. In order to use WDS, one should use the same hardware and software on all deployed wireless devices to maintain compatibility.
+</p>
+
+<p>
+In OpenWrt there are two flavours of WDS available, depending on the wireless chipset and driver in use:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://en.wikipedia.org/wiki/Broadcom" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Broadcom">Broadcom</a> WDS - available on Broadcom wireless chipsets using the proprietary <em>wl.o</em> driver</div>
+</li>
+<li class="level1"><div class="li"> AP-to-Sta WDS - available for both <em><a href="http://madwifi-project.org/" class="urlextern" title="http://madwifi-project.org/"  rel="nofollow">Madwifi</a></em> and <em><a href="http://wireless.kernel.org/en/developers/Documentation/mac80211" class="urlextern" title="http://wireless.kernel.org/en/developers/Documentation/mac80211"  rel="nofollow">mac80211</a></em> supported wireless devices (such as Atheros wireless chipsets)</div>
+</li>
+</ul>
+
+<p>
+The biggest advantage of WDS is the <a href="http://en.wikipedia.org/wiki/OSI_layer_2" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/OSI_layer_2">Layer 2</a> transparency enabling <a href="http://en.wikipedia.org/wiki/Bridging_(networking)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Bridging_(networking)">bridging</a> and <a href="http://en.wikipedia.org/wiki/Broadcasting_(networking)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Broadcasting_(networking)">broadcasting</a> across wireless connections - all connected network devices form one common <a href="http://en.wikipedia.org/wiki/Broadcast_domain" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Broadcast_domain">broadcast domain</a>.
+<a href="../../_detail/doc/recipes/wds.png?id=doc%253Ahowto%253Aclientmode" class="media" title="doc:recipes:wds.png"><img src="../../_media/doc/recipes/wds.png" class="media" alt="" /></a>
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="broadcom_wds">Broadcom WDS</h3>
+<div class="level3">
+
+<p>
+The setup of Broadcom WDS is explained in the recipe article <a href="../recipes/broadcomwds" class="wikilink1" title="doc:recipes:broadcomwds">WDS (Broadcom)</a>.
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="ap-to-sta_wds_madwifi_mac80211">AP-to-Sta WDS (Madwifi, mac80211)</h3>
+<div class="level3">
+
+<p>
+The setup of Madwifi or mac80211 WDS is explained in the recipe article <a href="../recipes/atheroswds" class="wikilink1" title="doc:recipes:atheroswds">WDS (atheros)</a>.
+</p>
+
+<p>
+This option is the preferred approach for wireless chipsets that support the Linux mac80211 wireless drivers (e.g. Atheros wireless chipsets). If the file /etc/config/wireless looks like the following, then mac80211 drivers are in use.
+</p>
+
+<p>
+<pre class="code">config wifi-device &#039;radio0&#039;
+        option type &#039;mac80211&#039;
+        ...</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="routed_client_mode">Routed Client Mode</h2>
+<div class="level2">
+
+<p>
+The <em>routed client mode</em> is the most generic wireless option. It is supported by all chipsets and drivers and requires no special modifications. The downside of routed client mode is the inability to bridge network segments or relay broadcast traffic. This affects for example the Windows Network Neighbourhood where <a href="http://en.wikipedia.org/wiki/Host_(network)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Host_(network)">hosts</a> from two network segments cannot &quot;see&quot; each other without a <a href="http://en.wikipedia.org/wiki/Domain_controller" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Domain_controller">domain controller</a>. Connection by IP address or host name is still possible.
+</p>
+
+<p>
+With routed client mode there are two possibilities to implement the network topology, depending on the specific requirements.
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="masqueraded">Masqueraded</h3>
+<div class="level3">
+
+<p>
+Using <em><a href="http://en.wikipedia.org/wiki/Network_address_translation" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Network_address_translation">masquerading (NAT)</a></em> on a client router connects a network segment behind the client to an existing wireless network without further modifications to the access point. The downside is that hosts on the AP side cannot access hosts behind the client router.
+<a href="../../_detail/doc/howto/802.11-routed-masq.png?id=doc%253Ahowto%253Aclientmode" class="media" title="doc:howto:802.11-routed-masq.png"><img src="../../_media/doc/howto/802.11-routed-masq.png" class="media" title="Masqueraded" alt="Masqueraded" /></a>
+</p>
+
+<p>
+Hosts from the client network (red) are able to reach hosts in the AP network (blue), the client router <em>masquerades</em> outgoing traffic. Hosts on the AP side only see the client router, all traffic originating from client hosts uses 192.168.1.30 as source address. No direct connection from <abbr title="Local Area Network">LAN</abbr> Host 1 or 2 to Client Host 1 or 2 is possible.
+</p>
+
+<p>
+See the <a href="../recipes/routedclient#usingmasquerade" class="wikilink1" title="doc:recipes:routedclient">Routed Client (Using MASQUERADE)</a> article for configuration instructions.
+</p>
+
+</div>
+
+<h3 class="sectionedit7" id="routed">Routed</h3>
+<div class="level3">
+
+<p>
+This option requires a <em><a href="http://en.wikipedia.org/wiki/Static_routing" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Static_routing">static route</a></em> on the AP pointing to the <a href="http://en.wikipedia.org/wiki/Subnetwork" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Subnetwork">subnet</a> behind the client router using the client router&#039;s IP on the AP network as a gateway. This allows hosts on both segments to reach each other directly, but it requires administrative access to the AP in order to configure the static route.
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/802.11-routed-client.png?id=doc%253Ahowto%253Aclientmode" class="media" title="doc:howto:802.11-routed-client.png"><img src="../../_media/doc/howto/802.11-routed-client.png" class="media" title="Routed network topology" alt="Routed network topology" /></a>
+</p>
+
+<p>
+Hosts from the client network (red) are able to directly communicate with hosts in the AP network (blue) and vice versa. The rectangles represent static route entries. 
+See the <a href="../recipes/routedclient#usingrouting" class="wikilink1" title="doc:recipes:routedclient">Routed Client (Using Routing)</a> article for configuration instructions.
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="bridged_client_mode_brcm-24_only">Bridged Client Mode (brcm-2.4 only)</h2>
+<div class="level2">
+
+<p>
+The <em>bridged client mode</em> is a proprietary Broadcom extension called <em>WET (Wireless Ethernet Transceiver) mode</em>. It is mostly Layer 2 transparent but has some disadvantages that may hinder network connectivity under certain circumstances (see <span class="curid"><a href="clientmode#whyitworksonbrcm-24" class="wikilink1" title="doc:howto:clientmode">technical background section</a></span>).
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/802.11-wet.png?id=doc%253Ahowto%253Aclientmode" class="media" title="doc:howto:802.11-wet.png"><img src="../../_media/doc/howto/802.11-wet.png" class="media" title="WET Mode" alt="WET Mode" /></a>
+</p>
+
+<p>
+All hosts are within the same subnet, W-<abbr title="Local Area Network">LAN</abbr> and <abbr title="Local Area Network">LAN</abbr> are bridged on both the AP and the client router.
+For a configuration example of bridged client mode, read the <a href="../recipes/bridgedclient" class="wikilink1" title="doc:recipes:bridgedclient">Bridged Client (Broadcom)</a> article.
+</p>
+
+</div>
+
+<h2 class="sectionedit9" id="bridged_client_mode_with_relayd">Bridged Client Mode (with relayd)</h2>
+<div class="level2">
+
+<p>
+It is possible to achieve a bridge-like client mode setup with the help of <em>relayd</em>.
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/802.11-routed-relay.png?id=doc%253Ahowto%253Aclientmode" class="media" title="doc:howto:802.11-routed-relay.png"><img src="../../_media/doc/howto/802.11-routed-relay.png" class="media" title="Relayd Topology" alt="Relayd Topology" /></a>
+</p>
+
+<p>
+The setup is explained in the <a href="../recipes/relayclient" class="wikilink1" title="doc:recipes:relayclient">Routed Client with relayd (Pseudobridge)</a> article.
+</p>
+
+</div>
+
+<h2 class="sectionedit10" id="bridged_client_mode_issues">Bridged Client Mode Issues</h2>
+<div class="level2">
+
+<p>
+<em>Transparent client bridging</em> or <em>bridged client mode</em> is not possible with vanilla OpenWrt on all platforms except <em>brcm-2.4</em> with the proprietary Broadcom driver. It is possible to achieve this goal by using WDS, the background is explained below.
+</p>
+
+<p>
+There are 3rd-party patches to implement <em>ARP-NAT</em> for platforms other than <em>brcm-2.4</em> but those are not part of OpenWrt. The Kamikaze based <a href="http://www.gargoyle-router.com/" class="urlextern" title="http://www.gargoyle-router.com/"  rel="nofollow">Gargoyle</a> firmware has support for it but is not officially supported by the OpenWrt developers.
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="problem_using_standard_client_mode">Problem using standard client mode</h3>
+<div class="level3">
+
+<p>
+<a href="../../_detail/doc/howto/802.11-no-bridge-plain.png?id=doc%253Ahowto%253Aclientmode" class="media" title="doc:howto:802.11-no-bridge-plain.png"><img src="../../_media/doc/howto/802.11-no-bridge-plain.png" class="media" title="Problem with bridging in a plain AP-to-STA setup" alt="Problem with bridging in a plain AP-to-STA setup" /></a>
+</p>
+
+<p>
+The 802.11 standard only uses three MAC addresses for frames transmitted between the Access Point and the Station.
+Frames transmitted from the Station to the AP don&#039;t include the ethernet source MAC of the requesting host and response frames are missing the destination ethernet MAC to address the target host behind the client bridge.
+</p>
+<ol>
+<li class="level1"><div class="li"> <em>Bridged Host</em> sends a packet to the <em>Target</em> host</div>
+</li>
+<li class="level1"><div class="li"> Frame is relayed via the <em>W-<abbr title="Local Area Network">LAN</abbr> Client</em> and the MAC address of the transmitting wireless adapter is used as source MAC, the sending ethernet MAC is discarded</div>
+</li>
+<li class="level1"><div class="li"> <em>W-<abbr title="Local Area Network">LAN</abbr> AP</em> receives the frame and redirects it to the <em>Target</em></div>
+</li>
+<li class="level1"><div class="li"> <em>Target</em> receives the frame and generates a response</div>
+</li>
+<li class="level1"><div class="li"> <em>Target</em> responds to the received frame using the (wrong) source MAC as destination</div>
+</li>
+<li class="level1"><div class="li"> <em>W-<abbr title="Local Area Network">LAN</abbr> AP</em> relays the frame to the <em>W-<abbr title="Local Area Network">LAN</abbr> Client</em> with the given destination MAC</div>
+</li>
+<li class="level1"><div class="li"> <em>W-<abbr title="Local Area Network">LAN</abbr> Client</em> receives the frame and assumes it is the final destination since it&#039;s wireless MAC is used in the frame, the packet is not forwarded</div>
+</li>
+<li class="level1"><div class="li"> <em>Bridged Host</em> never sees a response frame since the <em>W-<abbr title="Local Area Network">LAN</abbr> Client</em> became the destination, no connection is possible</div>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit12" id="solution_using_wds">Solution using WDS</h3>
+<div class="level3">
+
+<p>
+<a href="../../_detail/doc/howto/802.11-no-bridge-wds.png?id=doc%253Ahowto%253Aclientmode" class="media" title="doc:howto:802.11-no-bridge-wds.png"><img src="../../_media/doc/howto/802.11-no-bridge-wds.png" class="media" title="Bridging possible by using WDS" alt="Bridging possible by using WDS" /></a>
+</p>
+
+<p>
+If WDS is used, both the AP and the Station switch to the <em>4-address-mode</em> which enables transparent bridging on the client side.
+</p>
+<ol>
+<li class="level1"><div class="li"> <em>Bridged Host</em> sends a packet to the <em>Target</em> host</div>
+</li>
+<li class="level1"><div class="li"> Frame is relayed via the <em>W-<abbr title="Local Area Network">LAN</abbr> Client</em>, the sending ethernet MAC is preserved</div>
+</li>
+<li class="level1"><div class="li"> <em>W-<abbr title="Local Area Network">LAN</abbr> AP</em> receives the frame and redirects it to the <em>Target</em> using the second source MAC as sender address</div>
+</li>
+<li class="level1"><div class="li"> <em>Target</em> receives the frame and generates a response</div>
+</li>
+<li class="level1"><div class="li"> <em>Target</em> responds to the received frame using the given source MAC as destination</div>
+</li>
+<li class="level1"><div class="li"> <em>W-<abbr title="Local Area Network">LAN</abbr> AP</em> relays the frame to the <em>W-<abbr title="Local Area Network">LAN</abbr> Client</em> with the right MAC as second destination address</div>
+</li>
+<li class="level1"><div class="li"> <em>W-<abbr title="Local Area Network">LAN</abbr> Client</em> receives the frame and redirects it to the final destination using the second destination MAC as target</div>
+</li>
+<li class="level1"><div class="li"> <em>Bridged Host</em> receives the response frame, connection is established</div>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit13" id="why_it_works_on_brcm-24">Why it works on brcm-2.4</h3>
+<div class="level3">
+
+<p>
+The proprietary <em>wl.o</em> Broadcom wireless driver implements an ARP-NAT (Layer 2 address translation) mechanism called <em>WET mode</em>.
+ARP-NAT is comparable to <em>Masquerading</em> used on Layer 3 to connect multiple hosts using only one globally routed public IP address.
+</p>
+
+<p>
+However, the address translation used by the Broadcom driver is not fully transparent and can cause various hard to debug network issues:
+</p>
+<ul>
+<li class="level1"><div class="li"> A host on the AP side may not be able to reach a host on the Station side until the other side made an initial connection attempt</div>
+</li>
+<li class="level1"><div class="li"> Layer 3 routing on the Station side using a host behind the AP as gateway is unreliable or does not work at all</div>
+</li>
+<li class="level1"><div class="li"> The mapping entries in the ARP-NAT table may time out causing sudden connection loss</div>
+</li>
+<li class="level1"><div class="li"> The translation table may run out of space resulting in connection problems for some hosts on the Station side</div>
+</li>
+</ul>
+<hr />
+
+</div>
+<div class="plugin_include_content plugin_include__meta:infobox:cleanup" id="plugin_include__meta__infobox__cleanup">
+<div class="level3">
+
+<p>
+
+<table class="inline" style="width:70%; margin-left:15%">
+  <tr>
+    <td style="border-left:6px solid #f57900; vertical-align:middle">
+      <img src="../../_media/meta/icons/tango/48px-cleanup.svg.png" alt="" style="float:left; margin-right:0.5em" />
+      <strong>Cleanup Required!</strong><br />
+      This page or section needs cleanup. You can <a href="clientmode?do=edit">edit</a> this page to fix wiki markup, redundant content or outdated information.
+    </td>
+  </tr>
+</table>
+
+</p>
+
+</div>
+</div>
+<div class="level3">
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> The information below is outdated and parts of it do not really belong here - wireless encryption is covered in the <a href="../uci/wireless" class="wikilink1" title="doc:uci:wireless">wireless configuration documentation</a> and should be covered by specific examples in the <code>doc:recipes:</code> namespace (tbd)  — <em><a href="mailto:&#x78;&#x6d;&#x40;&#x73;&#x75;&#x62;&#x73;&#x69;&#x67;&#x6e;&#x61;&#x6c;&#x2e;&#x6f;&#x72;&#x67;" class="mail" title="&#x78;&#x6d;&#x40;&#x73;&#x75;&#x62;&#x73;&#x69;&#x67;&#x6e;&#x61;&#x6c;&#x2e;&#x6f;&#x72;&#x67;">Jo-Philipp Wich</a> 2010/01/09 03:53</em>
+</p>
+<hr />
+
+</div>
+
+<h2 class="sectionedit16" id="clientmode_without_authentication_open">ClientMode without authentication (open)</h2>
+<div class="level2">
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> Merge example sections and unify them, link top wep configuration in <a href="../uci/wireless" class="wikilink1" title="doc:uci:wireless">/etc/config/wireless</a>.
+</p>
+
+<p>
+/etc/config/wireless
+</p>
+<div class="table sectionedit17"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code># This section is chipset specific
+# Do not copy it for your own use
+# config &#039;wifi-device&#039;
+        #   …
+
+config &#039;wifi-iface&#039;
+        option &#039;device&#039;       &#039; &#039;
+        #   Set this to the /etc/config/network network that it&#039;s linked to
+        #   option network      
+        #   &#039;sta&#039; means client mode.
+        option &#039;mode&#039;         &#039;sta&#039;
+        option &#039;ssid&#039;         &#039; &#039;
+</code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit18" id="client_mode_with_wpa2_enterprise_peap-gtc_authentication">Client Mode with WPA2 Enterprise PEAP-GTC Authentication</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li">Make sure you have the full wpa_supplicant package that support EAP/PEAP authentication.</div>
+</li>
+<li class="level1"><div class="li">Use UCI or modify the /etc/config/wireless file to set the following options</div>
+</li>
+</ol>
+
+<p>
+        option network &#039;wwan&#039;
+</p>
+<pre class="code">      option device &#039;radio0&#039;
+      #set device and network as necessary
+      option mode &#039;sta&#039;
+      option ssid &#039;CHANGE_THIS_TO_YOUR_SSID&#039;
+      option encryption &#039;wpa2+ccmp&#039;
+      option eap_type &#039;peap&#039;
+      option auth &#039;gtc&#039;
+      option identity &#039;CHANGE_THIS_TO_YOUR_ID&#039;</pre>
+<ol>
+<li class="level1"><div class="li">Enter <em>uci commit wireless</em> on the command line</div>
+</li>
+<li class="level1"><div class="li">Enter <em>wifi</em> on the command line</div>
+</li>
+</ol>
+
+<p>
+When the wireless configuration is committed and wifi is commanded, a wpa_supplicant-wlan0.conf (may be something besides wlan0 if you are using a different interface) file is created in the /var/run (same as /tmp/run) directory containing the necessary variables. This looks like the following
+</p>
+<pre class="code"> ctrl_interface=/var/run/wpa_supplicant-wlan0
+ 
+ network={
+      scan_ssid=1
+      ssid=&quot;YOUR_SSID_HERE&quot;
+      key_mgmt=WPA-EAP
+      proto=WPA2
+      eap=PEAP
+      phase2=&quot;auth=gtc&quot;
+      identity=&quot;YOUR_ID_HERE&quot;
+      password=&quot;&quot;  &lt;----delete this line and save the file
+ }</pre>
+
+<p>
+There is a bug that prevents PEAP-GTC from working. Because no password was specified in the wireless configuration file, uci translated this to password=&quot;&quot; in the wpa_supplicant conf file, when the time comes to enter your OTP (one time pin) you will not get the prompt because wpa_supplicant accepts &quot;&quot; as a valid null password.
+</p>
+<ol>
+<li class="level1"><div class="li">edit the wpa_supplicant-wlan0.conf file by removing the <em>password=&quot;&quot;</em> line.</div>
+</li>
+<li class="level1"><div class="li">from the command line enter <em>wpa_cli -p /var/run/wpa_supplicant-wlan0</em> (change wlan0 to your interface as necessary)</div>
+</li>
+</ol>
+
+<p>
+This will bring up the wpa command line interface. This is necessary because the command line interface receives the OTP query from the wpa_supplicant.
+</p>
+<ol>
+<li class="level1"><div class="li">First, reload the modified wpa supplicant configuration file by type <em>reconfigure</em> in the wpa_cli interactive prompt.</div>
+</li>
+<li class="level1"><div class="li">Then, type <em>reassociate</em></div>
+</li>
+<li class="level1"><div class="li">After a few seconds you should receive a prompt to enter your one time pin.</div>
+</li>
+<li class="level1"><div class="li">If you have more than one interface on which the wpa supplicant is running determine the <em>id</em> of the desired interface by typing <em>status</em> at the wpa_cli prompt. If you have only one interface it has id=0</div>
+</li>
+<li class="level1"><div class="li">At the wpa_cli prompt type <em>otp 0 your_password_here</em></div>
+</li>
+<li class="level1"><div class="li">If you are lucky and have been a good boy (or girl) you will receive a message saying that you have been authenticated and the interface is connected.</div>
+</li>
+<li class="level1"><div class="li">You may now quit wpa_cli</div>
+</li>
+<li class="level1"><div class="li">Continue with whatever else you were up to.</div>
+</li>
+</ol>
+
+</div>
+
+<h2 class="sectionedit19" id="bridged_and_routed_client_modes">Bridged and routed client modes</h2>
+<div class="level2">
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> Bridged client mode only works on <em>brcm-2.4</em> all other platforms need non-standard patches or other workarounds
+</p>
+
+</div>
+
+<h3 class="sectionedit20" id="bridged">Bridged</h3>
+<div class="level3">
+
+<p>
+There are no bridged and routed modes on Kamikaze, per se.  Instead, multiple interfaces are bridged with an entry in /etc/config/network like this:
+</p>
+<div class="table sectionedit21"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;interface&#039;
+        option &#039;type&#039;     &#039;bridge&#039;
+        option &#039;ifname&#039;   &#039;eth0.0&#039;
+        *..</code> </td>
+	</tr>
+</table></div>
+
+<p>
+Then in <code>/etc/config/wireless</code>, set the network to the same network specified in the bridge:
+</p>
+<div class="table sectionedit22"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;wifi-device  &#039;
+        *..
+
+config &#039;wifi-iface&#039;
+        *..
+        option &#039;network</code>&#039; </td>
+	</tr>
+</table></div>
+
+<p>
+Alternatively, but a little less flexibly, you can use this line in <code>/etc/config/network</code>:
+</p>
+<div class="table sectionedit23"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>        # athx for Atheros, or wl0 for Broadcom
+        option &#039;ifname&#039;    &#039;eth0.0 ath0</code>&#039; </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit24" id="routed1">Routed</h3>
+<div class="level3">
+
+<p>
+For routed mode, the wireless device needs to be used in a normal network configuration in /etc/config/network.  Then, iptables rules are used to forward packets between the networks.  The default gateway on each network (this is routing; you&#039;re connecting two networks together) needs to forward packets destined for the other network to the  wifi router, or each host on each network needs to know that the wifi router is the router for packets to the respective network.
+</p>
+
+</div>
+
+<h2 class="sectionedit25" id="finding_networks">Finding networks</h2>
+<div class="level2">
+
+<p>
+Both Broadcom and Atheros chipsets support scanning with the iwlist command.  This command will scan all interfaces for networks:
+</p>
+
+<p>
+<pre class="code">iwlist scanning</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit26" id="useful_commands">Useful Commands</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> ifconfig</div>
+</li>
+<li class="level1"><div class="li"> iwconfig</div>
+</li>
+<li class="level1"><div class="li"> wpa_cli</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit27" id="tips">Tips</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit28" id="wpa_supplicant_with_hidden_aps_and_virtual_aps_vap">wpa_supplicant with hidden APs and virtual APs (VAP)</h3>
+<div class="level3">
+
+<p>
+If you&#039;re having trouble connecting to either a hidden AP or a virtual AP (usually because wpa_supplicant doesn&#039;t list it in a scan), make sure these options are set correctly in the wpa_supplicant config file:
+</p>
+<ul>
+<li class="level1"><div class="li"> ap_scan (See the example <a href="http://hostap.epitest.fi/gitweb/gitweb.cgi?p=hostap.git;a=blob_plain;f=wpa_supplicant/wpa_supplicant.conf" class="urlextern" title="http://hostap.epitest.fi/gitweb/gitweb.cgi?p=hostap.git;a=blob_plain;f=wpa_supplicant/wpa_supplicant.conf"  rel="nofollow">wpa_supplicant.conf</a> for more details)</div>
+<ul>
+<li class="level2"><div class="li"> 1: wpa_supplicant initiates scanning and AP selection</div>
+</li>
+<li class="level2"><div class="li"> 0: driver takes care of scanning, AP selection, and IEEE 802.11 association parameters</div>
+</li>
+<li class="level2"><div class="li"> 2: like 0, but associate with APs using security policy and SSID (but not BSSID).</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> scan_ssid</div>
+<ul>
+<li class="level2"><div class="li"> 0: do not scan this SSID with specific Probe Request frames (default)</div>
+</li>
+<li class="level2"><div class="li"> 1: scan with SSID-specific Probe Request frames (this can be used to find APs that do not accept broadcast SSID or use multiple SSIDs; this will add latency to scanning, so enable this only when needed)</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/clientmode.txt</bdi> · Last modified: 2014/05/08 05:52 by <bdi>natehardison</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="clientmode?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="clientmode?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="clientmode?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="clientmode#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Aclientmode&amp;1432266329" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

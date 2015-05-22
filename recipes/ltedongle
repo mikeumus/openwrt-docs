@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>How To Use LTE modem in QMI mode for WAN connection [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,recipes,ltedongle"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="ltedongle?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:recipes"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/recipes/ltedongle"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/recipes/ltedongle"/>
+<link rel="canonical" href="ltedongle"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:recipes';var JSINFO = {"id":"doc:recipes:ltedongle","namespace":"doc:recipes"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267148 166.182.3.14';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="ltedongle#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="ltedongle?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="ltedongle?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:recipes:ltedongle" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="ltedongle?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="ltedongle?do=media&amp;ns=doc%253Arecipes"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="ltedongle?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:recipes:start">Recipes</a></bdi> » <bdi><span class="curid"><a href="ltedongle" class="wikilink1" title="doc:recipes:ltedongle">How To Use LTE modem in QMI mode for WAN connection</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/recipes/ltedongle" class="media" title="cz:doc:recipes:ltedongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/recipes/ltedongle" class="media" title="de:doc:recipes:ltedongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="ltedongle" class="media" title="doc:recipes:ltedongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/recipes/ltedongle" class="media" title="es:doc:recipes:ltedongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/recipes/ltedongle" class="media" title="fr:doc:recipes:ltedongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/recipes/ltedongle" class="media" title="hu:doc:recipes:ltedongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/recipes/ltedongle" class="media" title="jp:doc:recipes:ltedongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/recipes/ltedongle" class="media" title="pl:doc:recipes:ltedongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/recipes/ltedongle" class="media" title="pt-br:doc:recipes:ltedongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/recipes/ltedongle" class="media" title="ru:doc:recipes:ltedongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/recipes/ltedongle" class="media" title="tr:doc:recipes:ltedongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/recipes/ltedongle" class="media" title="zh-cn:doc:recipes:ltedongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/recipes/ltedongle" class="media" title="zh-tw:doc:recipes:ltedongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:recipes:ltedongle</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="ltedongle#about">About</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="ltedongle#modem_preparation">Modem Preparation</a></div></li>
+<li class="level2"><div class="li"><a href="ltedongle#router_preparation">Router Preparation</a></div></li>
+<li class="level2"><div class="li"><a href="ltedongle#required_packages">Required Packages</a></div></li>
+<li class="level2"><div class="li"><a href="ltedongle#optional_packages">Optional Packages</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="ltedongle#installation">Installation</a></div></li>
+<li class="level1"><div class="li"><a href="ltedongle#configuration">Configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="ltedongle#interface_configuration">Interface configuration</a></div></li>
+<li class="level2"><div class="li"><a href="ltedongle#network_configuration">Network configuration</a></div></li>
+<li class="level2"><div class="li"><a href="ltedongle#firewall_configuration">Firewall configuration</a></div></li>
+<li class="level2"><div class="li"><a href="ltedongle#additional_info">Additional Info</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="ltedongle#notes">Notes</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="ltedongle#troubleshooting">Troubleshooting</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="how_to_use_lte_modem_in_qmi_mode_for_wan_connection">How To Use LTE modem in QMI mode for WAN connection</h1>
+<div class="level1">
+
+<p>
+This recipe explains how to setup and configure OpenWrt for using a USB LTE/3g/UMTS-modem for WAN connection, using QMI interface.
+You may want to checkout the <a href="../uci/multiwan" class="wikilink1" title="doc:uci:multiwan">Multiwan</a> package to use this simultaneously with other connections to the internet. 
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> All recent information is valid for BarierBreaker release and later. Not tested on AA or elder.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="about">About</h2>
+<div class="level2">
+
+<p>
+Many modern USB dongles could perform in different ways.
+</p>
+
+<p>
+If your modem provides only AT command interface - please refer to <a href="3gdongle" class="wikilink1" title="doc:recipes:3gdongle">Use 3g/UMTS USB Dongle for WAN connection</a>.
+</p>
+
+<p>
+If it is possible to switch your modem to provide NDIS interface - then this article if for <strong>YOU</strong>. 
+</p>
+
+<p>
+<img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> Add Speed and Performance test results on <strong>Modem mode</strong> and <strong>QMI mode</strong>.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <img src="../../lib/images/smileys/icon_cool.gif" class="icon" alt="8-)" /> Subjective, solution based on NDIS (QMI mode) works much stable. Faster reconnect. Easy to control and monitor.
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="modem_preparation">Modem Preparation</h3>
+<div class="level3">
+
+<p>
+We need to switch modem to provide native NDIS interface instead of Modem interface.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Please read about AT commands for your modem.
+</p>
+
+<p>
+Here would be an Example for Huawei E392 LTE/3G dongle.
+</p>
+
+<p>
+Connect modem to PC and get access to it with any COM terminal:
+<pre class="code">Send: AT
+OK
+
+Send: AT^SETPORT=?
+Recieve: 1:MODEM
+Recieve: 2:PCUI 
+Recieve: 3:DIAG
+Recieve: 4:PCSC
+Recieve: 5:GPS
+Recieve: 6:GPS CONTROL
+Recieve: 7:NDIS
+Recieve: A:BLUE TOOTH
+Recieve: B:FINGER PRINT
+Recieve: D:MMS
+Recieve: E:PC VOICE
+Recieve: A1:CDROM
+Recieve: A2:SD
+Recieve: OK
+
+Send: AT^SETPORT?
+Recieve: A1,A2;1,2,3,A1,A2
+Recieve: OK
+
+AT^SETPORT=&quot;A1;2,7,A2&quot;
+Recieve: OK</pre>
+
+AT^SETPORT=? - Lists the Available interfaces and their numbers
+</p>
+
+<p>
+AT^SETPORT?  - Show current configuration
+</p>
+
+<p>
+AT^SETPORT=&quot;A1;2,7&quot; - Sets configuration.
+</p>
+
+<p>
+Modem configuration is splitted into 2 parts: before &quot;;&quot; and after.
+</p>
+
+<p>
+Once modem is plugged-In - it declares itself in first configuration (normally with at least A1 - virtual CD drive with Drivers and application). 
+If the drivers are installed - they see the modem and issue a special command to switch to &quot;working&quot; configuration - this is 2,7 interfaces in this example.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong>Never turn Off PC interface!!!</strong> Otherwise you&#039;d not have ability to access modem with terminal and change the config.
+</p>
+
+<p>
+Optionally You can add more interfaces to be active i.e. SD card (Change to A1;2,7,A2), but this is out of scope of this article.
+</p>
+
+<p>
+Once you&#039;ve done - you can disconnect modem from the PC and connect it to the router.
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="router_preparation">Router Preparation</h3>
+<div class="level3">
+
+<p>
+1. Install OpenWRT
+</p>
+
+<p>
+2. Complete Steps <a href="../howto/configuration" class="wikilink1" title="doc:howto:basic.config">OpenWrt Configuration</a>
+</p>
+
+<p>
+Router should be turned on and connected to the Internet to get the needed packages.Please refer to: <a href="../howto/internet.connection" class="wikilink1" title="doc:howto:internet.connection">Internet Connection</a>.
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="required_packages">Required Packages</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"><strong><code>usb-modeswitch</code></strong>    - <em class="u">It will automatically issue a &quot;special&quot; command to the modem for switching it into the &quot;Working&quot; state</em></div>
+</li>
+<li class="level1"><div class="li"><strong><code>kmod-mii</code></strong>          - <em class="u">Mii driver</em></div>
+</li>
+<li class="level1"><div class="li"><strong><code>kmod-usb-net</code></strong>      - <em class="u">Usb to Ethernet</em></div>
+</li>
+<li class="level1"><div class="li"><strong><code>kmod-usb-wdm</code></strong></div>
+</li>
+<li class="level1"><div class="li"><strong><code>kmod-usb-net-qmi-wwan</code></strong></div>
+</li>
+<li class="level1"><div class="li"><strong><code>uqmi</code></strong>              - <em class="u">Control utility</em></div>
+</li>
+</ul>
+
+<p>
+<pre class="code">opkg update
+opkg install usb-modeswitch kmod-mii kmod-usb-net kmod-usb-wdm kmod-usb-net-qmi-wwan uqmi</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="optional_packages">Optional Packages</h3>
+<div class="level3">
+
+<p>
+1. Add support for PC Interface (ttyUSB0)
+</p>
+<ul>
+<li class="level1"><div class="li"><strong><code>kmod-usb-serial-option</code></strong></div>
+</li>
+<li class="level1"><div class="li"><strong><code>kmod-usb-serial</code></strong></div>
+</li>
+<li class="level1"><div class="li"><strong><code>kmod-usb-serial-wwan</code></strong></div>
+</li>
+</ul>
+
+<p>
+<pre class="code">opkg update
+opkg install kmod-usb-serial-option kmod-usb-serial kmod-usb-serial-wwan</pre>
+
+</p>
+
+<p>
+2. Add support for FlashCard of your dongle - refer to: <a href="../howto/usb.storage" class="wikilink1" title="doc:howto:usb.storage">USB Storage</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="installation">Installation</h2>
+<div class="level2">
+
+<p>
+1. Install all the needed packages
+<pre class="code">opkg update
+opkg install usb-modeswitch kmod-mii kmod-usb-net kmod-usb-wdm kmod-usb-net-qmi-wwan uqmi</pre>
+
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> If your have not enought space on your device - think of installing <a href="../howto/extroot" class="wikilink1" title="doc:howto:extroot">Rootfs on External Storage (extroot)</a>
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Another option is Hardware memory upgrade. Refer to your router Forum thread for possibility and instructions.
+</p>
+
+<p>
+2. Reboot to router
+<pre class="code">reboot</pre>
+
+</p>
+
+<p>
+3. Check that everything is OK and You got new device:
+<pre class="code">ls -l /dev/cdc-wdm0
+
+crw-r--r--    1 root     root      180, 176 Oct  1 12:03 /dev/cdc-wdm0</pre>
+
+</p>
+
+<p>
+If you have no such device - try to findout what went wrong:
+</p>
+
+<p>
+try <strong>dmesg</strong> to read kernel logs on USB init
+<pre class="code">dmesg</pre>
+
+or look info about USB devices and interfaces present in the system:
+<pre class="code">cat /sys/kernel/debug/usb/devices
+
+T:  Bus=01 Lev=01 Prnt=01 Port=00 Cnt=01 Dev#=  3 Spd=480  MxCh= 0
+D:  Ver= 2.00 Cls=00(&gt;ifc ) Sub=00 Prot=00 MxPS=64 #Cfgs=  1
+P:  Vendor=12d1 ProdID=1506 Rev= 0.00
+S:  Manufacturer=Huawei Technologies
+S:  Product=HUAWEI Mobile
+C:* #Ifs= 3 Cfg#= 1 Atr=c0 MxPwr=500mA
+I:* If#= 0 Alt= 0 #EPs= 2 Cls=ff(vend.) Sub=01 Prot=02 Driver=option
+E:  Ad=81(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
+E:  Ad=01(O) Atr=02(Bulk) MxPS= 512 Ivl=4ms
+I:* If#= 1 Alt= 0 #EPs= 1 Cls=ff(vend.) Sub=01 Prot=09 Driver=qmi_wwan
+E:  Ad=82(I) Atr=03(Int.) MxPS=  64 Ivl=2ms
+I:* If#= 2 Alt= 0 #EPs= 2 Cls=ff(vend.) Sub=01 Prot=08 Driver=qmi_wwan
+E:  Ad=83(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
+E:  Ad=02(O) Atr=02(Bulk) MxPS= 512 Ivl=4ms</pre>
+
+</p>
+
+<p>
+See Troubleshooting Section of this page for more information.
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="configuration">Configuration</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit9" id="interface_configuration">Interface configuration</h3>
+<div class="level3">
+
+<p>
+First check that everything works correctly:
+<pre class="code">root@OpenWrt:~# uqmi -d /dev/cdc-wdm0 --get-data-status
+&quot;disconnected&quot;</pre>
+
+and
+<pre class="code">root@OpenWrt:~# uqmi -d /dev/cdc-wdm0 --get-signal-info
+{
+        &quot;type&quot;: &quot;lte&quot;,
+        &quot;rssi&quot;: -71,
+        &quot;rsrq&quot;: -9,
+        &quot;rsrp&quot;: -94,
+        &quot;snr&quot;: 70
+}</pre>
+
+To start the internet connection - issue a command:
+<pre class="code">uqmi -d /dev/cdc-wdm0 --start-network internet --autoconnect</pre>
+
+Where &quot;internet&quot; is the APN of your provider.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Many providers allow to use &quot;any&quot; APN, so-called &quot;no-settings&quot; connection. So, in many cases &quot;internet&quot; would be just fine
+</p>
+
+<p>
+Check the status:
+<pre class="code">uqmi -d /dev/cdc-wdm0 --get-data-status
+&quot;connected&quot;</pre>
+
+</p>
+
+<p>
+<strong>–autoconnect</strong> key says that you want always be conencted, once dongle is inserted to the router and Celular Network is in range.
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> It will be kept after reboot.
+</p>
+
+<p>
+In case you need additional authentication, please look at the possible arguments for the uqmi utility:
+<pre class="code">  --start-network &lt;apn&gt;:            Start network connection (use with options below)
+    --auth-type pap|chap|both|none: Use network authentication type
+    --username &lt;name&gt;:              Use network username
+    --password &lt;password&gt;:          Use network password
+    --autoconnect:                  Enable automatic connect/reconnect
+  --stop-network &lt;pdh&gt;:             Stop network connection (use with option below)
+    --autoconnect:                  Disable automatic connect/reconnect</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="network_configuration">Network configuration</h3>
+<div class="level3">
+
+<p>
+Now you should add new <strong>Interface</strong> to /etc/config/network
+<pre class="code">config interface &#039;wwan&#039;
+        option ifname &#039;wwan0&#039;
+        option proto &#039;dhcp&#039;</pre>
+
+You can do this using the vi text editor, but if you&#039;re not comfortable with that, point your browser to 192.168.1.1 again, choose Network → Interfaces and click Add new interface.
+</p>
+
+<p>
+Write <strong>wwan</strong> as the name of the interface and make it cover the <strong>wwan0</strong> interface. Choose <strong>DHCP client</strong> as the protocol.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> Insert a screenshot of LUCI add Interface. I have not enought rights.
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="firewall_configuration">Firewall configuration</h3>
+<div class="level3">
+
+<p>
+The only thing that is left - Add <strong>wwan</strong> interface to <strong>WAN zone</strong>
+</p>
+
+<p>
+Using LUCI:
+</p>
+<ul>
+<li class="level1"><div class="li"> go to Network → Firewall, scroll down to wan and click the Edit button</div>
+</li>
+<li class="level1"><div class="li"> add a checkmark to the <strong>wwan</strong> box under Covered networks heading, click <strong>Save &amp; Apply</strong></div>
+</li>
+</ul>
+
+<p>
+<img src="../../lib/images/smileys/icon_biggrin.gif" class="icon" alt=":-D" /> That&#039;s It! <img src="../../lib/images/smileys/icon_cool.gif" class="icon" alt="8-)" />
+</p>
+
+<p>
+<img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> Insert a Screen Shot from LUCI.
+</p>
+
+</div>
+
+<h3 class="sectionedit12" id="additional_info">Additional Info</h3>
+<div class="level3">
+
+<p>
+Some providers of the celular internet use redirection to their pages for access activation, when you are connected first time.
+I.e. <strong>YOTA</strong> in Russia.
+</p>
+
+<p>
+Normally this would be blocked by <strong>dnsmasq</strong>:
+<pre class="code">Jan 18 14:36:49 OpenWrt daemon.warn dnsmasq[1325]: possible DNS-rebind attack detected: my.yota.ru</pre>
+
+</p>
+
+<p>
+You have 2 options:
+</p>
+<ul>
+<li class="level1"><div class="li"> Allow rebind responses RFC1918 (In LUCI goto <strong>Network</strong> → <strong>DHCP and <abbr title="Domain Name System">DNS</abbr></strong> and uncheck <strong>Rebind protection</strong> checkmark)</div>
+</li>
+<li class="level1"><div class="li"> Add Yota.ru domain to <strong>Whitelist</strong> (In LUCI goto <strong>Network</strong> → <strong>DHCP and <abbr title="Domain Name System">DNS</abbr></strong> and type in &quot;yota.ru&quot; without quotes to the <strong>Domain whitelist</strong> field.</div>
+</li>
+</ul>
+
+<p>
+<strong>Save &amp; apply</strong>
+</p>
+
+</div>
+
+<h2 class="sectionedit13" id="notes">Notes</h2>
+<div class="level2">
+
+<p>
+ Based on: <a href="http://intelnuc.blogspot.ru/2014/10/turn-your-old-wireless-router-into-lte.html" class="urlextern" title="http://intelnuc.blogspot.ru/2014/10/turn-your-old-wireless-router-into-lte.html"  rel="nofollow"> This Article</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit14" id="troubleshooting">Troubleshooting</h3>
+<div class="level3">
+
+<p>
+<em class="u"><strong>My router is not detecting the dongle. What should I do?</strong></em>
+</p>
+
+<p>
+Try the following commands:
+<pre class="code">usbmode -l</pre>
+
+It should respond with a message about your USB device is detected. If it does, issue the next command. If it doesn&#039;t, you might want to get help from the forum.
+<pre class="code">usbmode -s</pre>
+
+Then wait for the dongle to get issued an IP from your ISP.
+</p>
+
+<p>
+<em class="u"><strong>I have to issue <em>usbmode -l</em> and <em>usbmode -s</em> every time I reboot my router to detect my USB device. How can I automate it?</strong></em>
+</p>
+
+<p>
+Include the following codes into <em>/etc/rc.local</em> just before <em>exit 0</em>:
+<pre class="code">/sbin/usbmode -l
+/bin/sleep 2
+/sbin/usbmode -s</pre>
+
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/recipes/ltedongle.txt</bdi> · Last modified: 2015/02/04 07:14 by <bdi>ProFire</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="ltedongle?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="ltedongle?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="ltedongle?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="ltedongle#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Arecipes%253Altedongle&amp;1432267148" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

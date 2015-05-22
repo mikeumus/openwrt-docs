@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Network scripts [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,devel,network-scripting"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="network-scripting?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:devel"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/devel/network-scripting"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/devel/network-scripting"/>
+<link rel="canonical" href="network-scripting"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:devel';var JSINFO = {"id":"doc:devel:network-scripting","namespace":"doc:devel"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265707 166.182.3.62';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="network-scripting#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="network-scripting?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="network-scripting?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:devel:network-scripting" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="network-scripting?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="network-scripting?do=media&amp;ns=doc%253Adevel"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="network-scripting?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:devel:start">Developing</a></bdi> » <bdi><span class="curid"><a href="network-scripting" class="wikilink1" title="doc:devel:network-scripting">Network scripts</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/devel/network-scripting" class="media" title="cz:doc:devel:network-scripting"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/devel/network-scripting" class="media" title="de:doc:devel:network-scripting"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="network-scripting" class="media" title="doc:devel:network-scripting"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/devel/network-scripting" class="media" title="es:doc:devel:network-scripting"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/devel/network-scripting" class="media" title="fr:doc:devel:network-scripting"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/devel/network-scripting" class="media" title="hu:doc:devel:network-scripting"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/devel/network-scripting" class="media" title="jp:doc:devel:network-scripting"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/devel/network-scripting" class="media" title="pl:doc:devel:network-scripting"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/devel/network-scripting" class="media" title="pt-br:doc:devel:network-scripting"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/devel/network-scripting" class="media" title="ru:doc:devel:network-scripting"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/devel/network-scripting" class="media" title="tr:doc:devel:network-scripting"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/devel/network-scripting" class="media" title="zh-cn:doc:devel:network-scripting"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/devel/network-scripting" class="media" title="zh-tw:doc:devel:network-scripting"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:devel:network-scripting</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="network-scripting#using_network_scripts">Using network scripts</a></div></li>
+<li class="level1"><div class="li"><a href="network-scripting#writing_protocol_handlers">Writing protocol handlers</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="network-scripting#scan">Scan</a></div></li>
+<li class="level2"><div class="li"><a href="network-scripting#coldplug">Coldplug</a></div></li>
+<li class="level2"><div class="li"><a href="network-scripting#setup">Setup</a></div></li>
+<li class="level2"><div class="li"><a href="network-scripting#stop">Stop</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="network_scripts">Network scripts</h1>
+<div class="level1">
+
+<p>
+On OpenWrt, parsing of the network configuration and translation into system commands is handled by the network scripts in <code>/lib/network/</code>.
+The <code>config.sh</code> script implements the base protocols like <code>static</code>, <code>dhcp</code> and <code>none</code> as well as some common utility functions.
+</p>
+
+<p>
+The network setup is extended by <em>protocol handlers</em>, additional scripts which provide configuration support for protcols like PPPoE or 3G.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="using_network_scripts">Using network scripts</h2>
+<div class="level2">
+
+<p>
+To be able to access the network functions, you need to include the necessary shell scripts by running:
+</p>
+<div class="table sectionedit3"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>. /etc/functions.sh      # common functions
+include /lib/network     # include /lib/network/*.sh
+scan_interfaces          # read and parse the network config</code> </td>
+	</tr>
+</table></div>
+
+<p>
+Some protocols, such as PPP might change the configured interface names at run time (e.g. eth0 ⇒ ppp0 for PPPoE).
+That’s why you have to run scan_interfaces instead of reading the values from the config directly.
+After running scan_interfaces, the ’ifname’ option will always contain the effective interface name
+(which is used for IP traffic) and if the physical device name differs from it, it will be stored in the ’device’ option.
+That means that running config_get lan ifname after scan_interfaces might not return the same result as running it before.
+</p>
+
+<p>
+After running scan_interfaces, the following functions are available:
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>find_config <em>interface</em></code><br/>
+Looks for a network configuration that includes the specified network interface.</div>
+</li>
+<li class="level1"><div class="li"> <code>setup_interface <em>interface</em> [config] [protocol]</code><br/>
+Will set up the specified interface, optionally overriding the network configuration name or the protocol that it uses.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit4" id="writing_protocol_handlers">Writing protocol handlers</h2>
+<div class="level2">
+<pre class="code">Note from 2013-10-03: This section is outdated! Please update it! see netifd, scripts are now in /lib/netifd/proto, and the function names are a bit different.</pre>
+
+<p>
+You can add custom protocol handlers by adding shell scripts to <code>/lib/network/</code>.
+The functions additional protocol backends may provide are explained below.
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="scan">Scan</h3>
+<div class="level3">
+
+<p>
+Protocols that create purely virtual interfaces (like PPP, 6in4 or IP tunnels) need to implement a scan procedure to 
+synthesize an ifname required for <em>ifup</em> and <em>ifdown</em> procedures in order to map interfaces to config sections.
+</p>
+
+<p>
+When called, one parameter is passed:
+</p>
+<ol>
+<li class="level1"><div class="li"> Config, the UCI section name suitable for <code>config_get</code> calls</div>
+</li>
+</ol>
+<div class="table sectionedit6"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>scan_<em>protocolname</em>() {
+    local config=&quot;$1&quot;
+    # change the interface names if necessary
+}</code> </td>
+	</tr>
+</table></div>
+
+<p>
+This function is optional for protocols operating on physical interfaces.
+</p>
+
+</div>
+
+<h3 class="sectionedit7" id="coldplug">Coldplug</h3>
+<div class="level3">
+
+<p>
+By default, only interfaces present in <code>/proc/net/dev</code>, like <em>eth0</em>, are brought up on boot.
+Protocols which use virtual interfaces may provide a coldplug procedure to handle the bringup of
+the interface automatically.
+</p>
+
+<p>
+If a protocol implements a coldplug handler and the <code>auto</code> option is not set to false in the
+associated config section, the system will trigger the handler procedure in order to start the
+interface.
+</p>
+
+<p>
+When called, one parameter is passed:
+</p>
+<ol>
+<li class="level1"><div class="li"> Config, the UCI section name suitable for <code>config_get</code> calls</div>
+</li>
+</ol>
+<div class="table sectionedit8"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>coldplug_interface_<em>protocolname</em>() {
+    local config=&quot;$1&quot;
+    # trigger bringup of interface, typically by calling setup_interface_…()
+}</code> </td>
+	</tr>
+</table></div>
+
+<p>
+This function is optional.
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="setup">Setup</h3>
+<div class="level3">
+
+<p>
+The setup procedure implements the actual protocol specifc configuration logic and interface bringup.
+</p>
+
+<p>
+When called, two parameters are passed:
+</p>
+<ol>
+<li class="level1"><div class="li"> Interface, the Linux interface name for calls to <code>ifconfig</code>, <code>route</code> and similar</div>
+</li>
+<li class="level1"><div class="li"> Config, the UCI section name suitable for <code>config_get</code> calls</div>
+</li>
+</ol>
+<div class="table sectionedit10"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>setup_interface_<em>protocolname</em>() {
+    local interface=&quot;$1&quot;
+    local config=&quot;$2&quot;
+    # set up the interface
+}</code> </td>
+	</tr>
+</table></div>
+
+<p>
+This function must be implemented by any protocol backend.
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="stop">Stop</h3>
+<div class="level3">
+
+<p>
+Protocols that need special shutdown handling, for example to kill associated daemons, may implement
+a stop procedure. This procedure is called when an interface is brought down before the associated UCI
+state is cleared.
+</p>
+
+<p>
+When called, one parameter is passed:
+</p>
+<ol>
+<li class="level1"><div class="li"> Config, the UCI section name suitable for <code>config_get</code> calls</div>
+</li>
+</ol>
+<div class="table sectionedit12"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>stop_interface_<em>protocolname</em>() {
+    local config=&quot;$1&quot;
+    # tear down the interface
+}</code> </td>
+	</tr>
+</table></div>
+
+<p>
+This function is optional.
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/devel/network-scripting.txt</bdi> · Last modified: 2013/10/03 19:24 by <bdi>cidermole</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="network-scripting?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="network-scripting?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="network-scripting?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="network-scripting#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Adevel%253Anetwork-scripting&amp;1432265707" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

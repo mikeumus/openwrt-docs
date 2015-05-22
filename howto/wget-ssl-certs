@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>SSL and Certificates in wget [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,wget-ssl-certs"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="wget-ssl-certs?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/wget-ssl-certs"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/wget-ssl-certs"/>
+<link rel="canonical" href="wget-ssl-certs"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:wget-ssl-certs","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266355 166.182.3.117';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="wget-ssl-certs#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="wget-ssl-certs?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="wget-ssl-certs?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:wget-ssl-certs" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="wget-ssl-certs?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="wget-ssl-certs?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="wget-ssl-certs?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="wget-ssl-certs" class="wikilink1" title="doc:howto:wget-ssl-certs">SSL and Certificates in wget</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/wget-ssl-certs" class="media" title="cz:doc:howto:wget-ssl-certs"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/wget-ssl-certs" class="media" title="de:doc:howto:wget-ssl-certs"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="wget-ssl-certs" class="media" title="doc:howto:wget-ssl-certs"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/wget-ssl-certs" class="media" title="es:doc:howto:wget-ssl-certs"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/wget-ssl-certs" class="media" title="fr:doc:howto:wget-ssl-certs"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/wget-ssl-certs" class="media" title="hu:doc:howto:wget-ssl-certs"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/wget-ssl-certs" class="media" title="jp:doc:howto:wget-ssl-certs"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/wget-ssl-certs" class="media" title="pl:doc:howto:wget-ssl-certs"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/wget-ssl-certs" class="media" title="pt-br:doc:howto:wget-ssl-certs"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/wget-ssl-certs" class="media" title="ru:doc:howto:wget-ssl-certs"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/wget-ssl-certs" class="media" title="tr:doc:howto:wget-ssl-certs"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/wget-ssl-certs" class="media" title="zh-cn:doc:howto:wget-ssl-certs"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/wget-ssl-certs" class="media" title="zh-tw:doc:howto:wget-ssl-certs"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:wget-ssl-certs</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="wget-ssl-certs#ssl_and_certificates_in_wget">SSL and Certificates in wget</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="wget-ssl-certs#a_caveat">A Caveat</a></div></li>
+<li class="level2"><div class="li"><a href="wget-ssl-certs#install_wget_with_ssl">Install wget (with SSL)</a></div></li>
+<li class="level2"><div class="li"><a href="wget-ssl-certs#certificate_directory">Certificate Directory</a></div></li>
+<li class="level2"><div class="li"><a href="wget-ssl-certs#adding_root_certificates">Adding root certificates</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="wget-ssl-certs#adding_certificates_manually">Adding certificates manually</a></div></li>
+<li class="level3"><div class="li"><a href="wget-ssl-certs#adding_certificates_with_add-certsh">Adding certificates with add-cert.sh</a></div></li>
+<li class="level3"><div class="li"><a href="wget-ssl-certs#adding_certificates_through_opkg">Adding certificates through opkg</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="wget-ssl-certs#trouble_shooting">Trouble Shooting</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="wget-ssl-certs#backfire_103_conflictusrbinwgetbinbusybox_blocks_wget">Backfire 10.3 Conflict: /usr/bin/wget -&gt; /bin/busybox blocks wget</a></div></li>
+<li class="level2"><div class="li"><a href="wget-ssl-certs#confirm_wget_ssl_root">Confirm wget SSL root</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h2 class="sectionedit1" id="ssl_and_certificates_in_wget">SSL and Certificates in wget</h2>
+<div class="level2">
+
+<p>
+This is a short tutorial on how to make wget (with libSSL) accept trusted certificate authorities. Without trusted certificate authorities, any party can pretend to be the site wget tries to contact. In addition to proving the server on the other end is who it says it is, using SSL means encryption will protect the request while in transit, e.g. a DDNS password.
+</p>
+
+<p>
+<em>Note: This probably won&#039;t work for wget(matrixtunnel) and it can&#039;t work for wget(nossl) because wget looks for the certificates in a libSSL dependand way. Please add information for other flavors of wget.</em>
+</p>
+
+</div>
+
+<h3 class="sectionedit2" id="a_caveat">A Caveat</h3>
+<div class="level3">
+
+<p>
+With the release of wget 1.13 in August 2011 this section is most probably outdated.
+</p>
+
+<p>
+There is a known bug (<a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=409938" class="urlextern" title="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=409938"  rel="nofollow">here</a>, <a href="https://savannah.gnu.org/bugs/?20421" class="urlextern" title="https://savannah.gnu.org/bugs/?20421"  rel="nofollow">here</a>, <a href="https://savannah.gnu.org/bugs/?23934" class="urlextern" title="https://savannah.gnu.org/bugs/?23934"  rel="nofollow">and here</a>) in wget 1.12 which prevents successful SSL connections to many sites. Dyndns.com is one such site, wget reports:
+<code>ERROR: certificate common name `*.dyndns.com&#039; doesn&#039;t match requested host name `dyndns.com&#039;.
+To connect to dyndns.com insecurely, use `–no-check-certificate&#039;.</code>
+</p>
+
+<p>
+<del>The bug has been fixed, but wget hasn&#039;t had a release since 22-Sep-2009. As of 16-Mar-2011, <a href="http://lists.gnu.org/archive/html/bug-wget/2011-03/msg00015.html" class="urlextern" title="http://lists.gnu.org/archive/html/bug-wget/2011-03/msg00015.html"  rel="nofollow">it looks like</a> a new version of wget will be released &quot;soon&quot;, which will contain this patch.</del>  wget (1.13.4-1) is now available in the OpenWRT repositories.
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="install_wget_with_ssl">Install wget (with SSL)</h3>
+<div class="level3">
+
+<p>
+The default wget in OpenWRT is provided by Busybox, which does not support SSL. If you want to use SSL (https) URLs, you can install the real wget:
+<pre class="code">opkg update
+opkg install wget</pre>
+
+/usr/bin/wget points now to the full version.
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="certificate_directory">Certificate Directory</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> Create the wget/libSSL certificate directory: <pre class="code bash"><span class="kw2">mkdir</span> <span class="re5">-p</span> <span class="sy0">/</span>etc<span class="sy0">/</span>ssl<span class="sy0">/</span>certs</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> So wget knows where to look, update <code>/etc/profile</code> and add the line: <pre class="code bash"><span class="kw3">export</span> <span class="re2">SSL_CERT_DIR</span>=<span class="sy0">/</span>etc<span class="sy0">/</span>ssl<span class="sy0">/</span>certs</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> Update shell: <pre class="code bash"><span class="kw3">source</span> <span class="sy0">/</span>etc<span class="sy0">/</span>profile</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> you can also use <code>/etc/ssl/certs</code> directory with <code>curl –capath</code></div>
+</li>
+</ol>
+
+<p>
+Note: if you need SSL in your DDNS client, look also here <a href="ddns.client#usingwget" class="wikilink1" title="doc:howto:ddns.client">using.wget</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="adding_root_certificates">Adding root certificates</h3>
+<div class="level3">
+
+<p>
+Most browsers/distributions/etc ship with root certificates from the major Certificate Authorities, such as VeriSign and GeoTrust. Root certificates are used to validate the certificates presented by servers. OpenWRT does not include root certificates, so it is up to you to install them.
+</p>
+
+<p>
+Let say we want to install the root certificate authority for dyndns.org. The domain <a href="https://members.dyndns.org" class="urlextern" title="https://members.dyndns.org"  rel="nofollow">https://members.dyndns.org</a> is signed by the <del><a href="http://www.geotrust.com/resources/root_certificates/certificates/Equifax_Secure_Certificate_Authority.cer" class="urlextern" title="http://www.geotrust.com/resources/root_certificates/certificates/Equifax_Secure_Certificate_Authority.cer"  rel="nofollow"> &quot;Equifax&quot; root certificate</a></del>. We need to download the root certificate, then place it in the certificate directory. Certificates in /etc/ssl/certs must be named after their hash value so that they can be found.
+</p>
+
+<p>
+It is easier to find the root certificate with any modern web browser (e.g. firefox) by opening the site with https, viewing the certificate and exporting it from the browser to a pem or base64 cer file.  Using openssl s_client allows for easy downloading of the remote server&#039;s SSL certificate chain.  You should verify the chain you get with another source such as your web browser.
+</p>
+
+<p>
+The first step is installing <code>openssl-util</code>:<pre class="code">opkg install openssl-util</pre>
+
+</p>
+
+<p>
+Now you can use either the manual method or the add-cert.sh script below to install certs into /etc/ssl/certs. Make sure to use openssl from the OpenWrt device because if you try this from your linux PC, you may get a completely different hash for the same exact certificate due to a difference in the version of openssl.
+</p>
+
+</div>
+
+<h4 id="adding_certificates_manually">Adding certificates manually</h4>
+<div class="level4">
+<div class="table sectionedit6"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> shell prompt </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"><pre class="code bash"><span class="kw3">cd</span> <span class="sy0">/</span>etc<span class="sy0">/</span>ssl<span class="sy0">/</span>certs
+openssl s_client <span class="re5">-connect</span> members.dyndns.org:<span class="nu0">443</span> <span class="sy0">&lt;</span> <span class="sy0">/</span>dev<span class="sy0">/</span>null <span class="sy0">&gt;</span> temporary.out
+openssl x509 <span class="re5">-outform</span> PEM <span class="sy0">&lt;</span> temporary.out <span class="sy0">&gt;</span> members.dyndns.org.cer
+&nbsp;
+&nbsp;
+<span class="co0">##### create link using the hash value from openssl #####</span>
+<span class="co0"># store certificate hash value in HASH append .0</span>
+<span class="re2">HASH</span>=<span class="sy0">`</span>openssl x509 <span class="re5">-hash</span> <span class="re5">-noout</span> <span class="re5">-in</span> members.dyndns.org.cer<span class="sy0">`</span>.0
+&nbsp;
+<span class="co0"># create link</span>
+<span class="kw2">ln</span> <span class="re5">-s</span> members.dyndns.org.cer <span class="re1">$HASH</span></pre>
+</td>
+	</tr>
+</table></div>
+
+<p>
+<em>Note: If another cert has the same hash use suffix <code>.1</code> or <code>.2</code> instead of <code>.0</code>. To see the hash value type <code>echo $HASH</code>.</em>
+</p>
+
+</div>
+
+<h4 id="adding_certificates_with_add-certsh">Adding certificates with add-cert.sh</h4>
+<div class="level4">
+
+<p>
+Place this script in a file named add-cert.sh, using an editor like vi or nano (if installed). ``chmod +x add-cert.sh`` to mark it executable, then use it like this: <pre class="code">wget example.com/certificate.cer
+./add-cert.sh certificate.cer</pre>
+
+</p>
+<div class="table sectionedit7"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> add-cert.sh </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"><pre class="code bash"><span class="co0">#!/bin/sh</span>
+<span class="co0"># author: joda</span>
+<span class="re2">openssl</span>=<span class="sy0">/</span>usr<span class="sy0">/</span>bin<span class="sy0">/</span>openssl
+<span class="re2">certdir</span>=<span class="re1">$SSL_CERT_DIR</span>
+<span class="kw1">if</span> <span class="br0">&#91;</span> <span class="sy0">!</span> <span class="re5">-f</span> <span class="re1">$openssl</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;ERROR: Can't find <span class="es2">$openssl</span>. openssl-util installed?&quot;</span> <span class="sy0">&gt;&amp;</span><span class="nu0">2</span>
+<span class="kw1">fi</span>
+<span class="kw1">if</span> <span class="br0">&#91;</span><span class="br0">&#91;</span> <span class="st0">&quot;$1&quot;</span> = <span class="st0">&quot;-f&quot;</span> <span class="br0">&#93;</span><span class="br0">&#93;</span>; <span class="kw1">then</span>
+   <span class="re2">overwrite</span>=<span class="nu0">1</span>
+   <span class="kw3">shift</span> <span class="co0"># remove $1</span>
+<span class="kw1">fi</span>
+&nbsp;
+<span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re5">-f</span> <span class="st0">&quot;$1&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+  <span class="re2">certfile</span>=<span class="re4">$1</span>
+  <span class="re2">certname</span>=<span class="sy0">`</span><span class="kw2">basename</span> <span class="re1">$certfile</span><span class="sy0">`</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;Certificate <span class="es2">$certname</span>&quot;</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;  copy to <span class="es2">$certdir</span>&quot;</span>
+  <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="st0">&quot;1&quot;</span> <span class="re5">-ne</span> <span class="st0">&quot;<span class="es2">$overwrite</span>&quot;</span> <span class="br0">&#93;</span> <span class="sy0">&amp;&amp;</span> <span class="br0">&#91;</span> <span class="re5">-f</span> <span class="st0">&quot;<span class="es2">$certdir</span>/<span class="es2">$certname</span>&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+    <span class="kw3">echo</span> <span class="sy0">&gt;&amp;</span><span class="nu0">2</span>
+    <span class="kw3">echo</span> <span class="st0">&quot;ERROR: certificate <span class="es2">$certname</span> exists&quot;</span> <span class="sy0">&gt;&amp;</span><span class="nu0">2</span>
+    <span class="kw3">exit</span> <span class="nu0">2</span>;
+  <span class="kw1">fi</span>
+  <span class="kw2">cp</span> <span class="st0">&quot;$1&quot;</span> <span class="st0">&quot;<span class="es2">$certdir</span>/<span class="es2">$certname</span>&quot;</span>
+&nbsp;
+  <span class="co0"># create symbolic link from hash</span>
+  <span class="kw3">echo</span> <span class="re5">-n</span> <span class="st0">&quot;  generating hash: &quot;</span>
+  <span class="re2">HASH</span>=<span class="sy0">`</span><span class="re1">$openssl</span> x509 <span class="re5">-hash</span> <span class="re5">-noout</span> <span class="re5">-in</span> <span class="re1">$certfile</span><span class="sy0">`</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;<span class="es2">$HASH</span>&quot;</span>
+&nbsp;
+  <span class="co0"># handle hash collisions</span>
+  <span class="re2">suffix</span>=<span class="nu0">0</span>
+  <span class="kw1">while</span> <span class="br0">&#91;</span> <span class="st0">&quot;1&quot;</span> <span class="re5">-ne</span> <span class="st0">&quot;<span class="es2">$overwrite</span>&quot;</span> <span class="br0">&#93;</span> <span class="sy0">&amp;&amp;</span> <span class="br0">&#91;</span> <span class="re5">-h</span> <span class="st0">&quot;<span class="es2">$certdir</span>/<span class="es2">$HASH</span>.<span class="es2">$suffix</span>&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">do</span>
+    <span class="kw3">let</span> <span class="st0">&quot;suffix += 1&quot;</span>
+  <span class="kw1">done</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;  linking <span class="es2">$HASH</span>.<span class="es2">$suffix</span> -&gt; <span class="es2">$certname</span>&quot;</span>
+  <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re1">$overwrite</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+    <span class="kw2">ln</span> <span class="re5">-sf</span> <span class="st0">&quot;<span class="es2">$certname</span>&quot;</span> <span class="st0">&quot;<span class="es2">$certdir</span>/<span class="es2">$HASH</span>.<span class="es2">$suffix</span>&quot;</span>
+  <span class="kw1">else</span>
+    <span class="kw2">ln</span> <span class="re5">-s</span> <span class="st0">&quot;<span class="es2">$certname</span>&quot;</span> <span class="st0">&quot;<span class="es2">$certdir</span>/<span class="es2">$HASH</span>.<span class="es2">$suffix</span>&quot;</span>
+  <span class="kw1">fi</span>
+<span class="kw1">else</span>
+  <span class="kw3">echo</span> <span class="sy0">&gt;&amp;</span><span class="nu0">2</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;ERROR: file does not exist $1&quot;</span> <span class="sy0">&gt;&amp;</span><span class="nu0">2</span>
+  <span class="kw3">echo</span> <span class="sy0">&gt;&amp;</span><span class="nu0">2</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;This script adds (root) certificates for wget(ssl) to <span class="es2">$certdir</span>.&quot;</span> <span class="sy0">&gt;&amp;</span><span class="nu0">2</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;SYNTAX: <span class="es5">`basename $0`</span> [Options] [x509-certificate]&quot;</span> <span class="sy0">&gt;&amp;</span><span class="nu0">2</span>
+  <span class="kw3">echo</span> <span class="sy0">&gt;&amp;</span><span class="nu0">2</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;Option: -f      force overwriting if certificate exists&quot;</span> <span class="sy0">&gt;&amp;</span><span class="nu0">2</span>
+<span class="kw1">fi</span></pre>
+</td>
+	</tr>
+</table></div>
+
+</div>
+
+<h4 id="adding_certificates_through_opkg">Adding certificates through opkg</h4>
+<div class="level4">
+
+<p>
+You can use opkg to install the certificates from the major CA
+<pre class="code">opkg install ca-certificates</pre>
+
+Now you have the major root certificates installed in /etc/ssl/certs
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="trouble_shooting">Trouble Shooting</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit9" id="backfire_103_conflictusrbinwgetbinbusybox_blocks_wget">Backfire 10.3 Conflict: /usr/bin/wget -&gt; /bin/busybox blocks wget</h3>
+<div class="level3">
+
+<p>
+Solution: Move old wget until new wget is installed (&quot;opkg install&quot; needs wget)
+</p>
+
+<p>
+Using SSH/Telnet shell: 
+</p>
+<div class="table sectionedit10"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">shell prompt</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"><pre class="code bash"><span class="kw2">ln</span> <span class="re5">-sf</span> <span class="sy0">/</span>bin<span class="sy0">/</span>busybox <span class="sy0">/</span>bin<span class="sy0">/</span><span class="kw2">wget</span>
+<span class="kw2">rm</span> <span class="sy0">/</span>usr<span class="sy0">/</span>bin<span class="sy0">/</span><span class="kw2">wget</span>
+opkg <span class="kw2">install</span> <span class="kw2">wget</span>
+<span class="kw2">rm</span> <span class="sy0">/</span>bin<span class="sy0">/</span><span class="kw2">wget</span></pre>
+</td>
+	</tr>
+</table></div>
+
+<p>
+ — <em><a href="http://wiki.openwrt.org/doc/howto/joda" class="wikilink2" title="doc:howto:joda" rel="nofollow">joda</a> 2010/06/19 20:57</em>
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="confirm_wget_ssl_root">Confirm wget SSL root</h3>
+<div class="level3">
+
+<p>
+Example:  wget <a href="https://members.dyndns.org/" class="urlextern" title="https://members.dyndns.org/"  rel="nofollow">https://members.dyndns.org/</a>
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/wget-ssl-certs.txt</bdi> · Last modified: 2014/06/29 20:33 by <bdi>motherjoker</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="wget-ssl-certs?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="wget-ssl-certs?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="wget-ssl-certs?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="wget-ssl-certs#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Awget-ssl-certs&amp;1432266355" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

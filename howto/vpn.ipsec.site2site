@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>IPsec Site To Site [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,vpn.ipsec.site2site"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="vpn.ipsec.site2site?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/vpn.ipsec.site2site"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/vpn.ipsec.site2site"/>
+<link rel="canonical" href="vpn.ipsec.site2site"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:vpn.ipsec.site2site","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432273852 166.182.3.179';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="vpn.ipsec.site2site#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="vpn.ipsec.site2site?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="vpn.ipsec.site2site?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:vpn.ipsec.site2site" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="vpn.ipsec.site2site?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="vpn.ipsec.site2site?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="vpn.ipsec.site2site?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="vpn.ipsec.site2site" class="wikilink1" title="doc:howto:vpn.ipsec.site2site">IPsec Site To Site</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/vpn.ipsec.site2site" class="media" title="cz:doc:howto:vpn.ipsec.site2site"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/vpn.ipsec.site2site" class="media" title="de:doc:howto:vpn.ipsec.site2site"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="vpn.ipsec.site2site" class="media" title="doc:howto:vpn.ipsec.site2site"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/vpn.ipsec.site2site" class="media" title="es:doc:howto:vpn.ipsec.site2site"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/vpn.ipsec.site2site" class="media" title="fr:doc:howto:vpn.ipsec.site2site"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/vpn.ipsec.site2site" class="media" title="hu:doc:howto:vpn.ipsec.site2site"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/vpn.ipsec.site2site" class="media" title="jp:doc:howto:vpn.ipsec.site2site"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/vpn.ipsec.site2site" class="media" title="pl:doc:howto:vpn.ipsec.site2site"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/vpn.ipsec.site2site" class="media" title="pt-br:doc:howto:vpn.ipsec.site2site"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/vpn.ipsec.site2site" class="media" title="ru:doc:howto:vpn.ipsec.site2site"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/vpn.ipsec.site2site" class="media" title="tr:doc:howto:vpn.ipsec.site2site"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/vpn.ipsec.site2site" class="media" title="zh-cn:doc:howto:vpn.ipsec.site2site"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/vpn.ipsec.site2site" class="media" title="zh-tw:doc:howto:vpn.ipsec.site2site"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:vpn.ipsec.site2site</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="vpn.ipsec.site2site#topology">Topology</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.site2site#strongswan_configuration">Strongswan Configuration</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.site2site#central_side_gateway">Central Side Gateway</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.site2site#firewall">Firewall</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.site2site#dns">DNS</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.site2site#what_s_next">What&#039;s next</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="ipsec_site_to_site">IPsec Site To Site</h1>
+<div class="level1">
+<div class="table sectionedit2"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> For an overview over all existing Virtual private network (VPN)-related articles in the OpenWrt wiki, please visit <a href="vpn.overview" class="wikilink1" title="doc:howto:vpn.overview">vpn.overview</a> </td>
+	</tr>
+</table></div>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> This page is about strongswan. The old racoon documentation can be found <a href="vpn.ipsec.site2site.racoon" class="wikilink1" title="doc:howto:vpn.ipsec.site2site.racoon">here</a>.
+</p>
+
+<p>
+This article assumes you have enabled IPSec on your OpenWrt router as described in the <a href="vpn.ipsec.basics" class="wikilink1" title="doc:howto:vpn.ipsec.basics">basics guide</a> and the <a href="vpn.ipsec.firewall" class="wikilink1" title="doc:howto:vpn.ipsec.firewall">firewall guide</a>. Now we want to build the first site to site tunnel.
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="topology">Topology</h2>
+<div class="level2">
+
+<p>
+The task to achive is the connectivity of our home (W)<abbr title="Local Area Network">LAN</abbr> with our company&#039;s networks. To make it not too easy we also want to access the company&#039;s DMZ through the tunnel. Here the (more or less) big picture.
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/ipsec_site_to_site.png?id=doc%253Ahowto%253Avpn.ipsec.site2site" class="media" title="doc:howto:ipsec_site_to_site.png"><img src="../../_media/doc/howto/ipsec_site_to_site.png" class="media" alt="" /></a>
+</p>
+
+<p>
+Additionally we sum up the facts in text mode to explain the infrastructure in detail.
+</p>
+<ul>
+<li class="level1"><div class="li"> The interest of our efforts is to get from a computer in the home W(<abbr title="Local Area Network">LAN</abbr>) into the ACME DMZ and internal networks.</div>
+</li>
+<li class="level1"><div class="li"> All traffic should be securely tunneled between our OpenWrt based router and the company&#039;s firewall.</div>
+</li>
+<li class="level1"><div class="li"> We do not care about our routers external IP. So we name it x.x.x.x.</div>
+</li>
+<li class="level1"><div class="li"> The external IP of the ACME firewall is 7.7.7.7. At least this should be a fixed access point throughout the internet.</div>
+</li>
+<li class="level1"><div class="li"> Our home (W)<abbr title="Local Area Network">LAN</abbr> uses IP adresses 192.168.2.64/26. That is the subnet from 192.168.2.64 to 192.168.2.127. </div>
+</li>
+<li class="level1"><div class="li"> ACMEs internal <abbr title="Local Area Network">LAN</abbr> is 10.1.2.0/24 (IP range between 10.1.2.3.0 and 10.1.2.3.255)</div>
+</li>
+<li class="level1"><div class="li"> The ACME DMZ has official IP addresses in the range 66.77.88.192/26. </div>
+</li>
+</ul>
+
+<p>
+This may not be the most basic setup but it is the simplest to show some facts. You can access multiple subnets through one remote IPsec gateway, you can tunnel official IP adresses and you do not need a fixed external IP address. 
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="strongswan_configuration">Strongswan Configuration</h2>
+<div class="level2">
+
+<p>
+To reach the ACME infrastructure we have to tell racoon all the details about the tunnel and the remote networks. We provide all informations in the central <a href="../uci/ipsec" class="wikilink1" title="doc:uci:ipsec">/etc/config/ipsec</a> file. The required informations for Phase 1 (initial handshake) are:
+</p>
+<ul>
+<li class="level1"><div class="li"> IP of the remote gateway: 7.7.7.7</div>
+</li>
+<li class="level1"><div class="li"> Aggressive Negotiation: Always a good idea if our router has a changing outside IP.</div>
+</li>
+<li class="level1"><div class="li"> The local identfier. &quot;bratwurst&quot; was choosen in this case. Also needed with a changing outside IP.</div>
+</li>
+<li class="level1"><div class="li"> Proposal: The most common standard for medium security level. A preshared key with Diffie Hellman group 2 and AES 128 Bit encryption.</div>
+</li>
+</ul>
+
+<p>
+For the tunnels we need security policies. There are two different subnets we want to reach so two sainfo blocks have to be created in our file. These define the so called Phase 2 proposals. We provide:
+</p>
+<ul>
+<li class="level1"><div class="li"> Definiton of the connected local and remote subnets</div>
+</li>
+<li class="level1"><div class="li"> Security parameters (similar to phase 1)</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">#/etc/config/ipsec
+config &#039;ipsec&#039;
+  list listen &#039;&#039;
+  
+config &#039;remote&#039; &#039;acme&#039;
+  option &#039;enabled&#039; &#039;1&#039;
+  option &#039;gateway&#039; &#039;7.7.7.7&#039;
+  option &#039;pre_shared_key&#039; &#039;yourpasswordhere&#039;
+  option &#039;exchange_mode&#039; &#039;aggressive&#039;
+  option &#039;local_identifier&#039; &#039;bratwurst&#039;
+  list   &#039;p1_proposal&#039; &#039;pre_g2_aes_sha1&#039;
+  list   &#039;tunnel&#039; &#039;acme_dmz&#039;
+  list   &#039;tunnel&#039; &#039;acme_lan&#039;
+
+config &#039;p1_proposal&#039; &#039;pre_g2_aes_sha1&#039;
+  option &#039;encryption_algorithm&#039; &#039;aes128&#039;
+  option &#039;hash_algorithm&#039; &#039;sha1&#039;
+  option &#039;dh_group&#039; &#039;2&#039;
+
+config &#039;tunnel&#039; &#039;acme_lan&#039;
+  option &#039;local_subnet&#039; &#039;192.168.2.64/26&#039;
+  option &#039;remote_subnet&#039; &#039;10.1.2.0/24&#039;
+  option &#039;p2_proposal&#039; &#039;g2_aes_sha1&#039;
+
+config &#039;tunnel&#039; &#039;acme_dmz&#039;
+  option &#039;local_subnet&#039; &#039;192.168.2.64/26&#039;
+  option &#039;remote_subnet&#039; &#039;66.77.88.192/26&#039;
+  option &#039;p2_proposal&#039; &#039;g2_aes_sha1&#039;
+
+config &#039;p2_proposal&#039; &#039;g2_aes_sha1&#039;
+  option &#039;pfs_group&#039; &#039;2&#039;
+  option &#039;encryption_algorithm&#039; &#039;aes128&#039;
+  option &#039;authentication_algorithm&#039; &#039;sha1&#039;
+...</pre>
+
+</p>
+
+<p>
+Restart Charon and firewall afterwards. If everything was setup correctly according to the <a href="vpn.ipsec.basics" class="wikilink1" title="doc:howto:vpn.ipsec.basics">basics</a> and <a href="vpn.ipsec.firewall" class="wikilink1" title="doc:howto:vpn.ipsec.firewall">firewall</a> guide you should be able to see the new configuration.
+</p>
+
+<p>
+… pictures with checks …
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="central_side_gateway">Central Side Gateway</h2>
+<div class="level2">
+
+<p>
+ACME corporation uses a Juniper firewall. They kindly provided us some configuration pictures. Take them as a sample for your individual implementation.
+</p>
+
+<p>
+Phase 1 settings
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/ipsec_juniper1.png?id=doc%253Ahowto%253Avpn.ipsec.site2site" class="media" title="doc:howto:ipsec_juniper1.png"><img src="../../_media/doc/howto/ipsec_juniper1.png" class="media" alt="" /></a>
+</p>
+
+<p>
+Phase 2 settings
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/ipsec_juniper2.png?id=doc%253Ahowto%253Avpn.ipsec.site2site" class="media" title="doc:howto:ipsec_juniper2.png"><img src="../../_media/doc/howto/ipsec_juniper2.png" class="media" alt="" /></a>
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="firewall">Firewall</h2>
+<div class="level2">
+
+<p>
+To reach the remote subnets the last thing we need are two firewall rules. Simply allow all traffic from the local lan 192.168.2.64/26 to the ACME subnets. If you join multiple tunnels in the one zone called VPN you have to use explicit destination adresses to separate traffic. An ALL→ALL rule would allow traffic to all destination networks. And do not forget to contact the ACME firewall admin to add those access rules too.
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/ipsec_fw_site2site.png?id=doc%253Ahowto%253Avpn.ipsec.site2site" class="media" title="doc:howto:ipsec_fw_site2site.png"><img src="../../_media/doc/howto/ipsec_fw_site2site.png" class="media" alt="" /></a>
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="dns">DNS</h2>
+<div class="level2">
+
+<p>
+Connecting two private networks opens an interesting <abbr title="Domain Name System">DNS</abbr> challenge. The ACME <abbr title="Domain Name System">DNS</abbr> server does not only resolve official server names to IP addresses but also those of ACME internal servers. E.g. hobbit.acme.inc and its IP 10.1.2.42. As we have established a VPN connection we already can reach this host by its address. To get it by its name too we have to offer a name resolution in our home domain. With OpenWrt being very powerful we assume that our router has an active Dnsmasq <abbr title="Domain Name System">DNS</abbr> server. So we have two possibilities to resolve acme.inc addresses.
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>Manually</strong>: Each acme.inc server and its IP address is put into the OpenWrt local hosts file. Dnsmasq will read this list and answer <abbr title="Domain Name System">DNS</abbr> requests for those ACME machines correctly. This should only be an option if we have a very restrictive VPN connection.</div>
+</li>
+<li class="level1"><div class="li"> <strong>Automatically</strong>: Dnsmasq forwards requests for acme.inc through the tunnel to the ACME <abbr title="Domain Name System">DNS</abbr> server. This avoids double work.  </div>
+</li>
+</ul>
+
+<p>
+<abbr title="Domain Name System">DNS</abbr> fowarding through VPN tunnels is almost the same as normal <abbr title="Domain Name System">DNS</abbr> forwarding with one exception. Dnsmasq must use the correct source interface. By default it will use the OpenWrt internet IP for it&#039;s requests but this cannot be tunneled. So just expand the Dnsmasq forward settings in LuCI with the OpenWrt internal IP address. In our scenario we wan&#039;t to reach ACME <abbr title="Domain Name System">DNS</abbr> at 10.1.2.250 by using our internal IP 192.168.2.82. Don&#039;t forget to add this domain on the whitelist otherwise Dnsmasq will detect rebind attacks and discard requests.
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/ipsec_dns.png?id=doc%253Ahowto%253Avpn.ipsec.site2site" class="media" title="doc:howto:ipsec_dns.png"><img src="../../_media/doc/howto/ipsec_dns.png" class="media" alt="" /></a>
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="what_s_next">What&#039;s next</h2>
+<div class="level2">
+
+<p>
+Building IPsec VPNs with <a href="vpn.ipsec.certificates" class="wikilink1" title="doc:howto:vpn.ipsec.certificates">certificates</a>.
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/vpn.ipsec.site2site.txt</bdi> · Last modified: 2013/10/28 08:29 by <bdi>lorema</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="vpn.ipsec.site2site?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="vpn.ipsec.site2site?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="vpn.ipsec.site2site?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="vpn.ipsec.site2site#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Avpn.ipsec.site2site&amp;1432273852" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

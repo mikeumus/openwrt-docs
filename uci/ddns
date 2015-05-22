@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Dynamic DNS Client configuration [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,uci,ddns"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="ddns?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:uci"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/uci/ddns"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/uci/ddns"/>
+<link rel="canonical" href="ddns"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:uci';var JSINFO = {"id":"doc:uci:ddns","namespace":"doc:uci"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267230 166.182.3.150';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="ddns#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="ddns?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="ddns?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:uci:ddns" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="ddns?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="ddns?do=media&amp;ns=doc%253Auci"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="ddns?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../uci.1" class="wikilink1" title="doc:uci">The UCI System</a></bdi> » <bdi><span class="curid"><a href="ddns" class="wikilink1" title="doc:uci:ddns">Dynamic DNS Client configuration</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/uci/ddns" class="media" title="cz:doc:uci:ddns"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/uci/ddns" class="media" title="de:doc:uci:ddns"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="ddns" class="media" title="doc:uci:ddns"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/uci/ddns" class="media" title="es:doc:uci:ddns"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/uci/ddns" class="media" title="fr:doc:uci:ddns"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/uci/ddns" class="media" title="hu:doc:uci:ddns"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/uci/ddns" class="media" title="jp:doc:uci:ddns"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/uci/ddns" class="media" title="pl:doc:uci:ddns"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/uci/ddns" class="media" title="pt-br:doc:uci:ddns"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/uci/ddns" class="media" title="ru:doc:uci:ddns"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/uci/ddns" class="media" title="tr:doc:uci:ddns"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/uci/ddns" class="media" title="zh-cn:doc:uci:ddns"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/uci/ddns" class="media" title="zh-tw:doc:uci:ddns"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:uci:ddns</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="ddns#example">Example</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="ddns#for_ipv4_address">for IPv4 address</a></div></li>
+<li class="level2"><div class="li"><a href="ddns#for_ipv6_address">for IPv6 address</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="ddns#sections">Sections</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="ddns#section_service">Section &quot;service&quot;</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="ddns#version_1x">Version 1.x</a></div></li>
+<li class="level3"><div class="li"><a href="ddns#version_2x">Version 2.x</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="ddns#section_ddns">Section &quot;ddns&quot;</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="ddns#version_2x1">Version 2.x</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="dynamic_dns_client_configuration">Dynamic DNS Client configuration</h1>
+<div class="level1">
+
+<p>
+The file <code>/etc/config/ddns</code> holds the configuration for <em>ddns-scripts</em> package.
+</p>
+
+<p>
+<strong>A description how to setup DDNS client and additional information about Dynamic <abbr title="Domain Name System">DNS</abbr> Providers and their specific settings you will find in <a href="../howto/ddns.client" class="wikilink1" title="doc:howto:ddns.client">DDNS client documentation</a>.</strong>
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> There are two versions of <em>ddns-scripts</em> available
+</p>
+<ul>
+<li class="level1"><div class="li"> including Barrier Breaker 14.07 (final), package ddns-scripts Version 1.x is used</div>
+</li>
+<li class="level1"><div class="li"> ddns-scripts Version 2.x package is currently only available on trunk</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit2" id="example">Example</h2>
+<div class="level2">
+
+<p>
+Using all defaults the minimum settings are:
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="for_ipv4_address">for IPv4 address</h3>
+<div class="level3">
+
+<p>
+<pre class="code">config service &quot;myddns_ipv4&quot;
+	option service_name	&quot;example.org&quot;
+	option domain		&quot;yourhost.example.org&quot;
+	option username		&quot;your_username&quot;
+	option password		&quot;your_password&quot;
+	option interface	&quot;wan&quot;
+	option ip_source	&quot;network&quot;
+	option ip_network	&quot;wan&quot;</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="for_ipv6_address">for IPv6 address</h3>
+<div class="level3">
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Only supported by ddns-scripts version 2.x
+</p>
+
+<p>
+<pre class="code">config service &quot;myddns_ipv6&quot;
+	option use_ipv6		&quot;1&quot;
+	option service_name	&quot;example.org&quot;
+	option domain		&quot;yourhost.example.org&quot;
+	option username		&quot;your_username&quot;
+	option password		&quot;your_password&quot;
+	option interface	&quot;wan6&quot;
+	option ip_source	&quot;network&quot;
+	option ip_network	&quot;wan6&quot;</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="sections">Sections</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit6" id="section_service">Section &quot;service&quot;</h3>
+<div class="level3">
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong> You need to define a &quot;service&quot; section for every DDNS provider you want to feed.<br/>
+
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Same if you want to feed IPv4- and IPv6-address to your DDNS provider. </strong>
+</p>
+
+</div>
+
+<h4 id="version_1x">Version 1.x</h4>
+<div class="level4">
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Version 1.x of ddns-scripts only support IPv4 addresses!<br/>
+
+</p>
+<div class="table sectionedit7"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 rightalign">  <code>enabled</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 centeralign">  yes  </td><td class="col3 centeralign">  &#039;0&#039;  </td><td class="col4 leftalign"> disable(0) / enable(1) this service section.  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  <code>interface</code> </td><td class="col1 centeralign">  network name  </td><td class="col2 centeralign">  yes  </td><td class="col3 centeralign">  <em>(none)</em>  </td><td class="col4 leftalign"> The DDNS scripts use the Linux hotplug events system. When this specified network interface comes up, a related ifup hotplug event will cause DDNS script to start to monitor (and update) the external IP address of . Select the WAN interface that will have the external IP address to use in the DDNS registration.  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  <code>use_syslog</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  &#039;0&#039;  </td><td class="col4 leftalign"> disable(0) / enable(1) logging events to syslog.  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 rightalign">  <code>service_name</code> </td><td class="col1 centeralign">  string  </td><td class="col2 centeralign">  yes(*)  </td><td class="col3 centeralign">  <em>(none)</em>  </td><td class="col4 leftalign"> Which DDNS online service do you use?<br/>
+Choose one from <code>/usr/lib/ddns/services</code> file.<br/>
+The latest version can be downloaded from <a href="https://github.com/openwrt/packages/tree/master/net/ddns-scripts/files" class="urlextern" title="https://github.com/openwrt/packages/tree/master/net/ddns-scripts/files"  rel="nofollow">Github.com</a><br/>
+<em><strong>(*) If your DDNS provider is not listed there, remove this option and use <code>&#039;option update_url</code>&#039; instead.</strong></em>  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 rightalign">  <code>update_url</code> </td><td class="col1 centeralign">  string  </td><td class="col2 centeralign">  yes(*)  </td><td class="col3 centeralign">  <em>(none)</em>  </td><td class="col4 leftalign"> Have a look at DDNS providers configuration help. Use the their <abbr title="Uniform Resource Locator">URL</abbr> here.<br/>
+For an example see <a href="ddns#example" title="doc:uci:ddns ↵" class="wikilink1">above</a><br/>
+<em><strong>(*) Remove this option, if <code>&#039;option service_name</code>&#039; is set.</strong></em>  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 rightalign">  <code>domain</code> </td><td class="col1 centeralign">  string  </td><td class="col2 centeralign">  yes  </td><td class="col3 centeralign">  <em>(none)</em>  </td><td class="col4 leftalign"> The <abbr title="Domain Name System">DNS</abbr> name / Hostname to update<br/>
+<em>(this name must already be registered with the DDNS provider)</em><br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong>If your DDNS provider don&#039;t need this information being send for update, put it in anyway. <code>ddns-scripts</code> use it to compare local IP with registered IP.</strong>  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 rightalign">  <code>username</code> </td><td class="col1 centeralign">  string  </td><td class="col2 centeralign">  yes(*)  </td><td class="col3 centeralign">  <em>(none)</em>  </td><td class="col4 leftalign"> Username of your DDNS providers account<br/>
+Have a look at DDNS providers help, because some providers are using different information as &quot;username&quot; for DDNS updates (i.e. hostname).<br/>
+Look at <a href="../howto/ddns.client" class="wikilink1" title="doc:howto:ddns.client">DDNS client</a> for additional information.<br/>
+<em><strong>(*)If your DDNS provider don&#039;t need this information being send for update, put in an &quot;X&quot; instead.</strong></em>  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 rightalign">  <code>password</code> </td><td class="col1 centeralign">  string  </td><td class="col2 centeralign">  yes(*)  </td><td class="col3 centeralign">  <em>(none)</em>  </td><td class="col4 leftalign"> Password of your DDNS providers account<br/>
+Have a look at DDNS providers help, because some providers are using different information as &quot;password&quot; for DDNS updates (i.e. tokenid).<br/>
+Look at <a href="../howto/ddns.client" class="wikilink1" title="doc:howto:ddns.client">DDNS client</a> for additional information.<br/>
+<em><strong>(*)If your DDNS provider don&#039;t need this information being send for update, put in an &quot;X&quot; instead.</strong></em>  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 rightalign">  <code>use_https</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  &#039;0&#039;  </td><td class="col4 leftalign"> disable(0) / enable(1) the use of HTTPS for secure communication with your DDNS provider.<br/>
+<em>Some providers having problems, when not sending updates via HTTPS.</em><br/>
+<strong>You must NOT specify &#039;http&quot;s&quot;:&#039;, simply use &#039;http:&#039; in <code>update_url</code> above, if used.</strong><br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Needs &quot;Wget&quot; or &quot;cURL&quot; package being installed.<br/>
+Look at <a href="../howto/ddns.client" class="wikilink1" title="doc:howto:ddns.client">DDNS client</a> for additional information.  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 rightalign">  <code>cacert</code> </td><td class="col1 centeralign">  string  </td><td class="col2 centeralign">  no(*)  </td><td class="col3 centeralign">  <em>(none)</em>  </td><td class="col4 leftalign"> <code>path/to/certificates</code> directory or <code>path/to/certificate.crt</code> file.<br/>
+Package &quot;ca-certificates&quot; installs certificates to <code>/etc/ssl/certs</code> directory.<br/>
+Look at <a href="../howto/ddns.client" class="wikilink1" title="doc:howto:ddns.client">DDNS client</a> for additional information.<br/>
+<em><strong>(*)required, if <code>option use_https</code> set to &#039;1&#039;</strong> (enabled)</em>  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 rightalign">  <code>ip_source</code> </td><td class="col1 centeralign">  string  </td><td class="col2 centeralign">  yes  </td><td class="col3 centeralign">  &#039;network&#039;  </td><td class="col4 leftalign"> Defines the source to determine you local IP send to the DDNS provider.<br/>
+Valid values are:<br/>
+- &#039;network&#039; uses/needs <code>&#039;option ip_network</code>&#039;<br/>
+- &#039;web&#039; uses/needs <code>&#039;option ip_url</code>&#039;<br/>
+- &#039;interface&#039; uses/needs <code>&#039;option ip_interface</code>&#039;<br/>
+- &#039;script&#039; uses/needs <code>&#039;option ip_script</code>&#039;<br/>
+See details below.  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 rightalign">  <code>ip_network</code> </td><td class="col1 centeralign">  string  </td><td class="col2 centeralign">  no(*)  </td><td class="col3 centeralign">  &#039;wan&#039;  </td><td class="col4 leftalign"> Specify a network from your <code>/etc/config/network</code> file (e.g. &quot;wan&quot;) with the &quot;ip_network&quot; option. If you specify &quot;wan&quot;, you will send update with whatever the IP for your wan is.<br/>
+<em><strong>(*)required, if <code>option ip_source</code> set to &#039;network&#039;</strong></em>  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 rightalign">  <code>ip_url</code> </td><td class="col1 centeralign">  string  </td><td class="col2 centeralign">  no(*)  </td><td class="col3 centeralign">  <em>(none)</em>  </td><td class="col4 leftalign"> Detects the current local IP from specified webside that response with the IP address of calling host. If you are behind a firewall/NAT this is the best option since none of the local networks or interfaces will have the external IP.<br/>
+The correct <abbr title="Uniform Resource Locator">URL</abbr> might depend on the DDNS provider being used. Check with the DDNS providers&#039;s documentation to determine, if they offer this feature and, if so, what the correct <abbr title="Uniform Resource Locator">URL</abbr> is.<br/>
+Sample: <a href="http://checkip.dyndns.org/" class="urlextern" title="http://checkip.dyndns.org/"  rel="nofollow">http://checkip.dyndns.org/</a> or <a href="http://checkipv6.dyndns.org/" class="urlextern" title="http://checkipv6.dyndns.org/"  rel="nofollow">http://checkipv6.dyndns.org/</a><br/>
+<em><strong>(*)required, if value of <code>option ip_source</code> set to &#039;web&#039;</strong></em>  </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 rightalign">  <code>ip_interface</code> </td><td class="col1 centeralign">  string  </td><td class="col2 centeralign">  no(*)  </td><td class="col3 rightalign">  <em>(none)</em> </td><td class="col4 leftalign"> Specify a locally installed physical (hardware) interfaces (e.g. &#039;eth1&#039;) to detect your current IP address, independent from network they configured to.<br/>
+<em><strong>(*)required, if value of <code>option ip_source</code> set to &#039;interface&#039;</strong></em>  </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 rightalign">  <code>ip_script</code> </td><td class="col1 centeralign">  string  </td><td class="col2 centeralign">  no(*)  </td><td class="col3 rightalign">  <em>(none)</em> </td><td class="col4 leftalign"> Useful, if you want to write your own script to detect your current local IP.<br/>
+Put in full path &#039;/path/to/script.sh&#039;.<br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> The script must be marked executable.<br/>
+<em><strong>(*)required, if value of <code>option ip_source</code> set to &#039;script&#039;</strong></em>  </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 rightalign">  <code>check_interval</code> </td><td class="col1 centeralign">  number  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  &#039;10&#039;  </td><td class="col4 leftalign" rowspan="2"> Defines the time interval to check if local IP has changed.<br/>
+Accepted unit values: &#039;seconds&#039; &#039;minutes&#039; &#039;hours&#039;.<br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <em>Checks below 5 minutes make no sense, because the <abbr title="Domain Name System">DNS</abbr> Servers in Internet needs about 5 minutes to sync.<br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> either <strong>both</strong> options are set or not set.</em>  </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0 rightalign">  <code>check_unit</code> </td><td class="col1 centeralign">  string  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  &#039;minutes&#039;  </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0 rightalign">  <code>force_interval</code> </td><td class="col1 centeralign">  number  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  &#039;72&#039;  </td><td class="col4 leftalign" rowspan="2"> Force to send an update to service provider, if no IP change was detected. Consult DDNS providers documentation, if your DDNS entry might timeout.<br/>
+Accepted unit values: &#039;minutes&#039; &#039;hours&#039; &#039;days&#039;<br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <em>Minimum needs to be greater or equal check interval (see above).<br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> either <strong>both</strong> options are set or not set.</em>  </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0 rightalign">  <code>force_unit</code> </td><td class="col1 centeralign">  string  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  &#039;hours&#039;  </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0 rightalign">  <code>retry_interval</code> </td><td class="col1 centeralign">  number  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  &#039;60&#039;  </td><td class="col4 leftalign" rowspan="2"> If error happen on detecting, sending or updating, the script will retry the relevant action.<br/>
+Here you define the time to wait before retry is started.<br/>
+Accepted unit values: &#039;seconds&#039; &#039;minutes&#039;<br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <em>either <strong>both</strong> options are set or not set.</em>  </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0 rightalign">  <code>retry_unit</code> </td><td class="col1 centeralign">  string  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  &#039;seconds&#039;  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h4 id="version_2x">Version 2.x</h4>
+<div class="level4">
+
+<p>
+All above options from Version 1.x are supported.<br/>
+So you can update to new ddns-scripts without changing you current configuration.<br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Some options support additional values or have changed defaults depending on new options settings. Changes to the relevant options are listed below.
+</p>
+<div class="table sectionedit8"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Values </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 rightalign">  <code>use_syslog</code> </td><td class="col1 centeralign">  number  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  &#039;0&#039;  </td><td class="col4 leftalign"> <img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong>extended</strong><br/>
+Level of events logged to syslog:<br/>
+0 == disable<br/>
+1 == info, notice, warning, errors<br/>
+2 == notice, warning, errors<br/>
+3 == warning, errors<br/>
+4 == errors<br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Critical errors are always logged to syslog.  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  <code>service_name</code> </td><td class="col1 centeralign">  string  </td><td class="col2 centeralign">  yes(*)  </td><td class="col3 centeralign">  <em>(none)</em>  </td><td class="col4 leftalign"> <img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong>extended</strong><br/>
+If <code>option use_ipv6</code> is enabled(1) (see below) choose a service from <code>/usr/lib/ddns/services_ipv6</code> file.<br/>
+The latest version can be downloaded from <a href="https://github.com/openwrt/packages/tree/master/net/ddns-scripts/files" class="urlextern" title="https://github.com/openwrt/packages/tree/master/net/ddns-scripts/files"  rel="nofollow">Github.com</a><br/>
+<em>(*) If your DDNS provider is not listed there, remove this option and use <code>&#039;option update_url</code>&#039; or <code>&#039;option update_script</code>&#039; instead.</em>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  <code>cacert</code> </td><td class="col1 centeralign">  string  </td><td class="col2 centeralign">  no(*)  </td><td class="col3 centeralign">  <em>(none)</em>  </td><td class="col4 leftalign"> <img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong>extended</strong><br/>
+In addition to the description above a value <strong>&#039;IGNORE&#039;</strong> is supported.<br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> This uses secure http for transfer, but do not verify the DDNS providers server certificate. <strong>(insecure)</strong>  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 rightalign">  <code>force_interval</code> </td><td class="col1 centeralign">  number  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  &#039;72&#039;  </td><td class="col4 leftalign"> <img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong>extended</strong><br/>
+In addition to the description above a value <strong>&#039;0&#039;</strong> is supported.<br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> This will stop script execution after one successful update.  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0" colspan="5"> <hr> </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 rightalign">  <code>use_logfile</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  &#039;1&#039;  </td><td class="col4 leftalign"> disable(0) / enable(1) logging to log file.<br/>
+You find the file per default in /var/log/ddns/[sectionname].log<br/>
+The path can be modified for <strong>all</strong> log files in section <code>&#039;ddns</code>&#039; (see below)  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 rightalign">  <code>use_ipv6</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  &#039;0&#039;  </td><td class="col4 leftalign"> Decide if you want to update/send your current IPv4(0) or IPv6(1) address.  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 rightalign">  <code>update_script</code> </td><td class="col1 centeralign">  string  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  <em>(none)</em>  </td><td class="col4 leftalign"> <code>path/to/script.sh</code><br/>
+If your DDNS provider doesn&#039;t work with ddns-scripts, because there are additional parameters or other special thinks to be done, then you could write your own script to send updates to your DDNS provider.<br/>
+Have a look into <code>/usr/lib/ddns/update_sample.sh</code><br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Remove <code>&#039;option service_name</code>&#039; and use either this option <strong>OR</strong> <code>&#039;option update_url</code>&#039;.  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 rightalign">  <code>dns_server</code> </td><td class="col1 centeralign">  string  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  <em>(none)</em>  </td><td class="col4 leftalign"> Normally the current (in the internet) registered ip is detected using the local defined name lookup policies (i.e. /etc/resolve.conf etc.)<br/>
+Specify here a <abbr title="Domain Name System">DNS</abbr> server to be used instead of the defaults.<br/>
+You can use FQDN, hostname or IP address.  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 rightalign">  <code>force_dnstcp</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  &#039;0&#039;  </td><td class="col4 leftalign"> disable(0) / enable(1) <abbr title="Domain Name System">DNS</abbr> requests via TCP protocol.<br/>
+By default every <abbr title="Domain Name System">DNS</abbr> call is made via UDP protocol. Some internet provider offer modems, caching UDP <abbr title="Domain Name System">DNS</abbr> requests. They redirect every request to external servers to local modem cache.<br/>
+To force the usage of TCP for <abbr title="Domain Name System">DNS</abbr> requests enable this option.<br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Needs BIND host package to be installed.  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 rightalign">  <code>proxy</code> </td><td class="col1 centeralign">  string  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  <em>(none)</em>  </td><td class="col4 leftalign"> If a Proxy is need to access HTTP/HTTPS pages on the WEB, it can be configured here also for sending updates to the DDNS provider.<br/>
+If you configured <code>option use_https &#039;1</code>&#039; above, you need to setup your HTTPS proxy here, otherwise your HTTP proxy.<br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> You should not detect your current IP (<code>option ip_source &#039;web</code>&#039; above) because this request is also send via the configured proxy.<br/>
+Syntax: [user:password@]proxy:port   <img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> port is required !<br/>
+IPv6 address must be in squared brackets &#039;[…]&#039;  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 rightalign">  <code>force_ipversion</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  &#039;0&#039;  </td><td class="col4 leftalign"> disable(0) / enable(1) this option.<br/>
+Normally the system decide by various settings mostly compiled into the software, if it prefers IPv4 or IPv6 communication. Some DDNS providers update their DDNS record by using the IP address you send the update from.<br/>
+Then you need to force the usage of the IP version you want to update or you want to force it for other reasons depending on your environment.<br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Needs Wget or cURL package and BIND host package to be installed !  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 rightalign">  <code>retry_count</code> </td><td class="col1 centeralign">  number  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  &#039;5&#039;  </td><td class="col4 leftalign"> Number of retries before the script terminates execution, when a communication error happen.<br/>
+Works together with <code>&#039;option retry_interval</code>&#039; and <code>&#039;option retry_unit</code>&#039; (see above).<br/>
+<strong>A setting of &#039;0&#039; will retry infinite.</strong>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit9" id="section_ddns">Section &quot;ddns&quot;</h3>
+<div class="level3">
+
+<p>
+<strong> Only supported since version 2.x </strong><br/>
+
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong>It is NOT recommended for casual users to change this settings.</strong><br/>
+
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Only section name &quot;global&quot; is supported<br/>
+
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> This settings are used by <code>ddns-scripts</code> and corresponding <code>luci-app-ddns</code>.
+</p>
+
+</div>
+
+<h4 id="version_2x1">Version 2.x</h4>
+<div class="level4">
+<div class="table sectionedit10"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  Name  </th><th class="col1 centeralign">  Values  </th><th class="col2 centeralign">  Required  </th><th class="col3 centeralign">  Default  </th><th class="col4 centeralign">  Description  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 rightalign">  <code>allow_local_ip</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  &#039;0&#039;  </td><td class="col4 leftalign"> disallow(0) / allow(1) to send Private/Special IP&#039;s to the DDNS provider<br/>
+blocked IPv4: 0/8, 10/8, 100.64/10, 127/8, 169.254/16, 172.16/12, 192.168/16<br/>
+blocked IPv6: ::/32, f000::/4  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  <code>date_format</code> </td><td class="col1 centeralign">  string  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  &#039;%F %R&#039;  </td><td class="col4 leftalign"> set date format to use for display date in logfiles and LuCI WebUI.<br/>
+For supported codes <a href="http://www.cplusplus.com/reference/ctime/strftime/" class="urlextern" title="http://www.cplusplus.com/reference/ctime/strftime/"  rel="nofollow">look here</a>.  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  <code>run_dir</code> </td><td class="col1 centeralign">  string  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  &#039;/var/run/ddns&#039;  </td><td class="col4 leftalign"> Set directory to use for <code>&#039;*.pid</code>&#039; and <code>&#039;*.update</code>&#039; files.<br/>
+There are separate files for every running service section.  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 rightalign">  <code>log_dir</code> </td><td class="col1 centeralign">  string  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  &#039;/var/log/ddns&#039;  </td><td class="col4 leftalign"> Set directory to use for <code>&#039;*.log</code>&#039; files.<br/>
+There are separate files for every running service section, if <code>option use_logfile</code> set to <strong>&#039;1&#039;</strong> (enable) (see above).  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 rightalign">  <code>log_lines</code> </td><td class="col1 centeralign">  number  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  &#039;250&#039;  </td><td class="col4 leftalign"> Set number of lines stored in .log file before auto truncated.  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 rightalign">  <code>bind_network</code> </td><td class="col1 centeralign">  string  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  <em>(none)</em>  </td><td class="col4 leftalign"> Network to use for communication when detecting IP and sending updates.<br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Needs Wget or cURL package to be installed !<br/>
+Wget will bind to the IP and cURL to physical interface of given network.  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 rightalign">  <code>use_curl</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 centeralign">  no  </td><td class="col3 centeralign">  &#039;0&#039;  </td><td class="col4 leftalign"> If Wget and cURL package are installed, Wget is used for communication by default.<br/>
+Set to &#039;1&#039; will use cURL instead.  </td>
+	</tr>
+</table></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/uci/ddns.txt</bdi> · Last modified: 2015/04/10 22:25 by <bdi>chris5560</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="ddns?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="ddns?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="ddns?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="ddns#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Auci%253Addns&amp;1432267230" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

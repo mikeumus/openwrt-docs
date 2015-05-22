@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>ZNC configuration [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,uci,znc"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="znc?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:uci"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/uci/znc"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/uci/znc"/>
+<link rel="canonical" href="znc"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:uci';var JSINFO = {"id":"doc:uci:znc","namespace":"doc:uci"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266649 166.182.3.153';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="znc#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="znc?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="znc?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:uci:znc" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="znc?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="znc?do=media&amp;ns=doc%253Auci"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="znc?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../uci.1" class="wikilink1" title="doc:uci">The UCI System</a></bdi> » <bdi><span class="curid"><a href="znc" class="wikilink1" title="doc:uci:znc">ZNC configuration</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/uci/znc" class="media" title="cz:doc:uci:znc"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/uci/znc" class="media" title="de:doc:uci:znc"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="znc" class="media" title="doc:uci:znc"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/uci/znc" class="media" title="es:doc:uci:znc"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/uci/znc" class="media" title="fr:doc:uci:znc"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/uci/znc" class="media" title="hu:doc:uci:znc"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/uci/znc" class="media" title="jp:doc:uci:znc"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/uci/znc" class="media" title="pl:doc:uci:znc"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/uci/znc" class="media" title="pt-br:doc:uci:znc"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/uci/znc" class="media" title="ru:doc:uci:znc"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/uci/znc" class="media" title="tr:doc:uci:znc"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/uci/znc" class="media" title="zh-cn:doc:uci:znc"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/uci/znc" class="media" title="zh-tw:doc:uci:znc"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:uci:znc</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="znc#sections">Sections</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="znc#common_options">Common Options</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="znc#valid_options">Valid Options</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="znc#user_definition">User Definition</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="znc#valid_options1">Valid Options</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="znc_configuration">ZNC configuration</h1>
+<div class="level1">
+
+<p>
+<a href="http://en.wikipedia.org/wiki/ZNC" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/ZNC">ZNC&#039;s</a> configuration is located in <code>/etc/config/znc</code>. You can use it to configure most common aspects of ZNC. Supplying your own configuration is supported as of 0.998-2.
+</p>
+
+<p>
+<strong>Note:</strong> This configuration is only for ZNC 0.094 or later.
+</p>
+
+<p>
+<strong>Note:</strong> 10.03.1-rc4&#039;s ZNC 0.094 has a hidden dependency to <code>libstdcpp</code>. This is fixed in trunk and recent Backfire builds.
+</p>
+
+<p>
+<strong>Note:</strong> 10.03.1-rc4&#039;s ZNC 0.094 takes 30 seconds until it actually works after starting it. This wait time is removed in trunk.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="sections">Sections</h2>
+<div class="level2">
+
+<p>
+There are two section types for ZNC, a common one and one or more user sections.
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="common_options">Common Options</h3>
+<div class="level3">
+
+<p>
+The common section defines where ZNC is supposed to listen, which global modules should be loaded and some other global options.
+A minimum configuration looks like this:
+</p>
+<div class="table sectionedit4"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;znc&#039;
+	list &#039;listener&#039;	&#039;192.168.1.1 1234</code>&#039; </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h4 id="valid_options">Valid Options</h4>
+<div class="level4">
+<div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>anoniplimit</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <code>10</code> </td><td class="col4"> Number of anonymous connections allowed. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>connectdelay</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <code>5</code> </td><td class="col4"> Time in seconds ZNC waits between establishing connections. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>listener</code> </td><td class="col1"> list of strings </td><td class="col2"> Yes </td><td class="col3"> <em>none</em> </td><td class="col4"> One or more directives where ZNC should listen, in the format &quot;&lt;IP/Host&gt; [+]&lt;Port&gt;&quot;. The &quot;+&quot; forces the port to be SSL. Both IPv4 and IPv6 addresses are valid. <strong>Note:</strong> You need to provide a SSL certificate for using SSL ports. </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>maxbuffersize</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <code>500</code> </td><td class="col4"> Sets the global Max Buffer Size a user can have. </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>module</code> </td><td class="col1"> list of strings </td><td class="col2"> no </td><td class="col3"> <em>none</em> </td><td class="col4"> Instructs ZNC to load global modules. Uses the format &quot;&lt;modulename&gt; [arguments…]&quot;. </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>runas_user</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>root/nobody</em> </td><td class="col4"> Run ZNC as this user instead of the default user (root for external config, nobody for generated config) </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <code>runas_group</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>nogroup</em> </td><td class="col4"> Run ZNC as this group. Only used when using a generated config. </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <code>serverthrottle</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <code>30</code> </td><td class="col4"> Time in seconds ZNC waits between two connection attempts to an <abbr title="Internet Relay Chat">IRC</abbr> server. </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <code>znc_config_path</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>none</em> </td><td class="col4"> Use an external configuration at this location instead of the generated one. Any other options except <code>runas_user</code> will get ignored. <br/><strong>Note:</strong> Using runas_user to run ZNC as a different user with an external config requires <code>&#039;su</code>&#039; installed. Alternatively, you may make use of <a href="http://wiki.znc.in/Droproot" class="urlextern" title="http://wiki.znc.in/Droproot"  rel="nofollow">droproot</a> from your external configuration file, as it is always installed with ZNC. </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> <code>znc_ssl_cert</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>none</em> </td><td class="col4"> Use this certificate for SSL ports. </td>
+	</tr>
+</table></div>
+
+<p>
+<strong>Note:</strong> If you want your ZNC to be reachable from the outside, you can use &#039;0.0.0.0&#039; as the IP address, which makes ZNC listen on all interfaces. You also need to allow connections to its port through the firewall.
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="user_definition">User Definition</h3>
+<div class="level3">
+
+<p>
+For each connection you want to use you need to create a separate user. Each user section corresponds to one user in ZNC. The section name is the user name for authentication to ZNC itself.
+</p>
+
+<p>
+A minimal user configuration looks like this:
+</p>
+<div class="table sectionedit7"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;user&#039; &#039;sampleUser&#039;
+	option &#039;password&#039; &#039;changeme&#039;
+	option &#039;nick&#039;     &#039;sampleUser</code>&#039; </td>
+	</tr>
+</table></div>
+
+<p>
+This would create a user with the login <code>sampleUser</code>, the password <code>changeme</code> and the nick <code>sampleUser</code>.
+</p>
+
+</div>
+
+<h4 id="valid_options1">Valid Options</h4>
+<div class="level4">
+<div class="table sectionedit8"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>altnick</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>none</em> </td><td class="col4"> The Alternative Nickname, if the first one is occupied. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>buffer</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <code>50</code> </td><td class="col4"> Specifies the per channel log buffer limit in lines. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>chanmodes</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>&lt;Server defaults&gt;</em> </td><td class="col4"> Overrides the channel modes. </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>channel</code> </td><td class="col1"> list of strings </td><td class="col2"> no </td><td class="col3"> <em>none</em> </td><td class="col4"> Specifies one or more channels to join on connect. The required format is &quot;&lt;channelname&gt; [&lt;password&gt;]&quot;. <strong>Note:</strong> Only ZNC 0.096 or later. </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>ident</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>&lt;nick&gt;</em> </td><td class="col4"> Specifies the ident to use. </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>module</code> </td><td class="col1"> list of strings </td><td class="col2"> no </td><td class="col3"> <em>none</em> </td><td class="col4"> Instructs ZNC to load user modules. The required format is &quot;modulename&gt; [&lt;arguments…&gt;]&quot;. </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <code>nick</code> </td><td class="col1"> string </td><td class="col2"> Yes </td><td class="col3"> <em>none</em> </td><td class="col4"> The Nickname of this user. </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <code>realname</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>&lt;nick&gt;</em> </td><td class="col4"> The real name of this user. </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <code>password</code> </td><td class="col1"> string </td><td class="col2"> Yes </td><td class="col3"> <em>none</em> </td><td class="col4"> Password for this user. Can be either a plain text password, or a generated password hash through <code>znc -s</code>. <strong>Note:</strong> ZNC 0.094 supports only plain text. </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> <code>quitmsg</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>&lt;ZNC default&gt;</em> </td><td class="col4"> Specifies the quit message used when closing the connection to the server. </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> <code>server</code> </td><td class="col1"> list of strings </td><td class="col2"> no </td><td class="col3"> <em>none</em> </td><td class="col4"> Specifies the list of servers to connect to. The required format &quot;&lt;IP/Host&gt; [+]&lt;Port&gt; [&lt;Password&gt;]&quot;, where the &quot;+&quot; indicates that SSL should be used. Both IPv4 and IPv6 addresses are valid. </td>
+	</tr>
+</table></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/uci/znc.txt</bdi> · Last modified: 2013/03/18 21:49 by <bdi>kanjimonster</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="znc?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="znc?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="znc?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="znc#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Auci%253Aznc&amp;1432266649" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

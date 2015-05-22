@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Serial Console [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,hardware,port.serial"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="port.serial?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:hardware"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/hardware/port.serial"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/hardware/port.serial"/>
+<link rel="canonical" href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:hardware';var JSINFO = {"id":"doc:hardware:port.serial","namespace":"doc:hardware"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266081 166.182.3.212';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="port.serial?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="port.serial?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:hardware:port.serial" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="port.serial?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="port.serial?do=media&amp;ns=doc%253Ahardware"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="port.serial?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:hardware:start">Hardware</a></bdi> » <bdi><span class="curid"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console" class="wikilink1" title="doc:hardware:port.serial">Serial Console</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/hardware/port.serial" class="media" title="cz:doc:hardware:port.serial"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/hardware/port.serial" class="media" title="de:doc:hardware:port.serial"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console" class="media" title="doc:hardware:port.serial"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/hardware/port.serial" class="media" title="es:doc:hardware:port.serial"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/hardware/port.serial" class="media" title="fr:doc:hardware:port.serial"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/hardware/port.serial" class="media" title="hu:doc:hardware:port.serial"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/hardware/port.serial" class="media" title="jp:doc:hardware:port.serial"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/hardware/port.serial" class="media" title="pl:doc:hardware:port.serial"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/hardware/port.serial" class="media" title="pt-br:doc:hardware:port.serial"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/hardware/port.serial" class="media" title="ru:doc:hardware:port.serial"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/hardware/port.serial" class="media" title="tr:doc:hardware:port.serial"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/hardware/port.serial" class="media" title="zh-cn:doc:hardware:port.serial"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/hardware/port.serial" class="media" title="zh-tw:doc:hardware:port.serial"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:hardware:port.serial</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#connectors">Connectors</a></div></li>
+<li class="level1"><div class="li"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#serial_modes">Serial modes</a></div></li>
+<li class="level1"><div class="li"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#voltage_levels">Voltage levels</a></div></li>
+<li class="level1"><div class="li"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#talking_and_listening">Talking and Listening</a></div></li>
+<li class="level1"><div class="li"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#considerations">Considerations</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#usb">USB</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#usb_enabled_routers">USB enabled routers</a></div></li>
+<li class="level3"><div class="li"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#prebuilt_cables">Prebuilt Cables</a></div></li>
+<li class="level3"><div class="li"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#usb_to_rs232_ttl_converter_module">USB to RS232 TTL Converter Module</a></div></li>
+<li class="level3"><div class="li"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#usb-serial_parts">USB-serial parts</a></div></li>
+<li class="level3"><div class="li"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#cellphone_data_cables">Cellphone Data Cables</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#db9_serial_port">DB9 serial port</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#level_conversion">Level conversion</a></div></li>
+<li class="level3"><div class="li"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#from_scratch">From scratch</a></div></li>
+<li class="level3"><div class="li"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#from_a_pda_or_cell_phone_serial_cable">From a PDA or cell phone serial cable</a></div></li>
+<li class="level3"><div class="li"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#max232_kits">MAX232 Kits</a></div></li>
+<li class="level3"><div class="li"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#model-specific_guides">Model-specific guides</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#use_your_old_pda_as_a_console">Use your old PDA as a console</a></div></li>
+<li class="level2"><div class="li"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#use_another_openwrt_router_as_a_console">Use another OpenWrt router as a console</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#terminal_software">Terminal software</a></div></li>
+<li class="level1"><div class="li"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#serial_port_pinouts">Serial port pinouts</a></div></li>
+<li class="level1"><div class="li"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#finding_serial_console">Finding Serial Console</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#piezoelectric_buzzer_method">Piezoelectric buzzer method</a></div></li>
+<li class="level2"><div class="li"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#digital_multimeter_method">Digital multimeter method</a></div></li>
+<li class="level2"><div class="li"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#logic_analyzeroscilloscope">Logic analyzer/oscilloscope</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#serial_port_speed">Serial port speed</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="serial_console">Serial Console</h1>
+<div class="level1">
+
+<p>
+Most routers come with an <a href="http://en.wikipedia.org/wiki/Universal asynchronous receiver/transmitter" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Universal asynchronous receiver/transmitter">UART</a> integrated into the <a href="soc.1" class="wikilink1" title="doc:hardware:soc">System-on-chip</a> and its pins are routed on the <a href="http://en.wikipedia.org/wiki/Printed circuit board" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Printed circuit board">Printed Circuit Board (PCB)</a> to allow debugging, firmware replacement or serial device connection (like modems). The <strong><a href="../techref/bootloader.1" class="wikilink1" title="doc:techref:bootloader">bootloader</a></strong> is responsible for listening on it.
+</p>
+<ul>
+<li class="level1"><div class="li"> → <span class="curid"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console" class="wikilink1" title="doc:hardware:port.serial">port.serial</a></span> (this article)</div>
+<ul>
+<li class="level2"><div class="li"> → <a href="port.serial.cables" class="wikilink1" title="doc:hardware:port.serial.cables">port.serial.cables</a> (homemade cables)</div>
+</li>
+<li class="level2"><div class="li"> → <a href="http://wiki.openwrt.org/doc/hardware/port.serial.utilization" class="wikilink2" title="doc:hardware:port.serial.utilization" rel="nofollow">port.serial.utilization</a></div>
+<ul>
+<li class="level3"><div class="li"> → <a href="../howto/generic.debrick" class="wikilink1" title="doc:howto:generic.debrick">generic.debrick</a> there is content on utilizing JTAG  (link to it or from it, don&#039;t leave double content!)</div>
+</li>
+<li class="level3"><div class="li"> → <a href="../techref/bootloader.1" class="wikilink1" title="doc:techref:bootloader">bootloader</a></div>
+</li>
+<li class="level3"><div class="li"> → <a href="../techref/bootloader/uboot" class="wikilink1" title="doc:techref:bootloader:uboot">uboot</a></div>
+</li>
+<li class="level3"><div class="li"> → <a href="../techref/bootloader/uboot.config" class="wikilink1" title="doc:techref:bootloader:uboot.config">uboot.config</a></div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+So in contrast to the <a href="port.jtag" class="wikilink1" title="doc:hardware:port.jtag">JTAG-Port</a>, the Serial Port needs some software running on the CPU so we can use it! If the bootloader is damaged, or doesn&#039;t offer such a feature, the port is useless.
+</p>
+
+<p>
+Finding an UART on a router is fairly easy since it only needs 3 signals (without modem signaling) to work: GND, TX and RX (often accompanied by VCC). Since your router is very likely to have its I/O pins working at 3.3V (<a href="http://en.wikipedia.org/wiki/Transistor–transistor logic" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Transistor–transistor logic">TTL</a> level voltage), you&#039;ll need <span class="curid"><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#usbtors232ttlconvertermodule" class="wikilink1" title="doc:hardware:port.serial">usb.to.rs232.ttl.converter.module</a></span> or a level shifter such as a Maxim MAX232 to change the level from 3.3V to your computer level which is usually at 12V.
+</p>
+
+<p>
+Check the table of hardware <a href="../../toh/start" class="wikilink1" title="toh:start">toh</a> for your router and if you don&#039;t find serial pinout there try looking for a populated or unpopulated 4-pin header, which can be far from the SoC (signals are relatively slow) and usually with tracks on the top or bottom layer of the PCB, and connected to the TX and RX.
+</p>
+
+<p>
+Once found, you can easily check where is the GND, which is connected to the same ground layer than the power connector. The VCC should be fixed at 3.3V and connected to the supply layer ; the TX is also at 3.3V level, but using a multimeter as an ohm-meter, if you find an infinite resistance between the TX and VCC pins, it means they&#039;re distinct signals (else, you&#039;ll need to find the correct TX or VCC pin). The RX and GND are by default at 0V, so you can check them using the same technique.
+</p>
+
+<p>
+If you don&#039;t have a multimeter, a simple trick that usually works is using a speaker or a LED to determine the 3.3V signals. Additionally, most PCB designers will draw a square pad to indicate pin number 1.
+</p>
+
+<p>
+Once found, just interface your level shifter with the device, and the serial port on the PC on the other side. Most common baud rates for the off-the-shelf devices are 9600, 38400 and 115200 with 8-bits data, no parity, 1-bit stop.
+</p>
+
+</div>
+<div class="plugin_include_content plugin_include__meta:infobox:cleanup" id="plugin_include__meta__infobox__cleanup">
+<div class="level1">
+
+<p>
+
+<table class="inline" style="width:70%; margin-left:15%">
+  <tr>
+    <td style="border-left:6px solid #f57900; vertical-align:middle">
+      <img src="../../_media/meta/icons/tango/48px-cleanup.svg.png" alt="" style="float:left; margin-right:0.5em" />
+      <strong>Cleanup Required!</strong><br />
+      This page or section needs cleanup. You can <a href="port.serial?do=edit">edit</a> this page to fix wiki markup, redundant content or outdated information.
+    </td>
+  </tr>
+</table>
+
+</p>
+
+</div>
+</div>
+<div class="level1">
+
+<p>
+Many people get along without a serial console for their device because they&#039;re able to flash a working firmware the first time - or are able to apply various recovery methods - and do all their communicating with the device over a network.  However, due to characteristics of their bootloaders, or because they aren&#039;t yet fully supported, for some devices it can be quite handy to have a compatible serial console available.
+</p>
+
+<p>
+Most devices supported by OpenWrt include a serial port. These serial ports typically provide a console to the bootloader and, when the firmware has booted, a console to the running system. Typically, a console to the bootloader will allow you to configure a network, fetch and flash a new firmware, which can be a life-saver when the firmware is broken. A console to the running system will let you correct a misconfigured network.
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="connectors">Connectors</h2>
+<div class="level2">
+
+<p>
+All <a href="soc.1" class="wikilink1" title="doc:hardware:soc">soc</a>s have some sort of <a href="http://en.wikipedia.org/wiki/Universal asynchronous receiver/transmitter" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Universal asynchronous receiver/transmitter">UART</a>, often in combination with a <a href="http://en.wikipedia.org/wiki/RS-232" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/RS-232">RS-232</a>-Interface connected with the <a href="http://en.wikipedia.org/wiki/Printed circuit board" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Printed circuit board">PCB</a>. Now depending on the model, the device&#039;s serial port could be available
+</p>
+<ul>
+<li class="level1"><div class="li"> as a 9-pin D connector accessible from the exterior of the case, </div>
+</li>
+<li class="level1"><div class="li"> as pin headers on the PCB,</div>
+</li>
+<li class="level1"><div class="li"> as unpopulated holes in the PCB.</div>
+</li>
+</ul>
+
+<p>
+For help with the latter two, see <a href="soldering" class="wikilink1" title="doc:hardware:soldering">soldering</a>. But even if there is 9-pin D connector, beware the Voltage levels!
+</p>
+
+<p>
+Hint: in case of unpopulated holes try fitting the pins from a disassembled SubD9 male plug into the holes instead of soldering the cable directly to the board. Fit perfectly on unbricked Asus and TP-Link routers and leaves no trace. 
+</p>
+
+<p>
+If the serial port is not readily accessible from the exterior of the device enclosure, you have some choices:
+</p>
+<ul>
+<li class="level1"><div class="li"> modify the enclosure, either to allow passage of a cable or to attach a convenient connector, e.g.:</div>
+<ul>
+<li class="level2"><div class="li"> a 9-pin D connector (this is a good choice if you are going to build a level-shifter into the interior of the enclosure, so as to provide a standard +/- 12V interface externally);</div>
+</li>
+<li class="level2"><div class="li"> a 1/8-inch stereo headphone jack (this is a good choice if you are simply bringing the lines to the exterior)</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> open the case to attach to header pins or holes, as needed, this is a good choice if:</div>
+<ul>
+<li class="level2"><div class="li"> opening the enclosure is easy;</div>
+</li>
+<li class="level2"><div class="li"> access to the serial port is needed only very occasionally; and/or</div>
+</li>
+<li class="level2"><div class="li"> you have many devices you would rather not modify.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit5" id="serial_modes">Serial modes</h2>
+<div class="level2">
+
+<p>
+Sometimes by shortcutting some pins, connecting them to ground or to power you can change the serial mode. Some of them can help you to restore the bootloader since they allow you to write directly to memory or load something to ram through the serial connection, which can be useful for restoring a bootloader. Also if the original bootloader is password protected with this method you can replace it with a custom bootloader and bypass it.
+</p>
+
+<p>
+For example in lantiq danube socs the default mode is CFG 01, but changing to CFG 04 which is known as UART mode allows you to upload to ram through the serial connection and automatically execute a bootloader in ascii format through the serial connection.
+</p>
+
+<p>
+It is recommended that you don&#039;t try blindly to shortcut or connect to anything the pins as it can brick the device. Find documentation before doing anything.
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="voltage_levels">Voltage levels</h2>
+<div class="level2">
+
+</div>
+<div class="plugin_include_content plugin_include__meta:infobox:dangerous" id="plugin_include__meta__infobox__dangerous">
+<div class="level2">
+
+<p>
+
+<table class="inline" style="width:70%; margin-left:15%">
+  <tr>
+    <td style="border-left:6px solid #cd0505; vertical-align:middle">
+      <img src="../../_media/meta/icons/tango/48px-dialog-warning.svg.png" alt="" style="float:left; margin-right:0.5em" />
+      <strong>Warning!</strong><br />
+      This section describes actions that might damage your device or firmware. Proceed with care!
+    </td>
+  </tr>
+</table>
+
+</p>
+
+</div>
+</div>
+<div class="level2">
+<div class="table sectionedit9"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><img src="../../_media/meta/icons/tango/48px-dialog-warning.svg.png" class="media" alt="" /></td><td class="col1"> <strong>Caution:</strong> Very few devices have standard <a href="http://en.wikipedia.org/wiki/RS-232" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/RS-232">RS-232</a> +/- 12V serial ports, but in many OpenWrt-supported devices the serial ports operate at TTL voltage (sometimes 5V, most often 3.3V) levels, meaning you cannot use a standard serial or USB to serial cable: it will fry your board. </td>
+	</tr>
+</table></div>
+
+<p>
+In order for the serial console to work, the logic levels on the wires should match those expected by your device.  The first step therefore is to determine which voltage levels are required.  Often, you can find this documented on the OpenWrt wiki or elsewhere.
+</p>
+
+<p>
+Check your device&#039;s voltage levels with this chart. For detailed description look <a href="http://www.interfacebus.com/voltage_threshold.html" class="urlextern" title="http://www.interfacebus.com/voltage_threshold.html"  rel="nofollow">here.</a> In addition these levels are averages for the type of devices shown. 
+</p>
+
+<p>
+<a href="../../_detail/doc/hardware/chart-ic-voltage-switching-levels-grpah.png?id=doc%253Ahardware%253Aport.serial" class="media" title="doc:hardware:chart-ic-voltage-switching-levels-grpah.png"><img src="../../_media/doc/hardware/chart-ic-voltage-switching-levels-grpah.png" class="media" alt="" /></a>
+</p>
+
+</div>
+
+<h2 class="sectionedit10" id="talking_and_listening">Talking and Listening</h2>
+<div class="level2">
+
+<p>
+In order to interact with your device over its serial port, you need a minimum of three wires connected: a ground (GND); transmit (TX); and receive (RX).  It is possible to get useful information about what is happening with only GND and RX, but in order to fix a problem you will usually also need TX.  Your computer&#039;s TX should be connected to the device&#039;s RX, and your computer&#039;s RX should be connected to the device&#039;s TX.  The computer&#039;s GND should connect the the device&#039;s GND.  That way, what you say will get heard by the device and what the device says will get heard by your computer.  This is often called a &quot;null-modem&quot; configuration.
+</p>
+
+<p>
+You will also need a terminal emulation program on your computer, such as minicom, hyperterminal, etc.  The terminal emulation program needs to be configured to be compatible with your device, in particular, with regard to baud rate and flow control.  If you are using only three wires (GND, TX, and RX) then hardware flow control should be turned off; you aren&#039;t using the pins (RTS and CTS) necessary for it to work.  Rarely, the baud rate that the device expects <em>might</em> be different in the bootloader and the running firmware; if so, you&#039;ll need to modify the baud rate settings in your terminal emulator after the firmware boots up.
+</p>
+
+<p>
+Troubleshooting parts:
+If you get something like this during the bootcycle (output is garbled)
+</p>
+<pre class="code">����������������������������������|� 2000-2008 Broadcom Corporation.
+Init Arena
+Init Devs.
+This is ���������������������?����������?����BCM4wXX����������������Ǉ����������0735750 - 0x80)
+BSS:        0x80739790 -   0x80���4���������~�~������߇~����������������������������������5.10
+The boot is CFE</pre>
+
+<p>
+then probably the GND is not connected (soldered?) well. The router wont listen to any keyboard actions.
+After solving the problem output should look fine.
+</p>
+
+<p>
+Another possible cause for the garbled output is wrong serial port speed, try different settings, most common ones are 9600, 38400 and 115200 bps.
+</p>
+
+<p>
+If you successfully receive router bootup logs but seem unable to send data (e.g. some keyboard input which might be required to intercept bootup, and where you&#039;re unable to stop continued kernel bootup), then this may be due to having configured the connection as hardware flow control rather than software (happened on TL-WDR3600 in my case).
+</p>
+
+</div>
+
+<h2 class="sectionedit11" id="considerations">Considerations</h2>
+<div class="level2">
+
+<p>
+Some things to consider:
+</p>
+<ul>
+<li class="level1"><div class="li"> If your computer has a serial port, you can use a level-shifter (as necessary) and a &quot;null-modem cable&quot;.</div>
+</li>
+<li class="level1"><div class="li"> If your computer has a USB port, then:</div>
+<ul>
+<li class="level2"><div class="li"> if your device uses standard RS232 logic levels, you can use a standard USB-serial converter along with a standard &quot;null-modem cable&quot;</div>
+</li>
+<li class="level2"><div class="li"> if your device uses TTL logic levels, you can use a USB-serial cable with a serial to TTL adaptor or a USB to TTL adaptor (that use the right TTL voltage) and a connector suitably wired to connect to your device.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> If your computer has neither a serial port or a USB port, you are in trouble!</div>
+</li>
+</ul>
+
+<p>
+These days, computer manufacturers are dropping RS232 serial ports, while USB ports are increasingly ubiquitous.  Particularly if you need to TTL logic levels, USB is probably the way to go since you can get the right logic levels (the voltage) integrated in the USB-TTL converter.
+</p>
+
+</div>
+
+<h3 class="sectionedit12" id="usb">USB</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="usb_enabled_routers">USB enabled routers</h4>
+<div class="level4">
+
+<p>
+For routers with a built in USB-connector (such as WNDR3700 for example), simply plugging in a USB-serial converter and installing the appropriate software will provide a serial console to the router.
+</p>
+<ul>
+<li class="level1"><div class="li"> Install the appropriate packages, e.g. kmod-usb-serial and kmod-usb-serial-ftdi for FTDI based converters or kmod-usb-serial-pl2303 for prolific based converters</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Add the new serial port to /etc/inittab, (if you have multiple adaptors find the right one in /proc/tty/driver/usbserial):<br/>
+<pre class="code bash">ttyUSB0::askfirst:<span class="sy0">/</span>bin<span class="sy0">/</span><span class="kw2">ash</span> <span class="re5">--login</span></pre>
+</div>
+</li>
+</ul>
+
+<p>
+Be aware, using this method won&#039;t bring you the possibility to use the bootloader console.
+</p>
+
+</div>
+
+<h4 id="prebuilt_cables">Prebuilt Cables</h4>
+<div class="level4">
+
+<p>
+Standard RS232 levels, for example:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://www.zonetusa.com/products-132.aspx" class="urlextern" title="http://www.zonetusa.com/products-132.aspx"  rel="nofollow">Zonet ZUC3100</a> uses pl2303 chip, well-supported in Linux</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.superdroidrobots.com/shop/item.aspx?itemid=335" class="urlextern" title="http://www.superdroidrobots.com/shop/item.aspx?itemid=335"  rel="nofollow">http://www.superdroidrobots.com/shop/item.aspx?itemid=335</a></div>
+</li>
+</ul>
+
+<p>
+TTL 5V, for example:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://www.mouser.com/Search/ProductDetail.aspx?qs=OMDV80DKjRorBEBwmlJ4Pg%3d%3d" class="urlextern" title="http://www.mouser.com/Search/ProductDetail.aspx?qs=OMDV80DKjRorBEBwmlJ4Pg%3d%3d"  rel="nofollow">FTDI TTL-232R-5V</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://apple.clickandbuild.com/cnb/shop/ftdichip?productID=49&amp;op=catalogue-product_info-null&amp;prodCategoryID=47" class="urlextern" title="http://apple.clickandbuild.com/cnb/shop/ftdichip?productID=49&amp;op=catalogue-product_info-null&amp;prodCategoryID=47"  rel="nofollow">FTDI TTL-232R-5V (£)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://apple.clickandbuild.com/cnb/shop/ftdichip?productID=69&amp;op=catalogue-product_info-null&amp;prodCategoryID=47" class="urlextern" title="http://apple.clickandbuild.com/cnb/shop/ftdichip?productID=69&amp;op=catalogue-product_info-null&amp;prodCategoryID=47"  rel="nofollow">FTDI TTL-232R-AJ (£)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://apple.clickandbuild.com/cnb/shop/ftdichip?productID=67&amp;op=catalogue-product_info-null&amp;prodCategoryID=47" class="urlextern" title="http://apple.clickandbuild.com/cnb/shop/ftdichip?productID=67&amp;op=catalogue-product_info-null&amp;prodCategoryID=47"  rel="nofollow">FTDI TTL-232R-WE (£)</a></div>
+</li>
+</ul>
+
+<p>
+TTL 3.3V, for example:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://www.mouser.com/Search/ProductDetail.aspx?R=TTL-232R-3V3virtualkey62130000virtualkey895-TTL-232R-3V3" class="urlextern" title="http://www.mouser.com/Search/ProductDetail.aspx?R=TTL-232R-3V3virtualkey62130000virtualkey895-TTL-232R-3V3"  rel="nofollow">FTDI TTL-232R-3V3</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://apple.clickandbuild.com/cnb/shop/ftdichip?productID=53&amp;op=catalogue-product_info-null&amp;prodCategoryID=47" class="urlextern" title="http://apple.clickandbuild.com/cnb/shop/ftdichip?productID=53&amp;op=catalogue-product_info-null&amp;prodCategoryID=47"  rel="nofollow">FTDI TTL-232R-3V3 (£)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://apple.clickandbuild.com/cnb/shop/ftdichip?productID=70&amp;op=catalogue-product_info-null&amp;prodCategoryID=47" class="urlextern" title="http://apple.clickandbuild.com/cnb/shop/ftdichip?productID=70&amp;op=catalogue-product_info-null&amp;prodCategoryID=47"  rel="nofollow">FTDI TTL-232R-3V3-AJ (£)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://apple.clickandbuild.com/cnb/shop/ftdichip?productID=68&amp;op=catalogue-product_info-null&amp;prodCategoryID=47" class="urlextern" title="http://apple.clickandbuild.com/cnb/shop/ftdichip?productID=68&amp;op=catalogue-product_info-null&amp;prodCategoryID=47"  rel="nofollow">FTDI TTL-232R-3V3-WE (£)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://shop.clickandbuild.com/cnb/shop/ftdichip?op=catalogue-products-null&amp;prodCategoryID=167&amp;title=TTL-232R-RPi" class="urlextern" title="http://shop.clickandbuild.com/cnb/shop/ftdichip?op=catalogue-products-null&amp;prodCategoryID=167&amp;title=TTL-232R-RPi"  rel="nofollow">FTDI&#039;s TTL-232R-RPi Raspberry Pi / 3.3v boards (£)</a></div>
+</li>
+</ul>
+
+<p>
+You may need to rewire the terminals of the TTL cables to match your device pinout.
+</p>
+
+</div>
+
+<h4 id="usb_to_rs232_ttl_converter_module">USB to RS232 TTL Converter Module</h4>
+<div class="level4">
+
+<p>
+These things make it simple to connect a computer (USB port) to the serial pins on the router.
+</p>
+
+<p>
+<a href="../../_detail/doc/hardware/usbtors232.ttl.jpeg?id=doc%253Ahardware%253Aport.serial" class="media" title="doc:hardware:usbtors232.ttl.jpeg"><img src="../../_media/doc/hardware/usbtors232.ttl.jpeg" class="media" alt="" /></a>
+</p>
+
+<p>
+They are usually shipped with four jumper cables. Try <a href="http://www.dealextreme.com/p/usb-to-uart-5-pin-cp2102-module-serial-converter-81872?item=20" class="urlextern" title="http://www.dealextreme.com/p/usb-to-uart-5-pin-cp2102-module-serial-converter-81872?item=20"  rel="nofollow">Dealextreme SKU 81872</a>. Or on <a href="http://www.amazon.com/CP2102-Module-Download-Serial-Converter/dp/B009T2ZR6W/" class="urlextern" title="http://www.amazon.com/CP2102-Module-Download-Serial-Converter/dp/B009T2ZR6W/"  rel="nofollow">Amazon B009T2ZR6W</a>. Or on ebay there are plenty of these cheap adapters.
+</p>
+
+<p>
+Simply connect the jumper cables to the pins like this:
+</p>
+<div class="table sectionedit13"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Router </th><th class="col1"> Converter module </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <strong>GND</strong> </td><td class="col1"> <strong>GND</strong> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <strong><span style='color:green; '>TXD</span></strong> </td><td class="col1"> <strong><span style='color:blue; '>RXD</span></strong> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <strong><span style='color:blue; '>RXD</span></strong> </td><td class="col1"> <strong><span style='color:green; '>TXD</span></strong> </td>
+	</tr>
+</table></div>
+
+<p>
+Unless you need to power the device, you don&#039;t have to connect the voltage pins.
+</p>
+<div class="wrap_center wrap_round wrap_alert plugin_wrap" style="width: 60%;">
+<p>
+<strong>WARNING!:</strong> Some people reported they fried their router connecting the voltage pins spite it isn&#039;t neccesary. <strong>NEVER</strong> connect voltage pins when using USB adapters unless you know what are you doing
+</p>
+</div>
+<p>
+<strong>Please note</strong> that some USB serial adapters (The CP2102-based one in the Amazon link above, for example) have the RX and TX connectors labelled according to what you should connect them to, not what they actually do. If connecting TX → RX and RX → TX doesn&#039;t work for you, try switching to TX → TX and RX → RX.
+</p>
+
+</div>
+
+<h4 id="usb-serial_parts">USB-serial parts</h4>
+<div class="level4">
+
+<p>
+If you want to solder:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://www.sparkfun.com/commerce/product_info.php?products_id=718" class="urlextern" title="http://www.sparkfun.com/commerce/product_info.php?products_id=718"  rel="nofollow">Breakout Board for FT232RL USB to Serial</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.sparkfun.com/commerce/product_info.php?products_id=199" class="urlextern" title="http://www.sparkfun.com/commerce/product_info.php?products_id=199"  rel="nofollow">Breakout Board for CP2103 USB to Serial w/ GPIOs</a>.</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://apple.clickandbuild.com/cnb/shop/ftdichip?productID=71&amp;op=catalogue-product_info-null&amp;prodCategoryID=47" class="urlextern" title="http://apple.clickandbuild.com/cnb/shop/ftdichip?productID=71&amp;op=catalogue-product_info-null&amp;prodCategoryID=47"  rel="nofollow">FTDI TTL-232R-PCB (£)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://apple.clickandbuild.com/cnb/shop/ftdichip?productID=72&amp;op=catalogue-product_info-null&amp;prodCategoryID=47" class="urlextern" title="http://apple.clickandbuild.com/cnb/shop/ftdichip?productID=72&amp;op=catalogue-product_info-null&amp;prodCategoryID=47"  rel="nofollow">FTDI TTL-232R-3V3-PCB (£)</a></div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="cellphone_data_cables">Cellphone Data Cables</h4>
+<div class="level4">
+
+<p>
+A USB based data cable for a mobile cell phone is another possibility.
+</p>
+
+<p>
+Ebay clone cables:
+</p>
+<ul>
+<li class="level1"><div class="li">Datacable for Nokia 6210, 6250, 6310, 6310i, 7110</div>
+</li>
+</ul>
+
+<p>
+reference: <a href="http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort" class="urlextern" title="http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort"  rel="nofollow">http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit16" id="db9_serial_port">DB9 serial port</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="level_conversion">Level conversion</h4>
+<div class="level4">
+
+<p>
+TTL-RS-232 level conversion is a fairly common problem, so there are a number of ICs on the market that convert between these voltage levels.  <a href="http://www.maxim-ic.com" class="urlextern" title="http://www.maxim-ic.com"  rel="nofollow">Maxim IC</a> has made a few handy little ICs for us to use. The best (<abbr title="In my humble opinion">IMHO</abbr>) is the MAX3232, which can operate at different voltages depending on the capacitors in the circuit. This guide will tell you how to solder everything together to get a pc-compatible serial port on your OpenWrt router.
+</p>
+
+</div>
+
+<h4 id="from_scratch">From scratch</h4>
+<div class="level4">
+
+</div>
+
+<h5 id="with_max233x_ic">With MAX233x IC</h5>
+<div class="level5">
+
+<p>
+First, you need an &quot;RS232-TTL level converter chip.&quot;  RS232 refers to the standard defining what plugs into your computer, and TTL is a family of chips that use 0V and 0.8V as low and 2.2V and 5V as high.  They can be purchased new (the <a href="http://www.maxim-ic.com" class="urlextern" title="http://www.maxim-ic.com"  rel="nofollow">Maxim IC</a> MAX233x line is popular).  Most vendors have large minimums, but some (e.g. <a href="http://mouser.com/" class="urlextern" title="http://mouser.com/"  rel="nofollow">Mouser Electronics</a>) sell components in small quantities.
+</p>
+
+<p>
+The wiring is fairly simple, but it depends on the chip.  Generally, it involves connecting Vcc from the router to the chip&#039;s Vcc pin, both router and rs-232 grounds to the ground pin, and the TX and RX wires to the chip.  Remember that the router&#039;s TX will &quot;connect&quot; to the same level conversion bank as the computer&#039;s RX.  Additionally, some of these level converters require external capacitors, while some have them built in.  Much of this varies, so consult the chip&#039;s <abbr title="specification">spec</abbr>.
+</p>
+
+</div>
+
+<h5 id="with_basic_components">With basic components</h5>
+<div class="level5">
+
+<p>
+I found an easy way to get a cable working, it just require 7 components:
+</p>
+<ol>
+<li class="level1"><div class="li"> 4 Resistances 1,5K 3,9K 4,7K 22K all by 1/4W</div>
+</li>
+<li class="level1"><div class="li"> 2 Transistors BC337</div>
+</li>
+<li class="level1"><div class="li"> 1 DB9F Terminal</div>
+</li>
+</ol>
+
+<p>
+The image shows how to make the cable
+</p>
+
+<p>
+<a href="../../_media/doc/hardware/ttltors2320kf.jpg" class="urlextern" title="http://wiki.openwrt.org/_media/doc/hardware/ttltors2320kf.jpg"  rel="nofollow">http://wiki.openwrt.org/_media/doc/hardware/ttltors2320kf.jpg</a>
+</p>
+
+<p>
+<a href="http://3.bp.blogspot.com/_JE4GMReEeGU/SpATfyGBmLI/AAAAAAAAAF0/VHTl3Vcs6hU/s1600-h/ttltors2320kf.jpg" class="urlextern" title="http://3.bp.blogspot.com/_JE4GMReEeGU/SpATfyGBmLI/AAAAAAAAAF0/VHTl3Vcs6hU/s1600-h/ttltors2320kf.jpg"  rel="nofollow">http://3.bp.blogspot.com/_JE4GMReEeGU/SpATfyGBmLI/AAAAAAAAAF0/VHTl3Vcs6hU/s1600-h/ttltors2320kf.jpg</a>
+</p>
+
+<p>
+This cost less than 2 Dolars in Chile, i hope it be the same for you!
+I tested it on a Zyxel 600 Series, it works!
+</p>
+
+<p>
+Ensure that the DTR signal at the PC end is asserted, otherwise nothing is received from the router. For example, in the Bray terminal program click on the DTR icon to turn it green.
+</p>
+
+<p>
+Source: <a href="http://maximi89.blogspot.com/2009/08/hola-intente-modificar-el-bootbase-pero.html" class="urlextern" title="http://maximi89.blogspot.com/2009/08/hola-intente-modificar-el-bootbase-pero.html"  rel="nofollow">http://maximi89.blogspot.com/2009/08/hola-intente-modificar-el-bootbase-pero.html</a>
+</p>
+
+</div>
+
+<h4 id="from_a_pda_or_cell_phone_serial_cable">From a PDA or cell phone serial cable</h4>
+<div class="level4">
+
+<p>
+Another great source for RS232-TTL converters is in cell phone serial cables. Most cell phones need this same circuit to level-up for connection to a PC&#039;s serial port. Many people already have such a cable laying around, or can buy one fairly cheap.  Using an existing cable is much easier than building one.  If you open up the cell phone cable&#039;s serial port casing and see a MAX### chip, it&#039;s probably the cable you need. One known chip is a MAX323 (yes, 323, the original MAX232 is a 5V device and we need 3.3V here).
+</p>
+
+<p>
+If you&#039;ve found a good cell phone cable to use, you merely need to determine which wires are the VCC, GND, TX, and RX connections. Usually the VCC is red and the GND is black, but the other colors may vary (though blue and orange are common). There should be no need to modify the PCB embedded in the cable.
+</p>
+
+<p>
+One type of the &quot;Made in China&quot; ones, not mentioned at <a href="http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort" class="urlextern" title="http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort"  rel="nofollow">http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort</a> ist the &quot;S30880-S5601-A802-1&quot;; its WHITE wire is data out (TX) of the DTE (PC) and conntcts to the RX of the DCE (Router); the ORANGE one is data in (RX) of the DTE (PC) and conntcts to the TX of the DCE (Router), VCC and GND are red and black. Its a 3.3V converter built with the MAX3386E chip.
+</p>
+
+</div>
+
+<h4 id="max232_kits">MAX232 Kits</h4>
+<div class="level4">
+
+<p>
+You can also search for MAX232 Kits. There are some kits available.
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://shop.ebay.com/?_nkw=rs232+ttl" class="urlextern" title="http://shop.ebay.com/?_nkw=rs232+ttl"  rel="nofollow">http://shop.ebay.com/?_nkw=rs232+ttl</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.elv-downloads.de/service/manuals/TTLRS232-Umsetzer/38439-TTLRS232-Umsetzer.pdf" class="urlextern" title="http://www.elv-downloads.de/service/manuals/TTLRS232-Umsetzer/38439-TTLRS232-Umsetzer.pdf"  rel="nofollow">http://www.elv-downloads.de/service/manuals/TTLRS232-Umsetzer/38439-TTLRS232-Umsetzer.pdf</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.compsys1.com/workbench/On_top_of_the_Bench/Max233_Adapter/max233_adapter.html" class="urlextern" title="http://www.compsys1.com/workbench/On_top_of_the_Bench/Max233_Adapter/max233_adapter.html"  rel="nofollow">http://www.compsys1.com/workbench/On_top_of_the_Bench/Max233_Adapter/max233_adapter.html</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://alldav.com/index.php?main_page=product_info&amp;cPath=9&amp;products_id=11" class="urlextern" title="http://alldav.com/index.php?main_page=product_info&amp;cPath=9&amp;products_id=11"  rel="nofollow">http://alldav.com/index.php?main_page=product_info&amp;cPath=9&amp;products_id=11</a></div>
+</li>
+</ul>
+
+<p>
+These may be useful for connecting to a device:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://shop1.frys.com/product/1599820" class="urlextern" title="http://shop1.frys.com/product/1599820"  rel="nofollow">http://shop1.frys.com/product/1599820</a></div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="model-specific_guides">Model-specific guides</h4>
+<div class="level4">
+
+<p>
+These guides are somewhat model specific, but if you&#039;re struggling to build your own cable, they&#039;re filled with information that applies to that part of the process.
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://jdc.parodius.com/wrt54g/serial.html" class="urlextern" title="http://jdc.parodius.com/wrt54g/serial.html"  rel="nofollow">WRT54G serial mod guide</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort" class="urlextern" title="http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort"  rel="nofollow">NSLU2 serial guide</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.rwhitby.net/wrt54gs/serial.html" class="urlextern" title="http://www.rwhitby.net/wrt54gs/serial.html"  rel="nofollow">WRT54GS serial guide</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit17" id="use_your_old_pda_as_a_console">Use your old PDA as a console</h3>
+<div class="level3">
+
+<p>
+Since many older PDAs (e.g. Palm series) have TTL serial connections already, you can use them to get a direct serial connection to the router.
+</p>
+
+<p>
+Solder the RX, TX, and ground (but <strong>never</strong> Vcc) TTL-level connectors on the OpenWrt box to the PDA&#039;s TTL level serial connectors.
+</p>
+
+<p>
+Example: Palm IIIc, <a href="http://www.neophob.com/serendipity/index.php?url=archives/121-Reuse-your-old-Palm-as-Serial-Console.html" class="urlextern" title="http://www.neophob.com/serendipity/index.php?url=archives/121-Reuse-your-old-Palm-as-Serial-Console.html"  rel="nofollow">http://www.neophob.com/serendipity/index.php?url=archives/121-Reuse-your-old-Palm-as-Serial-Console.html</a>.
+</p>
+
+</div>
+
+<h3 class="sectionedit18" id="use_another_openwrt_router_as_a_console">Use another OpenWrt router as a console</h3>
+<div class="level3">
+
+<p>
+First <a href="../recipes/terminate.console.on.serial" class="wikilink1" title="doc:recipes:terminate.console.on.serial">disable the console</a> in the router you want to use it as a serial console adapter and install screen in it. Connect to the target router the serial pins, and then execute screen in the first router:
+<pre class="code">screen /dev/ttyS0 115200</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit19" id="terminal_software">Terminal software</h2>
+<div class="level2">
+
+<p>
+<strong>Linux/Posix:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://man.cx/screen" class="interwiki iw_man" title="http://man.cx/screen">screen</a>: the most simple, example: <pre class="code">screen /dev/ttyUSB0 115200</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://cutecom.sourceforge.net/" class="urlextern" title="http://cutecom.sourceforge.net/"  rel="nofollow">CuteCom</a> with a friendly KDE4 <abbr title="Graphical User Interface">GUI</abbr></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://man.cx/Minicom" class="interwiki iw_man" title="http://man.cx/Minicom">Minicom</a> (for POSIX systems)</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.kermitproject.org/" class="urlextern" title="http://www.kermitproject.org/"  rel="nofollow">kermit</a>, a mature terminal emulator</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://code.google.com/p/picocom/" class="urlextern" title="http://code.google.com/p/picocom/"  rel="nofollow">picocom</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://man.cx/cu" class="interwiki iw_man" title="http://man.cx/cu">cu</a> (part of the Taylor UUCP package, for POSIX systems)</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/" class="urlextern" title="http://www.chiark.greenend.org.uk/~sgtatham/putty/"  rel="nofollow">Putty</a></div>
+</li>
+</ul>
+
+<p>
+<strong>Windows:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> Hyperterm (comes with many versions of MS Windows)</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/" class="urlextern" title="http://www.chiark.greenend.org.uk/~sgtatham/putty/"  rel="nofollow">Putty</a> v0.59 or newer (now with serial console support!)</div>
+</li>
+<li class="level1"><div class="li"> <a href="https://sites.google.com/site/terminalbpp/" class="urlextern" title="https://sites.google.com/site/terminalbpp/"  rel="nofollow">Bray&#039;s Terminal</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.vandyke.com/products/securecrt/" class="urlextern" title="http://www.vandyke.com/products/securecrt/"  rel="nofollow">Vandyke SecureCRT</a> (commercial but very good)</div>
+</li>
+</ul>
+
+<p>
+<strong>Other:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> Pocketterm  (for Palm PDAs)</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.gnu.org/software/screen/" class="urlextern" title="http://www.gnu.org/software/screen/"  rel="nofollow">GNU Screen</a> (available on most OSes, including Windows (cygwin)) can connect to a serial device. The format is:<pre class="code">screen {path to device} {baud rate},{options}</pre>
+A common set of options (for setting 8N1) is <code>cs8,-parenb,-cstopb</code>. For example, to connect to an Asus WL-520GU (115200 baud, 8N1) with a USB-serial adapter on OSX: <pre class="code">screen /dev/tty.SLAB_USBtoUART 115200,-parenb,-cstopb,cs8</pre>
+The command on Linux is the same with a different device path. For other routers, you may need to adjust the speed and options.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit20" id="serial_port_pinouts">Serial port pinouts</h2>
+<div class="level2">
+
+<p>
+Pinouts for your model can often be found on your model&#039;s page: <a href="../../toh/start" class="wikilink1" title="toh:start">toh</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit21" id="finding_serial_console">Finding Serial Console</h2>
+<div class="level2">
+
+<p>
+First, check the OpenWrt wiki page describing your hardware and do a Google search. Most of the time, the serial port(s), if they exist, have already been documented by others. If methods listed here are not enough for you, consider to go deeper reading <a href="http://www.devttys0.com/2012/11/reverse-engineering-serial-ports/" class="urlextern" title="http://www.devttys0.com/2012/11/reverse-engineering-serial-ports/"  rel="nofollow">http://www.devttys0.com/2012/11/reverse-engineering-serial-ports/</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit22" id="piezoelectric_buzzer_method">Piezoelectric buzzer method</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> Use a Piezoelectric buzzer and attach its ground (usually black) wire to a ground point on the router; the back of the power regulators are usually good candidates, but check this with a multimeter/voltmeter.</div>
+</li>
+<li class="level1"><div class="li"> Use the other wire to probe any of the header pins which may be pre-installed, or any of the component holes which look like they could have header pins installed into (typically in a row of 4 pins for a serial port).  Reset the router.  The bootloader/linux bootup messages will only happen for a few seconds, and after that, the serial console will be silent - so even if you have the right pin you will not hear anything.</div>
+</li>
+<li class="level1"><div class="li"> Once you get the right pin, the Piezoelectric buzzer should make a screeching sound much like that of a 56kbps connection.</div>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit23" id="digital_multimeter_method">Digital multimeter method</h3>
+<div class="level3">
+
+<p>
+Typically there are four pins to identify: GND - Ground, Vcc - 3.3VDC or 5VDC, TXD - Transmit data, and RXD - Receive data.  There may be additional/extra pins.  Every router is different.
+</p>
+<ol>
+<li class="level1"><div class="li"> Locate the set of four/five/more pins that are most likely to be the serial console.</div>
+</li>
+<li class="level1"><div class="li"> Set the multimeter to measure resistance/continuity.  Place the black probe on a known ground point and use the red probe to check each of the pins.  Whenever you see zero or nearly zero ohms resistance, that pin should be the GND connection.</div>
+</li>
+<li class="level1"><div class="li"> Switch the multimeter to measure DC voltage on a scale greater than 10 but less than 100 volts.  Meters vary, but you should be able to select a range greater than five volts.  Place the black probe on the known ground point again, and with the router powered on, use the red probe to check the remaining pins of the port for steady 3.3V or 5V DC.  When you find it, that pin should be the Vcc connection.</div>
+</li>
+<li class="level1"><div class="li"> This leaves two pins to identify: RXD and TXD.  It&#039;s easiest to find the router&#039;s TXD pin first, because all the console output from the boot process appears there. Connect the RXD pin of your level shifter to one of the remaining console pins and re-start the router.  You should have a terminal window connected to the serial port at the correct bitrate and parity, and you&#039;ve connected the proper pin, you should see output data the router&#039;s startup process.  If not, try another pin, restarting the router until you receive valid output.  Now you&#039;ve located the serial port TXD connection.</div>
+</li>
+<li class="level1"><div class="li"> The only pin remaining is RXD, where the serial port receives data from your terminal session.  Connect the TXD pin of your level shifter to the remaining pin (or multiple pins) until you find the one that correctly echoes characters you type in your terminal session.</div>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit24" id="logic_analyzeroscilloscope">Logic analyzer/oscilloscope</h3>
+<div class="level3">
+
+<p>
+A more accurate method would be to use either a logic analyzer or an oscilloscope, but these are expensive and for the basic task of locating a serial pin a little overkill. <img src="../../lib/images/smileys/icon_wink.gif" class="icon" alt=";-)" />
+</p>
+
+</div>
+
+<h2 class="sectionedit25" id="serial_port_speed">Serial port speed</h2>
+<div class="level2">
+
+<p>
+If you want to change serial port speed read <a href="../recipes/serialbaudratespeed" class="wikilink1" title="doc:recipes:serialbaudratespeed">this article</a>.
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/hardware/port.serial.txt</bdi> · Last modified: 2015/04/01 01:06 by <bdi>jacekn</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="port.serial?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="port.serial?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="port.serial?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahardware%253Aport.serial&amp;1432266081" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

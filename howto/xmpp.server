@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>XMPP Server in OpenWrt [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,xmpp.server"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="xmpp.server?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/xmpp.server"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/xmpp.server"/>
+<link rel="canonical" href="xmpp.server"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:xmpp.server","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432273864 166.182.3.244';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="xmpp.server#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="xmpp.server?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="xmpp.server?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:xmpp.server" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="xmpp.server?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="xmpp.server?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="xmpp.server?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="xmpp.server" class="wikilink1" title="doc:howto:xmpp.server">XMPP Server in OpenWrt</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/xmpp.server" class="media" title="cz:doc:howto:xmpp.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/xmpp.server" class="media" title="de:doc:howto:xmpp.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="xmpp.server" class="media" title="doc:howto:xmpp.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/xmpp.server" class="media" title="es:doc:howto:xmpp.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/xmpp.server" class="media" title="fr:doc:howto:xmpp.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/xmpp.server" class="media" title="hu:doc:howto:xmpp.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/xmpp.server" class="media" title="jp:doc:howto:xmpp.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/xmpp.server" class="media" title="pl:doc:howto:xmpp.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/xmpp.server" class="media" title="pt-br:doc:howto:xmpp.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/xmpp.server" class="media" title="ru:doc:howto:xmpp.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/xmpp.server" class="media" title="tr:doc:howto:xmpp.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/xmpp.server" class="media" title="zh-cn:doc:howto:xmpp.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/xmpp.server" class="media" title="zh-tw:doc:howto:xmpp.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:xmpp.server</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="xmpp.server#install">Install</a></div></li>
+<li class="level1"><div class="li"><a href="xmpp.server#show_me_it_working_asap">Show me it working ASAP</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="xmpp.server#allow_registration">allow_registration</a></div></li>
+<li class="level2"><div class="li"><a href="xmpp.server#xmpp_client">XMPP client</a></div></li>
+<li class="level2"><div class="li"><a href="xmpp.server#the_right_way">The right way?</a></div></li>
+<li class="level2"><div class="li"><a href="xmpp.server#not_so_easy">Not so easy</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="xmpp.server#renew_the_ssl_certificate">Renew the SSL certificate</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="xmpp.server#create_a_new_ssl_certificate">Create a new SSL certificate</a></div></li>
+<li class="level2"><div class="li"><a href="xmpp.server#renew_a_ssl_certificate">Renew a SSL certificate</a></div></li>
+<li class="level2"><div class="li"><a href="xmpp.server#upload_archived_ssl_certificate">Upload archived SSL certificate</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="xmpp.server#using_your_ddns_domain">Using your DDNS domain</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="xmpp.server#set_your_router_a_ddns_name">Set your router a DDNS name</a></div></li>
+<li class="level2"><div class="li"><a href="xmpp.server#set_your_router_the_same_lan_name_as_wan">Set your router the same LAN name as WAN</a></div></li>
+<li class="level2"><div class="li"><a href="xmpp.server#set_your_own_domain_name_srv_records">Set your own domain name SRV records</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="xmpp.server#upgrade_to_prosody_082">Upgrade to prosody 0.8.2</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="xmpp.server#patch_your_svn">Patch your SVN</a></div></li>
+<li class="level2"><div class="li"><a href="xmpp.server#add_a_file">Add a file</a></div></li>
+<li class="level2"><div class="li"><a href="xmpp.server#build">Build</a></div></li>
+<li class="level2"><div class="li"><a href="xmpp.server#download_preparation">Download preparation</a></div></li>
+<li class="level2"><div class="li"><a href="xmpp.server#install1">Install</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="xmpp_server_in_openwrt">XMPP Server in OpenWrt</h1>
+<div class="level1">
+
+<p>
+<strong>Prosody</strong> writen in Lua 
+</p>
+
+<p>
+Hompage <a href="http://prosody.im/" class="urlextern" title="http://prosody.im/"  rel="nofollow">http://prosody.im/</a>
+</p>
+
+<p>
+Documentation <a href="http://prosody.im/doc/configure" class="urlextern" title="http://prosody.im/doc/configure"  rel="nofollow">http://prosody.im/doc/configure</a>
+</p>
+
+<p>
+Wiki from Arch Linux &quot;ssl&quot;  <a href="https://wiki.archlinux.org/index.php/Prosody" class="urlextern" title="https://wiki.archlinux.org/index.php/Prosody"  rel="nofollow">https://wiki.archlinux.org/index.php/Prosody</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="install">Install</h2>
+<div class="level2">
+
+<p>
+8 MiB Flash or more
+<pre class="code bash">opkg update
+opkg <span class="kw2">install</span> prosody</pre>
+
+4 MiB Flash
+<pre class="code bash">opkg update
+opkg <span class="re5">--nodeps</span> <span class="kw2">install</span> luafilesystem libidn luaexpat libexpat lua liblua prosody</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="show_me_it_working_asap">Show me it working ASAP</h2>
+<div class="level2">
+
+<p>
+Faster way is allowing auto-registration to @localhost.
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="allow_registration">allow_registration</h3>
+<div class="level3">
+
+<p>
+<pre class="code bash"><span class="kw2">sed</span> <span class="re5">-i</span> <span class="re5">-e</span> <span class="st_h">'s/\(allow_registration = \)false;/\1true;/'</span> <span class="sy0">/</span>etc<span class="sy0">/</span>prosody<span class="sy0">/</span>prosody.cfg.lua
+<span class="kw2">chmod</span> +r <span class="sy0">/</span>etc<span class="sy0">/</span>prosody<span class="sy0">/</span>prosody.cfg.lua
+<span class="kw2">chown</span> <span class="re5">-R</span> prosody:prosody <span class="sy0">/</span>etc<span class="sy0">/</span>prosody<span class="sy0">/</span>data
+<span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>prosody start</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="xmpp_client">XMPP client</h3>
+<div class="level3">
+
+<p>
+Use a XMPP client to add an account to 192.168.1.1 server like:
+</p>
+<ul>
+<li class="level1"><div class="li"><a href="http://www.pidgin.im/download/" class="urlextern" title="http://www.pidgin.im/download/"  rel="nofollow">Pidgin</a> for Windows, Linux &amp; Mac <abbr title="Operating System">OS</abbr> X</div>
+</li>
+<li class="level1"><div class="li"><a href="http://www.xabber.com/" class="urlextern" title="http://www.xabber.com/"  rel="nofollow">Xabber</a> for Android</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit6" id="the_right_way">The right way?</h3>
+<div class="level3">
+
+<p>
+Batch add users with the same password:
+<pre class="code bash"><span class="kw1">for</span> f <span class="kw1">in</span> almursi jow maddes nilfred orca thelexi
+<span class="kw1">do</span> prosodyctl register <span class="re1">$f</span> localhost <span class="nu0">123</span>
+<span class="kw1">done</span></pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit7" id="not_so_easy">Not so easy</h3>
+<div class="level3">
+
+<p>
+All users see all others registered users by default.
+<pre class="code bash"><span class="co0"># A roster for everyone</span>
+<span class="kw2">mkdir</span> <span class="re5">-p</span> <span class="re5">-m</span> <span class="nu0">775</span> <span class="sy0">/</span>tmp<span class="sy0">/</span>roster
+<span class="kw3">cd</span> <span class="sy0">/</span>tmp<span class="sy0">/</span>roster
+<span class="co0"># Make a list</span>
+<span class="kw3">echo</span> <span class="st0">&quot;acoul
+almursi
+glp
+hauke
+jow
+juhosg
+maddes
+nbd
+nilfred
+orca
+thelexi&quot;</span> <span class="sy0">&gt;</span> lista.txt
+<span class="kw1">for</span> f <span class="kw1">in</span> $<span class="br0">&#40;</span><span class="kw2">awk</span> <span class="st_h">'{print $1}'</span> lista.txt<span class="br0">&#41;</span>
+<span class="co0"># Register</span>
+<span class="kw1">do</span> prosodyctl register <span class="re1">$f</span> localhost <span class="nu0">123</span>
+<span class="co0"># Add to group &quot;Familiares&quot; all others, but not self.</span>
+<span class="kw2">sed</span> <span class="re5">-e</span> <span class="st0">&quot;/<span class="es2">$f</span>/ d&quot;</span> lista.txt <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'BEGIN {print &quot;return {\n\t[false] = {\n\t\t[\&quot;version\&quot;] = 5;\n\t};\n\t[\&quot;pending\&quot;] = {};&quot;} {print &quot;\t[\&quot;&quot; $1 &quot;@localhost\&quot;] = {\n\t\t[\&quot;groups\&quot;] = {\n\t\t\t[\&quot;Familiares\&quot;] = true;\n\t\t};\n\t\t[\&quot;subscription\&quot;] = \&quot;both\&quot;;\n\t\t[\&quot;name\&quot;] = \&quot;&quot; toupper(substr($1, 1, 1)) substr($1, 2) &quot;\&quot;;\n\t};&quot;} END {print &quot;}&quot;}'</span> <span class="sy0">&gt;</span> <span class="re1">$f</span>.dat
+<span class="kw1">done</span>
+<span class="kw2">chmod</span> <span class="nu0">666</span> <span class="sy0">*</span>.dat
+<span class="co0"># Move to flash at once</span>
+<span class="kw2">mkdir</span> <span class="re5">-p</span> <span class="re5">-m</span> <span class="nu0">775</span> <span class="sy0">/</span>etc<span class="sy0">/</span>prosody<span class="sy0">/</span>data<span class="sy0">/</span>localhost<span class="sy0">/</span>roster
+<span class="kw2">chown</span> prosody:prosody <span class="sy0">*</span>.dat . <span class="sy0">/</span>etc<span class="sy0">/</span>prosody<span class="sy0">/</span>data<span class="sy0">/</span>localhost<span class="sy0">/</span>roster
+<span class="kw2">mv</span> <span class="sy0">*</span>.dat <span class="sy0">/</span>etc<span class="sy0">/</span>prosody<span class="sy0">/</span>data<span class="sy0">/</span>localhost<span class="sy0">/</span>roster<span class="sy0">/</span></pre>
+
+The sausage do:
+</p>
+<ul>
+<li class="level1"><div class="li">Remove the self name from the list</div>
+</li>
+<li class="level1"><div class="li">Print a head</div>
+</li>
+<li class="level1"><div class="li">Print a paragraph to each other with</div>
+<ul>
+<li class="level2"><div class="li">name@localhost</div>
+</li>
+<li class="level2"><div class="li">groups: Familiares</div>
+</li>
+<li class="level2"><div class="li">Nickname with first letter capitalized</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li">Print a tail to a file</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit8" id="renew_the_ssl_certificate">Renew the SSL certificate</h2>
+<div class="level2">
+
+<p>
+Not required if SSL stuff was not installed, Ex.: 4 MiB installation.
+</p>
+
+<p>
+Same old key used for brevity, some <abbr title="Read The Fine Manual">RTFM</abbr> required for completeness.
+<pre class="code bash"><span class="kw3">cd</span> <span class="sy0">/</span>tmp
+<span class="kw2">scp</span> root<span class="sy0">@</span>routerlogin.net:<span class="sy0">/</span>etc<span class="sy0">/</span>prosody<span class="sy0">/</span>certs<span class="sy0">/</span>localhost.<span class="br0">&#91;</span>ck<span class="br0">&#93;</span>e<span class="sy0">*</span> .
+openssl req <span class="re5">-new</span> <span class="re5">-x509</span> <span class="re5">-days</span> <span class="nu0">365</span> <span class="re5">-nodes</span> <span class="re5">-out</span> <span class="st0">&quot;localhost.cert&quot;</span> <span class="re5">-key</span> <span class="st0">&quot;localhost.key&quot;</span>
+<span class="kw2">scp</span> localhost.<span class="br0">&#91;</span>ck<span class="br0">&#93;</span>e<span class="sy0">*</span> root<span class="sy0">@</span>routerlogin.net:<span class="sy0">/</span>etc<span class="sy0">/</span>prosody<span class="sy0">/</span>certs<span class="sy0">/</span></pre>
+
+Will see to add -subj parameter for batch usage.
+</p>
+
+<p>
+This code is not intended to run in the router itself, some test still required.
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="create_a_new_ssl_certificate">Create a new SSL certificate</h3>
+<div class="level3">
+
+<p>
+Where it says C=AR means your country 2 letters ISO. CN= has to match your domain name or prosody may ask yet another question.
+<pre class="code bash"><span class="co0"># Self-signed SSL certificate creation (new key)</span>
+<span class="kw3">cd</span> <span class="sy0">/</span>tmp
+openssl req <span class="re5">-new</span> <span class="re5">-x509</span> <span class="re5">-days</span> <span class="nu0">365</span> <span class="re5">-nodes</span> <span class="re5">-out</span> <span class="st0">&quot;example.no-ip.biz.crt&quot;</span> <span class="re5">-keyout</span> <span class="st0">&quot;example.no-ip.biz.key&quot;</span> <span class="re5">-subj</span> <span class="sy0">/</span><span class="re2">C</span>=AR<span class="sy0">/</span><span class="re2">ST</span>=YourState<span class="sy0">/</span><span class="re2">L</span>=YourCity<span class="sy0">/</span><span class="re2">O</span>=YourOrganization<span class="sy0">/</span><span class="re2">OU</span>=YourOrganizationUnit<span class="sy0">/</span><span class="re2">CN</span>=example.no-ip.biz<span class="sy0">/</span><span class="re2">emailAddress</span>=your<span class="sy0">@</span>mail.address
+<span class="kw2">scp</span> example.no-ip.biz.<span class="br0">&#91;</span>ck<span class="br0">&#93;</span><span class="br0">&#91;</span>re<span class="br0">&#93;</span><span class="br0">&#91;</span>ty<span class="br0">&#93;</span> root<span class="sy0">@</span>192.168.1.1:<span class="sy0">/</span>etc<span class="sy0">/</span>prosody<span class="sy0">/</span>certs<span class="sy0">/</span>
+<span class="kw2">mkdir</span> <span class="re5">-p</span> ~<span class="sy0">/</span>build<span class="sy0">/</span>files<span class="sy0">/</span>ar71xx<span class="sy0">/</span>etc<span class="sy0">/</span>prosody<span class="sy0">/</span>certs
+<span class="kw2">mv</span> example.no-ip.biz.<span class="br0">&#91;</span>ck<span class="br0">&#93;</span><span class="br0">&#91;</span>re<span class="br0">&#93;</span><span class="br0">&#91;</span>ty<span class="br0">&#93;</span> ~<span class="sy0">/</span>build<span class="sy0">/</span>files<span class="sy0">/</span>ar71xx<span class="sy0">/</span>etc<span class="sy0">/</span>prosody<span class="sy0">/</span>certs</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="renew_a_ssl_certificate">Renew a SSL certificate</h3>
+<div class="level3">
+
+<p>
+The next year you have to do this:
+<pre class="code bash"><span class="co0"># Self-signed SSL certificate renew (same old key)</span>
+<span class="kw3">cd</span> ~<span class="sy0">/</span>build<span class="sy0">/</span>files<span class="sy0">/</span>ar71xx<span class="sy0">/</span>etc<span class="sy0">/</span>prosody<span class="sy0">/</span>certs
+openssl req <span class="re5">-new</span> <span class="re5">-x509</span> <span class="re5">-days</span> <span class="nu0">365</span> <span class="re5">-nodes</span> <span class="re5">-out</span> <span class="st0">&quot;example.no-ip.biz.crt&quot;</span> <span class="re5">-key</span> <span class="st0">&quot;example.no-ip.biz.key&quot;</span> <span class="re5">-subj</span> <span class="sy0">/</span><span class="re2">C</span>=AR<span class="sy0">/</span><span class="re2">ST</span>=YourState<span class="sy0">/</span><span class="re2">L</span>=YourCity<span class="sy0">/</span><span class="re2">O</span>=YourOrganization<span class="sy0">/</span><span class="re2">OU</span>=YourOrganizationUnit<span class="sy0">/</span><span class="re2">CN</span>=example.no-ip.biz<span class="sy0">/</span><span class="re2">emailAddress</span>=your<span class="sy0">@</span>mail.address
+<span class="kw2">scp</span> example.no-ip.biz.<span class="br0">&#91;</span>ck<span class="br0">&#93;</span><span class="br0">&#91;</span>re<span class="br0">&#93;</span><span class="br0">&#91;</span>ty<span class="br0">&#93;</span> root<span class="sy0">@</span>192.168.1.1:<span class="sy0">/</span>etc<span class="sy0">/</span>prosody<span class="sy0">/</span>certs<span class="sy0">/</span></pre>
+
+That&#039;s because the key never expires, just the certificate expires. Prosody may ask anyway.
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="upload_archived_ssl_certificate">Upload archived SSL certificate</h3>
+<div class="level3">
+
+<p>
+When upgrade the firmware, you may lost your certificate and clients (prosody) may ask for it. Better present the same unexpired certificate to avoid asking.
+<pre class="code bash"><span class="co0"># Upload the same certificate already created before</span>
+<span class="kw3">cd</span> ~<span class="sy0">/</span>build<span class="sy0">/</span>files<span class="sy0">/</span>ar71xx<span class="sy0">/</span>etc<span class="sy0">/</span>prosody<span class="sy0">/</span>certs
+<span class="kw2">scp</span> example.no-ip.biz.<span class="br0">&#91;</span>ck<span class="br0">&#93;</span><span class="br0">&#91;</span>re<span class="br0">&#93;</span><span class="br0">&#91;</span>ty<span class="br0">&#93;</span> root<span class="sy0">@</span>192.168.1.1:<span class="sy0">/</span>etc<span class="sy0">/</span>prosody<span class="sy0">/</span>certs<span class="sy0">/</span></pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit12" id="using_your_ddns_domain">Using your DDNS domain</h2>
+<div class="level2">
+
+<p>
+This example requires you to get a example.no-ip.biz domain and install luci-app-ddns. Then is exactly the same as @localhost:
+</p>
+
+<p>
+<pre class="code bash"><span class="co0"># Allow registration?</span>
+<span class="kw2">sed</span> <span class="re5">-i</span> <span class="re5">-e</span> <span class="st_h">'s/\(allow_registration = \)false;/\1true;/'</span> <span class="sy0">/</span>etc<span class="sy0">/</span>prosody<span class="sy0">/</span>prosody.cfg.lua
+<span class="kw2">chmod</span> +r <span class="sy0">/</span>etc<span class="sy0">/</span>prosody<span class="sy0">/</span>prosody.cfg.lua
+<span class="co0"># Start once to create the prosody:prosody account</span>
+<span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>prosody start
+<span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>prosody stop
+<span class="kw2">chown</span> <span class="re5">-R</span> prosody:prosody <span class="sy0">/</span>etc<span class="sy0">/</span>prosody<span class="sy0">/</span>data
+<span class="kw2">sed</span> <span class="re5">-i</span> <span class="re5">-e</span> <span class="st_h">'s/example.com/example.no-ip.biz/;/enabled = false/ d'</span> <span class="sy0">/</span>etc<span class="sy0">/</span>prosody<span class="sy0">/</span>prosody.cfg.lua
+<span class="co0"># A roster for everyone</span>
+<span class="kw2">mkdir</span> <span class="re5">-p</span> <span class="re5">-m</span> <span class="nu0">775</span> <span class="sy0">/</span>tmp<span class="sy0">/</span>roster
+<span class="kw3">cd</span> <span class="sy0">/</span>tmp<span class="sy0">/</span>roster
+<span class="co0"># Make a list</span>
+<span class="kw3">echo</span> <span class="st0">&quot;acoul
+almursi
+glp
+hauke
+jow
+juhosg
+maddes
+nbd
+nilfred
+orca
+thelexi&quot;</span> <span class="sy0">&gt;</span> lista.txt
+<span class="kw2">mkdir</span> <span class="re5">-p</span> <span class="re5">-m</span> <span class="nu0">775</span> <span class="sy0">/</span>etc<span class="sy0">/</span>prosody<span class="sy0">/</span>data<span class="sy0">/</span>example.no-ip.biz<span class="sy0">/</span>roster
+<span class="kw2">chown</span> <span class="re5">-R</span> prosody:prosody <span class="sy0">/</span>etc<span class="sy0">/</span>prosody<span class="sy0">/</span>data
+<span class="kw1">for</span> f <span class="kw1">in</span> $<span class="br0">&#40;</span><span class="kw2">awk</span> <span class="st_h">'{print $1}'</span> lista.txt<span class="br0">&#41;</span>
+<span class="kw1">do</span> prosodyctl register <span class="re1">$f</span> example.no-ip.biz <span class="nu0">123</span>
+<span class="kw2">sed</span> <span class="re5">-e</span> <span class="st0">&quot;/<span class="es2">$f</span>/ d&quot;</span> lista.txt <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'BEGIN {print &quot;return {\n\t[false] = {\n\t\t[\&quot;version\&quot;] = 1;\n\t};\n\t[\&quot;pending\&quot;] = {};&quot;} {print &quot;\t[\&quot;&quot; $1 &quot;@example.no-ip.biz\&quot;] = {\n\t\t[\&quot;groups\&quot;] = {\n\t\t\t[\&quot;Familiares\&quot;] = true;\n\t\t};\n\t\t[\&quot;subscription\&quot;] = \&quot;both\&quot;;\n\t\t[\&quot;name\&quot;] = \&quot;&quot; toupper(substr($1, 1, 1)) substr($1, 2) &quot;\&quot;;\n\t};&quot;} END {print &quot;}&quot;}'</span> <span class="sy0">&gt;</span> <span class="re1">$f</span>.dat
+<span class="kw1">done</span>
+<span class="kw2">chmod</span> <span class="nu0">666</span> <span class="sy0">*</span>.dat
+<span class="kw2">chown</span> prosody:prosody <span class="sy0">*</span>.dat .
+<span class="kw2">mv</span> <span class="sy0">*</span>.dat <span class="sy0">/</span>etc<span class="sy0">/</span>prosody<span class="sy0">/</span>data<span class="sy0">/</span>example.no-ip.biz<span class="sy0">/</span>roster<span class="sy0">/</span>
+<span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>prosody start
+<span class="co0"># All OK?</span>
+<span class="kw2">cat</span> <span class="sy0">/</span>var<span class="sy0">/</span>log<span class="sy0">/</span>prosody<span class="sy0">/</span>prosody.err
+<span class="kw2">cat</span> <span class="sy0">/</span>var<span class="sy0">/</span>log<span class="sy0">/</span>prosody<span class="sy0">/</span>prosody.log</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit13" id="set_your_router_a_ddns_name">Set your router a DDNS name</h3>
+<div class="level3">
+
+<p>
+After reading somewhere else how to setup DDNS, you should end with something like this working configuration:
+<pre class="code bash">uci batch <span class="co2">&lt;&lt;'EOF'
+set ddns.myddns.domain=example.no-ip.biz
+set ddns.myddns.enabled=0
+set ddns.myddns.force_interval=22
+set ddns.myddns.ip_interface=pppoe-wan
+set ddns.myddns.ip_source=interface
+delete ddns.myddns.ip_url
+set ddns.myddns.password=password
+set ddns.myddns.service_name=no-ip.com
+set ddns.myddns.username=username
+commit ddns
+EOF</span></pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit14" id="set_your_router_the_same_lan_name_as_wan">Set your router the same LAN name as WAN</h3>
+<div class="level3">
+
+<p>
+It would be wise if your router has the same name for <abbr title="Local Area Network">LAN</abbr> clients, so has to not go out and redirected back.
+<pre class="code bash">uci batch <span class="co2">&lt;&lt;'EOF'
+add dhcp domain
+set dhcp.@domain[-1].ip=192.168.1.1
+set dhcp.@domain[-1].name=tplinklogin.net
+add dhcp domain
+set dhcp.@domain[-1].ip=192.168.1.1
+set dhcp.@domain[-1].name=routerlogin.net
+add dhcp domain
+set dhcp.@domain[-1].ip=192.168.1.1
+set dhcp.@domain[-1].name=example.no-ip.biz
+commit dhcp
+EOF</span></pre>
+
+Now these commands have the same effect in your <abbr title="Local Area Network">LAN</abbr>:
+<pre class="code bash"><span class="kw2">ssh</span> root<span class="sy0">@</span>192.168.1.1
+<span class="kw2">ssh</span> root<span class="sy0">@</span>routerlogin.net
+<span class="kw2">ssh</span> root<span class="sy0">@</span>tplinklogin.net
+<span class="kw2">ssh</span> root<span class="sy0">@</span>example.no-ip.biz</pre>
+
+Your router now has a name!
+</p>
+
+</div>
+
+<h3 class="sectionedit15" id="set_your_own_domain_name_srv_records">Set your own domain name SRV records</h3>
+<div class="level3">
+
+<p>
+Very well! So, for your own domain name may need to setup SRV records if the xmpp server run in another subdomain like this:
+<pre class="code">_xmpp-client._tcp.example.com. 18000 IN SRV 0 5 5222 xmpp.example.com.
+_xmpp-server._tcp.example.com. 18000 IN SRV 0 5 5269 xmpp.example.com. </pre>
+
+Translated to uci will look like this:
+<pre class="code bash">uci batch <span class="co2">&lt;&lt;'EOF'
+add dhcp srvhost
+set dhcp.@srvhost[-1].srv=_xmpp-client._tcp.example.com
+set dhcp.@srvhost[-1].target=xmpp.example.com
+set dhcp.@srvhost[-1].port=5222
+set dhcp.@srvhost[-1].class=0
+set dhcp.@srvhost[-1].weight=5
+add dhcp srvhost
+set dhcp.@srvhost[-1].srv=_xmpp-server._tcp.example.com
+set dhcp.@srvhost[-1].target=xmpp.example.com
+set dhcp.@srvhost[-1].port=5269
+set dhcp.@srvhost[-1].class=0
+set dhcp.@srvhost[-1].weight=5
+commit dhcp
+EOF</span></pre>
+
+This <abbr title="Domain Name System">DNS</abbr> trick is for someone@xmpp.example.com looks like someone@example.com, but also for fancy names like this full picture:
+<pre class="code"># A record
+your-server.EXAMPLE.COM                     IN A            1.2.3.4        # this *must* be an A record and not a CNAME
+ 
+# CNAME records
+anon.EXAMPLE.COM                          IN CNAME        your-server.EXAMPLE.COM. # this is what the anonymous binding (non-logged in web users) will connect to
+topics.EXAMPLE.COM                        IN CNAME        your-server.EXAMPLE.COM. # to enable channels like food@topics.EXAMPLE.COM
+ 
+# SRV records
+_xmpp-client._tcp.EXAMPLE.COM.            IN SRV 5 0 5222 your-server.EXAMPLE.COM.
+_xmpp-server._tcp.EXAMPLE.COM.            IN SRV 5 0 5269 your-server.EXAMPLE.COM.
+_xmpp-server._tcp.anon.EXAMPLE.COM        IN SRV 5 0 5269 your-server.EXAMPLE.COM.
+_xmpp-server._tcp.topics.EXAMPLE.COM      IN SRV 5 0 5269 your-server.EXAMPLE.COM. </pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit16" id="upgrade_to_prosody_082">Upgrade to prosody 0.8.2</h2>
+<div class="level2">
+
+<p>
+Really? This step is not necessary, and requires rebuilding.
+</p>
+
+<p>
+Look for &quot;how to build&quot; first, if is your first time building this is definitely not for you.
+</p>
+
+</div>
+
+<h3 class="sectionedit17" id="patch_your_svn">Patch your SVN</h3>
+<div class="level3">
+
+<p>
+This patch is against AA-rc1 r34185
+<pre class="code bash"><span class="kw3">cd</span> ~<span class="sy0">/</span>build<span class="sy0">/</span>openwrt<span class="sy0">/</span>attitude_adjustment<span class="sy0">/</span>feeds<span class="sy0">/</span>packages
+<span class="kw2">patch</span> <span class="re5">-p0</span> <span class="sy0">&lt;&lt;</span><span class="st_h">'EOF'</span></pre>
+
+<pre class="code diff">Index: net/prosody/Makefile
+===================================================================
+<span class="re3">--- net/prosody/Makefile	<span class="br0">&#40;</span>revisión: 34185<span class="br0">&#41;</span></span>
+<span class="re4">+++ net/prosody/Makefile	<span class="br0">&#40;</span>copia de trabajo<span class="br0">&#41;</span></span>
+<span class="re6">@@ -1,5 +1,5 @@</span>
+ #
+<span class="re7">-# Copyright <span class="br0">&#40;</span>C<span class="br0">&#41;</span> 2009-2011 OpenWrt.org</span>
+<span class="re8">+# Copyright <span class="br0">&#40;</span>C<span class="br0">&#41;</span> 2009-2012 OpenWrt.org</span>
+ #
+ # This is free software, licensed under the GNU General Public License v2.
+ # See /LICENSE for more information.
+<span class="re6">@@ -8,15 +8,17 @@</span>
+ include $<span class="br0">&#40;</span>TOPDIR<span class="br0">&#41;</span>/rules.mk
+&nbsp;
+ PKG_NAME:=prosody
+<span class="re7">-PKG_VERSION:=0.6.2</span>
+<span class="re7">-PKG_RELEASE:=2</span>
+<span class="re8">+PKG_VERSION:=0.8.2</span>
+<span class="re8">+PKG_RELEASE:=1</span>
+&nbsp;
+ PKG_SOURCE:=$<span class="br0">&#40;</span>PKG_NAME<span class="br0">&#41;</span>-$<span class="br0">&#40;</span>PKG_VERSION<span class="br0">&#41;</span>.tar.gz
+ PKG_SOURCE_URL:=http://prosody.im/downloads/source
+<span class="re7">-PKG_MD5SUM:=5da59bc906419ad3b4faa<span class="re0">21516a6</span>ca18</span>
+<span class="re8">+PKG_MD5SUM:=6e907bf<span class="re0">0d0</span>acf24f1011083020ba6ffb</span>
+&nbsp;
+ PKG_INSTALL:=<span class="nu0">1</span>
+&nbsp;
+<span class="re8">+PKG_BUILD_DEPENDS:=lua</span>
+<span class="re8">+</span>
+ include $<span class="br0">&#40;</span>INCLUDE_DIR<span class="br0">&#41;</span>/package.mk
+&nbsp;
+ define Package/prosody
+<span class="re6">@@ -39,6 +41,7 @@</span>
+ endef
+&nbsp;
+ TARGET_CFLAGS += $<span class="br0">&#40;</span>FPIC<span class="br0">&#41;</span>
+<span class="re8">+CMAKE_OPTIONS = -DLUAPATH=/usr/lib/lua</span>
+&nbsp;
+ define Build/Configure
+ 	# this is *NOT* GNU autoconf stuff
+<span class="re6">@@ -72,16 +75,20 @@</span>
+ 	$<span class="br0">&#40;</span>INSTALL_DIR<span class="br0">&#41;</span> $<span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span>/usr/lib/prosody/core
+ 	$<span class="br0">&#40;</span>INSTALL_DATA<span class="br0">&#41;</span> $<span class="br0">&#40;</span>PKG_INSTALL_DIR<span class="br0">&#41;</span>/usr/lib/prosody/core/*.lua $<span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span>/usr/lib/prosody/core/
+ 	$<span class="br0">&#40;</span>INSTALL_DIR<span class="br0">&#41;</span> $<span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span>/usr/lib/prosody/fallbacks
+<span class="re7">-	$<span class="br0">&#40;</span>INSTALL_DATA<span class="br0">&#41;</span> $<span class="br0">&#40;</span>PKG_INSTALL_DIR<span class="br0">&#41;</span>/usr/lib/prosody/fallbacks/*.lua $<span class="br0">&#40;</span>1<span class="br0">&#41;</span>/usr/lib/prosody/fallbacks/</span>
+<span class="re8">+#	$<span class="br0">&#40;</span>INSTALL_DATA<span class="br0">&#41;</span> $<span class="br0">&#40;</span>PKG_INSTALL_DIR<span class="br0">&#41;</span>/usr/lib/prosody/fallbacks/*.lua $<span class="br0">&#40;</span>1<span class="br0">&#41;</span>/usr/lib/prosody/fallbacks/</span>
+ 	$<span class="br0">&#40;</span>INSTALL_DIR<span class="br0">&#41;</span> $<span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span>/usr/lib/prosody/modules
+ 	$<span class="br0">&#40;</span>INSTALL_DATA<span class="br0">&#41;</span> $<span class="br0">&#40;</span>PKG_INSTALL_DIR<span class="br0">&#41;</span>/usr/lib/prosody/modules/*.lua $<span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span>/usr/lib/prosody/modules/
+ 	$<span class="br0">&#40;</span>INSTALL_DIR<span class="br0">&#41;</span> $<span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span>/usr/lib/prosody/modules/muc
+ 	$<span class="br0">&#40;</span>INSTALL_DATA<span class="br0">&#41;</span> $<span class="br0">&#40;</span>PKG_INSTALL_DIR<span class="br0">&#41;</span>/usr/lib/prosody/modules/muc/*.lua $<span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span>/usr/lib/prosody/modules/muc/
+<span class="re8">+	$<span class="br0">&#40;</span>INSTALL_DIR<span class="br0">&#41;</span> $<span class="br0">&#40;</span>1<span class="br0">&#41;</span>/usr/lib/prosody/modules/adhoc</span>
+<span class="re8">+	$<span class="br0">&#40;</span>INSTALL_DATA<span class="br0">&#41;</span> $<span class="br0">&#40;</span>PKG_INSTALL_DIR<span class="br0">&#41;</span>/usr/lib/prosody/modules/adhoc/*.lua $<span class="br0">&#40;</span>1<span class="br0">&#41;</span>/usr/lib/prosody/modules/adhoc/</span>
+ 	$<span class="br0">&#40;</span>INSTALL_DIR<span class="br0">&#41;</span> $<span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span>/usr/lib/prosody/net
+ 	$<span class="br0">&#40;</span>INSTALL_DATA<span class="br0">&#41;</span> $<span class="br0">&#40;</span>PKG_INSTALL_DIR<span class="br0">&#41;</span>/usr/lib/prosody/net/*.lua $<span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span>/usr/lib/prosody/net/
+ 	$<span class="br0">&#40;</span>INSTALL_DIR<span class="br0">&#41;</span> $<span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span>/usr/lib/prosody/util
+ 	$<span class="br0">&#40;</span>INSTALL_DATA<span class="br0">&#41;</span> $<span class="br0">&#40;</span>PKG_INSTALL_DIR<span class="br0">&#41;</span>/usr/lib/prosody/util/*.lua $<span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span>/usr/lib/prosody/util/
+ 	$<span class="br0">&#40;</span>INSTALL_BIN<span class="br0">&#41;</span> $<span class="br0">&#40;</span>PKG_INSTALL_DIR<span class="br0">&#41;</span>/usr/lib/prosody/util/*.so $<span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span>/usr/lib/prosody/util/
+<span class="re8">+	$<span class="br0">&#40;</span>INSTALL_DIR<span class="br0">&#41;</span> $<span class="br0">&#40;</span>1<span class="br0">&#41;</span>/usr/lib/prosody/util/sasl</span>
+<span class="re8">+	$<span class="br0">&#40;</span>INSTALL_DATA<span class="br0">&#41;</span> $<span class="br0">&#40;</span>PKG_INSTALL_DIR<span class="br0">&#41;</span>/usr/lib/prosody/util/sasl/*.lua $<span class="br0">&#40;</span>1<span class="br0">&#41;</span>/usr/lib/prosody/util/sasl/</span>
+ endef
+&nbsp;
+ $<span class="br0">&#40;</span>eval $<span class="br0">&#40;</span>call BuildPackage,prosody<span class="br0">&#41;</span><span class="br0">&#41;</span>
+Index: net/prosody/patches/001-conf.patch
+===================================================================
+<span class="re3">--- net/prosody/patches/001-conf.patch	<span class="br0">&#40;</span>revisión: 34185<span class="br0">&#41;</span></span>
+<span class="re4">+++ net/prosody/patches/001-conf.patch	<span class="br0">&#40;</span>copia de trabajo<span class="br0">&#41;</span></span>
+<span class="re6">@@ -1,37 +1,40 @@</span>
+ --- a/prosody.cfg.lua.dist
+ +++ b/prosody.cfg.lua.dist
+<span class="re7">-@@ -47,7 +47,7 @@ modules_enabled = <span class="br0">&#123;</span></span>
+<span class="re7">- 		&quot;register&quot;; -- Allow users to register on this server using a client and change passwords</span>
+<span class="re7">- 	</span>
+<span class="re8">+@@ -59,7 +59,7 @@ modules_enabled = <span class="br0">&#123;</span></span>
+<span class="re8">+ 		--&quot;admin_telnet&quot;; -- Opens telnet console interface on localhost port 5582</span>
+<span class="re8">+ </span>
+  	-- Other specific functionality
+ -		--&quot;posix&quot;; -- POSIX functionality, sends server to background, enables syslog, etc.
+ +		&quot;posix&quot;; -- POSIX functionality, sends server to background, enables syslog, etc.
+<span class="re7">- 		--&quot;console&quot;; -- Opens admin telnet interface on localhost port 5582</span>
+  		--&quot;bosh&quot;; -- Enable BOSH clients, aka &quot;Jabber over HTTP&quot;
+  		--&quot;httpserver&quot;; -- Serve static files from a directory over HTTP
+<span class="re7">-@@ -65,6 +65,9 @@ modules_disabled = <span class="br0">&#123;</span></span>
+<span class="re7">- -- Disable account creation by default, for security</span>
+<span class="re8">+ 		--&quot;groups&quot;; -- Shared roster support</span>
+<span class="re8">+@@ -83,6 +83,9 @@ modules_disabled = <span class="br0">&#123;</span></span>
+  -- For more information see http://prosody.im/doc/creating_accounts
+  allow_registration = false;
+<span class="re7">-+</span>
+<span class="re8">+ </span>
+ +-- File to write pid in
+ +pidfile = &quot;/var/run/prosody/prosody.pid&quot;;
+<span class="re7">- 	</span>
+<span class="re8">++	</span>
+  -- These are the SSL/TLS-related settings. If you don't want
+  -- to use SSL/TLS, you may comment or remove this
+<span class="re7">-@@ -73,6 +76,15 @@ ssl = <span class="br0">&#123;</span></span>
+<span class="re7">- 	certificate = &quot;certs/localhost.cert&quot;;</span>
+<span class="re7">- <span class="br0">&#125;</span></span>
+<span class="re7">- </span>
+<span class="re7">-+-- Errors to syslog</span>
+<span class="re7">-+-- All to /var/log/prosody/</span>
+<span class="re7">-+log = <span class="br0">&#123;</span></span>
+<span class="re7">-+	<span class="br0">&#123;</span> levels = <span class="br0">&#123;</span> &quot;error&quot; <span class="br0">&#125;</span>; to = &quot;syslog&quot;;  <span class="br0">&#125;</span>;</span>
+<span class="re8">+ ssl = <span class="br0">&#123;</span></span>
+<span class="re8">+@@ -123,10 +126,16 @@</span>
+<span class="re8">+ -- Logging configuration</span>
+<span class="re8">+ -- For advanced logging see http://prosody.im/doc/logging</span>
+<span class="re8">+ log = <span class="br0">&#123;</span></span>
+<span class="re8">+-	info = &quot;prosody.log&quot;; -- Change 'info' to 'debug' for verbose logging</span>
+<span class="re8">+-	error = &quot;prosody.err&quot;;</span>
+<span class="re8">++	-- info = &quot;prosody.log&quot;; -- Change 'info' to 'debug' for verbose logging</span>
+<span class="re8">++	-- error = &quot;prosody.err&quot;;</span>
+<span class="re8">+ 	-- &quot;*syslog&quot;; -- Uncomment this for logging to syslog</span>
+<span class="re8">++	-- Requires mod_posix to be loaded</span>
+<span class="re8">+ 	-- &quot;*console&quot;; -- Log to the console, useful for debugging with daemonize=false</span>
+<span class="re8">++	<span class="br0">&#123;</span> levels = <span class="br0">&#123;</span> &quot;error&quot; <span class="br0">&#125;</span>; to = &quot;syslog&quot;;  <span class="br0">&#125;</span>; -- Errors to syslog</span>
+<span class="re8">++	-- All to /var/log/prosody/</span>
+ +	<span class="br0">&#123;</span> levels = <span class="br0">&#123;</span> &quot;error&quot; <span class="br0">&#125;</span>; to = &quot;file&quot;; filename = &quot;/var/log/prosody/prosody.err&quot;;  <span class="br0">&#125;</span>;
+ +	-- Change &quot;info&quot; to &quot;debug&quot; for more verbose logging
+ +	<span class="br0">&#123;</span> levels = <span class="br0">&#123;</span> min = &quot;info&quot; <span class="br0">&#125;</span>; to = &quot;file&quot;; filename = &quot;/var/log/prosody/prosody.log&quot;;  <span class="br0">&#125;</span>;
+<span class="re7">-+<span class="br0">&#125;</span></span>
+<span class="re7">-+</span>
+<span class="re8">+ <span class="br0">&#125;</span></span>
+<span class="re8">+ </span>
+  ----------- Virtual hosts -----------
+<span class="re7">- -- You need to add a VirtualHost entry for each domain you wish Prosody to serve.</span>
+<span class="re7">- -- Settings under each VirtualHost entry apply *only* to that host.</span>
+Index: lang/luaexpat/Makefile
+===================================================================
+<span class="re3">--- lang/luaexpat/Makefile	<span class="br0">&#40;</span>revisión: 34185<span class="br0">&#41;</span></span>
+<span class="re4">+++ lang/luaexpat/Makefile	<span class="br0">&#40;</span>copia de trabajo<span class="br0">&#41;</span></span>
+<span class="re6">@@ -8,12 +8,12 @@</span>
+ include $<span class="br0">&#40;</span>TOPDIR<span class="br0">&#41;</span>/rules.mk
+&nbsp;
+ PKG_NAME:=luaexpat
+<span class="re7">-PKG_VERSION:=1.1</span>
+<span class="re7">-PKG_RELEASE:=2</span>
+<span class="re8">+PKG_VERSION:=1.2.0</span>
+<span class="re8">+PKG_RELEASE:=1</span>
+&nbsp;
+ PKG_SOURCE:=$<span class="br0">&#40;</span>PKG_NAME<span class="br0">&#41;</span>-$<span class="br0">&#40;</span>PKG_VERSION<span class="br0">&#41;</span>.tar.gz
+<span class="re7">-PKG_SOURCE_URL:=http://luaforge.net/frs/download.php/2469</span>
+<span class="re7">-PKG_MD5SUM:=6ecb895ccf5cff1e7f2facd438b1f<span class="re0">8d0</span></span>
+<span class="re8">+PKG_SOURCE_URL:=http://matthewwild.co.uk/projects/luaexpat</span>
+<span class="re8">+PKG_MD5SUM:=03efe<span class="re0">50c7</span>f<span class="re0">30a34580701</span>e<span class="re0">6527d7</span>bfee</span>
+&nbsp;
+ include $<span class="br0">&#40;</span>INCLUDE_DIR<span class="br0">&#41;</span>/package.mk
+&nbsp;
+<span class="re6">@@ -47,7 +47,7 @@</span>
+&nbsp;
+ define Package/luaexpat/install
+ 	$<span class="br0">&#40;</span>INSTALL_DIR<span class="br0">&#41;</span> $<span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span>/usr/lib/lua
+<span class="re7">-	$<span class="br0">&#40;</span>INSTALL_DATA<span class="br0">&#41;</span> $<span class="br0">&#40;</span>PKG_BUILD_DIR<span class="br0">&#41;</span>/src/lxp.so.1.1.0 $<span class="br0">&#40;</span>1<span class="br0">&#41;</span>/usr/lib/lua/lxp.so</span>
+<span class="re8">+	$<span class="br0">&#40;</span>INSTALL_DATA<span class="br0">&#41;</span> $<span class="br0">&#40;</span>PKG_BUILD_DIR<span class="br0">&#41;</span>/src/lxp.so.1.2.0 $<span class="br0">&#40;</span>1<span class="br0">&#41;</span>/usr/lib/lua/lxp.so</span>
+ 	$<span class="br0">&#40;</span>INSTALL_DIR<span class="br0">&#41;</span> $<span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span>/usr/lib/lua/lxp
+ 	$<span class="br0">&#40;</span>INSTALL_DATA<span class="br0">&#41;</span> $<span class="br0">&#40;</span>PKG_BUILD_DIR<span class="br0">&#41;</span>/src/lxp/lom.lua $<span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span>/usr/lib/lua/lxp
+ endef</pre>
+
+<pre class="code bash">EOF</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit18" id="add_a_file">Add a file</h3>
+<div class="level3">
+
+<p>
+One more file goes to feeds/packages/net/prosody/patches/002-makefile.patch:
+<pre class="code diff"><span class="re3">--- a/configure</span>
+<span class="re4">+++ b/configure</span>
+<span class="re6">@@ -11,16 +11,13 @@</span>
+ LUA_INCDIR=&quot;/usr/include&quot;
+ LUA_LIBDIR=&quot;/usr/lib&quot;
+ IDN_LIB=idn
+<span class="re7">-ICU_FLAGS=&quot;-licui18n -licudata -licuuc&quot;</span>
+ OPENSSL_LIB=crypto
+ CC=gcc
+<span class="re7">-CXX=g++</span>
+ LD=gcc
+&nbsp;
+ CFLAGS=&quot;-fPIC -Wall&quot;
+<span class="re7">-LDFLAGS=&quot;-shared&quot;</span>
+<span class="re7">-</span>
+<span class="re7">-IDN_LIBRARY=idn</span>
+<span class="re8">+LFLAGS=&quot;-shared&quot;</span>
+<span class="re8">+</span>
+ # Help
+&nbsp;
+ show_help<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+<span class="re6">@@ -29,7 +26,7 @@</span>
+&nbsp;
+ --help                      This help.
+ --ostype=OS                 Use one of the OS presets.
+<span class="re7">-                            May be one of: debian, macosx, linux, freebsd</span>
+<span class="re8">+                            May be one of: debian, macosx</span>
+ --prefix=DIR                Prefix where Prosody should be installed.
+                             Default is $PREFIX
+ --sysconfdir=DIR            Location where the config file should be installed.
+<span class="re6">@@ -46,15 +43,12 @@</span>
+                             Default is \$LUA_DIR/lib
+ --with-idn=LIB              The name of the IDN library to link with.
+                             Default is $IDN_LIB
+<span class="re7">---idn-library=<span class="br0">&#40;</span>idn|icu<span class="br0">&#41;</span>		 Select library to use for IDNA functionality.</span>
+<span class="re7">-									 idn: use GNU libidn <span class="br0">&#40;</span>default<span class="br0">&#41;</span></span>
+<span class="re7">-									 icu: use ICU from IBM</span>
+ --with-ssl=LIB              The name of the SSL to link with.
+                             Default is $OPENSSL_LIB
+ --cflags=FLAGS              Flags to pass to the compiler
+                             Default is $CFLAGS
+<span class="re7">---ldflags=FLAGS             Flags to pass to the linker</span>
+<span class="re7">-                            Default is $LDFLAGS</span>
+<span class="re8">+--lflags=FLAGS              Flags to pass to the linker</span>
+<span class="re8">+                            Default is $LFLAGS</span>
+ --c-compiler=CC             The C compiler to use when building modules.
+                             Default is $CC
+ --linker=CC                 The linker to use when building modules.
+<span class="re6">@@ -67,7 +61,7 @@</span>
+&nbsp;
+ while <span class="br0">&#91;</span> &quot;$1&quot; <span class="br0">&#93;</span>
+ do
+<span class="re7">-   value=&quot;`echo $1 | sed 's/<span class="br0">&#91;</span>^=<span class="br0">&#93;</span>*=\<span class="br0">&#40;</span>.*\<span class="br0">&#41;</span>/\1/'`&quot;</span>
+<span class="re8">+   value=&quot;`echo $1 | sed 's/.*=\<span class="br0">&#40;</span>.*\<span class="br0">&#41;</span>/\1/'`&quot;</span>
+    if echo &quot;$value&quot; | grep -q &quot;~&quot;
+    then
+       echo
+<span class="re6">@@ -91,88 +85,72 @@</span>
+    --ostype=*<span class="br0">&#41;</span>
+       OSTYPE=&quot;$value&quot;
+       OSTYPE_SET=yes
+<span class="re7">-      if <span class="br0">&#91;</span> &quot;$OSTYPE&quot; = &quot;debian&quot; <span class="br0">&#93;</span></span>
+<span class="re7">-      then LUA_SUFFIX=&quot;<span class="nu0">5.1</span>&quot;;</span>
+<span class="re8">+      ;;</span>
+<span class="re8">+   --datadir=*<span class="br0">&#41;</span></span>
+<span class="re8">+   	DATADIR=&quot;$value&quot;</span>
+<span class="re8">+   	DATADIR_SET=yes</span>
+<span class="re8">+      ;;</span>
+<span class="re8">+   --require-config<span class="br0">&#41;</span></span>
+<span class="re8">+      REQUIRE_CONFIG=yes</span>
+<span class="re8">+      ;;</span>
+<span class="re8">+   --lua-suffix=*<span class="br0">&#41;</span></span>
+<span class="re8">+      LUA_SUFFIX=&quot;$value&quot;</span>
+<span class="re8">+      LUA_SUFFIX_SET=yes</span>
+<span class="re8">+      ;;</span>
+<span class="re8">+   --with-lua=*<span class="br0">&#41;</span></span>
+<span class="re8">+      LUA_DIR=&quot;$value&quot;</span>
+<span class="re8">+      LUA_DIR_SET=yes</span>
+<span class="re8">+      ;;</span>
+<span class="re8">+   --with-lua-include=*<span class="br0">&#41;</span></span>
+<span class="re8">+      LUA_INCDIR=&quot;$value&quot;</span>
+<span class="re8">+      LUA_INCDIR_SET=yes</span>
+<span class="re8">+      ;;</span>
+<span class="re8">+   --with-lua-lib=*<span class="br0">&#41;</span></span>
+<span class="re8">+      LUA_LIBDIR=&quot;$value&quot; LUA_LIBDIR_SET=yes</span>
+<span class="re8">+      ;;      </span>
+<span class="re8">+   --with-idn=*<span class="br0">&#41;</span></span>
+<span class="re8">+      IDN_LIB=&quot;$value&quot;</span>
+<span class="re8">+      ;;      </span>
+<span class="re8">+   --with-ssl=*<span class="br0">&#41;</span></span>
+<span class="re8">+      OPENSSL_LIB=&quot;$value&quot;</span>
+<span class="re8">+      ;;      </span>
+<span class="re8">+   --cflags=*<span class="br0">&#41;</span></span>
+<span class="re8">+      CFLAGS=&quot;$value&quot;</span>
+<span class="re8">+      ;;      </span>
+<span class="re8">+   --lflags=*<span class="br0">&#41;</span></span>
+<span class="re8">+      LFLAGS=&quot;$value&quot;</span>
+<span class="re8">+      ;;      </span>
+<span class="re8">+   --c-compiler=*<span class="br0">&#41;</span></span>
+<span class="re8">+      CC=&quot;$value&quot;</span>
+<span class="re8">+      ;;      </span>
+<span class="re8">+   --linker=*<span class="br0">&#41;</span></span>
+<span class="re8">+      LD=&quot;$value&quot;</span>
+<span class="re8">+      ;;      </span>
+<span class="re8">+   *<span class="br0">&#41;</span></span>
+<span class="re8">+      echo &quot;Error: Unknown flag: $1&quot;</span>
+<span class="re8">+      exit 1</span>
+<span class="re8">+      ;;</span>
+<span class="re8">+   esac</span>
+<span class="re8">+   shift</span>
+<span class="re8">+done</span>
+<span class="re8">+</span>
+<span class="re8">+if <span class="br0">&#91;</span> &quot;$OSTYPE_SET&quot; = &quot;yes&quot; <span class="br0">&#93;</span></span>
+<span class="re8">+then</span>
+<span class="re8">+	if <span class="br0">&#91;</span> &quot;$OSTYPE&quot; = &quot;debian&quot; <span class="br0">&#93;</span></span>
+<span class="re8">+	then LUA_SUFFIX=&quot;<span class="nu0">5.1</span>&quot;;</span>
+ 	LUA_SUFFIX_SET=yes
+ 	LUA_INCDIR=/usr/include/lua5.1;
+ 	LUA_INCDIR_SET=yes
+ 	fi
+ 	if <span class="br0">&#91;</span> &quot;$OSTYPE&quot; = &quot;macosx&quot; <span class="br0">&#93;</span>
+ 	then LUA_INCDIR=/usr/local/include;
+<span class="re7">-	LUA_INCDIR_SET=yes</span>
+<span class="re8">+	LUA_INCDIR_SET=yes	</span>
+ 	LUA_LIBDIR=/usr/local/lib
+ 	LUA_LIBDIR_SET=yes
+<span class="re7">-	LDFLAGS=&quot;-bundle -undefined dynamic_lookup&quot;</span>
+<span class="re7">-	fi</span>
+<span class="re7">-        if <span class="br0">&#91;</span> &quot;$OSTYPE&quot; = &quot;linux&quot; <span class="br0">&#93;</span></span>
+<span class="re7">-        then LUA_INCDIR=/usr/local/include;</span>
+<span class="re7">-        LUA_INCDIR_SET=yes</span>
+<span class="re7">-        LUA_LIBDIR=/usr/local/lib</span>
+<span class="re7">-        LUA_LIBDIR_SET=yes</span>
+<span class="re7">-        CFLAGS=&quot;-Wall -fPIC&quot;</span>
+<span class="re7">-        LDFLAGS=&quot;-shared&quot;</span>
+<span class="re7">-        fi</span>
+<span class="re7">-        if <span class="br0">&#91;</span> &quot;$OSTYPE&quot; = &quot;freebsd&quot; <span class="br0">&#93;</span></span>
+<span class="re7">-        then LUA_INCDIR=&quot;/usr/local/include/lua51&quot;</span>
+<span class="re7">-        LUA_INCDIR_SET=yes</span>
+<span class="re7">-        CFLAGS=&quot;-Wall -fPIC -I/usr/local/include&quot;</span>
+<span class="re7">-        LDFLAGS=&quot;-I/usr/local/include -L/usr/local/lib -shared&quot;</span>
+<span class="re7">-        LUA_SUFFIX=&quot;-5.1&quot;</span>
+<span class="re7">-        LUA_SUFFIX_SET=yes</span>
+<span class="re7">-        LUA_DIR=/usr/local</span>
+<span class="re7">-        LUA_DIR_SET=yes</span>
+<span class="re7">-        fi</span>
+<span class="re7">-      ;;</span>
+<span class="re7">-   --datadir=*<span class="br0">&#41;</span></span>
+<span class="re7">-   	DATADIR=&quot;$value&quot;</span>
+<span class="re7">-   	DATADIR_SET=yes</span>
+<span class="re7">-      ;;</span>
+<span class="re7">-   --require-config<span class="br0">&#41;</span></span>
+<span class="re7">-      REQUIRE_CONFIG=yes</span>
+<span class="re7">-      ;;</span>
+<span class="re7">-   --lua-suffix=*<span class="br0">&#41;</span></span>
+<span class="re7">-      LUA_SUFFIX=&quot;$value&quot;</span>
+<span class="re7">-      LUA_SUFFIX_SET=yes</span>
+<span class="re7">-      ;;</span>
+<span class="re7">-   --with-lua=*<span class="br0">&#41;</span></span>
+<span class="re7">-      LUA_DIR=&quot;$value&quot;</span>
+<span class="re7">-      LUA_DIR_SET=yes</span>
+<span class="re7">-      ;;</span>
+<span class="re7">-   --with-lua-include=*<span class="br0">&#41;</span></span>
+<span class="re7">-      LUA_INCDIR=&quot;$value&quot;</span>
+<span class="re7">-      LUA_INCDIR_SET=yes</span>
+<span class="re7">-      ;;</span>
+<span class="re7">-   --with-lua-lib=*<span class="br0">&#41;</span></span>
+<span class="re7">-      LUA_LIBDIR=&quot;$value&quot; LUA_LIBDIR_SET=yes</span>
+<span class="re7">-      ;;</span>
+<span class="re7">-   --with-idn=*<span class="br0">&#41;</span></span>
+<span class="re7">-      IDN_LIB=&quot;$value&quot;</span>
+<span class="re7">-      ;;</span>
+<span class="re7">-	--idn-library=*<span class="br0">&#41;</span></span>
+<span class="re7">-		IDN_LIBRARY=&quot;$value&quot;</span>
+<span class="re7">-		;;</span>
+<span class="re7">-   --with-ssl=*<span class="br0">&#41;</span></span>
+<span class="re7">-      OPENSSL_LIB=&quot;$value&quot;</span>
+<span class="re7">-      ;;</span>
+<span class="re7">-   --cflags=*<span class="br0">&#41;</span></span>
+<span class="re7">-      CFLAGS=&quot;$value&quot;</span>
+<span class="re7">-      ;;</span>
+<span class="re7">-   --ldflags=*<span class="br0">&#41;</span></span>
+<span class="re7">-      LDFLAGS=&quot;$value&quot;</span>
+<span class="re7">-      ;;</span>
+<span class="re7">-   --c-compiler=*<span class="br0">&#41;</span></span>
+<span class="re7">-      CC=&quot;$value&quot;</span>
+<span class="re7">-      ;;</span>
+<span class="re7">-   --linker=*<span class="br0">&#41;</span></span>
+<span class="re7">-      LD=&quot;$value&quot;</span>
+<span class="re7">-      ;;</span>
+<span class="re7">-   *<span class="br0">&#41;</span></span>
+<span class="re7">-      echo &quot;Error: Unknown flag: $1&quot;</span>
+<span class="re7">-      exit 1</span>
+<span class="re7">-      ;;</span>
+<span class="re7">-   esac</span>
+<span class="re7">-   shift</span>
+<span class="re7">-done</span>
+<span class="re8">+	CFLAGS=&quot;-Wall&quot;</span>
+<span class="re8">+	LFLAGS=&quot;-bundle -undefined dynamic_lookup&quot;</span>
+<span class="re8">+	fi	</span>
+<span class="re8">+fi</span>
+&nbsp;
+ if <span class="br0">&#91;</span> &quot;$PREFIX_SET&quot; = &quot;yes&quot; -a ! &quot;$SYSCONFDIR_SET&quot; = &quot;yes&quot; <span class="br0">&#93;</span>
+ then
+<span class="re6">@@ -269,16 +247,6 @@</span>
+    LUA_BINDIR=&quot;$LUA_DIR/bin&quot;
+ fi
+&nbsp;
+<span class="re7">-if <span class="br0">&#91;</span> &quot;$IDN_LIBRARY&quot; = &quot;icu&quot; <span class="br0">&#93;</span></span>
+<span class="re7">-then</span>
+<span class="re7">-	IDNA_LIBS=&quot;$ICU_FLAGS&quot;</span>
+<span class="re7">-	CFLAGS=&quot;$CFLAGS -DUSE_STRINGPREP_ICU&quot;</span>
+<span class="re7">-fi</span>
+<span class="re7">-if <span class="br0">&#91;</span> &quot;$IDN_LIBRARY&quot; = &quot;idn&quot; <span class="br0">&#93;</span> </span>
+<span class="re7">-then</span>
+<span class="re7">-	IDNA_LIBS=&quot;-l$IDN_LIB&quot;</span>
+<span class="re7">-fi</span>
+<span class="re7">-</span>
+ echo -n &quot;Checking Lua includes... &quot;
+ lua_h=&quot;$LUA_INCDIR/lua.h&quot;
+ if <span class="br0">&#91;</span> -e &quot;$lua_h&quot; <span class="br0">&#93;</span>
+<span class="re6">@@ -329,12 +297,10 @@</span>
+ LUA_BINDIR=$LUA_BINDIR
+ REQUIRE_CONFIG=$REQUIRE_CONFIG
+ IDN_LIB=$IDN_LIB
+<span class="re7">-IDNA_LIBS=$IDNA_LIBS</span>
+ OPENSSL_LIB=$OPENSSL_LIB
+ CFLAGS=$CFLAGS
+<span class="re7">-LDFLAGS=$LDFLAGS</span>
+<span class="re8">+LFLAGS=$LFLAGS</span>
+ CC=$CC
+<span class="re7">-CXX=$CXX</span>
+ LD=$LD
+&nbsp;
+ EOF
+<span class="re3">--- a/util-src/Makefile</span>
+<span class="re4">+++ b/util-src/Makefile</span>
+<span class="re6">@@ -7,32 +7,45 @@</span>
+ IDN_LIB?=idn
+ OPENSSL_LIB?=crypto
+ CC?=gcc
+<span class="re7">-CXX?=g++</span>
+ LD?=gcc
+&nbsp;
+<span class="re7">-.SUFFIXES: .c .o .so</span>
+<span class="re7">-</span>
+<span class="re7">-encodings.so: encodings.o</span>
+<span class="re7">-	MACOSX_DEPLOYMENT_TARGET=&quot;<span class="nu0">10.3</span>&quot;; export MACOSX_DEPLOYMENT_TARGET;</span>
+<span class="re7">-	$<span class="br0">&#40;</span>CC<span class="br0">&#41;</span> -o $@ $&lt; $<span class="br0">&#40;</span>LDFLAGS<span class="br0">&#41;</span> $<span class="br0">&#40;</span>IDNA_LIBS<span class="br0">&#41;</span></span>
+<span class="re7">-</span>
+<span class="re7">-hashes.so: hashes.o</span>
+<span class="re7">-	MACOSX_DEPLOYMENT_TARGET=&quot;<span class="nu0">10.3</span>&quot;; export MACOSX_DEPLOYMENT_TARGET;</span>
+<span class="re7">-	$<span class="br0">&#40;</span>CC<span class="br0">&#41;</span> -o $@ $&lt; $<span class="br0">&#40;</span>LDFLAGS<span class="br0">&#41;</span> -l$<span class="br0">&#40;</span>OPENSSL_LIB<span class="br0">&#41;</span></span>
+<span class="re7">-</span>
+<span class="re7">-.c.o:</span>
+<span class="re7">-	$<span class="br0">&#40;</span>CC<span class="br0">&#41;</span> $<span class="br0">&#40;</span>CFLAGS<span class="br0">&#41;</span> -I$<span class="br0">&#40;</span>LUA_INCDIR<span class="br0">&#41;</span> -c -o $@ $&lt;</span>
+<span class="re7">-</span>
+<span class="re7">-.o.so:</span>
+<span class="re7">-	MACOSX_DEPLOYMENT_TARGET=&quot;<span class="nu0">10.3</span>&quot;; export MACOSX_DEPLOYMENT_TARGET;</span>
+<span class="re7">-	$<span class="br0">&#40;</span>LD<span class="br0">&#41;</span> -o $@ $&lt; $<span class="br0">&#40;</span>LDFLAGS<span class="br0">&#41;</span></span>
+&nbsp;
+ all: encodings.so hashes.so pposix.so signal.so
+&nbsp;
+ install: encodings.so hashes.so pposix.so signal.so
+ 	install *.so ../util/
+<span class="re8">+	</span>
+&nbsp;
+ clean:
+ 	rm -f *.o
+ 	rm -f *.so
+ 	rm -f ../util/*.so
+<span class="re8">+</span>
+<span class="re8">+encodings.o: encodings.c</span>
+<span class="re8">+	$<span class="br0">&#40;</span>CC<span class="br0">&#41;</span> $<span class="br0">&#40;</span>CFLAGS<span class="br0">&#41;</span> -I$<span class="br0">&#40;</span>LUA_INCDIR<span class="br0">&#41;</span> -c -o encodings.o encodings.c</span>
+<span class="re8">+encodings.so: encodings.o</span>
+<span class="re8">+	MACOSX_DEPLOYMENT_TARGET=&quot;<span class="nu0">10.3</span>&quot;; export MACOSX_DEPLOYMENT_TARGET;</span>
+<span class="re8">+	$<span class="br0">&#40;</span>LD<span class="br0">&#41;</span> $<span class="br0">&#40;</span>LFLAGS<span class="br0">&#41;</span> -o encodings.so encodings.o -L$<span class="br0">&#40;</span>LUA_LIBDIR<span class="br0">&#41;</span> -llua$<span class="br0">&#40;</span>LUA_SUFFIX<span class="br0">&#41;</span> -lidn</span>
+<span class="re8">+	</span>
+<span class="re8">+</span>
+<span class="re8">+hashes.o: hashes.c</span>
+<span class="re8">+	$<span class="br0">&#40;</span>CC<span class="br0">&#41;</span> $<span class="br0">&#40;</span>CFLAGS<span class="br0">&#41;</span> -I$<span class="br0">&#40;</span>LUA_INCDIR<span class="br0">&#41;</span> -c -o hashes.o hashes.c</span>
+<span class="re8">+hashes.so: hashes.o</span>
+<span class="re8">+	MACOSX_DEPLOYMENT_TARGET=&quot;<span class="nu0">10.3</span>&quot;;</span>
+<span class="re8">+	export MACOSX_DEPLOYMENT_TARGET;</span>
+<span class="re8">+	$<span class="br0">&#40;</span>LD<span class="br0">&#41;</span> $<span class="br0">&#40;</span>LFLAGS<span class="br0">&#41;</span> -o hashes.so hashes.o -L$<span class="br0">&#40;</span>LUA_LIBDIR<span class="br0">&#41;</span> -llua$<span class="br0">&#40;</span>LUA_SUFFIX<span class="br0">&#41;</span> -lcrypto</span>
+<span class="re8">+</span>
+<span class="re8">+pposix.o: pposix.c</span>
+<span class="re8">+	$<span class="br0">&#40;</span>CC<span class="br0">&#41;</span> $<span class="br0">&#40;</span>CFLAGS<span class="br0">&#41;</span> -I$<span class="br0">&#40;</span>LUA_INCDIR<span class="br0">&#41;</span> -c -o pposix.o pposix.c</span>
+<span class="re8">+pposix.so: pposix.o</span>
+<span class="re8">+	MACOSX_DEPLOYMENT_TARGET=&quot;<span class="nu0">10.3</span>&quot;;</span>
+<span class="re8">+	export MACOSX_DEPLOYMENT_TARGET;</span>
+<span class="re8">+	$<span class="br0">&#40;</span>LD<span class="br0">&#41;</span> $<span class="br0">&#40;</span>LFLAGS<span class="br0">&#41;</span> -o pposix.so pposix.o -L$<span class="br0">&#40;</span>LUA_LIBDIR<span class="br0">&#41;</span> -llua$<span class="br0">&#40;</span>LUA_SUFFIX<span class="br0">&#41;</span></span>
+<span class="re8">+	</span>
+<span class="re8">+signal.o: signal.c</span>
+<span class="re8">+	$<span class="br0">&#40;</span>CC<span class="br0">&#41;</span> $<span class="br0">&#40;</span>CFLAGS<span class="br0">&#41;</span> -I$<span class="br0">&#40;</span>LUA_INCDIR<span class="br0">&#41;</span> -c -o signal.o signal.c</span>
+<span class="re8">+signal.so: signal.o</span>
+<span class="re8">+	MACOSX_DEPLOYMENT_TARGET=&quot;<span class="nu0">10.3</span>&quot;;</span>
+<span class="re8">+	export MACOSX_DEPLOYMENT_TARGET;</span>
+<span class="re8">+	$<span class="br0">&#40;</span>LD<span class="br0">&#41;</span> $<span class="br0">&#40;</span>LFLAGS<span class="br0">&#41;</span> -o signal.so signal.o -L$<span class="br0">&#40;</span>LUA_LIBDIR<span class="br0">&#41;</span> -llua$<span class="br0">&#40;</span>LUA_SUFFIX<span class="br0">&#41;</span></span>
+<span class="re8">+	</span>
+<span class="re3">--- a/net/dns.lua</span>
+<span class="re4">+++ b/net/dns.lua</span>
+<span class="re6">@@ -223,7 +223,7 @@</span>
+&nbsp;
+&nbsp;
+ function dns.random<span class="br0">&#40;</span>...<span class="br0">&#41;</span>    -- - - - - - - - - - - - - - - - - - -  dns.random
+<span class="re7">-	math.randomseed<span class="br0">&#40;</span>math.floor<span class="br0">&#40;</span><span class="nu0">10000</span>*socket.gettime<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>;</span>
+<span class="re8">+	math.randomseed<span class="br0">&#40;</span>math.floor<span class="br0">&#40;</span><span class="nu0">10000</span>*socket.gettime<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> % 0x80000000<span class="br0">&#41;</span>;</span>
+ 	dns.random = math.random;
+ 	return dns.random<span class="br0">&#40;</span>...<span class="br0">&#41;</span>;
+ end</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit19" id="build">Build</h3>
+<div class="level3">
+
+<p>
+Ready, now compile as usual, example:
+<pre class="code bash"><span class="kw3">cd</span> ~<span class="sy0">/</span>build<span class="sy0">/</span>openwrt<span class="sy0">/</span>attitude_adjustment
+<span class="kw3">echo</span> <span class="st0">&quot;CONFIG_TARGET_ar71xx=y
+# CONFIG_TARGET_ar71xx_generic_Default is not set
+CONFIG_TARGET_ar71xx_generic_TLWR842=y
+CONFIG_PACKAGE_block-mount=y
+CONFIG_PACKAGE_luci=y
+CONFIG_PACKAGE_luci-app-qos=y
+CONFIG_PACKAGE_kmod-fs-ext4=y
+CONFIG_PACKAGE_kmod-ledtrig-heartbeat=y
+CONFIG_PACKAGE_kmod-input-gpio-keys-polled=y
+CONFIG_PACKAGE_kmod-usb-storage=y
+CONFIG_ATH_USER_REGD=y
+CONFIG_PACKAGE_prosody=m&quot;</span> <span class="sy0">&gt;</span> .config
+<span class="kw2">make</span> defconfig
+<span class="kw1">time</span> <span class="kw2">make</span> <span class="re5">-j8</span> world</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit20" id="download_preparation">Download preparation</h3>
+<div class="level3">
+
+<p>
+The required packages should be copied to a downloadable location, in this case ~/Descargas/OpenWrt/ar71xx/r$r is good for me.
+<pre class="code bash"><span class="re2">r</span>=<span class="nu0">34185</span>
+<span class="kw2">cp</span> ~<span class="sy0">/</span>build<span class="sy0">/</span>openwrt<span class="sy0">/</span>attitude_adjustment<span class="sy0">/</span>bin<span class="sy0">/</span>ar71xx<span class="sy0">/</span>packages<span class="sy0">/</span>prosody_0.8.2-<span class="nu0">1</span>_ar71xx.ipk ~<span class="sy0">/</span>Descargas<span class="sy0">/</span>OpenWrt<span class="sy0">/</span>ar71xx<span class="sy0">/</span>r<span class="re1">$r</span><span class="sy0">/</span>prosody_0.8.2-<span class="nu0">1</span>_ar71xx.ipk
+<span class="kw2">cp</span> ~<span class="sy0">/</span>build<span class="sy0">/</span>openwrt<span class="sy0">/</span>attitude_adjustment<span class="sy0">/</span>bin<span class="sy0">/</span>ar71xx<span class="sy0">/</span>packages<span class="sy0">/</span>luaexpat_1.2.0-<span class="nu0">1</span>_ar71xx.ipk ~<span class="sy0">/</span>Descargas<span class="sy0">/</span>OpenWrt<span class="sy0">/</span>ar71xx<span class="sy0">/</span>r<span class="re1">$r</span><span class="sy0">/</span>luaexpat_1.2.0-<span class="nu0">1</span>_ar71xx.ipk</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit21" id="install1">Install</h3>
+<div class="level3">
+
+<p>
+<pre class="code bash"><span class="kw2">ssh</span> root<span class="sy0">@</span>192.168.1.1
+<span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>prosody stop
+opkg remove prosody luaexpat
+<span class="kw3">cd</span> <span class="sy0">/</span>tmp
+<span class="kw2">rm</span> prosody_0.8.2-<span class="nu0">1</span>_ar71xx.ipk luaexpat_1.2.0-<span class="nu0">1</span>_ar71xx.ipk
+<span class="re2">r</span>=<span class="nu0">34185</span>
+<span class="kw2">wget</span> http:<span class="sy0">//</span>192.168.1.110<span class="sy0">/</span>openwrt<span class="sy0">/</span>ar71xx<span class="sy0">/</span>r<span class="re1">$r</span><span class="sy0">/</span>prosody_0.8.2-<span class="nu0">1</span>_ar71xx.ipk http:<span class="sy0">//</span>192.168.1.110<span class="sy0">/</span>openwrt<span class="sy0">/</span>ar71xx<span class="sy0">/</span>r<span class="re1">$r</span><span class="sy0">/</span>luaexpat_1.2.0-<span class="nu0">1</span>_ar71xx.ipk
+opkg <span class="kw2">install</span> luaexpat_1.2.0-<span class="nu0">1</span>_ar71xx.ipk prosody_0.8.2-<span class="nu0">1</span>_ar71xx.ipk</pre>
+
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/xmpp.server.txt</bdi> · Last modified: 2013/03/28 03:30 by <bdi>nilfred</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="xmpp.server?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="xmpp.server?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="xmpp.server?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="xmpp.server#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Axmpp.server&amp;1432273864" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

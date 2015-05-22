@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>OLSR Mesh [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="mesh"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="mesh.olsr?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/mesh.olsr"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/mesh.olsr"/>
+<link rel="canonical" href="mesh.olsr"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:mesh.olsr","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432273803 166.182.3.179';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="mesh.olsr#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="mesh.olsr?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="mesh.olsr?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:mesh.olsr" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="mesh.olsr?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="mesh.olsr?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="mesh.olsr?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="mesh.olsr" class="wikilink1" title="doc:howto:mesh.olsr">OLSR Mesh</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/mesh.olsr" class="media" title="cz:doc:howto:mesh.olsr"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/mesh.olsr" class="media" title="de:doc:howto:mesh.olsr"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="mesh.olsr" class="media" title="doc:howto:mesh.olsr"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/mesh.olsr" class="media" title="es:doc:howto:mesh.olsr"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/mesh.olsr" class="media" title="fr:doc:howto:mesh.olsr"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/mesh.olsr" class="media" title="hu:doc:howto:mesh.olsr"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/mesh.olsr" class="media" title="jp:doc:howto:mesh.olsr"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/mesh.olsr" class="media" title="pl:doc:howto:mesh.olsr"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/mesh.olsr" class="media" title="pt-br:doc:howto:mesh.olsr"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/mesh.olsr" class="media" title="ru:doc:howto:mesh.olsr"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/mesh.olsr" class="media" title="tr:doc:howto:mesh.olsr"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/mesh.olsr" class="media" title="zh-cn:doc:howto:mesh.olsr"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/mesh.olsr" class="media" title="zh-tw:doc:howto:mesh.olsr"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:mesh.olsr</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="mesh.olsr#the_network">The Network</a></div></li>
+<li class="level1"><div class="li"><a href="mesh.olsr#how_to">HOW TO</a></div></li>
+<li class="level1"><div class="li"><a href="mesh.olsr#after_basic_configuration">After basic configuration</a></div></li>
+<li class="level1"><div class="li"><a href="mesh.olsr#references">References</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="olsr_mesh">OLSR Mesh</h1>
+<div class="level1">
+
+<p>
+<a href="http://en.wikipedia.org/wiki/Optimized Link State Routing Protocol" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Optimized Link State Routing Protocol">Optimized Link State Routing Protocol</a> and <a href="http://www.olsr.org/" class="urlextern" title="http://www.olsr.org/"  rel="nofollow">http://www.olsr.org/</a>
+</p>
+
+<p>
+Mesh networks self-arrange and auto-configure themselves on the basis of network topology changes.  For example, the properly configured OLSR mesh will automatically arrange itself in cases where one node fails, or when a new route emerges, or when a low traffic route becomes available or disappears.  The concept of a mesh network is not new; the Internet itself is a huge mesh network.  So what&#039;s new?  Well, mesh networks with wireless technology on OpenWrt simply rocks! ;)
+</p>
+
+<p>
+OLSR is one of the routing protocols available to create a <a href="http://en.wikipedia.org/wiki/Mobile_ad-hoc_network" class="urlextern" title="http://en.wikipedia.org/wiki/Mobile_ad-hoc_network"  rel="nofollow">Mobile Adhoc Networks (MANET)</a>, or rather, in more general terms, a wireless mesh network.  <a href="http://www.olsr.org" class="urlextern" title="http://www.olsr.org"  rel="nofollow">The OLSR code developed by Andreas Tønnesen</a> is the best suited for our case as packages have been created for OpenWrt.
+</p>
+
+<p>
+This wiki page contains information on how to create an OLSR mesh network by configuring OpenWrt and olsrd (the OLSR daemon process) yourself.  If your objective is to get an OLSR network quickly running, you may want to have a look at firmware that has been specifically created for this purpose.  An example of this sort of firmare is the <a href="http://firmware.freifunk.net" class="urlextern" title="http://firmware.freifunk.net"  rel="nofollow">Freifunk project</a>.  If you&#039;re determined to get OLSR running on OpenWrt without the assistance of pre-packaged firmare, keep reading!
+</p>
+<div class="table sectionedit2"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign" colspan="3">  olsrd  0.6.1-3  </th>
+	</tr>
+	<tr class="row1">
+		<th class="col0 leftalign"> Name               </th><th class="col1 centeralign">  Size  </th><th class="col2 leftalign"> Description  </th>
+	</tr>
+	</thead>
+	<tr class="row2">
+		<td class="col0 leftalign"> olsrd                </td><td class="col1 rightalign">  108257 </td><td class="col2 leftalign"> OLSR (Optimized Link State Routing) daemon  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> olsrd-mod-dyn-gw-plain  </td><td class="col1 rightalign">  2902 </td><td class="col2 leftalign"> Dynamic internet gateway plain plugin  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> olsrd-mod-bmf         </td><td class="col1 rightalign">  12106 </td><td class="col2 leftalign"> Basic multicast forwarding plugin, dependece: <code>kmod-tun</code>  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> olsrd-mod-httpinfo    </td><td class="col1 rightalign">  23831 </td><td class="col2 leftalign"> Small informative web server plugin  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> olsrd-mod-quagga      </td><td class="col1 rightalign">   5848 </td><td class="col2 leftalign"> Quagga plugin  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> olsrd-mod-dyn-gw      </td><td class="col1 rightalign">   4348 </td><td class="col2 leftalign"> Dynamic internet gateway plugin  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> olsrd-mod-txtinfo     </td><td class="col1 rightalign">   6201 </td><td class="col2 leftalign"> Small informative web server plugin  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> olsrd-mod-nameservice </td><td class="col1 rightalign">  11511 </td><td class="col2 leftalign"> Lightweight hostname resolver plugin  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> olsrd-mod-dot-draw    </td><td class="col1 rightalign">  4233 </td><td class="col2 leftalign"> Dot topology information plugin  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> olsrd-mod-mdns        </td><td class="col1 rightalign">  5648 </td><td class="col2 leftalign"> Multicast <abbr title="Domain Name System">DNS</abbr> plugin  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> olsrd-mod-watchdog    </td><td class="col1 rightalign">  2316 </td><td class="col2 leftalign"> Watchdog plugin  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> olsrd-mod-arprefresh  </td><td class="col1 rightalign">  2703 </td><td class="col2 leftalign"> Kernel ARP cache refresh plugin  </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 leftalign"> olsrd-mod-p2pd        </td><td class="col1 rightalign">  8066 </td><td class="col2 leftalign"> Peer to Peer Discovery plugin  </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 leftalign"> olsrd-mod-secure      </td><td class="col1 rightalign">  9710 </td><td class="col2 leftalign"> Message signing plugin to secure routing domain  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit3" id="the_network">The Network</h2>
+<div class="level2">
+
+<p>
+There are an infinite number of ways that a mesh network can be configured; below is a simple example that allows routing over a set of subnets in the 10.0.0.0/255.0.0.0 range through the OLSR mesh.
+</p>
+
+<p>
+<pre class="code">
+      WAN                                                 WAN
+       |                                                   |
+OpenWrt + OLSR Node 1 ---- wireless link ---- OpenWrt + OLSR Node 2
+       |                                                   |
+      LAN                                                 LAN
+       |                                                   |
+  Workstation A                                      Workstation B
+</pre>
+
+</p>
+
+<p>
+Both nodes (in this case the <a href="http://wiki.openwrt.org/toh/linksys/wrt54gl" class="wikilink2" title="toh:linksys:wrt54gl" rel="nofollow">wrt54gl</a> was used) need to have OLSR installed.  In general, OLSR will have to be installed on any node that participates in establishing routing between the OLSR-aware subnets that you configure.  OLSR needs to be configured to listen on all WIFI interfaces on these routers.  Running it on wired interfaces is usually not necessary, and according to some sources may interfere with other services on these interfaces such as DHCP.
+</p>
+
+<p>
+If the &quot;wired&quot; interfaces on your router are on a different subnet from the wireless interfaces you can configure OLSR to distribute <em>host and network association</em> (HNA) messages to other routers.  Depending on if if you are running IPv4 or IPv6 you will either have Hna4 or Hna6 directives in your <code>/?/olsrd.conf</code> configuration file.
+</p>
+
+</div>
+<div class="plugin_include_content plugin_include__meta:infobox:outdated" id="plugin_include__meta__infobox__outdated">
+<div class="level2">
+
+<p>
+
+<table class="inline" style="width:70%; margin-left:15%">
+  <tr>
+    <td style="border-left:6px solid #f57900; vertical-align:middle">
+      <img src="../../_media/meta/icons/tango/48px-outdated.svg.png" alt="" style="float:left; margin-right:0.5em" />
+      <strong>Outdated Information!</strong><br />
+      This article contains information that is outdated or no longer valid. You can <a href="mesh.olsr?do=edit">edit</a> this page to update it.
+    </td>
+  </tr>
+</table>
+
+</p>
+
+</div>
+</div>
+<div class="level2">
+
+</div>
+
+<h2 class="sectionedit6" id="how_to">HOW TO</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> separate the wireless and lan interface in <code><a href="../uci/network" class="wikilink1" title="doc:uci:network">/etc/config/network</a></code> again, by default they are bridged</div>
+</li>
+<li class="level1"><div class="li"> configure the WNICs to work in <em>adhoc</em>-mode. Your file <code><a href="../uci/wireless" class="wikilink1" title="doc:uci:wireless">/etc/config/wireless</a></code> might look as follows:<pre class="code">config wifi-device  wl0
+        option type     broadcom
+        option channel  11
+        # disable radio to prevent an open ap after reflashing:
+        option disabled 0
+
+config wifi-iface
+        option device   wl0
+        # option network        lan
+        option mode     adhoc
+        option ssid     OLSR
+        option hidden   0
+        option encryption none</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> install olsrd<pre class="code">  opkg update
+  opkg install olsrd</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> Edit the <code>/etc/olsrd.conf</code> and replace &quot;Interface &quot;XXX&quot; with the wireless interface on your router. Example<pre class="code"># olsr.org OLSR daemon config file
+# /etc/olsrd.conf
+#
+# Modified for sample OLSR network by Justin S. Leiteb
+# http://justin.phq.org/ Fri Jun  8 10:34:27 EDT 2007
+# Many comments and commented line from conf file distributed
+# with olsrd omitted for brevity in wiki.
+
+DebugLevel	0
+IpVersion	4
+ClearScreen     yes
+
+# On the second OLSR node (olsrd.conf not supplied for this node, since only one line is different),
+# which has a LAN interface on the 10.100.2.0/255.255.255.0 network, the Hna4 entry is:
+# 10.100.2.0 255.255.255.0.  These Hna4 entries are what propagates information about how to route
+# to these subnets through the mesh.
+Hna4
+{
+	# My home LAN
+	10.100.1.0  255.255.255.0
+}
+
+AllowNoInt	yes
+UseHysteresis	yes
+
+# Hysteresis parameters
+HystScaling	0.50
+HystThrHigh	0.80
+HystThrLow	0.30
+
+
+LinkQualityLevel	0
+Pollrate	0.05
+NicChgsPollInt  3.0
+
+Interface &quot;wl0&quot;
+{
+    AutoDetectChanges            yes
+}
+
+# Run http server with mesh information.  Won&#039;t work unless you&#039;ve already installed
+# the olsrd_httpinfo plugin through ipkg.
+LoadPlugin &quot;olsrd_httpinfo.so.0.1&quot;
+{
+	PlParam		&quot;port&quot;	&quot;1979&quot;
+	PlParam		&quot;Net&quot;	&quot;0.0.0.0 0.0.0.0&quot;
+}</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> firewall, allow the router to forward packets between the interfaces, example:<pre class="code">#!/bin/sh
+
+# Copyright (C) 2006 OpenWrt.org
+
+iptables -F input_rule
+iptables -F output_rule
+iptables -F forwarding_rule
+iptables -t nat -F prerouting_rule
+iptables -t nat -F postrouting_rule
+
+# The following chains are for traffic directed at the IP of the
+# WAN interface
+
+iptables -F input_wan
+iptables -F forwarding_wan
+iptables -t nat -F prerouting_wan
+
+# Does anyone have a command to get the name of the WIFI interface on Kamikaze so
+# that it doesn&#039;t have to be hard-coded here?  This is a bit sloppy it seems.
+WIFI=wl0
+
+iptables        -A input_wan      -p tcp --dport 22 -j ACCEPT
+
+# Allow connections to olsr info port.
+iptables        -A input_wan      -p tcp --dport 1979 -j ACCEPT
+
+# OLSR needs port 698 to transmit state messages.
+iptables -A input_rule -p udp --dport 698 -j ACCEPT
+
+
+# Debugging... do we have WIFI, LAN and WAN appropriately defined?
+# These values are passed to us from /etc/init.d/firewall, which
+# calls this script.
+
+# echo WIFI == $WIFI
+# echo LAN == $LAN
+# echo WAN == $WAN
+
+iptables -A forwarding_rule -i $WAN -o $WIFI -j ACCEPT
+
+iptables -A forwarding_rule -i $WIFI -o $WAN -j ACCEPT
+
+# For forwarding LAN &amp; WIFI in nodes
+iptables -A forwarding_rule -i $LAN -o $WIFI -j ACCEPT
+
+# For WIFI clients to connect to nodes.
+iptables -A forwarding_rule -i $WIFI -o $WIFI -j ACCEPT
+
+# For connecting a wired lan client of node 1 to wired lan client of node 2
+iptables -A forwarding_rule -i $LAN -o $LAN -j ACCEPT
+
+# WIFI needs to go to LAN ports, too!
+iptables -A forwarding_rule -i $WIFI -o $LAN -j ACCEPT</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> start olsrd<pre class="code">/etc/init.d/olsrd start
+/etc/init.d/olsrd enable</pre>
+</div>
+</li>
+</ol>
+
+<p>
+Reboot your router and test everything by pinging interfaces on the different devices.  Go and have a beverage of choice to celebrate!
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="after_basic_configuration">After basic configuration</h2>
+<div class="level2">
+
+<p>
+You may want to check out some of the plugins that are easy to configure and show you the basic status of your mesh.  On my network I run <code>olsrd-mod-httpinfo</code>, which provides a basic http server that shows you the status of the mesh.
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="references">References</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="http://www.olsr.org" class="urlextern" title="http://www.olsr.org"  rel="nofollow">Master&#039;s thesis of primary developer of olsrd</a> - should be read before attempting to install OLSR if you aren&#039;t clear on the fundamentals of how it works</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://nbd.name/openwrt" class="urlextern" title="http://nbd.name/openwrt"  rel="nofollow">Manual for Kamikaze by one of the developers</a> - great reference on networking interface configuration and other parts of the OpenWrt system</div>
+</li>
+</ul>
+<div class="tags"><span>
+	<a href="../../tag/mesh?do=showtag&amp;tag=mesh" class="wikilink1" title="tag:mesh" rel="tag">mesh</a>
+</span></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/mesh.olsr.txt</bdi> · Last modified: 2014/07/07 22:09 by <bdi>theoradicus</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="mesh.olsr?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="mesh.olsr?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="mesh.olsr?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="mesh.olsr#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Amesh.olsr&amp;1432273803" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

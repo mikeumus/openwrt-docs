@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Transmission configuration [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,uci,transmission"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="transmission?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:uci"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/uci/transmission"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/uci/transmission"/>
+<link rel="canonical" href="transmission"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:uci';var JSINFO = {"id":"doc:uci:transmission","namespace":"doc:uci"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266645 166.182.3.153';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="transmission#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="transmission?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="transmission?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:uci:transmission" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="transmission?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="transmission?do=media&amp;ns=doc%253Auci"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="transmission?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../uci.1" class="wikilink1" title="doc:uci">The UCI System</a></bdi> » <bdi><span class="curid"><a href="transmission" class="wikilink1" title="doc:uci:transmission">Transmission configuration</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/uci/transmission" class="media" title="cz:doc:uci:transmission"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/uci/transmission" class="media" title="de:doc:uci:transmission"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="transmission" class="media" title="doc:uci:transmission"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/uci/transmission" class="media" title="es:doc:uci:transmission"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/uci/transmission" class="media" title="fr:doc:uci:transmission"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/uci/transmission" class="media" title="hu:doc:uci:transmission"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/uci/transmission" class="media" title="jp:doc:uci:transmission"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/uci/transmission" class="media" title="pl:doc:uci:transmission"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/uci/transmission" class="media" title="pt-br:doc:uci:transmission"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/uci/transmission" class="media" title="ru:doc:uci:transmission"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/uci/transmission" class="media" title="tr:doc:uci:transmission"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/uci/transmission" class="media" title="zh-cn:doc:uci:transmission"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/uci/transmission" class="media" title="zh-tw:doc:uci:transmission"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:uci:transmission</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="transmission#install">Install</a></div></li>
+<li class="level1"><div class="li"><a href="transmission#basic_setup">Basic setup</a></div></li>
+<li class="level1"><div class="li"><a href="transmission#sections">Sections</a></div></li>
+<li class="level1"><div class="li"><a href="transmission#notes">Notes</a></div></li>
+<li class="level1"><div class="li"><a href="transmission#example">Example</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="transmission_configuration">Transmission configuration</h1>
+<div class="level1">
+
+<p>
+There are several implementations of the <a href="../howto/bittorrent" class="wikilink1" title="doc:howto:bittorrent">BitTorrent</a> peer-to-peer file sharing protocol. Transmission is only one of them. After installation (<code>opkg install transmission-daemon</code>) there should be a config file in the uci directory. 
+</p>
+
+<p>
+A few more details about configuration file (/etc/config/transmission) can be found <a href="https://trac.transmissionbt.com/wiki/EditConfigFiles" class="urlextern" title="https://trac.transmissionbt.com/wiki/EditConfigFiles"  rel="nofollow">here</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="install">Install</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> the daemon: <code>transmission-daemon</code> is a daemon that runs in the background and is designed to not have any form of visual interface, consult <a href="http://man.cx/transmission" class="interwiki iw_man" title="http://man.cx/transmission">transmission</a> <pre class="code">opkg update
+opkg install transmission-daemon</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> a control instance:</div>
+</li>
+</ol>
+<ul>
+<li class="level1"><div class="li"> <code>transmission-cli</code>: to control the transmission daemon via <a href="http://en.wikipedia.org/wiki/Command-line interface" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Command-line interface">CLI (Command-line interface)</a> on the server, consult <a href="http://man.cx/transmissioncli" class="interwiki iw_man" title="http://man.cx/transmissioncli">transmissioncli</a><pre class="code">opkg install transmission-cli </pre>
+</div>
+</li>
+<li class="level1"><div class="li"> <code>transmission-web</code> to control the transmission daemon over <a href="http://en.wikipedia.org/wiki/Hypertext Transfer Protocol" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Hypertext Transfer Protocol">HTTP (Hypertext Transfer Protocol)</a> from a remote host machine with a web browser<pre class="code">opkg install transmission-web</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> <code>transmission-remote</code> to control the transmission daemon over the transmission JSON-<a href="http://en.wikipedia.org/wiki/Remote procedure call" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Remote procedure call">RPC (Remote Procedure Call)</a> from a remote host machine with a <abbr title="Graphical User Interface">GUI</abbr> program, e.g. <a href="http://packages.debian.org/testing/transmission-gtk" class="urlextern" title="http://packages.debian.org/testing/transmission-gtk"  rel="nofollow">transmission-gtk</a>/<a href="http://packages.debian.org/testing/transmission-qt" class="urlextern" title="http://packages.debian.org/testing/transmission-qt"  rel="nofollow">transmission-qt</a> or a <a href="http://packages.debian.org/testing/python-transmissionrpc" class="urlextern" title="http://packages.debian.org/testing/python-transmissionrpc"  rel="nofollow">python-transmissionrpc</a> or <a href="http://code.google.com/p/transmisson-remote-gui/" class="urlextern" title="http://code.google.com/p/transmisson-remote-gui/"  rel="nofollow">transmisson-remote-gui</a> for <abbr title="Operating System">OS</abbr> other then Debian <img src="../../lib/images/smileys/icon_wink.gif" class="icon" alt=";-)" /> <pre class="code">opkg install transmission-remote</pre>
+</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit3" id="basic_setup">Basic setup</h2>
+<div class="level2">
+
+<p>
+To enable Transmission at all, put <code>option enable 1</code> into <code>/etc/config/transmission</code>.
+</p>
+
+<p>
+If you want to start Transmission on boot, run
+<pre class="code">/etc/init.d/transmission enable</pre>
+
+</p>
+
+<p>
+To start Transmission, run
+<pre class="code">/etc/init.d/transmission start</pre>
+
+</p>
+
+<p>
+If you wish to use the web server, besides installing the package (see above), you might need to whitelist your IP address (if it is not in 192.168.1.0/24) via <code>option rpc_whitelist &#039;127.0.0.1,192.168.1.*,your_ip_address</code>&#039;. By default, the server listens on port 9091.
+</p>
+
+<p>
+To control transmission remotely via RPC, install <a href="http://code.google.com/p/transmisson-remote-gui/" class="urlextern" title="http://code.google.com/p/transmisson-remote-gui/"  rel="nofollow">Transmission Remote GUI</a> and set it up just like the webserver above.
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="sections">Sections</h2>
+<div class="level2">
+
+<p>
+There is only one section: <code>/etc/config/transmission</code>.
+<pre class="code">config transmission
+        option enable 1
+        option config_dir &#039;/etc/transmission&#039;
+        option alt_speed_down 50
+        option alt_speed_enabled false
+        option alt_speed_time_begin  540
+        option alt_speed_time_day 127
+        option alt_speed_time_enabled false
+        option alt_speed_time_end 1020
+        option alt_speed_up 50
+        option bind_address_ipv4 &#039;0.0.0.0&#039;
+        option bind_address_ipv6 &#039;::&#039;
+        option blocklist_enabled false
+        option dht_enabled true
+        option download_dir &#039;/mnt/sda4/&#039;
+        option encryption 1
+        option incomplete_dir &#039;/mnt/sda4/incomplete&#039;
+        option incomplete_dir_enabled false
+        option lazy_bitfield_enabled true
+        option lpd_enabled false
+        option message_level 2
+        option open_file_limit 32
+        option peer_limit_global 240
+        option peer_limit_per_torrent 60
+        option peer_port 51413
+        option peer_port_random_high 65535
+        option peer_port_random_low 49152
+        option peer_port_random_on_start false
+        option peer_socket_tos 0
+        option pex_enabled true
+        option port_forwarding_enabled false
+        option preallocation 1
+        option proxy &quot;&quot;
+        option proxy_auth_enabled false
+        option proxy_auth_password &#039;&#039;
+        option proxy_auth_username &#039;&#039;
+        option proxy_enabled false
+        option proxy_port 80
+        option proxy_type 0
+        option ratio_limit 2.0000
+        option ratio_limit_enabled false
+        option rename_partial_files true
+        option rpc_authentication_required false
+        option rpc_bind_address &#039;0.0.0.0&#039;
+        option rpc_enabled true
+        option rpc_password &#039;&#039;
+        option rpc_port 9091
+        option rpc_username &#039;&#039;
+        option rpc_whitelist &#039;127.0.0.1,192.168.1.*&#039;
+        option rpc_whitelist_enabled true
+        option script_torrent_done_enabled false
+        option script_torrent_done_filename &#039;&#039;
+        option speed_limit_down 100
+        option speed_limit_down_enabled false
+        option speed_limit_up 40
+        option speed_limit_up_enabled true
+        option start_added_torrents false
+        option trash_original_torrent_files false
+        option umask 18
+        option upload_slots_per_torrent 14
+        option watch_dir_enabled false
+        option watch_dir &#039;&#039;</pre>
+
+</p>
+
+<p>
+Extra details can be found <a href="https://trac.transmissionbt.com/wiki/EditConfigFiles" class="urlextern" title="https://trac.transmissionbt.com/wiki/EditConfigFiles"  rel="nofollow">here</a>.
+</p>
+<div class="sortable"><div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Option </th><th class="col5"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>config_dir</code> </td><td class="col1 centeralign">  path  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> Where the configuration files are </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>bind_address_ipv4</code> </td><td class="col1 centeralign">  IP Address  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5 leftalign">  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>bind_address_ipv6</code> </td><td class="col1 centeralign">  IPv6 Address  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5 leftalign">  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>download_dir</code> </td><td class="col1 centeralign">  path  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> Where to store you downloaded files </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>incomplete_dir_enabled</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> Whether to store incomplete files somewhere else </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>incomplete_dir</code> </td><td class="col1 centeralign">  path  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> Where to store files untill they are finished </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <code>dht_enabled</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> Whether to enable dht (distributed hash tables) </td>
+	</tr>
+	<tr class="row8">
+		
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <code>blocklist_enabled</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> Whether to make use of the blocklist defined in <em>config_dir</em> </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> <code>encryption</code> </td><td class="col1 centeralign">  integer  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> Whether to use encrypted connections only (allow encryption: 0, prefer encryption: 1, require encryption: 2) </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> <code>pex_enabled</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5 leftalign">      </td>
+	</tr>
+	<tr class="row12">
+		
+	</tr>
+	<tr class="row13">
+		<td class="col0"> <code>speed_limit_down_enabled</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> Whether transmission should limit its download speed </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0"> <code>speed_limit_down</code> </td><td class="col1 centeralign">  integer  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> in KByte/s </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0"> <code>speed_limit_up_enabled</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> Whether transmission should limit its download speed </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0"> <code>speed_limit_up</code> </td><td class="col1 centeralign">  integer  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> in KByte/s </td>
+	</tr>
+	<tr class="row17">
+		
+	</tr>
+	<tr class="row18">
+		<td class="col0"> <code>alt_speed_enabled</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> Whether transmission should use two speed limit settings </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0"> <code>alt_speed_down</code> </td><td class="col1 centeralign">  integer  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> in KByte/s </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0"> <code>alt_speed_up</code> </td><td class="col1 centeralign">  integer  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> in KByte/s </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0"> <code>alt_speed_time_enabled</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> Whether to switch between the two speed-setting on a time table </td>
+	</tr>
+	<tr class="row22">
+		<td class="col0"> <code>alt_speed_time_day</code> </td><td class="col1 leftalign">      </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5">7-bit bitmask, 0000001=sunday, 1000000=saturday</td>
+	</tr>
+	<tr class="row23">
+		<td class="col0"> <code>alt_speed_time_begin</code> </td><td class="col1 leftalign">      </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5">default = 540, in minutes from midnight, 9am</td>
+	</tr>
+	<tr class="row24">
+		<td class="col0"> <code>alt_speed_time_end</code> </td><td class="col1 leftalign">      </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5">default = 1020, in minutes from midnight, 5pm</td>
+	</tr>
+	<tr class="row25">
+		
+	</tr>
+	<tr class="row26">
+		<td class="col0"> <code>upload_slots_per_torrent</code> </td><td class="col1 leftalign">      </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5 leftalign"> how many peers can download a torrent at a time  </td>
+	</tr>
+	<tr class="row27">
+		<td class="col0"> <code>open_file_limit</code> </td><td class="col1 centeralign">  integer  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> remember the low system memory </td>
+	</tr>
+	<tr class="row28">
+		<td class="col0"> <code>peer_limit_global</code> </td><td class="col1 centeralign">  integer  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5 leftalign"> the max number of peers globaly  </td>
+	</tr>
+	<tr class="row29">
+		<td class="col0"> <code>peer_limit_per_torrent</code> </td><td class="col1 centeralign">  integer  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5 leftalign"> the max number of peers with connection per torrent  </td>
+	</tr>
+	<tr class="row30">
+		<td class="col0"> <code>peer_port</code> </td><td class="col1 centeralign">  integer  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> the fixed port transmission listens to incomming connections </td>
+	</tr>
+	<tr class="row31">
+		<td class="col0"> <code>peer_port_random_high</code> </td><td class="col1 centeralign">  integer  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> highest port of the port range </td>
+	</tr>
+	<tr class="row32">
+		<td class="col0"> <code>peer_port_random_low</code> </td><td class="col1 centeralign">  integer  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> lowest port of the port range </td>
+	</tr>
+	<tr class="row33">
+		<td class="col0"> <code>peer_port_random_on_start</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> whether to use random ports instead of a fixed one from the beginning </td>
+	</tr>
+	<tr class="row34">
+		<td class="col0"> <code>peer_socket_tos	</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5 leftalign"> whether <code>type of service</code> is enabled  </td>
+	</tr>
+	<tr class="row35">
+		<td class="col0"> <code>port_forwarding_enabled</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5 leftalign">      </td>
+	</tr>
+	<tr class="row36">
+		<td class="col0"> <code>preallocation</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5 centeralign">  whether to fill the space for chunks not yet downloaded with &quot;0&quot; (helps avoiding fragmentation)  </td>
+	</tr>
+	<tr class="row37">
+		
+	</tr>
+	<tr class="row38">
+		<td class="col0"> <code>ratio_limit_enabled</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> whether to use a limit ratio </td>
+	</tr>
+	<tr class="row39">
+		<td class="col0"> <code>ratio_limit</code> </td><td class="col1 centeralign">  integer  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> automaticaly stop seeding a torrent when it reaches this ratio (with a <abbr title="Graphical User Interface">GUI</abbr> you can enable this for every torrent separately) </td>
+	</tr>
+	<tr class="row40">
+		
+	</tr>
+	<tr class="row41">
+		<td class="col0"> <code>rename_partial_files</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5 leftalign">      </td>
+	</tr>
+	<tr class="row42">
+		
+	</tr>
+	<tr class="row43">
+		<td class="col0"> <code>rpc_enabled</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> Whether transmission-daemon should be remote controlled by a <abbr title="Graphical User Interface">GUI</abbr> on a host machine </td>
+	</tr>
+	<tr class="row44">
+		<td class="col0"> <code>rpc_bind_address</code> </td><td class="col1 centeralign">  IP Address  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> the address on which transmission-daemon listens to rpcs </td>
+	</tr>
+	<tr class="row45">
+		<td class="col0"> <code>rpc_port</code> </td><td class="col1 centeralign">  IP Port  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> the port on which transmission-daemon listens to rpcs </td>
+	</tr>
+	<tr class="row46">
+		<td class="col0"> <code>rpc_authentication_required</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> whether rpc needs authentication </td>
+	</tr>
+	<tr class="row47">
+		<td class="col0"> <code>rpc_username</code> </td><td class="col1 centeralign">  string  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5 centeralign">  user name  </td>
+	</tr>
+	<tr class="row48">
+		<td class="col0"> <code>rpc_password</code> </td><td class="col1 centeralign">  string  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5 centeralign">  password  </td>
+	</tr>
+	<tr class="row49">
+		<td class="col0"> <code>rpc_whitelist_enabled</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> whether to make use of the whitelist </td>
+	</tr>
+	<tr class="row50">
+		<td class="col0"> <code>rpc_whitelist</code> </td><td class="col1 centeralign">  IP Addresses  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> the IPs of the hosts allowed </td>
+	</tr>
+	<tr class="row51">
+		
+	</tr>
+	<tr class="row52">
+		<td class="col0"> <code>watch_dir_enabled</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> Whether to check a directory for new torrents put there. Leave this disabled It requres inotify enabled in kernel to works, which is not enabled by default in openwrt. </td>
+	</tr>
+	<tr class="row53">
+		<td class="col0"> <code>watch_dir</code> </td><td class="col1 centeralign">  path  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> Path to the directory </td>
+	</tr>
+	<tr class="row54">
+		
+	</tr>
+	<tr class="row55">
+		<td class="col0"> <code>script_torrent_done_enabled</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5 leftalign">      </td>
+	</tr>
+	<tr class="row56">
+		<td class="col0"> <code>script_torrent_done_filename</code> </td><td class="col1 leftalign">      </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5 leftalign">      </td>
+	</tr>
+	<tr class="row57">
+		
+	</tr>
+	<tr class="row58">
+		<td class="col0"> <code>start_added_torrents</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5 leftalign">      </td>
+	</tr>
+	<tr class="row59">
+		<td class="col0"> <code>trash_original_torrent_files</code> </td><td class="col1 leftalign">      </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5 leftalign">      </td>
+	</tr>
+	<tr class="row60">
+		<td class="col0"> <code>umask </code> </td><td class="col1 centeralign">  integer  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5 leftalign"> Sets file mode creation mask. The mask should be in base 10 due to the json markup language used by Transmission. For instance, the standard umask octal notation <code>022</code> is written as <code>18</code>. If you want to save downloaded torrents to be world-writable (equivalent to <code>chmod 777</code> or <code>chmod a+rwx</code>) set this value to <code>0</code>.  </td>
+	</tr>
+	<tr class="row61">
+		
+	</tr>
+	<tr class="row62">
+		<td class="col0"> <code>lazy_bitfield_enabled</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5 leftalign">      </td>
+	</tr>
+	<tr class="row63">
+		<td class="col0"> <code>lpd_enabled</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5 leftalign">      </td>
+	</tr>
+	<tr class="row64">
+		<td class="col0"> <code>message_level</code> </td><td class="col1 centeralign">  integer  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5 leftalign">      </td>
+	</tr>
+	<tr class="row65">
+		
+	</tr>
+	<tr class="row66">
+		<td class="col0"> <code>proxy_enabled</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> whether to use a proxy </td>
+	</tr>
+	<tr class="row67">
+		<td class="col0"> <code>proxy</code> </td><td class="col1"> IP address </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5 leftalign"> IP adress of the proxy    </td>
+	</tr>
+	<tr class="row68">
+		<td class="col0"> <code>proxy_port</code> </td><td class="col1 centeralign">  integer  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5 leftalign"> IP port of the proxy  </td>
+	</tr>
+	<tr class="row69">
+		<td class="col0"> <code>proxy_type</code> </td><td class="col1 centeralign">  integer  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> Type of the proxy (http: 0, socks4: 1, socks5: 2) </td>
+	</tr>
+	<tr class="row70">
+		<td class="col0"> <code>proxy_auth_enabled</code> </td><td class="col1 centeralign">  boolean  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> Whether proxy needs authentication </td>
+	</tr>
+	<tr class="row71">
+		<td class="col0"> <code>proxy_auth_username</code> </td><td class="col1 centeralign">  string  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> username for the proxy </td>
+	</tr>
+	<tr class="row72">
+		<td class="col0"> <code>proxy_auth_password</code> </td><td class="col1 centeralign">  string  </td><td class="col2 leftalign">      </td><td class="col3 leftalign">      </td><td class="col4 leftalign">      </td><td class="col5"> password for the proxy </td>
+	</tr>
+</table></div>
+</div>
+</div>
+
+<h2 class="sectionedit6" id="notes">Notes</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Transmission performs much better when <a href="fstab#addingswappartitions" class="wikilink1" title="doc:uci:fstab">swap</a> is mounted.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit7" id="example">Example</h2>
+<div class="level2">
+
+<p>
+A video demonstration of how Transmission 2.84 can be installed on OpenWrt 14.07 Barrier Breaker: <a href="https://www.youtube.com/watch?v=_R1Kcpy4pj4" class="urlextern" title="https://www.youtube.com/watch?v=_R1Kcpy4pj4"  rel="nofollow">https://www.youtube.com/watch?v=_R1Kcpy4pj4</a>
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/uci/transmission.txt</bdi> · Last modified: 2015/01/21 17:49 by <bdi>Resilldoux</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="transmission?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="transmission?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="transmission?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="transmission#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Auci%253Atransmission&amp;1432266645" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

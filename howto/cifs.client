@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>CIFS Client [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,cifs.client"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="cifs.client?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/cifs.client"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/cifs.client"/>
+<link rel="canonical" href="cifs.client"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:cifs.client","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267994 166.182.3.228';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="cifs.client#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="cifs.client?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="cifs.client?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:cifs.client" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="cifs.client?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="cifs.client?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="cifs.client?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="cifs.client" class="wikilink1" title="doc:howto:cifs.client">CIFS Client</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/cifs.client" class="media" title="cz:doc:howto:cifs.client"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/cifs.client" class="media" title="de:doc:howto:cifs.client"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="cifs.client" class="media" title="doc:howto:cifs.client"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/cifs.client" class="media" title="es:doc:howto:cifs.client"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/cifs.client" class="media" title="fr:doc:howto:cifs.client"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/cifs.client" class="media" title="hu:doc:howto:cifs.client"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/cifs.client" class="media" title="jp:doc:howto:cifs.client"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/cifs.client" class="media" title="pl:doc:howto:cifs.client"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/cifs.client" class="media" title="pt-br:doc:howto:cifs.client"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../ru/doc/howto/cifs.client" class="media" title="ru:doc:howto:cifs.client"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/cifs.client" class="media" title="tr:doc:howto:cifs.client"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/cifs.client" class="media" title="zh-cn:doc:howto:cifs.client"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/cifs.client" class="media" title="zh-tw:doc:howto:cifs.client"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:cifs.client</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="cifs.client#description">Description</a></div>
+<ul class="toc">
+<li class="clear">
+<ul class="toc">
+<li class="level3"><div class="li"><a href="cifs.client#packages">Packages</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="cifs.client#install">Install</a></div></li>
+<li class="level1"><div class="li"><a href="cifs.client#examples">Examples</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="cifs.client#throughput_issues">Throughput Issues</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="cifs_client">CIFS Client</h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit2" id="description">Description</h2>
+<div class="level2">
+
+<p>
+<a href="http://en.wikipedia.org/wiki/Server Message Block" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Server Message Block">Common Internet File System (CIFS)</a> allows you to mount networked drives. You&#039;ll need a Internet connection for downloading the packages and a computer with CIFS/SAMBA server with some shares.
+</p>
+<div class="table sectionedit3"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/dialog-information.png" class="media" alt="" /> </td><td class="col1"> <strong><em><code>Note1</code>:</em></strong> cifs mount is not compatible with luci (see <a href="https://dev.openwrt.org/ticket/10366" class="urlextern" title="https://dev.openwrt.org/ticket/10366"  rel="nofollow">#10366</a>)<br/>
+<strong><em><code>Note2</code>:</em></strong> In <a href="https://dev.openwrt.org/changeset/31584" class="urlextern" title="https://dev.openwrt.org/changeset/31584"  rel="nofollow">r31584</a> the package <code>cifsmount</code>  was replaced with <code>cifs-utils</code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h4 id="packages">Packages</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> <strong>kmod-fs-cifs</strong> Package is required for the actual mounting of cifs drives.</div>
+</li>
+<li class="level1"><div class="li"> <strong>cifsmount</strong>  contains a helper program <strong>mount.cifs</strong> which can be used instead of <strong>mount -t cifs</strong> command. Personal note: On Backfire 10.03.1-rc6, I observed that cifsmount is necessary (in addition to kmod-fs-cifs). &quot;mount -t cifs&quot; fails without cifsmount.</div>
+</li>
+<li class="level1"><div class="li"> <strong>kmod-nls-utf8</strong> <a href="http://en.wikipedia.org/wiki/Native language support" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Native language support">Native language support</a>-Package is required for anonymous/guest access to cifs mounts.  Otherwise, &quot;mount error 83 = Can not access a needed shared library&quot; results.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit4" id="install">Install</h2>
+<div class="level2">
+
+</div>
+
+<h5 id="required">Required</h5>
+<div class="level5">
+
+<p>
+<pre class="code bash">opkg <span class="kw2">install</span> kmod-fs-cifs</pre>
+
+</p>
+
+</div>
+
+<h5 id="optional">Optional</h5>
+<div class="level5">
+
+<p>
+<pre class="code bash">opkg <span class="kw2">install</span> kmod-nls-utf8 kmod-nls-base kmod-crypto-hmac kmod-crypto-md5 kmod-crypto-misc cifsmount</pre>
+
+</p>
+
+<p>
+Note: kmod-crypto-misc for md4-hash algorithm — <em>ivang 2011/11/06 22:12</em>
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="examples">Examples</h2>
+<div class="level2">
+
+<p>
+Basic example of authenticated share.
+<pre class="code bash"><span class="kw2">mount</span> <span class="re5">-t</span> cifs <span class="sy0">//</span>cifs-server<span class="sy0">/</span>share <span class="sy0">/</span>localfolder <span class="re5">-o</span> <span class="re2">user</span>=username,<span class="re2">password</span>=password</pre>
+
+Same as above, but specifies more options
+<pre class="code bash"><span class="kw2">mount</span> <span class="re5">-t</span> cifs <span class="sy0">//</span>cifs-server<span class="sy0">/</span>share <span class="sy0">/</span>localfolder <span class="re5">-o</span> <span class="re2">unc</span>=\\\\cifs-server\\share,<span class="re2">ip</span>=IP-Address,<span class="re2">user</span>=john,<span class="re2">pass</span>=doe,<span class="re2">dom</span>=workgroup</pre>
+
+Anonymous or guest share mounting.
+<pre class="code bash"><span class="kw2">mount</span> <span class="re5">-t</span> cifs <span class="st_h">'\\cifs-server\share'</span> <span class="sy0">/</span>localfolder <span class="re5">-o</span> guest,<span class="re2">iocharset</span>=utf8,<span class="re2">file_mode</span>=0777,<span class="re2">dir_mode</span>=0777,nounix,noserverino</pre>
+
+Anonymous or guest share mounting. If you have a problems with mounting CIFS with Anonymous or guest share try this.
+Its known bug/issue on kernel 3.8.x. 
+<pre class="code bash">mount.cifs <span class="sy0">//</span>cifs-server<span class="sy0">/</span>share <span class="sy0">/</span>localfolder <span class="re5">-o</span> guest,<span class="re2">sec</span>=ntlm</pre>
+
+And for fstab.
+<pre class="code bash"><span class="sy0">//</span>cifs-server<span class="sy0">/</span>share <span class="sy0">/</span>localfolder cifs <span class="re2">credentials</span>=<span class="sy0">/</span>etc<span class="sy0">/</span>samba_pswds_my_share,_netdev,<span class="re2">uid</span>=user,<span class="re2">gid</span>=group <span class="nu0">0</span> <span class="nu0">0</span></pre>
+
+where credentials file (chmod 0700) is formatted as
+<pre class="code">username=shareuser
+password=sharepassword</pre>
+
+</p>
+
+<p>
+If the <strong>cifsmount</strong> package is installed the <strong>mount.cifs</strong> can be used be instead of <strong>mount -t cifs</strong>.
+</p>
+
+<p>
+Check <a href="http://linux.die.net/man/8/mount.cifs" class="urlextern" title="http://linux.die.net/man/8/mount.cifs"  rel="nofollow">manpage of mount.cifs</a>
+</p>
+
+<p>
+Note: if you face the error &quot;Value too large for defined data type&quot;, use the option &quot;nounix,noserverino&quot; as per Samba <abbr title="Frequently Asked Questions">FAQ</abbr>
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="throughput_issues">Throughput Issues</h3>
+<div class="level3">
+
+<p>
+Since <a href="netfilter" class="wikilink1" title="doc:howto:netfilter">netfilter</a> will track every connection, if you use MASQUERADING for example, you could disable conntrack&#039;ing for data connection:
+<pre class="code">$IPT -t raw -A OUTPUT -o $IF_LAN -s $IP_LAN -p tcp --dport 139 -j CT --notrack #------------------ don&#039;t track SMB
+$IPT -t raw -A OUTPUT -o $IF_LAN -s $IP_LAN -p tcp --dport 445 -j CT --notrack #------------------ don&#039;t track SMB
+$IPT -t raw -A PREROUTING -o $IF_LAN -s $IP_LAN -p tcp --sport 139 -j CT --notrack #------------------ don&#039;t track SMB
+$IPT -t raw -A PREROUTING -o $IF_LAN -s $IP_LAN -p tcp --sport 445 -j CT --notrack #------------------ don&#039;t track SMB</pre>
+
+</p>
+
+<p>
+Note this is not the same as for the server, the source and destination ports differ. The INPUT is for when you read from the remote filesystem and the OUTPUT for when you write to it.
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/cifs.client.txt</bdi> · Last modified: 2014/12/19 05:49 by <bdi>tmomas</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="cifs.client?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="cifs.client?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="cifs.client?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="cifs.client#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Acifs.client&amp;1432267994" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

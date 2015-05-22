@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Ostiary Daemon [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,ostiary.server"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="ostiary.server?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/ostiary.server"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/ostiary.server"/>
+<link rel="canonical" href="ostiary.server"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:ostiary.server","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432273810 166.182.3.179';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="ostiary.server#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="ostiary.server?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="ostiary.server?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:ostiary.server" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="ostiary.server?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="ostiary.server?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="ostiary.server?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="ostiary.server" class="wikilink1" title="doc:howto:ostiary.server">Ostiary Daemon</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/ostiary.server" class="media" title="cz:doc:howto:ostiary.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/ostiary.server" class="media" title="de:doc:howto:ostiary.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="ostiary.server" class="media" title="doc:howto:ostiary.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/ostiary.server" class="media" title="es:doc:howto:ostiary.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/ostiary.server" class="media" title="fr:doc:howto:ostiary.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/ostiary.server" class="media" title="hu:doc:howto:ostiary.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/ostiary.server" class="media" title="jp:doc:howto:ostiary.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/ostiary.server" class="media" title="pl:doc:howto:ostiary.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/ostiary.server" class="media" title="pt-br:doc:howto:ostiary.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/ostiary.server" class="media" title="ru:doc:howto:ostiary.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/ostiary.server" class="media" title="tr:doc:howto:ostiary.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/ostiary.server" class="media" title="zh-cn:doc:howto:ostiary.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/ostiary.server" class="media" title="zh-tw:doc:howto:ostiary.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:ostiary.server</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="ostiary.server#how_it_works">How it works</a></div></li>
+<li class="level1"><div class="li"><a href="ostiary.server#how_to_get_it">How to get it</a></div></li>
+<li class="level1"><div class="li"><a href="ostiary.server#service_configuration">Service Configuration</a></div></li>
+<li class="level1"><div class="li"><a href="ostiary.server#stopping_and_starting_ostiaryd">Stopping and Starting ostiaryd</a></div></li>
+<li class="level1"><div class="li"><a href="ostiary.server#action_scripts">&quot;Action&quot; Scripts</a></div></li>
+<li class="level1"><div class="li"><a href="ostiary.server#clients">Clients</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="ostiary_daemon">Ostiary Daemon</h1>
+<div class="level1">
+
+<p>
+<strong>WIP</strong> <img src="../../lib/images/smileys/delete.gif" class="icon" alt="DELETEME" />
+</p>
+
+<p>
+Ostiaryd is designed to allow you to run a fixed set of commands remotely, without giving everyone else access to the same commands. 
+</p>
+
+<p>
+The following are the key design goals:
+</p>
+<ul>
+<li class="level1"><div class="li"> &quot;First, do no harm.&quot; It should not be possible to use the Ostiary system itself to damage the host it&#039;s running on. In particular, it&#039;s willing to accept false negatives (denying access to legitimate users) in order to prevent false positives (allowing access to invalid users).</div>
+</li>
+<li class="level3"><div class="li"> Insofar as possible, eliminate any possibility of bugs causing undesired operations. Buffer overflows, timing attacks, etc. should be impossible for an external attacker to execute. There&#039;s no point in installing security software if it makes you less secure.</div>
+</li>
+<li class="level3"><div class="li"> Be extremely modest in memory and CPU requirements. (eg. running on a Mac SE/30, a 16MHz 68030 machine) and connecting from a Palm Pilot (a 16MHz 68000 machine). </div>
+</li>
+<li class="level3"><div class="li"> Keep things simple. This is not an ssh replacement. Each successful challenge/response will result in executing a corresponding script.</div>
+</li>
+<li class="level3"><div class="li"> It is immune to replay attacks</div>
+</li>
+</ul>
+
+<p>
+This wiki is a quick summary of the author&#039;s documentation followed by openwrt specific usage instructions. For any technical info you may wish to view the author&#039;s site: <a href="http://ingles.homeunix.net/software/ost/index.html" class="urlextern" title="http://ingles.homeunix.net/software/ost/index.html"  rel="nofollow">http://ingles.homeunix.net/software/ost/index.html</a> .
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="how_it_works">How it works</h2>
+<div class="level2">
+
+<p>
+The algorithm used is as follows:
+</p>
+<ol>
+<li class="level1"><div class="li"> Ostiaryd waits on a port for connections from remote machines. When one is received, ostiaryd checks to see if the ip address is locked out. (If compiled in, it will consult /etc/hosts.allow and hosts.deny, too.) If so, it drops the connection immediately.</div>
+</li>
+<li class="level1"><div class="li"> If the address is not locked out, ostiaryd sends a seed value. Currently this is a SHA256 hash (32 bytes) of the the current time, plus either the output of random() or (if available) bytes from /dev/urandom, plus the process&#039; PID.</div>
+</li>
+<li class="level1"><div class="li"> The client takes the seed value and hashes it, HMAC-style, with the password the user provides.</div>
+</li>
+<li class="level1"><div class="li"> Ostiaryd then reads the response (32 bytes), and closes the connection.</div>
+</li>
+<li class="level1"><div class="li"> Now ostiaryd goes through a list of passwords, and hashes them (HMAC style) with the hash value it sent. It compares these new hashes with the response it received.</div>
+</li>
+<li class="level1"><div class="li"> If it finds a match, the command corresponding to that password is run. (E.g., it could start up sshd so you could log in remotely.) The ip address of the client is given as an argument to the command.</div>
+</li>
+<li class="level1"><div class="li"> If the hash does not match any of the listed hashes, the ip address that the bogus hash was sent from gets put on a list of bad addresses. If it exceeds the a defined limit of bad connections, that address is locked out and no further communication is accepted.</div>
+</li>
+<li class="level1"><div class="li"> Now, ostiaryd sleeps a user-defined interval, at least one second.</div>
+</li>
+<li class="level1"><div class="li"> Finally, it jumps back to step 1. </div>
+</li>
+</ol>
+
+</div>
+
+<h2 class="sectionedit3" id="how_to_get_it">How to get it</h2>
+<div class="level2">
+
+<p>
+Grab it from the repository (Note, its not there yet, the package makefile is pending review. If you want it now, grab the source from the author&#039;s site, and follow the <a href="../devel/crosscompile" class="wikilink1" title="doc:devel:crosscompile">crosscompile</a> and <a href="../howtobuild/single.package" class="wikilink1" title="doc:howtobuild:single.package">single.package</a> guidelines. You can find compiled objects under backfire 10.03.1-RC6 for AR71xx platform in <a href="http://tamadite.no-ip.biz/ostiary" class="urlextern" title="http://tamadite.no-ip.biz/ostiary"  rel="nofollow">http://tamadite.no-ip.biz/ostiary</a>.  <img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" />)
+</p>
+<pre class="code">$ opkg update
+$ opkg install ostiary</pre>
+
+<p>
+This package installs both the <span class="curid"><a href="ostiary.server" class="wikilink1" title="doc:howto:ostiary.server">ostiaryd</a></span> service, and the <a href="ostiary.client" class="wikilink1" title="doc:howto:ostiary.client">ostclient</a> client. Both located in /usr/bin
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="service_configuration">Service Configuration</h2>
+<div class="level2">
+
+<p>
+The configuration file is installed by default at /etc/ostiary/ostiary.cfg
+</p>
+
+<p>
+At a minimum, you will need to set at least the following sections:
+</p>
+<ul>
+<li class="level1"><div class="li"> PORT=????</div>
+</li>
+<li class="level1"><div class="li"> KILL=panicpassword</div>
+</li>
+<li class="level1"><div class="li"> ACTION=&quot;secretpassword&quot;,&quot;/full/path/to/script&quot;, &quot;uid&quot;, &quot;gid&quot;</div>
+</li>
+</ul>
+
+<p>
+(upto 8 ACTION scripts are allowed by default. More can be added but you would need to edit the header file ost.h and recompile. See author&#039;s site <a href="http://ingles.homeunix.net/software/ost/install.html#use" class="urlextern" title="http://ingles.homeunix.net/software/ost/install.html#use"  rel="nofollow">here</a>.)
+</p>
+
+<p>
+Eg:
+<pre class="code">ACTION=&quot;enablepassword&quot;,&quot;/etc/ostiaryd/scripts/ssh_enable&quot;,&quot;0&quot;,&quot;0&quot;              
+ACTION=&quot;disablepassword&quot;,&quot;/etc/ostiaryd/scripts/ssh_disable&quot;,&quot;0&quot;,&quot;0&quot;            </pre>
+
+</p>
+
+<p>
+Note: By the author&#039;s <a href="http://ingles.homeunix.net/software/ost/install.html#use" class="urlextern" title="http://ingles.homeunix.net/software/ost/install.html#use"  rel="nofollow">design</a>, you can&#039;t inline a shell command into the ACTION script definition. You need to put your command(s) into a separate file, make it executable, and then call the file using the syntax above. (I know, I wasted a couple of hours on this one…)
+</p>
+
+<p>
+<strong>Be sure to always restart the ostiaryd daemon after making any changes!</strong>
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="stopping_and_starting_ostiaryd">Stopping and Starting ostiaryd</h2>
+<div class="level2">
+
+<p>
+<pre class="code">/etc/init.d/ostiaryd ARGUMENT</pre>
+
+where ARGUMENT is one of &quot;stop&quot;, &quot;start&quot;, or &quot;restart&quot;.  
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="action_scripts">&quot;Action&quot; Scripts</h2>
+<div class="level2">
+
+<p>
+Each &quot;secret&quot; passphrase you defined above needs a corresponding action script (i.e. one-to-one). Place them in the folder below: 
+</p>
+<pre class="code">/etc/ostiaryd/scripts</pre>
+
+<p>
+Eg. To enable and disable ssh access through your WAN you might tweak iptables using scripts like these:
+</p>
+
+<p>
+&quot;../scripts/ssh_enable&quot;:
+<pre class="code bash"><span class="co0">#!/bin/sh</span>
+&nbsp;
+<span class="sy0">/</span>usr<span class="sy0">/</span>bin<span class="sy0">/</span>logger Ostiary is enabling SSH
+<span class="sy0">/</span>usr<span class="sy0">/</span>sbin<span class="sy0">/</span>iptables <span class="re5">-I</span> zone_wan <span class="re5">-p</span> tcp <span class="re5">--dport</span> <span class="nu0">22</span> <span class="re5">-j</span> ACCEPT</pre>
+
+</p>
+
+<p>
+&quot;../scripts/ssh_disable&quot;:
+<pre class="code bash"><span class="co0">#!/bin/sh</span>
+&nbsp;
+<span class="sy0">/</span>usr<span class="sy0">/</span>bin<span class="sy0">/</span>logger Ostiary is dis-abling SSH
+<span class="sy0">/</span>usr<span class="sy0">/</span>sbin<span class="sy0">/</span>iptables <span class="re5">-D</span> zone_wan <span class="re5">-p</span> tcp <span class="re5">--dport</span> <span class="nu0">22</span> <span class="re5">-j</span> ACCEPT</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="clients">Clients</h2>
+<div class="level2">
+
+<p>
+Clients for connecting to the ostiaryd service are listed below. 
+</p>
+<ol>
+<li class="level1"><div class="li"> <a href="ostiary.client" class="wikilink1" title="doc:howto:ostiary.client">ostclient</a> </div>
+<ul>
+<li class="level2"><div class="li"> included in the package you just installed at /usr/bin/ostclient (It can be deleted if you dont need it or really need the 9kb space back… )</div>
+</li>
+<li class="level2"><div class="li"> available in RPM and Debian packages, plus source <a href="http://ingles.homeunix.net/software/ost/get.html#latest" class="urlextern" title="http://ingles.homeunix.net/software/ost/get.html#latest"  rel="nofollow">from the author&#039;s site</a></div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> <a href="http://ingles.homeunix.net/software/ost/latest/Ostiary.apk" class="urlextern" title="http://ingles.homeunix.net/software/ost/latest/Ostiary.apk"  rel="nofollow">Andriod</a> </div>
+</li>
+<li class="level1"><div class="li"> <a href="http://itunes.apple.com/ye/app/ostiary/id463229304" class="urlextern" title="http://itunes.apple.com/ye/app/ostiary/id463229304"  rel="nofollow">iOS</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://ingles.homeunix.net/software/ost/latest/winclient-4.0.zip" class="urlextern" title="http://ingles.homeunix.net/software/ost/latest/winclient-4.0.zip"  rel="nofollow">Windows</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://ingles.homeunix.net/software/ost/get.html#latest" class="urlextern" title="http://ingles.homeunix.net/software/ost/get.html#latest"  rel="nofollow">Java (generic)</a></div>
+</li>
+</ol>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/ostiary.server.txt</bdi> · Last modified: 2013/11/23 11:21 by <bdi>tamadite</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="ostiary.server?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="ostiary.server?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="ostiary.server?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="ostiary.server#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Aostiary.server&amp;1432273811" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

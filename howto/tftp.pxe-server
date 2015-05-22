@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>PXE-Boot from OpenWRT [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="tftpd"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="tftp.pxe-server?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/tftp.pxe-server"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/tftp.pxe-server"/>
+<link rel="canonical" href="tftp.pxe-server"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:tftp.pxe-server","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432273828 166.182.3.179';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="tftp.pxe-server#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="tftp.pxe-server?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="tftp.pxe-server?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:tftp.pxe-server" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="tftp.pxe-server?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="tftp.pxe-server?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="tftp.pxe-server?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="tftp.pxe-server" class="wikilink1" title="doc:howto:tftp.pxe-server">PXE-Boot from OpenWRT</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/tftp.pxe-server" class="media" title="cz:doc:howto:tftp.pxe-server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/tftp.pxe-server" class="media" title="de:doc:howto:tftp.pxe-server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="tftp.pxe-server" class="media" title="doc:howto:tftp.pxe-server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/tftp.pxe-server" class="media" title="es:doc:howto:tftp.pxe-server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/tftp.pxe-server" class="media" title="fr:doc:howto:tftp.pxe-server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/tftp.pxe-server" class="media" title="hu:doc:howto:tftp.pxe-server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/tftp.pxe-server" class="media" title="jp:doc:howto:tftp.pxe-server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/tftp.pxe-server" class="media" title="pl:doc:howto:tftp.pxe-server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/tftp.pxe-server" class="media" title="pt-br:doc:howto:tftp.pxe-server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/tftp.pxe-server" class="media" title="ru:doc:howto:tftp.pxe-server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/tftp.pxe-server" class="media" title="tr:doc:howto:tftp.pxe-server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/tftp.pxe-server" class="media" title="zh-cn:doc:howto:tftp.pxe-server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/tftp.pxe-server" class="media" title="zh-tw:doc:howto:tftp.pxe-server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:tftp.pxe-server</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="tftp.pxe-server#pxe-boot_from_openwrt">PXE-Boot from OpenWRT</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="tftp.pxe-server#install_mass_storage">1. Install mass storage</a></div></li>
+<li class="level2"><div class="li"><a href="tftp.pxe-server#prepare_files_for_pxe-booting">2. Prepare files for PXE-Booting</a></div></li>
+<li class="level2"><div class="li"><a href="tftp.pxe-server#enable_tftp_and_nfs_service">3. Enable TFTP and NFS Service</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h2 class="sectionedit1" id="pxe-boot_from_openwrt">PXE-Boot from OpenWRT</h2>
+<div class="level2">
+
+<p>
+In some cases you want to use your OpenWRT as a PXE-Server to network-boot other devices. 
+Reasons could be:
+</p>
+<ul>
+<li class="level1"><div class="li"> Boot Ubuntu / Debian / CentOS Live Systems</div>
+</li>
+<li class="level1"><div class="li"> Install any Linux Distrib. or Windows (via winpe) over network</div>
+</li>
+<li class="level1"><div class="li"> Boot debugging tools like knoppix / gparted / clonezilla / backtrack</div>
+</li>
+</ul>
+
+<p>
+The following example shows how to provide PXE-Booting for Ubuntu Live System on an OpenWRT Router.
+</p>
+
+<p>
+Basic idea:
+</p>
+<ul>
+<li class="level1"><div class="li"> Connect USB Mass Storage to router to store PXE-Boot files and Live Images</div>
+</li>
+<li class="level1"><div class="li"> use dnsmasq service for dhcp &amp; tftp readonly booting</div>
+</li>
+<li class="level1"><div class="li"> use nfs for further service booting (required by e.g. ubuntu)</div>
+</li>
+</ul>
+
+<p>
+Booting other Linux based distributions is not very different, only the boot parameters differ and can be found everywhere on the internet.
+</p>
+
+<p>
+The following instructions have been done step-by-step on an OpenWRT Attitude Adjustment 12.09 on a <a href="../../toh/tp-link/tl-wdr3600" class="wikilink1" title="toh:tp-link:tl-wdr3600">tl-wdr3600</a>on 6th of December 2013
+</p>
+
+</div>
+
+<h3 class="sectionedit2" id="install_mass_storage">1. Install mass storage</h3>
+<div class="level3">
+
+<p>
+Install USB-Support
+<pre class="code">root@OpenWRT:~# opkg install usbutils kmod-usb-storage  block-mount</pre>
+
+Show connected USB-Devices
+<pre class="code">root@OpenWRT:~# lsusb
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 001 Device 002: ID 05e3:0608 Genesys Logic, Inc. USB-2.0 4-Port HUB
+Bus 001 Device 003: ID 0951:1600 Kingston Technology DataTraveler G3 4GB</pre>
+
+Verify the USB-device in /dev
+</p>
+
+<p>
+We assume that the USB-device is plugged in and has been formatted to FAT32 or EXT2,3
+</p>
+
+<p>
+If you have a NTFS filesystem please install NTFS support: opkg install ntfs-3g
+For more information on NTFS see <a href="writable_ntfs" class="wikilink1" title="doc:howto:writable_ntfs">writable_ntfs</a>
+<pre class="code">root@OpenWRT:~# ls -l /dev/sd*
+brw-r--r--    1 root    root        8,   0 Jan  1  1970 /dev/sda
+brw-r--r--    1 root    root        8,   1 Dec  6 17:52 /dev/sda1</pre>
+
+Create mountpoint for usbdevice
+<pre class="code">root@OpenWRT:~# mkdir /mnt/extstorage</pre>
+
+Enable automatic mounting of external USB Storage. For additional Information see <a href="../uci/fstab" class="wikilink1" title="doc:uci:fstab">fstab</a>
+<pre class="code">root@OpenWRT:~# vim /etc/config/fstab
+config global automount
+        option from_fstab 1
+        option anon_mount 1
+
+config global autoswap
+        option from_fstab 1
+        option anon_swap 0
+
+config mount
+        option target   /mnt/extstorage
+        option device   /dev/sda1
+        option enabled  1
+        option enabled_fsck 0</pre>
+
+Now enable start of fstab-service on boot of OpenWRT
+<pre class="code">root@OpenWRT:~# /etc/init.d/fstab enable</pre>
+
+Start fstab this time manually
+<pre class="code">root@OpenWRT:~# /etc/init.d/fstab start</pre>
+
+Verify that the USB Mass Storage /dev/sda1 is mounted to /mnt/extstorage
+<pre class="code">root@OpenWRT:~# mount | grep extstorage
+/dev/sda1 on /mnt/extstorage type fuseblk (rw,relatime,user_id=0,group_id=0,allow_other,blksize=4096)</pre>
+
+For testing purposes, touch a file on the usb-stick and reboot OpenWrt router:
+<pre class="code">root@OpenWRT:~# touch /mnt/extstorage/test.txt
+root@OpenWRT:~# reboot</pre>
+
+After the reboot you should be able to verify again that the USB Mass Storage is mounted to /mnt/extstorage and that the test.txt exists.
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="prepare_files_for_pxe-booting">2. Prepare files for PXE-Booting</h3>
+<div class="level3">
+
+<p>
+Generate TFTP-Boot folder structure and files:
+<pre class="code">root@OpenWRT:~# cd /mnt/extstorage
+root@OpenWRT:~# mkdir tftp tftp/pxelinux.cfg tftp/disks tftp/disks/ubuntu1310-64</pre>
+
+</p>
+
+<p>
+Now you have to download syslinux.
+Download <a href="https://www.kernel.org/pub/linux/utils/boot/syslinux/" class="urlextern" title="https://www.kernel.org/pub/linux/utils/boot/syslinux/"  rel="nofollow">Syslinux</a>
+Direct-Link to 13-Oct-2013 <a href="https://www.kernel.org/pub/linux/utils/boot/syslinux/syslinux-6.02.zip" class="urlextern" title="https://www.kernel.org/pub/linux/utils/boot/syslinux/syslinux-6.02.zip"  rel="nofollow">Syslinux v6.02</a>
+</p>
+
+<p>
+The basic wget from OpenWRT does NOT support wget from <a href="https://." class="urlextern" title="https://."  rel="nofollow">https://.</a> The following steps could be done by downloading the syslinux to your pc and transfer the required files manually to your usb-stick. 
+</p>
+
+<p>
+Because the basic OpenWRT wget does not support https, we have to install the package wget (thanks to theoradicus for giving this important hint) and the extended tar command to extract the compressed archive afterwards:
+<pre class="code">root@OpenWRT:~# opkg update
+root@OpenWRT:~# opkg install wget tar</pre>
+
+</p>
+
+<p>
+Now we can download the syslinux archive and extract it. We do not have the public SSL-CAs on our OpenWRT so we have to NOT check the server-certificate:
+<pre class="code">root@OpenWRT:~# mkdir /mnt/extstorage/syslinux-download
+root@OpenWRT:~# cd /mnt/extstorage/syslinux-download
+root@OpenWRT:/mnt/extstorage/syslinux-download# wget --no-check-certificate https://www.kernel.org/pub/linux/utils/boot/syslinux/syslinux-6.02.tar.gz
+root@OpenWRT:/mnt/extstorage/syslinux-download# tar -xf syslinux-6.02.tar.gz</pre>
+
+</p>
+
+<p>
+You have to copy the following files from the syslinux to your tftp-folder:
+</p>
+<ul>
+<li class="level1"><div class="li"> ./bios/core/pxelinux.0</div>
+</li>
+<li class="level1"><div class="li"> ./bios/com32/elflink/ldlinux/ldlinux.c32</div>
+</li>
+<li class="level1"><div class="li"> ./bios/com32/menu/vesamenu.c32</div>
+</li>
+<li class="level1"><div class="li"> ./bios/com32/lib/libcom32.c32</div>
+</li>
+<li class="level1"><div class="li"> ./bios/com32/libutil/libutil.c32</div>
+</li>
+</ul>
+
+<p>
+As one single long copy-command:
+<pre class="code">root@OpenWRT:~# cd /mnt/extstorage/syslinux-download/syslinux-6.02/bios
+root@OpenWRT:/mnt/extstorage/syslinux-download/syslinux-6.02/bios# cp core/pxelinux.0 com32/elflink/ldlinux/ldlinux.c32 com32/menu/vesamenu.c32 com32/lib/lib
+com32.c32 com32/libutil/libutil.c32 /mnt/extstorage/tftp</pre>
+
+</p>
+
+<p>
+<strong>Hint</strong>: We do a BIOS / Legacy PXE Boot - NOT an UEFI boot, this is something completely different!
+</p>
+
+<p>
+Now we create our default menu-file:
+<pre class="code">root@OpenWRT:~# vim /mnt/extstorage/tftp/pxelinux.cfg/default
+DEFAULT vesamenu.c32
+PROMPT 0
+MENU TITLE OpenWRT PXE-Boot Menu
+
+label Ubuntu
+        MENU LABEL Ubuntu Live 13.10 64-Bit
+        KERNEL disks/ubuntu/casper/vmlinuz.efi
+        APPEND boot=casper ide=nodma netboot=nfs nfsroot=192.168.1.1:/mnt/extstorage/tftp/disks/ubuntu1310-64/ initrd=disks/ubuntu/casper/initrd.lz
+        TEXT HELP
+                Starts the Ubuntu Live-CD - Version 13.10 64-Bit
+        ENDTEXT</pre>
+
+</p>
+
+<p>
+As you can see we need nfs for this operating system. Other operating systems like clonezilla can be fully booted via TFTP an do not need an additional nfs service.
+</p>
+
+<p>
+We now have to download and extract the Ubuntu 13.10 to the USB-Drive. 
+</p>
+
+<p>
+One Option is to do this directly on the OpenWRT itself, but I downloaded the Ubuntu ISO on my computer and plugged in the USB-Drive from OpenWRT and put only the extracted files onto the USB-Drive
+</p>
+
+<p>
+Finally, you should have something like the following folder structure:
+<pre class="code">root@OpenWRT:~#  cd ..
+root@OpenWRT:~# # find /mnt/extstorage/tftp/
+/mnt/extstorage/tftp/
+/mnt/extstorage/tftp/disks
+/mnt/extstorage/tftp/disks/ubuntu1310-64
+/mnt/extstorage/tftp/disks/ubuntu1310-64/pics
+...
+/mnt/extstorage/tftp/disks/ubuntu1310-64/EFI
+...
+/mnt/extstorage/tftp/disks/ubuntu1310-64/README.diskdefines
+/mnt/extstorage/tftp/disks/ubuntu1310-64/autorun.inf
+/mnt/extstorage/tftp/disks/ubuntu1310-64/casper
+/mnt/extstorage/tftp/disks/ubuntu1310-64/casper/filesystem.size
+/mnt/extstorage/tftp/disks/ubuntu1310-64/casper/initrd.lz
+/mnt/extstorage/tftp/disks/ubuntu1310-64/casper/vmlinuz.efi
+/mnt/extstorage/tftp/disks/ubuntu1310-64/casper/filesystem.manifest
+/mnt/extstorage/tftp/disks/ubuntu1310-64/casper/filesystem.manifest-remove
+/mnt/extstorage/tftp/disks/ubuntu1310-64/casper/filesystem.squashfs
+/mnt/extstorage/tftp/disks/ubuntu1310-64/isolinux
+...
+/mnt/extstorage/tftp/disks/ubuntu1310-64/pool
+...
+/mnt/extstorage/tftp/disks/ubuntu1310-64/wubi.exe
+/mnt/extstorage/tftp/disks/ubuntu1310-64/preseed
+...
+/mnt/extstorage/tftp/disks/ubuntu1310-64/md5sum.txt
+/mnt/extstorage/tftp/disks/ubuntu1310-64/install
+/mnt/extstorage/tftp/disks/ubuntu1310-64/install/mt86plus
+/mnt/extstorage/tftp/disks/ubuntu1310-64/dists
+...
+/mnt/extstorage/tftp/disks/ubuntu1310-64/ubuntu
+/mnt/extstorage/tftp/disks/ubuntu1310-64/boot
+...
+/mnt/extstorage/tftp/ldlinux.c32
+/mnt/extstorage/tftp/libcom32.c32
+/mnt/extstorage/tftp/libutil.c32
+/mnt/extstorage/tftp/pxelinux.0
+/mnt/extstorage/tftp/pxelinux.cfg
+/mnt/extstorage/tftp/pxelinux.cfg/default
+/mnt/extstorage/tftp/vesamenu.c32</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="enable_tftp_and_nfs_service">3. Enable TFTP and NFS Service</h3>
+<div class="level3">
+
+<p>
+Configure dnsmasq service to enable read-only tftp-service
+<pre class="code">root@OpenWRT:~# vim /etc/config/dhcp
+config dnsmasq
+         ... a lot of config done before...
+        option enable_tftp &#039;1&#039;
+        option tftp_root &#039;/mnt/extstorage/tftp&#039;
+        ... a lot more config
+
+config boot linux
+        option filename &#039;pxelinux.0&#039;
+        option serveraddress &#039;192.168.1.1&#039;
+        option servername &#039;OpenWRT&#039;
+
+root@OpenWRT:~# /etc/init.d/dnsmasq restart</pre>
+
+</p>
+
+<p>
+Now we have to install and configure the NFS-Service:
+<pre class="code">root@OpenWRT:~# opkg install nfs-kernel-server</pre>
+
+</p>
+
+<p>
+Configure NFS-Share now
+<pre class="code">root@OpenWRT:~# vim /etc/exports
+/mnt/extstorage/tftp/disks  *(ro,async,no_subtree_check)</pre>
+
+</p>
+
+<p>
+Now enable portmap and nfsd and (re)start them
+<pre class="code">root@OpenWRT:~# /etc/init.d/portmap enable
+root@OpenWRT:~# /etc/init.d/portmap restart
+root@OpenWRT:~# /etc/init.d/nfsd enable
+root@OpenWRT:~# /etc/init.d/nfsd restart</pre>
+
+</p>
+
+<p>
+And now we are ready to go! Just grab a computer (or Virtual Machine) and PXE Boot - you should be able to fully boot into Ubuntu 13.10 via your OpenWRT Router <img src="../../lib/images/smileys/icon_biggrin.gif" class="icon" alt=":-D" />
+Hint: you often have to enable PXE-Booting in BIOS and press e.g. F12 to get into the Boot-Menu.
+</p>
+<div class="tags"><span>
+	<a href="../../tag/tftpd?do=showtag&amp;tag=tftpd" class="wikilink1" title="tag:tftpd" rel="tag">tftpd</a>
+</span></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/tftp.pxe-server.txt</bdi> · Last modified: 2014/01/04 12:16 by <bdi>fuxifelix</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="tftp.pxe-server?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="tftp.pxe-server?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="tftp.pxe-server?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="tftp.pxe-server#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Atftp.pxe-server&amp;1432273828" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

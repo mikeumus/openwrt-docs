@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>UCI (Unified Configuration Interface) – Technical Reference [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="wip"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="../techref/uci?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:techref"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/techref/uci"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/techref/uci"/>
+<link rel="canonical" href="uci-lua"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:techref';var JSINFO = {"id":"doc:techref:uci","namespace":"doc:techref"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265705 166.182.3.62';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="uci-lua#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="../techref/uci?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="../techref/uci?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:techref:uci" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="../techref/uci?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="../techref/uci?do=media&amp;ns=doc%253Atechref"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="../techref/uci?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../techref.1" class="wikilink1" title="doc:techref:start">Technical Reference</a></bdi> » <bdi><span class="curid"><a href="uci-lua" class="wikilink1" title="doc:techref:uci">UCI (Unified Configuration Interface) – Technical Reference</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/techref/uci" class="media" title="cz:doc:techref:uci"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/techref/uci" class="media" title="de:doc:techref:uci"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="uci-lua" class="media" title="doc:techref:uci"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/techref/uci" class="media" title="es:doc:techref:uci"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/techref/uci" class="media" title="fr:doc:techref:uci"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/techref/uci" class="media" title="hu:doc:techref:uci"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/techref/uci" class="media" title="jp:doc:techref:uci"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/techref/uci" class="media" title="pl:doc:techref:uci"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/techref/uci" class="media" title="pt-br:doc:techref:uci"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/techref/uci" class="media" title="ru:doc:techref:uci"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/techref/uci" class="media" title="tr:doc:techref:uci"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../zh-cn/doc/techref/uci" class="media" title="zh-cn:doc:techref:uci"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/techref/uci" class="media" title="zh-tw:doc:techref:uci"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:techref:uci</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level2"><div class="li"><a href="uci-lua#what_is_uci">What is UCI?</a></div></li>
+<li class="level2"><div class="li"><a href="uci-lua#dependencies_of_uci">Dependencies of UCI</a></div></li>
+<li class="level1"><div class="li"><a href="uci-lua#packages">Packages</a></div></li>
+<li class="level2"><div class="li"><a href="uci-lua#installed_files">Installed Files</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="uci-lua#uci">uci</a></div></li>
+<li class="level3"><div class="li"><a href="uci-lua#libuci">libuci</a></div></li>
+<li class="level3"><div class="li"><a href="uci-lua#libuci-lua">libuci-lua</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="uci-lua#lua_bindings_for_uci">Lua Bindings for UCI</a></div></li>
+<li class="level1"><div class="li"><a href="uci-lua#api">API</a></div></li>
+<li class="level2"><div class="li"><a href="uci-lua#top_level_entry_point">top level entry point</a></div></li>
+<li class="level2"><div class="li"><a href="uci-lua#on_that_you_can_call_the_usual_operations">on that you can call the usual operations</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="uci-lua#about_uci_structure">About uci structure</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="uci-lua#additional_information">Additional Information</a></div></li>
+<li class="level1"><div class="li"><a href="uci-lua#usage_outside_of_openwrt">Usage outside of  OpenWrt</a></div></li>
+<li class="level1"><div class="li"><a href="uci-lua#functioning">Functioning</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="uci_unified_configuration_interface_technical_reference">UCI (Unified Configuration Interface) – Technical Reference</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> <a href="http://nbd.name/gitweb.cgi?p=uci.git;a=summary" class="urlextern" title="http://nbd.name/gitweb.cgi?p=uci.git;a=summary"  rel="nofollow">Project&#039;s git: UCI (Unified Configuration Interface) library and utility</a></div>
+</li>
+<li class="level1"><div class="li"> UCI is available in OpenWrt since <a href="https://dev.openwrt.org/changeset/10367" class="urlextern" title="https://dev.openwrt.org/changeset/10367"  rel="nofollow">R10367 (trunk)</a></div>
+</li>
+<li class="level1"><div class="li"> Use <code>git</code> on your local GNU/Linux installation to retrieve the source code:<pre class="code bash"><span class="kw2">git clone</span> git:<span class="sy0">//</span>nbd.name<span class="sy0">/</span>uci.git</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> This is the Technical Reference. Please see <strong><a href="../uci.1" class="wikilink1" title="doc:uci">UCI (Unified Configuration Interface) – Usage</a></strong></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit2" id="what_is_uci">What is UCI?</h3>
+<div class="level3">
+
+<p>
+<code>UCI</code> is a small utility written in <a href="http://en.wikipedia.org/wiki/C (programming language)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/C (programming language)">C</a> (a <a href="http://en.wikipedia.org/wiki/shell script" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/shell script">shell script</a>-wrapper is available as well) and is intended to <em>centralize</em> the whole configuration of a device running OpenWrt. UCI is the successor of the NVRAM based configuration found in the historical OpenWrt branch <a href="../../about/history" class="wikilink1" title="about:history">White Russian</a> and a wrapper for the standard configuration files programs bring with them, like e.g. <code>/etc/network/interfaces</code>, <code>/etc/exports</code>, <code>/etc/dnsmasq.conf</code>, <code>/etc/samba/samba.conf</code> etc.
+</p>
+<div class="table sectionedit3"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/dialog-information.png" class="media" alt="" /> </td><td class="col1"> UCI configuration files are located  in the directory <strong><code>/etc/config/</code></strong><br/>
+Their documentation can be accessed online in the OpenWrt-Wiki under <a href="../uci.1" class="wikilink1" title="doc:uci">UCI configuration files</a>. </td>
+	</tr>
+</table></div>
+
+<p>
+They can be altered with any text editor or with the command line utility program <code>uci</code> or through various programming APIs (like Shell, Lua and C). The WUI <a href="../techref/luci" class="wikilink1" title="doc:techref:luci">LuCI</a> e.g. uses Lua to manipulate them.
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="dependencies_of_uci">Dependencies of UCI</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <code>libuci</code> a small library for UCI written in <a href="http://en.wikipedia.org/wiki/C (programming language)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/C (programming language)">C</a></div>
+<ul>
+<li class="level2"><div class="li"> <code>libuci-lua</code> is a libuci-plugin for <a href="http://en.wikipedia.org/wiki/Lua (programming language)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Lua (programming language)">Lua</a> which is utilized by e.g. <a href="../techref/luci" class="wikilink1" title="doc:techref:luci">LuCI</a></div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+Both are maintained in the same git as UCI.
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="packages">Packages</h2>
+<div class="level2">
+
+<p>
+The functionality is provided by the two packages <code>uci</code> and <code>libuci</code>. The package <code>libuci-lua</code> is also available.
+</p>
+<div class="table sectionedit6"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign"> Name    </th><th class="col1"> Size in Bytes </th><th class="col2"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> uci        </td><td class="col1 rightalign">   7196 </td><td class="col2 leftalign"> Utility for the Unified Configuration Interface (UCI)    </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> libuci     </td><td class="col1 rightalign">  18765 </td><td class="col2 leftalign"> C library for the Unified Configuration Interface (UCI)  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> libuci-lua </td><td class="col1 rightalign">  ~6000 </td><td class="col2 leftalign"> libuci-plugin for <a href="http://en.wikipedia.org/wiki/Lua (programming language)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Lua (programming language)">Lua</a>, e.g. <a href="../techref/luci" class="wikilink1" title="doc:techref:luci">LuCI</a> makes use of it  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit7" id="installed_files">Installed Files</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="uci">uci</h4>
+<div class="level4">
+<div class="table sectionedit8"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign"> path/file                 </th><th class="col1"> file type </th><th class="col2 leftalign"> Description  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> /sbin/uci                 </td><td class="col1 centeralign">  binary        </td><td class="col2 leftalign"> uci executable  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> /lib/config/uci.sh        </td><td class="col1 centeralign">  shell script  </td><td class="col2 leftalign"> Shell script compatibility wrappers for <code>/sbin/uci</code>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h4 id="libuci">libuci</h4>
+<div class="level4">
+<div class="table sectionedit9"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign"> path/file                  </th><th class="col1"> file type </th><th class="col2 leftalign"> Description  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> /lib/libuci.so             </td><td class="col1 centeralign">  symlink  </td><td class="col2 leftalign"> symlink to libuci.so.xxx  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> /lib/libuci.so.2011-01-19  </td><td class="col1 centeralign">  binary   </td><td class="col2 leftalign"> Library  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h4 id="libuci-lua">libuci-lua</h4>
+<div class="level4">
+<div class="table sectionedit10"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign"> path/file                  </th><th class="col1"> file type </th><th class="col2 leftalign"> Description  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> /usr/lib/lua/uci.so        </td><td class="col1 centeralign">  binary  </td><td class="col2 leftalign"> Library  </td>
+	</tr>
+</table></div>
+<hr />
+
+</div>
+
+<h2 class="sectionedit11" id="lua_bindings_for_uci">Lua Bindings for UCI</h2>
+<div class="level2">
+
+<p>
+For those who like lua, UCI can be accessed in your code via the package libuci-lua.  Just install the package then, in your lua code do <pre class="code lua"><span class="kw3">require</span><span class="br0">&#40;</span><span class="st0">&quot;uci&quot;</span><span class="br0">&#41;</span></pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit12" id="api">API</h2>
+<div class="level2">
+
+<p>
+The api is quite simple
+</p>
+
+</div>
+
+<h3 class="sectionedit13" id="top_level_entry_point">top level entry point</h3>
+<div class="level3">
+
+<p>
+uci.cursor()  (that instantiates a uci context instance)
+e.g. <pre class="code lua">x <span class="sy0">=</span> uci<span class="sy0">.</span>cursor<span class="br0">&#40;</span><span class="br0">&#41;</span></pre>
+ or <pre class="code lua">x <span class="sy0">=</span> uci<span class="sy0">.</span>cursor<span class="br0">&#40;</span><span class="kw4">nil</span><span class="sy0">,</span> <span class="st0">&quot;/var/state&quot;</span><span class="br0">&#41;</span></pre>
+
+if you want to involve state vars
+</p>
+
+</div>
+
+<h3 class="sectionedit14" id="on_that_you_can_call_the_usual_operations">on that you can call the usual operations</h3>
+<div class="level3">
+
+<p>
+<pre class="code lua">x<span class="sy0">:</span>get<span class="br0">&#40;</span><span class="st0">&quot;config&quot;</span><span class="sy0">,</span> <span class="st0">&quot;sectionname&quot;</span><span class="sy0">,</span> <span class="st0">&quot;option&quot;</span><span class="br0">&#41;</span></pre>
+
+returns string or nil for not found
+<pre class="code lua">x<span class="sy0">:</span>set<span class="br0">&#40;</span><span class="st0">&quot;config&quot;</span><span class="sy0">,</span> <span class="st0">&quot;sectionname&quot;</span><span class="sy0">,</span> <span class="st0">&quot;option&quot;</span><span class="sy0">,</span> <span class="st0">&quot;value&quot;</span><span class="br0">&#41;</span></pre>
+
+sets simple string value
+<pre class="code lua">x<span class="sy0">:</span>set<span class="br0">&#40;</span><span class="st0">&quot;config&quot;</span><span class="sy0">,</span> <span class="st0">&quot;sectionname&quot;</span><span class="sy0">,</span> <span class="st0">&quot;option&quot;</span><span class="sy0">,</span> <span class="br0">&#123;</span> <span class="st0">&quot;foo&quot;</span><span class="sy0">,</span> <span class="st0">&quot;bar&quot;</span> <span class="br0">&#125;</span><span class="br0">&#41;</span></pre>
+
+sets list value
+<pre class="code lua">x<span class="sy0">:</span>delete<span class="br0">&#40;</span><span class="st0">&quot;config&quot;</span><span class="sy0">,</span> <span class="st0">&quot;section&quot;</span><span class="sy0">,</span> <span class="st0">&quot;option&quot;</span><span class="br0">&#41;</span></pre>
+
+deletes option
+<pre class="code lua">x<span class="sy0">:</span>delete<span class="br0">&#40;</span><span class="st0">&quot;config&quot;</span><span class="sy0">,</span> <span class="st0">&quot;section&quot;</span><span class="br0">&#41;</span></pre>
+
+deletes section
+<pre class="code lua">x<span class="sy0">:</span>add<span class="br0">&#40;</span><span class="st0">&quot;config&quot;</span><span class="sy0">,</span> <span class="st0">&quot;type&quot;</span><span class="br0">&#41;</span></pre>
+
+adds new anon section &quot;type&quot; and returns its name
+<pre class="code lua">x<span class="sy0">:</span>set<span class="br0">&#40;</span><span class="st0">&quot;config&quot;</span><span class="sy0">,</span> <span class="st0">&quot;name&quot;</span><span class="sy0">,</span> <span class="st0">&quot;type&quot;</span><span class="br0">&#41;</span></pre>
+
+adds new section &quot;name&quot; with type &quot;type&quot;
+<pre class="code lua">x<span class="sy0">:</span><span class="kw3">foreach</span><span class="br0">&#40;</span><span class="st0">&quot;config&quot;</span><span class="sy0">,</span> <span class="st0">&quot;type&quot;</span><span class="sy0">,</span> <span class="kw1">function</span><span class="br0">&#40;</span>s<span class="br0">&#41;</span> <span class="sy0">...</span> <span class="kw1">end</span><span class="br0">&#41;</span></pre>
+
+iterates over all sections of type &quot;type&quot; and invokes callback function for each &quot;s&quot; within the callback.  
+s is a table containing all options and two special properties
+</p>
+<ul>
+<li class="level1"><div class="li"> s[&#039;.type&#039;] → section type</div>
+</li>
+<li class="level2"><div class="li"> s[&#039;.name&#039;]  → section name</div>
+</li>
+</ul>
+
+<p>
+If the callback function returns <code>false</code> [NB: <em class="u">not</em> <code>nil</code>!], <code>foreach()</code> will terminate at that point without iterating over any remaining sections.
+<code>foreach()</code> returns <code>true</code> if at least one section exists and the callback function didn&#039;t raise an error for it; <code>false</code> otherwise.
+<pre class="code lua">x<span class="sy0">:</span>reorder<span class="br0">&#40;</span><span class="st0">&quot;config&quot;</span><span class="sy0">,</span> <span class="st0">&quot;sectionname&quot;</span><span class="sy0">,</span> position<span class="br0">&#41;</span></pre>
+
+Move a section to another position. Position starts at 0. 
+This is for example handy to change the wireless config order (changing priority). 
+<pre class="code lua">x<span class="sy0">:</span>revert<span class="br0">&#40;</span><span class="st0">&quot;config&quot;</span><span class="br0">&#41;</span></pre>
+
+discards any changes made to the configuration, that have not yet been committed
+<pre class="code lua">x<span class="sy0">:</span>commit<span class="br0">&#40;</span><span class="st0">&quot;config&quot;</span><span class="br0">&#41;</span></pre>
+
+commits (saves) the changed configuration to the corresponding file in /etc/config
+</p>
+
+<p>
+That&#039;s basically all you need
+</p>
+
+</div>
+
+<h4 id="about_uci_structure">About uci structure</h4>
+<div class="level4">
+
+<p>
+It took me some time to understand the difference between &quot;section&quot; and &quot;type&quot;. Let&#039;s start with an example:
+</p>
+
+<p>
+<pre class="code">#uci show system
+system.@system[0]=system
+system.@system[0].hostname=OpenWrt
+system.@system[0].timezone=UTC
+system.@rdate[0]=rdate
+system.@rdate[0].server=ac-ntp0.net.cmu.edu ptbtime1.ptb.de ac-ntp1.net.cmu.edu ntp.xs4all.nl ptbtime2.ptb.de cudns.cit.cornell.edu ptbtime3.ptb.de</pre>
+
+</p>
+
+<p>
+Here, x:get(&quot;system&quot;,&quot;@rdate[0]&quot;,&quot;server&quot;) won&#039;t work. rdate is a type, not a section.
+</p>
+
+<p>
+Here is the return of x:get_all(&quot;system&quot;):
+</p>
+
+<p>
+<pre class="code lua"><span class="br0">&#123;</span>
+ cfg02f02f<span class="sy0">=</span><span class="br0">&#123;</span><span class="br0">&#91;</span><span class="st0">&quot;.name&quot;</span><span class="br0">&#93;</span><span class="sy0">=</span><span class="st0">&quot;cfg02f02f&quot;</span><span class="sy0">,</span><span class="br0">&#91;</span><span class="st0">&quot;.type&quot;</span><span class="br0">&#93;</span><span class="sy0">=</span><span class="st0">&quot;system&quot;</span><span class="sy0">,</span>hostname<span class="sy0">=</span><span class="st0">&quot;OpenWrt&quot;</span><span class="sy0">,</span><span class="br0">&#91;</span><span class="st0">&quot;.index&quot;</span><span class="br0">&#93;</span><span class="sy0">=</span><span class="nu0">0</span><span class="sy0">,</span><span class="br0">&#91;</span><span class="st0">&quot;.anonymous&quot;</span><span class="br0">&#93;</span><span class="sy0">=</span><span class="kw4">true</span><span class="sy0">,</span>timezone<span class="sy0">=</span><span class="st0">&quot;UTC&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+ cfg04e10c<span class="sy0">=</span><span class="br0">&#123;</span><span class="br0">&#91;</span><span class="st0">&quot;.name&quot;</span><span class="br0">&#93;</span><span class="sy0">=</span><span class="st0">&quot;cfg04e10c&quot;</span><span class="sy0">,</span><span class="br0">&#91;</span><span class="st0">&quot;.type&quot;</span><span class="br0">&#93;</span><span class="sy0">=</span><span class="st0">&quot;rdate&quot;</span><span class="sy0">,</span><span class="br0">&#91;</span><span class="st0">&quot;.index&quot;</span><span class="br0">&#93;</span><span class="sy0">=</span><span class="nu0">1</span><span class="sy0">,</span><span class="br0">&#91;</span><span class="st0">&quot;.anonymous&quot;</span><span class="br0">&#93;</span><span class="sy0">=</span><span class="kw4">true</span><span class="sy0">,</span>server<span class="sy0">=</span><span class="br0">&#123;</span><span class="st0">&quot;ac-ntp0.net.cmu.edu&quot;</span><span class="sy0">,</span><span class="st0">&quot;ptbtime1.ptb.de&quot;</span><span class="sy0">,</span><span class="st0">&quot;ac-tp1.net.cmu.edu&quot;</span><span class="sy0">,</span><span class="st0">&quot;ntp.xs4all.nl&quot;</span><span class="sy0">,</span><span class="st0">&quot;ptbtime2.ptb.de&quot;</span><span class="sy0">,</span><span class="st0">&quot;cudns.cit.cornell.edu&quot;</span><span class="sy0">,</span><span class="st0">&quot;ptbtime3.ptb.de&quot;</span><span class="br0">&#125;</span><span class="br0">&#125;</span>
+<span class="br0">&#125;</span></pre>
+
+</p>
+
+<p>
+[&quot;.type&quot;] gives the type of the section
+</p>
+
+<p>
+[&quot;.name&quot;] gives the real name of the section. You can see here, that these names are generated.
+</p>
+
+<p>
+[&quot;.index&quot;] is the index of the list (+1)
+</p>
+
+<p>
+From what I know, there seem to be no way to access &quot;@rdate[0]&quot; directly. You have to iterate with x:foreach to list all the elements of a given type.
+</p>
+
+<p>
+I use the following function:
+</p>
+
+<p>
+<pre class="code">uci=require(&quot;uci&quot;)
+function getConfType(conf,type)
+   local curs=uci.cursor()
+   local ifce={}
+   curs:foreach(conf,type,function(s) ifce[s[&quot;.index&quot;]]=s end)
+   return ifce
+end</pre>
+
+</p>
+
+<p>
+getConfType(&quot;system&quot;,&quot;rdate&quot;) returns:
+<pre class="code">{{[&quot;.name&quot;]=&quot;cfg04e10c&quot;,[&quot;.type&quot;]=&quot;rdate&quot;,[&quot;.index&quot;]=1,[&quot;.anonymous&quot;]=true,server={&quot;ac-ntp0.net.cmu.edu&quot;,&quot;ptbtime1.ptb.de&quot;,&quot;ac-ntp1.net.cmu.edu&quot;,&quot;ntp.xs4all.nl&quot;,&quot;ptbtime2.ptb.de&quot;,&quot;cudns.cit.cornell.edu&quot;,&quot;ptbtime3.ptb.de&quot;}}}</pre>
+
+</p>
+
+<p>
+So if you want to modify system.@rdate[0].server you need to iterate the type then retreive the section name ([&quot;.name&quot;]) then call x:set(&quot;system&quot;,&quot;cfg04e10c&quot;,&quot;server&quot;,&quot;zzz.com&quot;)
+</p>
+
+<p>
+Hope this helps
+</p>
+
+<p>
+Sophana
+</p>
+
+<p>
+(Luci has however a <a href="http://luci.subsignal.org/api/luci/modules/luci.model.uci.html#Cursor.get_first" class="urlextern" title="http://luci.subsignal.org/api/luci/modules/luci.model.uci.html#Cursor.get_first"  rel="nofollow">Cursor:get_first</a> function that is similiar to get except it takes a type instead as section as second argument.)
+</p>
+
+</div>
+
+<h2 class="sectionedit15" id="additional_information">Additional Information</h2>
+<div class="level2">
+
+<p>
+See also <a href="http://luci.subsignal.org/api/luci/modules/luci.model.uci.html" class="urlextern" title="http://luci.subsignal.org/api/luci/modules/luci.model.uci.html"  rel="nofollow">LuCI UCI model functions</a>. Thats what LuCI uses. It extends the uci cursor class with a few more convenience functions.
+</p>
+<hr />
+
+</div>
+
+<h2 class="sectionedit16" id="usage_outside_of_openwrt">Usage outside of  OpenWrt</h2>
+<div class="level2">
+
+<p>
+If you want to use the libuci apart from OpenWrt (for e.g. you are developing an application in C on your host computer) then prepare as follows:
+</p>
+
+<p>
+Grab the source.
+<pre class="code">git clone git://nbd.name/uci.git</pre>
+
+</p>
+
+<p>
+Go to the source directory (where the CMakeLists.txt lives) and configure the build without Lua bindings:
+<pre class="code">cd uci/; cmake -D BUILD_LUA:BOOL=OFF .</pre>
+
+</p>
+
+<p>
+Build and install uci als root (this will install uci into /usr/local/, see this thread on how to install and use uci without root permissions in your home directory: <a href="https://forum.openwrt.org/viewtopic.php?id=40547" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=40547"  rel="nofollow">https://forum.openwrt.org/viewtopic.php?id=40547</a>):
+<pre class="code">make install</pre>
+
+</p>
+
+<p>
+Open /etc/ld.so.conf and add the place where you installed the uci library:
+<pre class="code">vi /etc/ld.so.conf</pre>
+
+</p>
+
+<p>
+Add this line somewhere to /etc/ld.so.conf
+<pre class="code">/usr/local/lib</pre>
+
+</p>
+
+<p>
+Execute ldconfig as root to apply the changes to /etc/ld.so.conf
+<pre class="code">ldconfig</pre>
+
+</p>
+
+<p>
+To compile your application you have to link it against the uci library. Append -luci in your Makefile:
+<pre class="code">$(CC) test.o -o test -luci</pre>
+
+</p>
+
+<p>
+And examples on how to use UCI in C can be found in this thread: <a href="https://forum.openwrt.org/viewtopic.php?pid=183335#p183335" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?pid=183335#p183335"  rel="nofollow">https://forum.openwrt.org/viewtopic.php?pid=183335#p183335</a>
+To get more examples look into the source directory of uci which you got by git clone and open cli.c or ucimap-example.c
+</p>
+
+</div>
+
+<h2 class="sectionedit17" id="functioning">Functioning</h2>
+<div class="level2">
+
+<p>
+All <code>uci set</code>, <code>uci add</code>, <code>uci rename</code> and <code>uci delete</code> commands are staged in <code>/tmp</code> and written to flash at once with <code>uci commit</code>.
+This obviously does not apply to people using text editors, but to scripts, guis and other programs working with uci files.
+</p>
+<div class="tags"><span>
+	<a href="../../tag/wip?do=showtag&amp;tag=wip" class="wikilink1" title="tag:wip" rel="tag">wip</a>
+</span></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/techref/uci.txt</bdi> · Last modified: 2013/09/04 15:58 by <bdi>peteruithoven</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="../techref/uci?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="../techref/uci?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="../techref/uci?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="uci-lua#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Atechref%253Auci&amp;1432265705" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

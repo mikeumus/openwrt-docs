@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>LuCI Essentials [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,luci.essentials"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="luci.essentials?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/luci.essentials"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/luci.essentials"/>
+<link rel="canonical" href="../luci"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:luci.essentials","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265385 166.182.3.125';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="../luci#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="luci.essentials?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="luci.essentials?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:luci.essentials" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="luci.essentials?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="luci.essentials?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="luci.essentials?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="../luci" class="wikilink1" title="doc:howto:luci.essentials">LuCI Essentials</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/luci.essentials" class="media" title="cz:doc:howto:luci.essentials"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/luci.essentials" class="media" title="de:doc:howto:luci.essentials"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="../luci" class="media" title="doc:howto:luci.essentials"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/luci.essentials" class="media" title="es:doc:howto:luci.essentials"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../fr/doc/howto/luci.essentials" class="media" title="fr:doc:howto:luci.essentials"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/luci.essentials" class="media" title="hu:doc:howto:luci.essentials"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/luci.essentials" class="media" title="jp:doc:howto:luci.essentials"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/luci.essentials" class="media" title="pl:doc:howto:luci.essentials"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/luci.essentials" class="media" title="pt-br:doc:howto:luci.essentials"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../ru/doc/howto/luci.essentials" class="media" title="ru:doc:howto:luci.essentials"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/luci.essentials" class="media" title="tr:doc:howto:luci.essentials"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../zh-cn/doc/howto/luci.essentials" class="media" title="zh-cn:doc:howto:luci.essentials"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/luci.essentials" class="media" title="zh-tw:doc:howto:luci.essentials"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:luci.essentials</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="../luci#installation">Installation</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="../luci#native_language_support">Native Language Support</a></div></li>
+<li class="level2"><div class="li"><a href="../luci#start_and_enable_the_web_server_uhttpd">Start and Enable the web server (uHTTPd)</a></div></li>
+<li class="level2"><div class="li"><a href="../luci#details">Details</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="../luci#configuration">Configuration</a></div></li>
+<li class="level1"><div class="li"><a href="../luci#luci_on_other_web_servers">LuCI on other web servers</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="../luci#luci_on_lighttpd">LuCI on lighttpd</a></div></li>
+<li class="level2"><div class="li"><a href="../luci#luci_on_nginx">LuCI on nginx</a></div></li>
+<li class="level2"><div class="li"><a href="../luci#luci_on">LuCI on ...</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="../luci#minimalistic_offline_installation">Minimalistic offline installation</a></div></li>
+<li class="level1"><div class="li"><a href="../luci#miscellaneous">Miscellaneous</a></div>
+<ul class="toc">
+<li class="clear">
+<ul class="toc">
+<li class="level3"><div class="li"><a href="../luci#secure_acccess_to_luci_webserver">Secure acccess to luci webserver</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="../luci#troubleshooting">Troubleshooting</a></div></li>
+<li class="level1"><div class="li"><a href="../luci#notes">Notes</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="luci_essentials">LuCI Essentials</h1>
+<div class="level1">
+
+<p>
+<em>Installing LuCI on uHTTPd</em>
+</p>
+
+<p>
+This installs the essentials of the Web User Interface LuCI. See &quot;<strong><code>opkg update &amp;&amp; opkg list luci-*</code></strong>&quot; for all available packages to administer OpenWrt through LuCI.
+</p>
+<div class="table sectionedit2"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/utilities-terminal.png" class="media" alt="" /> </td><td class="col1"> In case you are not familiar with a <a href="http://en.wikipedia.org/wiki/Command-line interface" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Command-line interface">CLI</a>, check out <a href="user.beginner.cli" class="wikilink1" title="doc:howto:user.beginner.cli">command-line HELP</a> and/or <a href="../techref/opkg" class="wikilink1" title="doc:techref:opkg">opkg</a> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit3" id="installation">Installation</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> Retrieve the current list of available packages in the repository:<pre class="code bash">opkg update</pre>
+</div>
+</li>
+</ol>
+<ul>
+<li class="level1"><div class="li"> For a full LuCI installation <em>without</em> HTTPS support:<pre class="code bash">opkg <span class="kw2">install</span> luci</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> For a full LuCI installation <em>with</em> HTTPS support<pre class="code bash">opkg <span class="kw2">install</span> luci-ssl</pre>
+</div>
+</li>
+</ul>
+
+<p>
+OPKG install luci
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="native_language_support">Native Language Support</h3>
+<div class="level3">
+
+<p>
+The basic LuCI web user interface is in English. However, it is being actively translated into many languages by volunteers. See <a href="http://i18n.luci.subsignal.org/pootle/" class="urlextern" title="http://i18n.luci.subsignal.org/pootle/"  rel="nofollow">http://i18n.luci.subsignal.org/pootle/</a> and get involved! For a list of available packages, do
+<pre class="code bash">opkg list <span class="sy0">|</span> <span class="kw2">grep</span> luci-i18n-</pre>
+
+</p>
+
+<p>
+You will see a list of the available language packages. To install your native language, do e.g.
+<pre class="code bash">opkg <span class="kw2">install</span> luci-i18n-hungarian</pre>
+
+</p>
+
+<p>
+You can also install language packs utilizing the WebInterface and you can install multiple LuCI language packs at the same time and switch between them in the LuCI-WebInterface or by editing the file → <code><a href="http://wiki.openwrt.org/doc/uci/luci" class="wikilink2" title="doc:uci:luci" rel="nofollow">/etc/config/luci</a></code>
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="start_and_enable_the_web_server_uhttpd">Start and Enable the web server (uHTTPd)</h3>
+<div class="level3">
+
+<p>
+The web server software <a href="http.uhttpd" class="wikilink1" title="doc:howto:http.uhttpd">uHTTPd</a> is a dependency of the LuCI package and is automatically installed when you install LuCI. After installation the web server is <strong>not running!</strong> You need to manually start the web server. You should also <em>enable</em> the web server, so that it automatically starts up whenever you reboot the router. The first command below starts the web server, the second enables it across reboots.
+<pre class="code bash"><span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>uhttpd start
+<span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>uhttpd <span class="kw3">enable</span></pre>
+
+</p>
+
+<p>
+Now you should be able to connect to the web server serving LuCI at <a href="http://192.168.1.1" class="urlextern" title="http://192.168.1.1"  rel="nofollow">http://192.168.1.1</a>.
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="details">Details</h3>
+<div class="level3">
+
+<p>
+LuCI is installed as a &#039;meta package&#039; which installs several other packages by having these defined as a dependency. Notably, it installs the <a href="http.uhttpd" class="wikilink1" title="doc:howto:http.uhttpd">uHTTPd</a> web server, configured for use with LuCI. The dependent packages are the following (see <a href="../techref/luci" class="wikilink1" title="doc:techref:luci">the LuCI technical reference</a> for more information):
+</p>
+<ul>
+<li class="level1"><div class="li">         uhttpd</div>
+</li>
+<li class="level1"><div class="li">         uhttpd-mod-ubus</div>
+</li>
+<li class="level1"><div class="li">         luci-mod-admin-full</div>
+</li>
+<li class="level1"><div class="li">         luci-theme-bootstrap</div>
+</li>
+<li class="level1"><div class="li">         luci-app-firewall</div>
+</li>
+<li class="level1"><div class="li">         luci-proto-core</div>
+</li>
+<li class="level1"><div class="li">         luci-proto-ppp</div>
+</li>
+<li class="level1"><div class="li">         libiwinfo-lua</div>
+</li>
+</ul>
+
+<p>
+In case you want to use uHTTPd for the web interface there is little configuration necessary as uHTTPd is configured with CGI to make LuCI work with the Lua interpreter. By default this is organised as follows. By default <code>/www</code> is the standard document root. Thus, by requesting this docroot (by pointing your browser to the devices IP address) an index file such as <code>index.html</code> is searched for (per uHTTPd settings). The file <code>/www/index.html</code> (installed with LuCI) is prepared such that when requested, it redirects you to <code>/cgi-bin/luci</code>, which is the default CGI gateway for LuCI. This is just a script, which basically calls Lua at <code>/usr/bin/lua</code>. uhttpd is configured by default to load pages as CGI in the <code>/cgi-bin</code> path, and thus starts serving these pages with the <code>/cgi-bin/luci</code> script. 
+</p>
+
+<p>
+It is also possible to run LuCI with Lua as an embedded process. uhttpd supports this; see the corresponding section of the <a href="../uci/uhttpd#embeddedlua" class="wikilink1" title="doc:uci:uhttpd">uHTTPd Web Server Configuration</a> article on the UCI configuration of uhttpd.
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="configuration">Configuration</h2>
+<div class="level2">
+
+<p>
+The default web server software uhttpd is configured in the file <code><a href="../uci/uhttpd" class="wikilink1" title="doc:uci:uhttpd">/etc/config/uhttpd</a></code>.<br/>
+
+The LuCI web interface is configured in the file <code><a href="http://wiki.openwrt.org/doc/uci/luci" class="wikilink2" title="doc:uci:luci" rel="nofollow">/etc/config/luci</a></code>.
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="luci_on_other_web_servers">LuCI on other web servers</h2>
+<div class="level2">
+
+<p>
+→<a href="http.overview" class="wikilink1" title="doc:howto:http.overview">http.overview</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="luci_on_lighttpd">LuCI on lighttpd</h3>
+<div class="level3">
+
+<p>
+→<a href="luci.on.lighttpd" class="wikilink1" title="doc:howto:luci.on.lighttpd">luci.on.lighttpd</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="luci_on_nginx">LuCI on nginx</h3>
+<div class="level3">
+
+<p>
+→<a href="http://wiki.openwrt.org/doc/howto/luci.on.nginx" class="wikilink2" title="doc:howto:luci.on.nginx" rel="nofollow">luci.on.nginx</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="luci_on">LuCI on ...</h3>
+<div class="level3">
+
+</div>
+
+<h2 class="sectionedit12" id="minimalistic_offline_installation">Minimalistic offline installation</h2>
+<div class="level2">
+
+<p>
+Download and transfer (e.g. using SCP) the packages listed below to your OpenWrt router onto the RAM disk in <code>/tmp/luci-offline-packages</code>
+<pre class="code">mkdir -p /tmp/luci-offline-packages; cd /tmp/luci-offline-packages</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> liblua </div>
+</li>
+<li class="level1"><div class="li"> lua </div>
+</li>
+<li class="level1"><div class="li"> libuci-lua </div>
+</li>
+<li class="level1"><div class="li"> libubus-lua</div>
+</li>
+<li class="level1"><div class="li"> uhttpd</div>
+</li>
+<li class="level1"><div class="li"> luci-lib-ipkg</div>
+</li>
+<li class="level1"><div class="li"> luci-i18n-english</div>
+</li>
+<li class="level1"><div class="li"> luci-sgi-cgi</div>
+</li>
+<li class="level1"><div class="li"> luci-lib-core</div>
+</li>
+<li class="level1"><div class="li"> luci-lib-nixio</div>
+</li>
+<li class="level1"><div class="li"> luci-lib-sys</div>
+</li>
+<li class="level1"><div class="li"> luci-lib-web</div>
+</li>
+<li class="level1"><div class="li"> luci-proto-core</div>
+</li>
+<li class="level1"><div class="li"> luci-theme-base</div>
+</li>
+<li class="level1"><div class="li"> luci-theme-openwrt</div>
+</li>
+<li class="level1"><div class="li"> luci-mod-admin-core</div>
+</li>
+<li class="level1"><div class="li"> luci-mod-admin-full</div>
+</li>
+</ul>
+
+<p>
+and install them with:
+</p>
+
+<p>
+<pre class="code bash"><span class="kw1">for</span> pkg <span class="kw1">in</span> liblua lua libuci-lua libubus-lua uhttpd luci-lib-ipkg luci-i18n-english luci-sgi-cgi luci-lib-core luci-lib-nixio luci-lib-sys luci-lib-web luci-proto-core luci-theme-base luci-theme-openwrt luci-mod-admin-core luci-mod-admin-full; <span class="kw1">do</span> opkg <span class="kw2">install</span> <span class="sy0">/</span>tmp<span class="sy0">/</span>luci-offline-packages<span class="sy0">/</span><span class="re1">$pkg</span><span class="sy0">*</span>.ipk; <span class="kw1">done</span></pre>
+
+</p>
+
+<p>
+Additionally, the following packages are needed for basic wireless configuration: libiw, libiwinfo, libiwinfo-lua.
+</p>
+
+</div>
+
+<h2 class="sectionedit13" id="miscellaneous">Miscellaneous</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="secure_acccess_to_luci_webserver">Secure acccess to luci webserver</h4>
+<div class="level4">
+
+<p>
+If you want to configure Luci webserver for secure access, <a href="luci.secure" class="wikilink1" title="doc:howto:luci.secure">read the explanation here</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit14" id="troubleshooting">Troubleshooting</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> LuCI is developed at Github:  <a href="https://github.com/openwrt/luci" class="urlextern" title="https://github.com/openwrt/luci"  rel="nofollow">https://github.com/openwrt/luci</a></div>
+</li>
+<li class="level1"><div class="li"> Please file LuCI specific bugs at the <a href="https://github.com/openwrt/luci/issues" class="urlextern" title="https://github.com/openwrt/luci/issues"  rel="nofollow">LuCI issue tracker</a></div>
+</li>
+<li class="level1"><div class="li"> LuCIs old web-presence at <a href="http://luci.subsignal.org" class="urlextern" title="http://luci.subsignal.org"  rel="nofollow">LuCI website</a> (broken).</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit15" id="notes">Notes</h2>
+<div class="level2">
+
+<p>
+<a href="../techref/luci" class="wikilink1" title="doc:techref:luci">LuCI Technical Reference</a>
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/luci.essentials.txt</bdi> · Last modified: 2015/04/15 20:05 by <bdi>richbrown</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="luci.essentials?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="luci.essentials?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="luci.essentials?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="../luci#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="http://wiki.openwrt.org/lib/exe/indexer.php?id=doc%3Ahowto%3Aluci.essentials&amp;1432265385" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

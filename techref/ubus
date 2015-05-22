@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>ubus (OpenWrt micro bus architecture) [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,techref,ubus"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="ubus?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:techref"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/techref/ubus"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/techref/ubus"/>
+<link rel="canonical" href="ubus"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:techref';var JSINFO = {"id":"doc:techref:ubus","namespace":"doc:techref"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267222 166.182.3.150';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="ubus#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="ubus?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="ubus?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:techref:ubus" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="ubus?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="ubus?do=media&amp;ns=doc%253Atechref"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="ubus?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../techref.1" class="wikilink1" title="doc:techref:start">Technical Reference</a></bdi> » <bdi><span class="curid"><a href="ubus" class="wikilink1" title="doc:techref:ubus">ubus (OpenWrt micro bus architecture)</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/techref/ubus" class="media" title="cz:doc:techref:ubus"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/techref/ubus" class="media" title="de:doc:techref:ubus"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="ubus" class="media" title="doc:techref:ubus"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/techref/ubus" class="media" title="es:doc:techref:ubus"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/techref/ubus" class="media" title="fr:doc:techref:ubus"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/techref/ubus" class="media" title="hu:doc:techref:ubus"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/techref/ubus" class="media" title="jp:doc:techref:ubus"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/techref/ubus" class="media" title="pl:doc:techref:ubus"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/techref/ubus" class="media" title="pt-br:doc:techref:ubus"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/techref/ubus" class="media" title="ru:doc:techref:ubus"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/techref/ubus" class="media" title="tr:doc:techref:ubus"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../zh-cn/doc/techref/ubus" class="media" title="zh-cn:doc:techref:ubus"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/techref/ubus" class="media" title="zh-tw:doc:techref:ubus"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:techref:ubus</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="ubus#command-line_ubus_tool">Command-line ubus tool</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="ubus#list">list</a></div></li>
+<li class="level2"><div class="li"><a href="ubus#call">call</a></div></li>
+<li class="level2"><div class="li"><a href="ubus#listen">listen</a></div></li>
+<li class="level2"><div class="li"><a href="ubus#send">send</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="ubus#access_to_ubus_over_http">Access to ubus over HTTP</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="ubus#acls">ACLs</a></div></li>
+<li class="level2"><div class="li"><a href="ubus#authentication">Authentication</a></div></li>
+<li class="level2"><div class="li"><a href="ubus#session_management">Session management</a></div></li>
+<li class="level2"><div class="li"><a href="ubus#actually_making_calls">Actually making calls</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="ubus#lua_module_for_ubus">Lua module for ubus</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="ubus#load_module">Load module</a></div></li>
+<li class="level2"><div class="li"><a href="ubus#establish_connection">Establish connection</a></div></li>
+<li class="level2"><div class="li"><a href="ubus#iterate_all_namespaces_and_procedures">Iterate all namespaces and procedures</a></div></li>
+<li class="level2"><div class="li"><a href="ubus#call_a_procedure">Call a procedure</a></div></li>
+<li class="level2"><div class="li"><a href="ubus#close_connection">Close connection</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="ubus#namespaces_procedures">Namespaces &amp; Procedures</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="ubus#netifd">netifd</a></div></li>
+<li class="level2"><div class="li"><a href="ubus#rpcd">rpcd</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="ubus#example_code_snippets">Example code snippets</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="ubus#check_if_link_is_up_using_devstatus_and_json">Check if Link is up using devstatus and Json</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="ubus_openwrt_micro_bus_architecture">ubus (OpenWrt micro bus architecture)</h1>
+<div class="level1">
+
+<p>
+To provide communication between various daemons and applications in OpenWrt an ubus project has been developed. It consists of few parts including daemon, library and some extra helpers.
+</p>
+
+<p>
+The heart of this project is ubusd daemon. It provides interface for other daemons to register themselves as well as sending messages. For those curious, this interface is implemented using Unix socket and it uses TLV (type-length-value) messages.
+</p>
+
+<p>
+To simplify development of software using ubus (connecting to it) a library called libubus has been created.
+</p>
+
+<p>
+Every daemon registers set of own paths under specific namespace. Every path can provide multiple procedures with various amount of arguments. Procedures can reply with a message.
+</p>
+
+<p>
+The code is published under <abbr title="GNU Lesser General Public License">LGPL</abbr> 2.1 and can be found via git at git://nbd.name/luci2/ubus.git or via http at <a href="http://nbd.name/gitweb.cgi?p=luci2/ubus.git;a=summary" class="urlextern" title="http://nbd.name/gitweb.cgi?p=luci2/ubus.git;a=summary"  rel="nofollow">http://nbd.name/gitweb.cgi?p=luci2/ubus.git;a=summary</a>. It&#039;s included in OpenWrt since <a href="https://dev.openwrt.org/changeset/28499" class="urlextern" title="https://dev.openwrt.org/changeset/28499"  rel="nofollow">r28499</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="command-line_ubus_tool">Command-line ubus tool</h2>
+<div class="level2">
+
+<p>
+The <code>ubus</code> command line tool allows to interact with the <code>ubusd</code> server (with all currently registered services). It&#039;s useful for investigating/debugging registered namespaces as well as writing shell scripts. For calling procedures with parameters and returning responses it uses user-friendly JSON format. Below is an explanation of its commands.
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="list">list</h3>
+<div class="level3">
+
+<p>
+By default, list all namespaces registered with the RPC server:
+</p>
+
+<p>
+<pre class="code">root@uplink:~# ubus list
+network
+network.device
+network.interface.lan
+network.interface.loopback
+network.interface.wan
+root@uplink:~#</pre>
+
+</p>
+
+<p>
+If invoked with <code>-v</code>, additionally the procedures and their argument signatures are dumped in addition to the namespace path:
+</p>
+
+<p>
+<pre class="code">root@uplink:~# ubus -v list network.interface.lan
+&#039;network.interface.lan&#039; @099f0c8b
+	&quot;up&quot;: {  }
+	&quot;down&quot;: {  }
+	&quot;status&quot;: {  }
+	&quot;prepare&quot;: {  }
+	&quot;add_device&quot;: { &quot;name&quot;: &quot;String&quot; }
+	&quot;remove_device&quot;: { &quot;name&quot;: &quot;String&quot; }
+	&quot;notify_proto&quot;: {  }
+	&quot;remove&quot;: {  }
+	&quot;set_data&quot;: {  }
+root@uplink:~#</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="call">call</h3>
+<div class="level3">
+
+<p>
+Calls a given procedure within a given namespace and passes given message to it:
+</p>
+
+<p>
+<pre class="code">root@uplink:~# ubus call network.interface.wan status
+{
+	&quot;up&quot;: true,
+	&quot;pending&quot;: false,
+	&quot;available&quot;: true,
+	&quot;autostart&quot;: true,
+	&quot;uptime&quot;: 86017,
+	&quot;l3_device&quot;: &quot;eth1&quot;,
+	&quot;device&quot;: &quot;eth1&quot;,
+	&quot;address&quot;: [
+		{
+			&quot;address&quot;: &quot;178.25.65.236&quot;,
+			&quot;mask&quot;: 21
+		}
+	],
+	&quot;route&quot;: [
+		{
+			&quot;target&quot;: &quot;0.0.0.0&quot;,
+			&quot;mask&quot;: 0,
+			&quot;nexthop&quot;: &quot;178.25.71.254&quot;
+		}
+	],
+	&quot;data&quot;: {
+		
+	}
+}
+root@uplink:~#</pre>
+
+</p>
+
+<p>
+The message argument must be a valid JSON string, with keys and values set according to the function signature:
+</p>
+
+<p>
+<pre class="code">root@uplink:~# ubus call network.device status &#039;{ &quot;name&quot;: &quot;eth0&quot; }&#039;
+{
+	&quot;type&quot;: &quot;Network device&quot;,
+	&quot;up&quot;: true,
+	&quot;link&quot;: true,
+	&quot;mtu&quot;: 1500,
+	&quot;macaddr&quot;: &quot;c6:3d:c7:90:aa:da&quot;,
+	&quot;txqueuelen&quot;: 1000,
+	&quot;statistics&quot;: {
+		&quot;collisions&quot;: 0,
+		&quot;rx_frame_errors&quot;: 0,
+		&quot;tx_compressed&quot;: 0,
+		&quot;multicast&quot;: 0,
+		&quot;rx_length_errors&quot;: 0,
+		&quot;tx_dropped&quot;: 0,
+		&quot;rx_bytes&quot;: 0,
+		&quot;rx_missed_errors&quot;: 0,
+		&quot;tx_errors&quot;: 0,
+		&quot;rx_compressed&quot;: 0,
+		&quot;rx_over_errors&quot;: 0,
+		&quot;tx_fifo_errors&quot;: 0,
+		&quot;rx_crc_errors&quot;: 0,
+		&quot;rx_packets&quot;: 0,
+		&quot;tx_heartbeat_errors&quot;: 0,
+		&quot;rx_dropped&quot;: 0,
+		&quot;tx_aborted_errors&quot;: 0,
+		&quot;tx_packets&quot;: 184546,
+		&quot;rx_errors&quot;: 0,
+		&quot;tx_bytes&quot;: 17409452,
+		&quot;tx_window_errors&quot;: 0,
+		&quot;rx_fifo_errors&quot;: 0,
+		&quot;tx_carrier_errors&quot;: 0
+	}
+}
+root@uplink:~#</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="listen">listen</h3>
+<div class="level3">
+
+<p>
+Setup a listening socket and observe incoming events:
+</p>
+
+<p>
+<pre class="code">root@uplink:~# ubus listen &amp;
+root@uplink:~# ubus call network.interface.wan down
+{ &quot;network.interface&quot;: { &quot;action&quot;: &quot;ifdown&quot;, &quot;interface&quot;: &quot;wan&quot; } }
+root@uplink:~# ubus call network.interface.wan up
+{ &quot;network.interface&quot;: { &quot;action&quot;: &quot;ifup&quot;, &quot;interface&quot;: &quot;wan&quot; } }
+{ &quot;network.interface&quot;: { &quot;action&quot;: &quot;ifdown&quot;, &quot;interface&quot;: &quot;he&quot; } }
+{ &quot;network.interface&quot;: { &quot;action&quot;: &quot;ifdown&quot;, &quot;interface&quot;: &quot;v6&quot; } }
+{ &quot;network.interface&quot;: { &quot;action&quot;: &quot;ifup&quot;, &quot;interface&quot;: &quot;he&quot; } }
+{ &quot;network.interface&quot;: { &quot;action&quot;: &quot;ifup&quot;, &quot;interface&quot;: &quot;v6&quot; } }
+root@uplink:~# </pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="send">send</h3>
+<div class="level3">
+
+<p>
+Send an event notification:
+</p>
+
+<p>
+<pre class="code">root@uplink:~# ubus listen &amp;
+root@uplink:~# ubus send foo &#039;{ &quot;bar&quot;: &quot;baz&quot; }&#039;
+{ &quot;foo&quot;: { &quot;bar&quot;: &quot;baz&quot; } }
+root@uplink:~# </pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="access_to_ubus_over_http">Access to ubus over HTTP</h2>
+<div class="level2">
+
+<p>
+There is an <code>uhttpd</code> plugin called <code>uhttpd-mod-ubus</code> that allows <code>ubus</code> calls using HTTP protocol. Requests have to be send to the <code>/ubus</code> <abbr title="Uniform Resource Locator">URL</abbr> (unless changed) using <code>POST</code> method. This interface uses <a href="http://www.jsonrpc.org/specification" class="urlextern" title="http://www.jsonrpc.org/specification"  rel="nofollow">jsonrpc v2.0</a>  There are a few steps that you will need to understand.  (Documentation written while using BarrierBreaker r40831, ymmv)
+</p>
+
+</div>
+
+<h3 class="sectionedit8" id="acls">ACLs</h3>
+<div class="level3">
+
+<p>
+While logged into via ssh, you have direct, full access to ubus.  When you&#039;re accessing the <code>/ubus</code> url in uhttpd however, uhttpd runs &quot;ubus call session access &#039;{ ubus-rpc-session, requested-object, requested-method }&#039; and whoever is providing the ubus session.* namespace is in charge of implementing the <abbr title="Access Control List">ACL</abbr>.  This happens to be <code>rpcd</code> at the moment, with the http-json interface, for friendly operation with browser code, but this is just one possible implmementation.  Because we&#039;re using rpcd to implement the ACLs at this time, this allows/requires (depending on your point of view) ACLs to be configured in <code>/usr/share/rpcd/acl.d/*.json</code>.  The <em class="u">names</em> of the files in <code>/usr/share/rpcd/acl.d/*.json</code> don&#039;t matter, but the top level keys define roles.  The default acl, listed below, <em class="u">only</em> defines the login methods, so you can login, but you still wouldn&#039;t be able to do anything.
+<pre class="code">{
+        &quot;unauthenticated&quot;: {
+                &quot;description&quot;: &quot;Access controls for unauthenticated requests&quot;,
+                &quot;read&quot;: {
+                        &quot;ubus&quot;: {
+                                &quot;session&quot;: [ &quot;access&quot;, &quot;login&quot; ]
+                        }
+                }
+        }
+}</pre>
+
+</p>
+
+<p>
+An example of a complicated <abbr title="Access Control List">ACL</abbr>, allowing quite fine grained access to different ubus modules and methods is <a href="http://git.openwrt.org/?p=project/luci2/ui.git;a=blob;f=luci2/share/acl.d/luci2.json" class="urlextern" title="http://git.openwrt.org/?p=project/luci2/ui.git;a=blob;f=luci2/share/acl.d/luci2.json"  rel="nofollow">available in the Luci2 project</a>
+</p>
+
+<p>
+An example of a &quot;security is for suckers&quot; config, where a &quot;superuser&quot; <abbr title="Access Control List">ACL</abbr> group is defined, allowing unrestricted access to everything, is shown below. (This illustrates the usage of &#039;*&#039; definitions in the ACLs, but keep reading for better examples)  Placing this file in <code>/usr/share/rpcd/acl.d/superuser.json</code> will help you move forward to the next steps.
+</p>
+
+<p>
+<pre class="code">{
+        &quot;superuser&quot;: {
+                &quot;description&quot;: &quot;Super user access role&quot;,
+                &quot;read&quot;: {
+                        &quot;ubus&quot;: {
+                                &quot;*&quot;: [ &quot;*&quot; ]
+                        },
+                        &quot;uci&quot;: [ &quot;*&quot; ]
+                },
+                &quot;write&quot;: {
+                        &quot;ubus&quot;: {
+                                &quot;*&quot;: [ &quot;*&quot; ]
+                        },
+                        &quot;uci&quot;: [ &quot;*&quot; ]
+                }
+        }
+}</pre>
+
+</p>
+
+<p>
+Below is an example of an <abbr title="Access Control List">ACL</abbr> definition that only allows access to some specific ubus modules, rather than unrestricted access to everything.
+<pre class="code">{
+        &quot;lesssuperuser&quot;: {
+                &quot;description&quot;: &quot;not quite as super user&quot;,
+                &quot;read&quot;: {
+                        &quot;ubus&quot;: {
+                                &quot;file&quot;: [ &quot;*&quot; ],
+                                &quot;log&quot;: [ &quot;*&quot; ],
+                                &quot;service&quot;: [ &quot;*&quot; ],
+                        },
+                },
+                &quot;write&quot;: {
+                        &quot;ubus&quot;: {
+                                &quot;file&quot;: [ &quot;*&quot; ],
+                                &quot;log&quot;: [ &quot;*&quot; ],
+                                &quot;service&quot;: [ &quot;*&quot; ],
+                        },
+                }
+        }
+}</pre>
+
+</p>
+
+<p>
+Note: Before we leave this section, you may have noticed that there&#039;s both a &quot;ubus&quot; and a &quot;uci&quot; section, even though ubus has a uci method.  The uci: scope is used for the uci api provided by rpcd
+to allow defining per-file permissions because using the ubus scope you can only say &quot;uci set&quot; is allowed or not allowed but not specify that it is allowed to e.g. modify /e/c/system but not                     /e/c/network  If your application/<abbr title="Access Control List">ACL</abbr> doesn&#039;t need UCI access, you can just leave out the UCI section altogether.
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="authentication">Authentication</h3>
+<div class="level3">
+
+<p>
+Now that we have an <abbr title="Access Control List">ACL</abbr> that allows operations beyond just logging in, we can actually try this out.  As mentioned, <code>rpcd</code> is handling this, so you need an entry in <code>/etc/config/rpcd</code>
+<pre class="code">config login
+	option username &#039;root&#039;
+	option password &#039;$p$root&#039;
+	list read &#039;*&#039;
+	list write &#039;*&#039;</pre>
+
+The <code>$p</code> magic means to look in <code>/etc/shadow</code> and the <code>$root</code> part means to use the password for the root user in that file.  The list of read and write sections, those map acl roles to user accounts.  You can also use <code>$1$&lt;hash&gt;</code>which is a &quot;crypt()&quot; hash, using SHA1, exactly as used in /etc/shadow.  You can generate these with, eg, &quot;uhhtpd -m secret&quot;
+</p>
+
+<p>
+To login and receive a session id:
+<pre class="code">$ curl -d &#039;{ &quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;id&quot;: 1, &quot;method&quot;: &quot;call&quot;, &quot;params&quot;: [ &quot;00000000000000000000000000000000&quot;, &quot;session&quot;, &quot;login&quot;, { &quot;username&quot;: &quot;root&quot;, &quot;password&quot;: &quot;secret&quot;  } ] }&#039;  http://your.server.ip/ubus
+
+{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:1,&quot;result&quot;:[0,{&quot;ubus_rpc_session&quot;:&quot;c1ed6c7b025d0caca723a816fa61b668&quot;,&quot;timeout&quot;:300,&quot;expires&quot;:299,&quot;acls&quot;:{&quot;access-group&quot;:{&quot;superuser&quot;:[&quot;read&quot;,&quot;write&quot;],&quot;unauthenticated&quot;:[&quot;read&quot;]},&quot;ubus&quot;:{&quot;*&quot;:[&quot;*&quot;],&quot;session&quot;:[&quot;access&quot;,&quot;login&quot;]},&quot;uci&quot;:{&quot;*&quot;:[&quot;read&quot;,&quot;write&quot;]}},&quot;data&quot;:{&quot;username&quot;:&quot;root&quot;}}]}</pre>
+
+</p>
+
+<p>
+The sessionid &quot;00000000000000000000000000000000&quot; (32 zeros) is a special null-session which just has enough access rights for the session.login ubus call.  A session has a timeout, that is specified when you login, but has a default.  You can request a longer timeout in your initial login call, with a &quot;timeout&quot; key in the login parameters section.
+</p>
+
+<p>
+If you ever receive a response like, <code>{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:1,&quot;result&quot;:[6]}</code> That is a valid jsonrpc response, 6 is the ubus code for UBUS_STATUS_PERMISSION_DENIED  (you&#039;ll get this if you try and login before setting up the &quot;superuser&quot; file, or any file that gives you anymore rights than just being allowed to attempt logins.
+</p>
+
+<p>
+To list all active sessions, try <code>ubus call session list</code>
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="session_management">Session management</h3>
+<div class="level3">
+
+<p>
+A session is automatically renewned on every use.  There are plans to use these sessions even for luci1, but at present, if you use this interface in a luci1 environment, you&#039;ll need to manage sessions yourself.
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="actually_making_calls">Actually making calls</h3>
+<div class="level3">
+
+<p>
+Now that you have a <code>ubus_rpc_session</code> you can make calls, based on your ACLs and the available ubus services.  <code>ubus list -v</code> is your primary documentation on what can be done, but see the rest of this page for more information.  For example, <code>ubus list file -v</code> returns 
+</p>
+
+<p>
+<pre class="code">&#039;file&#039; @24a6bd4a
+	&quot;read&quot;:{&quot;path&quot;:&quot;String&quot;,&quot;data&quot;:&quot;String&quot;}
+	&quot;write&quot;:{&quot;path&quot;:&quot;String&quot;,&quot;data&quot;:&quot;String&quot;}
+	&quot;list&quot;:{&quot;path&quot;:&quot;String&quot;,&quot;data&quot;:&quot;String&quot;}
+	&quot;stat&quot;:{&quot;path&quot;:&quot;String&quot;,&quot;data&quot;:&quot;String&quot;}
+	&quot;exec&quot;:{&quot;command&quot;:&quot;String&quot;,&quot;params&quot;:&quot;Array&quot;,&quot;env&quot;:&quot;Table&quot;}</pre>
+
+</p>
+
+<p>
+The json container format is:   
+</p>
+
+<p>
+<pre class="code">{ &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: &lt;unique-id-to-identify-request&gt;, 
+  &quot;method&quot;: &quot;call&quot;,
+  &quot;params&quot;: [
+             &lt;ubus_rpc_session&gt;, &lt;ubus_object&gt;, &lt;ubus_method&gt;, 
+             { &lt;ubus_arguments&gt; }
+            ]
+}</pre>
+
+The &quot;id&quot; key is merely echo&#039;ed by the server, so it needs not be strictly unique, it&#039;s mainly intended for client software to easily correlate responses to previously made requests. It&#039;s type is either a string or a number, so it can be an sha1 hash, md5 sum, sequence counter, unix timestamp, ….
+</p>
+
+<p>
+An example request to read a file would be: 
+<pre class="code">$ curl -d &#039;{ &quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;id&quot;: 1, &quot;method&quot;: &quot;call&quot;, &quot;params&quot;: [ &quot;7cba69a942c0e9db1eb7982cd91f3a48&quot;, &quot;file&quot;, &quot;read&quot;, { &quot;path&quot;: &quot;/tmp/hello.karl&quot; } ] }&#039;  http://eg-134867.local/ubus
+{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:1,&quot;result&quot;:[0,{&quot;data&quot;:&quot;this is the contents of a file\n&quot;}]}</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit12" id="lua_module_for_ubus">Lua module for ubus</h2>
+<div class="level2">
+
+<p>
+This is even possible to use <code>ubus</code> in <code>lua</code> scripts. Of course it&#039;s not possible to use native libraries directly in <code>lua</code>, so an extra module has been created. It&#039;s simply called <code>ubus</code> and is a simple interface between <code>lua</code> scripts and the <code>ubus</code> (it uses <code>libubus</code> internally).
+</p>
+
+</div>
+
+<h3 class="sectionedit13" id="load_module">Load module</h3>
+<div class="level3">
+
+<p>
+<pre class="code">require &quot;ubus&quot;</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit14" id="establish_connection">Establish connection</h3>
+<div class="level3">
+
+<p>
+<pre class="code">local conn = ubus.connect()
+if not conn then
+    error(&quot;Failed to connect to ubusd&quot;)
+end</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit15" id="iterate_all_namespaces_and_procedures">Iterate all namespaces and procedures</h3>
+<div class="level3">
+
+<p>
+<pre class="code">local namespaces = conn:objects()
+for i, n in ipairs(namespaces) do
+    print(&quot;namespace=&quot; .. n)
+    local signatures = conn:signatures(n)
+    for p, s in pairs(signatures) do
+        print(&quot;\tprocedure=&quot; .. p)
+        for k, v in pairs(s) do
+            print(&quot;\t\tattribute=&quot; .. k .. &quot; type=&quot; .. v)
+        end
+    end
+end</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit16" id="call_a_procedure">Call a procedure</h3>
+<div class="level3">
+
+<p>
+<pre class="code">local status = conn:call(&quot;network.device&quot;, &quot;status&quot;, { name = &quot;eth0&quot; })
+for k, v in pairs(status) do
+    print(&quot;key=&quot; .. k .. &quot; value=&quot; .. tostring(v))
+end</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit17" id="close_connection">Close connection</h3>
+<div class="level3">
+
+<p>
+<pre class="code">conn:close()</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit18" id="namespaces_procedures">Namespaces &amp; Procedures</h2>
+<div class="level2">
+
+<p>
+As explained earlier, there can be many different daemons (services) registered in <code>ubus</code>. Below you will find a list of the most common projects with namespaces, paths and procedures they provide.
+</p>
+
+</div>
+
+<h3 class="sectionedit19" id="netifd">netifd</h3>
+<div class="level3">
+
+<p>
+<a href="http://nbd.name/gitweb.cgi?p=luci2/netifd.git;a=blob;f=DESIGN" class="urlextern" title="http://nbd.name/gitweb.cgi?p=luci2/netifd.git;a=blob;f=DESIGN"  rel="nofollow">Design of netifd</a>
+</p>
+<div class="table sectionedit20"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Path </th><th class="col1"> Procedure </th><th class="col2"> Signature </th><th class="col3"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>network</code> </td><td class="col1"> <code>restart</code> </td><td class="col2"> <code>{ }</code> </td><td class="col3"> Restart the network, reconfigures all interfaces </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>network</code> </td><td class="col1"> <code>reload</code> </td><td class="col2"> <code>{ }</code> </td><td class="col3"> Reload the network, reconfigure as needed </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>network.device</code> </td><td class="col1"> <code>status</code> </td><td class="col2"> <code>{ &quot;name&quot;: &quot;<em>ifname</em>&quot; }</code> </td><td class="col3"> Dump status of given network device <code><em>ifname</em></code> </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>network.device</code> </td><td class="col1"> <code>set_state</code> </td><td class="col2"> <code>{ &quot;name&quot;: &quot;<em>ifname</em>&quot;, &quot;defer&quot;: <em>deferred</em> }</code> </td><td class="col3"> Defer or ready the given network device <code><em>ifname</em></code>, depending on the boolean value <em>deferred</em> </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>network.interface.<em>name</em></code> </td><td class="col1"> <code>up</code> </td><td class="col2"> <code>{ }</code> </td><td class="col3"> Bring interface <code><em>name</em></code> up </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>network.interface.<em>name</em></code> </td><td class="col1"> <code>down</code> </td><td class="col2"> <code>{ }</code> </td><td class="col3"> Bring interface <code><em>name</em></code> down </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <code>network.interface.<em>name</em></code> </td><td class="col1"> <code>status</code> </td><td class="col2"> <code>{ }</code> </td><td class="col3"> Dump status of interface <code><em>name</em></code> </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <code>network.interface.<em>name</em></code> </td><td class="col1"> <code>prepare</code> </td><td class="col2"> <code>{ }</code> </td><td class="col3"> Prepare setup of interface <code><em>name</em></code> </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <code>network.interface.<em>name</em></code> </td><td class="col1"> <code>add_device</code> </td><td class="col2"> <code>{ &quot;name&quot;: &quot;<em>ifname</em>&quot; }</code> </td><td class="col3"> Add network device <code><em>ifname</em></code> to interface <code><em>name</em></code> (e.g. for bridges: <code>brctl addif br-<em>name</em> <em>ifname</em></code>) </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> <code>network.interface.<em>name</em></code> </td><td class="col1"> <code>remove_device</code> </td><td class="col2"> <code>{ &quot;name&quot;: &quot;<em>ifname</em>&quot; }</code> </td><td class="col3"> Remove network device <code><em>ifname</em></code> from interface <code><em>name</em></code> (e.g. for bridges: <code>brctl delif br-<em>name</em> <em>ifname</em></code>) </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> <code>network.interface.<em>name</em></code> </td><td class="col1"> <code>remove</code> </td><td class="col2"> <code>{ }</code> </td><td class="col3"> Remove interface <code><em>name</em></code> (?) </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit21" id="rpcd">rpcd</h3>
+<div class="level3">
+
+<p>
+Project <code>rpcd</code> is set of small plugins providing sets of <code>ubus</code> procedures in separated namespaces. These plugins are not strictly related to any particular software (like <code>netifd</code> or <code>dhcp</code>) so it wasn&#039;t worth it to implement them as separated projects.
+</p>
+<div class="table sectionedit22"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Path </th><th class="col1"> Procedure </th><th class="col2"> Signature </th><th class="col3"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>file</code> </td><td class="col1"> <code>read</code> </td><td class="col2"> ? </td><td class="col3"> ? </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>file</code> </td><td class="col1"> <code>write</code> </td><td class="col2"> ? </td><td class="col3"> ? </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>file</code> </td><td class="col1"> <code>list</code> </td><td class="col2"> ? </td><td class="col3"> ? </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>file</code> </td><td class="col1"> <code>stat</code> </td><td class="col2"> ? </td><td class="col3"> ? </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>file</code> </td><td class="col1"> <code>exec</code> </td><td class="col2"> ? </td><td class="col3"> ? </td>
+	</tr>
+</table></div>
+
+<p>
+<br/>
+
+</p>
+<div class="table sectionedit23"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Path </th><th class="col1"> Procedure </th><th class="col2"> Signature </th><th class="col3"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>iwinfo</code> </td><td class="col1"> <code>info</code> </td><td class="col2"> ? </td><td class="col3"> ? </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>iwinfo</code> </td><td class="col1"> <code>scan</code> </td><td class="col2"> ? </td><td class="col3"> ? </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>iwinfo</code> </td><td class="col1"> <code>assoclist</code> </td><td class="col2"> ? </td><td class="col3"> ? </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>iwinfo</code> </td><td class="col1"> <code>freqlist</code> </td><td class="col2"> ? </td><td class="col3"> ? </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>iwinfo</code> </td><td class="col1"> <code>txpowerlist</code> </td><td class="col2"> ? </td><td class="col3"> ? </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>iwinfo</code> </td><td class="col1"> <code>countrylist</code> </td><td class="col2"> ? </td><td class="col3"> ? </td>
+	</tr>
+</table></div>
+<div class="table sectionedit24"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Path </th><th class="col1"> Procedure </th><th class="col2"> Signature </th><th class="col3"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>session</code> </td><td class="col1"> <code>list</code> </td><td class="col2"> <code>{ &quot;session&quot;: &quot;<em>sid</em>&quot; }</code> </td><td class="col3"> Dump session specified by <code><em>sid</em></code>, if no ID is given, dump all sessions </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>session</code> </td><td class="col1"> <code>create</code> </td><td class="col2"> <code>{ &quot;timeout&quot;: <em>timeout</em> }</code> </td><td class="col3"> Create a new session and return its ID, set the session timeout to <code><em>timeout</em></code> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>session</code> </td><td class="col1"> <code>grant</code> </td><td class="col2"> <code>{ &quot;session&quot;: &quot;<em>sid</em>&quot;,
+  &quot;objects&quot;: [ [ &quot;path&quot;, &quot;func&quot; ], … ] }</code> </td><td class="col3"> Within the session identified by <code><em>sid</em></code> grant access to all specified procedures <code><em>func</em></code> in the namespace <code><em>path</em></code> listed in the <code><em>objects</em></code> array </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>session</code> </td><td class="col1"> <code>revoke</code> </td><td class="col2"> <code>{ &quot;session&quot;: &quot;<em>sid</em>&quot;,
+  &quot;objects&quot;: [ [ &quot;path&quot;, &quot;func&quot; ], … ] }</code> </td><td class="col3"> Within the session identified by <code><em>sid</em></code> revoke access to all specified procedures <code><em>func</em></code> in the namespace <code><em>path</em></code> listed in the <code><em>objects</em></code> array. If <code><em>objects</em></code> is unset, revoke all access </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>session</code> </td><td class="col1"> <code>access</code> </td><td class="col2"> ? </td><td class="col3"> ? </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>session</code> </td><td class="col1"> <code>set</code> </td><td class="col2"> <code>{ &quot;session&quot;: &quot;<em>sid</em>&quot;,
+  &quot;values&quot;: { &quot;<em>key</em>&quot;: <em>value</em>, … } }</code> </td><td class="col3"> Within the session identified by <code><em>sid</em></code> store the given arbitrary values under their corresponding keys specified in the <code><em>values</em></code> object </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <code>session</code> </td><td class="col1"> <code>get</code> </td><td class="col2"> <code>{ &quot;session&quot;: &quot;<em>sid</em>&quot;,
+  &quot;keys&quot;: [ &quot;<em>key</em>&quot;, … ] }</code> </td><td class="col3"> Within the session identified by <code><em>sid</em></code> retrieve all values associated with the given keys listed in the <code><em>keys</em></code> array. If the key array is unset, dump all key/value pairs </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <code>session</code> </td><td class="col1"> <code>unset</code> </td><td class="col2"> <code>{ &quot;session&quot;: &quot;<em>sid</em>&quot;,
+  &quot;keys&quot;: [ &quot;<em>key</em>&quot;, … ] }</code> </td><td class="col3"> Within the session identified by <code><em>sid</em></code> unset all keys listed in the <code><em>keys</em></code> array. If the key list is unset, clear all keys </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <code>session</code> </td><td class="col1"> <code>destroy</code> </td><td class="col2"> <code>{ &quot;session&quot;: &quot;<em>sid</em>&quot; }</code> </td><td class="col3"> Terminate the session identified by the given ID <code><em>sid</em></code> </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> <code>session</code> </td><td class="col1"> <code>login</code> </td><td class="col2"> ? </td><td class="col3"> ? </td>
+	</tr>
+</table></div>
+<div class="table sectionedit25"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Path </th><th class="col1"> Procedure </th><th class="col2"> Signature </th><th class="col3"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>uci</code> </td><td class="col1"> <code>get</code> </td><td class="col2"> <code>{ &quot;package&quot;: &quot;<em>package</em>&quot;,
+  &quot;section&quot;: &quot;<em>sname</em>&quot;,
+  &quot;type&quot;:    &quot;<em>type</em>&quot;,
+  &quot;option&quot;:  &quot;<em>oname</em>&quot; }</code> </td><td class="col3"> <div class="plugin_wrap">
+<p>
+Return the requested uci value(s), all arguments are optional.
+</p>
+<ol>
+<li class="level1"><div class="li"> When called without argument or with empty object: return an array of package names in the <code>packages</code> field</div>
+</li>
+<li class="level1"><div class="li"> When called with <code><em>package</em></code> set: return an object containing all sections containing all options in a field named after the package</div>
+</li>
+<li class="level1"><div class="li"> When called with <code><em>package</em></code> and <code><em>type</em></code> set: return an object containing all sections of type <code><em>type</em></code> containing all options in a field named after the package</div>
+</li>
+<li class="level1"><div class="li"> When called with <code><em>package</em></code> and <code><em>sname</em></code> set: return an object containing all options of the section in a field named after the section</div>
+</li>
+<li class="level1"><div class="li"> When called with <code><em>package</em></code> and <code><em>type</em></code> and <code><em>oname</em></code> set: return an object containing the value of each option named <code><em>oname</em></code> within a section of type <code><em>type</em></code> in a field named after the matched section</div>
+</li>
+<li class="level1"><div class="li"> When called with <code><em>package</em></code> and <code><em>sname</em></code> and <code><em>oname</em></code> set: return the result string in a field named <code><em>oname</em></code> in case of options or an array of result strings in a field named <code><em>oname</em></code> in case of list options</div>
+</li>
+</ol>
+
+<p>
+Return messages:
+</p>
+<ol>
+<li class="level1"><div class="li"> <code>{ &quot;packages&quot;: [ &quot;package1&quot;, … ] }</code></div>
+</li>
+<li class="level1"><div class="li"> <code>{ &quot;<em>package</em>&quot;: {
+  &quot;sname1&quot;: {
+    &quot;.type&quot;:   &quot;type1&quot;,
+    &quot;option1&quot;: &quot;value1&quot;,
+    &quot;option2&quot;: [ &quot;value2.1&quot;, … ],
+    … }, … } }</code></div>
+</li>
+<li class="level1"><div class="li"> <code>{ &quot;<em>package</em>&quot;: {
+  &quot;sname1&quot;: {
+    &quot;.type&quot;:   &quot;<em>type</em>&quot;,
+    &quot;option1&quot;: &quot;value1&quot;,
+    &quot;option2&quot;: [ &quot;value2.1&quot;, … ],
+    … }, … } }</code></div>
+</li>
+<li class="level1"><div class="li"> <code>{ &quot;<em>sname</em>&quot;: {
+    &quot;.type&quot;:   &quot;type&quot;,
+    &quot;option1&quot;: &quot;value1&quot;,
+    &quot;option2&quot;: [ &quot;value2.1&quot;, … ],
+    … } }</code></div>
+</li>
+<li class="level1"><div class="li"> <code>{ &quot;sectionname1&quot;: &quot;value1&quot;,
+  &quot;sectionname2&quot;: [ &quot;value2.1&quot;, … ],
+  … }</code></div>
+</li>
+<li class="level1"><div class="li"></div>
+<ol>
+<li class="level2"><div class="li"> <code>{ &quot;<em>oname</em>&quot;: &quot;value1&quot; }</code></div>
+</li>
+<li class="level2"><div class="li"> <code>{ &quot;<em>oname</em>&quot;: [ &quot;value1.1&quot;, … ] }</code></div>
+</li>
+</ol>
+</li>
+</ol>
+</div></td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>uci</code> </td><td class="col1"> <code>set</code> </td><td class="col2"> <code>{ &quot;package&quot;: &quot;<em>package</em>&quot;,
+  &quot;section&quot;: &quot;<em>sname</em>&quot;,
+  &quot;option&quot;:  &quot;<em>oname</em>&quot;,
+  &quot;value&quot;:   &quot;<em>value</em>&quot; }</code> </td><td class="col3"> <div class="plugin_wrap">
+<p>
+Set the given value(s), the option argument is optional.
+</p>
+<ol>
+<li class="level1"><div class="li"> When called with <code><em>package</em></code> and <code><em>sname</em></code> and <code><em>value</em></code> set: add a new section <code><em>sname</em></code> in <code><em>package</em></code> and set it to the type given in <code><em>value</em></code></div>
+</li>
+<li class="level1"><div class="li"> When called with <code><em>package</em></code> and <code><em>sname</em></code>, <code><em>oname</em></code> and <code><em>value</em></code> set:</div>
+<ol>
+<li class="level2"><div class="li"> If <code><em>value</em></code> is of type array: set strings in the <code>value</code> array as list option <code><em>oname</em></code></div>
+</li>
+<li class="level2"><div class="li"> If <code><em>value</em></code> is of type string: set <code><em>value</em></code> as normal option <code><em>oname</em></code></div>
+</li>
+</ol>
+</li>
+</ol>
+
+<p>
+The call does not produce any data, instead it returns with the following status codes:
+</p>
+<ol>
+<li class="level1"><div class="li"> If there already is a section called <code><em>sname</em></code>: <code>UBUS_STATUS_INVALID_ARGUMENT</code> else: <code>UBUS_STATUS_OK</code></div>
+</li>
+<li class="level1"><div class="li"> If there is no section <code><em>sname</em></code> or if <code><em>value</em></code> is neither a string nor an array: <code>UBUS_STATUS_INVALID_ARGUMENT</code> else: <code>UBUS_STATUS_OK</code></div>
+</li>
+</ol>
+</div></td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>uci</code> </td><td class="col1"> <code>add</code> </td><td class="col2"> <code>{ &quot;package&quot;: &quot;<em>package</em>&quot;,
+  &quot;type&quot;:    &quot;<em>type</em>&quot; }</code> </td><td class="col3"> <div class="plugin_wrap">
+<p>
+Add new anonymous section of given type.
+</p>
+<ol>
+<li class="level1"><div class="li"> When called with <code><em>package</em></code> and <code><em>type</em></code> set: Add a new anonymous section of type <code><em>type</em></code>.</div>
+</li>
+</ol>
+
+<p>
+Return message:
+</p>
+<ol>
+<li class="level1"><div class="li"> <code>{ &quot;section&quot;: &quot;sectionname&quot; }</code></div>
+</li>
+</ol>
+</div></td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>uci</code> </td><td class="col1"> <code>delete</code> </td><td class="col2"> <code>{ &quot;package&quot;: &quot;<em>package</em>&quot;,
+  &quot;section&quot;: &quot;<em>sname</em>&quot;,
+  &quot;type&quot;:    &quot;<em>type</em>&quot;,
+  &quot;option&quot;:  &quot;<em>oname</em>&quot; }</code> </td><td class="col3"> <div class="plugin_wrap">
+<p>
+Delete the given value(s) or section(s), the option and type arguments are optional.
+</p>
+<ol>
+<li class="level1"><div class="li"> When called with <code><em>package</em></code> and <code><em>type</em></code> set: delete all sections of type <code><em>type</em></code> in <code><em>package</em></code></div>
+</li>
+<li class="level1"><div class="li"> When called with <code><em>package</em></code> and <code><em>sname</em></code> set: delete the section named <code><em>sname</em></code> in <code><em>package</em></code></div>
+</li>
+<li class="level1"><div class="li"> When called with <code><em>package</em></code>, <code><em>type</em></code> and <code><em>oname</em></code> set: delete the option named <code><em>oname</em></code> within each section of type <code><em>type</em></code> in <code><em>package</em></code></div>
+</li>
+<li class="level1"><div class="li"> When called with <code><em>package</em></code>, <code><em>sname</em></code> and <code><em>oname</em></code> set: delete the option named <code><em>oname</em></code> in section <code><em>sname</em></code> of <code><em>package</em></code></div>
+</li>
+</ol>
+
+<p>
+The call does not result in any data, instead it returns the following status codes:
+</p>
+<ol>
+<li class="level1"><div class="li"> If no section of type <code><em>type</em></code> was found: <code>UBUS_STATUS_NOT_FOUND</code> else: <code>UBUS_STATUS_OK</code></div>
+</li>
+<li class="level1"><div class="li"> If no section named <code><em>sname</em></code> was found: <code>UBUS_STATUS_NOT_FOUND</code> else: <code>UBUS_STATUS_OK</code></div>
+</li>
+<li class="level1"><div class="li"> If no options named <code><em>oname</em></code> within sections of type <code><em>type</em></code> where found: <code>UBUS_STATUS_NOT_FOUND</code> else: <code>UBUS_STATUS_OK</code></div>
+</li>
+<li class="level1"><div class="li"> If the option named <code><em>oname</em></code> within named section <code><em>sname</em></code> was not found: <code>UBUS_STATUS_NOT_FOUND</code> else: <code>UBUS_STATUS_OK</code></div>
+</li>
+</ol>
+</div></td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit34" id="example_code_snippets">Example code snippets</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit35" id="check_if_link_is_up_using_devstatus_and_json">Check if Link is up using devstatus and Json</h3>
+<div class="level3">
+
+<p>
+<pre class="code">#!/bin/sh
+
+. /usr/share/libubox/jshn.sh
+
+WANDEV=&quot;$(uci get network.wan.ifname)&quot;
+
+json_load &quot;$(devstatus $WANDEV)&quot;
+
+json_get_var var1 speed
+json_get_var var2 link
+
+echo &quot;Speed: $var1&quot;
+echo &quot;Link: $var2&quot;</pre>
+
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/techref/ubus.txt</bdi> · Last modified: 2014/12/01 20:59 by <bdi>benprew</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="ubus?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="ubus?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="ubus?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="ubus#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Atechref%253Aubus&amp;1432267222" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

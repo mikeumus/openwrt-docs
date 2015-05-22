@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>MyLoader [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,techref,bootloader,myloader"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../../index.html"/>
+<link rel="contents" href="myloader?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../../feed.php?mode=list&amp;ns=doc:techref:bootloader"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../../_export/xhtml/doc/techref/bootloader/myloader"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../../_export/raw/doc/techref/bootloader/myloader"/>
+<link rel="canonical" href="myloader"/>
+<link rel="stylesheet" type="text/css" href="../../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:techref:bootloader';var JSINFO = {"id":"doc:techref:bootloader:myloader","namespace":"doc:techref:bootloader"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267718 166.182.3.132';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="myloader#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../../start"  accesskey="h" title="[H]"><img src="../../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="myloader?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="myloader?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:techref:bootloader:myloader" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="myloader?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="myloader?do=media&amp;ns=doc%253Atechref%253Abootloader"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="myloader?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../../techref.1" class="wikilink1" title="doc:techref:start">Technical Reference</a></bdi> » <bdi><a href="../bootloader.1" class="wikilink1" title="doc:techref:bootloader">The Bootloader</a></bdi> » <bdi><span class="curid"><a href="myloader" class="wikilink1" title="doc:techref:bootloader:myloader">MyLoader</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/techref/bootloader/myloader" class="media" title="cz:doc:techref:bootloader:myloader"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/techref/bootloader/myloader" class="media" title="de:doc:techref:bootloader:myloader"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="myloader" class="media" title="doc:techref:bootloader:myloader"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/techref/bootloader/myloader" class="media" title="es:doc:techref:bootloader:myloader"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/techref/bootloader/myloader" class="media" title="fr:doc:techref:bootloader:myloader"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/techref/bootloader/myloader" class="media" title="hu:doc:techref:bootloader:myloader"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/techref/bootloader/myloader" class="media" title="jp:doc:techref:bootloader:myloader"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/techref/bootloader/myloader" class="media" title="pl:doc:techref:bootloader:myloader"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/techref/bootloader/myloader" class="media" title="pt-br:doc:techref:bootloader:myloader"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/techref/bootloader/myloader" class="media" title="ru:doc:techref:bootloader:myloader"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/techref/bootloader/myloader" class="media" title="tr:doc:techref:bootloader:myloader"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/techref/bootloader/myloader" class="media" title="zh-cn:doc:techref:bootloader:myloader"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/techref/bootloader/myloader" class="media" title="zh-tw:doc:techref:bootloader:myloader"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:techref:bootloader:myloader</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="myloader#myloader">MyLoader</a></div></li>
+<li class="level1"><div class="li"><a href="myloader#myloram">Myloram</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h2 class="sectionedit1" id="myloader">MyLoader</h2>
+<div class="level2">
+
+<p>
+<a href="http://wiki.openwrt.org/oldwiki/myloader" class="wikilink2" title="oldwiki:myloader" rel="nofollow">MyLoader</a> is the bootloader only seen so far on Compex wireless routers. If you have seen this bootloader on other devices that you own please add them to the bottom of the page. Unlike CFE or Redboot, <a href="http://wiki.openwrt.org/oldwiki/myloader" class="wikilink2" title="oldwiki:myloader" rel="nofollow">MyLoader</a> is a menu driven bootloader like the standard one on all adm5120 platforms by Edimax, Sweex and others. There are more details on the standard bootloader available on the midge website: <a href="http://midge.vlad.org.ua" class="urlextern" title="http://midge.vlad.org.ua"  rel="nofollow">http://midge.vlad.org.ua</a>
+</p>
+
+<p>
+The following data is for COMPEX WP54AG (non WRT version) and is probably valid also for COMPEX NP27G:
+</p>
+
+<p>
+Images used for updating firmware consist of update header(offset 0) and system image(size+crc32+gziped kernel+cramfs; offset 0x100f8). After verifying update header, system image is saved to the first mtd partition (mtd1, memory address: 0x1fc00000). When booting, <a href="http://wiki.openwrt.org/oldwiki/myloader" class="wikilink2" title="oldwiki:myloader" rel="nofollow">MyLoader</a> verifies(crc) flash stored image, ungzips it and runs kernel….
+</p>
+
+<p>
+firmware update image description:
+</p>
+
+<p>
+<pre class="code">address: size description
+--------update header----------------------
+0x00000: 4B  MAGIC (004d594c)
+0x00004: 4B  CRC?? (unknown checksum, can be disabled by setting to 00000000)
+0x00010: 8B  2xDEVICE ID
+0x00050: 4B  size of system image (from 0x100f8)
+-------system image------------------------
+0x100f8: 4B  size of gzipped kernel+cramfs
+0x100fc: 4B  crc32 of gzipped kernel+cramfs (from 0x10100 to eof)
+0x10100: n/a gziped linux kernel + cramfs filesystem</pre>
+
+</p>
+
+<p>
+(note: there is a lot of another data in update header, but you have to modify only size (0x50) and disable checksum (0x4) to load modified system image)
+</p>
+
+<p>
+Below is a set of instructions which can be used to update the bootloader to CFE using the bundle provided for the WP54-WRT. I have tried this on my WP54G-1D but after a few seconds the board freezes (EDIT: this is probably because CFE for WP54-WRT checks for &quot;security device&quot; attached to GPIO0, GPIO1 and will not run on non WRT versions of WP54).  Also JTAG seems to be a bit odd on these boxes, and as yet I have to get some sensible looking results from it.
+</p>
+
+<p>
+<pre class="code">[[oldwiki:myloader|MyLoader]] version 2.32.0515
+System memory: 16MB ram, 4MB flash
+Probe Flash Device: 00400000 at bfc00000
+Flash Device: Found 1 x16 devices at 0x0 in 16-bit mode
+ Amd/Fujitsu Extended Query Table v1.1 at 0x0040
+number of CFI chips: 1
+Load Firmware
+Loading Firmware  CRC error.
+Update Firmware (Image Mode)
+Mini TFTP Server 1.0 (IP : 192.168.168.1)
+Usage (Windows 2000/XP) :
+  tftp -i 192.168.168.1 put 
+Main Menu
+1 - Load Firmware
+2 - Load Program
+3 - BIOS Setup
+4 - Fdisk Utility
+5 - Update Flash (Binary Mode)
+6 - Update Firmware (Image Mode)
+7 - Reboot System
+Please select :</pre>
+
+</p>
+
+<p>
+As you can see I have pre-broken my image, <a href="http://wiki.openwrt.org/oldwiki/myloader" class="wikilink2" title="oldwiki:myloader" rel="nofollow">MyLoader</a> checks the whole image against a CRC before booting. At this point you can select 5, Update Flash which opens a new menu.
+</p>
+
+<p>
+<pre class="code">Update Flash (Binary Mode)
+1 - Update BIOS
+2 - Update System Paramters
+3 - Update Board Paramters
+4 - Update Partition Table
+5 - Update Partition
+Please select : </pre>
+
+</p>
+
+<p>
+Then select 1 - Update BIOS. You can send any binary file, and it will just overwrite the bootloader.<strong>Warning – This will toast your router if you send a bad file.</strong>
+</p>
+
+<p>
+<pre class="code">Update BIOS
+Mini TFTP Server 1.0 (IP : 192.168.168.1)
+Usage (Windows 2000/XP) :
+  tftp -i 192.168.168.1 put </pre>
+
+</p>
+
+<p>
+You then TFTP your file to the router and given any luck you should see:
+</p>
+
+<p>
+<pre class="code">Starting the TFTP download from IP (192.168.168.2)...
+........
+TFTP download completed...
+Update BIOS ......................... Done
+Update Flash (Binary Mode)
+1 - Update BIOS
+2 - Update System Paramters
+3 - Update Board Paramters
+4 - Update Partition Table
+5 - Update Partition
+Please select : </pre>
+
+</p>
+
+<p>
+Escape out of that menu:
+</p>
+
+<p>
+<pre class="code">Main Menu
+1 - Load Firmware
+2 - Load Program
+3 - BIOS Setup
+4 - Fdisk Utility
+5 - Update Flash (Binary Mode)
+6 - Update Firmware (Image Mode)
+7 - Reboot System
+Please select :</pre>
+
+</p>
+
+<p>
+Then select 7. This is the point of no return. If you were sensible enough to save a copy of the previous images then continue at your leasure.
+</p>
+
+<p>
+<pre class="code">Reboot System
+CFE version 1.2.5 for WP54G (32bit,SP,LE,MIPS)
+Build Date: Wed Aug 16 09:09:30 SGT 2006 (ttyaw@linux01)
+Initializing Arena.
+Initializing PCI. [normal]
+PCI bus 0 slot 0/0: ADMtek ADM5120 Host Bridge (host bridge)
+PCI bus 0 slot 2/0: Atheros product 0x001a (ethernet network, rev 0x01)
+Initializing Devices.
+CPU type 0x1800B: 175MHz
+Total memory: 0x1000000 bytes (16MB)
+Total memory used by CFE:  0x80F83000 - 0x80FFFAE0 (510688)
+Initialized Data:          0x80FBA824 - 0x80FBCA50 (8748)
+BSS Area:                  0x80FBCA50 - 0x80FBDAE0 (4240)
+Local Heap:                0x80FBDAE0 - 0x80FFDAE0 (262144)
+Stack Area:                0x80FFDAE0 - 0x80FFFAE0 (8192)
+Text (code) segment:       0x80F83000 - 0x80FBA115 (225557)
+Boot area (physical):      0x00F42000 - 0x00F82000
+Relocation Factor:         I:E1383000 - D:E1383000
+CFE&gt;</pre>
+
+</p>
+
+<p>
+At which point I can enter commands for a few seconds, but after that it freezes for me.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="myloram">Myloram</h2>
+<div class="level2">
+
+<p>
+Special bootloader for Compex, designed to restore the router via JTAG. This bootloader is loaded into memory after the initialization of the processor with using special commands sent. It allows to exclude interference with the device hardware by unsoldering flash memory. After booting bootloader, you can see a similar menu as the original MyLoader. Also bootloader Myloram for <a href="http://www.cpx.cz/dls/wpe72_WPE72NX_MMJ5N26E/wp72_loader_jtag.zip" class="urlextern" title="http://www.cpx.cz/dls/wpe72_WPE72NX_MMJ5N26E/wp72_loader_jtag.zip"  rel="nofollow">COMPEX WPE72(Atheros AR724x)</a> are tested on a third-party device TP-Link (only with same processor) and successfully restored.
+</p>
+
+<p>
+And not tested <a href="http://www.cpx.cz/dls/JTAG%20SW_CONFIG_INSTR/" class="urlextern" title="http://www.cpx.cz/dls/JTAG%20SW_CONFIG_INSTR/"  rel="nofollow">COMPEX WP543(Atheros AR71xx)</a>.
+</p>
+
+<p>
+<strong>Note:</strong>
+Unlike the original <a href="http://www.cpx.cz/dls/JTAG%20SW_CONFIG_INSTR/How%20to%20JTAG%20to%20Compex%20Loader.pdf" class="urlextern" title="http://www.cpx.cz/dls/JTAG%20SW_CONFIG_INSTR/How%20to%20JTAG%20to%20Compex%20Loader.pdf"  rel="nofollow">COMPEX instruction</a> (or macro file for OCD Commander) for recovering bootloader via JTAG, to third-party devices, loaded with the address of the memory must be set explicitly.
+</p>
+
+<p>
+For example in OCD Commander:
+<pre class="code">...
+download myloram.srec
+go 0x81F00000</pre>
+
+Or if using OpenOCD:
+<pre class="code">...
+load_image myloram.srec 0x81F00000
+resume 0x81F00000</pre>
+
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/techref/bootloader/myloader.txt</bdi> · Last modified: 2012/12/06 07:21 by <bdi>dioptimizer</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="myloader?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="myloader?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="myloader?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="myloader#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../../lib/exe/indexer.php?id=doc%253Atechref%253Abootloader%253Amyloader&amp;1432267718" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

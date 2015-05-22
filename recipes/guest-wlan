@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Configure a guest WLAN [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,recipes,guest-wlan"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="guest-wlan?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:recipes"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/recipes/guest-wlan"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/recipes/guest-wlan"/>
+<link rel="canonical" href="guest-wlan"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:recipes';var JSINFO = {"id":"doc:recipes:guest-wlan","namespace":"doc:recipes"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266333 166.182.3.117';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="guest-wlan#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="guest-wlan?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="guest-wlan?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:recipes:guest-wlan" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="guest-wlan?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="guest-wlan?do=media&amp;ns=doc%253Arecipes"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="guest-wlan?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:recipes:start">Recipes</a></bdi> » <bdi><span class="curid"><a href="guest-wlan" class="wikilink1" title="doc:recipes:guest-wlan">Configure a guest WLAN</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/recipes/guest-wlan" class="media" title="cz:doc:recipes:guest-wlan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/recipes/guest-wlan" class="media" title="de:doc:recipes:guest-wlan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="guest-wlan" class="media" title="doc:recipes:guest-wlan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/recipes/guest-wlan" class="media" title="es:doc:recipes:guest-wlan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/recipes/guest-wlan" class="media" title="fr:doc:recipes:guest-wlan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/recipes/guest-wlan" class="media" title="hu:doc:recipes:guest-wlan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/recipes/guest-wlan" class="media" title="jp:doc:recipes:guest-wlan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/recipes/guest-wlan" class="media" title="pl:doc:recipes:guest-wlan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/recipes/guest-wlan" class="media" title="pt-br:doc:recipes:guest-wlan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/recipes/guest-wlan" class="media" title="ru:doc:recipes:guest-wlan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/recipes/guest-wlan" class="media" title="tr:doc:recipes:guest-wlan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/recipes/guest-wlan" class="media" title="zh-cn:doc:recipes:guest-wlan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/recipes/guest-wlan" class="media" title="zh-tw:doc:recipes:guest-wlan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:recipes:guest-wlan</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="guest-wlan#manual_configuration">Manual configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="guest-wlan#step_1define_a_new_network">Step 1: Define a new network</a></div></li>
+<li class="level2"><div class="li"><a href="guest-wlan#step_2copy_the_existing_wireless_network">Step 2: Copy the existing wireless network</a></div></li>
+<li class="level2"><div class="li"><a href="guest-wlan#step_3define_a_new_dhcp_pool">Step 3: Define a new DHCP pool</a></div></li>
+<li class="level2"><div class="li"><a href="guest-wlan#step_4aadjust_firewall_settings">Step 4a: Adjust firewall settings</a></div></li>
+<li class="level2"><div class="li"><a href="guest-wlan#step_4bdifferent_modifications_to_firewall_settings">Step 4b: Different modifications to firewall settings</a></div></li>
+<li class="level2"><div class="li"><a href="guest-wlan#step_4cblock_everything_but_http_and_https">Step 4c: Block everything, but http and https</a></div></li>
+<li class="level2"><div class="li"><a href="guest-wlan#step_5limit_bandwidth_of_the_connection">Step 5: Limit bandwidth of the connection</a></div></li>
+<li class="level2"><div class="li"><a href="guest-wlan#multiple_network_devices">Multiple network devices</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="guest-wlan#new_vlan">New VLAN</a></div></li>
+<li class="level3"><div class="li"><a href="guest-wlan#new_interface">New interface</a></div></li>
+<li class="level3"><div class="li"><a href="guest-wlan#guest_wlan">Guest WLAN</a></div></li>
+<li class="level3"><div class="li"><a href="guest-wlan#dhcp_firewall_and_bandwidth_settings">DHCP, firewall and bandwidth settings</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="guest-wlan#configuration_by_shell_script">Configuration by shell script</a></div></li>
+<li class="level1"><div class="li"><a href="guest-wlan#apply_changes">Apply changes</a></div></li>
+<li class="level1"><div class="li"><a href="guest-wlan#hotspot_captive_portal">HotSpot (Captive Portal)</a></div></li>
+<li class="level1"><div class="li"><a href="guest-wlan#troubleshooting">Troubleshooting</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="configure_a_guest_wlan">Configure a guest WLAN</h1>
+<div class="level1">
+<div class="wrap_center wrap_round wrap_important plugin_wrap" style="width: 70%;">
+<p>
+People looking for a way to configure a guest WLAN through the web interface should read <a href="guest-wlan-webinterface" class="wikilink1" title="doc:recipes:guest-wlan-webinterface">the LuCI guest WLAN recipe</a>.
+</p>
+</div>
+<p>
+Guest WLAN provides internet access to your network members. It also provides firewall security rules to isolate your guest network from the rest. This recipe contains information provided by our forums members and one blogger as showed below:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="https://forum.openwrt.org/viewtopic.php?id=28317" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=28317"  rel="nofollow">Access Point with a second SSID for Guest Access to Internet only</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="https://forum.openwrt.org/viewtopic.php?id=26223" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=26223"  rel="nofollow">Atheros DIR-825 enabling the Guest wifi zone</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="https://forum.openwrt.org/viewtopic.php?id=28926" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=28926"  rel="nofollow">How to keep users of guest wlan out of lan ?</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://jwalanta.blogspot.com/2012/03/multiple-ssid-on-openwrt-with-bandwidth.html" class="urlextern" title="http://jwalanta.blogspot.com/2012/03/multiple-ssid-on-openwrt-with-bandwidth.html"  rel="nofollow">Limiting bandwidth of the guest connection</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit4" id="manual_configuration">Manual configuration</h2>
+<div class="level2">
+
+<p>
+The changes below assume an OpenWrt default configuration, the relevant files are:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="../uci/network" class="wikilink1" title="doc:uci:network">/etc/config/network</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../uci/wireless" class="wikilink1" title="doc:uci:wireless">/etc/config/wireless</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../uci/dhcp" class="wikilink1" title="doc:uci:dhcp">/etc/config/dhcp</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../uci/firewall" class="wikilink1" title="doc:uci:firewall">/etc/config/firewall</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://wiki.openwrt.org/doc/uci/wshaper" class="wikilink2" title="doc:uci:wshaper" rel="nofollow">/etc/config/wshaper</a></div>
+</li>
+</ul>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> A guest WLAN (or plain guest network) <span class="curid"><a href="guest-wlan#multiple_network_devices" class="wikilink1" title="doc:recipes:guest-wlan">across multiple network devices</a></span> requires a separate VLAN.
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="step_1define_a_new_network">Step 1: Define a new network</h3>
+<div class="level3">
+
+<p>
+Edit <a href="../uci/network" class="wikilink1" title="doc:uci:network">/etc/config/network</a> and define a new <code><a href="../uci/network#interfaces" class="wikilink1" title="doc:uci:network">interface</a></code> section:
+<pre class="code">config &#039;interface&#039; &#039;guest&#039;
+        option &#039;proto&#039; &#039;static&#039;
+        option &#039;ipaddr&#039; &#039;10.0.0.1&#039;
+        option &#039;netmask&#039; &#039;255.255.255.0&#039;</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="step_2copy_the_existing_wireless_network">Step 2: Copy the existing wireless network</h3>
+<div class="level3">
+
+<p>
+In <a href="../uci/wireless" class="wikilink1" title="doc:uci:wireless">/etc/config/wireless</a>, define a new wifi-iface section by copying the existing one and changing its network option to point to the newly created interface section.
+</p>
+
+<p>
+<pre class="code">config &#039;wifi-iface&#039;
+        option &#039;device&#039;     &#039;???&#039;
+        option &#039;mode&#039;       &#039;ap&#039;
+        option &#039;network&#039;    &#039;guest&#039;
+        option &#039;ssid&#039;       &#039;guest&#039;
+        option &#039;encryption&#039; &#039;none&#039;</pre>
+
+For <em><code>option &#039;device&#039; &#039;???&#039; </code></em> you should put the device listed in your &#039;wifi-device&#039; section. For example, if your &#039;wifi-device&#039; says <em><code>config &#039;wifi-device&#039; &#039;<strong>wifi0</strong>&#039; </code></em> then the wifi-iface section should be <em><code>option &#039;device&#039; &#039;<strong>wifi0</strong>&#039; </code></em>
+</p>
+<div class="table sectionedit7"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/48px-emblem-important.svg.png" class="media" alt="" /> </td><td class="col1"> Some hardware or drivers might not support multiple SSIDs. This is the case for e.g. the <abbr title="Free &amp; Open-Source Software">FOSS</abbr> b43 driver for Broadcom hardware. If you want multiple SSIDs with Broadcom you&#039;ll need to use the <a href="../hardware/soc/soc.broadcom.bcm47xx.1#broadcom-wl" class="wikilink1" title="doc:hardware:soc:soc.broadcom.bcm47xx">proprietary wl driver</a>. </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit8" id="step_3define_a_new_dhcp_pool">Step 3: Define a new DHCP pool</h3>
+<div class="level3">
+
+<p>
+In order to support DHCP on &#039;guest&#039; wireless, a new <code><a href="../uci/dhcp#dhcppools" class="wikilink1" title="doc:uci:dhcp">dhcp</a></code> pool must be defined in <code>/etc/config/dhcp</code>:
+</p>
+<pre class="code">  [..]
+  config &#039;dhcp&#039; &#039;guest&#039;
+    option &#039;interface&#039; &#039;guest&#039;
+    option &#039;start&#039; &#039;50&#039;
+    option &#039;limit&#039; &#039;200&#039;
+    option &#039;leasetime&#039; &#039;1h&#039;
+  [..]</pre>
+
+</div>
+
+<h3 class="sectionedit9" id="step_4aadjust_firewall_settings">Step 4a: Adjust firewall settings</h3>
+<div class="level3">
+
+<p>
+Edit <code>/etc/config/firewall</code> and add new zone section covering the &#039;guest&#039; interface, allow internet, <abbr title="Domain Name System">DNS</abbr> and DHCP to guests:
+</p>
+<pre class="code">  [..]
+  config &#039;zone&#039;
+    option &#039;name&#039; &#039;guest&#039;
+    option &#039;network&#039; &#039;guest&#039;
+    option &#039;input&#039; &#039;REJECT&#039;
+    option &#039;forward&#039; &#039;REJECT&#039;
+    option &#039;output&#039; &#039;ACCEPT&#039;
+  
+  # Allow Guest -&gt; Internet
+  config &#039;forwarding&#039;
+    option &#039;src&#039; &#039;guest&#039;
+    option &#039;dest&#039; &#039;wan&#039;
+   
+  # Allow DNS Guest -&gt; Router
+  # Client DNS queries ordinate from dynamic UDP ports (&gt;1023) 
+  config &#039;rule&#039;
+    option &#039;name&#039; &#039;Allow DNS Queries&#039;
+    option &#039;src&#039; &#039;guest&#039;
+    option &#039;dest_port&#039; &#039;53&#039;
+    option &#039;proto&#039; &#039;tcpudp&#039;
+    option &#039;target&#039; &#039;ACCEPT&#039;
+  
+  # Allow DHCP Guest -&gt; Router
+  # DHCP communication uses UDP ports 67-68
+  config &#039;rule&#039;
+    option &#039;name&#039; &#039;Allow DHCP request&#039;
+    option &#039;src&#039; &#039;guest&#039;
+    option &#039;src_port&#039; &#039;67-68&#039;
+    option &#039;dest_port&#039; &#039;67-68&#039;
+    option &#039;proto&#039; &#039;udp&#039;
+    option &#039;target&#039; &#039;ACCEPT&#039;
+  [..]</pre>
+
+</div>
+
+<h3 class="sectionedit10" id="step_4bdifferent_modifications_to_firewall_settings">Step 4b: Different modifications to firewall settings</h3>
+<div class="level3">
+
+<p>
+I created this small set of firewall rules to completely isolate guests on the guest SSID. I had some devices that only worked with WEP or no authentication at all.  WEP doesn&#039;t like to run on .11n devices in HT mode, so the only option was a wide-open SSID. I also didn&#039;t want my neighbors to quickly steal my internet… This firewall config will only allow specific, known source MACs to connect to the internet, with zero access to the rest of the network.
+</p>
+
+<p>
+Edit <code>/etc/config/firewall</code> and add new zone section covering the &#039;guest&#039; interface, allow SSH, <abbr title="Domain Name System">DNS</abbr> and DHCP to guests, allow only specific source MAC addresses out to the WAN, drop broadcast traffic and deny the rest of orders:
+</p>
+<pre class="code">  [..]
+  
+  # Enable logging
+  config &#039;zone&#039;
+    option &#039;name&#039; &#039;guest&#039;
+    option &#039;network&#039; &#039;guest&#039;
+    option &#039;input&#039; &#039;REJECT&#039;
+    option &#039;forward&#039; &#039;REJECT&#039;
+    option &#039;output&#039; &#039;ACCEPT&#039;
+  
+  # Quick rule to allow SSH in
+  config &#039;rule&#039;
+    option &#039;name&#039; &#039;Allow SSH in&#039;
+    option &#039;src&#039; &#039;guest&#039;
+    option &#039;dest_port&#039; &#039;22&#039;
+    option &#039;proto&#039; &#039;tcp&#039;
+    option &#039;target&#039; &#039;ACCEPT&#039;
+  
+  # Allow DNS Guest -&gt; Router
+  config &#039;rule&#039;
+    option &#039;name&#039; &#039;Allow DNS Queries&#039;
+    option &#039;src&#039; &#039;guest&#039;
+    option &#039;dest_port&#039; &#039;53&#039;
+    option &#039;proto&#039; &#039;tcpudp&#039;
+    option &#039;target&#039; &#039;ACCEPT&#039;
+  
+  # Allow DHCP Guest -&gt; Router
+  config &#039;rule&#039;
+    option &#039;name&#039; &#039;Allow DHCP request&#039;
+    option &#039;src&#039; &#039;guest&#039;
+    option &#039;src_port&#039; &#039;67-68&#039;
+    option &#039;dest_port&#039; &#039;67-68&#039;
+    option &#039;proto&#039; &#039;udp&#039;
+    option &#039;target&#039; &#039;ACCEPT&#039;
+  
+  # Allow only specific source MAC addresses out to the WAN
+  config &#039;rule&#039;
+    option &#039;name&#039; &#039;Allow my Nintendo DS&#039;
+    option &#039;src&#039; &#039;guest&#039;
+    option &#039;dest&#039; &#039;wan&#039;
+    option &#039;proto&#039; &#039;all&#039;
+    option &#039;src_mac&#039; &#039;00:ab:00:32:00:00&#039;
+    option &#039;target&#039; &#039;ACCEPT&#039;
+  
+  # Drop broadcast traffic, it just fills the logs :)
+  config &#039;rule&#039;
+    option &#039;name&#039; &#039;Drop guest broadcast&#039;
+    option &#039;src&#039; &#039;guest&#039;
+    option &#039;dest_ip&#039; &#039;172.16.62.255&#039;
+    option &#039;target&#039; &#039;DROP&#039;
+  
+  # Another explicit deny at the end.
+  config &#039;rule&#039;
+    option &#039;name&#039; &#039;Deny guest -&gt; WAN&#039;
+    option &#039;src&#039; &#039;guest&#039;
+    option &#039;dest&#039; &#039;wan&#039;
+    option &#039;proto&#039; &#039;all&#039;
+    option &#039;target&#039; &#039;REJECT&#039;
+  
+  [..]</pre>
+
+</div>
+
+<h3 class="sectionedit11" id="step_4cblock_everything_but_http_and_https">Step 4c: Block everything, but http and https</h3>
+<div class="level3">
+
+<p>
+In this configuration I shared my guest SSID, but only provide http and https connections, and isolate GUEST network from <abbr title="Local Area Network">LAN</abbr> network.
+</p>
+
+<p>
+Edit <code>/etc/config/firewall</code>, remove any <em>&#039;guest&#039;</em> configurations and add new zone section covering the &#039;guest&#039; interface, allow SSH, <abbr title="Domain Name System">DNS</abbr> and DHCP to guests, and http and https to the outside world, then block the rest.
+</p>
+<pre class="code">  [..]
+  config zone                                     
+    option name &#039;guest&#039;                 
+    option network &#039;guest&#039;              
+    option forward &#039;REJECT&#039;             
+    option output &#039;ACCEPT&#039;              
+    option input &#039;REJECT&#039;
+       
+  config forwarding                               
+    option src &#039;guest&#039;                  
+    option dest &#039;wan&#039;
+  
+  config rule                                     
+    option src &#039;guest&#039;                      
+    option src_port &#039;67-68&#039;                 
+    option dest_port &#039;67-68&#039;                
+    option proto &#039;udp&#039;                      
+    option target &#039;ACCEPT&#039;                  
+    option name &#039;Allow DHCP request&#039;        
+  
+  config rule                                     
+    option src &#039;guest&#039;                      
+    option dest_port &#039;53&#039;                   
+    option proto &#039;tcpudp&#039;                   
+    option target &#039;ACCEPT&#039;                  
+    option name &#039;Allow DNS Queries&#039;         
+      
+  config rule                                     
+    option src &#039;guest&#039;                      
+    option dest &#039;lan&#039;                       
+    option name &#039;Deny Guest -&gt; LAN&#039;        
+    option proto &#039;all&#039;                      
+    option target &#039;DROP&#039;                    
+  
+  config rule                                     
+    option target &#039;ACCEPT&#039;                  
+    option src &#039;guest&#039;                      
+    option dest &#039;wan&#039;                       
+    option name &#039;Allow Guest -&gt; WAN http&#039;      
+    option proto &#039;tcp&#039;                      
+    option dest_port &#039;80&#039;                   
+  
+  config rule                                 
+    option target &#039;ACCEPT&#039;              
+    option src &#039;guest&#039;                  
+    option dest &#039;wan&#039;                      
+    option name &#039;Allow Guest -&gt; WAN https&#039;  
+    option proto &#039;tcp&#039;                  
+    option dest_port &#039;443&#039;
+  
+  config rule                                     
+    option src &#039;guest&#039;                      
+    option dest &#039;wan&#039;                       
+    option name &#039;Deny Guest -&gt; WAN&#039; 
+    option proto &#039;all&#039;                  
+    option target &#039;DROP&#039;
+  
+  [..]</pre>
+
+</div>
+
+<h3 class="sectionedit12" id="step_5limit_bandwidth_of_the_connection">Step 5: Limit bandwidth of the connection</h3>
+<div class="level3">
+<div class="wrap_center wrap_round wrap_info plugin_wrap" style="width: 72%;">
+<p>
+Wondershaper (wshaper) is not recommended. Better use <code>qos-scripts</code> or <code>sqm-scripts</code> (see the <a href="http://www.bufferbloat.net/projects/cerowrt/wiki/Wondershaper_Must_Die" class="urlextern" title="http://www.bufferbloat.net/projects/cerowrt/wiki/Wondershaper_Must_Die"  rel="nofollow">Bufferbloat project</a>).
+</p>
+</div>
+<p>
+This is completely optional, but advised. Install package wshaper:
+<code>opkg install wshaper</code>
+</p>
+
+<p>
+Edit <code>/etc/config/wshaper</code>:
+</p>
+<pre class="code">  config wshaper &#039;settings&#039;
+    option network &#039;guest&#039;
+    option downlink &#039;64&#039;
+    option uplink &#039;512&#039;</pre>
+<div class="wrap_center wrap_round wrap_tip plugin_wrap" style="width: 85%;">
+<p>
+<code>Downlink</code> and <code>uplink</code> options are maximal limits, but in practice the speed will be slightly lower as wshaper also tries to prioritize traffic, so that the network stays responsive even when e.g. someone downloads a huge file - there are also wshaper options that can control this). The units are in <code>kbit</code>.
+</p>
+</div>
+</div>
+
+<h3 class="sectionedit17" id="multiple_network_devices">Multiple network devices</h3>
+<div class="level3">
+
+<p>
+The basics are already covered by points 1 to 5 above. For a network setup that involves two or more network devices (e.g. a router, one or more switches, one or more access points) you need to provide a separate <a href="../uci/network/switch#vlanswitch_config" class="wikilink1" title="doc:uci:network:switch">VLAN</a>. It is recommended to configure your VLANs through the web UI, since this offers an easier overview, but if you know what you are doing, the configuration files themselves are easy to edit as well.
+</p>
+
+<p>
+<strong>Some basics about VLANs:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> Most devices only use one VLAN by default (VLAN ID 1). The instructions that follow assume this is the case. Double check before proceeding.</div>
+</li>
+<li class="level1"><div class="li"> VLAN IDs match the virtual interfaces listed by ifconfig, i.e. a VLAN with ID 3 will show as ethX.3 (where X is your real interface, e.g. eth0).</div>
+</li>
+<li class="level1"><div class="li"> VLAN IDs should be identical across all network devices.</div>
+</li>
+<li class="level1"><div class="li"> A port can have three states: Off (not part of a specific VLAN), Untagged (when part of a VLAN), Tagged (when part of two or more VLANs).</div>
+</li>
+<li class="level1"><div class="li"> If a port is part of multiple VLANs, it needs to be set to Tagged in every single VLAN it is part of.</div>
+</li>
+<li class="level1"><div class="li"> Every VLAN should also include the CPU (tagged by default).</div>
+</li>
+</ul>
+
+<p>
+Furthermore, for a guest WLAN, only the port(s) connecting a network device to another one should be part of the VLAN. In practice, this means that in a router - access point setup, on each device only the port connecting to the other network device goes into the VLAN.
+</p>
+<div class="wrap_center wrap_round wrap_important plugin_wrap" style="width: 80%;">
+<p>
+Make sure you have identified the ports correctly. The VLAN definitions use <strong>internal port numbers</strong>. Quite a few devices (e.g. the <a href="../../toh/netgear/wndr37av" class="wikilink1" title="toh:netgear:wndr3700">Netgear WNDR3700 v1</a>) number their internal ports differently from the numbers on the enclosure! Tagged ports are clearly visible as such in the UI, in the configuration file they&#039;re marked by a <strong>t</strong> behind the port number.
+</p>
+</div><div class="wrap_center wrap_round wrap_important plugin_wrap" style="width: 80%;">
+<p>
+Creating a new VLAN with port X already part of another VLAN means port X should be set to tagged <strong>in all the existing VLAN(s) it is part of. Failure to do so may render your switch inoperable.</strong> We cannot stress this enough! Only certain switches support ports being untagged in one and tagged in another VLAN at the same time.
+</p>
+</div>
+</div>
+
+<h4 id="new_vlan">New VLAN</h4>
+<div class="level4">
+
+<p>
+Edit <a href="../uci/network" class="wikilink1" title="doc:uci:network">/etc/config/network</a> and define a new VLAN with ID 2 (change if ID 2 is already taken). Make sure to use the right device name - check your existing VLAN stanza. Do this on every router, switch or AP. 
+</p>
+<pre class="code">  config switch_vlan
+    option device      &#039;switch0&#039;
+    option vlan        &#039;2&#039;
+    option ports       &#039;3t 5t&#039;
+    </pre>
+
+<p>
+Here, internal ports 3 and 5 are part of the VLAN with ID 2, port 5 being the CPU. Both ports are tagged (indicated by the trailing <strong>t</strong>). Make sure port 3 (if you keep it in VLAN 1 as well) is tagged there as well. Below how it looks in LuCI:
+</p>
+
+<p>
+<a href="../../_detail/media/vlan_example_wndr3700.png?id=doc%253Arecipes%253Aguest-wlan" class="media" title="media:vlan_example_wndr3700.png"><img src="../../_media/media/vlan_example_wndr3700.png?w=800&amp;tok=9dfa12" class="media" alt="" width="800" /></a>
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong>Note how port 3 is now tagged in VLAN 1 as well.</strong> As explained above, you cannot have port X untagged in one VLAN and tagged in another. A port needs to have the same status across all the VLANs it is part of.
+</p>
+
+</div>
+
+<h4 id="new_interface">New interface</h4>
+<div class="level4">
+
+<p>
+Add the guest interface to your router just like in <span class="curid"><a href="guest-wlan#step_1define_a_new_network" class="wikilink1" title="doc:recipes:guest-wlan">step 1</a></span>. The important difference is that, unlike in a single router setup, <strong>we define an interface</strong>.
+</p>
+<pre class="code">  config interface     &#039;guest&#039;
+    option ifname      &#039;eth0.2&#039;
+    option proto       &#039;static&#039;
+    option ipaddr      &#039;10.0.0.1&#039;
+    option netmask     &#039;255.255.255.0&#039;</pre>
+
+<p>
+On each <em>access point</em>, we replicate the same stanza, but with two substantial differences:
+</p>
+<ul>
+<li class="level1"><div class="li"> We add an interface type, namely <em>bridge</em> (this will put the <abbr title="Local Area Network">LAN</abbr> and WLAN interfaces on the AP in one network);</div>
+</li>
+<li class="level1"><div class="li"> We set a different static IP (typically incremented by one).</div>
+</li>
+</ul>
+
+<p>
+Your config on your access point should look like this:
+</p>
+<pre class="code">  config interface     &#039;guest&#039;
+    option ifname      &#039;eth0.2&#039;
+    option type        &#039;bridge&#039;
+    option proto       &#039;static&#039;
+    option ipaddr      &#039;10.0.0.2&#039;
+    option netmask     &#039;255.255.255.0&#039;
+    </pre>
+
+</div>
+
+<h4 id="guest_wlan">Guest WLAN</h4>
+<div class="level4">
+
+<p>
+Like in <a href="guest-wlan#step_2copy_the_existing_wireless_network" class="urlextern" title="http://wiki.openwrt.org/doc/recipes/guest-wlan#step_2copy_the_existing_wireless_network"  rel="nofollow">step 2</a>, replicate the wireless interface config in <a href="../uci/wireless" class="urlextern" title="http://wiki.openwrt.org/doc/uci/wireless"  rel="nofollow">/etc/config/wireless</a> on each access point. Disable the wireless on all other network devices.
+</p>
+
+</div>
+
+<h4 id="dhcp_firewall_and_bandwidth_settings">DHCP, firewall and bandwidth settings</h4>
+<div class="level4">
+
+<p>
+The modifications above are the only points where a multi-device setup differs from a single-device setup. The DHCP server only runs on the main router, so you do not need to edit any related settings on any switches or access points; do make sure though that the static IPs do not conflict with the DHCP range you set. As for the firewall, you should replicate all stanzas provided above on every network device, if they have a firewall running.
+</p>
+
+<p>
+To cap the bandwidth, you can use tc, or wshaper - the latter being more user-friendly. Wshaper also has a LuCI front-end. Keep in mind wshaper treats upload speed as download, and the other way around.
+</p>
+
+</div>
+
+<h2 class="sectionedit22" id="configuration_by_shell_script">Configuration by shell script</h2>
+<div class="level2">
+
+<p>
+Here is the script that makes minimal changes required to setup guest wifi network on openwrt.
+</p>
+
+<p>
+<pre class="code bash"><span class="co0">#!/bin/sh</span>
+&nbsp;
+<span class="co0"># This is supposed to be run on openwrt</span>
+&nbsp;
+<span class="co0"># Written by Stanislav German-Evtushenko, 2014</span>
+<span class="co0"># Based on http://wiki.openwrt.org/doc/recipes/guest-wlan</span>
+&nbsp;
+<span class="co0"># Configure guest network</span>
+uci delete network.guest
+uci <span class="kw1">set</span> network.guest=interface
+uci <span class="kw1">set</span> network.guest.proto=static
+uci <span class="kw1">set</span> network.guest.ipaddr=192.168.101.21
+uci <span class="kw1">set</span> network.guest.netmask=255.255.255.0
+&nbsp;
+<span class="co0"># Configure guest Wi-Fi</span>
+uci delete wireless.guest
+uci <span class="kw1">set</span> wireless.guest=wifi-iface
+uci <span class="kw1">set</span> wireless.guest.device=radio0
+uci <span class="kw1">set</span> wireless.guest.mode=ap
+uci <span class="kw1">set</span> wireless.guest.network=guest
+uci <span class="kw1">set</span> wireless.guest.ssid=openwireless.org
+uci <span class="kw1">set</span> wireless.guest.encryption=none
+&nbsp;
+<span class="co0"># Configure DHCP for guest network</span>
+uci delete dhcp.guest
+uci <span class="kw1">set</span> dhcp.guest=dhcp
+uci <span class="kw1">set</span> dhcp.guest.interface=guest
+uci <span class="kw1">set</span> dhcp.guest.start=<span class="nu0">50</span>
+uci <span class="kw1">set</span> dhcp.guest.limit=<span class="nu0">200</span>
+uci <span class="kw1">set</span> dhcp.guest.leasetime=1h
+&nbsp;
+<span class="co0"># Configure firewall for guest network</span>
+<span class="co0">## Configure guest zone</span>
+uci delete firewall.guest_zone
+uci <span class="kw1">set</span> firewall.guest_zone=zone
+uci <span class="kw1">set</span> firewall.guest_zone.name=guest
+uci <span class="kw1">set</span> firewall.guest_zone.network=guest
+uci <span class="kw1">set</span> firewall.guest_zone.input=REJECT
+uci <span class="kw1">set</span> firewall.guest_zone.forward=REJECT
+uci <span class="kw1">set</span> firewall.guest_zone.output=ACCEPT
+<span class="co0">## Allow Guest -&gt; Internet</span>
+uci delete firewall.guest_forwarding
+uci <span class="kw1">set</span> firewall.guest_forwarding=forwarding
+uci <span class="kw1">set</span> firewall.guest_forwarding.src=guest
+uci <span class="kw1">set</span> firewall.guest_forwarding.dest=wan
+<span class="co0">## Allow DNS Guest -&gt; Router</span>
+uci delete firewall.guest_rule_dns
+uci <span class="kw1">set</span> firewall.guest_rule_dns=rule
+uci <span class="kw1">set</span> firewall.guest_rule_dns.name=<span class="st_h">'Allow DNS Queries'</span>
+uci <span class="kw1">set</span> firewall.guest_rule_dns.src=guest
+uci <span class="kw1">set</span> firewall.guest_rule_dns.dest_port=<span class="nu0">53</span>
+uci <span class="kw1">set</span> firewall.guest_rule_dns.proto=udp
+uci <span class="kw1">set</span> firewall.guest_rule_dns.target=ACCEPT
+<span class="co0">## Allow DHCP Guest -&gt; Router</span>
+uci delete firewall.guest_rule_dhcp
+uci <span class="kw1">set</span> firewall.guest_rule_dhcp=rule
+uci <span class="kw1">set</span> firewall.guest_rule_dhcp.name=<span class="st_h">'Allow DHCP request'</span>
+uci <span class="kw1">set</span> firewall.guest_rule_dhcp.src=guest
+uci <span class="kw1">set</span> firewall.guest_rule_dhcp.src_port=<span class="nu0">68</span>
+uci <span class="kw1">set</span> firewall.guest_rule_dhcp.dest_port=<span class="nu0">67</span>
+uci <span class="kw1">set</span> firewall.guest_rule_dhcp.proto=udp
+uci <span class="kw1">set</span> firewall.guest_rule_dhcp.target=ACCEPT
+&nbsp;
+uci commit
+&nbsp;
+<span class="co0"># Configure wshaper (optional)</span>
+opkg update
+opkg <span class="kw2">install</span> wshaper
+uci <span class="kw1">set</span> wshaper.settings=wshaper
+uci <span class="kw1">set</span> wshaper.settings.network=guest
+uci <span class="kw1">set</span> wshaper.settings.downlink=<span class="nu0">500</span>
+uci <span class="kw1">set</span> wshaper.settings.uplink=<span class="nu0">2000</span>
+<span class="co0">## Work around for https://github.com/openwrt/packages/issues/565 (wshaper: settings are not applied on boot)</span>
+<span class="kw3">echo</span> <span class="re5">-e</span> <span class="st_h">'#!/bin/sh\n\n[ &quot;$ACTION&quot; = ifup ] &amp;&amp; /etc/init.d/wshaper enabled &amp;&amp; /etc/init.d/wshaper start || exit 0'</span> <span class="sy0">&gt;</span> <span class="sy0">/</span>etc<span class="sy0">/</span>hotplug.d<span class="sy0">/</span>iface<span class="sy0">/</span><span class="nu0">10</span>-wshaper
+&nbsp;
+uci commit</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit23" id="apply_changes">Apply changes</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> Enable the new wireless network<pre class="code">/etc/init.d/network restart</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> Restart the firewall<pre class="code">/etc/init.d/firewall restart</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> Restart the DHCP service <pre class="code">/etc/init.d/dnsmasq restart</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> Start traffic shaping <pre class="code">/etc/init.d/wshaper start</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> Make traffic shaping permanent <pre class="code">/etc/init.d/wshaper enable</pre>
+</div>
+</li>
+</ol>
+
+</div>
+
+<h2 class="sectionedit24" id="hotspot_captive_portal">HotSpot (Captive Portal)</h2>
+<div class="level2">
+
+<p>
+If you want to setup a simple Hotspot for your guest WLAN, take a look at <a href="../howto/wireless.hotspot.nodogsplash" class="urlextern" title="http://wiki.openwrt.org/doc/howto/wireless.hotspot.nodogsplash"  rel="nofollow">Nodogsplash</a> or <a href="../howto/wireless.hotspot.wifidog" class="urlextern" title="http://wiki.openwrt.org/doc/howto/wireless.hotspot.wifidog"  rel="nofollow">WiFiDog</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit25" id="troubleshooting">Troubleshooting</h2>
+<div class="level2">
+
+<p>
+If you don&#039;t get an IP from DHCP check if you listen to the interface.
+</p>
+<div class="table sectionedit26"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>[..]
+config &#039;dnsmasq&#039;
+        [..]
+        list &#039;interface&#039; &#039;lan&#039;
+        list &#039;interface&#039; &#039;guest&#039;
+[..]</code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/recipes/guest-wlan.txt</bdi> · Last modified: 2015/05/12 22:22 by <bdi>Bernini</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="guest-wlan?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="guest-wlan?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="guest-wlan?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="guest-wlan#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Arecipes%253Aguest-wlan&amp;1432266333" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Building image with support for 3g/4g and usb tethering [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howtobuild,wireless-router-with-a-3g-dongle"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="wireless-router-with-a-3g-dongle?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howtobuild"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howtobuild/wireless-router-with-a-3g-dongle"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howtobuild/wireless-router-with-a-3g-dongle"/>
+<link rel="canonical" href="wireless-router-with-a-3g-dongle"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howtobuild';var JSINFO = {"id":"doc:howtobuild:wireless-router-with-a-3g-dongle","namespace":"doc:howtobuild"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265699 166.182.3.62';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="wireless-router-with-a-3g-dongle#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="wireless-router-with-a-3g-dongle?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="wireless-router-with-a-3g-dongle?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howtobuild:wireless-router-with-a-3g-dongle" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="wireless-router-with-a-3g-dongle?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="wireless-router-with-a-3g-dongle?do=media&amp;ns=doc%253Ahowtobuild"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="wireless-router-with-a-3g-dongle?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howtobuild:start">如何编译法</a></bdi> » <bdi><span class="curid"><a href="wireless-router-with-a-3g-dongle" class="wikilink1" title="doc:howtobuild:wireless-router-with-a-3g-dongle">Building image with support for 3g/4g and usb tethering</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howtobuild/wireless-router-with-a-3g-dongle" class="media" title="cz:doc:howtobuild:wireless-router-with-a-3g-dongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howtobuild/wireless-router-with-a-3g-dongle" class="media" title="de:doc:howtobuild:wireless-router-with-a-3g-dongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="wireless-router-with-a-3g-dongle" class="media" title="doc:howtobuild:wireless-router-with-a-3g-dongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howtobuild/wireless-router-with-a-3g-dongle" class="media" title="es:doc:howtobuild:wireless-router-with-a-3g-dongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howtobuild/wireless-router-with-a-3g-dongle" class="media" title="fr:doc:howtobuild:wireless-router-with-a-3g-dongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howtobuild/wireless-router-with-a-3g-dongle" class="media" title="hu:doc:howtobuild:wireless-router-with-a-3g-dongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howtobuild/wireless-router-with-a-3g-dongle" class="media" title="jp:doc:howtobuild:wireless-router-with-a-3g-dongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howtobuild/wireless-router-with-a-3g-dongle" class="media" title="pl:doc:howtobuild:wireless-router-with-a-3g-dongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howtobuild/wireless-router-with-a-3g-dongle" class="media" title="pt-br:doc:howtobuild:wireless-router-with-a-3g-dongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howtobuild/wireless-router-with-a-3g-dongle" class="media" title="ru:doc:howtobuild:wireless-router-with-a-3g-dongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howtobuild/wireless-router-with-a-3g-dongle" class="media" title="tr:doc:howtobuild:wireless-router-with-a-3g-dongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../zh-cn/doc/howtobuild/wireless-router-with-a-3g-dongle" class="media" title="zh-cn:doc:howtobuild:wireless-router-with-a-3g-dongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howtobuild/wireless-router-with-a-3g-dongle" class="media" title="zh-tw:doc:howtobuild:wireless-router-with-a-3g-dongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howtobuild:wireless-router-with-a-3g-dongle</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="wireless-router-with-a-3g-dongle#preparing_build_environment">Preparing build environment</a></div></li>
+<li class="level1"><div class="li"><a href="wireless-router-with-a-3g-dongle#configuring_packages">Configuring packages</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="wireless-router-with-a-3g-dongle#selecting_target_architecture_and_profile">Selecting target architecture and profile</a></div></li>
+<li class="level2"><div class="li"><a href="wireless-router-with-a-3g-dongle#selecting_kernel_modules_for_usb_networking_support">Selecting kernel modules for usb networking support.</a></div></li>
+<li class="level2"><div class="li"><a href="wireless-router-with-a-3g-dongle#additional_packages_required_for_3g_functionality">Additional packages required for 3g functionality</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="wireless-router-with-a-3g-dongle#ppp_chat_and_uqmi">ppp, chat, and uqmi</a></div></li>
+<li class="level3"><div class="li"><a href="wireless-router-with-a-3g-dongle#mbim">mbim</a></div></li>
+<li class="level3"><div class="li"><a href="wireless-router-with-a-3g-dongle#comgt_and_usb-modeswitch">comgt and usb-modeswitch</a></div></li>
+<li class="level3"><div class="li"><a href="wireless-router-with-a-3g-dongle#minicom_picocom_and_screen">minicom, picocom, and screen</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="wireless-router-with-a-3g-dongle#web_interface_support">Web Interface Support</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="wireless-router-with-a-3g-dongle#build_process">Build process</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="building_image_with_support_for_3g4g_and_usb_tethering">Building image with support for 3g/4g and usb tethering</h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit2" id="preparing_build_environment">Preparing build environment</h2>
+<div class="level2">
+
+<p>
+First of all, you need a complete build environment, either physical or virtual system, as described on the <a href="../howto/buildroot.exigence" class="wikilink1" title="doc:howto:buildroot.exigence">OpenWrt buildroot exigence</a>.
+</p>
+
+<p>
+You need to <a href="../howto/buildroot.exigence#downloadingsources" class="wikilink1" title="doc:howto:buildroot.exigence">clone OpenWrt git repository</a> on your build system and <a href="../howto/buildroot.exigence#downloadingandinstallingfeeds" class="wikilink1" title="doc:howto:buildroot.exigence">synchronize all package feeds</a> with your config file.
+</p>
+
+<p>
+Be sure to understand the <a href="../howto/obtain.firmware.compile" class="wikilink1" title="doc:howto:build">build procedure</a> to prevent build failure.
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="configuring_packages">Configuring packages</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit4" id="selecting_target_architecture_and_profile">Selecting target architecture and profile</h3>
+<div class="level3">
+
+<p>
+Run <code>make menuconfig</code> to <a href="../howto/obtain.firmware.compile#imageconfiguration" class="wikilink1" title="doc:howto:build">configure OpenWrt packages</a>.
+</p>
+
+<p>
+Select your architecture on which you would put your compiled OpenWrt image. Then select your target profile, according your hardware type.
+</p>
+
+<p>
+If you have selected correct value for target system, target profile, and target images, go to next step.
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="selecting_kernel_modules_for_usb_networking_support">Selecting kernel modules for usb networking support.</h3>
+<div class="level3">
+
+<p>
+Go to <code>Kernel Modules → USB Support</code>.
+</p>
+
+<p>
+Select the following modules by pressing <code>y</code> to include the modules within the compiled image.
+<pre class="code">Kernel Modules -&gt; USB Support
+&lt;*&gt; kmod-usb2
+&lt;*&gt; kmod-usb-ohci
+&lt;*&gt; kmod-usb-uhci
+&lt;*&gt; kmod-usb-acm # For ACM based modem, such as Nokia Phones
+&lt;*&gt; kmod-usb-net # For tethering and rndis support</pre>
+
+</p>
+
+<p>
+<strong>kmod-usb-net</strong> → to support usb networking interface.
+</p>
+
+<p>
+Select all subsets if you want perfect support for usb network interfaces, including Android and iPhone tethering. Some newer 4g dongles use usb network interface (rndis) instead of legacy serial protocol. 
+<pre class="code">&lt;*&gt; kmod-usb-net............... Kernel modules for USB-to-Ethernet convertors
+  &lt;*&gt;   kmod-usb-net-asix...... Kernel module for USB-to-Ethernet Asix convertors  
+  &lt;*&gt;   kmod-usb-net-cdc-eem..................... Support for CDC EEM connections  
+  -*-   kmod-usb-net-cdc-ether.............. Support for cdc ethernet connections  
+  &lt;*&gt;   kmod-usb-net-cdc-mbim..................... Kernel module for MBIM Devices  
+  -*-   kmod-usb-net-cdc-ncm..................... Support for CDC NCM connections  
+  &lt;*&gt;   kmod-usb-net-cdc-subset...... Support for CDC Ethernet subset connections  
+  &lt;*&gt;   kmod-usb-net-dm9601-ether........ Support for DM9601 ethernet connections  
+  &lt;*&gt;   kmod-usb-net-hso.. Kernel module for Option USB High Speed Mobile Devices  
+  &lt;*&gt;   kmod-usb-net-ipheth..................... Apple iPhone USB Ethernet driver  
+  &lt;*&gt;   kmod-usb-net-kalmia................... Samsung Kalmia based LTE USB modem  
+  &lt;*&gt;   kmod-usb-net-kaweth.. Kernel module for USB-to-Ethernet Kaweth convertors  
+  &lt;*&gt;   kmod-usb-net-mcs7830                                                       
+  &lt;*&gt;   kmod-usb-net-pegasus                                                       
+  &lt;*&gt;   kmod-usb-net-qmi-wwan.................................... QMI WWAN driver  
+  &lt;*&gt;   kmod-usb-net-rndis......................... Support for RNDIS connections  
+  &lt;*&gt;   kmod-usb-net-sierrawireless.......... Support for Sierra Wireless devices  
+  &lt;*&gt;   kmod-usb-net-smsc95xx. SMSC LAN95XX based USB 2.0 10/100 ethernet devices
+  </pre>
+
+</p>
+
+<p>
+<strong>kmod-usb-serial</strong> → to support legacy 3g dongles.
+</p>
+
+<p>
+Select all subsets to ensure that your dongle works. Most 3g dongles use the option driver or generic serial driver to work. Note that option driver has better capability of distinguishing between modem serial interfaces and storage interface than generic usb serial driver.
+<pre class="code">&lt;*&gt; kmod-usb-serial..................... Support for USB-to-Serial converters    
+  &lt;*&gt;   kmod-usb-serial-ark3116........ Support for ArkMicroChips ARK3116 devices  
+  &lt;*&gt;   kmod-usb-serial-belkin........................ Support for Belkin devices  
+  &lt;*&gt;   kmod-usb-serial-ch341.......................... Support for CH341 devices  
+  &lt;*&gt;   kmod-usb-serial-cp210x........... Support for Silicon Labs cp210x devices  
+  &lt;*&gt;   kmod-usb-serial-cypress-m8.............. Support for CypressM8 USB-Serial  
+  &lt;*&gt;   kmod-usb-serial-ftdi............................ Support for FTDI devices  
+  &lt;*&gt; kmod-usb-serial-ipw.................... Support for IPWireless 3G devices    
+  &lt;*&gt; kmod-usb-serial-keyspan........ Support for Keyspan USB-to-Serial devices    
+  &lt;*&gt; kmod-usb-serial-mct.............. Support for Magic Control Tech. devices    
+  &lt;*&gt; kmod-usb-serial-mos7720.............. Support for Moschip MOS7720 devices    
+  &lt;*&gt; kmod-usb-serial-motorola-phone............ Support for Motorola usb phone    
+  &lt;*&gt; kmod-usb-serial-option................... Support for Option HSDPA modems    
+  &lt;*&gt; kmod-usb-serial-oti6858...... Support for Ours Technology OTI6858 devices    
+  &lt;*&gt; kmod-usb-serial-pl2303............... Support for Prolific PL2303 devices    
+  &lt;*&gt; kmod-usb-serial-qualcomm................. Support for Qualcomm USB serial    
+  &lt;*&gt; kmod-usb-serial-sierrawireless....... Support for Sierra Wireless devices    
+  &lt;*&gt; kmod-usb-serial-ti-usb...................... Support for TI USB 3410/5052    
+  &lt;*&gt; kmod-usb-serial-visor............... Support for Handspring Visor devices    
+  -*- kmod-usb-serial-wwan..................... Support for GSM and CDMA modems
+  </pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="additional_packages_required_for_3g_functionality">Additional packages required for 3g functionality</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="ppp_chat_and_uqmi">ppp, chat, and uqmi</h4>
+<div class="level4">
+
+<p>
+Go to <code>Network</code> section. Select `uqmi` to support qmi interface and `ppp` to support standard point-to-point protocol. <code>chat</code> is needed to establish serial communication to prepare PPP link negotiation.
+<pre class="code">Network
+  &lt;*&gt;chat
+  &lt;*&gt;ppp
+  &lt;*&gt;uqmi</pre>
+
+</p>
+
+</div>
+
+<h4 id="mbim">mbim</h4>
+<div class="level4">
+
+<p>
+Some dongles are using mbim protocol. To make use of mbim protocol, install <code>umbim</code> package.
+<pre class="code">Network
+  &lt;*&gt;umbim</pre>
+
+</p>
+
+</div>
+
+<h4 id="comgt_and_usb-modeswitch">comgt and usb-modeswitch</h4>
+<div class="level4">
+
+<p>
+Go to <code>Utilities</code> section. Select <code>comgt</code> to provide control over 3g interface and <code>usb-modeswitch</code> to provide mode switching between virtual cd-rom interface to serial interface.
+<pre class="code">Utilities
+  &lt;*&gt;comgt
+  &lt;*&gt;usb-modeswitch</pre>
+
+</p>
+
+</div>
+
+<h4 id="minicom_picocom_and_screen">minicom, picocom, and screen</h4>
+<div class="level4">
+
+<p>
+If you want to debug serial communication, you may want to install serial terminal. There are several choices of serial terminal, such as minicom, picocom, and screen. I recommend <code>picocom</code> because of its small size.
+<pre class="code">Utilities --&gt; Terminal
+  &lt;*&gt;picocom</pre>
+
+Screen can be used as persistent session manager. Minicom has a nice interface, optimized for serial communication.
+<pre class="code">Utilities
+  &lt; &gt;screen
+Utilities --&gt; Terminal
+  &lt; &gt;minicom</pre>
+
+</p>
+
+<p>
+For devices with 4MB flash, <code>picocom</code> is the only serial terminal that can be installed.
+</p>
+
+</div>
+
+<h3 class="sectionedit7" id="web_interface_support">Web Interface Support</h3>
+<div class="level3">
+
+<p>
+If you want to control your 3g dongle with Luci web interface, go to Luci.
+<pre class="code">Luci
+1. Collections
+  &lt;*&gt; luci
+3. Applications
+  &lt;*&gt; luci-app-multiwan (optional to support multiple 3g dongles)
+  &lt;*&gt; luci-app-qos (optional to provide QOS support)
+6. Protocols
+  &lt;*&gt; luci-proto-3g
+  -*- luci-proto-ppp</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="build_process">Build process</h2>
+<div class="level2">
+
+<p>
+Continue selecting packages as needed. When you are done, run the build process
+<pre class="code">time make V=s download &amp;&amp;
+time make V=s</pre>
+
+</p>
+
+<p>
+Faster build time can be achieved by enabling multiple build jobs. In case of quad-core cpu<sup><a href="wireless-router-with-a-3g-dongle#fn__1" id="fnt__1" class="fn_top">1)</a></sup>.
+<pre class="code">time make -j8 V=s</pre>
+
+If build process is successful, your firmware images will be located on <code>bin/target-platform/</code>.
+</p>
+
+<p>
+If your hardware-specific image name could not be found, it&#039;s possible that you added too many packages that don&#039;t fit your hardware flash memory. Try reducing packages and restart <a href="../howto/obtain.firmware.compile" class="wikilink1" title="doc:howto:build"> the build process</a> if such case happens.
+</p>
+
+</div>
+<div class="footnotes">
+<div class="fn"><sup><a href="wireless-router-with-a-3g-dongle#fnt__1" id="fn__1" class="fn_bot">1)</a></sup> 
+Optimal build performance can be achieved by <a href="https://source.android.com/source/building-running.html#build-the-code" class="urlextern" title="https://source.android.com/source/building-running.html#build-the-code"  rel="nofollow">doubling the number of cpu cores</a></div>
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howtobuild/wireless-router-with-a-3g-dongle.txt</bdi> · Last modified: 2014/10/14 14:58 by <bdi>alive4ever</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="wireless-router-with-a-3g-dongle?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="wireless-router-with-a-3g-dongle?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="wireless-router-with-a-3g-dongle?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="wireless-router-with-a-3g-dongle#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowtobuild%253Awireless-router-with-a-3g-dongle&amp;1432265699" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

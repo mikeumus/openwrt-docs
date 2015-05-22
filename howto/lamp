@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Set up a LAMP stack on OpenWrt [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,lamp"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="lamp?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/lamp"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/lamp"/>
+<link rel="canonical" href="lamp"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:lamp","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267426 166.182.3.110';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="lamp#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="lamp?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="lamp?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:lamp" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="lamp?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="lamp?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="lamp?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="lamp" class="wikilink1" title="doc:howto:lamp">Set up a LAMP stack on OpenWrt</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/lamp" class="media" title="cz:doc:howto:lamp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/lamp" class="media" title="de:doc:howto:lamp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="lamp" class="media" title="doc:howto:lamp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/lamp" class="media" title="es:doc:howto:lamp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/lamp" class="media" title="fr:doc:howto:lamp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/lamp" class="media" title="hu:doc:howto:lamp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/lamp" class="media" title="jp:doc:howto:lamp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/lamp" class="media" title="pl:doc:howto:lamp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/lamp" class="media" title="pt-br:doc:howto:lamp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/lamp" class="media" title="ru:doc:howto:lamp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/lamp" class="media" title="tr:doc:howto:lamp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/lamp" class="media" title="zh-cn:doc:howto:lamp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/lamp" class="media" title="zh-tw:doc:howto:lamp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:lamp</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="lamp#basic_system_configuration">Basic System Configuration</a></div></li>
+<li class="level1"><div class="li"><a href="lamp#installing_and_configuring_a_web_server">Installing and configuring a web server</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="lamp#uhttpd">uHTTPd</a></div></li>
+<li class="level2"><div class="li"><a href="lamp#lighttpd">Lighttpd</a></div></li>
+<li class="level2"><div class="li"><a href="lamp#nginx">Nginx</a></div></li>
+<li class="level2"><div class="li"><a href="lamp#apache">Apache</a></div></li>
+<li class="level2"><div class="li"><a href="lamp#testing_the_web_server">Testing the web server</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="lamp#installing_and_configuring_php">Installing and Configuring PHP</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="lamp#uhttpd1">uHTTPd</a></div></li>
+<li class="level2"><div class="li"><a href="lamp#lighttpd1">Lighttpd</a></div></li>
+<li class="level2"><div class="li"><a href="lamp#apache1">Apache</a></div></li>
+<li class="level2"><div class="li"><a href="lamp#nginx1">Nginx</a></div></li>
+<li class="level2"><div class="li"><a href="lamp#testing_php">Testing PHP</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="lamp#installing_and_configuring_a_database_server">Installing and configuring a database server</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="lamp#mysql">MySQL</a></div></li>
+<li class="level2"><div class="li"><a href="lamp#postgresql">PostgreSQL</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="lamp#administering">Administering</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="lamp#cli">CLI</a></div></li>
+<li class="level2"><div class="li"><a href="lamp#webui">WebUI</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="lamp#troubleshooting">Troubleshooting</a></div></li>
+<li class="level1"><div class="li"><a href="lamp#notes">Notes</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="set_up_a_lamp_stack_on_openwrt">Set up a LAMP stack on OpenWrt</h1>
+<div class="level1">
+
+
+
+<p>
+Read here: <a href="http://en.wikipedia.org/wiki/LAMP (software bundle)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/LAMP (software bundle)">LAMP (software bundle)</a> about the concept. This guide provides step by step instructions for installing a full featured LAMP stack on OpenWrt.
+</p>
+<div class="table sectionedit2"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign"> Service                                    </th><th class="col1 leftalign"> Examples                               </th><th class="col2 leftalign"> Description  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign" rowspan="4"> <a href="http.overview" class="wikilink1" title="doc:howto:http.overview">Web server</a>               </td><td class="col1 leftalign"> <a href="http.uhttpd" class="wikilink1" title="doc:howto:http.uhttpd">uHTTPd</a>                 </td><td class="col2"> OpenWrt&#039;s in-house server, used by default for the WebUI LuCI </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <a href="http.lighttpd" class="wikilink1" title="doc:howto:http.lighttpd">Lighttpd</a>             </td><td class="col1"> Lightweight and flexible, many addons </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> <a href="http.apache" class="wikilink1" title="doc:howto:http.apache">Apache</a>                 </td><td class="col1"> Powerful and widely used</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> <a href="http.nginx" class="wikilink1" title="doc:howto:http.nginx">Nginx</a>                   </td><td class="col1"> Aimed at good performance, low memory</td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign" rowspan="3"> <a href="database.overview" class="wikilink1" title="doc:howto:database.overview">Database server</a>      </td><td class="col1 leftalign"> <a href="http://wiki.openwrt.org/doc/howto/database.mysql" class="wikilink2" title="doc:howto:database.mysql" rel="nofollow">MySQL</a>               </td><td class="col2"> Widely used SQL server</td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> <a href="http://wiki.openwrt.org/doc/howto/database.postgresql" class="wikilink2" title="doc:howto:database.postgresql" rel="nofollow">PostgreSQL</a>     </td><td class="col1"> Another popular SQL server</td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> <a href="http://wiki.openwrt.org/doc/howto/database.sqlite" class="wikilink2" title="doc:howto:database.sqlite" rel="nofollow">SQLite</a>             </td><td class="col1"> Easy to use SQL <em>library</em> for low powered devices, runs within process</td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign" rowspan="3"> <a href="http://wiki.openwrt.org/doc/howto/scripting.overview" class="wikilink2" title="doc:howto:scripting.overview" rel="nofollow">Scripting language</a>  </td><td class="col1 leftalign"> <a href="php" class="wikilink1" title="doc:howto:php">PHP</a>                      </td><td class="col2"> Specially designed for making websites</td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> <a href="http://wiki.openwrt.org/doc/howto/perl" class="wikilink2" title="doc:howto:perl" rel="nofollow">Perl</a>                     </td><td class="col1"> Flexible high level general purpose language</td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> <a href="http://wiki.openwrt.org/doc/howto/python" class="wikilink2" title="doc:howto:python" rel="nofollow">Python</a>                   </td><td class="col1"> Another high level scripting language</td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit3" id="basic_system_configuration">Basic System Configuration</h2>
+<div class="level2">
+
+<p>
+This article is a collection of examples of the configuration and integration of web servers, database servers and scripting languages, i.e. LAMP. For each example we assume to be creating a web page with <code>/srv/www/</code> as the document root and assume an otherwise standard OpenWrt configuration. Note that it currently has a lot of overlap with the main articles for the respective services. <img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> It should be made more to the point and only about installing and especially integrating these services.
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="installing_and_configuring_a_web_server">Installing and configuring a web server</h2>
+<div class="level2">
+
+<p>
+You might already have a web server for the <a href="webinterface.overview" class="wikilink1" title="doc:howto:webinterface.overview">Web UI</a> installed and running.
+Choose any of the available WebServer for this purpose: <a href="http.overview" class="wikilink1" title="doc:howto:http.overview">http.overview</a>. If the web server is not in the <a href="../packages" class="wikilink1" title="doc:packages">OpenWrt packet repository</a>, you could always <a href="../devel/crosscompile" class="wikilink1" title="doc:devel:crosscompile">crosscompile</a> it from source.
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="uhttpd">uHTTPd</h3>
+<div class="level3">
+
+<p>
+→ <a href="http.uhttpd" class="wikilink1" title="doc:howto:http.uhttpd">http.uhttpd</a> is an in-house web server under BSD-license. <a href="../luci" class="wikilink1" title="doc:howto:luci.essentials">LuCI WebUI</a> already uses this. If uHTTPd is not already installed you can install it with:
+<pre class="code">opkg update
+opkg install uhttpd</pre>
+
+</p>
+
+<p>
+The default image runs a WebUI for OpenWrt on port 80 (HTTP) and port 443 (HTTPS). For our PHP5 enabled uHTTPd web server we start a new uHTTPd instance on a different port. We use port 81 here.
+</p>
+
+<p>
+<pre class="code">uci set uhttpd.llmp=uhttpd
+uci set uhttpd.llmp.listen_http=81
+uci set uhttpd.llmp.home=/srv/www
+uci commit uhttpd</pre>
+
+</p>
+
+<p>
+Create a directory for our web server content
+<pre class="code">mkdir -p $(uci get uhttpd.llmp.home)</pre>
+
+</p>
+
+<p>
+If uHTTPd was already installed and running restart it now with
+<pre class="code">/etc/init.d/uhttpd restart</pre>
+
+</p>
+
+<p>
+If you installed uHTTPd via opkg start the web server manually and also at boot by enabling the init script
+<pre class="code">/etc/init.d/uhttpd start
+/etc/init.d/uhttpd enable</pre>
+
+</p>
+
+<p>
+Further configuration can also be performed manually, e.g. to enable php. <a href="../uci/uhttpd" class="urlextern" title="http://wiki.openwrt.org/doc/uci/uhttpd"  rel="nofollow">http://wiki.openwrt.org/doc/uci/uhttpd</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="lighttpd">Lighttpd</h3>
+<div class="level3">
+
+<p>
+→ <a href="http.lighttpd" class="wikilink1" title="doc:howto:http.lighttpd">http.lighttpd</a> is a lightweight and very flexible web server with lots of additional modules available.
+</p>
+
+<p>
+<pre class="code">opkg update
+opkg install lighttpd lighttpd-mod-cgi</pre>
+
+</p>
+
+<p>
+Edit <code>/etc/lighttpd/lighttpd.conf</code> and change a few settings:
+</p>
+
+<p>
+Enable CGI:
+</p>
+<div class="table sectionedit7"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>server.modules = (
+       &quot;mod_cgi&quot;
+)</code> </td>
+	</tr>
+</table></div>
+
+<p>
+Set the document root and the port for our example:
+</p>
+<div class="table sectionedit8"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>server.document-root = &quot;/srv/www/&quot;</code> </td>
+	</tr>
+</table></div>
+<div class="table sectionedit9"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>server.port = 81</code> </td>
+	</tr>
+</table></div>
+
+<p>
+Edit <code>/etc/php.ini</code> and set the document root here as well (or leave it empty, in which case it allows PHP serving anywhere outside the docroot):
+</p>
+<div class="table sectionedit10"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>doc_root = &quot;/srv/www&quot;</code> </td>
+	</tr>
+</table></div>
+
+<p>
+Create a directory for our web server content:
+<pre class="code">mkdir -p /srv/www</pre>
+
+</p>
+
+<p>
+Start the server manually and also at boot by enabling the init script
+<pre class="code">/etc/init.d/lighttpd start
+/etc/init.d/lighttpd enable</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="nginx">Nginx</h3>
+<div class="level3">
+
+<p>
+→ <a href="http.nginx" class="wikilink1" title="doc:howto:http.nginx">http.nginx</a> is nice as well.
+</p>
+
+</div>
+
+<h3 class="sectionedit12" id="apache">Apache</h3>
+<div class="level3">
+
+<p>
+→ <a href="http.apache" class="wikilink1" title="doc:howto:http.apache">http.apache</a> is nice as well.
+</p>
+
+</div>
+
+<h3 class="sectionedit13" id="testing_the_web_server">Testing the web server</h3>
+<div class="level3">
+
+<p>
+Create a little test web page, e.g. <code>/srv/www/index.html</code>:
+<pre class="code">echo &quot;&lt;P&gt;Hello, this web server runs on OpenWrt!!&lt;/P&gt;&quot; &gt; /srv/www/index.html</pre>
+
+</p>
+
+<p>
+Point your browser to the routers IP address and the port the web server is listening on (e. g. <a href="http://192.168.1.1:81/index.html" class="urlextern" title="http://192.168.1.1:81/index.html"  rel="nofollow">http://192.168.1.1:81/index.html</a>)
+</p>
+
+</div>
+
+<h2 class="sectionedit14" id="installing_and_configuring_php">Installing and Configuring PHP</h2>
+<div class="level2">
+
+<p>
+See →<a href="php" class="wikilink1" title="doc:howto:php">PHP</a> to install a version of PHP. The remainder of this section assumes you have a proper PHP install. 
+</p>
+
+</div>
+
+<h3 class="sectionedit15" id="uhttpd1">uHTTPd</h3>
+<div class="level3">
+
+<p>
+<a href="http.uhttpd#php" class="wikilink1" title="doc:howto:http.uhttpd">php</a>
+</p>
+
+<p>
+<pre class="code">uci add_list uhttpd.llmp.interpreter=&quot;.php=/usr/bin/php-cgi&quot;
+uci set uhttpd.llmp.index_page=&quot;index.html index.htm default.html default.htm index.php&quot;
+uci commit uhttpd</pre>
+
+</p>
+
+<p>
+<pre class="code">sed -i &#039;s,doc_root.*,doc_root = &quot;&quot;,g&#039; /etc/php.ini</pre>
+
+</p>
+
+<p>
+<pre class="code">sed -i &#039;s,;short_open_tag = Off,short_open_tag = On,g&#039; /etc/php.ini</pre>
+
+</p>
+
+<p>
+Restart uHTTPd now with
+<pre class="code">/etc/init.d/uhttpd restart</pre>
+
+</p>
+
+<p>
+Further configuration can also be performed manually, e.g. to enable php. <a href="../uci/uhttpd" class="urlextern" title="http://wiki.openwrt.org/doc/uci/uhttpd"  rel="nofollow">http://wiki.openwrt.org/doc/uci/uhttpd</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit16" id="lighttpd1">Lighttpd</h3>
+<div class="level3">
+
+<p>
+<a href="http.lighttpd#php" class="wikilink1" title="doc:howto:http.lighttpd">php</a>
+</p>
+
+<p>
+In <code>/etc/lighttpd/lighttpd.conf</code> set the following to activate PHP for files with <code>.php</code> extension.
+</p>
+<div class="table sectionedit17"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>cgi.assign = ( &quot;.php&quot;  =&gt; &quot;/usr/bin/php-cgi&quot; )</code> </td>
+	</tr>
+</table></div>
+
+<p>
+Add index.php to the default file names, such that it loads it automatically if present.
+</p>
+<div class="table sectionedit18"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>index-file.names = ( &quot;index.html&quot;, &quot;default.html&quot;, &quot;index.htm&quot;, &quot;default.htm&quot;, &quot;index.php&quot; )</code> </td>
+	</tr>
+</table></div>
+
+<p>
+Set the proper document root
+</p>
+<div class="table sectionedit19"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>doc_root = &quot;/srv/www&quot;</code> </td>
+	</tr>
+</table></div>
+
+
+
+<p>
+Restart lighttpd:
+<pre class="code">/etc/init.d/lighttpd restart</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit20" id="apache1">Apache</h3>
+<div class="level3">
+
+<p>
+<a href="http.apache#configuring_apache_and_php5" class="wikilink1" title="doc:howto:http.apache">Configuring Apache and PHP5</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit21" id="nginx1">Nginx</h3>
+<div class="level3">
+
+<p>
+<a href="http.nginx#php" class="wikilink1" title="doc:howto:http.nginx">php</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit22" id="testing_php">Testing PHP</h3>
+<div class="level3">
+
+<p>
+We are using the phpinfo() function for a first test.
+<pre class="code">echo &quot;&lt;?php phpinfo(); ?&gt;&quot; &gt; /srv/www/index.php</pre>
+
+</p>
+
+<p>
+Point your browser to the routers IP address and the port the web server is listening on (e. g. <a href="http://192.168.1.1:81/index.php" class="urlextern" title="http://192.168.1.1:81/index.php"  rel="nofollow">http://192.168.1.1:81/index.php</a>)
+</p>
+
+<p>
+If you get a blank page you can run your script with <code>php-cgi</code> from the router&#039;s shell to see if there are any errors
+<pre class="code">php-cgi /srv/www/index.php</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit23" id="installing_and_configuring_a_database_server">Installing and configuring a database server</h2>
+<div class="level2">
+
+<p>
+<a href="database.overview" class="wikilink1" title="doc:howto:database.overview">database.overview</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit24" id="mysql">MySQL</h3>
+<div class="level3">
+
+<p>
+<a href="http://wiki.openwrt.org/doc/howto/database.mysql" class="wikilink2" title="doc:howto:database.mysql" rel="nofollow">database.mysql</a>
+</p>
+
+<p>
+<pre class="code">opkg update
+opkg install libpthread libncurses libreadline mysql-server
+
+sed -i &#039;s,^datadir.*,datadir         = &quot;/srv/mysql&quot;,g&#039; /etc/my.cnf
+sed -i &#039;s,^tmpdir.*,tmpdir          = &quot;/tmp&quot;,g&#039; /etc/my.cnf
+
+mkdir -p /srv/mysql
+mysql_install_db --force
+
+/etc/init.d/mysqld start
+/etc/init.d/mysqld enable
+
+mysqladmin -u root password &#039;new-password&#039;</pre>
+
+</p>
+
+<p>
+To enable MySQL in PHP install
+</p>
+
+<p>
+<pre class="code">opkg update
+opkg install php5-mod-mysql</pre>
+
+</p>
+
+<p>
+and load the <code>mysql.so</code> module in <code>/etc/php.ini</code>
+</p>
+
+<p>
+<pre class="code">sed -i &#039;s,;extension=mysql.so,extension=mysql.so,g&#039; /etc/php.ini</pre>
+
+</p>
+
+<p>
+<a href="https://forum.openwrt.org/viewtopic.php?pid=145009#p145009" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?pid=145009#p145009"  rel="nofollow">https://forum.openwrt.org/viewtopic.php?pid=145009#p145009</a>
+</p>
+
+<p>
+To use the MySQLi module in PHP install
+</p>
+
+<p>
+<pre class="code">opkg update
+opkg install php5-mod-mysqli</pre>
+
+</p>
+
+<p>
+and load the <code>mysqli.so</code> module in <code>/etc/php.ini</code>
+</p>
+
+<p>
+<pre class="code">sed -i &#039;s,;extension=mysqli.so,extension=mysqli.so,g&#039; /etc/php.ini</pre>
+
+</p>
+
+<p>
+Besides, in /etc/php.ini, duplicate the block named [MySQL] to [MySQLi] and rename all &quot;mysql.&quot;-options to &quot;mysqli.&quot;. To access a local MySQL server via socket, modify the value of &quot;mysqli.default_socket&quot; (which can be found in /etc/my.cnf):
+</p>
+
+<p>
+<pre class="code">mysqli.default_socket = /var/run/mysqld.sock</pre>
+
+</p>
+
+<p>
+For <strong>MySQL</strong> to work with <strong>PHP</strong>, you must also configure the <em><strong>php.ini</strong></em> (vi /etc/php.ini) file, under the [MySQL] section.  
+</p>
+<ul>
+<li class="level1"><div class="li"> Here is an example:</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">[MySQL]
+mysql.allow_local_infile = On
+mysql.allow_persistent = On
+mysql.cache_size = 2000
+mysql.max_persistent = -1
+mysql.max_links = -1
+mysql.default_port = 3306
+mysql.default_socket = /tmp/run/mysqld.sock
+mysql.default_host = 127.0.0.1
+mysql.default_user = root
+mysql.default_password = MySuperSecretPassword
+mysql.connect_timeout = 60
+mysql.trace_mode = Off</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit25" id="postgresql">PostgreSQL</h3>
+<div class="level3">
+
+<p>
+<a href="http://wiki.openwrt.org/doc/howto/database.postgresql" class="wikilink2" title="doc:howto:database.postgresql" rel="nofollow">database.postgresql</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit26" id="administering">Administering</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit27" id="cli">CLI</h3>
+<div class="level3">
+
+</div>
+
+<h3 class="sectionedit28" id="webui">WebUI</h3>
+<div class="level3">
+
+</div>
+
+<h2 class="sectionedit29" id="troubleshooting">Troubleshooting</h2>
+<div class="level2">
+
+</div>
+
+<h2 class="sectionedit30" id="notes">Notes</h2>
+<div class="level2">
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/lamp.txt</bdi> · Last modified: 2013/08/12 20:55 by <bdi>grabbel</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="lamp?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="lamp?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="lamp?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="lamp#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Alamp&amp;1432267426" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

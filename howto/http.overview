@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Web Server Overview [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,http.overview"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="http.overview?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/http.overview"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/http.overview"/>
+<link rel="canonical" href="http.overview"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:http.overview","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265399 166.182.3.125';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="http.overview#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="http.overview?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="http.overview?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:http.overview" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="http.overview?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="http.overview?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="http.overview?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="http.overview" class="wikilink1" title="doc:howto:http.overview">Web Server Overview</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/http.overview" class="media" title="cz:doc:howto:http.overview"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/http.overview" class="media" title="de:doc:howto:http.overview"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="http.overview" class="media" title="doc:howto:http.overview"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/http.overview" class="media" title="es:doc:howto:http.overview"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/http.overview" class="media" title="fr:doc:howto:http.overview"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/http.overview" class="media" title="hu:doc:howto:http.overview"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/http.overview" class="media" title="jp:doc:howto:http.overview"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/http.overview" class="media" title="pl:doc:howto:http.overview"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/http.overview" class="media" title="pt-br:doc:howto:http.overview"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/http.overview" class="media" title="ru:doc:howto:http.overview"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/http.overview" class="media" title="tr:doc:howto:http.overview"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/http.overview" class="media" title="zh-cn:doc:howto:http.overview"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/http.overview" class="media" title="zh-tw:doc:howto:http.overview"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:http.overview</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="http.overview#web_server_packages_in_openwrt_repository">Web server Packages in OpenWrt repository</a></div></li>
+<li class="level1"><div class="li"><a href="http.overview#differences">Differences</a></div></li>
+<li class="level1"><div class="li"><a href="http.overview#stuff">Stuff</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="web_server_overview">Web Server Overview</h1>
+<div class="level1">
+
+<p>
+To obtain an WebInterface to <strong>administer</strong> OpenWrt, see <a href="webinterface.overview" class="wikilink1" title="doc:howto:webinterface.overview">webinterface.overview</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="web_server_packages_in_openwrt_repository">Web server Packages in OpenWrt repository</h2>
+<div class="level2">
+
+
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign"> Name 													</th><th class="col1"> Size (KB) </th><th class="col2 leftalign"> Dependency tree 																																									</th><th class="col3 leftalign"> Dep. size (KB) 																																							  		</th><th class="col4 leftalign"> License 												 		 </th><th class="col5 leftalign"> Description  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> <a href="http.apache" class="wikilink1" title="doc:howto:http.apache">Apache</a>						</td><td class="col1 leftalign"> 404 		</td><td class="col2 leftalign"> libc <br/>
+→libgcc <br/>
+libapr<br/>
+ →libpthread<br/>
+ →librt<br/>
+→ libuuid <br/>
+libaprutil <br/>
+→libexpat <br/>
+→libsqlite3 <br/>
+ libpcre <br/>
+libopenssl <br/>
+→zlib	<br/>
+unixodbc <br/>
+→libltdl	</td><td class="col3 leftalign"> 224	 <br/>
+→31     <br/>
+66    <br/>
+ →31        <br/>
+  →6    <br/>
+→ 6      <br/>
+ 54       <br/>
+ →5      <br/>
+ →290      <br/>
+  76    <br/>
+592        <br/>
+→40 	    <br/>
+188      <br/>
+→13			</td><td class="col4 leftalign"> <a href="http://www.apache.org/licenses/" class="urlextern" title="http://www.apache.org/licenses/"  rel="nofollow">Apache 2.0</a> 				</td><td class="col5"> The Apache Web Server is a powerful and flexible HTTP/1.1 compliant web server. Originally designed as a replacement for the NCSA HTTP Server, it has grown to be the most popular web server on the Internet. Note that Apache is a memory hog and may not be suitable for embedded systems. The opkg package contains the Apache web server and utility programs.<br/>
+Note that Apache&#039;s main configuration file is httpd.conf, with the same name and location as Busybox&#039;s httpd. Therefore, if you compile httpd in Busybox, take care that you don&#039;t include Apache into your image as well. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <a href="http://wiki.openwrt.org/doc/howto/http.axhttpd" class="wikilink2" title="doc:howto:http.axhttpd" rel="nofollow">axhttpd</a>     				</td><td class="col1 leftalign"> 7 		</td><td class="col2 leftalign"> libc <br/>
+→libgcc <br/>
+libaxtls 																																						</td><td class="col3 leftalign"> 224	 <br/>
+→31     <br/>
+35 																																							</td><td class="col4 leftalign"> <a href="https://sourceforge.net/projects/axtls/" class="urlextern" title="https://sourceforge.net/projects/axtls/"  rel="nofollow">BSD</a> 				</td><td class="col5 leftalign"> The axTLS embedded SSL project is a highly configurable client/server TLSv1 SSL library designed for platforms with small memory requirements. It comes with a small HTTP/HTTPS server and additional test tools.  <a href="http://axtls.sourceforge.net/" class="urlextern" title="http://axtls.sourceforge.net/"  rel="nofollow">http://axtls.sourceforge.net/</a> 	</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> <a href="http.hiawatha" class="wikilink1" title="doc:howto:http.hiawatha">Hiawatha</a>    				</td><td class="col1 leftalign"> 51 		</td><td class="col2 leftalign"> libc <br/>
+→libgcc <br/>
+libpthread <br/>
+zlib																																			</td><td class="col3 leftalign"> 224	 <br/>
+→31     <br/>
+30 																																							</td><td class="col4 leftalign"> <a href="http://www.hiawatha-webserver.org/license" class="urlextern" title="http://www.hiawatha-webserver.org/license"  rel="nofollow">GPLv2</a> 			</td><td class="col5"> Hiawatha has been written with security in mind. This resulted in a highly secure webserver in both code and features. Hiawatha can stop SQL injections, XSS and CSRF attacks and exploit attempts. In addition, it is designed to be lightweight.</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> <a href="http.httpd" class="wikilink1" title="doc:howto:http.httpd">Busybox-httpd</a>				</td><td class="col1 leftalign">      		</td><td class="col2 leftalign"> libc <br/>
+→libgcc 																																									</td><td class="col3 leftalign"> 224	 <br/>
+→31      																																								</td><td class="col4 leftalign"> <a href="http://www.busybox.net/license.html" class="urlextern" title="http://www.busybox.net/license.html"  rel="nofollow">GPLv2</a> 				</td><td class="col5"> httpd is part of Busybox. Note that OpenWrt&#039;s main releases do not compile Busybox with httpd anymore. Beware the path of the configuration file is the same as Apache&#039;s.</td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> <a href="http.lighttpd" class="wikilink1" title="doc:howto:http.lighttpd">Lighttpd</a>					</td><td class="col1 leftalign"> 83 		</td><td class="col2 leftalign"> libc <br/>
+→libgcc <br/>
+libopenssl <br/>
+→zlib <br/>
+libpcre <br/>
+libpthread <br/>
+librt																										</td><td class="col3 leftalign"> 224	 <br/>
+→31     <br/>
+592 <br/>
+ →40 <br/>
+ 77 <br/>
+ 31 <br/>
+6																																</td><td class="col4 leftalign"> <a href="http://www.lighttpd.net/download/COPYING" class="urlextern" title="http://www.lighttpd.net/download/COPYING"  rel="nofollow">rev BSD</a> 		 	</td><td class="col5 leftalign"> A flexible and lightweight web server. It is lightweight, but still with speed, scalability, functionality and standards compliance in mind.\\Features FastCGI, SCGI and CGI \\Does <a href="http://redmine.lighttpd.net/projects/1/wiki/AbsoLUAtion" class="urlextern" title="http://redmine.lighttpd.net/projects/1/wiki/AbsoLUAtion"  rel="nofollow">support</a> Lua in process, but this is currently not implemented as an opkg package (?)  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> <a href="http.mini-httpd" class="wikilink1" title="doc:howto:http.mini-httpd">mini-httpd</a>				</td><td class="col1 leftalign"> 21 		</td><td class="col2 leftalign"> libc <br/>
+→libgcc <br/>
+																																								</td><td class="col3 leftalign"> 224	 <br/>
+→31       																																								</td><td class="col4 leftalign"> <a href="http://www.nongnu.org/mini-httpd/#_copying" class="urlextern" title="http://www.nongnu.org/mini-httpd/#_copying"  rel="nofollow">GPLv3+</a> 		</td><td class="col5"> mini-httpd is a small HTTP server. Its performance is not great, but for low or medium traffic sites it&#039;s quite adequate. It implements all the  basic features of an HTTP server, including: <br/>
+- GET, HEAD, and POST methods<br/>
+- CGI<br/>
+- Basic authentication<br/>
+- Security against &quot;..&quot; filename snooping<br/>
+- The common MIME types<br/>
+- Trailing-slash redirection<br/>
+- index.html, index.htm, index.cgi<br/>
+- Directory listings<br/>
+- Multihoming / virtual hosting - Standard logging<br/>
+- Custom error pages<br/>
+It can also be configured to do IPv6. </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> <a href="http.mini-httpd" class="wikilink1" title="doc:howto:http.mini-httpd">mini-httpd-matrixssl</a>	</td><td class="col1 leftalign"> 24 		</td><td class="col2 leftalign"> libc <br/>
+→libgcc <br/>
+libmatrixssl<br/>
+→libpthread 																																	</td><td class="col3 leftalign"> 224	 <br/>
+→31     <br/>
+39 <br/>
+ →30 																																				</td><td class="col4 leftalign"> 																</td><td class="col5 leftalign"> A mini-httpd package built with SSL/HTTPS using MatrixSSL.  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> <a href="http.mini-httpd" class="wikilink1" title="doc:howto:http.mini-httpd">mini-httpd-openssl</a>		</td><td class="col1 leftalign"> 23 		</td><td class="col2 leftalign"> libc <br/>
+→libgcc <br/>
+libopenssl<br/>
+→zlib 																																			</td><td class="col3 leftalign"> 224	 <br/>
+→31     <br/>
+592 <br/>
+ →40 																																				</td><td class="col4 leftalign"> 																</td><td class="col5 leftalign"> A mini-httpd package built with SSL/HTTPS using OpenSSL.  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> <a href="http.nginx" class="wikilink1" title="doc:howto:http.nginx">nginx</a>						</td><td class="col1 leftalign"> 191 		</td><td class="col2 leftalign"> libc <br/>
+→libgcc <br/>
+libpcre<br/>
+libopenssl <br/>
+zlib 	 <br/>
+libpthread																													</td><td class="col3 leftalign"> 224	 <br/>
+→31     <br/>
+77 <br/>
+ 592 <br/>
+40 <br/>
+30																																		</td><td class="col4 leftalign"> <a href="http://www.nginx.org/LICENSE" class="urlextern" title="http://www.nginx.org/LICENSE"  rel="nofollow">2-clause BSD-like license</a> 	</td><td class="col5"> Nginx is a free, open-source, high-performance HTTP server and reverse proxy, as well as an IMAP/POP3 proxy server. </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> <a href="http.uhttpd" class="wikilink1" title="doc:howto:http.uhttpd">uhttpd</a>						</td><td class="col1 leftalign"> 19 		</td><td class="col2 leftalign"> libc <br/>
+→libgcc <br/>
+libubox 																																						</td><td class="col3 leftalign"> 224	 <br/>
+→31     <br/>
+ 14																																							</td><td class="col4 leftalign"> Mixed<br/>
+GPLv2<br/>
+Apache 2.0 									</td><td class="col5"> Single threaded HTTP server written from scratch by OpenWrt/LuCI developers. Built as a general purpose web server, it is not merely intended for running the OpenWrt router&#039;s web interface provided by <a href="luci" class="wikilink1" title="doc:howto:luci">luci</a>.   <br/>
+Support for TSL through the <a href="http://en.wikipedia.org/wiki/CyaSSL" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/CyaSSL">CyaSSL</a> Library (using the uhttpd-mod-tls package), supports CGI <br/>
+Also supports running Lua in-process, which can speed up Lua CGI scripts. </td>
+	</tr>
+</table></div>
+<ul>
+<li class="level1"><div class="li"> This table is not a full overview of the different features, but focusses on the OpenWrt package implementation. For a full feature comparison, see <a href="http://en.wikipedia.org/wiki/Comparison_of_web_servers#Features" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Comparison_of_web_servers#Features">the Wikipedia article</a>.</div>
+</li>
+<li class="level1"><div class="li"> Not listed is the <a href="http://wiki.openwrt.org/doc/howto/http.owhttpd" class="wikilink2" title="doc:howto:http.owhttpd" rel="nofollow">http.owhttpd</a> OWFS http server.</div>
+</li>
+<li class="level1"><div class="li"> To extend server functionality see <a href="lamp" class="wikilink1" title="doc:howto:lamp">LAMP</a> to install an entire LAMP stack.</div>
+</li>
+<li class="level1"><div class="li"> Note that all servers are written in C and therefore depend on the libc package.</div>
+</li>
+<li class="level1"><div class="li"> To give a slight idea of the complexity and functionality, approximate sizes in kilobyte of the opkg packages (.ipk extension) are given for each server and their dependencies (a recursive trail up to two nodes, listing dependencies only once). Note that this does not take into account modularity. Some packages may have many enhancements in the form of other packages. For example, Lighttpd is very modular, with extended functionality relegated to separate packages, whereas Apache is not. To obtain a list of plugins for a server you can usually use <a href="../techref/opkg" class="wikilink1" title="doc:techref:opkg">opkg</a>, as any addons mostly have the server name as prefix. For example, to list all of the Lighttpd addons run <code>opkg list lighttpd*</code>.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit4" id="differences">Differences</h2>
+<div class="level2">
+
+<p>
+Which WebServer shall I choose? Differences may be:
+</p>
+<ul>
+<li class="level1"><div class="li"> The version of the <a href="http://en.wikipedia.org/wiki/Hypertext Transfer Protocol" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Hypertext Transfer Protocol">Hypertext Transfer Protocol</a> (HTTP) supported, e.g. Hiawatha documents its <a href="http://www.hiawatha-webserver.org/features" class="urlextern" title="http://www.hiawatha-webserver.org/features"  rel="nofollow">features</a> nicely;</div>
+</li>
+<li class="level1"><div class="li"> Resource usage (memory, CPU time or storage);</div>
+</li>
+<li class="level1"><div class="li"> Scalability;</div>
+</li>
+<li class="level1"><div class="li"> The required features and the availability of a certain needed module or plugin.</div>
+</li>
+</ul>
+
+<p>
+Note that this page shall not be a list of general web server software, but only those available for OpenWRT via opkg. Other commonly used web servers can be found in Wikipedia:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://en.wikipedia.org/wiki/Comparison of lightweight web servers" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Comparison of lightweight web servers">Comparison of lightweight web servers</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://en.wikipedia.org/wiki/Comparison_of_web_servers" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Comparison_of_web_servers">Comparison_of_web_servers</a></div>
+</li>
+</ul>
+
+<p>
+You can obtain an incomplete list of packages related to HTTP by typing <code>opkg list | awk &#039;/http/ {print $0}</code>&#039;
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="stuff">Stuff</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> <a href="https://forum.openwrt.org/viewtopic.php?pid=140850#p140850" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?pid=140850#p140850"  rel="nofollow">https://forum.openwrt.org/viewtopic.php?pid=140850#p140850</a> Forum post with proposal.</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://haserl.sourceforge.net/" class="urlextern" title="http://haserl.sourceforge.net/"  rel="nofollow">http://haserl.sourceforge.net/</a></div>
+</li>
+<li class="level1"><div class="li"> KLone is a fully-featured, multiplatform, web application development framework<a href="http://wiki.koanlogic.com/doku.php?id=klone_and_openwrt" class="urlextern" title="http://wiki.koanlogic.com/doku.php?id=klone_and_openwrt"  rel="nofollow">klone and OpenWrt</a></div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/http.overview.txt</bdi> · Last modified: 2014/07/08 11:43 by <bdi>theoradicus</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="http.overview?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="http.overview?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="http.overview?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="http.overview#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Ahttp.overview&amp;1432265399" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

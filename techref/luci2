@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>LuCI2 (OpenWrt web user interface) [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,techref,luci2"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="luci2?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:techref"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/techref/luci2"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/techref/luci2"/>
+<link rel="canonical" href="luci2"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:techref';var JSINFO = {"id":"doc:techref:luci2","namespace":"doc:techref"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267218 166.182.3.150';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="luci2#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="luci2?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="luci2?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:techref:luci2" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="luci2?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="luci2?do=media&amp;ns=doc%253Atechref"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="luci2?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../techref.1" class="wikilink1" title="doc:techref:start">Technical Reference</a></bdi> » <bdi><span class="curid"><a href="luci2" class="wikilink1" title="doc:techref:luci2">LuCI2 (OpenWrt web user interface)</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/techref/luci2" class="media" title="cz:doc:techref:luci2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/techref/luci2" class="media" title="de:doc:techref:luci2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="luci2" class="media" title="doc:techref:luci2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/techref/luci2" class="media" title="es:doc:techref:luci2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/techref/luci2" class="media" title="fr:doc:techref:luci2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/techref/luci2" class="media" title="hu:doc:techref:luci2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/techref/luci2" class="media" title="jp:doc:techref:luci2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/techref/luci2" class="media" title="pl:doc:techref:luci2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/techref/luci2" class="media" title="pt-br:doc:techref:luci2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/techref/luci2" class="media" title="ru:doc:techref:luci2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/techref/luci2" class="media" title="tr:doc:techref:luci2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../zh-cn/doc/techref/luci2" class="media" title="zh-cn:doc:techref:luci2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/techref/luci2" class="media" title="zh-tw:doc:techref:luci2"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:techref:luci2</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="luci2#implementation_details">Implementation details</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="luci2#menu">Menu</a></div></li>
+<li class="level2"><div class="li"><a href="luci2#templates">Templates</a></div></li>
+<li class="level2"><div class="li"><a href="luci2#views">Views</a></div></li>
+<li class="level2"><div class="li"><a href="luci2#communication_with_ubus">Communication with ubus</a></div></li>
+<li class="level2"><div class="li"><a href="luci2#how_to_test">How to test</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="luci2_openwrt_web_user_interface">LuCI2 (OpenWrt web user interface)</h1>
+<div class="level1">
+
+<p>
+For years OpenWrt was using <a href="luci" class="wikilink1" title="doc:techref:luci">LuCI</a>, a web user interface written in <a href="http://en.wikipedia.org/wiki/Lua_(programming_language)" class="urlextern" title="http://en.wikipedia.org/wiki/Lua_(programming_language)"  rel="nofollow">Lua</a>. It required several Lua extensions (like <code>ubus</code>, <code>luci.model.uci</code>, <code>nixio.fs</code>, etc.) to access system info and settings. Unfortunately this solution appeared to be quite resource consuming and didn&#039;t work well on devices with slow CPU and little amount of RAM.
+</p>
+
+<p>
+This lead to developing LuCI2, a new web interface with a different architecture. It doesn&#039;t use Lua anymore, but static <abbr title="HyperText Markup Language">HTML</abbr> page and <a href="http://en.wikipedia.org/wiki/XMLHttpRequest" class="urlextern" title="http://en.wikipedia.org/wiki/XMLHttpRequest"  rel="nofollow">JavaScript XHR</a> method. It means building <abbr title="HyperText Markup Language">HTML</abbr> pages is done on client (browser) side offloading OpenWrt device. To access any kind of system data <a href="ubus" class="wikilink1" title="doc:techref:ubus">ubus</a> is used (with the help of <a href="ubus#accesstoubusoverhttp" class="wikilink1" title="doc:techref:ubus">uhttpd-mod-ubus</a> to provide HTTP based <abbr title="Application Programming Interface">API</abbr>).
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="implementation_details">Implementation details</h2>
+<div class="level2">
+
+<p>
+As explained above, LuCI2 uses <code>ubus</code> to communicate with OpenWrt subsystems (that includes for example <code>network</code> and <code>service</code> but also many others). Unfortunately not every major OpenWrt tool registers itself with <code>ubus</code>. For example it&#039;s not possible to use <code>opkg</code> (packages management) that way. LuCI2 resolves this problem providing it&#039;s own <code>rpcd</code> plugin which adds extra <code>ubus</code> namespaces. For the previous example of <code>opkg</code> it registers new <code>luci2.opkg</code> path in the <code>ubus</code>.
+</p>
+
+<p>
+To sum up, LuCI2 consists of two things: a pack of <abbr title="HyperText Markup Language">HTML</abbr>/<abbr title="Cascading Style Sheets">CSS</abbr>/JS files (<code>htdocs</code>) and few extra small tools working in the OpenWrt environment.
+</p>
+
+<p>
+In next sections you will find details about various LuCI2 parts that should help in the development.
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="menu">Menu</h3>
+<div class="level3">
+
+<p>
+The first thing to know about LuCI2 menu is that it is not hardcoded in any file received by a browser. Instead of that, it&#039;s provided by <code>ubus</code> using <code>luci2.ui</code> path and <code>menu</code> method. For debugging purposes menu layout can be verified using:
+<pre class="code">ubus call luci2.ui menu &#039;{ &quot;ubus_rpc_session&quot;: &quot;invalid&quot; }&#039;</pre>
+
+</p>
+
+<p>
+Internally <code>rpcd</code> plugin parses all files located in <code>/usr/share/rpcd/menu.d</code>, joins them and removes entries that are not available for a current user (based on a passed <code>ubus_rpc_session</code>). This results in a two-level menu limited to entries that current has rights to.
+</p>
+
+<p>
+Top level entries are defined using following JSON:
+<pre class="code">&quot;foo&quot;: {
+	&quot;title&quot;: &quot;Foo&quot;,
+	&quot;index&quot;: 12
+}</pre>
+
+(and ordered using <code>index</code> values).
+</p>
+
+<p>
+Second level entries are defined in a similar way:
+<pre class="code">&quot;foo/bar&quot;: {
+	&quot;title&quot;: &quot;Bar&quot;,
+	&quot;acls&quot;: [ &quot;baz&quot;, &quot;qux&quot; ],
+	&quot;view&quot;: &quot;foo/bar&quot;,
+	&quot;index&quot;: 5
+}</pre>
+
+</p>
+
+<p>
+Please note that second level entries may be located in separated files. This allows easy addition of new entries without modifying existing files.
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="templates">Templates</h3>
+<div class="level3">
+
+<p>
+Every LuCI2 subpage has to have it&#039;s template located in <code>/www/luci2/template/</code>. These are very simple <abbr title="HyperText Markup Language">HTML</abbr> files providing place for a content. Please note they don&#039;t contain references to any variables, it&#039;s JavaScript role to access them and fill with a content. The only special syntax in these files is for internationalization (i18n) system that uses following special tags:
+<pre class="code">&lt;p&gt;&lt;%:Hello world%&gt;&lt;/p&gt;</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="views">Views</h3>
+<div class="level3">
+
+<p>
+Apart from a template, every LuCI2 subpage requires also it&#039;s view to be defined and placed in <code>/www/luci2/view/</code>. Views are JavaScript files extending <code>L.ui.view</code> using subpage specific object. They are obligated to provide <code>execute</code> method that will be called after loading a template. Optionally they may also provide subpage <code>title</code> and <code>description</code>.
+</p>
+
+<p>
+A bit of attention requires <code>execute</code> method. Building a view may fail because of various reasons, especially when it requires loading extra data using <code>ubus</code>. So it makes sense for <code>execute</code> method to provide info if it succeed or failed. Unfortunately it can&#039;t simply return <code>true</code> of <code>false</code>, as loading extra data is done asynchronously. To resolve this problem a <code>Promise</code> object should be returned which allows to postpone taking a decision about a success or failure.
+</p>
+
+<p>
+The simplest view could look like this:
+<pre class="code">L.ui.view.extend({
+	title: L.tr(&#039;Foo&#039;),			/* Optional title */
+	description: &#039;Bar&#039;,			/* Optional description */
+
+	execute: function() {
+		var deferred = $.Deferred();	/* Create a new Deferred object */
+		deferred.resolve();		/* Resolve it immediately, there is nothing that could fail */
+		return deferred.promise();	/* Return Promise object (a subset of Deferred) */
+	}
+});</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="communication_with_ubus">Communication with ubus</h3>
+<div class="level3">
+
+<p>
+Before starting, please know that LuCI2 provides many helpers for accessing <a href="../devel/uci-lua" class="wikilink1" title="doc:techref:uci">UCI</a> system. To write a simple view managing config files in <code>/etc/config/</code>, the full understanding of <code>ubus</code> calls is not required and this section can be skipped.
+</p>
+
+<p>
+For more complicated LuCI2 views it&#039;s good to first figure out all needed <code>ubus</code> calls. A complete list of objects and methods can be listed using <code>ubus -v list</code> command.
+</p>
+
+<p>
+Below is an example of simple call to <code>log</code> object and <code>write</code> method. It requires <code>event</code> parameter to be passed as an argument. When using <code>ubus</code> command-line tool, this call could be done with:
+<pre class="code">ubus call log write &#039;{ &quot;event&quot;: &quot;Foo&quot; }&#039;</pre>
+
+</p>
+
+<p>
+LuCI2 provides a helper for <code>ubus</code> communication called <code>L.rpc.declare</code>. This is JavaScript helper magically creating a function that will call specified <code>ubus</code> method. Please note that at declaring time no call is executed and no arguments are passed. This is only preparing a function that will be used later. Below is an example function calling <code>log</code> object and it&#039;s <code>write</code> method:
+<pre class="code">var writeToLog = L.rpc.declare({
+	object: &#039;log&#039;,
+	method: &#039;write&#039;,
+	params: [ &#039;event&#039; ]
+})</pre>
+
+</p>
+
+<p>
+Once declared such a function, it can be called at anytime simply using:
+<pre class="code">writeToLog(&#039;Foo&#039;);</pre>
+
+</p>
+
+<p>
+In the above example result of the call was silently ignored. It&#039;s not an option if view has to access data returned by an <code>ubus</code> call. The next example will access <code>info</code> method of the <code>system</code> object. In the command-line this would be following call:
+<pre class="code"># ubus call system info
+{
+	&quot;uptime&quot;: 123,
+	&quot;localtime&quot;: 1234567890,
+	&quot;load&quot;: [
+		1,
+		2,
+		3
+	],
+	&quot;memory&quot;: {
+		&quot;total&quot;: 67108864,
+		&quot;free&quot;: 33554432,
+		&quot;shared&quot;: 0,
+		&quot;buffered&quot;: 16777216
+	},
+	&quot;swap&quot;: {
+		&quot;total&quot;: 0,
+		&quot;free&quot;: 0
+	}
+}</pre>
+
+</p>
+
+<p>
+When using LuCI2 (and JavaScript) declaration for the above call should look like this:
+<pre class="code">var readSystemInfo = L.rpc.declare({
+	object: &#039;system&#039;,
+	method: &#039;info&#039;,
+	expect: { memory: { } }			/* Optional, extracts only part of the result */
+})</pre>
+
+</p>
+
+<p>
+Accessing result of the call requires using a simple <code>.then</code> function:
+<pre class="code">readSystemInfo().then(function(memory) {
+	console.log(memory);
+});</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit7" id="how_to_test">How to test</h3>
+<div class="level3">
+
+<p>
+Add new feed into &quot;feeds.conf&quot;:
+<pre class="code">src-git luci2 git://git.openwrt.org/project/luci2/ui.git</pre>
+
+</p>
+
+<p>
+Install luci2 packages:
+<pre class="code">./scripts/feeds update
+./scripts/feeds install luci2</pre>
+
+</p>
+
+<p>
+Select package Luci2 in menuconfig and compile new image.
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/techref/luci2.txt</bdi> · Last modified: 2015/01/23 21:19 by <bdi>chancechih</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="luci2?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="luci2?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="luci2?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="luci2#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Atechref%253Aluci2&amp;1432267218" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

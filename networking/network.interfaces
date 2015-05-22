@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Linux Network Interfaces [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,networking,network.interfaces"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="network.interfaces?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:networking"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/networking/network.interfaces"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/networking/network.interfaces"/>
+<link rel="canonical" href="network.interfaces"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:networking';var JSINFO = {"id":"doc:networking:network.interfaces","namespace":"doc:networking"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267648 166.182.3.42';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="network.interfaces#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="network.interfaces?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="network.interfaces?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:networking:network.interfaces" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="network.interfaces?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="network.interfaces?do=media&amp;ns=doc%253Anetworking"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="network.interfaces?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:networking:start">Networking</a></bdi> » <bdi><span class="curid"><a href="network.interfaces" class="wikilink1" title="doc:networking:network.interfaces">Linux Network Interfaces</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/networking/network.interfaces" class="media" title="cz:doc:networking:network.interfaces"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/networking/network.interfaces" class="media" title="de:doc:networking:network.interfaces"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="network.interfaces" class="media" title="doc:networking:network.interfaces"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/networking/network.interfaces" class="media" title="es:doc:networking:network.interfaces"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/networking/network.interfaces" class="media" title="fr:doc:networking:network.interfaces"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/networking/network.interfaces" class="media" title="hu:doc:networking:network.interfaces"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/networking/network.interfaces" class="media" title="jp:doc:networking:network.interfaces"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/networking/network.interfaces" class="media" title="pl:doc:networking:network.interfaces"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/networking/network.interfaces" class="media" title="pt-br:doc:networking:network.interfaces"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../ru/doc/networking/network.interfaces" class="media" title="ru:doc:networking:network.interfaces"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/networking/network.interfaces" class="media" title="tr:doc:networking:network.interfaces"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../zh-cn/doc/networking/network.interfaces" class="media" title="zh-cn:doc:networking:network.interfaces"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/networking/network.interfaces" class="media" title="zh-tw:doc:networking:network.interfaces"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:networking:network.interfaces</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="network.interfaces#types_of_network_interfaces">Types of network interfaces</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="network.interfaces#physical_network_interfaces">Physical Network Interfaces</a></div></li>
+<li class="level2"><div class="li"><a href="network.interfaces#virtual_network_interfaces">Virtual Network Interfaces</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="network.interfaces#types_of_virtual_network_interfaces">Types of Virtual Network Interfaces</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="network.interfaces#openwrt_default_configuration">OpenWrt default configuration</a></div></li>
+<li class="level1"><div class="li"><a href="network.interfaces#current_utilities_for_networking_and_traffic_control">Current Utilities for Networking and Traffic Control</a></div></li>
+<li class="level1"><div class="li"><a href="network.interfaces#old_and_deprecated_utilities_for_networking_and_traffic_control">Old and deprecated Utilities for Networking and Traffic Control</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="linux_network_interfaces">Linux Network Interfaces</h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit2" id="types_of_network_interfaces">Types of network interfaces</h2>
+<div class="level2">
+
+<p>
+The <a href="http://en.wikipedia.org/wiki/Linux kernel" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Linux kernel">Linux kernel</a> universally distinguishes between two types of software network interfaces:
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="physical_network_interfaces">Physical Network Interfaces</h3>
+<div class="level3">
+
+<p>
+<code>eth0</code>, <code>eth8</code>, <code>radio0</code>, <code>wlan19</code>, .. always represent an actual network hardware device such as a <a href="http://en.wikipedia.org/wiki/Network interface controller" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Network interface controller">NIC</a>, <a href="http://en.wikipedia.org/wiki/Wireless network interface controller" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Wireless network interface controller">WNIC</a> or some other kind of <a href="http://en.wikipedia.org/wiki/Modem" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Modem">Modem</a>. As soon as the <a href="http://en.wikipedia.org/wiki/device driver" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/device driver">device driver</a> is loaded into the Kernel a corresponding physical network interface becomes present and available.
+</p>
+
+<p>
+Any physical network interface is a named software representation by the operating system to the user to enable him to configure the hardware network device and also to integrate it into programs and scripts.
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="virtual_network_interfaces">Virtual Network Interfaces</h3>
+<div class="level3">
+
+<p>
+<code>lo</code>, <code>eth0:1</code>, <code>eth0.1</code>, <code>vlan2</code>, <code>br0</code>, <code>pppoe-dsl</code>, <code>gre0</code>, <code>sit0</code> <code>tun0</code>, <code>imq0</code>, <code>teql0</code>, .. are virtual network interfaces that do NOT represent an existent hardware device but are linked to one (otherwise they would be useless). Virtual network interfaces were invented to give the system administrator maximum flexibility when configuring a Linux-based operating system. A virtual network interface is generally associated with a physical network interface (eth6) or another virtual interface (eth6.9) or be stand alone such as the <a href="http://en.wikipedia.org/wiki/Loopback#Virtual_network_interface" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Loopback#Virtual_network_interface">loopback interface</a> <code>lo</code>. 
+</p>
+
+</div>
+
+<h4 id="types_of_virtual_network_interfaces">Types of Virtual Network Interfaces</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> <span style='color:maroon; '><strong><em>aliases</em></strong></span>: <code>eth4:5</code>, <code>eth4:6</code>, ..<br/>
+ IP-aliases are an obsolete way to manage multiple IP-addresses/masks per interface. Newer tools such as iproute2 support multiple address/prefixes per interface, but aliases are still supported for backwards compatibility. <a href="https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/tree/Documentation/networking/alias.txt" class="urlextern" title="https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/tree/Documentation/networking/alias.txt"  rel="nofollow">Documentation/networking/alias.txt</a></div>
+</li>
+<li class="level1"><div class="li"> <span style='color:maroon; '><strong><em>VLANs</em></strong></span>: <code>eth4.0</code>, <code>eth4.1</code>, <code>eth4.3</code>, <code>vlan0</code>, ..<br/>
+are created to partition a single layer 2 network into multiple virtual ones. The drivers all participating network cards must support <a href="http://en.wikipedia.org/wiki/IEEE 802.1Q" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/IEEE 802.1Q">IEEE 802.1Q</a> and be configured accordingly. This standard allows for up to 4096 VLANs (12Bits).</div>
+</li>
+<li class="level1"><div class="li"> <span style='color:maroon; '><strong><em>Stacked VLANs</em></strong></span>: <a href="http://en.wikipedia.org/wiki/IEEE 802.1ad" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/IEEE 802.1ad">IEEE 802.1ad</a>-support was mainlined in <a href="http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=8ad227ff89a7e6f05d07cd0acfd95ed3a24450ca" class="urlextern" title="http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=8ad227ff89a7e6f05d07cd0acfd95ed3a24450ca"  rel="nofollow">2013-04-19: net: vlan: add 802.1ad support</a> Configuration is done using <code>ip link</code>:<pre class="code bash"><span class="kw2">ip link</span> add <span class="kw2">link</span> eth0 eth0.1000 <span class="kw3">type</span> vlan proto 802.1ad <span class="kw2">id</span> <span class="nu0">1000</span>
+<span class="kw2">ip link</span> add <span class="kw2">link</span> eth0.1000 eth0.1000.1000 <span class="kw3">type</span> vlan proto 802.1q <span class="kw2">id</span> <span class="nu0">1000</span></pre>
+</div>
+</li>
+<li class="level1"><div class="li"> <span style='color:maroon; '><strong><em>bridgeds</em></strong></span>: <code>br0</code>, <code>br-lan</code> <br/>
+are used to make multiple virtual or physical network interfaces act as if they were just one network interface (quasi the opposite of VLANs). Can also be used for VPN and bridged interfaces. The Linux Ethernet bridge can be used for connecting multiple Ethernet devices together. The connecting is fully transparent: hosts connected to one Ethernet device see hosts connected to the other Ethernet devices directly.  <a href="https://forum.openwrt.org/viewtopic.php?id=45783" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=45783"  rel="nofollow">understanding how bridge-interfaces work</a></div>
+</li>
+<li class="level1"><div class="li"> <span style='color:maroon; '><strong><em>tunnel interfaces</em></strong></span>: <code>pppoe-dsl</code>, <code>pppoa-dsl</code>, <code>tun0</code>, <code>vpn1</code>,<br/>
+used to send packets over a <a href="http://en.wikipedia.org/wiki/tunneling protocol" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/tunneling protocol">tunneling protocol</a> such as <a href="http://en.wikipedia.org/wiki/Generic Routing Encapsulation" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Generic Routing Encapsulation">GRE</a>, <a href="http://en.wikipedia.org/wiki/IPsec" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/IPsec">IPsec</a>  <a href="http://en.wikipedia.org/wiki/Point-to-point protocol over Ethernet" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Point-to-point protocol over Ethernet">PPPoE</a>, etc.</div>
+</li>
+<li class="level1"><div class="li"> <span style='color:maroon; '><strong><em>special purpose</em></strong></span>: <code><a href="http://www.linuximq.net/" class="urlextern" title="http://www.linuximq.net/"  rel="nofollow">imq0</a>, <a href="http://lartc.org/howto/lartc.loadshare.html" class="urlextern" title="http://lartc.org/howto/lartc.loadshare.html"  rel="nofollow">teql3</a></code><br/>
+used to change the order of outgoing network packets, or incoming network packet</div>
+</li>
+<li class="level1"><div class="li"> <span style='color:maroon; '><strong><em>wireless operating mode virtual interfaces</em></strong></span>: <code>wlan0</code>, <code>wlan0_1</code>, <code>ath3</code>, <code>ath_monitor</code>, ..<br/>
+<a href="../howto/wireless.overview" class="wikilink1" title="doc:howto:wireless.overview">Linux wireless subsystem</a>: There is always one <em>physical network interface</em> for each WNIC called the <em>master interface</em>. The <em>master interface</em> is invisible. Then, depending on the wireless operating mode the master interface is configured to, <em>ad-hoc (IBSS), managed , AP , WDS, mesh point, monitor</em>, <em>wireless virtual network interfaces</em> with different properties are created. This is done automatically by default. When the WNIC driver is loaded, there always will be the master interface <em class="u">and</em> (at least) one virtual interface!</div>
+</li>
+</ul>
+
+<p>
+Two network interfaces can also be bonded together (please see <a href="http://en.wikipedia.org/wiki/Link aggregation" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Link aggregation">Link aggregation</a> and <a href="http://en.wikipedia.org/wiki/Channel bonding" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Channel bonding">Channel bonding</a> and <a href="http://wiki.ubuntuusers.de/Netzwerkkarten_b%C3%BCndeln" class="urlextern" title="http://wiki.ubuntuusers.de/Netzwerkkarten_b%C3%BCndeln"  rel="nofollow">Ubuntu Wiki</a>), <a href="http://lxr.free-electrons.com/source/Documentation/networking/bonding.txt" class="urlextern" title="http://lxr.free-electrons.com/source/Documentation/networking/bonding.txt"  rel="nofollow">Documentation/networking/bonding.txt</a>
+</p>
+<div class="table sectionedit5"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/dialog-information.png" class="media" alt="" /> </td><td class="col1"><a href="../devel/uci-lua" class="wikilink1" title="doc:techref:uci">UCI</a> is a small C utility designed to centralize configuration in OpenWrt.<br/>
+<code><a href="../uci/network" class="wikilink1" title="doc:uci:network">/etc/config/network</a></code> is the network configuration file.<br/>
+<code><a href="../uci/wireless" class="wikilink1" title="doc:uci:wireless">/etc/config/wireless</a></code> is the wireless configuration file.<br/>
+<span style='color:maroon; '><strong>UCI creates an abstraction layer for configuring network interfaces</strong></span>:<br/>
+In <code><a href="../uci/network" class="wikilink1" title="doc:uci:network">/etc/config/network</a></code> you allocate a name like <em>lan</em> or <em>internet_wire</em> or <em>whatever</em> to each <code>ifname</code>-variable for every device and then this name is consistently used through the entire UCI configuration. But this can only be used in conjunction with UCI!</td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit6" id="openwrt_default_configuration">OpenWrt default configuration</h2>
+<div class="level2">
+
+<p>
+The OpenWrt default configuration is explained in …
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="current_utilities_for_networking_and_traffic_control">Current Utilities for Networking and Traffic Control</h2>
+<div class="level2">
+
+<p>
+Most GNU/Linux distributions offer various software packages in their repositories which contain standard Unix networking tools for controlling the network subsystem of the Linux kernel; they serve the task of configuring network interfaces, routing tables, managing the ARP table, and so on. In Debian multiple such tools are combined into packages, e.g. <a href="http://packages.debian.org/jessie/net-tools" class="urlextern" title="http://packages.debian.org/jessie/net-tools"  rel="nofollow">net-tools</a>, <a href="http://packages.debian.org/jessie/iproute2" class="urlextern" title="http://packages.debian.org/jessie/iproute2"  rel="nofollow">iproute2</a>, <a href="http://packages.debian.org/wheezy/vlan" class="urlextern" title="http://packages.debian.org/wheezy/vlan"  rel="nofollow">vlan</a>, <a href="http://packages.debian.org/jessie/bridge-utils" class="urlextern" title="http://packages.debian.org/jessie/bridge-utils"  rel="nofollow">bridge-utils</a>, <a href="http://packages.debian.org/jessie/wireless-tools" class="urlextern" title="http://packages.debian.org/jessie/wireless-tools"  rel="nofollow">wireless-tools</a>, <a href="http://packages.debian.org/jessie/iw" class="urlextern" title="http://packages.debian.org/jessie/iw"  rel="nofollow">iw</a> and some more.
+</p>
+
+<p>
+The utilities contained in the “net-tools”-suite are old and deprecated. The ones contained in the &quot;iproute2&quot;-suite communicate with the Linux kernel via the (rt)netlink interface, providing advanced features not available through the legacy &quot;net-tools&quot;- commands <code>ifconfig</code> and <code>route</code>. See e.g. <a href="http://en.wikipedia.org/wiki/iproute2" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/iproute2">iproute2</a> or <a href="http://albanianwizard.org/linux-network-configuration-for-home-users.albanianwizard" class="urlextern" title="http://albanianwizard.org/linux-network-configuration-for-home-users.albanianwizard"  rel="nofollow">net-tools VS iproute2</a>) for a comparison.
+</p>
+<div class="table sectionedit8"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/dialog-information.png" class="media" alt="" /></td><td class="col1"> In the OpenWrt software package repositories networking utilities are available as <strong>separate <code><a href="../techref/opkg" class="wikilink1" title="doc:techref:opkg">opkg</a></code>-packages</strong> while core utilities like <code>ifconfig</code>, <code>route</code>, <code>netstat</code> and <code>vconfig</code> are also contained in <code>busybox</code> as applets: <code>busybox-ifconfig</code>, <code>busybox-route</code>, etc. </td>
+	</tr>
+</table></div>
+<div class="table sectionedit9"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign"> <code>utility</code>             </th><th class="col1"> <code>invocation</code> </th><th class="col2 leftalign"> Purpose  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign" rowspan="16"> <code><a href="http://man.cx/ip%288%29" class="interwiki iw_man" title="http://man.cx/ip%288%29">ip</a></code>    </td><td class="col1 leftalign"> <code>ip link</code>       </td><td class="col2 leftalign"> network device configuration  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <code>ip addr</code>       </td><td class="col1 leftalign"> protocol IPv4 or IPv6 address management on a device  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> <code>ip addrlabel</code>  </td><td class="col1 leftalign"> protocol address label management, label configuration for protocol address selection  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> <code>ip l2tp</code>       </td><td class="col1 leftalign"> establish static (aka unmanaged) L2TPv3 Ethernet tunnels.<br/>
+For unmanaged tunnels, there is no L2TP control protocol so no userspace daemon is required - tunnels are manually created by issuing commands at a local system and at a remote peer.<br/>
+L2TPv3 is suitable for Layer-2 tunneling. Static tunnels are useful to establish network links across IP networks when the tunnels are fixed. L2TPv3 tunnels can carry data of more than one session. Each session is identified by a session_id and its parent tunnel&#039;s tunnel_id. A tunnel must be created before a session can be created in the tunnel. <br/>
+When creating an L2TP tunnel, the IP address of the remote peer is specified, which can be either an IPv4 or IPv6 address. The local IP address to be used to reach the peer must also be specified. This is the address on which the local system will listen for and accept received L2TP data packets from the peer.<br/>
+L2TPv3 defines two packet encapsulation formats: UDP or IP. UDP encapsulation is most common. IP encapsulation uses a dedicated IP protocol value to carry L2TP data without the overhead of UDP. Use IP encapsulation only when there are no NAT devices or firewalls in the network path.<br/>
+When an L2TPv3 Ethernet session is created, a virtual network interface is created for the session, which must then be configured and brought up, just like any other network interface. When data is passed through the interface, it is carried over the L2TP tunnel to the peer. By configuring the system&#039;s routing tables or adding the interface to a bridge, the L2TP interface is like a virtual wire (<a href="../howto/pseudowire" class="wikilink1" title="doc:howto:pseudowire">pseudowire</a>) connected to the peer.<br/>
+Establishing an unmanaged L2TPv3 Ethernet pseudowire involves manually creating L2TP contexts on the local system and at the peer. Parameters used at each site must correspond or no data will be passed. No consistency checks are possible since there is no control protocol used to establish unmanaged L2TP tunnels. Once the virtual network interface of a given L2TP session is configured and enabled, data can be transmitted, even if the peer isn&#039;t yet configured. If the peer isn&#039;t configured, the L2TP data packets will be discarded by the peer.<br/>
+To establish an unmanaged L2TP tunnel, use<br/>
+<code>ip l2tp add tunnel</code> and <code>l2tp add session</code> commands described in this document. Then configure and enable the tunnel&#039;s virtual network interface, as required.<br/>
+Note that unmanaged tunnels carry only Ethernet frames. If you need to carry PPP traffic (L2TPv2) or your peer doesn&#039;t support unmanaged L2TPv3 tunnels, you will need an L2TP server which implements the L2TP control protocol. The L2TP control protocol allows dynamic L2TP tunnels and sessions to be established and provides for detecting and acting upon network failures.<br/>
+See <a href="https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/tree/Documentation/networking/l2tp.txt" class="urlextern" title="https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/tree/Documentation/networking/l2tp.txt"  rel="nofollow">Documentation/networking/l2tp.txt</a>  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> <code>ip neigh</code>      </td><td class="col1"> neighbour/arp tables management, ARP or NDISC cache entry </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> <code>ip netconf</code>    </td><td class="col1 leftalign">network configuration monitoring<br/>
+utility can monitor IPv4 and IPv6 parameters (see <code>/proc/sys/net/ipv[4|6]/conf/[all|DEV]/</code>) like forwarding, rp_filter or mc_forwarding status. <br/>
+<code>ip netconf show</code>  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> <code>ip netns</code>      </td><td class="col1 leftalign"> process network namespace management<br/>
+A network namespace is logically another copy of the network stack, with its own routes, firewall rules, and network devices.  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> <code>ip ntable</code>      </td><td class="col1"> neighbour table configuration<br/>
+controls the parameters for the neighbour tables </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> <code>ip route</code>      </td><td class="col1"> routing table management. Configuration files are:<br/>
+<code>/etc/iproute2/ematch_map</code><br/>
+<code>/etc/iproute2/group</code><br/>
+<code>/etc/iproute2/rt_dsfield</code><br/>
+<code>/etc/iproute2/rt_protos</code><br/>
+<code>/etc/iproute2/rt_realms</code><br/>
+<code>/etc/iproute2/rt_scopes</code><br/>
+<code><a href="../howto/notuci.config#etciproute2rt_tables" class="wikilink1" title="doc:howto:notuci.config">/etc/iproute2/rt_tables</a></code> </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> <code>ip rule</code>       </td><td class="col1"> routing policy database management </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> <code>ip maddr</code>      </td><td class="col1"> multicast addresses management </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> <code>ip mroute</code>     </td><td class="col1"> multicast routing cache management </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> <code>ip tunnel</code>     </td><td class="col1 leftalign"> tunnel over IP configuration  </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 leftalign"> <code>ip monitor</code>    </td><td class="col1 leftalign"> state monitoring, see <code>rtmon</code>  </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 leftalign"> <code>ip xfrm</code>       </td><td class="col1"> setting xfrm, framework for IPsec protocol </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 leftalign"> <code>ip tcp_metrics</code>  </td><td class="col1 leftalign"> used to manipulate entries in the Linux kernel that keep TCP information for IPv4 and IPv6 destinations. The entries are created when TCP sockets want to share information for destinations and are stored in a cache keyed by the destination address. The saved information may include values for metrics (initially obtained from routes), recent TSVAL for TIME-WAIT recycling purposes, state for the Fast Open feature, etc. For performance reasons the cache can not grow above configured limit and the older entries are replaced with fresh information, sometimes reclaimed and used for new destinations. The kernel never removes entries, they can be flushed only with this tool.<br/>
+Type <code>ip tcp_metrics show</code> to show cached entries  </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0 leftalign"> <code><a href="http://man.cx/rtmon%288%29" class="interwiki iw_man" title="http://man.cx/rtmon%288%29">rtmon</a></code>   </td><td class="col1"> </td><td class="col2 leftalign"> Listens to and monitors RTnetlink  </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0 leftalign"> <code><a href="http://man.cx/nstat%288%29" class="interwiki iw_man" title="http://man.cx/nstat%288%29">nstat</a></code>   </td><td class="col1"> </td><td class="col2" rowspan="2"> <code>nstat</code> and <code>rtacct</code> are simple tools to monitor kernel snmp counters and network interface statistics. </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0"> <code><a href="http://man.cx/rtacct%288%29" class="interwiki iw_man" title="http://man.cx/rtacct%288%29">rtacct</a></code> </td><td class="col1"> </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0"> <code><a href="http://man.cx/routel%288%29" class="interwiki iw_man" title="http://man.cx/routel%288%29">routel</a></code> </td><td class="col1"> </td><td class="col2" rowspan="2"> Set of helper <em>scripts</em> you can use instead of <code>ip</code>-commands.<br/>
+The <code>routel</code> script will list routes in a format that some might consider easier to interpret then the ip route list equivalent.<br/>
+The <code>routef</code> script does not take any arguments and will simply flush the routing table down the drain. Beware! This means deleting all routes which will make your network unusable! </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0"> <code><a href="http://man.cx/routef%288%29" class="interwiki iw_man" title="http://man.cx/routef%288%29">routef</a></code> </td><td class="col1"> </td>
+	</tr>
+	<tr class="row22">
+		<td class="col0 leftalign"> <code><a href="http://man.cx/ss%288%29" class="interwiki iw_man" title="http://man.cx/ss%288%29">ss</a></code>    </td><td class="col1 leftalign">  </td><td class="col2"> utility to dump socket statistics. It allows showing information similar to the deprecated <code>netstat</code>. ss can display more TCP and state informations than other tools. </td>
+	</tr>
+	<tr class="row23">
+		<td class="col0 leftalign"> <code><a href="http://man.cx/tc%288%29" class="interwiki iw_man" title="http://man.cx/tc%288%29">tc</a></code>    </td><td class="col1 leftalign">  </td><td class="col2 leftalign"> show / manipulate traffic control settings. tc is used to configure the <a href="../howto/traffic.shaping" class="wikilink1" title="doc:howto:packet.scheduler:packet.scheduler">Network packet scheduler</a> of the Linux kernel  </td>
+	</tr>
+	<tr class="row24">
+		<td class="col0 leftalign"> <code><a href="http://man.cx/lnstat%288%29" class="interwiki iw_man" title="http://man.cx/lnstat%288%29">lnstat</a></code><br/>
+<code><a href="http://man.cx/ctstat%288%29" class="interwiki iw_man" title="http://man.cx/ctstat%288%29">ctstat</a></code><br/>
+<code><a href="http://man.cx/rtstat%288%29" class="interwiki iw_man" title="http://man.cx/rtstat%288%29">rtstat</a></code>  </td><td class="col1"> </td><td class="col2 leftalign"> Unified Linux network statistics<br/>
+A generalized and more feature-complete replacement for the old <code>rtstat</code>-utility. In addition to routing cache statistics, it supports any kind of statistics the Linux kernel exports via a file in <code>/proc/net/stat/</code>.  </td>
+	</tr>
+	<tr class="row25">
+		<td class="col0 leftalign"> <code><a href="http://man.cx/arpd%288%29" class="interwiki iw_man" title="http://man.cx/arpd%288%29">arpd</a></code>  </td><td class="col1"> </td><td class="col2 leftalign"> userspace arp daemon  </td>
+	</tr>
+	<tr class="row26">
+		<td class="col0 leftalign"> <code><a href="http://man.cx/vconfig%288%29" class="interwiki iw_man" title="http://man.cx/vconfig%288%29">vconfig</a></code>  </td><td class="col1 leftalign">  </td><td class="col2 leftalign"> VLAN (IEEE 802.1q) configuration program. Allows you to create and remove VLAN−devices on a VLAN enabled Linux kernel. VLAN−devices are virtual Ethernet devices which represents the virtual lans on the physical lan  </td>
+	</tr>
+	<tr class="row27">
+		<td class="col0 leftalign"> <code><a href="http://man.cx/brctl%288%29" class="interwiki iw_man" title="http://man.cx/brctl%288%29">brctl</a></code>   </td><td class="col1"> </td><td class="col2 leftalign"> Linux Ethernet bridge administration  </td>
+	</tr>
+	<tr class="row28">
+		<td class="col0"> <code><a href="http://man.cx/bridge%288%29" class="interwiki iw_man" title="http://man.cx/bridge%288%29">bridge</a></code> </td><td class="col1"> </td><td class="col2 leftalign"> show / manipulate bridge addresses and devices; <code>bridge</code> uses facilities added in Linux 3.0. Although the forwarding table is maintained on a per-bridge device basis the bridge device is not part of the syntax. This is a limitation of the underlying netlink neighbour message protocol. When displaying the forwarding table, entries for all bridges are displayed. Add/delete/modify commands determine the underlying bridge device based on the bridge to which the corresponding ethernet device is attached.  </td>
+	</tr>
+	<tr class="row29">
+		<th class="col0 centeralign" colspan="3">  <a href="../howto/wireless.utilities" class="wikilink1" title="doc:howto:wireless.utilities">wireless utilities</a>  </th>
+	</tr>
+	<tr class="row30">
+		<td class="col0"> <code><a href="http://man.cx/iw%288%29" class="interwiki iw_man" title="http://man.cx/iw%288%29">iw</a></code> </td><td class="col1"> </td><td class="col2 leftalign"> show / manipulate wireless devices and their configuration  </td>
+	</tr>
+	<tr class="row31">
+		<td class="col0"> <code><a href="http://wiki.openwrt.org/doc/techref/iwinfo" class="wikilink2" title="doc:techref:iwinfo" rel="nofollow">iwinfo</a></code> </td><td class="col1"> </td><td class="col2 leftalign"> iwinfo is a CLI frontend to the library <code>libinfo</code>, which assembles information from various places  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit10" id="old_and_deprecated_utilities_for_networking_and_traffic_control">Old and deprecated Utilities for Networking and Traffic Control</h2>
+<div class="level2">
+<div class="table sectionedit11"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign"> Purpose                                     </th><th class="col1 leftalign"> <code>utility</code>                     </th><th class="col2 leftalign"> replaced with  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> IPv4/IPv6 address<br/>
+and link configuration  </td><td class="col1 leftalign"> <code><a href="http://man.cx/ifconfig%288%29" class="interwiki iw_man" title="http://man.cx/ifconfig%288%29">ifconfig</a></code>  </td><td class="col2 leftalign"> <code>ip addr</code> and <code>ip link</code>  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> Routing tables                              </td><td class="col1 leftalign"> <code><a href="http://man.cx/route%288%29" class="interwiki iw_man" title="http://man.cx/route%288%29">route</a></code>           </td><td class="col2 leftalign"> <code>ip route</code>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> Manipulate the kernel&#039;s <a href="http://en.wikipedia.org/wiki/Address Resolution Protocol" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Address Resolution Protocol">ARP</a> table. Add, delete an entry, or to dump the entire cache   </td><td class="col1 leftalign"> <code><a href="http://man.cx/arp%288%29" class="interwiki iw_man" title="http://man.cx/arp%288%29">arp</a></code>               </td><td class="col2 leftalign"> <code>ip neigh</code>  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> Adds, changes, deletes and shows an interface&#039;s tunnels </td><td class="col1 leftalign"> <code>iptunnel</code>   </td><td class="col2 leftalign"> <code>ip tunnel</code>  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> Adds, deletes and shows an interface&#039;s multicast addresses </td><td class="col1"> <code>ipmaddr</code> </td><td class="col2 leftalign"> <code>ip maddr</code>   </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> Report network connections, routing tables, and interface statistics </td><td class="col1 leftalign"> <code><a href="http://man.cx/netstat%288%29" class="interwiki iw_man" title="http://man.cx/netstat%288%29">netstat</a></code>       </td><td class="col2 leftalign"> <code>ss</code>  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> Manipulate the kernel&#039;s <a href="http://en.wikipedia.org/wiki/Reverse Address Resolution Protocol" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Reverse Address Resolution Protocol">RARP</a> table  </td><td class="col1 leftalign"> <code><a href="http://man.cx/rarp%288%29" class="interwiki iw_man" title="http://man.cx/rarp%288%29">rarp</a></code>   </td><td class="col2 leftalign">   </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> Name network interfaces based on MAC addresses   </td><td class="col1 leftalign"> <code><a href="http://man.cx/nameif%288%29" class="interwiki iw_man" title="http://man.cx/nameif%288%29">nameif</a></code>         </td><td class="col2 leftalign">   </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> Fine tune the PLIP device parameters, to improve its performance  </td><td class="col1"> <code><a href="http://man.cx/plipconfig%288%29" class="interwiki iw_man" title="http://man.cx/plipconfig%288%29">plipconfig</a></code> </td><td class="col2 leftalign">   </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> Attaches a network interface to a serial line. This allows to use normal terminal lines for point-to-point links to other computers.  </td><td class="col1 leftalign"> <code><a href="http://man.cx/slattach%288%29" class="interwiki iw_man" title="http://man.cx/slattach%288%29">slattach</a></code>     </td><td class="col2 leftalign">   </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> Checks or sets the status of a network interface&#039;s Media Independent Interface (MII) unit </td><td class="col1 leftalign"> <code><a href="http://man.cx/mii-tool%288%29" class="interwiki iw_man" title="http://man.cx/mii-tool%288%29">mii-tool</a></code>     </td><td class="col2 leftalign">   </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0"> configure a wireless network interface </td><td class="col1"> <code><a href="http://man.cx/iwconfig%288%29" class="interwiki iw_man" title="http://man.cx/iwconfig%288%29">iwconfig</a></code> </td><td class="col2"> <code>iw</code> </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0"> Display Wireless Events generated by drivers and setting changes </td><td class="col1"> <code><a href="http://man.cx/iwevent%288%29" class="interwiki iw_man" title="http://man.cx/iwevent%288%29">iwevent</a></code> </td><td class="col2"> <code>iw</code> </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0"> Report ESSID, NWID or AP/Cell Address of wireless network </td><td class="col1"> <code><a href="http://man.cx/iwgetid%288%29" class="interwiki iw_man" title="http://man.cx/iwgetid%288%29">iwgetid</a></code> </td><td class="col2"> <code>iw</code> </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0"> Get more detailed wireless information from a wireless interface </td><td class="col1 leftalign"> <code><a href="http://man.cx/iwlist%288%29" class="interwiki iw_man" title="http://man.cx/iwlist%288%29">iwlist</a></code>   </td><td class="col2"> <code>iw</code> </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0"> configure optionals (private) parameters of a wireless network interface </td><td class="col1 leftalign"> <code><a href="http://man.cx/iwpriv%288%29" class="interwiki iw_man" title="http://man.cx/iwpriv%288%29">iwpriv</a></code>   </td><td class="col2"> <code>iw</code> </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0 leftalign"> Get wireless statistics from specific nodes  </td><td class="col1 leftalign"> <code><a href="http://man.cx/iwspy%288%29" class="interwiki iw_man" title="http://man.cx/iwspy%288%29">iwspy</a></code>     </td><td class="col2"> <code>iw</code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/networking/network.interfaces.txt</bdi> · Last modified: 2013/09/13 23:22 by <bdi>lorema</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="network.interfaces?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="network.interfaces?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="network.interfaces?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="network.interfaces#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Anetworking%253Anetwork.interfaces&amp;1432267649" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

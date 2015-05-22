@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Collectd [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,statistic.collectd"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="statistic.collectd?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/statistic.collectd"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/statistic.collectd"/>
+<link rel="canonical" href="statistic.collectd"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:statistic.collectd","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432273824 166.182.3.179';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="statistic.collectd#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="statistic.collectd?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="statistic.collectd?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:statistic.collectd" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="statistic.collectd?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="statistic.collectd?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="statistic.collectd?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="statistic.collectd" class="wikilink1" title="doc:howto:statistic.collectd">Collectd</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/statistic.collectd" class="media" title="cz:doc:howto:statistic.collectd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/statistic.collectd" class="media" title="de:doc:howto:statistic.collectd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="statistic.collectd" class="media" title="doc:howto:statistic.collectd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/statistic.collectd" class="media" title="es:doc:howto:statistic.collectd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/statistic.collectd" class="media" title="fr:doc:howto:statistic.collectd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/statistic.collectd" class="media" title="hu:doc:howto:statistic.collectd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/statistic.collectd" class="media" title="jp:doc:howto:statistic.collectd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/statistic.collectd" class="media" title="pl:doc:howto:statistic.collectd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/statistic.collectd" class="media" title="pt-br:doc:howto:statistic.collectd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/statistic.collectd" class="media" title="ru:doc:howto:statistic.collectd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/statistic.collectd" class="media" title="tr:doc:howto:statistic.collectd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/statistic.collectd" class="media" title="zh-cn:doc:howto:statistic.collectd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/statistic.collectd" class="media" title="zh-tw:doc:howto:statistic.collectd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:statistic.collectd</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="statistic.collectd#preparation">Preparation</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="statistic.collectd#prerequisites">Prerequisites</a></div></li>
+<li class="level2"><div class="li"><a href="statistic.collectd#required_packages">Required Packages</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="statistic.collectd#installation">Installation</a></div></li>
+<li class="level1"><div class="li"><a href="statistic.collectd#configuration">Configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="statistic.collectd#using_luci">Using LuCI</a></div></li>
+<li class="level2"><div class="li"><a href="statistic.collectd#command-line_configuration">Command-line Configuration</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="statistic.collectd#example_configurations">Example Configurations</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="statistic.collectd#minimal_configuration">Minimal Configuration</a></div></li>
+<li class="level2"><div class="li"><a href="statistic.collectd#simple_configuration">Simple Configuration</a></div></li>
+<li class="level2"><div class="li"><a href="statistic.collectd#advanced_configuration">Advanced Configuration</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="statistic.collectd#graphs_and_visualization">Graphs and Visualization</a></div></li>
+<li class="level1"><div class="li"><a href="statistic.collectd#start_on_boot">Start on boot</a></div></li>
+<li class="level1"><div class="li"><a href="statistic.collectd#administration">Administration</a></div></li>
+<li class="level1"><div class="li"><a href="statistic.collectd#troubleshooting">Troubleshooting</a></div></li>
+<li class="level1"><div class="li"><a href="statistic.collectd#notes">Notes</a></div></li>
+<li class="level1"><div class="li"><a href="statistic.collectd#available_packages">Available Packages</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="collectd">Collectd</h1>
+<div class="level1">
+
+<p>
+collectd is a small daemon which collects system information periodically and provides mechanisms to store the values in a variety of ways.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="preparation">Preparation</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit3" id="prerequisites">Prerequisites</h3>
+<div class="level3">
+
+<p>
+If using Barrier Breaker prior to the stable release(r42625), wait for <a href="https://dev.openwrt.org/ticket/15010" class="urlextern" title="https://dev.openwrt.org/ticket/15010"  rel="nofollow">https://dev.openwrt.org/ticket/15010</a> to be fixed (fixed in r40645); or implement the fix yourself using buildroot. Otherwise, <em>none</em>, get on with it
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="required_packages">Required Packages</h3>
+<div class="level3">
+<div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Version </th><th class="col2"> Size </th><th class="col3 leftalign"> Description  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> collectd    </td><td class="col1 centeralign">  4.10.2-2   </td><td class="col2 rightalign">   59725 </td><td class="col3 leftalign"> collectd is a small daemon which collects system information periodically and provides mechanisms to store the values in a variety of ways.  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> libpthread  </td><td class="col1 centeralign">  0.9.32-66  </td><td class="col2 rightalign">   30687 </td><td class="col3 leftalign"> POSIX thread library                 </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> librt       </td><td class="col1 centeralign">  0.9.32-66  </td><td class="col2 rightalign">    5528 </td><td class="col3 leftalign"> POSIX.1b RealTime extension library  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> zlib        </td><td class="col1 centeralign">  1.2.5-1    </td><td class="col2 rightalign">   39403 </td><td class="col3 leftalign"> Library implementing the deflate compression method  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> libltdl     </td><td class="col1 centeralign">  2.4-1      </td><td class="col2 rightalign">   13614 </td><td class="col3 leftalign"> A generic dynamic object loading library  </td>
+	</tr>
+</table></div>
+
+<p>
+A Total of about 148.957 Bytes on ar71xx. Goto <span class="curid"><a href="statistic.collectd#available_packages" class="wikilink1" title="doc:howto:statistic.collectd">Available Packages</a></span> for a list of Plugins with their dependencies.
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="installation">Installation</h2>
+<div class="level2">
+
+<p>
+<a href="../techref/opkg" class="wikilink1" title="doc:techref:opkg">opkg</a>
+<pre class="code bash">opkg <span class="kw2">install</span> collectd
+<span class="kw2">vi</span> <span class="sy0">/</span>etc<span class="sy0">/</span>collectd.conf
+. <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>collectd <span class="kw3">enable</span>
+. <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>collectd start
+<span class="kw2">ps</span></pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="configuration">Configuration</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit8" id="using_luci">Using LuCI</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> Install <code>luci-app-statistics</code></div>
+</li>
+<li class="level1"><div class="li"> Configure collectd using the tools in Statistics section of the LuCI web interface.</div>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit9" id="command-line_configuration">Command-line Configuration</h3>
+<div class="level3">
+
+<p>
+Configure the file <code>/etc/collectd.conf</code> according to:
+</p>
+<ul>
+<li class="level1"><div class="li"><a href="http://collectd.org/documentation/manpages/collectd.1.shtml" class="urlextern" title="http://collectd.org/documentation/manpages/collectd.1.shtml"  rel="nofollow">collectd(1)</a></div>
+</li>
+<li class="level1"><div class="li"><a href="http://collectd.org/documentation/manpages/collectd.conf.5.shtml" class="urlextern" title="http://collectd.org/documentation/manpages/collectd.conf.5.shtml"  rel="nofollow">collectd.conf(5)</a></div>
+</li>
+</ul>
+
+<p>
+Assuming the daemon is already running, use the commands <code>sh /etc/init.d/collectd stop</code> and <code>sh /etc/init.d/collectd start</code> to reload and apply changes on the fly.
+</p>
+
+</div>
+
+<h2 class="sectionedit10" id="example_configurations">Example Configurations</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit11" id="minimal_configuration">Minimal Configuration</h3>
+<div class="level3">
+<div class="table sectionedit12"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <pre class="code">#
+# OpenWrt Config file for collectd(1).
+# Please read collectd.conf(5) for a list of options.
+# http://collectd.org/
+#
+
+#Hostname   &quot;localhost&quot;
+#FQDNLookup  true
+BaseDir     &quot;/var/lib/collectd&quot;
+PIDFile     &quot;/var/run/collectd.pid&quot;
+#PluginDir  &quot;/usr/lib/collectd&quot;
+#TypesDB    &quot;/usr/share/collectd/types.db&quot;
+Interval    30
+ReadThreads 2
+</pre>
+ </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit13" id="simple_configuration">Simple Configuration</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> Install <code>collectd-mod-rrdtool</code>, <code>collectd-mod-processes</code>, and <code>collectd-mod-interface</code></div>
+</li>
+</ol>
+<div class="table sectionedit14"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <pre class="code">BaseDir &quot;/var/run/collectd&quot;
+Include &quot;/etc/collectd/conf.d&quot;                                                                            
+PIDFile &quot;/var/run/collectd.pid&quot;                                                                           
+PluginDir &quot;/usr/lib/collectd&quot;                                                                             
+TypesDB &quot;/usr/share/collectd/types.db&quot;                                                                    
+Interval 30                                                                                               
+ReadThreads 2                                                                                             
+                                                                                                          
+                                                                                                          
+LoadPlugin rrdtool                                                                                        
+&lt;Plugin rrdtool&gt;                                                                                          
+        DataDir &quot;/tmp/rrd&quot;                                                                                
+        RRARows 100                                                                                       
+        RRASingle true                                                                                    
+        RRATimespan 3600                                                                                  
+        RRATimespan 86400                                                                                 
+        RRATimespan 604800                                                                                
+        RRATimespan 2678400                                                                               
+        RRATimespan 31622400                                                                              
+&lt;/Plugin&gt;                                                                                                 
+                                                                                                          
+LoadPlugin processes                                                                                      
+&lt;Plugin processes&gt;                                                                                        
+        Process uhttpd                                                                                    
+        Process dnsmasq                                                                                   
+        Process dropbear                                                                                  
+&lt;/Plugin&gt;                                                                                                 
+                                                                                                          
+LoadPlugin interface                                                                                      
+&lt;Plugin interface&gt;                                                                                        
+        IgnoreSelected false                                                                              
+        Interface eth0                                                                                    
+        Interface eth1                                                                                    
+        Interface eth2                                                                                    
+&lt;/Plugin&gt;                                                                                                 
+                                                                                                          
+LoadPlugin memory
+
+LoadPlugin uptime
+       
+LoadPlugin cpu
+       
+LoadPlugin load</pre>
+ </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit15" id="advanced_configuration">Advanced Configuration</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> Follow <a href="tc" class="wikilink1" title="doc:howto:tc">tc</a> or <a href="../uci/qos" class="wikilink1" title="doc:uci:qos">qos</a> to set up some traffic control</div>
+</li>
+<li class="level1"><div class="li"> Expand your storage resources by <a href="client.overview#mounting_filesystems" class="wikilink1" title="doc:howto:client.overview">Mounting Filesystems</a></div>
+</li>
+<li class="level1"><div class="li"> Install <code>collectd-mod-rrdtool</code>, <code>collectd-mod-iptables</code> and <code>collectd-mod-netlink</code> (Total of additional about 271.030 Bytes (on ar71xx))</div>
+</li>
+<li class="level1"><div class="li"> <code>mkdir /mnt/storage/rrd</code> <code>mkdir /mnt/storage/rrd/openwrt</code> <code>mkdir /mnt/storage/rrd/openwrt/netlink-pppoe-dsl</code></div>
+</li>
+<li class="level1"><div class="li"> <code>vim /etc/collectd.conf</code>:</div>
+</li>
+</ol>
+<div class="table sectionedit16"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <pre class="code">#
+# OpenWrt Config file for collectd(1).
+# Please read collectd.conf(5) for a list of options.
+# http://collectd.org/
+#
+
+
+
+#Hostname   &quot;localhost&quot;
+#FQDNLookup  true
+BaseDir     &quot;/var/lib/collectd&quot;
+PIDFile     &quot;/var/run/collectd.pid&quot;
+#PluginDir  &quot;/usr/lib/collectd&quot;
+#TypesDB    &quot;/usr/share/collectd/types.db&quot;
+Interval    30
+ReadThreads 2
+
+#LoadPlugin interface
+#LoadPlugin load
+#LoadPlugin memory
+LoadPlugin netlink
+LoadPlugin iptables
+LoadPlugin rrdtool
+
+
+&lt;Plugin netlink&gt;
+        VerboseInterface pppoe-dsl
+        QDisc &quot;pppoe-dsl&quot; &quot;hfsc-1:0&quot;
+        Class &quot;pppoe-dsl&quot; &quot;hfsc-1:1&quot;
+        Class &quot;pppoe-dsl&quot; &quot;hfsc-1:10&quot;
+        Class &quot;pppoe-dsl&quot; &quot;hfsc-1:101&quot;
+        Class &quot;pppoe-dsl&quot; &quot;hfsc-1:102&quot;
+        Class &quot;pppoe-dsl&quot; &quot;hfsc-1:103&quot;
+        Class &quot;pppoe-dsl&quot; &quot;hfsc-1:20&quot;
+        Class &quot;pppoe-dsl&quot; &quot;hfsc-1:201&quot;
+        Class &quot;pppoe-dsl&quot; &quot;hfsc-1:202&quot;
+        Class &quot;pppoe-dsl&quot; &quot;hfsc-1:203&quot;
+        Class &quot;pppoe-dsl&quot; &quot;hfsc-1:30&quot;
+        Class &quot;pppoe-dsl&quot; &quot;hfsc-1:301&quot;
+        Class &quot;pppoe-dsl&quot; &quot;hfsc-1:302&quot;
+        Class &quot;pppoe-dsl&quot; &quot;hfsc-1:303&quot;
+        Class &quot;pppoe-dsl&quot; &quot;hfsc-1:40&quot;
+        Class &quot;pppoe-dsl&quot; &quot;hfsc-1:50&quot;
+&lt;/Plugin&gt;
+
+# We use iptables filter only, so:
+&lt;Plugin iptables&gt;
+        chain mangle TC_USER1
+        chain mangle TC_USER2
+        chain mangle TC_USER3
+&lt;/Plugin&gt;
+
+
+&lt;Plugin rrdtool&gt;
+       DataDir &quot;/mnt/storage/rrd&quot;
+       CacheTimeout 120
+       CacheFlush   900
+&lt;/Plugin&gt;</pre>
+ </td>
+	</tr>
+</table></div>
+
+<p>
+<code>ls /mnt/storage/rrd/openwrt/netlink-pppoe-dsl</code>
+</p>
+<div class="table sectionedit17"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <pre class="code">if_collisions.rrd                 if_tx_errors-carrier.rrd          ipt_bytes-class-hfsc-1:30.rrd     ipt_packets-class-hfsc-1:201.rrd
+if_dropped.rrd                    if_tx_errors-fifo.rrd             ipt_bytes-class-hfsc-1:301.rrd    ipt_packets-class-hfsc-1:202.rrd
+if_errors.rrd                     if_tx_errors-heartbeat.rrd        ipt_bytes-class-hfsc-1:302.rrd    ipt_packets-class-hfsc-1:203.rrd
+if_multicast.rrd                  if_tx_errors-window.rrd           ipt_bytes-class-hfsc-1:303.rrd    ipt_packets-class-hfsc-1:30.rrd
+if_octets.rrd                     ipt_bytes-class-hfsc-1:1.rrd      ipt_bytes-class-hfsc-1:40.rrd     ipt_packets-class-hfsc-1:301.rrd
+if_packets.rrd                    ipt_bytes-class-hfsc-1:10.rrd     ipt_bytes-class-hfsc-1:50.rrd     ipt_packets-class-hfsc-1:302.rrd
+if_rx_errors-crc.rrd              ipt_bytes-class-hfsc-1:101.rrd    ipt_bytes-qdisc-hfsc-1:0.rrd      ipt_packets-class-hfsc-1:303.rrd
+if_rx_errors-fifo.rrd             ipt_bytes-class-hfsc-1:102.rrd    ipt_packets-class-hfsc-1:1.rrd    ipt_packets-class-hfsc-1:40.rrd
+if_rx_errors-frame.rrd            ipt_bytes-class-hfsc-1:103.rrd    ipt_packets-class-hfsc-1:10.rrd   ipt_packets-class-hfsc-1:50.rrd
+if_rx_errors-length.rrd           ipt_bytes-class-hfsc-1:20.rrd     ipt_packets-class-hfsc-1:101.rrd  ipt_packets-qdisc-hfsc-1:0.rrd
+if_rx_errors-missed.rrd           ipt_bytes-class-hfsc-1:201.rrd    ipt_packets-class-hfsc-1:102.rrd
+if_rx_errors-over.rrd             ipt_bytes-class-hfsc-1:202.rrd    ipt_packets-class-hfsc-1:103.rrd
+if_tx_errors-aborted.rrd          ipt_bytes-class-hfsc-1:203.rrd    ipt_packets-class-hfsc-1:20.rrd</pre>
+ </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit18" id="graphs_and_visualization">Graphs and Visualization</h2>
+<div class="level2">
+
+<p>
+collectd is strictly a statistics collection service and does not provide any way to visualize the gathered data. To enable visualization of the gathered data, install and configure the <code>collectd-mod-rrdtool</code> plugin, and make sure the <code>luci-app-statistics</code> package is installed. The statistics gathered by collectd should then be viewable in the LuCI web interface. 
+</p>
+
+<p>
+For more information about RRDTool, see <a href="http://wiki.openwrt.org/doc/howto/charts.rrdtool" class="wikilink2" title="doc:howto:charts.rrdtool" rel="nofollow">charts.RRDtool</a> and <a href="statistic.rrdtool" class="wikilink1" title="doc:howto:statistic.rrdtool">statistic.rrdtool</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit19" id="start_on_boot">Start on boot</h2>
+<div class="level2">
+
+<p>
+To enable/disable start on boot:<br/>
+
+<code>. /etc/init.d/collectd enable</code> this simply creates a symlink: <code>/etc/rc.d/S80collectd → /etc/init.d/collectd</code><br/>
+
+<code>. /etc/init.d/collectd disable</code> this removes the symlink again<br/>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit20" id="administration">Administration</h2>
+<div class="level2">
+
+</div>
+
+<h2 class="sectionedit21" id="troubleshooting">Troubleshooting</h2>
+<div class="level2">
+
+</div>
+
+<h2 class="sectionedit22" id="notes">Notes</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="http://www.collectd.org/" class="urlextern" title="http://www.collectd.org/"  rel="nofollow">http://www.collectd.org/</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit23" id="available_packages">Available Packages</h2>
+<div class="level2">
+
+<p>
+<strong>Note 1:</strong> This list is true for r25513 (2011-02), additional packages could be available.<br/>
+
+<strong>Note 2:</strong> The sizes are true for that version compiled for ar71xx. They will differ for other versions and other architectures. Some dependencies are already installed together with the <code>collectd</code> package. Don&#039;t count them double to estimate the size.
+</p>
+<div class="table sectionedit24"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Version </th><th class="col2"> Dependencies </th><th class="col3"> Size in Bytes </th><th class="col4 leftalign"> Description  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> collectd-mod-apache      </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 centeralign">  libcurl           </td><td class="col3 rightalign">   10455 </td><td class="col4 leftalign"> apache status input plugin  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> collectd-mod-apcups      </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">   8435 </td><td class="col4 leftalign"> apcups status input plugin  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> collectd-mod-ascent      </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 centeralign">  libcurl, libxml2  </td><td class="col3 rightalign">    9874 </td><td class="col4 leftalign"> ascent status input plugin  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> collectd-mod-bind        </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 centeralign">  libcurl, libxml2  </td><td class="col3 rightalign">   12726 </td><td class="col4 leftalign"> BIND server/zone input plugin  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> collectd-mod-conntrack   </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">   6576 </td><td class="col4 leftalign"> connection tracking table size input plugin  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> collectd-mod-contextswitch  </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">     </td><td class="col3 rightalign">   6832 </td><td class="col4 leftalign"> context switch input plugin  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> collectd-mod-cpu         </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">   7105 </td><td class="col4 leftalign"> CPU input plugin  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> collectd-mod-csv         </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">   8259 </td><td class="col4 leftalign"> CSV output plugin  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> collectd-mod-curl        </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 centeralign">  libcurl           </td><td class="col3 rightalign">    9722 </td><td class="col4 leftalign"> cURL input plugin  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> collectd-mod-dbi         </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 centeralign">  libdbi            </td><td class="col3 rightalign">   15462 </td><td class="col4 leftalign"> relational database input plugin  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> collectd-mod-df          </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">  10448 </td><td class="col4 leftalign"> disk space input plugin  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> collectd-mod-disk        </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">   8789 </td><td class="col4 leftalign"> disk usage/timing input plugin  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> collectd-mod-dns         </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 centeralign">  libpcap           </td><td class="col3 rightalign">   12201 </td><td class="col4 leftalign"> <abbr title="Domain Name System">DNS</abbr> traffic input plugin  </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 leftalign"> collectd-mod-email       </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">  10072 </td><td class="col4 leftalign"> email output plugin  </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 leftalign"> collectd-mod-exec        </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">  12769 </td><td class="col4 leftalign"> process exec input plugin  </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 leftalign"> collectd-mod-filecount   </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">   9041 </td><td class="col4 leftalign"> file count input plugin  </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0 leftalign"> collectd-mod-fscache     </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">   7088 </td><td class="col4 leftalign"> file-system based caching framework input plugin  </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0 leftalign"> collectd-mod-interface   </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">   6951 </td><td class="col4 leftalign"> network interfaces input plugin  </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0 leftalign"> collectd-mod-iptables    </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 centeralign">  iptables          </td><td class="col3 rightalign">   19468 </td><td class="col4 leftalign"> iptables status input plugin  </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0 leftalign"> collectd-mod-irq         </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">   7547 </td><td class="col4 leftalign"> interrupt usage input plugin  </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0 leftalign"> collectd-mod-load        </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">   6715 </td><td class="col4 leftalign"> system load input plugin  </td>
+	</tr>
+	<tr class="row22">
+		<td class="col0 leftalign"> collectd-mod-logfile     </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">   7781 </td><td class="col4 leftalign"> log files output plugin  </td>
+	</tr>
+	<tr class="row23">
+		<td class="col0 leftalign"> collectd-mod-madwifi     </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">  12004 </td><td class="col4 leftalign"> MadWifi status input plugin  </td>
+	</tr>
+	<tr class="row24">
+		<td class="col0 leftalign"> collectd-mod-memory      </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">   7183 </td><td class="col4 leftalign"> physical memory usage input plugin  </td>
+	</tr>
+	<tr class="row25">
+		<td class="col0 leftalign"> collectd-mod-mysql       </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 centeralign">  libmysqlclient    </td><td class="col3 rightalign">    7464 </td><td class="col4 leftalign"> MySQL status input plugin  </td>
+	</tr>
+	<tr class="row26">
+		<td class="col0 leftalign"> collectd-mod-netlink     </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 centeralign">  ip                </td><td class="col3 rightalign">   13653 </td><td class="col4 leftalign"> netlink input plugin  </td>
+	</tr>
+	<tr class="row27">
+		<td class="col0 leftalign"> collectd-mod-network     </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">  17383 </td><td class="col4 leftalign"> network input/output plugin  </td>
+	</tr>
+	<tr class="row28">
+		<td class="col0 leftalign"> collectd-mod-nginx       </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 centeralign">  libcurl           </td><td class="col3 rightalign">    8132 </td><td class="col4 leftalign"> nginx status input plugin  </td>
+	</tr>
+	<tr class="row29">
+		<td class="col0 leftalign"> collectd-mod-ntpd        </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">  10468 </td><td class="col4 leftalign"> NTP daemon status input plugin  </td>
+	</tr>
+	<tr class="row30">
+		<td class="col0 leftalign"> collectd-mod-olsrd       </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">   9538 </td><td class="col4 leftalign"> OLSRd status input plugin  </td>
+	</tr>
+	<tr class="row31">
+		<td class="col0 leftalign"> collectd-mod-openvpn     </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">   9816 </td><td class="col4 leftalign"> OpenVPN traffic/compression input plugin  </td>
+	</tr>
+	<tr class="row32">
+		<td class="col0 leftalign"> collectd-mod-ping        </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 centeralign">  liboping          </td><td class="col3 rightalign">    9874 </td><td class="col4 leftalign"> ping status input plugin  </td>
+	</tr>
+	<tr class="row33">
+		<td class="col0 leftalign"> collectd-mod-postgresql  </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 centeralign">  libpq             </td><td class="col3 rightalign">   16046 </td><td class="col4 leftalign"> PostgreSQL status input plugin  </td>
+	</tr>
+	<tr class="row34">
+		<td class="col0 leftalign"> collectd-mod-powerdns    </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">  11746 </td><td class="col4 leftalign"> PowerDNS server status input plugin  </td>
+	</tr>
+	<tr class="row35">
+		<td class="col0 leftalign"> collectd-mod-processes   </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">  11752 </td><td class="col4 leftalign"> process status input plugin  </td>
+	</tr>
+	<tr class="row36">
+		<td class="col0 leftalign"> collectd-mod-protocols   </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">   7821 </td><td class="col4 leftalign"> network protocols input plugin  </td>
+	</tr>
+	<tr class="row37">
+		<td class="col0 leftalign"> collectd-mod-rrdtool     </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 centeralign">  librrd1           </td><td class="col3 rightalign">   13579 </td><td class="col4 leftalign"> RRDtool output plugin  </td>
+	</tr>
+	<tr class="row38">
+		<td class="col0 leftalign"> collectd-mod-snmp        </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 centeralign">  libnetsnmp        </td><td class="col3 rightalign">   12999 </td><td class="col4 leftalign"> SNMP input plugin  </td>
+	</tr>
+	<tr class="row39">
+		<td class="col0 leftalign"> collectd-mod-syslog      </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">   6418 </td><td class="col4 leftalign"> syslog output plugin  </td>
+	</tr>
+	<tr class="row40">
+		<td class="col0 leftalign"> collectd-mod-table       </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">  10007 </td><td class="col4 leftalign"> table-like structured file input plugin  </td>
+	</tr>
+	<tr class="row41">
+		<td class="col0 leftalign"> collectd-mod-tail        </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">   7945 </td><td class="col4 leftalign"> tail input plugin  </td>
+	</tr>
+	<tr class="row42">
+		<td class="col0 leftalign"> collectd-mod-tcpconns    </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">   8103 </td><td class="col4 leftalign"> TCP connection tracking input plugin  </td>
+	</tr>
+	<tr class="row43">
+		<td class="col0 leftalign"> collectd-mod-teamspeak2  </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">  10068 </td><td class="col4 leftalign"> TeamSpeak2 input plugin  </td>
+	</tr>
+	<tr class="row44">
+		<td class="col0 leftalign"> collectd-mod-ted         </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">   8211 </td><td class="col4 leftalign"> The Energy Detective input plugin  </td>
+	</tr>
+	<tr class="row45">
+		<td class="col0 leftalign"> collectd-mod-thermal     </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">   7999 </td><td class="col4 leftalign"> system temperatures input plugin  </td>
+	</tr>
+	<tr class="row46">
+		<td class="col0 leftalign"> collectd-mod-unixsock    </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">  13072 </td><td class="col4 leftalign"> unix socket output plugin  </td>
+	</tr>
+	<tr class="row47">
+		<td class="col0 leftalign"> collectd-mod-uptime      </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">   6874 </td><td class="col4 leftalign"> uptime status input plugin  </td>
+	</tr>
+	<tr class="row48">
+		<td class="col0 leftalign"> collectd-mod-users       </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">   6470 </td><td class="col4 leftalign"> user logged in status input plugin  </td>
+	</tr>
+	<tr class="row49">
+		<td class="col0 leftalign"> collectd-mod-vmem        </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">   7751 </td><td class="col4 leftalign"> virtual memory usage input plugin  </td>
+	</tr>
+	<tr class="row50">
+		<td class="col0 leftalign"> collectd-mod-wireless    </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">   7327 </td><td class="col4 leftalign"> wireless status input plugin  </td>
+	</tr>
+	<tr class="row51">
+		<td class="col0 leftalign"> collectd-mod-write-http  </td><td class="col1 centeralign">  4.10.2-2  </td><td class="col2 centeralign">  libcurl           </td><td class="col3 rightalign">   11407 </td><td class="col4 leftalign"> HTTP POST output plugin  </td>
+	</tr>
+	<tr class="row52">
+		<td class="col0 leftalign"> libcurl                  </td><td class="col1 centeralign">  7.21.3-1  </td><td class="col2 centeralign">  libopenssl, zlib  </td><td class="col3 rightalign">  130498 </td><td class="col4 leftalign"> A client-side <abbr title="Uniform Resource Locator">URL</abbr> transfer library  </td>
+	</tr>
+	<tr class="row53">
+		<td class="col0 leftalign"> libdbi                   </td><td class="col1 centeralign">  0.8.3-3   </td><td class="col2 leftalign">                    </td><td class="col3 rightalign">   20321 </td><td class="col4 leftalign"> SQLite is a small C library that implements a self-contained, embeddable, zero-configuration SQL database engine.      This package contains the SQLite (v3.x) shared library, used by other programs.  </td>
+	</tr>
+	<tr class="row54">
+		<td class="col0 leftalign"> libelf                   </td><td class="col1 centeralign">  0.8.13-1  </td><td class="col2 leftalign">                    </td><td class="col3 rightalign">   26800 </td><td class="col4 leftalign"> ELF object file access library  </td>
+	</tr>
+	<tr class="row55">
+		<td class="col0 leftalign"> libmysqlclient           </td><td class="col1 centeralign">  5.1.53-2  </td><td class="col2 centeralign">  zlib              </td><td class="col3 rightalign">  161737 </td><td class="col4 leftalign"> MySQL client library  </td>
+	</tr>
+	<tr class="row56">
+		<td class="col0 leftalign"> libncurses               </td><td class="col1 centeralign">  5.7-3     </td><td class="col2 leftalign">                    </td><td class="col3 rightalign">  115370 </td><td class="col4 leftalign"> Terminal handling library  </td>
+	</tr>
+	<tr class="row57">
+		<td class="col0 leftalign"> libnetsnmp               </td><td class="col1 rightalign">  5.4.2.1-4 </td><td class="col2 centeralign">  libelf            </td><td class="col3 rightalign">  330435 </td><td class="col4 leftalign"> Simple Network Management Protocol (SNMP) is a widely used protocol for monitoring the health and welfare of network equipment (eg. routers), computer equipment and even devices like UPSs. Net-SNMP is a suite of applications used to implement SNMP v1, SNMP v2c and SNMP v3 using both IPv4 and IPv6. . This package contains shared libraries, needed by other programs.  </td>
+	</tr>
+	<tr class="row58">
+		<td class="col0 leftalign"> libopenssl               </td><td class="col1 centeralign">  1.0.0d-1  </td><td class="col2 centeralign">  zlib              </td><td class="col3 rightalign">  582261 </td><td class="col4 leftalign"> The OpenSSL Project is a collaborative effort to develop a robust, commercial-grade, full-featured, and Open Source toolkit implementing the Secure Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS v1) protocols as well as a full-strength general purpose cryptography library. This package contains the OpenSSL shared libraries, needed by other programs.  </td>
+	</tr>
+	<tr class="row59">
+		<td class="col0 leftalign"> liboping                 </td><td class="col1 centeralign">  1.6.0-1   </td><td class="col2 leftalign">                    </td><td class="col3 rightalign">   10140 </td><td class="col4 leftalign"> C library to generate ICMP echo requests.  </td>
+	</tr>
+	<tr class="row60">
+		<td class="col0 leftalign"> libpcap                  </td><td class="col1 centeralign">  1.0.0-2   </td><td class="col2 leftalign">                    </td><td class="col3 rightalign">   75960 </td><td class="col4 leftalign"> This package contains a system-independent library for user-level network packet capture.  </td>
+	</tr>
+	<tr class="row61">
+		<td class="col0 leftalign"> libpq                    </td><td class="col1 centeralign">  9.0.1-1   </td><td class="col2 centeralign">  zlib, libreadline, libncurses, coreutils-su  </td><td class="col3 rightalign">  55112 </td><td class="col4 leftalign"> PostgreSQL client library.  </td>
+	</tr>
+	<tr class="row62">
+		<td class="col0 leftalign"> libreadline              </td><td class="col1 centeralign">  5.2-2     </td><td class="col2 leftalign">                    </td><td class="col3 rightalign">  109121 </td><td class="col4 leftalign"> The Readline library provides a set of functions for use by applications that allow users to edit command lines as they are typed in. Both Emacs  and vi editing modes are available. The Readline library includes  additional functions to maintain a list of previously-entered command  lines, to recall and perhaps reedit those lines, and perform csh-like  history expansion on previous commands.  </td>
+	</tr>
+	<tr class="row63">
+		<td class="col0 leftalign"> librrd1                  </td><td class="col1 centeralign">  1.0.50-1  </td><td class="col2 centeralign">  zlib              </td><td class="col3 rightalign">  138968 </td><td class="col4 leftalign"> RRD is the Acronym for Round Robin Database. RRD is a system to store and display time-series data (i.e. network bandwidth, machine-room temperature, server load average). It stores the data in a very compact way that will not expand over time, and it presents useful graphs by processing the data to enforce a certain data density. It can be used either via simple wrapper scripts (from shell or Perl) or via frontends that poll network devices and put friendly user interface on it.  This is version 1.0.x with cgilib-0.4, gd1.3 and libpng-1.0.9 linked into librrd.so. The library is much smaller compared to the 1.2.x version with separate dynamic linked libraries. This package contains a shared library, used by other programs.  </td>
+	</tr>
+	<tr class="row64">
+		<td class="col0 leftalign"> libxml2                  </td><td class="col1 centeralign">  2.7.8-1   </td><td class="col2 centeralign">  libpthread, zlib  </td><td class="col3 rightalign">  470900 </td><td class="col4 leftalign"> A library for manipulating XML and <abbr title="HyperText Markup Language">HTML</abbr> resources.  </td>
+	</tr>
+	<tr class="row65">
+		<td class="col0 leftalign"> zlib                     </td><td class="col1 centeralign">  1.2.5-1   </td><td class="col2 leftalign">                    </td><td class="col3 rightalign">   39403 </td><td class="col4 leftalign"> Library implementing the deflate compression method  </td>
+	</tr>
+	<tr class="row66">
+		<td class="col0 leftalign"> coreutils-su             </td><td class="col1 centeralign">  8.8-1     </td><td class="col2 centeralign">  coreutils         </td><td class="col3 rightalign">   13021 </td><td class="col4 leftalign"> Full version of standard GNU su utility.  Normally, you would not use this package, since the functionality in BusyBox is more than sufficient.  </td>
+	</tr>
+	<tr class="row67">
+		<td class="col0 leftalign"> coreutils                </td><td class="col1 centeralign">  8.8-1     </td><td class="col2 leftalign">                    </td><td class="col3 rightalign">     782 </td><td class="col4 leftalign"> Full versions of standard GNU utilities.  Normally, you would not use this package, since the functionality in BusyBox is more than sufficient and much smaller.  </td>
+	</tr>
+	<tr class="row68">
+		<td class="col0 leftalign"> ip                       </td><td class="col1 centeralign">  2.6.35-3  </td><td class="col2 leftalign">                    </td><td class="col3 rightalign">   85362 </td><td class="col4 leftalign"> Routing control utility  </td>
+	</tr>
+</table></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/statistic.collectd.txt</bdi> · Last modified: 2015/03/31 22:50 by <bdi>jimbolaya</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="statistic.collectd?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="statistic.collectd?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="statistic.collectd?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="statistic.collectd#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Astatistic.collectd&amp;1432273824" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

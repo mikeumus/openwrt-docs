@@ -1,0 +1,2496 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>How to use multiple WAN connections using the mwan3 package [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,mwan3"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="mwan3?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/mwan3"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/mwan3"/>
+<link rel="canonical" href="mwan3"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:mwan3","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267162 166.182.3.14';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="mwan3#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="mwan3?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="mwan3?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:mwan3" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="mwan3?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="mwan3?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="mwan3?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="mwan3" class="wikilink1" title="doc:howto:mwan3">How to use multiple WAN connections using the mwan3 package</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/mwan3" class="media" title="cz:doc:howto:mwan3"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/mwan3" class="media" title="de:doc:howto:mwan3"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="mwan3" class="media" title="doc:howto:mwan3"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/mwan3" class="media" title="es:doc:howto:mwan3"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/mwan3" class="media" title="fr:doc:howto:mwan3"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/mwan3" class="media" title="hu:doc:howto:mwan3"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/mwan3" class="media" title="jp:doc:howto:mwan3"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/mwan3" class="media" title="pl:doc:howto:mwan3"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/mwan3" class="media" title="pt-br:doc:howto:mwan3"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/mwan3" class="media" title="ru:doc:howto:mwan3"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/mwan3" class="media" title="tr:doc:howto:mwan3"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/mwan3" class="media" title="zh-cn:doc:howto:mwan3"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/mwan3" class="media" title="zh-tw:doc:howto:mwan3"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:mwan3</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="mwan3#latest_release">Latest release</a></div></li>
+<li class="level1"><div class="li"><a href="mwan3#description">Description</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="mwan3#capabilities">Capabilities</a></div></li>
+<li class="level2"><div class="li"><a href="mwan3#creators">Creators</a></div></li>
+<li class="level2"><div class="li"><a href="mwan3#why_should_i_use_mwan3">Why should I use mwan3?</a></div></li>
+<li class="level2"><div class="li"><a href="mwan3#how_mwan3_load-balancing_works">How mwan3 load-balancing works</a></div></li>
+<li class="level2"><div class="li"><a href="mwan3#mwan3_architecture">Mwan3 architecture</a></div></li>
+<li class="level2"><div class="li"><a href="mwan3#mwan3_routing">Mwan3 routing</a></div></li>
+<li class="level2"><div class="li"><a href="mwan3#mwan3_and_ipv6">Mwan3 and IPv6</a></div></li>
+<li class="level2"><div class="li"><a href="mwan3#mwan3_command-line_options">Mwan3 command-line options</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="mwan3#prerequisites">Prerequisites</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="mwan3#openwrt_version">OpenWrt version</a></div></li>
+<li class="level2"><div class="li"><a href="mwan3#hardware">Hardware</a></div></li>
+<li class="level2"><div class="li"><a href="mwan3#package_dependencies">Package dependencies</a></div></li>
+<li class="level2"><div class="li"><a href="mwan3#package_conflicts">Package conflicts</a></div></li>
+<li class="level2"><div class="li"><a href="mwan3#test_external_dnsmailetc_servers_for_access_from_each_wan_interface">Test external DNS/mail/etc. servers for access from each WAN interface</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="mwan3#multiple_wan_interface_and_routing_table_preparation">Multiple WAN interface and routing table preparation</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="mwan3#the_first_wan_interface_is_named_wan">The first WAN interface is named &quot;wan&quot;</a></div></li>
+<li class="level2"><div class="li"><a href="mwan3#create_and_configure_a_second_wan_interface">Create and configure a second WAN interface</a></div></li>
+<li class="level2"><div class="li"><a href="mwan3#prepare_and_the_check_the_default_os_routing_table_for_wan_interfaces_and_test">Prepare and the check the default OS routing table for WAN interfaces and test</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="mwan3#step_1configure_a_different_metric_for_each_wan_interface">Step 1: Configure a different metric for each WAN interface</a></div></li>
+<li class="level3"><div class="li"><a href="mwan3#verify_the_routing_table">Verify the routing table</a></div></li>
+<li class="level3"><div class="li"><a href="mwan3#troubleshooting">Troubleshooting</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="mwan3#verify_outbound_traffic_on_each_wan_interface">Verify outbound traffic on each WAN interface</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="mwan3#test_the_wan_first_wan_connection">Test the wan (first WAN) connection</a></div></li>
+<li class="level3"><div class="li"><a href="mwan3#test_the_wan2_connection">Test the wan2 connection</a></div></li>
+<li class="level3"><div class="li"><a href="mwan3#test_all_other_wan_connections">Test all other WAN connections</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="mwan3#ensure_the_conntrack_module_is_enabled_in_openwrt">Ensure the CONNTRACK module is enabled in OpenWrt</a></div></li>
+<li class="level1"><div class="li"><a href="mwan3#manual_download_of_packages">Manual download of packages</a></div></li>
+<li class="level1"><div class="li"><a href="mwan3#installation">Installation</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="mwan3#openwrt_1407_and_later">OpenWrt 14.07 and later</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="mwan3#luci_web_interface_method">LuCi web interface method</a></div></li>
+<li class="level3"><div class="li"><a href="mwan3#ssh_method">SSH method</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="mwan3#openwrt_1209">OpenWrt 12.09</a></div></li>
+<li class="level2"><div class="li"><a href="mwan3#restart_luci_or_reboot_if_needed">Restart LuCI or reboot if needed</a></div></li>
+<li class="level2"><div class="li"><a href="mwan3#upgrades">Upgrades</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="mwan3#mwan3_configuration">MWAN3 configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="mwan3#interface_configuration">Interface configuration</a></div></li>
+<li class="level2"><div class="li"><a href="mwan3#member_configuration">Member configuration</a></div></li>
+<li class="level2"><div class="li"><a href="mwan3#policy_configuration">Policy configuration</a></div></li>
+<li class="level2"><div class="li"><a href="mwan3#rule_configuration">Rule configuration</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="mwan3#stickiness_and_ipset">Stickiness and ipset</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="mwan3#example_configuration">Example configuration</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="mwan3#further_configuration_tips">Further configuration tips</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="mwan3#openwrt_hotplug_script_fix_openwrt_1209_only">OpenWrt hotplug script fix (OpenWrt 12.09 only)</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="mwan3#start_mwan3">Start mwan3</a></div></li>
+<li class="level1"><div class="li"><a href="mwan3#preserve_configuration_files_in_an_openwrt_upgrade">Preserve configuration files in an OpenWrt upgrade</a></div></li>
+<li class="level1"><div class="li"><a href="mwan3#verification_of_basic_operation">Verification of basic operation</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="mwan3#check_mwan3_status_in_cli">Check MWAN3 status in cli</a></div></li>
+<li class="level2"><div class="li"><a href="mwan3#check_status_in_the_mwan3_overview_page">Check status in the MWAN3 overview page</a></div></li>
+<li class="level2"><div class="li"><a href="mwan3#check_kernel_routing_tables">Check kernel routing tables</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="mwan3#verification_of_wan_interface_load-balancing">Verification of WAN interface load-balancing</a></div></li>
+<li class="level1"><div class="li"><a href="mwan3#verification_of_wan_interface_failover">Verification of WAN interface failover</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="mwan3#test_interface_failover">Test interface failover</a></div></li>
+<li class="level2"><div class="li"><a href="mwan3#test_interface_fail-back">Test interface fail-back</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="mwan3#administration">Administration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="mwan3#stop_mwan3">Stop mwan3</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="mwan3#luci">LuCI</a></div></li>
+<li class="level3"><div class="li"><a href="mwan3#ssh">SSH</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="mwan3#start_mwan31">Start mwan3</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="mwan3#luci1">LuCI</a></div></li>
+<li class="level3"><div class="li"><a href="mwan3#ssh1">SSH</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="mwan3#monitoring_mwan3">Monitoring mwan3</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="mwan3#manual_status_check">Manual status check</a></div></li>
+<li class="level2"><div class="li"><a href="mwan3#automated_status_check">Automated status check</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="mwan3#alerting">Alerting</a></div></li>
+<li class="level1"><div class="li"><a href="mwan3#controlling_the_mapping_between_internal_ip_sources_and_external_ips_and_interfaces">Controlling the mapping between internal IP sources and external IPs and interfaces</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="mwan3#step_1set_mwan3_rules_to_send_traffic_out_the_right_interface">Step 1: Set mwan3 rules to send traffic out the right interface</a></div></li>
+<li class="level2"><div class="li"><a href="mwan3#step_2assign_multiple_external_ip_addresses_selected_interface_optional">Step 2: Assign multiple external IP addresses selected interface (optional)</a></div></li>
+<li class="level2"><div class="li"><a href="mwan3#step_3set_openwrt_nat_rules_to_send_traffic_out_the_right_ip_on_the_selected_interface_optional">Step 3: Set OpenWrt NAT rules to send traffic out the right IP on the selected interface (optional)</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="mwan3#mwan3_and_other_programs">mwan3 and other programs</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="mwan3#ddns-scripts">ddns-scripts</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="mwan3#example_1register_the_external_ip_of_the_active_wan_interface">Example 1: Register the external IP of the active WAN interface</a></div></li>
+<li class="level3"><div class="li"><a href="mwan3#example_2register_the_external_ip_of_a_specific_wan_interface_using_the_interface_source">Example 2: Register the external IP of a specific WAN interface using the &quot;interface&quot; source</a></div></li>
+<li class="level3"><div class="li"><a href="mwan3#example_3register_the_external_ip_of_a_specific_wan_interface_using_the_web_source">Example 3: Register the external IP of a specific WAN interface using the &quot;web&quot; source</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="mwan3#openvpn">OpenVPN</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="mwan3#possible_problems">Possible problems</a></div></li>
+<li class="level3"><div class="li"><a href="mwan3#example_1have_openvpn_server_be_accessible_through_multiple_wan_interfaces_server_mode">Example 1: Have OpenVPN Server be accessible through multiple WAN interfaces (server mode)</a></div></li>
+<li class="level3"><div class="li"><a href="mwan3#example_2use_openvpn_tunnels_as_virtual_wan_s_client_mode">Example 2: Use OpenVPN tunnels as virtual wan(s) (client mode)</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="mwan3#privoxy_transparent_http_proxy">privoxy transparent HTTP proxy</a></div></li>
+<li class="level2"><div class="li"><a href="mwan3#nodogsplash">nodogsplash</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="mwan3#usage_reports">Usage reports</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="mwan3#tplink_wdr3600_mwan3_-_14-24_two_wan_connections">12.09, tplink wdr3600, mwan3 - 1.4-24, two wan connections</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="mwan3#using_different_wan_connections_from_different_pc-s">Using different wan connections from different Pc-s</a></div></li>
+<li class="level3"><div class="li"><a href="mwan3#line_fail">Line fail</a></div></li>
+<li class="level3"><div class="li"><a href="mwan3#line_recovered">Line recovered</a></div></li>
+<li class="level3"><div class="li"><a href="mwan3#incoming_connections_routed_behind_the_router">Incoming connections routed behind the router</a></div></li>
+<li class="level3"><div class="li"><a href="mwan3#incoming_connections_to_services_on_the_router">Incoming connections to services on the router</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="mwan3#reliable_public_ip_addresses_to_ping">Reliable public ip addresses to ping</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="mwan3#possible_work_arounds_to_test_connection_not_only_by_ping">Possible work arounds to test connection not only by ping ?</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="how_to_use_multiple_wan_connections_using_the_mwan3_package">How to use multiple WAN connections using the mwan3 package</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> References:</div>
+<ul>
+<li class="level2"><div class="li"> <a href="https://forum.openwrt.org/viewtopic.php?id=39052" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=39052"  rel="nofollow">OpenWrt Forum: New package: mwan3; multi-wan policy routing; testers wanted</a>; much of the content below comes from forum posts by Adze or Arfett on this thread</div>
+</li>
+<li class="level2"><div class="li"> there is documentation available for policy routing on Linux, e.g. <a href="http://www.policyrouting.org/PolicyRoutingBook/ONLINE/TOC.html" class="urlextern" title="http://www.policyrouting.org/PolicyRoutingBook/ONLINE/TOC.html"  rel="nofollow">Policy Routing With Linux - Online Edition by Matthew G. Marsh</a></div>
+</li>
+<li class="level2"><div class="li"> source code on github.com: <a href="https://github.com/openwrt/packages/tree/master/net/mwan3" class="urlextern" title="https://github.com/openwrt/packages/tree/master/net/mwan3"  rel="nofollow">https://github.com/openwrt/packages/tree/master/net/mwan3</a></div>
+</li>
+<li class="level2"><div class="li"> source code on github.com: <a href="https://github.com/openwrt/packages/tree/master/net/mwan3-luci" class="urlextern" title="https://github.com/openwrt/packages/tree/master/net/mwan3-luci"  rel="nofollow">https://github.com/openwrt/packages/tree/master/net/mwan3-luci</a></div>
+</li>
+<li class="level2"><div class="li"> old source code and/or development versions on github.com: <a href="https://github.com/Adze1502/mwan" class="urlextern" title="https://github.com/Adze1502/mwan"  rel="nofollow">https://github.com/Adze1502/mwan</a></div>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Related pages:</div>
+<ul>
+<li class="level2"><div class="li"> <code>multiwan</code> is a different package for managing multiple WAN connections: see <a href="../uci/multiwan" class="wikilink1" title="doc:uci:multiwan">multiwan</a> and <a href="multiwan.failower" class="wikilink1" title="doc:howto:multiwan.failower">multiwan.failower</a></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit2" id="latest_release">Latest release</h2>
+<div class="level2">
+
+<p>
+The mwan3 packages current as of 2015-03-17 are:
+</p>
+<ul>
+<li class="level1"><div class="li"> mwan3_1.4-25_all.ipk (for OpenWrt 12.09 &quot;Attitude Adjustment&quot; release only)</div>
+</li>
+<li class="level1"><div class="li"> mwan3_1.5-10_all.ipk (for OpenWrt 14.07 &quot;Barrier Breaker&quot; &amp; &quot;Chaos Calmer&quot; release only)</div>
+</li>
+<li class="level1"><div class="li"> mwan3_1.6-1_all.ipk (for trunk only)</div>
+</li>
+<li class="level1"><div class="li"> luci-app-mwan3_1.4-2_all.ipk (for OpenWrt 12.09 and later. May have configurable options only compatible with the latest beta mwan3)</div>
+</li>
+</ul>
+
+<p>
+See below for the download and installation procedures.
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="description">Description</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit4" id="capabilities">Capabilities</h3>
+<div class="level3">
+
+<p>
+The <code>mwan3</code> package provides the following capabilities:
+</p>
+<ul>
+<li class="level1"><div class="li"> provides outbound WAN traffic load balancing over multiple WAN interfaces based on a numeric weight assignment</div>
+</li>
+<li class="level1"><div class="li"> monitors each WAN connection using repeated ping tests and can automatically route outbound traffic to another WAN interface if the first WAN interface loses connectivity</div>
+</li>
+<li class="level1"><div class="li"> provides specific outbound traffic rules to customize which outbound connections should use which WAN interface</div>
+<ul>
+<li class="level2"><div class="li"> this can be customized based on source IP, destination IP, source port(s), destination port(s), type of IP protocol</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> administration and configuration is through a LuCI configuration module</div>
+</li>
+<li class="level1"><div class="li"> up to 250 physical and/or logical WAN interfaces are supported</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit5" id="creators">Creators</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Forum member Adze wrote mwan3</div>
+</li>
+<li class="level1"><div class="li"> Forum member Arfett wrote the LuCI web interface</div>
+</li>
+</ul>
+
+<p>
+Many thanks!
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="why_should_i_use_mwan3">Why should I use mwan3?</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> If you have multiple internet connections, you want to control which traffic goes through which WANs</div>
+</li>
+<li class="level1"><div class="li"> Mwan3 can handle multiple levels of primary and backup interfaces, load-balanced or not. Different sources can have different primary or backup WANs.</div>
+</li>
+<li class="level1"><div class="li"> Mwan3 uses netfilter mark mask to be compatible with other packages (such as OpenVPN, PPTP VPN, QoS-script, Tunnels, etc) as you can configure traffic to use the default routing table.</div>
+</li>
+<li class="level1"><div class="li"> Mwan3 can also load-balance traffic originating from the router itself</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit7" id="how_mwan3_load-balancing_works">How mwan3 load-balancing works</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> mwan3 uses normal Linux policy routing to balance outgoing traffic over multiple WAN connections</div>
+</li>
+<li class="level1"><div class="li"> Linux outgoing network traffic load-balancing is performed on a per-IP connection basis – it is not channel-bonding, where a single connection (e.g. a single download) will use multiple WAN connections simultaneously</div>
+</li>
+<li class="level1"><div class="li"> As such load-balancing will help speed multiple separate downloads or traffic generated from a group of source PCs all accessing different sites but it will not speed up a single download from one PC (unless the download is spread across multiple IP streams such as by using a download manager)</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit8" id="mwan3_architecture">Mwan3 architecture</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Mwan3 is triggered by hotplug-events. When an interface comes up, it creates a custom routing table and iptables rules. A new routing table is created for each interface. It then sets up iptables rules and uses iptables MARK to mark certain traffic. Based on these rules, the kernel determines which routing table to use. When an interface goes down, mwan3 deletes all the rules and routes to that interface.</div>
+</li>
+<li class="level1"><div class="li"> Once all the routes and rules are initially set up, mwan3 exits. The kernel takes care of all the routing decisions. If a new interface hotplug event occurs, mwan3 will run again to adjust route and tables as needed.</div>
+</li>
+<li class="level1"><div class="li"> A monitoring script (mwan3track) runs in the background checking if each WAN interface is up using a ping test. If an interface goes down, the script issues a hotplug event to cause mwan3 to adjust routing tables to the interface failure.</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit9" id="mwan3_routing">Mwan3 routing</h3>
+<div class="level3">
+
+<p>
+The following steps are taken to route a packet with mwan3:
+</p>
+
+<p>
+Every incoming packet (this includes router originated traffic) is handled by the iptables mwan3_hook. This hook takes 5 steps:
+</p>
+<ol>
+<li class="level1"><div class="li"> Restore mark if previous set. If successful marked, goto step 5.</div>
+</li>
+<li class="level1"><div class="li"> Check if the packet arrives on a wan interface. If originated from a local connected ip network, then mark packet with iface_id 255 (default). If the packet is from another (non-local) network and arrives on wan interface, then mark it with iface_id. If successful marked, goto step 5.</div>
+</li>
+<li class="level1"><div class="li"> Check if packet destined for an ip connected (local) network. If so then mark packet with iface_id 255 (default) and goto step 5.</div>
+</li>
+<li class="level1"><div class="li"> Apply user rules and mark with configured iface_id. If no match leave unmarked.</div>
+</li>
+<li class="level1"><div class="li"> If marked then save mark.</div>
+</li>
+</ol>
+
+<p>
+Remember that iptables only marks the packet, it does not make routing decisions. Next in line are the ip rules. In following order they are:
+</p>
+<ol>
+<li class="level1"><div class="li"> Ip rules 1001 till 1250 are for wan interface 1 till 250 respectively. This rule says: If packet is incoming from wan interface use main routing table, regardless of mark.</div>
+</li>
+<li class="level1"><div class="li"> Ip rules 2001 till 2250 are for wan interface 1 till 250 respectively. This rule says: If packet is marked with iface_id [1-250], use the corresponding wan interface routing table.</div>
+</li>
+<li class="level1"><div class="li"> Ip rule 2254 is a blackhole/unreachable rule. This rule says: If packet is marked with iface_id 254 (unreachable), drop packet and return icmp unreachable.</div>
+</li>
+</ol>
+
+<p>
+Next come the routing tables. These are really simple. There is just the standard main routing table and one routing table containing one gateway for each wan interface. Hopes this make troubleshooting easier.
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="mwan3_and_ipv6">Mwan3 and IPv6</h3>
+<div class="level3">
+
+<p>
+It is ok to have ipv6 and mwan3 running on the same router. Only ipv6 is ignored by mwan3. Ipv6 routing is done without intervention of any mwan3 rule/route. (Source: Adze&#039;s post at <a href="https://forum.openwrt.org/viewtopic.php?pid=243603#p243603" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?pid=243603#p243603"  rel="nofollow">https://forum.openwrt.org/viewtopic.php?pid=243603#p243603</a>)
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="mwan3_command-line_options">Mwan3 command-line options</h3>
+<div class="level3">
+
+<p>
+There are now some cli commands to help you troubleshoot or show status:
+</p>
+
+<p>
+<pre class="code">root@OpenWrt:~# mwan3
+Syntax: /usr/sbin/mwan3 [command]
+
+Available commands:
+ start Start the service
+ stop Stop the service
+ restart Restart the service
+ reload Reload configuration files (or restart if that fails)
+ enable Enable service autostart
+ disable Disable service autostart
+
+ ifup &lt;iface&gt; Start service on interface
+ ifdown &lt;iface&gt; Stop service on interface
+ interfaces Show interfaces status
+ policies Show policies status
+ rules Show rules status
+ status Show all status</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Example:</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">root@OpenWrt:~# mwan3 status
+Interface status:
+Interface wan is online (tracking active)
+Interface wan2 is online (tracking active)</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit12" id="prerequisites">Prerequisites</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit13" id="openwrt_version">OpenWrt version</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> OpenWrt 12.09 or later is needed</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit14" id="hardware">Hardware</h3>
+<div class="level3">
+
+<p>
+Any router configured with multiple WAN interfaces running OpenWrt 12.09 or later should work. Just pick a device with good OpenWrt support, preferably one with VLAN support for the additional interface flexibility VLAN support provides.
+</p>
+
+<p>
+At least three interfaces need to exist for the minimal configuration: inside <abbr title="Local Area Network">LAN</abbr>, WAN1 and WAN2. The simplest way to do this is use VLANs to put individual switch ports into their own VLANs, thus each becoming separate interfaces.
+</p>
+<ul>
+<li class="level1"><div class="li"> As examples, the following specific devices are working well with mwan3:</div>
+<ul>
+<li class="level2"><div class="li"> A TP-LINK TL-WR1043ND hardware version 1.10 router (ar71xx platform) (<a href="../../toh/tp-link/tl-wr1043nd" class="wikilink1" title="toh:tp-link:tl-wr1043nd">tl-wr1043nd</a>) using OpenWrt 12.09.</div>
+</li>
+<li class="level2"><div class="li"> A TP-LINK TL-WR3600 router (ar71xx platform) (<a href="../../toh/tp-link/tl-wdr3600" class="wikilink1" title="toh:tp-link:tl-wdr3600">tl-wdr3600</a>) using OpenWrt 12.09.</div>
+</li>
+<li class="level2"><div class="li"> A openwrt 12.09 mips metarouter over a mikrotik r493g routeros 6.27 (<a href="../../inbox/doc/mikrotik_metarouter_openwrt" class="wikilink1" title="inbox:doc:mikrotik_metarouter_openwrt">mikrotik_metarouter_openwrt</a>).</div>
+</li>
+<li class="level2"><div class="li"> A NetGear WNDR3800 router (ar71xx platform) (<a href="../../toh/netgear/wndr3800" class="wikilink1" title="toh:netgear:wndr3800">wndr3800</a>) using OpenWrt 12.09.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit15" id="package_dependencies">Package dependencies</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> The following packages are required, but they should be installed automatically if missing when mwan3 is installed so there is no need to manually install them beforehand</div>
+<ul>
+<li class="level2"><div class="li"> libc, ip, iptables, iptables-mod-conntrack-extra, iptables-mod-ipopt, kmod-ipt-conntrack-extra, kmod-ipt-ipopt</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit16" id="package_conflicts">Package conflicts</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Ensure no other multiple WAN package is installed such as <code>multiwan</code> – having <code>multiwan</code> installed at the same time as mwan3 is known not to work</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit17" id="test_external_dnsmailetc_servers_for_access_from_each_wan_interface">Test external DNS/mail/etc. servers for access from each WAN interface</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Users in the forum have reported problems with <abbr title="Domain Name System">DNS</abbr> resolution or being unable to send e-mail after implementing WAN load-balancing or failover using mwan3</div>
+</li>
+<li class="level1"><div class="li"> The usual cause is they are using the <abbr title="Domain Name System">DNS</abbr> servers or a mail (SMTP/POP/IMAP) server provided by the ISP of the wan (original WAN) interface and when the router starts sending traffic out the wan2 interface, the ISP blocks access to its servers because the traffic is now coming from an address that is not in their own network. This is a common security configuration by ISPs and has nothing to do with mwan3 specifically.</div>
+</li>
+<li class="level1"><div class="li"> Option 1: Before implementing any multiple WAN configuration, test any ISP-provided services to see if they are reachable from &quot;foreign&quot; IP addresses and ensure that they can still be used from source IPs not on the ISPs network.</div>
+</li>
+<li class="level1"><div class="li"> Option 2: Change settings to switch to using servers that are known to be accessible from anywhere</div>
+<ul>
+<li class="level2"><div class="li"> For <abbr title="Domain Name System">DNS</abbr> servers, using Google Public <abbr title="Domain Name System">DNS</abbr> (at IPs 8.8.8.8 and 8.8.4.4) is a good choice</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Option 3: Create user rules for traffic destined to &quot;private&quot; <abbr title="Domain Name System">DNS</abbr> servers to only exit the correct interface. </div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit18" id="multiple_wan_interface_and_routing_table_preparation">Multiple WAN interface and routing table preparation</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit19" id="the_first_wan_interface_is_named_wan">The first WAN interface is named &quot;wan&quot;</h3>
+<div class="level3">
+
+<p>
+The mwan3 default configuration file assumes two WAN interfaces are named &quot;wan&quot; and &quot;wan2&quot;. If this is not the case, edit the file /etc/config/mwan3 to configure the &quot;interface&quot; definitions to have the same WAN names as defined in network configuration.
+</p>
+
+</div>
+
+<h3 class="sectionedit20" id="create_and_configure_a_second_wan_interface">Create and configure a second WAN interface</h3>
+<div class="level3">
+
+<p>
+The simplest way to create more WAN interfaces is to have a VLAN-capable router. This allows each individual port to become its own separate interface in OpenWrt.
+</p>
+<ul>
+<li class="level1"><div class="li"> Here is the basic procedure to create a new VLAN and assign a single port to it so as to create a second WAN interface</div>
+<ul>
+<li class="level2"><div class="li"> go to Network &gt; Switch</div>
+<ul>
+<li class="level3"><div class="li"> remove a single physical port from the default VLAN 1; this port will be the new physical WAN2 port</div>
+</li>
+<li class="level3"><div class="li"> assign the port to a new VLAN number such as 3 and set the port to be untagged in this single new VLAN and off in all other VLANs (note this VLAN, as with all VLANs, should also include the built-in CPU port as a tagged member, so there are a total of two ports in the new VLAN)</div>
+</li>
+<li class="level3"><div class="li"> reboot the router for the new VLAN interface to become active (e.g. eth0.3 for what will be the new WAN2 interface)</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Go to Network &gt; Interfaces and add a new interface name for the new eth0.x adapter</div>
+<ul>
+<li class="level2"><div class="li"> name the new VLAN physical interface &quot;wan2&quot;</div>
+</li>
+<li class="level2"><div class="li"> <strong><img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> don&#039;t create a bridge over the specified interface <img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /></strong></div>
+</li>
+<li class="level2"><div class="li"> configure the new wan2 interface IP details</div>
+</li>
+<li class="level2"><div class="li"> assign the new wan2 interface to the wan firewall zone</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+Create additional WAN interfaces (e.g. wan3, …) as desired if more than two WAN connections will be used.
+</p>
+
+</div>
+
+<h3 class="sectionedit21" id="prepare_and_the_check_the_default_os_routing_table_for_wan_interfaces_and_test">Prepare and the check the default OS routing table for WAN interfaces and test</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong>IMPORTANT:</strong>  <img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Before doing anything with mwan3, ensure that each WAN interface is working and that the default <abbr title="Operating System">OS</abbr> routing table is correctly configured for multiple WAN connections. Test each interface with a manual ping test before installing mwan3. There have been multiple reports of mwan3 problems on the forum when the problem is actually at the <abbr title="Operating System">OS</abbr> level and visible before mwan3 is even installed.</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="step_1configure_a_different_metric_for_each_wan_interface">Step 1: Configure a different metric for each WAN interface</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Instead of the default route metric setting of 0, specifically configure each WAN interface to use a <strong>different</strong> routing metric. This metric will only have an effect on the default routing table, not on the mwan3 routing tables.</div>
+</li>
+<li class="level1"><div class="li"> The default (primary) WAN interface should have the lowest metric (e.g. 10) and each additional WAN interface a higher metric (e.g. 20, 30, etc.)</div>
+</li>
+<li class="level1"><div class="li"> Every WAN interface should have &quot;Use default gateway&quot; enabled if this option is present</div>
+</li>
+</ul>
+
+<p>
+Note: PPPoE connections only show the &quot;Use gateway metric&quot; option if &quot;Use default gateway&quot; is enabled
+</p>
+
+</div>
+
+<h5 id="wan_setting">WAN setting</h5>
+<div class="level5">
+
+<p>
+WAN is the default WAN interface in this example, and so will get the lowest metric of 10.
+</p>
+<ul>
+<li class="level1"><div class="li"> Network &gt; Interfaces</div>
+<ul>
+<li class="level2"><div class="li"> WAN &gt; Edit</div>
+<ul>
+<li class="level3"><div class="li"> Advanced Settings</div>
+<ul>
+<li class="level4"><div class="li"> Use default gateway: enabled</div>
+</li>
+<li class="level4"><div class="li"> Use gateway metric: 10</div>
+</li>
+</ul>
+</li>
+<li class="level3"><div class="li"> Save &amp; Apply</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h5 id="wan2_setting">WAN2 setting</h5>
+<div class="level5">
+
+<p>
+WAN2 is the alternate WAN interface in this example, and so will get the a higher metric of 20.
+</p>
+<ul>
+<li class="level1"><div class="li"> Network &gt; Interfaces</div>
+<ul>
+<li class="level2"><div class="li"> WAN2 &gt; Edit</div>
+<ul>
+<li class="level3"><div class="li"> Advanced Settings</div>
+<ul>
+<li class="level4"><div class="li"> Use default gateway: enabled</div>
+</li>
+<li class="level4"><div class="li"> Use gateway metric: 20</div>
+</li>
+</ul>
+</li>
+<li class="level3"><div class="li"> Save &amp; Apply</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="verify_the_routing_table">Verify the routing table</h4>
+<div class="level4">
+
+<p>
+If it is configured correctly, you should have a default gateway (the lines with a target address of 0.0.0.0/0) with a different metric set for each WAN interface. For example:
+</p>
+<ul>
+<li class="level1"><div class="li"> Active IPv4-Routes</div>
+<ul>
+<li class="level2"><div class="li"> Status &gt; Routes</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+<pre class="code">Network Target    IPv4-Gateway Metric
+wan     0.0.0.0/0 ...          10
+wan2    0.0.0.0/0 ...          20
+lan ...
+...</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Ensure that every WAN interface has a gateway IP defined and has metric defined</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="troubleshooting">Troubleshooting</h4>
+<div class="level4">
+
+</div>
+
+<h5 id="interfaces_are_missing_a_metric_value">Interfaces are missing a metric value</h5>
+<div class="level5">
+<ul>
+<li class="level1"><div class="li"> There was a report of some wireless interfaces missing a metric value and a gateway. The mwan3 syslog message error was &quot;user.warn mwan3: Could not find gateway for interface wan1 (wlan0)&quot;</div>
+<ul>
+<li class="level2"><div class="li"> the fix is to add manual static routes – see the forum thread at <a href="https://forum.openwrt.org/viewtopic.php?pid=230631#p230631" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?pid=230631#p230631"  rel="nofollow">https://forum.openwrt.org/viewtopic.php?pid=230631#p230631</a> and following</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit22" id="verify_outbound_traffic_on_each_wan_interface">Verify outbound traffic on each WAN interface</h3>
+<div class="level3">
+
+<p>
+Check that each WAN interfaces works by trying to ping <a href="http://www.google.com" class="urlextern" title="http://www.google.com"  rel="nofollow">www.google.com</a> out from each interface. Ensure all interfaces are correctly sending and receiving traffic before proceeding.
+</p>
+
+</div>
+
+<h4 id="test_the_wan_first_wan_connection">Test the wan (first WAN) connection</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> wan is hardware interface eth0.1 in this example:</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">root@openwrt:~# ping -c 1 -I eth0.1 www.google.com
+PING www.google.com (209.85.148.103): 56 data bytes
+64 bytes from 209.85.148.103: seq=0 ttl=54 time=19.637 ms
+
+--- www.google.com ping statistics ---
+1 packets transmitted, 1 packets received, 0% packet loss
+round-trip min/avg/max = 19.637/19.637/19.637 ms</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Ensure the single ping is successful on this interface (&quot;1 packets transmitted, 1 packets received, 0% packet loss&quot; should be displayed)</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="test_the_wan2_connection">Test the wan2 connection</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> wan2 is hardware interface eth0.2 in this example:</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">root@openwrt:~# ping -c 1 -I eth0.2 www.google.com
+PING www.google.com (209.85.148.99): 56 data bytes
+64 bytes from 209.85.148.99: seq=0 ttl=56 time=25.552 ms
+
+--- www.google.com ping statistics ---
+1 packets transmitted, 1 packets received, 0% packet loss
+round-trip min/avg/max = 25.552/25.552/25.552 ms</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Ensure the single ping is successful on this interface (&quot;1 packets transmitted, 1 packets received, 0% packet loss&quot; should be displayed)</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="test_all_other_wan_connections">Test all other WAN connections</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Repeat as above to ensure every WAN connection that has been created is working</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit23" id="ensure_the_conntrack_module_is_enabled_in_openwrt">Ensure the CONNTRACK module is enabled in OpenWrt</h2>
+<div class="level2">
+
+<p>
+mwan3 requires that the CONNTRACK module is enabled and active on its WAN interfaces.
+</p>
+<ul>
+<li class="level1"><div class="li"> If the interfaces are in the &quot;wan&quot; firewall zone, and the &quot;Masquerading&quot; option is enabled for the firewall zone, the CONNTRACK module is enabled by default already (this is the default OpenWrt configuration)</div>
+</li>
+<li class="level1"><div class="li"> If masquerading/NAT is <strong>not</strong> enabled for the WAN interface (for example, if just routing without NAT is being using between the <abbr title="Local Area Network">LAN</abbr> and your different WAN interfaces), you need to add the following rule to the <abbr title="Local Area Network">LAN</abbr> and WAN zone configurations in your /etc/config/firewall:</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">option &#039;conntrack&#039; &#039;1&#039;</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Reboot after making this change</div>
+</li>
+<li class="level1"><div class="li"> For more information, see <a href="../uci/firewall#note.on.connection.tracking.notrack" class="urlextern" title="http://wiki.openwrt.org/doc/uci/firewall#note.on.connection.tracking.notrack"  rel="nofollow">OpenWRT conntrack/notrack</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit24" id="manual_download_of_packages">Manual download of packages</h2>
+<div class="level2">
+
+<p>
+This step is only <strong>required</strong> for OpenWrt 12.09. In OpenWrt 14.07 &quot;Barrier Breaker&quot; and later, the mwan3 packages are in the standard package repositories and no manual download is required.
+</p>
+
+<p>
+Adze and Arfett keep the OpenWrt package repositories up to date and you are more likely to download the recommended latest &quot;stable&quot; version from there.
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://213.136.13.52/mwan3_latest_all.ipk" class="urlextern" title="http://213.136.13.52/mwan3_latest_all.ipk"  rel="nofollow">http://213.136.13.52/mwan3_latest_all.ipk</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://213.136.13.52/luci-app-mwan3_latest_all.ipk" class="urlextern" title="http://213.136.13.52/luci-app-mwan3_latest_all.ipk"  rel="nofollow">http://213.136.13.52/luci-app-mwan3_latest_all.ipk</a></div>
+</li>
+</ul>
+
+<p>
+The recommended download method involves connecting to your router&#039;s command line via telnet or SSH and downloading the installation files to your /tmp directory.
+</p>
+<ul>
+<li class="level1"><div class="li"> Here is a sample of the router command line method of downloading the files to the /tmp directory with the wget program.</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">root@OpenWrt: cd /tmp
+root@OpenWrt:/tmp# rm mwan3_latest_all.ipk
+root@OpenWrt:/tmp# wget http://213.136.13.52/mwan3_latest_all.ipk
+root@OpenWrt:/tmp# rm luci-app-mwan3_latest_all.ipk
+root@OpenWrt:/tmp# wget http://213.136.13.52/luci-app-mwan3_latest_all.ipk</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit25" id="installation">Installation</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit26" id="openwrt_1407_and_later">OpenWrt 14.07 and later</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> This is the method when using the mwan3 packages from the standard OpenWrt package repository</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="luci_web_interface_method">LuCi web interface method</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Go to System &gt; Software</div>
+<ul>
+<li class="level2"><div class="li"> click &quot;Update lists&quot; to get the latest package databases</div>
+</li>
+<li class="level2"><div class="li"> In the &quot;Download and install package:&quot; box, enter &quot;luci-app-mwan3&quot; and click OK to download and install the luci-app-mwan3 package and all related packages, including mwan3 itself and all dependencies</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="ssh_method">SSH method</h4>
+<div class="level4">
+
+<p>
+<pre class="code"># update package list to prepare for package dependency downloads
+opkg update
+
+# back up the current mwan3 configuration file just in case the automatic backup doesn&#039;t work
+cp -a /etc/config/mwan3 /etc/config/mwan3-tempbackup
+
+# install luci-app-mwan3, mwan3 and all required dependencies
+opkg install luci-app-mwan3</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit27" id="openwrt_1209">OpenWrt 12.09</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> This is the method when using manually downloaded mwan3 packages (see above)</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">cd /tmp
+
+# update package list to prepare for package dependency downloads
+opkg update
+
+# back up the current mwan3 configuration file just in case the automatic backup doesn&#039;t work
+cp -a /etc/config/mwan3 /etc/config/mwan3-tempbackup
+
+# install mwan3 and all required package dependencies
+opkg install mwan3_*.ipk
+
+# install luci-app-mwan3
+opkg install luci-app-mwan3_*.ipk</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit28" id="restart_luci_or_reboot_if_needed">Restart LuCI or reboot if needed</h3>
+<div class="level3">
+
+<p>
+To ensure the new menu item for mwan3 appears, restart the web server hosting the LuCI interface (or just reboot the router).
+</p>
+<ul>
+<li class="level1"><div class="li"> Go to System &gt; Startup</div>
+<ul>
+<li class="level2"><div class="li"> click the &quot;Restart&quot; button next to the uhttpd process</div>
+</li>
+<li class="level2"><div class="li"> Re-log into LuCi</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+A new menu entry &quot;Network &gt; Load Balancing&quot; should now be present.
+</p>
+
+</div>
+
+<h3 class="sectionedit29" id="upgrades">Upgrades</h3>
+<div class="level3">
+
+<p>
+The upgrade path is almost the same as the new install path.
+</p>
+<ul>
+<li class="level1"><div class="li"> Install mwan3 as per above, in the same way as in a new installation</div>
+</li>
+<li class="level1"><div class="li"> The configuration file /etc/config/mwan3 will be the new, default version. The previous mwan3 file will be renamed as &quot;mwan3-opkg.backup&quot; but otherwise left intact in /etc/config as well</div>
+</li>
+<li class="level1"><div class="li"> Manually update the new version of /etc/config/mwan3 to ensure interface names are correct and that previously configured interface, member, policy and rule settings are re-entered. Note that some keywords have been dropped over time (e.g. &quot;option reroute&quot;) so follow the lead of how the default mwan3 file is configured.</div>
+</li>
+<li class="level1"><div class="li"> Restart mwan3</div>
+</li>
+<li class="level1"><div class="li"> Check its status in LuCI or from the command line (see below) to confirm all expected interfaces are up and testing OK</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit30" id="mwan3_configuration">MWAN3 configuration</h2>
+<div class="level2">
+
+<p>
+A mwan3 configuration consists of four section elements, namely:
+</p>
+<ul>
+<li class="level1"><div class="li"> interface</div>
+</li>
+<li class="level1"><div class="li"> member</div>
+</li>
+<li class="level1"><div class="li"> policy</div>
+</li>
+<li class="level1"><div class="li"> rule</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit31" id="interface_configuration">Interface configuration</h3>
+<div class="level3">
+
+<p>
+For each wan interface configure an interface section and define how each WAN interface is tested for up/down status. Each interface section must have a name that corresponds with the interface name in your network config. The settings are described below:
+</p>
+<div class="table sectionedit32"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>interface <em>name</em></code> </td><td class="col1"> string </td><td class="col2"> yes</td><td class="col3"> <em>(none)</em> </td><td class="col4"> The OpenWrt interface name as shown in OpenWrt&#039;s Network &gt; Interfaces list (if using a PPPoE interface, the interface name specified here should be the underlying OpenWrt interface name, not the &quot;pppoe-…&quot; interface name) </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>enabled</code> </td><td class="col1"> boolean </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Should mwan3 run on this interface </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>track_ip</code> </td><td class="col1"> list of ip addresses </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> The hosts to test if interface is still alive. If this value is missing the interface is always considered up </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>reliability</code> </td><td class="col1"> number </td><td class="col2"> no </td><td class="col3"> <code>1</code> </td><td class="col4"> Number of track_ip hosts that must reply for the test to be considered as successful. Ensure there are at least this many track_ip hosts defined or the interface will always be considered down </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>count</code> </td><td class="col1"> number </td><td class="col2"> no </td><td class="col3"> <code>1</code> </td><td class="col4"> Number of pings to send to each host with each test </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>timeout</code> </td><td class="col1"> seconds </td><td class="col2"> no </td><td class="col3"> <code>4</code> </td><td class="col4"> Number of seconds to wait for an echo-reply after an echo-request </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <code>interval</code> </td><td class="col1"> seconds </td><td class="col2"> no </td><td class="col3"> <code>10</code> </td><td class="col4"> Number of seconds between each test </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <code>up</code> </td><td class="col1"> number </td><td class="col2"> no </td><td class="col3"> <code>5</code> </td><td class="col4"> Number of successful tests to considered link as alive </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <code>down</code> </td><td class="col1"> number </td><td class="col2"> no </td><td class="col3"> <code>5</code> </td><td class="col4"> Number of failed tests to considered link as dead </td>
+	</tr>
+</table></div>
+
+<p>
+The primary reason to change the default settings is to shorten the time before an interface is failed-over (by reducing the ping interval and number of pings before the interface is down) or lengthen the time to avoid a false link failure report. Please note that if you change the timeout value on low bandwidth interfaces (e.g. 3g) or busy interfaces, that false time-outs can occur. A timeout value of less then 2 seconds is not recommended.
+</p>
+
+<p>
+A typical interface section looks like this:
+<pre class="code">config interface &#039;wan&#039;
+        option enabled &#039;1&#039;
+        list track_ip &#039;8.8.4.4&#039;
+        list track_ip &#039;8.8.8.8&#039;
+        list track_ip &#039;208.67.222.222&#039;
+        list track_ip &#039;208.67.220.220&#039;
+        option reliability &#039;2&#039;
+        option count &#039;1&#039;
+        option timeout &#039;2&#039;
+        option interval &#039;5&#039;
+        option down &#039;3&#039;
+        option up &#039;8&#039;</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> The default configuration has wan2 disabled – enable the wan2 interface in the mwan3 configuration</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit33" id="member_configuration">Member configuration</h3>
+<div class="level3">
+
+<p>
+Each member represents an interface with a metric and a weight value. Members are referenced in policies to define a pool of interfaces with corresponding metric and load-balancing weight. Members can&#039;t be used for rules directly. The default settings are described below:
+</p>
+<div class="table sectionedit34"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>interface</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Member applies to this interface (use the same interface name as used in the mwan3 interface section, above) </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>metric</code> </td><td class="col1"> number </td><td class="col2"> no </td><td class="col3"> <code>1</code> </td><td class="col4"> Members within one policy with a lower metric have precedence over higher metric members </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>weight</code> </td><td class="col1"> number </td><td class="col2"> no </td><td class="col3"> <code>1</code> </td><td class="col4"> Members with same metric will distribute load based on this weight value </td>
+	</tr>
+</table></div>
+
+<p>
+A typical member section looks like this:
+<pre class="code">config &#039;member&#039; &#039;wan1_m1_w3&#039;
+	option &#039;interface&#039; &#039;wan1&#039;
+	option &#039;metric&#039; &#039;1&#039;
+	option &#039;weight&#039; &#039;3&#039;</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> A working mwan3 config has at least 2 members configured.</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit35" id="policy_configuration">Policy configuration</h3>
+<div class="level3">
+
+<p>
+Policies define how traffic is routed through the different WAN interface(s). Every policy has to have one or more members assigned to it, which defines the policy&#039;s traffic behavior. If a policy has a single member, traffic will only go out that member. If a policy has more than one member, it will either load-balance among members or use one member but fail-over to another, depending on how the members are configured.
+</p>
+
+<p>
+If there is more than one member assigned to a policy, members within the policy with a lower metric have precedence over higher metric members. Members with the same metric will load-balance. Load-balancing members (with same metric) will distribute load based on assigned weights values.
+</p>
+
+<p>
+A typical policy section looks like this:
+<pre class="code">config policy &#039;balanced&#039;
+        list use_member &#039;wan_m1_w3&#039;
+        list use_member &#039;wan2_m1_w2&#039;</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> If a policy is not referenced by a specific traffic rule, the policy will not do anything, so it is fine to leave unused policies in place in case they are desired in the future.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> If you have a traffic rule that matches a policy, but all the members (interfaces) for that policy are down, the exit strategy for that policy defaults to &quot;unreachable&quot;. This is configurable with the last_resort option. Valid values are: blackhole, unreachable or default.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> A working mwan3 config has at least 1 policy configured.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> <strong>Ensure no policy name is longer than 15 characters</strong></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit36" id="rule_configuration">Rule configuration</h3>
+<div class="level3">
+
+<p>
+A rule describes what traffic to match and what policy to assign for that traffic. These are the available options:
+</p>
+<div class="table sectionedit37"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>use_policy</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Use this policy for traffic that matches or set to <code>default</code> to use the default routing table to lookup </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>src_ip</code> </td><td class="col1"> ip address </td><td class="col2"> no </td><td class="col3"> any </td><td class="col4"> Match traffic from the specified source ip address </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>src_port</code> </td><td class="col1"> port or range </td><td class="col2"> no </td><td class="col3"> any </td><td class="col4"> Match traffic from the specified source port or port range, if relevant <code>proto</code> is specified </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>proto</code> </td><td class="col1"> protocol </td><td class="col2"> no </td><td class="col3"> all </td><td class="col4"> Match traffic using the given protocol. Can be one of <code>tcp</code>, <code>udp</code>, <code>icmp</code> or <code>all</code> or it can be a numeric value, representing one of these protocols or a different one </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>dest_ip</code> </td><td class="col1"> ip address </td><td class="col2"> no </td><td class="col3"> any </td><td class="col4"> Match traffic directed to the specified destination ip address </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>dest_port</code> </td><td class="col1"> port or range </td><td class="col2"> no </td><td class="col3"> any </td><td class="col4"> Match traffic directed at the given destination port or port range, if relevant <code>proto</code> is specified </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <code>ipset</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Match traffic directed at the given destination ip address to an ipset set </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <code>sticky</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> 0 </td><td class="col4"> Allow traffic from the same source ip address within the timeout limit to use same wan interface as prior session </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <code>timeout</code> </td><td class="col1"> number </td><td class="col2"> no </td><td class="col3"> 600 </td><td class="col4"> Stickiness timeout value in seconds </td>
+	</tr>
+</table></div>
+<ul>
+<li class="level1"><div class="li"> There are a number of sample rules defined to show how they work. Edit the rules as desired and delete all the rest of the default rules.</div>
+</li>
+<li class="level1"><div class="li"> The options ipset, sticky and timeout are only available in version 1.6 or higher.</div>
+</li>
+</ul>
+
+<p>
+A typical rule section looks like this:
+<pre class="code">config rule &#039;default_rule&#039;
+        option dest_ip &#039;0.0.0.0/0&#039;
+        option use_policy &#039;wan_wan2_wan3&#039;</pre>
+
+</p>
+
+</div>
+
+<h4 id="stickiness_and_ipset">Stickiness and ipset</h4>
+<div class="level4">
+
+<p>
+Mwan3 version 1.6 has sticky and ipset support. Stickiness lets you route new session over the same wan interface as the previous session, as long as the time between the new and the previous session is shorter then the timeout value (default 600s). This can solve some problems with https sites, which don&#039;t allow a new source address within the same cookie/https session. Ipset lets you route traffic over wan interfaces based on set of ip addresses. A set can be created by hand, by dnsmasq based on domain names, or your own script. Mwan3 rules with ipset option will try to match destination ip address to the configured ipset.
+</p>
+
+<p>
+<pre class="code">config rule &#039;youtube&#039;
+    option sticky ‘1&#039;
+    option timeout ‘300&#039;
+    option ipset &#039;youtube&#039;
+    option dest_port &#039;80,443&#039;
+    option proto &#039;tcp&#039;
+    option use_policy &#039;balanced&#039;</pre>
+
+</p>
+
+<p>
+With sticky set to 1, this rule has now sticky enabled. When a packet for a new session matches this rule, its source ip address and interface mark are stored in an ipmark set with a timeout of 300 seconds (default 600). When packet for a second new session from the same lan host within the timeout period matches this rule, it will use the same wan interface as the first packet and the timeout counter is reset back to 300 again.
+</p>
+
+<p>
+<strong>Stickiness is on a per rule basis. With this example, all traffic from lan hosts will use the same wan interface for all youtube hosts, even if the source or destination ip address differs.</strong>
+</p>
+
+<p>
+The option ipset matches only destination ip addresses. This example will only work if your lan clients use the dnsmasq server as their one and only dns server. Mwan3 will create the ipset set for you if it does not exist already. For this to work you need to configure a rule in your /etc/dnsmasq.conf file:
+</p>
+
+<p>
+<pre class="code">ipset=/youtube.com/youtube</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>Order is important.</strong> Rules are evaluated in top-to-bottom order, with the first matching rule applying. The rule name is just descriptive and has no operational impact. If no match is found, routing lookup is done via the default routing table. </div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> A working mwan3 config has at least 1 rule configured.</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit38" id="example_configuration">Example configuration</h3>
+<div class="level3">
+
+<p>
+ <pre class="code">config interface &#039;wan&#039;
+        option enabled &#039;1&#039;
+        list track_ip &#039;8.8.4.4&#039;
+        list track_ip &#039;8.8.8.8&#039;
+        list track_ip &#039;208.67.222.222&#039;
+        list track_ip &#039;208.67.220.220&#039;
+        option reliability &#039;2&#039;
+        option count &#039;1&#039;
+        option timeout &#039;2&#039;
+        option interval &#039;5&#039;
+        option down &#039;3&#039;
+        option up &#039;8&#039;
+
+config interface &#039;wan2&#039;
+        option enabled &#039;1&#039;
+        list track_ip &#039;8.8.8.8&#039;
+        list track_ip &#039;208.67.220.220&#039;
+        option reliability &#039;1&#039;
+        option count &#039;1&#039;
+        option timeout &#039;2&#039;
+        option interval &#039;5&#039;
+        option down &#039;3&#039;
+        option up &#039;8&#039;
+
+config member &#039;wan_m1_w3&#039;
+        option interface &#039;wan&#039;
+        option metric &#039;1&#039;
+        option weight &#039;3&#039;
+
+config member &#039;wan_m2_w3&#039;
+        option interface &#039;wan&#039;
+        option metric &#039;2&#039;
+        option weight &#039;3&#039;
+
+config member &#039;wan2_m1_w2&#039;
+        option interface &#039;wan2&#039;
+        option metric &#039;1&#039;
+        option weight &#039;2&#039;
+
+config member &#039;wan2_m2_w2&#039;
+        option interface &#039;wan2&#039;
+        option metric &#039;2&#039;
+        option weight &#039;2&#039;
+
+config policy &#039;wan_only&#039;
+        list use_member &#039;wan_m1_w3&#039;
+
+config policy &#039;wan2_only&#039;
+        list use_member &#039;wan2_m1_w2&#039;
+
+config policy &#039;balanced&#039;
+        list use_member &#039;wan_m1_w3&#039;
+        list use_member &#039;wan2_m1_w2&#039;
+
+config policy &#039;wan_wan2&#039;
+        list use_member &#039;wan_m1_w3&#039;
+        list use_member &#039;wan2_m2_w2&#039;
+
+config policy &#039;wan2_wan&#039;
+        list use_member &#039;wan_m2_w3&#039;
+        list use_member &#039;wan2_m1_w2&#039;
+
+config rule &#039;sticky_even&#039;
+        option src_ip &#039;0.0.0.0/0.0.0.1&#039;
+        option dest_port &#039;443&#039;
+        option proto &#039;tcp&#039;
+        option use_policy &#039;wan_wan2&#039;
+
+config rule &#039;sticky_odd&#039;
+        option src_ip &#039;0.0.0.1/0.0.0.1&#039;
+        option dest_port &#039;443&#039;
+        option proto &#039;tcp&#039;
+        option use_policy &#039;wan2_wan&#039;
+
+config rule &#039;default_rule&#039;
+        option dest_ip &#039;0.0.0.0/0&#039;
+        option use_policy &#039;balanced&#039;</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit39" id="further_configuration_tips">Further configuration tips</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit40" id="openwrt_hotplug_script_fix_openwrt_1209_only">OpenWrt hotplug script fix (OpenWrt 12.09 only)</h3>
+<div class="level3">
+
+<p>
+<strong>This is for OpenWrt 12.09 only. The OpenWrt 14.07 hotplug scripts were substantially re-written and there is no evidence yet that the workaround below is needed on OpenWrt 14.07.</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> Forum member tcherenato found that adding a 1 second pause to the OpenWrt hotplug launch script helps prevent occasional segmentation faults when mwan3 performs hotplug operations. It is not known currently what the root issue is (or even if it is in mwan3 at all) but the change is recommended.</div>
+<ul>
+<li class="level2"><div class="li"> see <a href="https://forum.openwrt.org/viewtopic.php?pid=209214#p209214" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?pid=209214#p209214"  rel="nofollow">https://forum.openwrt.org/viewtopic.php?pid=209214#p209214</a></div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+<pre class="code">vi /sbin/hotplug-call</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> add &quot;sleep 1&quot; at the indicated location</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">...
+
+[ \! -z &quot;$1&quot; -a -d /etc/hotplug.d/$1 ] &amp;&amp; {
+        for script in $(ls /etc/hotplug.d/$1/* 2&gt;&amp;-); do (
+                [ -f $script ] &amp;&amp; . $script
+                ## customization: add a 1 second delay to prevent segmentation faults
+                sleep 1
+        ); done
+}</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit41" id="start_mwan3">Start mwan3</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Mwan3 automatically will start after each reboot but if a reboot has not occurred yet, the package can be manually started.</div>
+</li>
+<li class="level1"><div class="li"> see the &quot;Administration&quot; section below</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit42" id="preserve_configuration_files_in_an_openwrt_upgrade">Preserve configuration files in an OpenWrt upgrade</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> the configuration file &quot;/etc/config/mwan3&quot; is already preserved by default during an OpenWrt upgrade</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit43" id="verification_of_basic_operation">Verification of basic operation</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit44" id="check_mwan3_status_in_cli">Check MWAN3 status in cli</h3>
+<div class="level3">
+
+<p>
+<pre class="code">root@OpenWrt:~# mwan3 status
+Interface status:
+Interface wan is online (tracking active)
+Interface wan2 is online (tracking active)
+
+Policy balanced:
+ wan2 (40%)
+ wan (60%)
+
+Policy wan1_only:
+ wan (100%)
+
+Policy wan2_only:
+ wan2 (100%)
+
+Policy wan2_wan:
+ wan2 (100%)
+
+Policy wan_wan2:
+ wan (100%)
+
+Local connected networks:
+destination        policy             hits     
+------------------------------------------------
+127.0.0.0/8        default            22       
+224.0.0.0/3        default            0        
+192.168.1.0/24     default            0        
+192.168.33.0/24    default            0        
+213.154.232.8/29   default            0        
+
+Active rules:
+source             destination        proto  src-port      dest-port     policy          hits     
+---------------------------------------------------------------------------------------------------
+0.0.0.0/0          213.136.223.128/25 tcp    0:65535       80            wan_wan2        0        
+1.2.3.4            5.6.7.8            udp    12345:54321   12345:54321   wan2_wan        0        
+0.0.0.0/0          0.0.0.0/0          all                                balanced        2862     </pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit45" id="check_status_in_the_mwan3_overview_page">Check status in the MWAN3 overview page</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Network &gt; Load Balancing</div>
+<ul>
+<li class="level2"><div class="li"> Overview</div>
+<ul>
+<li class="level3"><div class="li"> MWAN3 Multi-WAN Interface Live Status</div>
+<ul>
+<li class="level4"><div class="li"> this area should show all WAN interfaces as &quot;ONLINE&quot;</div>
+</li>
+</ul>
+</li>
+<li class="level3"><div class="li"> MWAN3 Multi-WAN Interface Systemlog</div>
+<ul>
+<li class="level4"><div class="li"> this area will show recent mwan3 log messages</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit46" id="check_kernel_routing_tables">Check kernel routing tables</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> &quot;ip route show table x&quot; (where x is interface ID) should show a routing table specifically for that interface – these tables are generated by mwan3</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit47" id="verification_of_wan_interface_load-balancing">Verification of WAN interface load-balancing</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Go to Network &gt; Interfaces</div>
+<ul>
+<li class="level2"><div class="li"> Send traffic from a test inside PC</div>
+<ul>
+<li class="level3"><div class="li"> <strong>Note: Load-balancing is connection-based (not channel bonding), so use multiple programs accessing different servers to generate traffic (such as two downloads, each from a separate site)</strong></div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> Observe the interface packet counts (counters are updated automatically)</div>
+</li>
+<li class="level2"><div class="li"> Verify that traffic is going out all expected WAN interfaces</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit48" id="verification_of_wan_interface_failover">Verification of WAN interface failover</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit49" id="test_interface_failover">Test interface failover</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Go to Network &gt; Load Balancing &gt; Overview</div>
+<ul>
+<li class="level2"><div class="li"> Manually disconnect a WAN connection</div>
+</li>
+<li class="level2"><div class="li"> Wait for interface failure detection to happen – the mwan3 status display should update</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Go to Network &gt; Interfaces</div>
+<ul>
+<li class="level2"><div class="li"> Send traffic from a test inside PC and observe the interface packet counts to ensure traffic is now going out the alternate WAN port (counters are updated automatically)</div>
+</li>
+<li class="level2"><div class="li"> Check that the external IP address has changed to the wan2 interface (such as by going to <a href="http://whatismyip.com" class="urlextern" title="http://whatismyip.com"  rel="nofollow">http://whatismyip.com</a>)</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit50" id="test_interface_fail-back">Test interface fail-back</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Restore the primary WAN connection</div>
+</li>
+<li class="level1"><div class="li"> Wait for detection that the WAN link is back up</div>
+</li>
+<li class="level1"><div class="li"> Repeat the same tests as above to ensure traffic has moved back to the now-working WAN interface</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit51" id="administration">Administration</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit52" id="stop_mwan3">Stop mwan3</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> This will remove all mwan3 created ip rules, ip route tables and iptables rules and revert back to the default routing configuration, which will have all WAN traffic going out the WAN interface with the lowest metric</div>
+</li>
+<li class="level1"><div class="li"> It will kill all running mwan3track instances</div>
+</li>
+<li class="level1"><div class="li"> This would normally only be done as a troubleshooting measure</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="luci">LuCI</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Network &gt; Load Balancing &gt; Advanced &gt; Diagnostics</div>
+<ul>
+<li class="level2"><div class="li"> MWAN Service Control &gt; click &quot;Stop MWAN&quot; to stop the service</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="ssh">SSH</h4>
+<div class="level4">
+
+<p>
+<pre class="code">mwan3 stop</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit53" id="start_mwan31">Start mwan3</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> This will restore normal mwan3 routing tables</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="luci1">LuCI</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Network &gt; Load Balancing &gt; Advanced &gt; Diagnostics</div>
+<ul>
+<li class="level2"><div class="li"> MWAN Service Control &gt; click &quot;Start MWAN&quot; to start the service</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="ssh1">SSH</h4>
+<div class="level4">
+
+<p>
+<pre class="code">mwan3 start</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit54" id="monitoring_mwan3">Monitoring mwan3</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit55" id="manual_status_check">Manual status check</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Network &gt; Load Balancing</div>
+<ul>
+<li class="level2"><div class="li"> Overview &gt; MWAN Interface Live Status</div>
+<ul>
+<li class="level3"><div class="li"> verify all interfaces show &quot;Online&quot; status</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit56" id="automated_status_check">Automated status check</h3>
+<div class="level3">
+
+<p>
+It would be good to be able to automatically monitor interface status through mwan3 using a monitoring system (for example, OpenNMS or monit).
+</p>
+<ul>
+<li class="level1"><div class="li"> <img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /></div>
+</li>
+<li class="level1"><div class="li"> How to do this? Ideas:</div>
+<ul>
+<li class="level2"><div class="li"> send the local syslog to a remote monitoring station and do syslog scraping?</div>
+</li>
+<li class="level2"><div class="li"> do LuCI mwan3 web status screen scraping? need to log in somehow and the interface ONLINE string is actually generated using JavaScript so simple <abbr title="HyperText Markup Language">HTML</abbr> string matching won&#039;t work…</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit57" id="alerting">Alerting</h2>
+<div class="level2">
+
+<p>
+It would be good for mwan3 to send some kind of alert (e.g. e-mail, SNMP trap) if it detects a failed interface and performs a failover, or if it performs a fail-back.
+</p>
+
+<p>
+If you install the luci-app-mwan3 (mwan3-luci) package it comes with /etc/hotplug.d/iface/16-mwancustom hotplug shell script which may be modified to perform custom actions on interface ifup/ifdown events. It is already filled with a basic template for gathering information on the current state of WAN connections and just needs your changes in the send_alert() function as well as uncommenting the case statement at the bottom. The mwan3 LuCI package provides a page for editing this hotplug shell script or you may edit via command line.
+</p>
+
+</div>
+
+<h2 class="sectionedit58" id="controlling_the_mapping_between_internal_ip_sources_and_external_ips_and_interfaces">Controlling the mapping between internal IP sources and external IPs and interfaces</h2>
+<div class="level2">
+
+<p>
+When using multiple WAN connections, there will be multiple external IPs which can be used as the external IP for outgoing NATed traffic. In particular, an external interface might have a block of external IPs that should be mapped in a particular way to specified internal servers. For example, the internal mail server should send out traffic on the same external IP identified in its MX record. This is the procedure to do this.
+</p>
+
+</div>
+
+<h3 class="sectionedit59" id="step_1set_mwan3_rules_to_send_traffic_out_the_right_interface">Step 1: Set mwan3 rules to send traffic out the right interface</h3>
+<div class="level3">
+
+<p>
+Add an mwan3 traffic rule that directs the specific desired source IP out the correct WAN interface. Rules are processed in top-down order, so be sure this specific rule is higher in the list (thus higher priority) than more general rules below that implement load-balancing or failover in the default case.
+</p>
+<ul>
+<li class="level1"><div class="li"> Define a mwan3 interface member setting for the desired external interface (called &quot;wan3&quot; in the example below)</div>
+</li>
+<li class="level1"><div class="li"> Create a mwan3 policy that only sends traffic out the external interface that has the desired external IP</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">config policy &#039;wan3_only&#039;
+        list use_member &#039;wan3_m1_w10&#039;</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Create a mwan3 rule to have traffic from the internal IP 172.16.1.20 always go out the interface named wan3 using the policy &quot;wan3_only&quot;</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">config rule &#039;Mailserver_uses_wan3_only&#039;
+        option src_ip &#039;172.16.1.20&#039;
+        option proto &#039;all&#039;
+        option use_policy &#039;wan3_only&#039;</pre>
+
+</p>
+
+<p>
+If the external WAN interface only has a single external IP, this is all that is needed. If the interface has multiple external IPs, both the next two steps are also needed.
+</p>
+
+</div>
+
+<h3 class="sectionedit60" id="step_2assign_multiple_external_ip_addresses_selected_interface_optional">Step 2: Assign multiple external IP addresses selected interface (optional)</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> References</div>
+<ul>
+<li class="level2"><div class="li"> 12.09: see <a href="https://dev.openwrt.org/ticket/12379" class="urlextern" title="https://dev.openwrt.org/ticket/12379"  rel="nofollow">https://dev.openwrt.org/ticket/12379</a></div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+This step is only needed if the desired external interface needs to have multiple external IP addresses assigned to it.
+</p>
+
+<p>
+The specified external interface may have multiple IPs assigned to it. For OpenWrt 12.09, the preferred way to do this is using multiple interface definitions – see reference.
+</p>
+<ul>
+<li class="level1"><div class="li"> Network &gt; Interfaces &gt; Add new interface…</div>
+<ul>
+<li class="level2"><div class="li"> Create Interface</div>
+<ul>
+<li class="level3"><div class="li"> Name of the new interface: e.g. &quot;wan3_2&quot;, &quot;wan3_3&quot;, …</div>
+</li>
+<li class="level3"><div class="li"> Protocol of the new interface: Static address</div>
+</li>
+<li class="level3"><div class="li"> Create a bridge over multiple interfaces: do not enable</div>
+</li>
+<li class="level3"><div class="li"> Cover the following interface: select the physical interface that will have this (additional) IP address, e.g. eth0.2</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> Submit</div>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Network &gt; Interfaces &gt; Interfaces - (new interface name)</div>
+<ul>
+<li class="level2"><div class="li"> Common Configuration &gt; General Setup</div>
+<ul>
+<li class="level3"><div class="li"> Protocol: Static address</div>
+</li>
+<li class="level3"><div class="li"> IPv4 address: (enter the desired additional external IP) </div>
+</li>
+<li class="level3"><div class="li"> IPv4 netmask: select or enter the correct netmask</div>
+</li>
+<li class="level3"><div class="li"> IPv4 gateway: (leave blank as the already defined default gateway will be used)</div>
+</li>
+<li class="level3"><div class="li"> IPv4 broadcast: (leave blank to auto-set this)</div>
+</li>
+<li class="level3"><div class="li"> Use custom <abbr title="Domain Name System">DNS</abbr> servers: (leave blank as <abbr title="Domain Name System">DNS</abbr> servers should be set through the WAN interface settings)</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> Common Configuration &gt; Firewall Settings</div>
+<ul>
+<li class="level3"><div class="li"> Create / Assign firewall-zone: select the desired firewall zone, usually &quot;wan&quot; for an additional external IP</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> Save &amp; Apply</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit61" id="step_3set_openwrt_nat_rules_to_send_traffic_out_the_right_ip_on_the_selected_interface_optional">Step 3: Set OpenWrt NAT rules to send traffic out the right IP on the selected interface (optional)</h3>
+<div class="level3">
+
+<p>
+This step is only needed if the desired external interface has multiple external IP addresses assigned to it.
+</p>
+
+<p>
+With multiple external IP addresses, we want to control which address is used when sending out traffic from particular servers. This is configured using a source NAT rule in OpenWrt.
+</p>
+
+<p>
+Note that <em>both</em> a mwan3 rule to select the interface and an SNAT rule to select the specific IP on that interface are needed to correctly send traffic out a specific external IP.
+</p>
+<ul>
+<li class="level1"><div class="li"> Network &gt; Firewall &gt; Traffic Rules</div>
+<ul>
+<li class="level2"><div class="li"> Source NAT</div>
+<ul>
+<li class="level3"><div class="li"> add a source NAT rule and edit details to specify the desired inside source IP and the desired external IP – the following code block is an example of the resulting configuration in /etc/config/firewall</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+<pre class="code">config redirect
+        option target &#039;SNAT&#039;
+        option name &#039;Mail server goes out 170.53.100.25&#039;
+        option src &#039;lan&#039;
+        option dest &#039;wan&#039;
+        option src_ip &#039;172.16.1.20&#039;
+        option src_dip &#039;170.53.100.25&#039;
+        option proto &#039;all&#039;</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit62" id="mwan3_and_other_programs">mwan3 and other programs</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit63" id="ddns-scripts">ddns-scripts</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Related pages:</div>
+<ul>
+<li class="level2"><div class="li"> <a href="ddns.client" class="wikilink1" title="doc:howto:ddns.client">ddns.client</a></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="example_1register_the_external_ip_of_the_active_wan_interface">Example 1: Register the external IP of the active WAN interface</h4>
+<div class="level4">
+
+<p>
+This is the case where you want external clients using a DDNS name to automatically reconnect to the alternate WAN interface if the primary WAN interface fails.
+</p>
+<ul>
+<li class="level1"><div class="li"> Configure ddns-scripts to use the &quot;web&quot; update mechanism as this will reflect the current active external IP</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="example_2register_the_external_ip_of_a_specific_wan_interface_using_the_interface_source">Example 2: Register the external IP of a specific WAN interface using the &quot;interface&quot; source</h4>
+<div class="level4">
+
+<p>
+This is the case where you want each specific WAN interface to register its own DDNS name and the WAN interface in question has an external IP directly assigned to it.
+</p>
+<ul>
+<li class="level1"><div class="li"> Configure ddns-scripts to use the &quot;interface&quot; source and specify the desired WAN physical interface name (e.g. eth0.50)</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="example_3register_the_external_ip_of_a_specific_wan_interface_using_the_web_source">Example 3: Register the external IP of a specific WAN interface using the &quot;web&quot; source</h4>
+<div class="level4">
+
+<p>
+This is the case where you want each specific WAN interface to register its own DDNS name but the WAN interface in question is behind a NAT device and so does not directly have the correct external IP.
+</p>
+
+<p>
+This is tricky when the WAN interface is not the default WAN interface, as ddns-scripts cannot be configured to use a specific interface to check its IP.
+</p>
+
+</div>
+
+<h5 id="option_1use_a_static_route">Option 1: use a static route</h5>
+<div class="level5">
+<ul>
+<li class="level1"><div class="li"> Looking up the dyndns.org checkip.dyndns.org hostname shows there are four valid IPs for this <abbr title="Domain Name System">DNS</abbr> name</div>
+</li>
+<li class="level1"><div class="li"> Choose one of them and create a static route to that specific IP through the desired (non-default) WAN interface</div>
+<ul>
+<li class="level2"><div class="li"> Do a traceroute to the IP to verify traffic is going out the desired WAN interface</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Change the ddns-scripts ip_url to be this specific IP, e.g. <pre class="code">http://91.198.22.70</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> Ensure any other web update ddns-scripts configurations don&#039;t use the hostname checkip.dyndns.org, as this may be forced out the specified WAN interface using the static route without realizing</div>
+</li>
+</ul>
+
+</div>
+
+<h5 id="idea_for_option_2use_curl">Idea for option 2: use curl</h5>
+<div class="level5">
+<ul>
+<li class="level1"><div class="li"> ddns-scripts has the option of using curl instead of wget to check a web site to retrieve an IP address</div>
+</li>
+<li class="level1"><div class="li"> curl has an option to force it to use a specified interface</div>
+</li>
+<li class="level1"><div class="li"> This option would involve installing curl and modifying the ddns-scripts to specify on the curl command line which interface to use</div>
+</li>
+<li class="level1"><div class="li"> <strong>UNTESTED</strong></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit64" id="openvpn">OpenVPN</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Related pages:</div>
+<ul>
+<li class="level2"><div class="li"> <a href="vpn.openvpn" class="wikilink1" title="doc:howto:vpn.openvpn">vpn.openvpn</a></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="possible_problems">Possible problems</h4>
+<div class="level4">
+
+<p>
+If the openwrt system is an openvpn client
+and a zone &#039;vpn&#039; is defined on the vpn interface
+and this zone has the masquerading active, for
+reasons (yet) unknown the traffic from the internal lan
+to the vpn will be able to reach the destination and
+go back to the router but then will be not dispatched back to the
+lan clients. Disabling mwan3, instead, let the traffic be dispatched
+properly.
+</p>
+
+<p>
+It could be a misconfiguration, more testing is needed.
+</p>
+
+</div>
+
+<h4 id="example_1have_openvpn_server_be_accessible_through_multiple_wan_interfaces_server_mode">Example 1: Have OpenVPN Server be accessible through multiple WAN interfaces (server mode)</h4>
+<div class="level4">
+
+<p>
+If load-balancing between multiple WAN interfaces, it is desirable to have OpenVPN clients be able to connect through all active WAN interfaces.
+</p>
+
+<p>
+In a multiple WAN interface failover scenario, OpenVPN will not accept client connections on the secondary WAN interface after a failover, as it started listening on the primary WAN interface when it was started.
+</p>
+
+<p>
+The following configuration will allow multiple WAN interface to be used with OpenVPN Server.
+</p>
+
+</div>
+
+<h5 id="step_1listen_only_on_the_internal_lan_interface">Step 1: Listen only on the internal LAN interface</h5>
+<div class="level5">
+<ul>
+<li class="level1"><div class="li"> Configure OpenVPN Server to listen on the <strong>internal</strong> <abbr title="Local Area Network">LAN</abbr> interface only, not on any WAN interface. The internal <abbr title="Local Area Network">LAN</abbr> interface will not go down or change, and so it provides a stable listening interface for OpenVPN.</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">vi /etc/openvpn/my-vpn.conf</pre>
+
+</p>
+
+<p>
+<pre class="code">...
+# Which local IP address should OpenVPN
+# listen on? (optional)
+;local a.b.c.d
+## Customization: have OpenVPN listen on the internal LAN interface IP only to allow client re-connections after a WAN interface failover
+local 192.168.1.1
+
+...</pre>
+
+</p>
+
+</div>
+
+<h5 id="step_2set_up_port-forward_s">Step 2: Set up port-forward(s)</h5>
+<div class="level5">
+<ul>
+<li class="level1"><div class="li"> Configure a port-forward on the &quot;wan&quot; source zone to OpenVPN Server listening on the internal <abbr title="Local Area Network">LAN</abbr> interface. The port-forward will be active on every WAN interface and work the same way regardless of what WAN interface is active.</div>
+</li>
+<li class="level1"><div class="li"> Create a firewall rule like the following:</div>
+<ul>
+<li class="level2"><div class="li"> Network &gt; Firewall &gt; Port Forwards</div>
+<ul>
+<li class="level3"><div class="li"> Name: OpenVPN forward to unchanging inside IP</div>
+</li>
+<li class="level3"><div class="li"> Protocol: UDP</div>
+</li>
+<li class="level3"><div class="li"> Source zone: wan</div>
+</li>
+<li class="level3"><div class="li"> Source IP address: any</div>
+</li>
+<li class="level3"><div class="li"> External IP address: any</div>
+</li>
+<li class="level3"><div class="li"> External port: 1194  (the default OpenVPN UDP port)</div>
+</li>
+<li class="level3"><div class="li"> Internal zone: lan</div>
+</li>
+<li class="level3"><div class="li"> Internal IP address: (the internal <abbr title="Local Area Network">LAN</abbr> interface IP address)</div>
+</li>
+<li class="level3"><div class="li"> Internal port: 1194</div>
+</li>
+<li class="level3"><div class="li"> Enable NAT Loopback: enabled  (the default)</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h5 id="step_3openvpn_client_and_dns_configuration">Step 3: OpenVPN client and DNS configuration</h5>
+<div class="level5">
+<ul>
+<li class="level1"><div class="li"> If load-balancing between multiple active WAN interfaces, the suggested approach is to register multiple <abbr title="Domain Name System">DNS</abbr> A records for the same <abbr title="Domain Name System">DNS</abbr> name. Clients will use just one of the IPs. As per the OpenVPN man page description of the –remote client parameter, &quot;If host is a <abbr title="Domain Name System">DNS</abbr> name which resolves to multiple IP addresses, one will be randomly chosen, providing a sort of basic load-balancing and failover capability.&quot;</div>
+</li>
+<li class="level1"><div class="li"> If failing over from a primary to a secondary WAN interface, one approach is to use ddns-scripts to update the IP of the <abbr title="Domain Name System">DNS</abbr> name used by OpenVPN clients</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="example_2use_openvpn_tunnels_as_virtual_wan_s_client_mode">Example 2: Use OpenVPN tunnels as virtual wan(s) (client mode)</h4>
+<div class="level4">
+
+<p>
+If you want to use your OpenVPN client tunnels as virtual wan interfaces in mwan3, you have to make sure that you set a default route with different metric for each tunnel interface. Also most commercial VPN solutions push two static routes to override the standard default gateway. In most cases you don&#039;t want this override when using OpenVPN client tunnels in conjunction with mwan3.
+</p>
+
+<p>
+As a solution you can add the following lines to your OpenVPN client config:
+</p>
+
+<p>
+<pre class="code">route-nopull
+route 0.0.0.0 0.0.0.0 vpn_gateway 20</pre>
+
+</p>
+
+<p>
+This example will ignore the routes pushed from the OpenVPN server and will add a default route with metric 20 over the OpenVPN tunnel interface.
+</p>
+
+</div>
+
+<h3 class="sectionedit65" id="privoxy_transparent_http_proxy">privoxy transparent HTTP proxy</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> References:</div>
+<ul>
+<li class="level2"><div class="li"> forum posts from headless.cross and Adze, see <a href="https://forum.openwrt.org/viewtopic.php?pid=209805#p209805" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?pid=209805#p209805"  rel="nofollow">https://forum.openwrt.org/viewtopic.php?pid=209805#p209805</a></div>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Related pages:</div>
+<ul>
+<li class="level2"><div class="li"> <a href="proxy.privoxy" class="urlextern" title="http://wiki.openwrt.org/doc/howto/proxy.privoxy"  rel="nofollow">http://wiki.openwrt.org/doc/howto/proxy.privoxy</a></div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+Transparent HTTP proxying relies on using iptables rules to transparently redirect outgoing traffic to port 80 first through the local proxy at another port number.
+</p>
+
+<p>
+For example, here is a OpenWrt redirect rule to redirect outgoing traffic to TCP 80 port and re-send it to the local proxy listening on TCP port 8118. This will go into iptables NAT table rules.
+</p>
+
+<p>
+<pre class="code">config redirect
+    option target &#039;DNAT&#039;
+    option dest &#039;lan&#039;
+    option proto &#039;tcp&#039;
+    option src &#039;lan&#039;
+    option src_dip &#039;!10.0.2.1&#039;
+    option src_dport &#039;80&#039;
+    option dest_ip &#039;10.0.2.1&#039;
+    option dest_port &#039;8118&#039;
+    option name &#039;Transparent Proxy [privoxy]&#039;
+    option enabled &#039;1&#039;</pre>
+
+</p>
+
+<p>
+The problem is that mwan3 adds rules to the iptables&#039;s MANGLE table, and this is handled before the NAT table. So when a client makes a request to fetch a web page, it is first marked by mwan3. Mwan3 decides based on your mwan3 rules which wan interface to exit and marks the session accordingly.
+</p>
+
+<p>
+Next, iptable nat rule handling takes place and diverts the web page request to privoxy. The reply from privoxy however is part of the same session and is already marked to leave a wan interface. The reply from privoxy is then send over the internet, which is obviously incorrect.
+</p>
+
+<p>
+To fix this add the following rules to your mwan3 config:
+</p>
+
+<p>
+<pre class="code">config &#039;rule&#039; &#039;rule1&#039;
+    option &#039;proto&#039; &#039;tcp&#039;
+    option &#039;dest_port&#039; &#039;80&#039;
+    option &#039;src_ip&#039; &#039;10.0.2.1&#039;
+    option &#039;dest_ip&#039; &#039;0.0.0.0/0&#039;
+    option &#039;use_policy&#039; &#039;wan1_wan2_loadbalanced&#039;
+
+config &#039;rule&#039; &#039;rule2&#039;
+    option &#039;proto&#039; &#039;tcp&#039;
+    option &#039;dest_port&#039; &#039;80&#039;
+    option &#039;src_ip&#039; &#039;10.0.2.0/24&#039;
+    option &#039;dest_ip&#039; &#039;0.0.0.0/0&#039;
+    option &#039;use_policy&#039; &#039;default&#039;
+
+config &#039;rule&#039; &#039;rule3&#039;
+    option &#039;dest_ip&#039; &#039;0.0.0.0/0&#039;
+    option &#039;use_policy&#039; &#039;wan1_wan2_loadbalanced&#039;</pre>
+
+</p>
+
+<p>
+The policy &quot;wan1_wan2_loadbalanced&quot; is just an example. Change it to whatever policy you like.
+</p>
+
+</div>
+
+<h3 class="sectionedit66" id="nodogsplash">nodogsplash</h3>
+<div class="level3">
+
+<p>
+Out of the box, mwan3 does not work with nodogsplash. The problem is that both mwan3 and nodogsplash use the same iptables mark bits. A common symptom of this is the nodogsplash splash page appearing for every page even as an authenticated client. 
+</p>
+
+<p>
+However, it is possible to fix this with a minor change! Fortunately, it is simple to change the mark bits that nodogsplash uses. Simply add the following lines to &#039;/etc/nodogsplash/nodogsplash.conf&#039; to override the marking bits.
+</p>
+
+<p>
+<pre class="code"># Change the default marking flags to work with mwan3 and qos-scripts
+FW_MARK_AUTHENTICATED 262144
+FW_MARK_TRUSTED 131072
+FW_MARK_BLOCKED 65536</pre>
+
+</p>
+
+<p>
+These values let nodogsplash work together with mwan3 and also work with standard Openwrt qos-scipts.
+</p>
+
+</div>
+
+<h2 class="sectionedit67" id="usage_reports">Usage reports</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit68" id="tplink_wdr3600_mwan3_-_14-24_two_wan_connections">12.09, tplink wdr3600, mwan3 - 1.4-24, two wan connections</h3>
+<div class="level3">
+
+<p>
+Premise: very nice piece of work given to the internet community, congrats to the contributors.
+We, users, can only give back a bit of experience and documentation, still somehow useful.
+</p>
+
+<p>
+In a simulated test environment described as follows:
+<pre class="file">external network  &lt;---&gt; (ip a.b.c.118) router1 (ip 192.0.2.1)  &lt;---&gt; (ip 192.0.2.166 - wan) tplink (ip 192.168.1.1)  &lt;---&gt; (ip 192.168.1.50) pcA
+                  &lt;---&gt; (ip a.b.c.224) router2 (ip 192.0.10.1) &lt;---&gt; (ip 192.0.10.166 - wan2)       (ip 192.168.10.1) &lt;---&gt; (ip 192.168.10.101)pcB</pre>
+
+</p>
+
+<p>
+The mwan3 was installed on the tplink with the following configuration (apart from wan and wan2) in <code>/etc/config/mwan3</code>:
+<pre class="file">...lines....
+
+config member &#039;wan_m10&#039;
+        option interface &#039;wan&#039;
+        option metric &#039;10&#039;
+
+config member &#039;wan_m20&#039;
+        option interface &#039;wan&#039;
+        option metric &#039;20&#039;
+
+config member &#039;wan2_m10&#039;
+        option interface &#039;wan2&#039;
+        option metric &#039;10&#039;
+
+config member &#039;wan2_m20&#039;
+        option interface &#039;wan2&#039;
+        option metric &#039;20&#039;
+
+config policy &#039;wan_wan2&#039;
+        list use_member &#039;wan_m10&#039;
+        list use_member &#039;wan2_m20&#039;
+
+config policy &#039;wan2_wan&#039;
+        list use_member &#039;wan_m20&#039;
+        list use_member &#039;wan2_m10&#039;
+
+config rule &#039;rule1&#039;
+        list comment    &#039;from 192.168.1.50 to wan_wan2&#039;
+        option src_ip   &#039;192.168.1.0/24&#039;
+        option dest_ip  &#039;0.0.0.0/0&#039;
+        option use_policy &#039;wan_wan2&#039;
+
+config rule &#039;rule2&#039;
+        list comment    &#039;from 192.168.10.101 to wan2_wan&#039;
+        option src_ip   &#039;192.168.10.0/24&#039;
+        option dest_ip  &#039;0.0.0.0/0&#039;
+        option use_policy &#039;wan2_wan&#039;</pre>
+
+</p>
+
+</div>
+
+<h4 id="using_different_wan_connections_from_different_pc-s">Using different wan connections from different Pc-s</h4>
+<div class="level4">
+
+<p>
+Then with the pcA and pcB two different download were started, and every pc used a different connection. Great.
+</p>
+
+</div>
+
+<h4 id="line_fail">Line fail</h4>
+<div class="level4">
+
+<p>
+When one wan connection was physically disconnected, one pc lost the tcp active connections,
+but after &#039;restarting&#039; them no problem, the pc was using the other wan connection configured as
+line backup. Great.
+</p>
+
+</div>
+
+<h4 id="line_recovered">Line recovered</h4>
+<div class="level4">
+
+<p>
+If a wan line recovers (let&#039;s say A), then the pc that was using the other wan line (configured as backup, let&#039;S say B) is
+switched back to the wan line A, and this cause another disruption of tcp connections.
+</p>
+
+<p>
+<em>Edit: On recovery, connections already established over backup links will not be terminated and continue to traverse over backup wan. Only new connections will be routed over preferred wan.</em>
+</p>
+
+</div>
+
+<h4 id="incoming_connections_routed_behind_the_router">Incoming connections routed behind the router</h4>
+<div class="level4">
+
+<p>
+Rdp connections to the pc behind the tplink are stable, this means that a service behind the tplink with
+mwan3 is reachable in a reliable way.
+</p>
+
+<p>
+Therefore does not happen that an external request coming on one wan connection gets the replies
+through the other wan connection (at least for failover policies)
+</p>
+
+</div>
+
+<h4 id="incoming_connections_to_services_on_the_router">Incoming connections to services on the router</h4>
+<div class="level4">
+
+<p>
+At least testing with ssh, does not happen that one connection through a wan line is router on the other wan line 
+in case of line failover. Therefore ssh is stable.
+</p>
+
+</div>
+
+<h3 class="sectionedit69" id="reliable_public_ip_addresses_to_ping">Reliable public ip addresses to ping</h3>
+<div class="level3">
+
+<p>
+After some weeks of continous pinging to opendns Ips (208.67.222.222) and (208.67.220.220), seems that opendns does not like this and interrupt the icmp replies for a while, therefore the mwan3 thinks that the lines are down. Could be useful to collect stable internet ip addresses? (possibly from backbone providers).
+</p>
+
+<p>
+Some possible choices:
+<pre class="file"># Level3 communications (large network carrier)
+4.2.2.2
+
+# google dnses
+8.8.4.4
+8.8.8.8
+
+# facebook.com
+173.252.120.6
+
+# Opendns (with limits after a certain amount of days?)
+208.67.220.220
+208.67.222.222
+</pre>
+
+</p>
+
+</div>
+
+<h4 id="possible_work_arounds_to_test_connection_not_only_by_ping">Possible work arounds to test connection not only by ping ?</h4>
+<div class="level4">
+
+<p>
+Could be possible to implement other ways to test connections, maybe through testing ip/ports (with additional packages, of course), like: <code>netcat -z -w 2 208.67.222.222 53 ; echo $?</code>
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/mwan3.txt</bdi> · Last modified: 2015/05/19 23:19 by <bdi>Adze</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="mwan3?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="mwan3?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="mwan3?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="mwan3#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Amwan3&amp;1432267162" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

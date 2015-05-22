@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Accessing Luci Web Interface Securely [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,luci.secure"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="luci.secure?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/luci.secure"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/luci.secure"/>
+<link rel="canonical" href="luci.secure"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:luci.secure","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265636 166.182.3.192';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="luci.secure#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="luci.secure?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="luci.secure?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:luci.secure" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="luci.secure?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="luci.secure?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="luci.secure?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="luci.secure" class="wikilink1" title="doc:howto:luci.secure">Accessing Luci Web Interface Securely</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/luci.secure" class="media" title="cz:doc:howto:luci.secure"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/luci.secure" class="media" title="de:doc:howto:luci.secure"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="luci.secure" class="media" title="doc:howto:luci.secure"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/luci.secure" class="media" title="es:doc:howto:luci.secure"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/luci.secure" class="media" title="fr:doc:howto:luci.secure"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/luci.secure" class="media" title="hu:doc:howto:luci.secure"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/luci.secure" class="media" title="jp:doc:howto:luci.secure"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/luci.secure" class="media" title="pl:doc:howto:luci.secure"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/luci.secure" class="media" title="pt-br:doc:howto:luci.secure"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/luci.secure" class="media" title="ru:doc:howto:luci.secure"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/luci.secure" class="media" title="tr:doc:howto:luci.secure"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/luci.secure" class="media" title="zh-cn:doc:howto:luci.secure"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/luci.secure" class="media" title="zh-tw:doc:howto:luci.secure"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:luci.secure</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="luci.secure#accessing_luci_web_interface_securely">Accessing Luci Web Interface Securely</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="luci.secure#enable_luci_over_https_instead_of_plain_http">Enable Luci over HTTPS instead of plain HTTP.</a></div></li>
+<li class="level2"><div class="li"><a href="luci.secure#tunneling_luci_http_protocol_through_ssh">Tunneling Luci http protocol through ssh.</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="luci.secure#setting_up_the_ssh-tunnel">Setting up the ssh-tunnel</a></div></li>
+<li class="level3"><div class="li"><a href="luci.secure#accessing_luci_via_ssh-tunnel">Accessing Luci via ssh-tunnel</a></div></li>
+<li class="level3"><div class="li"><a href="luci.secure#more_secure_configuration">More Secure Configuration</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="luci.secure#note">Note</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h2 class="sectionedit1" id="accessing_luci_web_interface_securely">Accessing Luci Web Interface Securely</h2>
+<div class="level2">
+
+<p>
+If you are doing admin things via Luci web interface, there is a risk
+that a user of your OpenWrt network is sniffing your traffic. You are at
+risk of giving away your Luci web credentials to attacker.  There are
+some ways to mitigate this risk.
+</p>
+
+</div>
+
+<h3 class="sectionedit2" id="enable_luci_over_https_instead_of_plain_http">Enable Luci over HTTPS instead of plain HTTP.</h3>
+<div class="level3">
+
+<p>
+This is the standardized practice to secure HTTPS protocol.
+</p>
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign"> Advantages       </th><th class="col1 leftalign"> Disadvantages                            </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> 1. Simple access </td><td class="col1 leftalign"> 1. Bloated for devices with low storage  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> 2. Standardized protocol </td><td class="col1"> 2. Non-properly signed certificate triggers browser warning </td>
+	</tr>
+</table></div>
+
+<p>
+The main advantage of HTTPS is a standardized protocol for securing http
+connection. To access an HTTPS page is just typing <a href="https://openwrt.lan" class="urlextern" title="https://openwrt.lan"  rel="nofollow">https://openwrt.lan</a>
+instead of <del><a href="http://openwrt.lan" class="urlextern" title="http://openwrt.lan"  rel="nofollow">http://openwrt.lan</a></del>. It&#039;s simple. Just make sure that
+luci-ssl and its dependencies are <a href="../luci#installation" class="wikilink1" title="doc:howto:luci.essentials">installed</a>.
+</p>
+
+<p>
+There are some disadvantages, though. Here are some of them.
+</p>
+
+<p>
+1. External libraries makes a bloated installation.
+</p>
+
+<p>
+On systems with just 4 <abbr title="Megabyte">MB</abbr> of flash, it&#039;s not possible to enable HTTPS
+for Luci web interface. Why? Because with TLS libraries integrated, the
+resulting image doesn&#039;t fit 4 <abbr title="Megabyte">MB</abbr> of flash. Unless you have done some
+workaround such as expanding overlayfs size, it&#039;s unpractical.
+</p>
+
+<p>
+2. Browser warning on non-properly signed certificate.
+</p>
+
+<p>
+Well, this is a good browser feature. Unless the self signed root CA has
+been imported to the browser, this warning creeps you out! Why bother
+with commercial CA when your need is just securing your own router
+management interface for your own use?
+</p>
+
+<p>
+Of course, you can just buy a properly signed certificate for your own
+openwrt.lan domain and ip address to get rid of the annoying browser
+warning. You can also just import the self-signed root CA used for
+certificate creation to your browser certificate store.
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="tunneling_luci_http_protocol_through_ssh">Tunneling Luci http protocol through ssh.</h3>
+<div class="level3">
+
+<p>
+This little hack is convenient for devices with very limited storage.
+</p>
+<div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign"> Advantages                            </th><th class="col1 leftalign"> Disadvantages                </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> 1. Secure encryption over ssh tunnel  </td><td class="col1"> 1. More complicated to setup </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> 2. No additional TLS libraries needed.</td><td class="col1 leftalign">                              </td>
+	</tr>
+</table></div>
+
+<p>
+On standard OpenWrt installation, an ssh server daemon is always
+available.  This is good news for limited-storage devices , since it&#039;s
+not necessary to install additional TLS libraries. Just use your
+favorite ssh client to setup port forwarding and all Luci http
+connection will be encapsulated within ssh packets.
+</p>
+
+<p>
+This means that you get the same level protection of ssh, while getting
+rid of those TLS disadvantages for OpenWrt devices with low storage. Of
+course, there is disadvantages for this method. It requires more work to
+be done on ssh-client to setup the ssh-tunnel. I think the setup
+complexity is for the
+first time only.  Later, it will be more simple to start the tunnel.
+</p>
+
+</div>
+
+<h4 id="setting_up_the_ssh-tunnel">Setting up the ssh-tunnel</h4>
+<div class="level4">
+
+<p>
+If you are willing to spend a little effort to setup ssh-tunnel, here is
+a simple guide for some popular ssh clients. This guide is just about
+setting up a local port forwarding to Luci web interface.
+</p>
+
+<p>
+This setup will forward all traffic passing through port 8000 from
+127.0.0.1 on your local machine (desktop or laptop) to port 80 of your
+OpenWrt device, which has a local address of 127.0.0.1. You may
+understand better by viewing this graph.
+</p>
+<div class="table sectionedit6"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign"> Local machine      </th><th class="col1"> OpenWrt device </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> 127.0.0.1:8000     </td><td class="col1 leftalign"> 127.0.0.1:80   </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> sending packets →</td><td class="col1"> receiving packets </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> receiving response </td><td class="col1"> ← sending response </td>
+	</tr>
+</table></div>
+
+<p>
+All traffic bypassing through port 8000 on local machine will be
+forwarded to port 80 on the remote machine. That&#039;s why this ssh-tunnel
+setup is called local port forwarding. 
+</p>
+
+</div>
+
+<h5 id="openssh_client">OpenSSH Client</h5>
+<div class="level5">
+
+<p>
+This is the standard ssh client for GNU/Linux and BSD distributions. To
+establish an ssh tunnel for Luci web interface access, just add a local
+port forwarding options to the command line. Make necessary adjustments
+if needed (hostname, port, identity file, etc).
+</p>
+
+<p>
+<pre class="code bash"><span class="kw2">ssh</span> -L127.0.0.1:<span class="nu0">8000</span>:127.0.0.1:<span class="nu0">80</span> root<span class="sy0">@</span>openwrt.lan</pre>
+
+</p>
+
+<p>
+The ssh-tunnel is active as long as the ssh session is active.
+</p>
+
+<p>
+For convenient setup, you may create host profile for this setup. Edit
+<strong>~/.ssh/config</strong> file and add the following line. For more explanation
+about all available configuration, refer to <strong><a href="http://www.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man5/ssh_config.5?query=ssh_config" class="urlextern" title="http://www.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man5/ssh_config.5?query=ssh_config"  rel="nofollow">ssh_config(5)</a></strong>. Be sure
+to make necessary adjustments if needed.
+</p>
+
+<p>
+<pre class="code vim">Host Luci-Tunnel
+	Hostname openwrt.lan
+	Port 22
+	User root
+	LocalForward 127.0.0.1:8000 127.0.0.1:80</pre>
+
+</p>
+
+<p>
+After creating the above configuration, the ssh-tunnel can be started by
+issuing the following command.
+</p>
+
+<p>
+<pre class="code bash"><span class="kw2">ssh</span> Luci-Tunnel</pre>
+
+</p>
+
+<p>
+The command will read &quot;Luci-Tunnel&quot; host profile and set up the
+ssh-tunnel accordingly.
+</p>
+
+</div>
+
+<h5 id="putty">PuTTY</h5>
+<div class="level5">
+
+<p>
+PuTTY is popular Windows ssh client. To establish ssh-tunnel, you need
+to perform more steps.
+</p>
+
+<p>
+1. Navigate to <em>Connection</em> ⇒ <em>SSH</em> ⇒ <em>Tunnels</em>.
+</p>
+
+<p>
+2. Fill <strong>8000</strong> on the <em>Source port</em> field.
+</p>
+
+<p>
+3. Fill <strong>127.0.0.1:80</strong> on the <em>Destination</em> field.
+</p>
+
+<p>
+4. Click <em>Add</em> until the port forwarding setup appears on <em>Forwarded
+ports</em> section. Typically, the shown forwarding setup is <strong>L8000
+127.0.0.1:80</strong>.
+</p>
+
+<p>
+5. Navigate to <em>Session</em>. Fill <strong>root@openwrt.lan</strong> on <em>Host Name</em>
+field and <strong>22</strong> on <em>Port</em> field. If you have modified your OpenWrt
+hostname and ssh listen port, you need to adjust the value accordingly.
+</p>
+
+<p>
+6. On the <em>Saved Sessions</em> field, type a unique name, such as
+<strong>OpenWrt Luci Tunnel</strong>. Click <em>Save</em>, so that you don&#039;t need to
+repeat this setup for future use.
+</p>
+
+<p>
+7. To start the ssh-tunnel session, click <em>Open</em>. The tunnel will be
+active as long as the ssh session is active.
+</p>
+
+<p>
+8. To start the ssh-tunnel in the future, just select <strong>OpenWrt Luci
+Tunnel</strong> on the PuTTY new session dialog, click <em>Load</em> and then click
+<em>Open</em>.
+</p>
+
+</div>
+
+<h4 id="accessing_luci_via_ssh-tunnel">Accessing Luci via ssh-tunnel</h4>
+<div class="level4">
+
+<p>
+To access Luci web interface securely, type <strong><a href="http://127.0.0.1:8000" class="urlextern" title="http://127.0.0.1:8000"  rel="nofollow">http://127.0.0.1:8000</a></strong>
+instead of <del><a href="http://openwrt.lan" class="urlextern" title="http://openwrt.lan"  rel="nofollow">http://openwrt.lan</a></del> or
+<del><a href="http://192.168.1.1" class="urlextern" title="http://192.168.1.1"  rel="nofollow">http://192.168.1.1</a></del>. The traffic between your browser to Luci
+webserver is encapsulated within ssh-tunnel, so that the http traffic
+gains the same level of ssh traffic encryption.
+</p>
+
+<p>
+If you have finished accessing Luci web interface, don&#039;t forget to end
+the ssh session.
+</p>
+
+</div>
+
+<h4 id="more_secure_configuration">More Secure Configuration</h4>
+<div class="level4">
+
+<p>
+For additional security, you may disable Luci webserver altogether and
+start the service via ssh when needed.
+</p>
+
+<p>
+<pre class="code bash"><span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>uhttpd disable
+<span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>uhttpd stop</pre>
+
+</p>
+
+<p>
+If you need access to Luci webserver, just start uhttpd service without
+enabling it from ssh and access it via ssh-tunnel.
+</p>
+
+<p>
+<pre class="code bash"><span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>uhttpd start</pre>
+
+</p>
+
+<p>
+When you are done with Luci webserver, don&#039;t forget to stop uhttpd
+service.
+</p>
+
+<p>
+<pre class="code bash"><span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>uhttpd stop</pre>
+
+</p>
+
+<p>
+With this setup, you minimize the risk of Luci webserver being
+brute-forced and prevent unauthorized access to Luci web interface, as
+long as your ssh setup is secure (disabling password and using only
+public key authentication)
+</p>
+
+<p>
+As a bonus, your OpenWrt device performance will (slightly) increase
+because of some system resources (memory, swap, and cpu usage) freed
+from uhttpd process.
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="note">Note</h2>
+<div class="level2">
+
+<p>
+You need to choose which of these methods suit your security needs. 
+Don&#039;t be so attached about one method that you despise others in favor 
+of your preferred methods.
+</p>
+
+<p>
+<em>Security is about doing things securely.</em>
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/luci.secure.txt</bdi> · Last modified: 2014/10/18 03:33 by <bdi>alive4ever</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="luci.secure?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="luci.secure?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="luci.secure?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="luci.secure#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Aluci.secure&amp;1432265636" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

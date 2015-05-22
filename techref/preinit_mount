@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Preinit and Root Mount and Firstboot Scripts [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,techref,preinit mount"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="preinit_mount?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:techref"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/techref/preinit_mount"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/techref/preinit_mount"/>
+<link rel="canonical" href="preinit_mount"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:techref';var JSINFO = {"id":"doc:techref:preinit_mount","namespace":"doc:techref"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265713 166.182.3.62';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="preinit_mount#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="preinit_mount?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="preinit_mount?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:techref:preinit_mount" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="preinit_mount?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="preinit_mount?do=media&amp;ns=doc%253Atechref"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="preinit_mount?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../techref.1" class="wikilink1" title="doc:techref:start">Technical Reference</a></bdi> » <bdi><span class="curid"><a href="preinit_mount" class="wikilink1" title="doc:techref:preinit_mount">Preinit and Root Mount and Firstboot Scripts</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/techref/preinit_mount" class="media" title="cz:doc:techref:preinit_mount"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/techref/preinit_mount" class="media" title="de:doc:techref:preinit_mount"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="preinit_mount" class="media" title="doc:techref:preinit_mount"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/techref/preinit_mount" class="media" title="es:doc:techref:preinit_mount"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/techref/preinit_mount" class="media" title="fr:doc:techref:preinit_mount"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/techref/preinit_mount" class="media" title="hu:doc:techref:preinit_mount"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/techref/preinit_mount" class="media" title="jp:doc:techref:preinit_mount"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/techref/preinit_mount" class="media" title="pl:doc:techref:preinit_mount"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/techref/preinit_mount" class="media" title="pt-br:doc:techref:preinit_mount"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/techref/preinit_mount" class="media" title="ru:doc:techref:preinit_mount"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/techref/preinit_mount" class="media" title="tr:doc:techref:preinit_mount"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../zh-cn/doc/techref/preinit_mount" class="media" title="zh-cn:doc:techref:preinit_mount"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/techref/preinit_mount" class="media" title="zh-tw:doc:techref:preinit_mount"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:techref:preinit_mount</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="preinit_mount#preinit">Preinit</a></div></li>
+<li class="level1"><div class="li"><a href="preinit_mount#failsafe">Failsafe</a></div></li>
+<li class="level1"><div class="li"><a href="preinit_mount#mount_root_filesystem">Mount Root Filesystem</a></div></li>
+<li class="level1"><div class="li"><a href="preinit_mount#first_boot">First Boot</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="preinit_mount#common">Common</a></div></li>
+<li class="level2"><div class="li"><a href="preinit_mount#sourced_rather_than_executed">Sourced rather than executed</a></div></li>
+<li class="level2"><div class="li"><a href="preinit_mount#executed_with_no_parameters">Executed with no parameters</a></div></li>
+<li class="level2"><div class="li"><a href="preinit_mount#executed_with_parameter_switch2jffs">Executed with parameter &#039;switch2jffs&#039;</a></div></li>
+<li class="level2"><div class="li"><a href="preinit_mount#hook_no_fo">hook no_fo</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="preinit_mount#main_preinit_script">Main Preinit Script</a></div></li>
+<li class="level1"><div class="li"><a href="preinit_mount#variables">Variables</a></div></li>
+<li class="level1"><div class="li"><a href="preinit_mount#hooks">Hooks</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="preinit_mount#development">Development</a></div></li>
+<li class="level2"><div class="li"><a href="preinit_mount#preinit_essentials">preinit_essentials</a></div></li>
+<li class="level2"><div class="li"><a href="preinit_mount#preinit_main">preinit_main</a></div></li>
+<li class="level2"><div class="li"><a href="preinit_mount#failsafe1">failsafe</a></div></li>
+<li class="level2"><div class="li"><a href="preinit_mount#preinit_mount_root">preinit_mount_root</a></div></li>
+<li class="level2"><div class="li"><a href="preinit_mount#initramfs">initramfs</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="preinit_mount#main_firstboot_script">Main Firstboot Script</a></div></li>
+<li class="level1"><div class="li"><a href="preinit_mount#hooks1">Hooks</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="preinit_mount#switch2jffs">switch2jffs</a></div></li>
+<li class="level2"><div class="li"><a href="preinit_mount#no_fo">no_fo</a></div></li>
+<li class="level2"><div class="li"><a href="preinit_mount#jffs2reset">jffs2reset</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="preinit_mount#overriding_example">Overriding Example</a></div></li>
+<li class="level1"><div class="li"><a href="preinit_mount#adding_example">Adding Example</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="preinit_and_root_mount_and_firstboot_scripts">Preinit and Root Mount and Firstboot Scripts</h1>
+<div class="level1">
+
+<p>
+See <a href="../howto/extroot" class="wikilink1" title="doc:howto:extroot">Rootfs on External Storage</a> for information on external rootfs mounting.
+</p>
+
+</div>
+
+<h1 class="sectionedit2" id="abstract">Abstract</h1>
+<div class="level1">
+
+<p>
+This document presents the preinit / firstboot boot sequence. The boot system is extensible via (new) packages such as rootfs on usb, or 
+enhanced failsafe.
+</p>
+
+<p>
+We describe the portion of the OpenWrt boot sequence that occurs before the &#039;init&#039; program is executed (when booting in multiuser mode), as well as the script that is responsible for creating and initializing the root filesystem on the first boot after flashing the device with OpenWrt.
+</p>
+
+</div>
+
+<h1 class="sectionedit3" id="contextboot_sequence">Context:  Boot Sequence</h1>
+<div class="level1">
+
+<p>
+The basic OpenWrt boot sequence is:
+</p>
+<ol>
+<li class="level1"><div class="li"> boot loader loads kernel</div>
+</li>
+<li class="level1"><div class="li"> kernel loads whilst scaning the mtd partition <em>rootfs</em> for a valid superblock for mounting the SquashFS partition (which contains /etc). More info at <a href="filesystems#technicaldetails" class="wikilink1" title="doc:techref:filesystems">technical.details</a></div>
+</li>
+<li class="level1"><div class="li"> kernel calls <code>/etc/preinit</code> (the kernel considers this to be the <code>init</code> (or root) process</div>
+</li>
+<li class="level1"><div class="li"> <code>/etc/preinit</code> prepares system for multiuser mode</div>
+</li>
+<li class="level1"><div class="li"> <code>/etc/preinit</code> <code>exec</code>s <code>/sbin/init</code> which becomes the <code>init</code> (or root) process and launches multiuser</div>
+</li>
+<li class="level1"><div class="li"> <code>/sbin/init</code> launches processes according to /etc/inittab. </div>
+</li>
+<li class="level1"><div class="li"> Typically the first process launched is <code>/etc/init.d/rcS</code> which causes the scripts in <code>/etc/rc.d</code> which begin with &#039;S&#039; to be launched (in glob sort order). The <code>/etc/rc.d</code> directory is populated with symlinks to the scripts in <code>/etc/init.d</code>. Each script in <code>/etc/init.d</code> accepts <code>enable</code> and <code>disable</code> arguments for creating and removing the symlinks.</div>
+</li>
+<li class="level1"><div class="li"> These script initialize the system and also initialize daemons that wait for input, so that when all the scripts have executed the normal system is active.  On first boot this initializing includes the process of preparing the root filesystem for use.</div>
+</li>
+</ol>
+<hr />
+
+</div>
+
+<h1 class="sectionedit4" id="overview">Overview</h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit5" id="preinit">Preinit</h2>
+<div class="level2">
+
+<p>
+Preinit brings the system from raw kernel to ready for multiuser.  To do so
+it performs the following tasks:
+</p>
+<ol>
+<li class="level1"><div class="li"> Sources &quot;/etc/functions.sh&quot; and <code>/lib/functions/boot.sh</code> for common functions for boot/mount</div>
+</li>
+<li class="level1"><div class="li"> Mounts essential kernel filesystems like procfs</div>
+</li>
+<li class="level1"><div class="li"> Initializes device tree (/dev) </div>
+</li>
+<li class="level1"><div class="li"> Initializes console (serial console if present, otherwise dummy so that the script interpreter works properly)</div>
+</li>
+<li class="level1"><div class="li"> Presents opportunity for the user to enter a special operating mode called <strong>&#039;failsafe&#039;</strong> (Failsafe mode is presented in a separate section.  Once failsafe  mode is entered it doesn&#039;t exit.  A reboot is necessary to enter normal  operating mode).</div>
+</li>
+<li class="level1"><div class="li"> <strong>Mounts the root filesystem</strong> (this involves a number steps, presented in  a separate section)</div>
+</li>
+<li class="level1"><div class="li"> If it&#039;s the first time booting after flashing the firmware, and a previous configuration was saved during the flashing process, that configuration is restored.</div>
+</li>
+<li class="level1"><div class="li"> Becomes (though <code>exec</code>) &#039;init&#039; which goes to multiuser mode</div>
+</li>
+</ol>
+
+</div>
+
+<h2 class="sectionedit6" id="failsafe">Failsafe</h2>
+<div class="level2">
+
+<p>
+The <em>root file system</em> is actually an overlay which can be consisted of a read-only SquashFS file system (mounted at <code>/rom</code>) and a writable JFFS2 partition (mounted under <code>/overlay</code>). In Failsafe mode only the squashfs FS will be mounted (changes made to jffs2 partitons will be ignored), plus the following steps:
+</p>
+<ol>
+<li class="level1"><div class="li"> Prepares network interface (optional) and notifies that failsafe mode is being entered</div>
+</li>
+<li class="level1"><div class="li"> Launches daemon to allow network logins</div>
+</li>
+<li class="level1"><div class="li"> Allows login via serial console, if there is one.</div>
+</li>
+<li class="level1"><div class="li"> When the serial console login process exits, failsafe doesn&#039;t exit, instead it continues to wait for network logins (whether or not they are actually possible).</div>
+</li>
+</ol>
+
+</div>
+
+<h2 class="sectionedit7" id="mount_root_filesystem">Mount Root Filesystem</h2>
+<div class="level2">
+
+<p>
+all_jffs2 refers to a &#039;jffs2&#039; target in menuconfig; e.g. firmware has
+no squashfs, but is purely a rw filesystem (jffs2), while, jffs2 in
+the following text refers to the jffs2 portion of a <a href="http://wiki.openwrt.org/doc/techref/combined_squashfs_jffs2" class="wikilink2" title="doc:techref:combined_squashfs_jffs2" rel="nofollow">squashfs/jffs2</a> system.
+</p>
+<ol>
+<li class="level1"><div class="li"> Kernel has previously mounted squashfs partition by scanning the mtd partition <code>rootfs</code> for a valid superblock (see step 2 of <span class="curid"><a href="preinit_mount#contextbootsequencel" class="wikilink1" title="doc:techref:preinit_mount">contextboot.sequencel</a></span>) <img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> <strong>Make sure it&#039;s correct</strong></div>
+</li>
+<li class="level1"><div class="li"> If there is no mtd device with label <code>rootfs_data</code>, then mounts <code>/dev/root</code> (e.g. squashfs or all_jffs2 with no squashfs) as root filesystem, and indicates that further steps should be skipped</div>
+</li>
+<li class="level1"><div class="li"> If mtd device <code>rootfs_data</code> has not already been formatted, mounts a tmpfs (ramdisk) as root filesystem, and indicates that further steps should be skipped.</div>
+</li>
+<li class="level1"><div class="li"> Mounts previously formatted jffs2 partition on <code>/overlay</code> and indicates successful mount.</div>
+</li>
+<li class="level1"><div class="li"> Makes successfully mounted <code>/overlay</code> (if it exists) the new root filesystem and moves previous root filesystem to <code>/rom</code>, and indicates to skip further steps.</div>
+</li>
+<li class="level1"><div class="li"> This is only reached on an error condition; attempts to mount a tmpfs (ramdisk) as root filesystem</div>
+</li>
+<li class="level1"><div class="li"> This is only reached if no other step succeeds; attempt to mount <code>/dev/root</code> (e.g. squashfs/all_jffs2) as root filesystem.</div>
+</li>
+</ol>
+
+<p>
+<strong> * </strong> <code>/overlay</code> was previously named <code>/jffs2</code>
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="first_boot">First Boot</h2>
+<div class="level2">
+
+<p>
+<code>/sbin/firstboot</code> may be referenced in three ways.  
+</p>
+<ul>
+<li class="level1"><div class="li"> It may be called as part of the system startup, in which cased it is called as <code>/sbin/firstboot switch2jffs</code>.  </div>
+</li>
+<li class="level1"><div class="li"> It may be used as a standalone command with no parameters (.e.g. <code>/sbin/firstboot</code>)</div>
+</li>
+<li class="level1"><div class="li"> It may be sourced from another script</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit9" id="common">Common</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> Source <code>/lib/functions/boot.sh</code> for common functions (e.g. also used by preinit)</div>
+</li>
+<li class="level1"><div class="li"> Source files used by hooks</div>
+</li>
+<li class="level1"><div class="li"> Determine how called, and branch to appropriate commands.</div>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit10" id="sourced_rather_than_executed">Sourced rather than executed</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> Determine (and set variable for) MTD rootfs_data partition</div>
+</li>
+<li class="level1"><div class="li"> Determine (and set variable for) rom partition</div>
+</li>
+<li class="level1"><div class="li"> Determine (and set variable for) jffs2 partition</div>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit11" id="executed_with_no_parameters">Executed with no parameters</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Resets jffs2 to original settings, if possible.</div>
+</li>
+<li class="level1"><div class="li"> If jffs2 is not mounted, erases mtd and attempts format, mount, and pivot jffs2 as root.</div>
+</li>
+</ul>
+
+<p>
+If jffs2 is mounted, <code>firstboot</code> runs hook <code>jffs2reset</code>
+</p>
+<ol>
+<li class="level1"><div class="li"> Determine (and set variable for) MTD rootfs_data partition</div>
+</li>
+<li class="level1"><div class="li"> Determine (and set variable for) rom partition</div>
+</li>
+<li class="level1"><div class="li"> Determine (and set variable for) jffs2 partition</div>
+</li>
+<li class="level1"><div class="li"> Determine (and set variable to indicate) whether the mini overlay filesystem type is supported.</div>
+</li>
+<li class="level1"><div class="li"> If overlay is supported, remove all files on jffs2 and remount it.</div>
+</li>
+<li class="level1"><div class="li"> If overlay not supported, create directories and symlinks, copying only certain critical files </div>
+</li>
+</ol>
+<ul>
+<li class="level1"><div class="li"> Note: since r35712 the firstboot script requires an inputted &#039;y&#039; as confirmation. If using firstboot in a reset button script, you need to get that y inputted, e.g. by using the yes command:  yes | firstboot</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit12" id="executed_with_parameter_switch2jffs">Executed with parameter &#039;switch2jffs&#039;</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> Determine (and set variable for) MTD rootfs_data partition</div>
+</li>
+<li class="level1"><div class="li"> Determine (and set variable for) rom partition</div>
+</li>
+<li class="level1"><div class="li"> Determine (and set variable for) jffs2 partition</div>
+</li>
+<li class="level1"><div class="li"> Determine if mini overlay is supported.  If not run hook no_fo</div>
+</li>
+<li class="level1"><div class="li"> Otherwise, if mounted, skip the rest, otherwise mount under squashfs (<code>/rom/jffs</code>)</div>
+</li>
+<li class="level1"><div class="li"> Copy ramdisk to jffs2</div>
+</li>
+<li class="level1"><div class="li"> Move <code>/jffs</code> to <code>/</code> (root) and move <code>/</code> (root) to <code>/rom</code></div>
+</li>
+<li class="level1"><div class="li"> Cleanup</div>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit13" id="hook_no_fo">hook no_fo</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> Switch to kernel fs, get rid of union overlay and bind from /tmp/root</div>
+</li>
+<li class="level1"><div class="li"> Mount jffs (and make it safe for union)</div>
+</li>
+<li class="level1"><div class="li"> If not mounted, mount; copy from squashfs, and pivot so that /jffs is now / (root)</div>
+</li>
+<li class="level1"><div class="li"> Copy files from ramdisk</div>
+</li>
+<li class="level1"><div class="li"> Get rid of unnecessary mounts (cleanup)</div>
+</li>
+</ol>
+
+</div>
+
+<h1 class="sectionedit14" id="preinit_operation">Preinit Operation</h1>
+<div class="level1">
+
+<p>
+Preinit consists of a number of scripts.  The main script is <code>/etc/preinit</code>
+which reads in the scripts.  The scripts define functions which they attach to
+hooks.  These hooks are, when processed, launching the functions in the order they
+were added to the hooks.
+</p>
+
+<p>
+Currently there are five hooks used by the preinit system:
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>preinit_essential</code></div>
+</li>
+<li class="level1"><div class="li"> <code>preinit_main</code></div>
+</li>
+<li class="level1"><div class="li"> <code>failsafe</code></div>
+</li>
+<li class="level1"><div class="li"> <code>initramfs</code></div>
+</li>
+<li class="level1"><div class="li"> <code>preinit_mount_root</code></div>
+</li>
+</ul>
+
+<p>
+Each hook have a corresponding string variable containing the name of each function to
+be executed, separated by spaces.  The hook variables have <code>_hook</code> appended to
+the hook name.  Thus the name of the variable for the <code>preinit_essential</code> hook
+is <code>preinit_essential_hook</code>.
+</p>
+
+</div>
+
+<h2 class="sectionedit15" id="main_preinit_script">Main Preinit Script</h2>
+<div class="level2">
+
+<p>
+The main preinit script is actually quite empty. It:
+</p>
+<ol>
+<li class="level1"><div class="li"> Initializes some variables (including the hook variables)</div>
+</li>
+<li class="level1"><div class="li"> Defines the function <code>pi_hook_add</code>, which is used to add functions to a hook</div>
+</li>
+<li class="level1"><div class="li"> Defines the function <code>pi_run_hook</code>, which executes the functions that were added to a hook</div>
+</li>
+<li class="level1"><div class="li"> Sources (reads) the shell scripts under folder <code>/lib/preinit/</code>, in glob sort order</div>
+</li>
+<li class="level1"><div class="li"> Processes the hook <code>preinit_essential</code></div>
+</li>
+<li class="level1"><div class="li"> Initializes variables used by <code>preinit_main</code></div>
+</li>
+<li class="level1"><div class="li"> Processes the hook <code>preinit_main</code></div>
+</li>
+</ol>
+
+<p>
+That&#039;s it.
+</p>
+
+</div>
+
+<h2 class="sectionedit16" id="variables">Variables</h2>
+<div class="level2">
+
+<p>
+There are a number of variables that control options of preinit.  Defaults are
+defined in the main script <code>/etc/preinit</code> defined by the <code>base-files</code> package.
+However the variables are customizable via <code>make menuconfig</code>, in section 
+&quot;Preinit configuration options&quot;. The OpenWrt build process will then create 
+the file <code>/lib/preinit/00_preinit.conf</code> which will be sourced by the main 
+script.
+</p>
+
+<p>
+The variables defined at present are:
+</p>
+<div class="table sectionedit17"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign"> Variable           </th><th class="col1 leftalign"> Description                                             </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"><code>pi_ifname</code>        </td><td class="col1 leftalign"> The device name of the network interface used to emit network messages during preinit (except failsafe)                                 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"><code>pi_ip</code>            </td><td class="col1 leftalign"> The IP address of the preinit network (see above)       </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"><code>pi_broadcast</code>     </td><td class="col1"> The broadcast address of the preinit network (see above)</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"><code>pi_netmask</code>        </td><td class="col1 leftalign"> The netmask for the preinit network (see above)        </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"><code>fs_failsafe_wait_timeout</code></td><td class="col1 leftalign"> How long to pause while allowing the user to choose to enter failsafe mode.  Default is two (2) seconds.                       </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"><code>pi_suppress_stderr</code></td><td class="col1 leftalign"> If this is &quot;y&quot;, then output on standard error (stderr, file descriptor 2), is ignored during preinit.  This is the default in previous versions of OpenWrt (which did not have this option)                           </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"><code>pi_init_suppress_stderr</code></td><td class="col1 leftalign"> If <code>pi_suppress_stderr</code> is not &quot;y&quot; (i.e. stderr is not suppressed for preinit), then this option controls whether init, and process run by init, except those associated with a terminal device (e.g. <code>tts/0</code>, <code>ttyS0</code>, <code>tty1</code>, <code>pts/0</code>, or other similar devices) will have stderr suppressed (not that network terminals such as those from SSH are associated with a pseudo-terminal device such as <code>pty0/pty1</code> and are thus unaffected).  As with <code>pi_suppress_stderr</code>, the default, and behaviour from previous versions of  OpenWrt is &quot;y&quot;.      </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"><code>pi_init_path</code>      </td><td class="col1 leftalign"> The default search PATH for binaries for commands run by init.  Default is <code>/bin:/sbin:/usr/bin:/usr/sbin</code>                            </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"><code>pi_init_cmd</code>       </td><td class="col1"> The command to run as <code>init</code>.  Default is <code>/sbin/init</code></td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"><code>pi_preinit_no_failsafe_netmsg</code> </td><td class="col1"> suppress netmsg to say that one can enter failsafe mode </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"><code>pi_preinit_net_messages</code> </td><td class="col1"> If enabled, show more network messages than just the message that one can enter failsafe mode </td>
+	</tr>
+</table></div>
+
+<p>
+There are also variables used in the operation of preinit.  They are:
+</p>
+<div class="table sectionedit18"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign"> Variable             </th><th class="col1 leftalign"> Description                                                                    </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"><code>preinit_essential_hook</code></td><td class="col1"> Variable containing hook names to execute, in order, for hook <code>preinit_essential</code></td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"><code>preinit_main_hook</code>     </td><td class="col1 leftalign"> Ditto, for <code>preinit_main</code>                                                        </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"><code>failsafe_hook</code>         </td><td class="col1 leftalign"> Ditto, for <code>failsafe</code>                                                            </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"><code>initramfs_hook</code>        </td><td class="col1 leftalign"> Ditto, for <code>initramfs</code>                                                           </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"><code>preinit_mount_root_hook</code></td><td class="col1 leftalign"> Ditto, for <code>preinit_mount_root</code>                                                 </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"><code>pi_mount_skip_next</code>    </td><td class="col1"> During hook <code>preinit_mount_root</code>, skips most steps; usually set by a preceeding step </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"><code>pi_jffs2_mount_success</code></td><td class="col1"> During hook <code>preinit_mount_root</code>, used by steps following mount attempt to determine which action they should take </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit19" id="hooks">Hooks</h2>
+<div class="level2">
+
+<p>
+The following sections describe the files and functions used by the various 
+hooks.
+</p>
+
+<p>
+<strong>NB</strong>: The files, even though divided by hook here are all in the single
+<code>/lib/preinit</code> directory, and are thus combined in the directory lists, and
+are processed in glob sort order, not by hook (when sourcing them, the hooks
+specify the order of the execution of functions, which is as listed below)
+</p>
+
+</div>
+
+<h3 class="sectionedit20" id="development">Development</h3>
+<div class="level3">
+
+<p>
+For the purposes of development, you will locate the files under <code>$ROOTDIR/package/base-files/files/lib/preinit</code>, for the existing files, and you can add new files anywhere that ultimately ends up in <code>/lib/preinit</code> on the router (while in preinit, e.g. not by user edits after read-write is mounted).
+</p>
+
+</div>
+
+<h3 class="sectionedit21" id="preinit_essentials">preinit_essentials</h3>
+<div class="level3">
+
+<p>
+The preinit_essentials hook takes care of mounting essential kernel
+filesystems such as proc, and initializing the console.
+</p>
+
+<p>
+Files containing the functions executed by this hook
+</p>
+<div class="table sectionedit22"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign"> File                </th><th class="col1 leftalign"> Functions                                              </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign">10_essential_fs    </td><td class="col1 leftalign"> do_mount_procfs, do_mount_sysfs, do_mount_tmpfs  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">20_device_fs_mount</td><td class="col1 leftalign"> do_mount_devfs, do_mount_hotplug, do_mount_udev, choose_device_fs                                                              </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign">30_device_daemons  </td><td class="col1 leftalign"> init_hotplug, init_udev, init_device_fs            </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign">40_init_shm        </td><td class="col1 leftalign"> init_shm                                              </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign">40_pts_mount       </td><td class="col1 leftalign"> do_mount_pts                                         </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign">50_choose_console  </td><td class="col1 leftalign"> choose_console                                        </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign">60_init_console    </td><td class="col1 leftalign"> init_console                                          </td>
+	</tr>
+</table></div>
+
+<p>
+Functions, in order, executed by this hook (doesn&#039;t list the functions only
+called by other functions)
+</p>
+<div class="table sectionedit23"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign">Function            </th><th class="col1 leftalign"> Description                                             </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign">do_mount_procfs   </td><td class="col1 leftalign"> mounts /proc                                            </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign">do_mount_sysfs    </td><td class="col1 leftalign"> mounts /sys                                             </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign">do_mount_tmpfs    </td><td class="col1 leftalign"> mounts /tmp                                             </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign">choose_device_fs  </td><td class="col1 leftalign"> determines type of device daemon and the appropriate filesystem to mount on /dev for that device daemon                             </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign">init_device_fs    </td><td class="col1 leftalign"> launches daemons (if any) responsible for population /dev, and/or creating hotplug events when devices are added/removed (and for initial coldplug events)                                                          </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign">init_shm          </td><td class="col1 leftalign"> makes sure /dev/shm exists                               </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign">init_pts          </td><td class="col1 leftalign"> makes sure /dev/pts exists                               </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign">do_mount_pts     </td><td class="col1 leftalign"> mounts devpts on /dev/pts (pseudo-terminals)             </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign">choose_console    </td><td class="col1 leftalign"> determines devices for stdin, stdout, and stderr         </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign">init_console      </td><td class="col1 leftalign"> activates stdin, stdout, and stderr of preinit (and  subsequent init) (prior to this they are not present in the environment)            </td>
+	</tr>
+</table></div>
+
+<p>
+Functions which are called by other functions, rather than directly as part of a hook
+</p>
+<div class="table sectionedit24"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign">Function            </th><th class="col1 leftalign"> Description                                             </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> do_mount_devfs     </td><td class="col1 leftalign"> mount devfs on /dev                                     </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> do_mount_hotplug   </td><td class="col1 leftalign"> mount tmpfs on /dev (for hotplug)                       </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> do_mount_udev      </td><td class="col1 leftalign"> mount tmpfs on /dev (for udev)                          </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> init_hotplug       </td><td class="col1"> set hotplug handler (actually initiated after console  init) </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> init_udev          </td><td class="col1 leftalign"> start udev                                              </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit25" id="preinit_main">preinit_main</h3>
+<div class="level3">
+
+<p>
+The <em>preinit_main</em> hook performs all the functions required of preinit,
+except those functions, like console, that are essential even for preinit 
+tasks.
+</p>
+<div class="table sectionedit26"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign">File                         </th><th class="col1 leftalign"> Description                                    </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign">10_indicate_preinit        </td><td class="col1 leftalign"> preinit_ip, preinit_ip_deconfig, preinit_net_echo, preinit_echo, pi_indicate_led, pi_indicate_preinit                </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign">30_failsafe_wait           </td><td class="col1 leftalign"> fs_wait_for_key, failsafe_wait             </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign">40_run_failsafe_hook      </td><td class="col1 leftalign"> run_failsafe_hook                            </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">50_indicate_regular_preinit</td><td class="col1 leftalign"> indicate_regular_preinit_boot           </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign">60_init_hotplug            </td><td class="col1 leftalign"> init_hotplug                                  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign">70_initramfs_test          </td><td class="col1 leftalign"> initramfs_test                                </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign">80_mount_root              </td><td class="col1 leftalign"> do_mount_root                                </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign">90_restore_config          </td><td class="col1 leftalign"> restore_config                                </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign">99_10_run_init            </td><td class="col1 leftalign"> run_init                                      </td>
+	</tr>
+</table></div>
+
+<p>
+Functions, in order, executed by this hook (doesn&#039;t list the functions only
+called by other functions)
+</p>
+<div class="table sectionedit27"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign">Function          </th><th class="col1 leftalign"> Description                                               </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign">init_hotplug     </td><td class="col1 leftalign"> Initialize hotplug, if needed (that is for devfs).  Hotplug or a device daemon is needed so that devices are available for use for preinit                                                                                </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign">preinit_ip       </td><td class="col1 leftalign"> Initialize network interface (if one has been defined for as available for preinit)                                                       </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">pi_indicate_preinit</td><td class="col1 leftalign"> Send messages to console, network, and/or led, depending on which, if any, of these is present which say that we are in preinit mode   </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign">failsafe_wait   </td><td class="col1 leftalign"> Emits messages (to network and console) that indicate the user has the option to enter failsafe mode and wait for the configured period of time (default two seconds) for the user to select failsafe mode                 </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0">run_failsafe_hook </td><td class="col1 leftalign"> If user chooses to enter failsafe mode, run the *failsafe* hook (which at present doesn&#039;t return, which means no more functions from preinit_main get run on this boot)                                                </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0">indicate_regular_preinit_boot</td><td class="col1 leftalign"> Emits messages to network, console, and/or LED depending on which (if any) is present, indicating that it&#039;s a regular boot not a failsafe boot                                                              </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign">initramfs_test    </td><td class="col1"> If initramfs is present run the *initramfs* hook and exit</td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign">do_mount_root    </td><td class="col1"> Executes hook *preinit_mount_root* </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign">restore_config    </td><td class="col1 leftalign"> If a previous configuration was stored by sysupgrade, restore it to the rootfs                                                           </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign">run_init          </td><td class="col1 leftalign"> Exec the command defined by `pi_init_cmd` with the environment variables defined by `pi_init_env`, plus PATH `pi_init_path`        </td>
+	</tr>
+</table></div>
+
+<p>
+Functions which are called by other functions, rather than directly as part of a hook.
+</p>
+<div class="table sectionedit28"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign">Function            </th><th class="col1 leftalign"> Description                                             </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">preinit_ip_deconfig </td><td class="col1"> deconfigure interface used for preinit network messages etc </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign">preinit_net_echo    </td><td class="col1 leftalign"> emit a message on the preinit network interface         </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign">preinit_echo        </td><td class="col1 leftalign"> emit a message on the (serial) console                  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign">pi_indicate_led     </td><td class="col1 leftalign"> set LED status to indicate preinit mode                 </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign">fs_wait_for_key     </td><td class="col1"> wait for reset button press, CTRL-C, or &lt;some_key&gt;&lt;ENTER&gt;, with timeout</td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit29" id="failsafe1">failsafe</h3>
+<div class="level3">
+
+<p>
+Do what needs to done to prepare failsafe mode and enter it.
+</p>
+<div class="table sectionedit30"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign">File                  </th><th class="col1 leftalign"> Description                                           </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">10_indicate_failsafe</td><td class="col1 leftalign"> indicate_failsafe_led, indicate_failsafe           </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">99_10_failsafe_login</td><td class="col1 leftalign"> failsafe_netlogin, failsafe_shell                  </td>
+	</tr>
+</table></div>
+
+<p>
+Functions, in order, executed by this hook (doesn&#039;t list the functions only
+called by other functions)
+</p>
+<div class="table sectionedit31"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign">Function             </th><th class="col1 leftalign"> Description                                            </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign">indicate_failsafe   </td><td class="col1 leftalign"> Emit message/status to network, console, and/or LED (depending on which, if any, are present) indicating that the device is now in failsafe mode                                                                       </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign">failsafe_netlogin   </td><td class="col1 leftalign"> Launch telnet daemon to allow telnet login on the defined network interface (if any)                                                   </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign">failsafe_shell      </td><td class="col1 leftalign"> Launch a shell for access via serial console (if present)                                                                              </td>
+	</tr>
+</table></div>
+
+<p>
+Functions which are called by other functions, rather than directly as part of a hook
+</p>
+<div class="table sectionedit32"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign">Function            </th><th class="col1 leftalign"> Description                                             </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">indicate_failsafe_led</td><td class="col1 leftalign"> set LED status to indicate preinit mode                </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit33" id="preinit_mount_root">preinit_mount_root</h3>
+<div class="level3">
+
+<p>
+Mount the root filesystem
+</p>
+<div class="table sectionedit34"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign">File                  </th><th class="col1 leftalign"> Description                                           </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign">05_mount_skip         </td><td class="col1 leftalign"> check_skip                                            </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign">10_check_for_mtd      </td><td class="col1 leftalign"> mount_no_mtd, check_for_mtd                           </td>
+	</tr>
+</table></div>
+
+<p>
+Functions, in order, executed by this hook (doesn&#039;t list the functions only
+called by other functions)
+</p>
+<div class="table sectionedit35"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign">Function             </th><th class="col1 leftalign"> Description                                            </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign">check_for_mtd        </td><td class="col1"> Check for a mtd partition named rootfs_data.  If not present mount kernel fs as root (e.g. all_jjfs2 or squashfs only) and skip rest. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign">check_for_jffs2      </td><td class="col1"> Check if jffs2 formatted yet.  If not, mount ramoverlay and skip rest </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign">do_mount_jffs2       </td><td class="col1"> find jffs2 partition and mount it, indicating result </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign">rootfs_pivot         </td><td class="col1"> if jffs2 mounted, make it root (/) and old root (squashfs) /rom , skipping rest on success</td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign">do_mount_no_jffs2    </td><td class="col1"> If nothing was mounted so far, mount ramdisk (ram overlay), skipping rest on success</td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign">do_mount_no_mtd      </td><td class="col1"> If there was nothing mounted , mount /dev/root as root (/) </td>
+	</tr>
+</table></div>
+
+<p>
+Functions which are called by other functions, rather than directly as part of a hook
+</p>
+<div class="table sectionedit36"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign">Function            </th><th class="col1 leftalign"> Description                                             </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign">mount_no_mtd        </td><td class="col1"> if there is not mtd partition named rootfs_data, mount /dev/root as / (root).  E.g. this can occur if the firmware filesystem is entirely a jffs2 partition, with no squashfs) </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign">mount_no_jffs2      </td><td class="col1"> mount ramdisk (ram overlay) if there is rootfs_data, but it has not been formatted yet) </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign">find_mount_jffs2    </td><td class="col1 leftalign"> find and mount rootfs_data jffs2 partition on /jffs     </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign">jffs2_not_mounted   </td><td class="col1 leftalign"> returns true (0) if jffs2 is not mounted                </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit37" id="initramfs">initramfs</h3>
+<div class="level3">
+
+<p>
+No files or functions at this time.
+</p>
+
+</div>
+
+<h1 class="sectionedit38" id="firstboot_operation">Firstboot Operation</h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit39" id="main_firstboot_script">Main Firstboot Script</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> Source common functions</div>
+</li>
+<li class="level1"><div class="li"> Source functions for hooks</div>
+</li>
+<li class="level1"><div class="li"> if block:</div>
+</li>
+</ol>
+
+<p>
+    if invoked as executable
+</p>
+<pre class="code">       if called with `switch2jffs` parameter (i.e. from rcS)
+           run hook `switch2jffs`
+       if called standalone (e.g. from commandline)
+           if there is a jffs2 partition mounted
+                run hook `jffs2reset`
+           else
+                erase rootfs_data mtd partition
+                format
+                and remount it
+           end
+       end
+ if sourced (that is not executed)
+      set some variables
+ end</pre>
+
+</div>
+
+<h2 class="sectionedit40" id="hooks1">Hooks</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit41" id="switch2jffs">switch2jffs</h3>
+<div class="level3">
+
+<p>
+Make the filesystem that we want to be the rootfs, to be the rootfs
+</p>
+<div class="table sectionedit42"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign">File                  </th><th class="col1 leftalign"> Description                                           </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign">10_determine_parts  </td><td class="col1">deterimine_mtd_part, determine_rom_part, determine_jffs2_part, set_mtd_part, set_rom_part, set_jffs2_part </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign">20_has_mini_fo     </td><td class="col1 leftalign">check_for_mini_fo                                   </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">30_is_rootfs_mounted</td><td class="col1 leftalign">skip_if_rootfs_mounted                             </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign">40_copy_ramoverlay  </td><td class="col1 leftalign">copy_ramoverlay                                       </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign">50_pivot              </td><td class="col1 leftalign">with_fo_pivot                                        </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0">99_10_with_fo_cleanup </td><td class="col1 leftalign"> with_fo_cleanup                                 </td>
+	</tr>
+</table></div>
+
+<p>
+Functions, in order, executed by this hook (doesn&#039;t list the functions only
+called by other functions)
+</p>
+<div class="table sectionedit43"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign">Function             </th><th class="col1 leftalign"> Description                                            </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">determine_mtd_part </td><td class="col1 leftalign"> exit if no mtd partition at all                         </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">determine_rom_part </td><td class="col1"> exit if not squashfs partition (firstboot not for all_jffs2) </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">determine_jffs2_part</td><td class="col1"> figure out the jffs2 partition (assuming we have an mtd part</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">check_for_mini_fo </td><td class="col1"> determine if we have mini_fo overlay in kernel.  If not run *no_fo* hook</td>
+	</tr>
+	<tr class="row5">
+		<td class="col0">skip_if_rootfs_mounted</td><td class="col1"> attempt mount jffs2 on /rom/jffs2.  If partition already mounted exit </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign">copy_ramoverlay     </td><td class="col1">copy the data from the temporary rootfs (on the ramdisk overlay over the squashfs) to the new jffs2 partition </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign">with_fo_pivot      </td><td class="col1">make current jffs2 partition the root partition and the current root /rom </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign">with_fo_cleanup    </td><td class="col1 leftalign">clean up unneeded mount of ramdisk, if possible          </td>
+	</tr>
+</table></div>
+
+<p>
+Functions which are called by other functions, rather than directly as part of a hook
+</p>
+<div class="table sectionedit44"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign">Function              </th><th class="col1 leftalign"> Description                                             </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign">set_mtd_part        </td><td class="col1 leftalign"> set variables for mtd partition                         </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign">set_rom_part        </td><td class="col1 leftalign"> set variable for squashfs (rom) partition               </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign">set_jffs_part       </td><td class="col1 leftalign"> set variable for jffs2 partition                        </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit45" id="no_fo">no_fo</h3>
+<div class="level3">
+
+<p>
+Make the filesystem that we want to be the rootfs, to be the rootfs, given that we have no mini\_fo overlay filesystem
+</p>
+<div class="table sectionedit46"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign">File                  </th><th class="col1 leftalign"> Description                                           </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">10_no_fo_clear_overlay </td><td class="col1 leftalign">no_fo_clear_overlay                            </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">20_no_fo_mount_jffs </td><td class="col1 leftalign"> no_fo_mount_jffs                                 </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign">30_no_fo_pivot     </td><td class="col1 leftalign"> no_fo_pivot                                         </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">40_no_fo_copy_ram_overlay </td><td class="col1 leftalign"> no_fo_copy_ram_overlay                   </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0">99_10_no_fo_cleanup </td><td class="col1 leftalign"> no_fo_cleanup                                     </td>
+	</tr>
+</table></div>
+
+<p>
+Functions, in order, executed by this hook (doesn&#039;t list the functions only
+called by other functions)
+</p>
+<div class="table sectionedit47"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign">Function             </th><th class="col1 leftalign"> Description                                            </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">no_fo_clear_overlay </td><td class="col1 leftalign"> stop ramdisk overlaying the squashfs                 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign">no_fo_mount_jffs  </td><td class="col1"> attempt to mount jffs (work around problem with union).  If already mounted exit </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign">no_fo_pivot        </td><td class="col1 leftalign"> make jffs root and old root /rom                       </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">no_fo_copy_ram_overlay</td><td class="col1"> copy data from ram overlay to jffs2 overlay of squashfs </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign">no_fo_cleanup      </td><td class="col1 leftalign"> get rid of extra binds and mounts                      </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit48" id="jffs2reset">jffs2reset</h3>
+<div class="level3">
+
+<p>
+Reset jffs2 to defaults
+</p>
+<div class="table sectionedit49"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign">File                  </th><th class="col1 leftalign"> Description                                           </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">10_rest_has_mini_fo </td><td class="col1 leftalign"> reset_check_for_mini_fo                         </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">20_reset_clear_jffs </td><td class="col1 leftalign"> reset_clear_jffs                                   </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">30_reset_copy_rom </td><td class="col1 leftalign"> reset_copy_rom                                       </td>
+	</tr>
+</table></div>
+
+<p>
+Functions, in order, executed by this hook (doesn&#039;t list the functions only
+called by other functions)
+</p>
+<div class="table sectionedit50"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign">Function             </th><th class="col1 leftalign"> Description                                            </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">reset_check_for_mini_fo </td><td class="col1"> Determine if the kernel supports mini_fo overlay</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign">reset_clear_jffs   </td><td class="col1"> if mini_fo is supported, erase all data in overlay and remount (resets back to &#039;pure&#039; squashfs versions </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign">reset_copy_rom     </td><td class="col1"> if mini_fo is not supported, make symlinks and copy critical files from squashfs to jffs </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h1 class="sectionedit51" id="customizing_the_system">Customizing the system</h1>
+<div class="level1">
+
+<p>
+<strong>NB</strong>: These files must be added to the *squashfs* (or if using a all_jffs2 system, to the jffs2).  That means, for instance adding it to the image&#039;s rootfs.  This can be done, for instace, by creating `${ROOTDIR}/files/filename` (with appropriate substitutions of course).
+</p>
+
+</div>
+
+<h2 class="sectionedit52" id="overriding_example">Overriding Example</h2>
+<div class="level2">
+
+</div>
+<div class="plugin_include_content plugin_include__meta:infobox:dangerous" id="plugin_include__meta__infobox__dangerous">
+<div class="level2">
+
+<p>
+
+<table class="inline" style="width:70%; margin-left:15%">
+  <tr>
+    <td style="border-left:6px solid #cd0505; vertical-align:middle">
+      <img src="../../_media/meta/icons/tango/48px-dialog-warning.svg.png" alt="" style="float:left; margin-right:0.5em" />
+      <strong>Warning!</strong><br />
+      This section describes actions that might damage your device or firmware. Proceed with care!
+    </td>
+  </tr>
+</table>
+
+</p>
+
+</div>
+</div>
+<div class="level2">
+
+<p>
+Customizing the system is quite simple.  We give an example of changing the message for preinit from &#039;- preinit -&#039; to &#039;- setting the table for dinner -&#039;
+</p>
+
+<p>
+Create a file that replaces the function `indicate_regular_preinit_boot`.
+`pi_indicate_preinit` is defined in `20_indicate_preinit`, so we define our replace functions in `25_dinner_not_router`.
+</p>
+
+<p>
+`/lib/preinit/25_dinner_not_router`
+</p>
+<pre class="code">   pi_indicate_preinit() { 
+         echo &quot;- setting the table for dinner -&quot;
+         preinit_net_echo &quot;Dinner is just about ready!&quot;
+         pi_indicate_led
+   }
+   </pre>
+
+<p>
+This results in the following boot log:
+</p>
+<pre class="code">NET: Registered protocol family 17
+802.1Q VLAN Support v1.8 Ben Greear &lt;greearb@candelatech.com&gt;
+All bugs added by David S. Miller &lt;davem@redhat.com&gt;
+VFS: Mounted root (squashfs filesystem) readonly on device 31:2.
+Freeing unused kernel memory: 132k freed
+Please be patient, while OpenWrt loads ...
+eth1: link forced UP - 100/full - flow control off/off
+- setting the table for dinner -
+Press CTRL-C or Press f&lt;ENTER&gt; to enter failsafe mode
+switching to jffs2
+mini_fo: using base directory: /
+mini_fo: using storage directory: /jffs
+- init -</pre>
+
+<p>
+The default boot log is
+</p>
+<pre class="code">NET: Registered protocol family 17
+802.1Q VLAN Support v1.8 Ben Greear &lt;greearb@candelatech.com&gt;
+All bugs added by David S. Miller &lt;davem@redhat.com&gt;
+VFS: Mounted root (squashfs filesystem) readonly on device 31:2.
+Freeing unused kernel memory: 132k freed
+Please be patient, while OpenWrt loads ...
+eth1: link forced UP - 100/full - flow control off/off
+- preinit -
+Press CTRL-C or Press f&lt;ENTER&gt; to enter failsafe mode
+switching to jffs2
+mini_fo: using base directory: /
+mini_fo: using storage directory: /jffs
+- init -
+   </pre>
+
+</div>
+
+<h2 class="sectionedit55" id="adding_example">Adding Example</h2>
+<div class="level2">
+
+<p>
+As another example we will add a message to failsafe, between the notice that we&#039;re in failsafe mode in the shell.  You could use this, for example, to create a text menu system, or to launch a simple web server (with cgi scripts) to permit the user to do failsafe things.
+</p>
+
+<p>
+We want to add the message, &#039;Remember, at this point there are no writable filesystems&#039;
+</p>
+
+<p>
+We create the file `50_failsafe_remember_no_rw`, in `/lib/preinit`
+</p>
+<pre class="code">  remember_no_rw() {
+      echo &quot;Remember, at this point there are no writable filesystems&quot;
+  }
+  
+  boot_hook_add failsafe remember_no_rw
+  </pre>
+
+<p>
+This creates the function `remember_no_rw` and adds it to the failsafe hook, in between `10_indicate_failsafe` and `99_10_failsafe_login` which define the other functions in the `failsafe` hook.  This wasn&#039;t necessary for the previous example because the function was already in a hook.
+</p>
+
+<p>
+The boot log for this, when entering failsafe, is:
+</p>
+<pre class="code">VFS: Mounted root (squashfs filesystem) readonly on device 31:2.
+Freeing unused kernel memory: 132k freed
+Please be patient, while OpenWrt loads ...
+eth1: link forced UP - 100/full - flow control off/off
+- preinit -
+Press CTRL-C or Press f&lt;ENTER&gt; to enter failsafe mode
+f
+- failsafe -
+Remember, at this point there are no writable filesystems</pre>
+<pre class="code">BusyBox v1.15.3 (2010-01-20 19:26:26 EST) built-in shell (ash)
+Enter &#039;help&#039; for a list of built-in commands.</pre>
+<pre class="code">ash: can&#039;t access tty; job control turned off</pre>
+<pre class="code">  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+                |__| W I R E L E S S   F R E E D O M</pre>
+<pre class="code"> KAMIKAZE (bleeding edge, r19235) ------------------
+  * 10 oz Vodka       Shake well with ice and strain
+  * 10 oz Triple sec  mixture into 10 shot glasses.
+  * 10 oz lime juice  Salute!
+ ---------------------------------------------------</pre>
+
+</div>
+
+<h1 class="sectionedit56" id="architecture-specific_notes">Architecture-specific notes</h1>
+<div class="level1">
+
+<p>
+Some architectures have additional files and functions (or overrides of the above functions) in order to accommodate specific needs of that hardware.  In that case the files are located in the source tree under <code>$ROOTDIR/target/linux/&lt;architecture[/subarch]/base-files/lib/preinit</code>.  During build they are merged and appear under <code>/lib/preinit</code> along with the rest.
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/techref/preinit_mount.txt</bdi> · Last modified: 2013/11/29 11:20 by <bdi>digitsm</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="preinit_mount?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="preinit_mount?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="preinit_mount?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="preinit_mount#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Atechref%253Apreinit_mount&amp;1432265713" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

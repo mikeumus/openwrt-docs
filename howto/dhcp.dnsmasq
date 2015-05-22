@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Dnsmasq [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,dhcp.dnsmasq"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="dhcp.dnsmasq?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/dhcp.dnsmasq"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/dhcp.dnsmasq"/>
+<link rel="canonical" href="dhcp.dnsmasq"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:dhcp.dnsmasq","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266666 166.182.3.103';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="dhcp.dnsmasq#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="dhcp.dnsmasq?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="dhcp.dnsmasq?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:dhcp.dnsmasq" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="dhcp.dnsmasq?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="dhcp.dnsmasq?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="dhcp.dnsmasq?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="dhcp.dnsmasq" class="wikilink1" title="doc:howto:dhcp.dnsmasq">Dnsmasq</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/dhcp.dnsmasq" class="media" title="cz:doc:howto:dhcp.dnsmasq"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/dhcp.dnsmasq" class="media" title="de:doc:howto:dhcp.dnsmasq"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="dhcp.dnsmasq" class="media" title="doc:howto:dhcp.dnsmasq"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../es/doc/howto/dhcp.dnsmasq" class="media" title="es:doc:howto:dhcp.dnsmasq"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/dhcp.dnsmasq" class="media" title="fr:doc:howto:dhcp.dnsmasq"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/dhcp.dnsmasq" class="media" title="hu:doc:howto:dhcp.dnsmasq"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/dhcp.dnsmasq" class="media" title="jp:doc:howto:dhcp.dnsmasq"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/dhcp.dnsmasq" class="media" title="pl:doc:howto:dhcp.dnsmasq"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/dhcp.dnsmasq" class="media" title="pt-br:doc:howto:dhcp.dnsmasq"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../ru/doc/howto/dhcp.dnsmasq" class="media" title="ru:doc:howto:dhcp.dnsmasq"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/dhcp.dnsmasq" class="media" title="tr:doc:howto:dhcp.dnsmasq"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/dhcp.dnsmasq" class="media" title="zh-cn:doc:howto:dhcp.dnsmasq"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/dhcp.dnsmasq" class="media" title="zh-tw:doc:howto:dhcp.dnsmasq"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:dhcp.dnsmasq</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="dhcp.dnsmasq#configuration">Configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="dhcp.dnsmasq#etcconfigdhcp">/etc/config/dhcp</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp.dnsmasq#etcdnsmasqconf">/etc/dnsmasq.conf</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp.dnsmasq#etcethers">/etc/ethers</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp.dnsmasq#etchosts">/etc/hosts</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp.dnsmasq#dns_and_dhcp_ports">DNS and DHCP Ports</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="dhcp.dnsmasq#examples">Examples</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="dhcp.dnsmasq#add_a_secondary_dns">Add a secondary DNS</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp.dnsmasq#configuring_dnsmasq_to_forward_dns_requests_to_public_dns_servers">Configuring dnsmasq to forward dns requests to public dns servers</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp.dnsmasq#configuring_dnsmasq_to_use_different_ip_ranges_for_wired_and_wireless">Configuring dnsmasq to use different IP ranges for wired and wireless</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp.dnsmasq#configuring_dnsmasq_to_generate_dhcp_responses_to_only_known_clients">Configuring dnsmasq to generate DHCP responses to ONLY known clients</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp.dnsmasq#configuring_dnsmasq_to_associate_client_hostnames_with_dhcp-supplied_ip_addresses">Configuring dnsmasq to associate client hostnames with DHCP-supplied IP addresses</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp.dnsmasq#configuring_dnsmasq_to_broadcast_wins_server_information">Configuring dnsmasq to broadcast WINS server information</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp.dnsmasq#configuring_dnsmasq_to_broadcast_external_dns_server_information">Configuring dnsmasq to broadcast External DNS server information</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp.dnsmasq#sip-phones_and_dnsmasq">SIP-Phones and dnsmasq</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp.dnsmasq#dns_filtering">DNS filtering</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="dhcp.dnsmasq#troubleshooting">Troubleshooting</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="dhcp.dnsmasq#log_continuously_filled_with_dhcpinformdhcpack">log continuously filled with DHCPINFORM / DHCPACK</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp.dnsmasq#assigning_dnsmasq_queryport">Assigning dnsmasq Queryport</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="dhcp.dnsmasq#notes">Notes</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="dnsmasq">Dnsmasq</h1>
+<div class="level1">
+
+<p>
+<a href="http://en.wikipedia.org/wiki/Dnsmasq" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Dnsmasq">Dnsmasq</a> is lightweight, easy to configure <abbr title="Domain Name System">DNS</abbr> forwarder and DHCP server. It is designed to provide <abbr title="Domain Name System">DNS</abbr> and, optionally, DHCP, to a small network.
+It can serve the names of local machines which are not in the global <abbr title="Domain Name System">DNS</abbr>.
+The DHCP server integrates with the <abbr title="Domain Name System">DNS</abbr> server and allows machines with DHCP-allocated addresses to appear in the <abbr title="Domain Name System">DNS</abbr> with names configured either in each host or in a central configuration file.
+Dnsmasq supports static and dynamic DHCP leases and BOOTP for network booting of disk-less machines.
+</p>
+
+<p>
+It is already installed and preconfigured on OpenWrt. See → <code><a href="../uci/dhcp" class="wikilink1" title="doc:uci:dhcp">/etc/config/dhcp</a></code>.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="configuration">Configuration</h2>
+<div class="level2">
+
+<p>
+The configuration is done with help of the uci-configuration file: <code><a href="../uci/dhcp" class="wikilink1" title="doc:uci:dhcp">/etc/config/dhcp</a></code>, but you can use this together with the file <code><a href="../uci/dhcp?&amp;#using_plain_dnsmasqconf" class="wikilink1" title="doc:uci:dhcp">/etc/dnsmasq.conf</a></code>.
+</p>
+
+<p>
+Depending on the setting in the uci-file, you may also use the files <code>/etc/ethers</code> and <code>/etc/hosts</code> additionally.
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="etcconfigdhcp">/etc/config/dhcp</h3>
+<div class="level3">
+
+<p>
+→ <a href="../uci/dhcp" class="wikilink1" title="doc:uci:dhcp">/etc/config/dhcp</a> is a UCI configuration file and as such documented exclusively in <a href="../uci.1" class="wikilink1" title="doc:uci">uci</a>. Almost all settings can be configured with it!
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="etcdnsmasqconf">/etc/dnsmasq.conf</h3>
+<div class="level3">
+
+<p>
+You can use <code>/etc/dnsmasq.conf</code> in addition, see above.
+</p>
+
+<p>
+Example:
+By default, dnsmasq comes configured to put your hosts into the <code>.lan</code> domain. This is specified in the configuration file as:
+</p>
+
+<p>
+<pre class="code"># allow /etc/hosts and dhcp lookups via *.lan
+local=/lan/
+domain=lan</pre>
+
+</p>
+
+<p>
+You can change this to whatever you&#039;d like your home domain to be. Also, if you want your hosts to be available via your home domain without having to specify the domain in your <pre class="code">/etc/hosts</pre>
+
+ file, add the <code>expand-hosts</code> directive to your <code>/etc/dnsmasq.conf</code>-file.
+</p>
+
+<p>
+As an example, without <code>expand-hosts</code>, you can only reach <em>router, ubuntu-desktop and ubuntu-laptop</em>.
+With <em>expand-hosts</em> on, you can reach <em>router, router.lan, ubuntu-desktop, ubuntu-desktop.lan, etc</em>.
+This probably matches what you&#039;re looking for anyway.
+</p>
+
+<p>
+Without this setting, you&#039;ll have to add <em>.lan</em> entries to your <code>/etc/hosts</code>.
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="etcethers">/etc/ethers</h3>
+<div class="level3">
+
+<p>
+In <code>/etc/ethers</code> static lease entries can be assigned. See → <a href="../uci/dhcp#static_leases" class="wikilink1" title="doc:uci:dhcp">static_leases</a>.
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="etchosts">/etc/hosts</h3>
+<div class="level3">
+
+<p>
+In <code>/etc/hosts</code> <abbr title="Domain Name System">DNS</abbr> entries are configured. dnsmasq will utilize these entries to answer <abbr title="Domain Name System">DNS</abbr> queries on your network.
+</p>
+
+<p>
+Format:
+</p>
+
+<p>
+<pre class="code">[IP_address] host_name host_name_short ...</pre>
+
+</p>
+
+<p>
+Example:
+</p>
+
+<p>
+<pre class="code">192.168.1.1 router OpenWrt localhost
+192.168.1.2 debian-server
+192.168.1.3 ubuntu-laptop</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit7" id="dns_and_dhcp_ports">DNS and DHCP Ports</h3>
+<div class="level3">
+
+<p>
+<abbr title="Domain Name System">DNS</abbr> needs TCP and UDP port 53 open on the firewall.  DHCP needs UDP ports 67 and 68 open from your zone to/from the firewall.  See <a href="../recipes/guest-wlan" class="urlextern" title="http://wiki.openwrt.org/doc/recipes/guest-wlan"  rel="nofollow">http://wiki.openwrt.org/doc/recipes/guest-wlan</a> and <a href="http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html" class="urlextern" title="http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html"  rel="nofollow">http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html</a> (viz &quot;–dhcp-alternate-port&quot;) for more information.
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="examples">Examples</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit9" id="add_a_secondary_dns">Add a secondary DNS</h3>
+<div class="level3">
+
+<p>
+What to do if you already have a <abbr title="Domain Name System">DNS</abbr> server(secondary <abbr title="Domain Name System">DNS</abbr> server) but you want your router(primary <abbr title="Domain Name System">DNS</abbr> server) to resolve some of the <abbr title="Domain Name System">DNS</abbr> queries? Simply do the following:
+<pre class="code">rm /etc/resolv.conf</pre>
+
+</p>
+
+<p>
+That will remove the resolv.conf symlink.
+Then we will add the ip address of the secondary <abbr title="Domain Name System">DNS</abbr> inside the /etc/resolv.conf file
+<pre class="code">echo &quot;nameserver 192.168.1.2&quot;&gt;/etc/resolv.conf</pre>
+
+</p>
+
+<p>
+Replace 192.168.1.2 by the ip of your dns server
+then reboot or restart the dnsmasq service.
+<pre class="code">reboot</pre>
+
+</p>
+
+<p>
+or
+<pre class="code">killall dnsmasq
+/etc/init.d/dnsmasq start</pre>
+
+</p>
+
+<p>
+Then you&#039;ll need to set up your secondary dns for resolving internet&#039;s <abbr title="Domain Name System">DNS</abbr> queries:
+ssh into your router then:
+<pre class="code">cat /tmp/resolv.conf.auto</pre>
+
+</p>
+
+<p>
+it will give you something like this:
+<pre class="code">nameserver 212.68.193.110
+nameserver 212.68.193.196</pre>
+
+</p>
+
+<p>
+Copy the information and then add it to your secondary <abbr title="Domain Name System">DNS</abbr>&#039;s /etc/resolv.conf:
+into your secondary dns do:
+<pre class="code">rm /etc/resolv.conf
+echo &quot;nameserver 212.68.193.110&quot;&gt;&gt;/etc/resolv.conf
+echo &quot;nameserver 212.68.193.196&quot;&gt;&gt;/etc/resolv.conf</pre>
+
+</p>
+
+<p>
+Replace 212.68.193.110 and 212.68.193.196 with the IP addresses you have gotten with the cat /tmp/resolv.conf.auto command.
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="configuring_dnsmasq_to_forward_dns_requests_to_public_dns_servers">Configuring dnsmasq to forward dns requests to public dns servers</h3>
+<div class="level3">
+
+<p>
+If you want to use public dns servers<sup><a href="dhcp.dnsmasq#fn__1" id="fnt__1" class="fn_top">1)</a></sup> to resolve public dns queries, you can configure dnsmasq for it. You can even specify more than three nameservers<sup><a href="dhcp.dnsmasq#fn__2" id="fnt__2" class="fn_top">2)</a></sup>.
+</p>
+
+<p>
+Just add the following lines to /etc/dnsmasq.conf to use Google Public <abbr title="Domain Name System">DNS</abbr>.
+<pre class="code">server=8.8.8.8
+server=8.8.4.4</pre>
+
+</p>
+
+<p>
+In case you prefer to use <a href="../devel/uci-lua" class="wikilink1" title="doc:techref:uci">OpenWrt UCI</a>, you may issue the following commands.
+<pre class="code shell">uci add_list dhcp.@dnsmasq[-1].server=8.8.8.8
+uci add_list dhcp.@dnsmasq[-1].server=8.8.4.4
+uci commit dhcp</pre>
+
+</p>
+
+<p>
+You may also edit /etc/config/dhcp directly.
+<pre class="code">config dnsmasq
+        option domainneeded &#039;1&#039;
+        option boguspriv &#039;1&#039;
+        option localise_queries &#039;1&#039;
+        option local &#039;/lan/&#039;
+        option domain &#039;lan&#039;
+        option expandhosts &#039;1&#039;
+        option authoritative &#039;1&#039;
+        option readethers &#039;1&#039;
+        option leasefile &#039;/tmp/dhcp.leases&#039;
+        option resolvfile &#039;/tmp/resolv.conf.auto&#039;
+        option rebind_protection &#039;0&#039;
+        option server &#039;8.8.8.8&#039;
+        option server &#039;8.8.4.4&#039;</pre>
+
+</p>
+
+<p>
+In case you want to use OpenDNS (there are 4 public dns servers)
+<pre class="code">uci add_list dhcp.@dnsmasq[-1].server=202.67.222.222
+uci add_list dhcp.@dnsmasq[-1].server=202.67.220.220
+uci add_list dhcp.@dnsmasq[-1].server=202.67.222.220
+uci add_list dhcp.@dnsmasq[-1].server=202.67.220.222
+uci commit dhcp</pre>
+
+</p>
+
+<p>
+Of course, you can use another dns servers. Just send a SIGHUP to dnsmasq process or restart dnsmasq service to apply the newly added forwarding <abbr title="Domain Name System">DNS</abbr> servers.
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="configuring_dnsmasq_to_use_different_ip_ranges_for_wired_and_wireless">Configuring dnsmasq to use different IP ranges for wired and wireless</h3>
+<div class="level3">
+
+<p>
+Suppose you have the following:
+</p>
+
+<p>
+<pre class="code">vlan0     Link encap:Ethernet  HWaddr XX:XX:XX:XX:XX:XX
+          inet addr:192.168.1.1    Bcast:192.168.1.255    Mask:255.255.255.0
+eth1      Link encap:Ethernet  HWaddr XX:XX:XX:XX:XX:XX
+          inet addr:10.75.9.1      Bcast:10.75.9.255      Mask:255.255.255.0</pre>
+
+</p>
+
+<p>
+Simply put 2 &quot;dhcp-range&quot; options in your <pre class="code">/etc/dnsmasq.conf</pre>
+
+ file:
+</p>
+
+<p>
+<pre class="code"># dhcp-range=[network-id,],[[,],][,]
+dhcp-range=lan,192.168.1.101,192.168.1.104,255.255.255.0,24h
+dhcp-range=wlan,10.75.9.111,10.75.9.119,255.255.255.0,2h</pre>
+
+</p>
+
+<p>
+You can then use the different &quot;network-id&quot; values with &quot;dhcp-option&quot; to customize the options your DHCP server will supply to your wired and wireless DHCP clients.
+</p>
+
+<p>
+for example
+</p>
+
+<p>
+<pre class="code">#set the default route for dhcp clients on the wlan side to 10.10.6.33
+dhcp-option=wlan,3,10.10.6.33
+#set the dns server for the dhcp clients on the wlan side to 10.10.6.33
+dhcp-option=wlan,6,10.10.6.33
+#set the default route for dhcp clients on the lan side to 10.10.6.1
+dhcp-option=lan,3,10.10.6.1
+#set the dns server for the dhcp clients on the lan side to 10.10.6.1
+dhcp-option=lan,6,10.10.6.1</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit12" id="configuring_dnsmasq_to_generate_dhcp_responses_to_only_known_clients">Configuring dnsmasq to generate DHCP responses to ONLY known clients</h3>
+<div class="level3">
+
+<p>
+There are situations where you want dnsmasq to generate DHCP addresses for
+only known clients (as defined in <pre class="code">/etc/ethers</pre>
+
+).  First, set <pre class="code">lan_dhcp_num=0</pre>
+
+</p>
+
+<p>
+to indicate that no addresses are to be generated.
+Then, modify the file <pre class="code">/etc/init.d/S60dnsmasq</pre>
+
+ to included the lines
+<pre class="code">        if [ &quot;${num:-150}&quot; = &quot;0&quot; ]; then
+                END=static
+        fi</pre>
+
+</p>
+
+<p>
+after the calls to <pre class="code">ipcalc.sh</pre>
+
+.  Restart the daemon or reboot.
+</p>
+
+</div>
+
+<h3 class="sectionedit13" id="configuring_dnsmasq_to_associate_client_hostnames_with_dhcp-supplied_ip_addresses">Configuring dnsmasq to associate client hostnames with DHCP-supplied IP addresses</h3>
+<div class="level3">
+
+<p>
+You will need the following lines in your <pre class="code">/etc/dnsmasq.conf</pre>
+
+ file: (Adjust IP address if your router is not 192.168.1.1)
+</p>
+
+<p>
+<pre class="code">dhcp-option=3,192.168.1.1
+dhcp-option=6,192.168.1.1</pre>
+
+</p>
+
+<p>
+That&#039;s it for dnsmasq on the router. The trick is that the DHCP client must send its hostname during the DHCP negotiation. The <pre class="code">dhclient.conf</pre>
+
+ file, which may be in <pre class="code">/etc/</pre>
+
+ (debian) or <pre class="code">/etc/dhcp3/</pre>
+
+ (kubuntu), needs to have a single line uncommented and edited:
+</p>
+
+<p>
+<pre class="code">send host-name &quot;hostname&quot;;</pre>
+
+</p>
+
+<p>
+Save the file, then restart the interface. Repeat on all client systems.
+</p>
+
+</div>
+
+<h3 class="sectionedit14" id="configuring_dnsmasq_to_broadcast_wins_server_information">Configuring dnsmasq to broadcast WINS server information</h3>
+<div class="level3">
+
+<p>
+You will need the following line in your <pre class="code">/etc/dnsmasq.conf</pre>
+
+ file: (Adjust IP address if your WINS server is not 192.168.1.2)
+</p>
+
+<p>
+<pre class="code">dhcp-option=44,192.168.1.2</pre>
+
+</p>
+
+<p>
+Now as your machines release and renew DHCP information they will obtain the address of the WINS server automatically.
+</p>
+
+</div>
+
+<h3 class="sectionedit15" id="configuring_dnsmasq_to_broadcast_external_dns_server_information">Configuring dnsmasq to broadcast External DNS server information</h3>
+<div class="level3">
+
+<p>
+The following change to your <code>/etc/dnsmasq.conf</code> file will allow for automatic configuration of your DHCP clients to use <abbr title="Domain Name System">DNS</abbr> servers other than one on the router.
+</p>
+
+<p>
+<pre class="code">dhcp-option=6,ipaddress1,ipaddress2</pre>
+
+</p>
+
+<p>
+Or you can do the same in <code>/etc/config/dhcp</code>:
+</p>
+
+<p>
+<pre class="code">...
+config &#039;dhcp&#039; &#039;lan&#039;
+	list &#039;dhcp_option&#039; &#039;6,ipaddress1,ipaddress2&#039;
+...</pre>
+
+</p>
+
+<p>
+As your machines release and renew their DHCP configuration they will obtain the address of the new <abbr title="Domain Name System">DNS</abbr> servers automatically.
+</p>
+
+</div>
+
+<h3 class="sectionedit16" id="sip-phones_and_dnsmasq">SIP-Phones and dnsmasq</h3>
+<div class="level3">
+
+<p>
+By default, the option filterwin2k in dnsmasq is activated, which seems to cause to block queries for <code>SRV</code> records.
+</p>
+
+<p>
+<code>SRV</code> records are <strong>not only used by Windows</strong> computers to find their  domaincontrollers but also used by e.g SIP-Phones to find the server responsible for a given domain. 
+</p>
+
+<p>
+<code>SRV</code> records are a kind of generalized <code>MX</code> records. 
+</p>
+
+<p>
+Therefore, the <code>filterwin2k</code> option needs to be disabled in order to let SIP-Phones work that use dnsmasq as their <abbr title="Domain Name System">DNS</abbr> server.
+</p>
+
+<p>
+Commented out in <code>/etc/dnsmasq.conf</code> or de-activate it in the web-interface.
+</p>
+
+<p>
+Or you can do the same in <code>/etc/config/dhcp</code>:
+</p>
+
+<p>
+<pre class="code">config &#039;dnsmasq&#039;
+	option &#039;filterwin2k&#039; &#039;0&#039;
+...</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit17" id="dns_filtering">DNS filtering</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <a href="https://forum.openwrt.org/viewtopic.php?id=35023" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=35023"  rel="nofollow">OpenWrt Forum: Blocking tracking, ad, spyware sites from router</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit18" id="troubleshooting">Troubleshooting</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit19" id="log_continuously_filled_with_dhcpinformdhcpack">log continuously filled with DHCPINFORM / DHCPACK</h3>
+<div class="level3">
+
+<p>
+Windows 7 among others ask for proxy settings using DHCP. The issue is that they do not stop asking until they have received an answer. This results in that the log contains a lot information about these requests, an example can be found below (thanks for <a href="http://wiki.excito.org" class="urlextern" title="http://wiki.excito.org"  rel="nofollow">http://wiki.excito.org</a> for the info).
+</p>
+
+<p>
+<pre class="code">Jul 1 06:34:09 MorganB3 dnsmasq-dhcp[1638]: DHCPINFORM(br0) 10.69.10.59 00:23:14:c5:33:fc
+Jul 1 06:34:09 MorganB3 dnsmasq-dhcp[1638]: DHCPACK(br0) 10.69.10.59 00:23:14:c5:33:fc MorgansVaioF12Z</pre>
+
+</p>
+
+<p>
+To solve this, edit /etc/dnsmasq.conf and add the following lines:
+<pre class="code"># This will tell DHCP clients to not ask for proxy information
+# Some clients, like Windows 7, will constantly ask if not told NO
+dhcp-option=252,&quot;\n&quot;</pre>
+
+and restart dnsmasq with /etc/init.d/dnsmasq restart
+</p>
+
+</div>
+
+<h3 class="sectionedit20" id="assigning_dnsmasq_queryport">Assigning dnsmasq Queryport</h3>
+<div class="level3">
+
+<p>
+The queryport is not the dns server port used by dhcp clients, it is the outgoing port dnsmasq uses to query other servers, and is integral to dnsmasq succesfully assigning <abbr title="Domain Name System">DNS</abbr> values to the DHCP clients.  The default settings create arbitrary high port number connections on a range of ports.  By assigning an option line like &quot; option queryport &#039;30000&#039; &quot; in /etc/config/dhcp, one can constrain those connections to a port you assign.  Be certain that your firewall allows outbound connections from the router on the query port that you assign. 
+</p>
+
+<p>
+As a caution, dnsmasq runs as user &quot;nobody&quot; on openwrt so it is not allowed to create listening sockets on ports &lt; 1024.  Using the standard <abbr title="Domain Name System">DNS</abbr> port 53 for these queries will fail.  The failure can be found in the logs.  Logread will show an &quot;ignoring nameserver&quot; error line like:
+<pre class="code">Jan 01 01:01:01 MyRoutersName daemon.warn dnsmasq[3490]: ignoring nameserver 8.8.8.8 - cannot make/bind socket: Permission denied</pre>
+
+Do not assign query ports less than 1024 to the queryport.
+</p>
+
+</div>
+
+<h2 class="sectionedit21" id="notes">Notes</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Project Homepage: <a href="http://thekelleys.org.uk/dnsmasq/doc.html" class="urlextern" title="http://thekelleys.org.uk/dnsmasq/doc.html"  rel="nofollow">http://thekelleys.org.uk/dnsmasq/doc.html</a></div>
+</li>
+<li class="level1"><div class="li"> Tutorial <a href="http://www.enterprisenetworkingplanet.com/netos/article.php/3377351" class="urlextern" title="http://www.enterprisenetworkingplanet.com/netos/article.php/3377351"  rel="nofollow">http://www.enterprisenetworkingplanet.com/netos/article.php/3377351</a></div>
+</li>
+<li class="level1"><div class="li"> Tutorial <a href="http://martybugs.net/wireless/openwrt/dnsmasq.cgi" class="urlextern" title="http://martybugs.net/wireless/openwrt/dnsmasq.cgi"  rel="nofollow">http://martybugs.net/wireless/openwrt/dnsmasq.cgi</a></div>
+</li>
+</ul>
+
+</div>
+<div class="footnotes">
+<div class="fn"><sup><a href="dhcp.dnsmasq#fnt__1" id="fn__1" class="fn_bot">1)</a></sup> 
+such as <a href="https://developers.google.com/speed/public-dns/docs/using" class="urlextern" title="https://developers.google.com/speed/public-dns/docs/using"  rel="nofollow">Google Public DNS</a> and <a href="https://www.opendns.com" class="urlextern" title="https://www.opendns.com"  rel="nofollow">OpenDNS</a></div>
+<div class="fn"><sup><a href="dhcp.dnsmasq#fnt__2" id="fn__2" class="fn_bot">2)</a></sup> 
+currently, linux /etc/resolv.conf file is limited to three nameservers, <a href="http://manpages.ubuntu.com/manpages/trusty/man5/resolver.5.html" class="urlextern" title="http://manpages.ubuntu.com/manpages/trusty/man5/resolver.5.html"  rel="nofollow">see resolv.conf(5) manpage</a></div>
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/dhcp.dnsmasq.txt</bdi> · Last modified: 2015/01/20 09:06 by <bdi>jessemonroy650</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="dhcp.dnsmasq?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="dhcp.dnsmasq?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="dhcp.dnsmasq?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="dhcp.dnsmasq#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Adhcp.dnsmasq&amp;1432266666" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

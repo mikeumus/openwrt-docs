@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>IPv6 on softwire [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,ipv6.softwire"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="ipv6.softwire?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/ipv6.softwire"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/ipv6.softwire"/>
+<link rel="canonical" href="ipv6.softwire"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:ipv6.softwire","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432268494 166.182.3.156';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="ipv6.softwire#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="ipv6.softwire?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="ipv6.softwire?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:ipv6.softwire" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="ipv6.softwire?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="ipv6.softwire?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="ipv6.softwire?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="ipv6.softwire" class="wikilink1" title="doc:howto:ipv6.softwire">IPv6 on softwire</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/ipv6.softwire" class="media" title="cz:doc:howto:ipv6.softwire"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/ipv6.softwire" class="media" title="de:doc:howto:ipv6.softwire"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="ipv6.softwire" class="media" title="doc:howto:ipv6.softwire"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/ipv6.softwire" class="media" title="es:doc:howto:ipv6.softwire"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/ipv6.softwire" class="media" title="fr:doc:howto:ipv6.softwire"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/ipv6.softwire" class="media" title="hu:doc:howto:ipv6.softwire"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/ipv6.softwire" class="media" title="jp:doc:howto:ipv6.softwire"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/ipv6.softwire" class="media" title="pl:doc:howto:ipv6.softwire"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/ipv6.softwire" class="media" title="pt-br:doc:howto:ipv6.softwire"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/ipv6.softwire" class="media" title="ru:doc:howto:ipv6.softwire"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/ipv6.softwire" class="media" title="tr:doc:howto:ipv6.softwire"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/ipv6.softwire" class="media" title="zh-cn:doc:howto:ipv6.softwire"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/ipv6.softwire" class="media" title="zh-tw:doc:howto:ipv6.softwire"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:ipv6.softwire</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="ipv6.softwire#about_softwires">About softwires</a></div></li>
+<li class="level1"><div class="li"><a href="ipv6.softwire#isp_using_softwires_to_provide_ipv6">ISP using softwires to provide IPv6</a></div></li>
+<li class="level1"><div class="li"><a href="ipv6.softwire#overview">Overview</a></div></li>
+<li class="level1"><div class="li"><a href="ipv6.softwire#setup_for_barrier_breaker">Setup for Barrier Breaker</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="ipv6.softwire#requirements">Requirements</a></div></li>
+<li class="level2"><div class="li"><a href="ipv6.softwire#configuration">Configuration</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="ipv6.softwire#old_setup_for_aa">Old setup for AA</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="ipv6.softwire#l2tp_tunnel_using_xl2tpd">L2TP tunnel using xl2tpd</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="ipv6.softwire#starting_the_l2tp_tunnel">Starting the L2TP tunnel</a></div></li>
+<li class="level3"><div class="li"><a href="ipv6.softwire#troubleshooting">Troubleshooting</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="ipv6.softwire#ppp_configuration">PPP configuration</a></div></li>
+<li class="level2"><div class="li"><a href="ipv6.softwire#prefix_delegation_through_dhcpv6">Prefix delegation through DHCPv6</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="ipv6.softwire#openwrt_integration">OpenWRT integration</a></div></li>
+<li class="level3"><div class="li"><a href="ipv6.softwire#interface_declaration">Interface declaration</a></div></li>
+<li class="level3"><div class="li"><a href="ipv6.softwire#firewall_rules">Firewall rules</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="ipv6_on_softwire">IPv6 on softwire</h1>
+<div class="level1">
+
+<p>
+This page documents how to configure IPv6 over a L2TP softwire, which is a method used by some ISP to provide IPv6 connectivity. It assumes Barrier Breaker (OpenWRT 14.07), but the old configuration for Attitude Adjustment (12.09) is available at the end of the page.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="about_softwires">About softwires</h2>
+<div class="level2">
+
+<p>
+&quot;softwire&quot; is the new fancy term for network tunnels, aka encapsulation. Reasonably accurate definitions about softwires are given in <a href="http://tools.ietf.org/html/rfc4925" class="urlextern" title="http://tools.ietf.org/html/rfc4925"  rel="nofollow">RFC 4925</a>, and <a href="http://tools.ietf.org/html/rfc5571" class="urlextern" title="http://tools.ietf.org/html/rfc5571"  rel="nofollow">RFC 5571</a> describes an implementation using L2TPv2.
+</p>
+
+<p>
+Softwires are used as basic blocks to transport newer protocols (typically IPv6) over an older network (typically, the IPv4 core network of an ISP).
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="isp_using_softwires_to_provide_ipv6">ISP using softwires to provide IPv6</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> SFR, in France, is known to use softwires to provide IPv6 to its residential customers. See some <a href="http://bitsofnetworks.org/utiliser-ipv6-chez-sfr-sans-la-neufbox-fr.html" class="urlextern" title="http://bitsofnetworks.org/utiliser-ipv6-chez-sfr-sans-la-neufbox-fr.html"  rel="nofollow">documentation (in French)</a>.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit4" id="overview">Overview</h2>
+<div class="level2">
+
+<p>
+This howto is derived from an experience with SFR, in France (FTTH residential access). It might applies to other ISPs as well, but you&#039;ll need to adapt IP addresses, PPP login and passwords, and so on.
+</p>
+
+<p>
+The high-level description of the tunneling is the following:
+</p>
+<ol>
+<li class="level1"><div class="li"> a L2TP tunnel is created, encapsulated in UDP packets over IPv4</div>
+</li>
+<li class="level1"><div class="li"> a PPP session is established inside the tunnel</div>
+</li>
+<li class="level1"><div class="li"> IPv6CP (see <a href="http://tools.ietf.org/html/rfc5072" class="urlextern" title="http://tools.ietf.org/html/rfc5072"  rel="nofollow">RFC 5072</a>) is used to negotiate link-local IPv6 addresses </div>
+</li>
+<li class="level1"><div class="li"> an IPv6 prefix is obtained thanks to DHCPv6</div>
+</li>
+</ol>
+
+<p>
+In the case of SFR, steps 1 and 2 require an authentication. Fortunately, the L2TP password is hardcoded. The PPP password is not, but it&#039;s sent as cleartext, so a simple sniffing is enough to recover it.
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="setup_for_barrier_breaker">Setup for Barrier Breaker</h2>
+<div class="level2">
+
+<p>
+Barrier Breaker has native IPv6 support, which greatly simplifies the configuration.
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="requirements">Requirements</h3>
+<div class="level3">
+
+<p>
+You need to install <code>xl2tpd</code>, which will handle the L2TP tunnel and PPP session.
+</p>
+
+</div>
+
+<h3 class="sectionedit7" id="configuration">Configuration</h3>
+<div class="level3">
+
+<p>
+<code>/etc/config/network</code>
+<pre class="code">config interface 6pe
+        option proto l2tp
+        option server &lt;LNS address&gt;
+        option username &#039;&lt;PPP username&gt;&#039;
+        option password &#039;&lt;PPP password&gt;&#039;
+        option keepalive &#039;6&#039;
+        option ipv6 &#039;1&#039;
+
+config interface &#039;wan6&#039;
+        option ifname &#039;@6pe&#039;
+        option proto &#039;dhcpv6&#039;</pre>
+
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> For the RC3 version of Barrier Breaker, you should use <code>proto l2tpv2</code> instead.
+</p>
+
+<p>
+See <a href="../uci/network#protocoll2tppppoverl2tppseudowiretunnel" class="wikilink1" title="doc:uci:network">protocol.l2tp.ppp.over.l2tp.pseudowire.tunnel</a> for more options.
+</p>
+
+<p>
+If you need authentication at the L2TP level (before PPP), configure it in <code>/etc/xl2tpd/xl2tp-secrets</code>:
+<pre class="code">* * my_l2tp_password</pre>
+
+</p>
+
+<p>
+At this point, rebooting or simply running <code>ifup wan6</code> should give you a fully working IPv6 setup.  To debug, look at the logs (<code>logread</code>) and the interfaces status (<code>ifstatus 6pe</code> and <code>ifstatus wan6</code>).
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="old_setup_for_aa">Old setup for AA</h2>
+<div class="level2">
+
+<p>
+This setup is doing everything &quot;by hand&quot;, which might be useful for other Linux distribution as well (for instance, Debian).  More precisely, we do the following:
+</p>
+<ol>
+<li class="level1"><div class="li"> use <code>xl2tpd</code> to negociate the L2TP tunnel and the PPP session: this creates a <code>ppp0</code> interface</div>
+</li>
+<li class="level1"><div class="li"> use <code>dhcp6c</code> to request an IPv6 prefix through DHCPv6</div>
+</li>
+<li class="level1"><div class="li"> use <code>radvd</code> to distribute addresses to <abbr title="Local Area Network">LAN</abbr> clients from a /64 (which is automatically taken from the delegated prefix)</div>
+</li>
+</ol>
+
+<p>
+Of course, you are free to use other methods. Most notably, newer OpenWRT versions handle IPv6 differently. It&#039;s also possible to distribute IPv6 addresses to <abbr title="Local Area Network">LAN</abbr> clients using <code>dnsmasq</code>.
+</p>
+
+<p>
+Note that SFR&#039;s CPE, the Neufbox, is running a modified version of OpenWRT. Since they publish their firmware (I used the <a href="http://download.nb6thd.neufbox.neuf.fr/nb6thd_Vers%203.3.4_ter/NB6-MAIN-R3.3.4" class="urlextern" title="http://download.nb6thd.neufbox.neuf.fr/nb6thd_Vers%203.3.4_ter/NB6-MAIN-R3.3.4"  rel="nofollow">NB6-MAIN-R3.3.4</a> firmware), it&#039;s possible to look at their config files (and hardcoded passwords), which greatly simplifies the task.
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="l2tp_tunnel_using_xl2tpd">L2TP tunnel using xl2tpd</h3>
+<div class="level3">
+
+<p>
+You need to install <code>xl2tpd</code>. Then, a working <code>/etc/x2ltpd/x2ltpd.conf</code> for SFR is:
+</p>
+
+<p>
+<pre class="code">[global]
+port = 1701
+auth file = /etc/xl2tpd/xl2tp-secrets
+access control = no
+
+[lac 6pe]
+lns = 109.6.3.95 ; address of the LNS (L2TP Network Server)
+ppp debug = yes
+hostname = XX.XX.XX.XX ; your public IP address
+hidden bit = no
+; ppp debug = yes
+pppoptfile = /etc/ppp/options.xl2tpd
+require authentication = no
+refuse authentication = no
+refuse chap = no
+flow bit = yes
+length bit = yes</pre>
+
+</p>
+
+<p>
+You need to fill out <code>/etc/xl2tpd/xl2tp-secrets</code> with the password. In the case of SFR:
+</p>
+
+<p>
+<pre class="code">*	*	6pe</pre>
+
+</p>
+
+<p>
+This should be enough to see if it works or not.
+</p>
+
+</div>
+
+<h4 id="starting_the_l2tp_tunnel">Starting the L2TP tunnel</h4>
+<div class="level4">
+
+<p>
+You need to start <code>xl2tpd</code>, and connect the profile we defined:
+</p>
+
+<p>
+<pre class="code">/etc/init.d/xl2tpd start
+echo &quot;c 6pe&quot; &gt; /var/run/xl2tpd/l2tp-control</pre>
+
+</p>
+
+<p>
+There doesn&#039;t seem to be an easy way to start a profile automatically at startup. Quick &amp; dirty: edit <code>/etc/rc.d/S60xl2tpd</code> and add
+</p>
+
+<p>
+<pre class="code">(sleep 10 &amp;&amp; echo &quot;c 6pe&quot; &gt; /var/run/xl2tpd/l2tp-control) &amp;</pre>
+
+</p>
+
+<p>
+just before the <code>$BIN $OPTIONS</code> line.
+</p>
+
+</div>
+
+<h4 id="troubleshooting">Troubleshooting</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> look at the logs (<code>logread</code>)</div>
+</li>
+<li class="level1"><div class="li"> try to activate some <code>xl2tpd</code> debug options</div>
+</li>
+<li class="level1"><div class="li"> use <code>tcpdump</code> to see what&#039;s going on with the LNS</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit10" id="ppp_configuration">PPP configuration</h3>
+<div class="level3">
+
+<p>
+Last, you need to set PPP options for IPv6 negotiation. In <code>/etc/ppp/options.xl2tpd</code>:
+</p>
+
+<p>
+<pre class="code"># From the official firmware
+ipv6 ,
++ipv6
+ipv6cp-use-persistent
+lock
+child-timeout 20
+lcp-echo-failure 3
+lcp-echo-interval 20
+name &lt;your PPP login&gt;</pre>
+
+</p>
+
+<p>
+For SFR, the PPP login seems to be <code>dhcp/XX.XX.XX.XX@YYYYYYYYYYYY</code>, where <code>XX.XX.XX.XX</code> is your public IP address, and <code>YYYYYYYYYYYY</code> is the MAC address of the WAN interface of the official box, without the colons.
+</p>
+
+<p>
+You then need to define the PPP password in <code>/etc/ppp/chap-secrets</code>:
+</p>
+
+<p>
+<pre class="code">#USERNAME  PROVIDER  PASSWORD  IPADDRESS
+dhcp/XX.XX.XX.XX@YYYYYYYYYYYY * &lt;PPP password&gt;</pre>
+
+</p>
+
+<p>
+For SFR, the password is not obvious. It&#039;s sent in cleartext, thus recoverable by sniffing the WAN port of the official box.
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="prefix_delegation_through_dhcpv6">Prefix delegation through DHCPv6</h3>
+<div class="level3">
+
+<p>
+Once the PPP session is established inside the L2TP tunnel, a new interface <code>ppp0</code> should appear.
+</p>
+
+<p>
+The only remaining step is to request an IPv6 prefix to the ISP, by using for instance the <code>wide-dhcp6c</code> client.
+</p>
+
+</div>
+
+<h4 id="openwrt_integration">OpenWRT integration</h4>
+<div class="level4">
+
+<p>
+Note that this is specific to Attitude Adjustment, as IPv6 support is expected to changed a lot in the upcoming Barrier Breaker release.
+</p>
+
+</div>
+
+<h4 id="interface_declaration">Interface declaration</h4>
+<div class="level4">
+
+<p>
+We need to tell OpenWRT about the new interface, in <code>/etc/config/network</code>:
+</p>
+
+<p>
+<pre class="code">config interface wanv6
+        option ifname   ppp0
+        option proto    none</pre>
+
+</p>
+
+<p>
+If, at some point, you don&#039;t get a default route for IPv6, you could try to add the route yourself:
+</p>
+
+<p>
+<pre class="code">config route6                           
+        option interface wanv6          
+        option target &#039;::/0&#039;            
+        option gateway &#039;fe80::XXXX:XXff:feXX:XXXX&#039;</pre>
+
+</p>
+
+<p>
+where the gateway is the link-local address of the router at the other end of the softwire.
+</p>
+
+</div>
+
+<h4 id="firewall_rules">Firewall rules</h4>
+<div class="level4">
+
+<p>
+Start by modifying the <code>wan</code> zone in <code>/etc/config/firewall</code>:
+</p>
+
+<p>
+<pre class="code">        option network          &#039;wan wanv6&#039;</pre>
+
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/ipv6.softwire.txt</bdi> · Last modified: 2014/08/23 03:35 by <bdi>zorun</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="ipv6.softwire?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="ipv6.softwire?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="ipv6.softwire?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="ipv6.softwire#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Aipv6.softwire&amp;1432268494" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

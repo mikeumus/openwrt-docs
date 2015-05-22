@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>The CPU aka the Core [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,hardware,cpu"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="cpu?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:hardware"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/hardware/cpu"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/hardware/cpu"/>
+<link rel="canonical" href="cpu"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:hardware';var JSINFO = {"id":"doc:hardware:cpu","namespace":"doc:hardware"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265504 166.182.3.232';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="cpu#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="cpu?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="cpu?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:hardware:cpu" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="cpu?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="cpu?do=media&amp;ns=doc%253Ahardware"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="cpu?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:hardware:start">Hardware</a></bdi> » <bdi><span class="curid"><a href="cpu" class="wikilink1" title="doc:hardware:cpu">The CPU aka the Core</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/hardware/cpu" class="media" title="cz:doc:hardware:cpu"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/hardware/cpu" class="media" title="de:doc:hardware:cpu"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="cpu" class="media" title="doc:hardware:cpu"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/hardware/cpu" class="media" title="es:doc:hardware:cpu"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/hardware/cpu" class="media" title="fr:doc:hardware:cpu"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/hardware/cpu" class="media" title="hu:doc:hardware:cpu"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/hardware/cpu" class="media" title="jp:doc:hardware:cpu"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/hardware/cpu" class="media" title="pl:doc:hardware:cpu"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/hardware/cpu" class="media" title="pt-br:doc:hardware:cpu"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/hardware/cpu" class="media" title="ru:doc:hardware:cpu"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/hardware/cpu" class="media" title="tr:doc:hardware:cpu"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/hardware/cpu" class="media" title="zh-cn:doc:hardware:cpu"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/hardware/cpu" class="media" title="zh-tw:doc:hardware:cpu"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:hardware:cpu</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="cpu#cpu_classification">CPU classification</a></div></li>
+<li class="level1"><div class="li"><a href="cpu#semiconductor_companies">Semiconductor companies</a></div></li>
+<li class="level1"><div class="li"><a href="cpu#cpu_purchase">CPU purchase</a></div></li>
+<li class="level1"><div class="li"><a href="cpu#explanation">Explanation</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="cpu#the_isa_instruction_set_architecture">The ISA (Instruction set architecture)</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="cpu#examplemips">Example: MIPS</a></div></li>
+<li class="level3"><div class="li"><a href="cpu#examplearm">Example: ARM</a></div></li>
+<li class="level3"><div class="li"><a href="cpu#exampleother">Example: Other</a></div></li>
+<li class="level3"><div class="li"><a href="cpu#extensions">Extensions</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="cpu#the_microarchitecture">The Microarchitecture</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="cpu#ip_core">IP core</a></div></li>
+<li class="level1"><div class="li"><a href="cpu#the_soc">The SoC</a></div></li>
+<li class="level1"><div class="li"><a href="cpu#the_device">The Device</a></div></li>
+<li class="level1"><div class="li"><a href="cpu#manufacturing">Manufacturing</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="cpu#wikipedia_articles">Wikipedia Articles</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="the_cpu_aka_the_core">The CPU aka the Core</h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit2" id="cpu_classification">CPU classification</h2>
+<div class="level2">
+
+<p>
+When looking at the usual <a href="http://en.wikipedia.org/wiki/Central processing unit" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Central processing unit">Central processing unit</a> a couple of things come into mind:
+</p>
+<ol>
+<li class="level1"><div class="li"> its <strong><a href="http://en.wikipedia.org/wiki/Instruction set" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Instruction set">Instruction set</a></strong> (jump directly to a <a href="http://en.wikipedia.org/wiki/List of instruction sets" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/List of instruction sets">List of instruction sets</a>) and then see <strong><a href="https://dev.openwrt.org/browser/trunk/target/Config.in" class="urlextern" title="https://dev.openwrt.org/browser/trunk/target/Config.in"  rel="nofollow">OpenWrt Buildroot - Supported ARCHes</a></strong></div>
+</li>
+<li class="level1"><div class="li"> <strong><a href="http://en.wikipedia.org/wiki/Template:Multimedia extensions" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Template:Multimedia extensions">Extensions</a></strong> to the Instruction Set, e.g. <a href="http://en.wikipedia.org/wiki/MMX (instruction set)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/MMX (instruction set)">MMX</a> or <a href="http://en.wikipedia.org/wiki/Advanced Vector Extensions" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Advanced Vector Extensions">AVX</a> or <a href="http://en.wikipedia.org/wiki/AES-NI" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/AES-NI">AES-NI</a>)</div>
+</li>
+<li class="level1"><div class="li"> and its <a href="http://en.wikipedia.org/wiki/CPU design" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/CPU design">design</a> manifesting into a concrete <strong><a href="http://en.wikipedia.org/wiki/Microarchitecture" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Microarchitecture">Microarchitecture</a></strong> (e.g. <a href="http://en.wikipedia.org/wiki/Intel Core (microarchitecture)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Intel Core (microarchitecture)">Core2</a> or <a href="http://en.wikipedia.org/wiki/NetBurst (microarchitecture)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/NetBurst (microarchitecture)">NetBurst</a> or <a href="http://en.wikipedia.org/wiki/AMD_K5" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/AMD_K5">AMD_K5</a>)</div>
+</li>
+<li class="level1"><div class="li"> concrete CPUs designed conforming to the same microarchitecture further differentiate from one another in the Frequency and Cache sizes</div>
+</li>
+</ol>
+
+<p>
+Examples:
+</p>
+<ul>
+<li class="level1"><div class="li"> x86 is one distinct ISA and the i386SX was one distinct microarchitecture, and the i486DX2 another one, and the Cyrix </div>
+</li>
+<li class="level1"><div class="li"> ARMv5 is one distinct ISA and the ARM926EJ-S is one distinct microarchitecture based upon it</div>
+</li>
+<li class="level1"><div class="li"> MIPS32 is one distinct ISA and the MIPS 24K, 34K or the 74K are all based upon it.</div>
+</li>
+</ul>
+
+<p>
+You could also look at the type of Processor:
+</p>
+<ul>
+<li class="level1"><div class="li"> common processor with <a href="http://en.wikipedia.org/wiki/Arithmetic logic unit" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Arithmetic logic unit">Arithmetic logic unit</a> <a href="http://en.wikipedia.org/wiki/Memory management unit" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Memory management unit">Memory management unit</a> and <a href="http://en.wikipedia.org/wiki/Floating-point unit" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Floating-point unit">Floating-point unit</a>.</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://en.wikipedia.org/wiki/Digital signal processor" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Digital signal processor">Digital signal processor</a></div>
+</li>
+<li class="level1"><div class="li"> what once was a distinct chip <a href="http://en.wikipedia.org/wiki/Graphics processing unit" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Graphics processing unit">Graphics processing unit</a> is now merely an <a href="http://pics.computerbase.de/3/7/8/1/8/1_m.jpg" class="urlextern" title="http://pics.computerbase.de/3/7/8/1/8/1_m.jpg"  rel="nofollow">SIMD Engine Array</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit3" id="semiconductor_companies">Semiconductor companies</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> There are fabless companies who do only CPU design (e.g. <a href="http://en.wikipedia.org/wiki/ARM Holdings" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/ARM Holdings">ARM Holdings</a>, <a href="http://en.wikipedia.org/wiki/Imagination Technologies" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Imagination Technologies">Imagination Technologies</a>, <a href="http://en.wikipedia.org/wiki/Nvidia" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Nvidia">Nvidia</a>,  and <a href="http://en.wikipedia.org/wiki/Advanced Micro Devices" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Advanced Micro Devices">Advanced Micro Devices</a>)</div>
+</li>
+<li class="level1"><div class="li"> and there are companies who own and operate Chip foundries (e.g. <a href="http://en.wikipedia.org/wiki/Taiwan Semiconductor Manufacturing Company" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Taiwan Semiconductor Manufacturing Company">Taiwan Semiconductor Manufacturing Company</a>, <a href="http://en.wikipedia.org/wiki/GlobalFoundries" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/GlobalFoundries">GlobalFoundries</a>, <a href="http://en.wikipedia.org/wiki/Samsung" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Samsung">Samsung</a>, etc.).</div>
+</li>
+<li class="level1"><div class="li"> And then there is the <a href="http://en.wikipedia.org/wiki/Intel Corporation" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Intel Corporation">Intel Corporation</a>, who still does both.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit4" id="cpu_purchase">CPU purchase</h2>
+<div class="level2">
+
+<p>
+When you want to purchase a CPU (or a couple of thousand) you have three choices:
+</p>
+<ul>
+<li class="level1"><div class="li"> buy hardware, a Chip, which is a <a href="http://en.wikipedia.org/wiki/Die (integrated circuit)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Die (integrated circuit)">Die (integrated circuit)</a> on a/bonded to a <a href="http://en.wikipedia.org/wiki/Chip carrier" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Chip carrier">Chip carrier</a></div>
+</li>
+<li class="level1"><div class="li"> buy Hard IP</div>
+</li>
+<li class="level1"><div class="li"> buy Soft IP</div>
+</li>
+</ul>
+
+<p>
+To understand the difference between Hard IP and Soft IP you have to get a grasp of the processes of designing and of manufacturing of IC.
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="explanation">Explanation</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit6" id="the_isa_instruction_set_architecture">The ISA (Instruction set architecture)</h3>
+<div class="level3">
+
+<p>
+Without going into detail you could say, the ISA is the whole of commands (absolute instructions/machine code instruction) the programmer/compiler can see and use. If you program in assembler (or write machine code), you will have to know these instructions. If you program in a higher language, the compiler (or the cross-compiler) will take care of this for you. It will translate your source code into machine code for the ISA (in compiler surroundings abbreviated ARCH for architecture) specified.
+</p>
+
+<p>
+When you cross compile it means that you compile source code for a different ISA, than that of the machine you run the compilation on. For this the compiler needs to know the ISA for your target ARCH (architecture). But go see <a href="../devel/crosscompile" class="wikilink1" title="doc:devel:crosscompile"> cross compile</a> on how to actually get this done. If above short explanation does not help you, you may try the wp article: <a href="http://en.wikipedia.org/wiki/Instruction_set_architecture" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Instruction_set_architecture">Instruction set</a>.
+</p>
+
+<p>
+You cannot patent/license an Instruction Set. Or can you? <img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> But on the way from the theory of an ISA to a physical <a href="http://en.wikipedia.org/wiki/Integrated Circuit" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Integrated Circuit">Integrated Circuit</a> (IC or simply Chip) there are a lot of ways. And once you completed such a way, you do have the copyright for that way. You can now choose to sell or license that Copyright so that others can use your work to obtain ICs.
+</p>
+
+<p>
+You could say, the ISA is <code>merely an idea</code>: <em>let&#039;s create a new ISA. All commands shall be 64bit wide, one should add two registers, the other should …, …, it shall have 256 all purpose registers, … </em> = A set if instructions (and specifications). Now, obviously, before you can obtain circuitry, you need to figure out a way to implement all of this ISA in circuitry.
+</p>
+<ul>
+<li class="level1"><div class="li"> see <a href="http://en.wikipedia.org/wiki/Calling convention" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Calling convention">Calling convention</a></div>
+</li>
+<li class="level1"><div class="li"> see <a href="http://en.wikipedia.org/wiki/Opcode" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Opcode">Opcode</a></div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="examplemips">Example: MIPS</h4>
+<div class="level4">
+
+<p>
+You can find a distinct Wiki for GNU/Linux and the MIPS instruction set here:  <a href="http://www.linux-mips.org/wiki/Main_Page" class="urlextern" title="http://www.linux-mips.org/wiki/Main_Page"  rel="nofollow">http://www.linux-mips.org/wiki/Main_Page</a>.
+</p>
+
+<p>
+MIPS (Microprocessor without Interlocked Pipeline Stages) is a instruction set architecture (ISA) developed by MIPS Computer Systems. Multiple revisions of the MIPS instruction set exist the only current ones being MIPS32 and MIPS64. As there are <em>extensions</em> to the x86 ISA, like MMX, SSE, 3DNow!, etc, there are some available for MIPS as well. MIPS Technologies calls them ASE (Application-specific extensions). Read about them here: <a href="http://www.mips.com/products/architectures/" class="urlextern" title="http://www.mips.com/products/architectures/"  rel="nofollow">http://www.mips.com/products/architectures/</a>.
+</p>
+
+<p>
+<a href="../../lib/exe/fetch.php?tok=03d710&amp;media=http%253A%252F%252Fwww.embeddeddeveloper.com%252Fcores%252Fimages%252FCores_FChart08.jpg" class="media" title="http://www.embeddeddeveloper.com/cores/images/Cores_FChart08.jpg"><img src="../../lib/exe/fetch.php?tok=03d710&amp;media=http%253A%252F%252Fwww.embeddeddeveloper.com%252Fcores%252Fimages%252FCores_FChart08.jpg" class="mediaright" title="cores_fchart08.jpg" alt="cores_fchart08.jpg" /></a>
+</p>
+<div class="table sectionedit7"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign">               </th><th class="col1 centeralign" colspan="11">  MIPS Classic Processors                                                  </th><th class="col12 centeralign" colspan="3">  MIPS Aptiv Processors  </th><th class="col15" colspan="3"> MIPS Warrior </th>
+	</tr>
+	<tr class="row1">
+		<th class="col0 leftalign">               </th><th class="col1"> 4KSd </th><th class="col2"> M4K </th><th class="col3"> M14K </th><th class="col4"> 4KE </th><th class="col5"> M14Kc </th><th class="col6"> 24K </th><th class="col7"> 24KE </th><th class="col8"> 34K </th><th class="col9"> 74K </th><th class="col10"> 1004K </th><th class="col11"> 1074K </th><th class="col12"> microAptiv </th><th class="col13"> interAptiv </th><th class="col14"> proAptiv </th><th class="col15"> Warrior-M </th><th class="col16"> Warrior-I </th><th class="col17"> Warrior-P </th>
+	</tr>
+	</thead>
+	<tr class="row2">
+		<td class="col0 centeralign">  MIPS32         </td><td class="col1 centeralign">  ✔  </td><td class="col2 centeralign">  ✔  </td><td class="col3 centeralign">  ✔  </td><td class="col4 centeralign">  ✔  </td><td class="col5 centeralign">  ✔  </td><td class="col6 centeralign">  ✔  </td><td class="col7 centeralign">  ✔  </td><td class="col8 centeralign">  ✔  </td><td class="col9 centeralign">  ✔  </td><td class="col10 centeralign">  ✔  </td><td class="col11 leftalign">    </td><td class="col12 leftalign">    </td><td class="col13 leftalign">    </td><td class="col14 leftalign">    </td><td class="col15 leftalign">    </td><td class="col16 leftalign">    </td><td class="col17 leftalign">    </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  MIPS64         </td><td class="col1 leftalign">     </td><td class="col2 leftalign">     </td><td class="col3 leftalign">     </td><td class="col4 leftalign">     </td><td class="col5 leftalign">     </td><td class="col6 leftalign">     </td><td class="col7 leftalign">     </td><td class="col8 leftalign">     </td><td class="col9 leftalign">     </td><td class="col10 leftalign">     </td><td class="col11 leftalign">    </td><td class="col12 leftalign">    </td><td class="col13 leftalign">    </td><td class="col14 leftalign">    </td><td class="col15 leftalign">    </td><td class="col16 leftalign">    </td><td class="col17 leftalign">    </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  MIPS16e        </td><td class="col1 centeralign">  O  </td><td class="col2 centeralign">  O  </td><td class="col3 leftalign">     </td><td class="col4 centeralign">  O  </td><td class="col5 leftalign">     </td><td class="col6 centeralign">  ✔  </td><td class="col7 centeralign">  ✔  </td><td class="col8 centeralign">  ✔  </td><td class="col9 centeralign">  ✔  </td><td class="col10 centeralign">  ✔  </td><td class="col11 leftalign">    </td><td class="col12 leftalign">    </td><td class="col13 leftalign">    </td><td class="col14 leftalign">    </td><td class="col15 leftalign">    </td><td class="col16 leftalign">    </td><td class="col17 leftalign">    </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  MIPS DSP ASE   </td><td class="col1 leftalign">     </td><td class="col2 leftalign">     </td><td class="col3 leftalign">     </td><td class="col4 leftalign">     </td><td class="col5 leftalign">     </td><td class="col6 leftalign">     </td><td class="col7 centeralign">  ✔  </td><td class="col8 centeralign">  ✔  </td><td class="col9 centeralign">  ✔  </td><td class="col10 centeralign">  ✔  </td><td class="col11 leftalign">    </td><td class="col12 leftalign">    </td><td class="col13 leftalign">    </td><td class="col14 leftalign">    </td><td class="col15 leftalign">    </td><td class="col16 leftalign">    </td><td class="col17 leftalign">    </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  MIPS MT ASE    </td><td class="col1 leftalign">     </td><td class="col2 leftalign">     </td><td class="col3 leftalign">     </td><td class="col4 leftalign">     </td><td class="col5 leftalign">     </td><td class="col6 leftalign">     </td><td class="col7 leftalign">     </td><td class="col8 centeralign">  ✔  </td><td class="col9 leftalign">     </td><td class="col10 centeralign">  ✔  </td><td class="col11 leftalign">    </td><td class="col12 leftalign">    </td><td class="col13 leftalign">    </td><td class="col14 leftalign">    </td><td class="col15 leftalign">    </td><td class="col16 leftalign">    </td><td class="col17 leftalign">    </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  SmartMIPS ASE  </td><td class="col1 centeralign">  ✔  </td><td class="col2 leftalign">     </td><td class="col3 leftalign">     </td><td class="col4 leftalign">     </td><td class="col5 leftalign">     </td><td class="col6 leftalign">     </td><td class="col7 leftalign">     </td><td class="col8 leftalign">     </td><td class="col9 leftalign">     </td><td class="col10 leftalign">     </td><td class="col11 leftalign">    </td><td class="col12 leftalign">    </td><td class="col13 leftalign">    </td><td class="col14 leftalign">    </td><td class="col15 leftalign">    </td><td class="col16 leftalign">    </td><td class="col17 leftalign">    </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  microMIPS      </td><td class="col1 leftalign">     </td><td class="col2 leftalign">     </td><td class="col3 centeralign">  ✔  </td><td class="col4 leftalign">     </td><td class="col5 centeralign">  ✔  </td><td class="col6 leftalign">     </td><td class="col7 leftalign">     </td><td class="col8 leftalign">     </td><td class="col9 leftalign">     </td><td class="col10 leftalign">     </td><td class="col11 leftalign">    </td><td class="col12 leftalign">    </td><td class="col13 leftalign">    </td><td class="col14 leftalign">    </td><td class="col15 leftalign">    </td><td class="col16 leftalign">    </td><td class="col17 leftalign">    </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  MIPS-3D ASE    </td><td class="col1 leftalign">     </td><td class="col2 leftalign">     </td><td class="col3 leftalign">     </td><td class="col4 leftalign">     </td><td class="col5 leftalign">     </td><td class="col6 leftalign">     </td><td class="col7 leftalign">     </td><td class="col8 leftalign">     </td><td class="col9 leftalign">     </td><td class="col10 leftalign">     </td><td class="col11 leftalign">    </td><td class="col12 leftalign">    </td><td class="col13 leftalign">    </td><td class="col14 leftalign">    </td><td class="col15 leftalign">    </td><td class="col16 leftalign">    </td><td class="col17 leftalign">    </td>
+	</tr>
+</table></div>
+<ul>
+<li class="level1"><div class="li"> <abbr title="As far as I know">AFAIK</abbr> all MIPS classic processors are <a href="http://en.wikipedia.org/wiki/Out-of-order execution" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Out-of-order execution">in-order execution</a> CPUs because the developers claimed, that the silicon surface and power consumption of the OUT-OF-ORDER logic would outweigh the processing power benefit. Instead they experimented with Multi-Threading and such to achieve a similar processing power increase but with less silicon.</div>
+</li>
+<li class="level1"><div class="li"> The newer MIPS Aptiv Processors are reported to be all <a href="http://en.wikipedia.org/wiki/Out-of-order execution" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Out-of-order execution">Out-of-order</a> CPUs.</div>
+</li>
+<li class="level1"><div class="li"> Please do note, that there are a couple of MIPS32 and/or MIPS64 instruction set licensees, e.g. Broadcom, who design their own CPU Architectures based on the MIPS Instruction sets. Cf. <a href="soc.1#companies" class="wikilink1" title="doc:hardware:soc">companies</a> for some overview.</div>
+</li>
+<li class="level1"><div class="li">Dunno about Linux support for this stuff here: <a href="http://www.imgtec.com/ensigma/ensigma-technology.asp" class="urlextern" title="http://www.imgtec.com/ensigma/ensigma-technology.asp"  rel="nofollow">http://www.imgtec.com/ensigma/ensigma-technology.asp</a></div>
+</li>
+</ul>
+
+<p>
+To understand the concrete differences between the different CPU designs, you will have to go <a href="http://www.mips.com/products/cores/" class="urlextern" title="http://www.mips.com/products/cores/"  rel="nofollow">http://www.mips.com/products/cores/</a>. This should only give you an overview to get a better grasp of the embedded world. And please understand, that <em>24KE</em> is not necessarily a CPU you can buy, or even a CPU contained on the SoC. It the a plan to manufacture the IC of a CPU! A contractor can realize this 1:1 into IC but does not have to.
+</p>
+
+<p>
+To understand a bit better, how this is embedded on the SoC, see <a href="http://www.mips.com/products/platforms/" class="urlextern" title="http://www.mips.com/products/platforms/"  rel="nofollow">http://www.mips.com/products/platforms/</a>.
+</p>
+
+</div>
+
+<h4 id="examplearm">Example: ARM</h4>
+<div class="level4">
+
+<p>
+The abbreviation stands for Advanced RISC Machine aka Acorn RISC Machine. ARM Holdings.
+</p>
+
+<p>
+For some reasons, the companies does not want to compete with each other, so on the router/wifi market MIPS cores are predominant. On the smart phone market it is the other way around, and we have ARM exclusively. However there is at least one neat device on which OpenWrt is running, so we will include this:
+</p>
+<div class="table sectionedit8"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 rightalign">  ISA </th><th class="col1 centeralign">  ISA+Extensions  </th><th class="col2 centeralign">  CPU  </th><th class="col3 centeralign">  Features  </th><th class="col4 centeralign">  Cache (I/D), MMU  </th><th class="col5 centeralign">  Devices  </th><th class="col6 centeralign">  Products  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">ARMv5</td><td class="col1">ARMv5 TEJ </td><td class="col2"> ARM926EJ-S </td><td class="col3"> Thumb, Jazelle DBX, Enhanced DSP instructions </td><td class="col4"> variable, TCMs, MMU</td><td class="col5"> Texas Instruments OMAP1710, OMAP1610, OMAP1611, OMAP1612, OMAP-L137, OMAP-L138; Qualcomm MSM6100, MSM6125, MSM6225, MSM6245, MSM6250, MSM6255A, MSM6260, MSM6275, MSM6280, MSM6300, MSM6500, MSM6800; Freescale i.MX21, i.MX27, Atmel AT91SAM9, NXP Semiconductors, Samsung S3C2412 LPC30xx, NEC C10046F5-211-PN2-A SoC – undocumented core in the ATi Hollywood graphics chip used in the Wii,[25] Telechips TCC7801, TCC7901, ZiiLABS ZMS-05, Rockchip RK2806 and RK2808, NeoMagic MiMagic Family MM6, MM6+, MM8, MTV. </td><td class="col6"> Mobile phones: Sony Ericsson (K, W series); Siemens and Benq (x65 series and newer); LG Arena; , GPH Wiz, Squeezebox Duet Controller (Samsung S3C2412). Squeezebox Radio; Buffalo TeraStation Live (NAS); Drobo FS (NAS); Western Digital MyBook I World Edition; Western Digital MyBook II World Edition; Seagate FreeAgent DockStar STDSD10G-RK; Seagate FreeAgent GoFlex Home; Chumby Classic </td>
+	</tr>
+</table></div>
+
+<p>
+To understand the concrete differences between the different versions, you will have to go somewhere else. This should only give you an overview to get a better grasp of the embedded world. And please understand, that <em>ARM926EJ-S</em> is not necessarily a CPU you can buy, or even a CPU contained on the SoC. It is only the model of a CPU! A contractor can realize this 1:1 into IC but does not have to. For example the manufacturer Marvell make the <em>Marvell Feroceon CPU</em>, which is based on the Design of the <em>ARM926EJ-S</em> (sometimes it includes CESA). <em>Marvell Kirkwood</em> is the denomination of a family of SoCs, not of a CPU design.
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://www.arm.com/markets/enterprise/home-networking.php" class="urlextern" title="http://www.arm.com/markets/enterprise/home-networking.php"  rel="nofollow">http://www.arm.com/markets/enterprise/home-networking.php</a> about SoC</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://en.wikipedia.org/wiki/Template:ARM-based_chips" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Template:ARM-based_chips">CPUs based on ARM Instruction set</a></div>
+</li>
+</ul>
+
+<p>
+On <a href="http://hackipedia.org/Hardware/CPU/" class="urlextern" title="http://hackipedia.org/Hardware/CPU/"  rel="nofollow">http://hackipedia.org/Hardware/CPU/</a>, for example, there are some txt-documents about the ARM-architecture.
+</p>
+
+</div>
+
+<h4 id="exampleother">Example: Other</h4>
+<div class="level4">
+
+<p>
+<a href="http://en.wikipedia.org/wiki/x86" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/x86">x86</a>, <a href="http://en.wikipedia.org/wiki/Ubicom32" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Ubicom32">Ubicom32</a>, <a href="http://en.wikipedia.org/wiki/DEC Alpha" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/DEC Alpha">DEC Alpha</a>, <a href="http://en.wikipedia.org/wiki/PowerPC" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/PowerPC">PowerPC</a>, <a href="http://en.wikipedia.org/wiki/Intel Itanium architecture" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Intel Itanium architecture">Intel Itanium architecture</a>, <a href="http://en.wikipedia.org/wiki/SuperH" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/SuperH">SuperH</a>, etc.
+</p>
+
+</div>
+
+<h4 id="extensions">Extensions</h4>
+<div class="level4">
+
+<p>
+Code compiled for ARM should run on any ARM-ISA, but code speficifally compiled for ARMv7 will not run smoothly or not at all on an ARMv5 ISA. So, it is imperative to keep the ISA stable for many years, thus there are only few or no updates at all! To still be able to develop and advance the ISA, and thus give the programmer (or the compiler) more options to do theirs stuff, manufactures (or better developers) extend ISAs with so called extensions. See <a href="http://en.wikipedia.org/wiki/Template:Multimedia_extensions" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Template:Multimedia_extensions">Template:Multimedia_extensions</a>.
+</p>
+
+<p>
+<strong>NOTE:</strong> In the <abbr title="Free &amp; Open-Source Software">FOSS</abbr>-&quot;World&quot;, this isn&#039;t such a big issue, since we have the Source-Code and with an updated compiler we can recompile the code as we like and obtain binaries that work an any architecture. And actually we do exactly that at OpenWrt. When you choose the option <a href="../howto/obtain.firmware.compile" class="wikilink1" title="doc:howto:build">build</a> you do download the very latest source code for the cross compiler and cross compile the source code with that!
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="the_microarchitecture">The Microarchitecture</h3>
+<div class="level3">
+
+<p>
+While the ISA is only the set of commands available, to use it, you need to create a CPU based on one. While an abstraction of the ISA is build in silicon, the CPU needs more functional units to be able to work and also to perform as well as possible. The denomination for this is not clear-cut, everyone names differently. Instead of <em>microarchitecture</em>, sometimes this is referred to as <em>&quot;processor organization&quot;</em> or <em>&quot;processor design&quot;</em> or <em>&quot;processor implementation&quot;</em>. It deals with the organization of the different functional units of the CPU. For the same ISA, you could develop a whole lot of microarchitectures. A hopefully good example is the intel i486 and the intel Pentium Pro (it&#039;s the immediate predecessor the Pentium II, whereas the Pentium is not). Both CPU have (almost) the same ISA, but very different MAs.
+</p>
+<ul>
+<li class="level1"><div class="li"> CPU components (functional units): <a href="http://en.wikipedia.org/wiki/microcode" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/microcode">Microcode</a> <a href="http://en.wikipedia.org/wiki/Arithmetic logic unit" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Arithmetic logic unit">Arithmetic logic unit (ALU)</a> <a href="http://en.wikipedia.org/wiki/Address generation unit" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Address generation unit">Address generation unit (AGU)</a> <a href="http://en.wikipedia.org/wiki/Barrel shifter" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Barrel shifter">Barrel shifter</a> <a href="http://en.wikipedia.org/wiki/Floating-point unit" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Floating-point unit">Floating-point unit (FPU)</a> <a href="http://en.wikipedia.org/wiki/Back-side bus" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Back-side bus">Back-side bus</a> <a href="http://en.wikipedia.org/wiki/Multiplexer" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Multiplexer">Multiplexer</a> <a href="http://en.wikipedia.org/wiki/Demultiplexer" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Demultiplexer">Demultiplexer</a> <a href="http://en.wikipedia.org/wiki/Processor register" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Processor register">Registers</a> <a href="http://en.wikipedia.org/wiki/Memory management unit" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Memory management unit">Memory management unit (MMU)</a> <a href="http://en.wikipedia.org/wiki/Translation lookaside buffer" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Translation lookaside buffer">Translation lookaside buffer (TLB)</a> <a href="http://en.wikipedia.org/wiki/CPU cache" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/CPU cache">Cache</a> <a href="http://en.wikipedia.org/wiki/register file" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/register file">Register file</a><a href="http://en.wikipedia.org/wiki/control unit" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/control unit">Control unit</a> <a href="http://en.wikipedia.org/wiki/clock rate" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/clock rate">Clock rate</a></div>
+</li>
+<li class="level1"><div class="li"> see <a href="http://en.wikipedia.org/wiki/CPU design" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/CPU design">CPU design</a> to learn about the tasks CPU design focuses on</div>
+</li>
+<li class="level1"><div class="li"> see <a href="http://en.wikipedia.org/wiki/Microarchitecture" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Microarchitecture">Microarchitecture</a> to learn about some micro-architectural concepts with the help of some schematic examples from the x86 </div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit10" id="ip_core">IP core</h2>
+<div class="level2">
+
+<p>
+IP core means &quot;Intellectual Property Core&quot;. It a piece of software that can be licensed from companies such as MIPS or ARM. It&#039;s a chip layout design and consists of of schematics and descriptions to manufacture ICs with the functionality of a CPU. With this, the licensee can go to an semiconductor foundry and commission the manufacturing of Chips with the functionality of merely the CPU purchased. But usually, the designs of the CPU are combined with the designs of other ICs serving other tasks. Then the licensee commissions the manufacture of Chips, which do have the functionality of a complete <a href="soc.1" class="wikilink1" title="doc:hardware:soc">SoC</a>, and not merely that of a CPU.
+</p>
+
+<p>
+Often different types can be licensed, a <em>soft IP core</em> or <em>hard IP core</em>. To understand the difference between them you need to understand even more of the chip design process. Maybe the article <a href="ic" class="wikilink1" title="doc:hardware:ic">ic</a> helps a little with that.
+</p>
+
+<p>
+Also, exceptionally there a good article about this in the wikipedia: <a href="http://en.wikipedia.org/wiki/Semiconductor_intellectual_property_core" class="urlextern" title="http://en.wikipedia.org/wiki/Semiconductor_intellectual_property_core"  rel="nofollow">IP core</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit11" id="the_soc">The SoC</h2>
+<div class="level2">
+
+<p>
+→ <a href="soc.1" class="wikilink1" title="doc:hardware:soc">SoC</a> What do licensees include in a SoC?
+</p>
+
+</div>
+
+<h2 class="sectionedit12" id="the_device">The Device</h2>
+<div class="level2">
+
+<p>
+→ <a href="../../toh/start" class="wikilink1" title="toh:start">toh</a>
+</p>
+
+<p>
+A Manufacturer of &quot;devices&quot;/routers/access points buys SoCs, RAM-Chips, Flash-Chips, etc. from the manufacturers of these and solder them onto a circuit board. Then they put the whole thing into a body housing, write 
+</p>
+
+<p>
+documentation for the end customer and sell them whole sale.
+</p>
+
+<p>
+For a List of Devices and Manufacturers, simply have look at the <a href="../../toh/start" class="wikilink1" title="toh:start">Table of Hardware</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit13" id="manufacturing">Manufacturing</h2>
+<div class="level2">
+
+<p>
+→ <a href="ic" class="wikilink1" title="doc:hardware:ic">Integrated Circuit</a> whether <a href="http://en.wikipedia.org/wiki/Central processing unit" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Central processing unit">CPU</a>, <a href="http://en.wikipedia.org/wiki/Graphics processing unit" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Graphics processing unit">GPU</a>, <a href="http://en.wikipedia.org/wiki/Dynamic random-access memory" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Dynamic random-access memory">DRAM</a>, <a href="http://en.wikipedia.org/wiki/Static random-access memory" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Static random-access memory">SRAM</a>, <a href="http://en.wikipedia.org/wiki/Digital signal processor" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Digital signal processor">DPS</a>, <a href="http://en.wikipedia.org/wiki/Floating-point unit" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Floating-point unit">FPU</a> etc. all are realized as ICs.
+</p>
+
+</div>
+
+<h3 class="sectionedit14" id="wikipedia_articles">Wikipedia Articles</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <a href="http://en.wikipedia.org/wiki/Integrated_circuit#Manufacturing" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Integrated_circuit#Manufacturing">Integrated_circuit#Manufacturing</a> ← mediocre article</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://en.wikipedia.org/wiki/Semiconductor device fabrication" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Semiconductor device fabrication">Semiconductor device fabrication</a> ← miserable article, please replace with something better</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> <a href="http://en.wikipedia.org/wiki/Application binary interface" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Application binary interface">Application binary interface</a></div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/hardware/cpu.txt</bdi> · Last modified: 2014/05/14 08:57 by <bdi>lorema</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="cpu?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="cpu?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="cpu?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="cpu#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahardware%253Acpu&amp;1432265504" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Quality of Service (qos-scripts) configuration [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="qos"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="qos?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:uci"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/uci/qos"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/uci/qos"/>
+<link rel="canonical" href="qos"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:uci';var JSINFO = {"id":"doc:uci:qos","namespace":"doc:uci"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266642 166.182.3.153';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="qos#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="qos?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="qos?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:uci:qos" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="qos?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="qos?do=media&amp;ns=doc%253Auci"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="qos?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../uci.1" class="wikilink1" title="doc:uci">The UCI System</a></bdi> » <bdi><span class="curid"><a href="qos" class="wikilink1" title="doc:uci:qos">Quality of Service (qos-scripts) configuration</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/uci/qos" class="media" title="cz:doc:uci:qos"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/uci/qos" class="media" title="de:doc:uci:qos"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="qos" class="media" title="doc:uci:qos"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/uci/qos" class="media" title="es:doc:uci:qos"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/uci/qos" class="media" title="fr:doc:uci:qos"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/uci/qos" class="media" title="hu:doc:uci:qos"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/uci/qos" class="media" title="jp:doc:uci:qos"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/uci/qos" class="media" title="pl:doc:uci:qos"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/uci/qos" class="media" title="pt-br:doc:uci:qos"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/uci/qos" class="media" title="ru:doc:uci:qos"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/uci/qos" class="media" title="tr:doc:uci:qos"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/uci/qos" class="media" title="zh-cn:doc:uci:qos"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/uci/qos" class="media" title="zh-tw:doc:uci:qos"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:uci:qos</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="qos#sections">Sections</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="qos#interface">Interface</a></div></li>
+<li class="level2"><div class="li"><a href="qos#rules">Rules</a></div></li>
+<li class="level2"><div class="li"><a href="qos#classgroup">Classgroup</a></div></li>
+<li class="level2"><div class="li"><a href="qos#classes">Classes</a></div></li>
+<li class="level2"><div class="li"><a href="qos#classes_for_advanced_users">Classes (For Advanced Users)</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="qos#quick_start_guide">Quick start guide</a></div></li>
+<li class="level1"><div class="li"><a href="qos#troubleshooting">Troubleshooting</a></div></li>
+<li class="level1"><div class="li"><a href="qos#txqueuelen">txqueuelen</a></div></li>
+<li class="level1"><div class="li"><a href="qos#types_and_groups">Types and Groups</a></div></li>
+<li class="level1"><div class="li"><a href="qos#tags">Tags</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="quality_of_service_qos-scripts_configuration">Quality of Service (qos-scripts) configuration</h1>
+<div class="level1">
+
+<p>
+This is the documentation for the UCI configuration file <code>/etc/config/qos</code>. It is used by the package <code>qos-scripts</code> only.
+</p>
+<div class="table sectionedit2"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/48px-emblem-important.svg.png" class="media" alt="" /> </td><td class="col1"> Do NOT install multiple QoS-packages simultaneously! Uninstall the old package before installing a new one. <br/>
+There are at least two other QoS/ToS packages in the OpenWrt repositories regarding: <code><a href="https://dev.openwrt.org/browser/packages/net/dsl-qos-queue" class="urlextern" title="https://dev.openwrt.org/browser/packages/net/dsl-qos-queue"  rel="nofollow">dsl-qos-queue</a></code> and <code><a href="https://dev.openwrt.org/browser/packages/net/wshaper" class="urlextern" title="https://dev.openwrt.org/browser/packages/net/wshaper"  rel="nofollow">wshaper</a></code>. They do NOT use this file.<br/>
+<br/>
+<code>qos-scripts</code> is written in AWK/shell script and uses <a href="../howto/packet.scheduler/sch_hfsc" class="wikilink1" title="doc:howto:packet.scheduler:sch_hfsc">sch_hfsc</a> and <a href="../howto/packet.scheduler/sch_fq_codel" class="wikilink1" title="doc:howto:packet.scheduler:sch_fq_codel">sch_fq_codel</a><br/>
+<code>dsl-qos-queue</code> does factor in the <a href="http://en.wikipedia.org/wiki/Asynchronous Transfer Mode" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Asynchronous Transfer Mode">ATM (Asynchronous Transfer Mode)</a> overhead, which can be significant. Removed in <a href="https://dev.openwrt.org/changeset/37494" class="urlextern" title="https://dev.openwrt.org/changeset/37494"  rel="nofollow">r37494</a><br/>
+<code>wshaper</code> is and uses <a href="../howto/packet.scheduler/sch_sfq" class="wikilink1" title="doc:howto:packet.scheduler:sch_sfq">sch_sfq</a> <a href="../howto/packet.scheduler/sch_htb" class="wikilink1" title="doc:howto:packet.scheduler:sch_htb">sch_htb</a> <a href="http://wiki.openwrt.org/doc/howto/packet.scheduler/act_police" class="wikilink2" title="doc:howto:packet.scheduler:act_police" rel="nofollow">act_police</a>; <a href="http://lartc.org/wondershaper/" class="urlextern" title="http://lartc.org/wondershaper/"  rel="nofollow">http://lartc.org/wondershaper/</a>  <br/>
+<br/>
+For help writing your own script please see <a href="../howto/traffic.shaping" class="wikilink1" title="doc:howto:packet.scheduler:packet.scheduler">Traffic Control on OpenWrt: configuring the Linux Network Scheduler</a>. </td>
+	</tr>
+</table></div>
+<div class="table sectionedit3"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/dialog-information.png" class="media" alt="" /> </td><td class="col1"> You can browse the scripts here: <code><a href="https://dev.openwrt.org/browser/trunk/package/network/config/qos-scripts" class="urlextern" title="https://dev.openwrt.org/browser/trunk/package/network/config/qos-scripts"  rel="nofollow">qos-scripts</a></code><br/>
+There is direct LuCI-support for <code>qos-scripts</code> called: <code>luci-app-qos</code>.<br/>
+NOTE: <code>luci-app-qos</code> won&#039;t start until you enable the <code>qos</code> Initscript within the System–&gt;Startup tab as well as enable qos under Network–&gt;QoS </td>
+	</tr>
+</table></div>
+<div class="table sectionedit4"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/48px-outdated.svg.png" class="media" alt="" /> </td><td class="col1 leftalign"> As of <a href="https://dev.openwrt.org/changeset/25641/trunk" class="urlextern" title="https://dev.openwrt.org/changeset/25641/trunk"  rel="nofollow">r25641</a> <code>qos-scripts</code> dropped the use of IMQ (package <code>iptables-mod-imq</code> – Intermediate Queueing Device). Its successor is <a href="http://www.linuxfoundation.org/collaborate/workgroups/networking/ifb" class="urlextern" title="http://www.linuxfoundation.org/collaborate/workgroups/networking/ifb"  rel="nofollow">IFB (Intermediate Functional Block device)</a>, (requires package: <code>kmod-ifb</code> and the scheduler action <em><a href="https://dev.openwrt.org/browser/trunk/package/iproute2/patches/200-act_connmark.patch?rev=25639" class="urlextern" title="https://dev.openwrt.org/browser/trunk/package/iproute2/patches/200-act_connmark.patch?rev=25639"  rel="nofollow">act_connmark</a></em> included).  </td>
+	</tr>
+</table></div>
+<div class="table sectionedit5"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/48px-outdated.svg.png" class="media" alt="" /> </td><td class="col1 leftalign"> As of <a href="https://dev.openwrt.org/changeset/31759" class="urlextern" title="https://dev.openwrt.org/changeset/31759"  rel="nofollow">r31759</a> <code>qos-scripts</code> replaced sfq/red with fq_codel to massively improve latency under load  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit6" id="sections">Sections</h2>
+<div class="level2">
+
+<p>
+A minimal QoS configuration usually consists of:
+</p>
+<ul>
+<li class="level1"><div class="li"> one <em>interface</em> section</div>
+</li>
+<li class="level1"><div class="li"> some <em>rules</em> allocating packets to at least two buckets</div>
+</li>
+<li class="level1"><div class="li"> <em>configuration</em> of the buckets.</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit7" id="interface">Interface</h3>
+<div class="level3">
+
+<p>
+Each Interface can have its own buffer. The <code>interface</code> section declares global characteristics of the connection on which the specified interface is communicating. The following options are defined within this section:
+</p>
+
+<p>
+<pre class="code">config interface dsl
+        option enabled      1
+        option classgroup  &quot;Default&quot;
+        option overhead     1
+        option upload       512
+        option download     4096</pre>
+
+</p>
+<div class="table sectionedit8"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>enabled</code> </td><td class="col1"> boolean </td><td class="col2"> yes </td><td class="col3"> <code>1</code> </td><td class="col4"> Enable/Disable QoS </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>classgroup</code> </td><td class="col1"> string </td><td class="col2"> yes? </td><td class="col3"> <em>(none)</em> </td><td class="col4"> no idea <img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>overhead</code> </td><td class="col1"> boolean </td><td class="col2"> yes </td><td class="col3"> <code>1</code> </td><td class="col4"> decrease upload and download ratio to prevent link saturation </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>download</code> </td><td class="col1"> integer </td><td class="col2"> yes </td><td class="col3"> <code>4096</code> </td><td class="col4"> in <code>kilobits/second</code> (only possible for tcp) </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>upload</code> </td><td class="col1"> integer </td><td class="col2"> yes </td><td class="col3"> <code>512</code> </td><td class="col4"> in <code>kilobits/second</code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit9" id="rules">Rules</h3>
+<div class="level3">
+
+<p>
+Each <code>classify</code> section defines one group of packets and which target (i.e. bucket) this group belongs to. All the packets share the bucket specified.
+</p>
+<div class="table sectionedit10"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>target</code> </td><td class="col1"> bucket </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> The four defaults are: <code>Priority, Express, Normal</code> and <code>Bulk</code> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>proto</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Packets matching this protocol belong to the bucket defined in target </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>srchost</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Packets matching this source host(s) (single IP or in CIDR notation) belong to the bucket defined in target </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>dsthost</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Packets matching this destination host(s) (single IP or in CIDR notation) belong to the bucket defined in target </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>ports</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Packets matching this, belong to the bucket defined in target </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>srcports</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Packets matching this, belong to the bucket defined in target </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <code>dstports</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Packets matching this, belong to the bucket defined in target </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <code>portrange</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Packets matching this, belong to the bucket defined in target </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <code>pktsize</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Packets matching this, belong to the bucket defined in target </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> <code>tcpflags</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Packets matching this, belong to the bucket defined in target </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> <code>mark</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Packets matching this, belong to the bucket defined in target </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0"> <code>layer7</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Packets matching this, belong to the bucket defined in target </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0"> <code>connbytes</code> </td><td class="col1"> int </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Packets matching this, belong to the bucket defined in target </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0"> <code>tos</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Packets matching this, belong to the bucket defined in target </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0"> <code>dscp</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Packets matching this, belong to the bucket defined in target </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0"> <code>direction</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Packets matching this traffic direction (<code>in</code> or <code>out</code>) belong to the bucket defined in target </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit11" id="classgroup">Classgroup</h3>
+<div class="level3">
+
+<p>
+As we can have more then one interface, we can have more then one classgroup.
+</p>
+<div class="table sectionedit12"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>classes</code> </td><td class="col1"> bucket names </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Specifies the number of <em>buckets</em> and their names </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>default</code> </td><td class="col1"> bucket name </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Defines which <em>bucket</em> is considered default </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit13" id="classes">Classes</h3>
+<div class="level3">
+
+<p>
+Each Bucket has its own configuration.
+</p>
+<div class="table sectionedit14"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>packetsize</code> </td><td class="col1"> integer </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> in bytes </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>packetdelay</code> </td><td class="col1"> integer </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> in ms </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>maxsize</code> </td><td class="col1"> integer </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> in bytes </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>avgrate</code> </td><td class="col1"> integer </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> unknown, value in % </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>limitrate</code> </td><td class="col1"> integer </td><td class="col2 leftalign"> no  </td><td class="col3"> 100 </td><td class="col4"> Defines to how much percent of the available bandwidth this class is capped to, value in % </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>maxsize</code> </td><td class="col1"> integer </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> in bytes </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <code>priority</code> </td><td class="col1"> integer </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> in % </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit15" id="classes_for_advanced_users">Classes (For Advanced Users)</h3>
+<div class="level3">
+
+<p>
+Below is unverified technical breakdown of each /etc/config/qos claass parameters. Source: <a href="http://pastebin.com/YL55na2E" class="urlextern" title="http://pastebin.com/YL55na2E"  rel="nofollow">http://pastebin.com/YL55na2E</a>
+<pre class="code">### Params:
+#
+# maxsize:
+#       limits packet size in iptables rule
+#
+# avgrate: (note: sum(avgrates) ~ 100)
+#       rt m1 = avgrate / sum (avgrate) * max_bandwidth
+#       rt m2 = avgrate * max_bandwidth / 100
+#       ls m1 = rt m1
+#
+# packetsize &amp; packetdelay: (only works if avgrate is present)
+#       rt d = max( packetdelay, &#039;time required for packetsize to transfer&#039; ) (smaller ps -&gt; smaller d)
+#       ls d = rt d
+#
+# priority:
+#       ls m2 = priority / sum (priority) * max_bandwidth
+#
+# limitrate:
+#       ul rate = limitrate * max_bandwidth / 100</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit16" id="quick_start_guide">Quick start guide</h2>
+<div class="level2">
+
+<p>
+1. Install the qos-scripts package:
+</p>
+
+<p>
+<pre class="code">opkg install qos-scripts</pre>
+
+</p>
+
+<p>
+2. Basic configuration using UCI command line:
+</p>
+
+<p>
+<pre class="code">uci set qos.wan.upload=1000            # Upload speed in kBits/s
+uci set qos.wan.download=16000         # Download speed in kBits/s
+uci set qos.wan.enabled=1
+uci commit qos</pre>
+
+</p>
+
+<p>
+3. Start it and look for error output and test):
+</p>
+
+<p>
+<pre class="code">/etc/init.d/qos start</pre>
+
+</p>
+
+<p>
+4. Make script run at every boot up:
+</p>
+
+<p>
+<pre class="code">/etc/init.d/qos enable</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit17" id="troubleshooting">Troubleshooting</h2>
+<div class="level2">
+
+<p>
+(Last updated for: Barrier Breaker 14.07)
+</p>
+
+<p>
+If your QoS doesn&#039;t seem to be working, it may be an error or typo in the config file is preventing it from loading properly.
+</p>
+<ul>
+<li class="level1"><div class="li"> Check <em>enabled</em> is set to 1 in <em>/etc/config/qos</em>(!)</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Run <em>iptables-save</em> and check there are lines near the top prefixed with either <em>-A qos_Default</em> or <em>-A qos_Default_ct</em>, and featuring the <em>–set-xmark</em> directive. Here&#039;s an example:</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">-A qos_Default -p tcp -m mark --mark 0x0/0xf0 -m tcp --sport 1024:65535 --dport 1024:65535 -j MARK --set-xmark 0x44/0xff</pre>
+
+The <em>–set-xmark</em> is what flags the packet so it is picked up the traffic control subsystem.
+</p>
+<ul>
+<li class="level1"><div class="li"> Look at the generated traffic control qdisc settings by running:</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">tc qdisc</pre>
+
+</p>
+
+<p>
+The default (ie no-QoS-applied) values for any interface look like this:
+</p>
+
+<p>
+<pre class="code">qdisc fq_codel 0: dev eth0 root refcnt 2 limit 1024p flows 1024 quantum 300 target 5.0ms interval 100.0ms ecn</pre>
+
+</p>
+
+<p>
+… Any interface with only a single qdisc line printed, showing the same settings as this line (this one is for <em>dev eth0</em>), indicates no QoS on that interface.
+</p>
+
+<p>
+Network interfaces with QoS enabled will have multiple qdisc lines printed, each corresponding to a QoS class, etc.
+</p>
+<ul>
+<li class="level1"><div class="li"> If the printed qdisc settings don&#039;t seem to be correct, you can preview the <em>tc</em> commands generated from the OpenWRT <em>/etc/config/qos</em> by running:</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">/usr/lib/qos/generate.sh interface wan</pre>
+
+</p>
+
+<p>
+(Replace &#039;wan&#039; with the OpenWRT interface name you&#039;re debugging, as given in the <em>/etc/config/qos</em> file.)
+</p>
+
+<p>
+This should print a series of <em>insmod</em> and <em>tc</em> commands used to set up the QoS subsystem. You can debug any errors caused by running these commands by running:
+</p>
+
+<p>
+<pre class="code">/usr/lib/qos/generate.sh interface wan | sh -x</pre>
+
+</p>
+
+<p>
+(Note <em>-x</em> option which tells <em>sh</em> to print each line as it is executed.)
+</p>
+
+<p>
+The output of <em>/usr/lib/qos/generate.sh</em> is normally executed automatically as part of <em>/etc/hotplug.d/iface/10-qos</em>.
+</p>
+
+</div>
+
+<h2 class="sectionedit18" id="txqueuelen">txqueuelen</h2>
+<div class="level2">
+
+<p>
+<em>Recent versions of trunk uses <a href="http://www.bufferbloat.net/projects/codel/wiki" class="urlextern" title="http://www.bufferbloat.net/projects/codel/wiki"  rel="nofollow">CoDel</a> (pronounced: Coddle), so this should not be needed. <a href="http://www.bufferbloat.net/projects/bloat/wiki/Linux_Tips#Reduce-transmit-queue-length" class="urlextern" title="http://www.bufferbloat.net/projects/bloat/wiki/Linux_Tips#Reduce-transmit-queue-length"  rel="nofollow">bufferbloat.net</a></em>
+</p>
+
+<p>
+( Note: after i know about bufferbloat - websearchd and many misguided users are asking about <em>raising</em> txqueuelen, or how to set it, and this was a recommended read posted for them -, and that just enabling QoS and setting up the rules i wanted didnt produce results, i thought of reduce txqueuelen from the default size of 1000 packets. On most SOHO applications the upload speed is much-much lower than the interface speed (100M or 1G), and it&#039;s written that the def buffer is tailored for enterprise size usage. I used values of 90 where[only] it was 1000 and it is wonderfully responsive and effective now, on a 256k connection. I also raised lenghts of 3 and 5 to 20 as i imagined it might be hard to do any queuing/shaping on such ultra short buffers. Leave the 0-s as 0. Btw, the 90 came by, that with 1500byte packet size and 256kbit speed, it takes just half a sec to empty it. Well, i mistakenly took mtu as bits so it&#039;s 4 second really but i didnt have the courage for a drastically smaller than default value, 90 already seem so smallish, and it works nicely anyway, awesome lack of latency, jitter and packetloss on the other machine, according to <a href="http://pingtest.net" class="urlextern" title="http://pingtest.net"  rel="nofollow">http://pingtest.net</a>, before of this there was no difference between mine and that. Note that this time doesnt correspond to ping values. The point is to allow built-in TCP congestion control <em>to work</em> to reduce &quot;spamming&quot;, set speeds as it was envisioned, and keep things leveled out rather than fluctuating widely. While this doesnt directly effects QoS-ing itself, it is extremely beneficial, even essential, to the results usually expected from employing it. It sets a foundation, a healthy network environment over which QoS to function.
+</p>
+
+<p>
+First we list the stuff with
+<pre class="code">ifconfig</pre>
+.
+Then apply for example
+<pre class="code">ifconfig eth0 txqueuelen 90</pre>
+ and
+<pre class="code">ifconfig pppoe-wan txqueuelen 20</pre>
+ etc accordingly. Finally an
+<pre class="code">uci commit
+/etc/init.d/network reload</pre>
+ might be needed, i did a network restart too after this.)
+</p>
+
+</div>
+
+<h2 class="sectionedit19" id="types_and_groups">Types and Groups</h2>
+<div class="level2">
+
+<p>
+The <code>qos-scripts</code> package didn&#039;t come with documentation and there has been some confusion about its features, among users. The information in this section comes straight from nbd (the developer), so it should come a long way to clearing some confusion on two major issues.
+</p>
+
+<p>
+The biggest item of contention was which group setting gives better performance, <strong>Priority</strong> or <strong>Express</strong>. As it turns out, it depends on the application. <strong>Priority</strong> boosts low-bandwidth small frames, such as TCP-ACKs and <abbr title="Domain Name System">DNS</abbr> more than Express. <strong>Express</strong> is for prioritizing bigger frames, which would include stuff like VoIP (port 5060).
+</p>
+
+<p>
+Another biggie was the exact meaning of each type. Types are necessary for connection tracking. By default, <strong>Classify</strong> is not run on a connection that had already been assigned a traffic class, so it is the initial connection-tracked classification. <strong>Reclassify</strong> can override the traffic class per packet, without altering the connection tracking mark. <strong>Default</strong> is a fall-back for everything that has not been marked by Classify/Reclassify. Rules get processed by type first (Classify gets processed first, then Reclassify and finally Default) and then based on the order in the configuration file (top to bottom).
+</p>
+
+</div>
+
+<h2 class="sectionedit20" id="tags">Tags</h2>
+<div class="level2">
+<div class="tags"><span>
+	<a href="../../tag/qos?do=showtag&amp;tag=QoS" class="wikilink1" title="tag:qos" rel="tag">QoS</a>
+</span></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/uci/qos.txt</bdi> · Last modified: 2014/10/07 04:11 by <bdi>projectgus</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="qos?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="qos?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="qos?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="qos#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Auci%253Aqos&amp;1432266642" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>MiniDLNA [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,uci,minidlna"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="minidlna?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:uci"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/uci/minidlna"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/uci/minidlna"/>
+<link rel="canonical" href="minidlna"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:uci';var JSINFO = {"id":"doc:uci:minidlna","namespace":"doc:uci"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267232 166.182.3.150';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="minidlna#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="minidlna?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="minidlna?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:uci:minidlna" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="minidlna?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="minidlna?do=media&amp;ns=doc%253Auci"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="minidlna?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../uci.1" class="wikilink1" title="doc:uci">The UCI System</a></bdi> » <bdi><span class="curid"><a href="minidlna" class="wikilink1" title="doc:uci:minidlna">MiniDLNA</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/uci/minidlna" class="media" title="cz:doc:uci:minidlna"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/uci/minidlna" class="media" title="de:doc:uci:minidlna"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="minidlna" class="media" title="doc:uci:minidlna"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/uci/minidlna" class="media" title="es:doc:uci:minidlna"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/uci/minidlna" class="media" title="fr:doc:uci:minidlna"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/uci/minidlna" class="media" title="hu:doc:uci:minidlna"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/uci/minidlna" class="media" title="jp:doc:uci:minidlna"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/uci/minidlna" class="media" title="pl:doc:uci:minidlna"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/uci/minidlna" class="media" title="pt-br:doc:uci:minidlna"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/uci/minidlna" class="media" title="ru:doc:uci:minidlna"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/uci/minidlna" class="media" title="tr:doc:uci:minidlna"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/uci/minidlna" class="media" title="zh-cn:doc:uci:minidlna"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/uci/minidlna" class="media" title="zh-tw:doc:uci:minidlna"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:uci:minidlna</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level2"><div class="li"><a href="minidlna#installation">Installation</a></div></li>
+<li class="level2"><div class="li"><a href="minidlna#configuration">Configuration</a></div></li>
+<li class="level2"><div class="li"><a href="minidlna#configuration_uci">Configuration (uci)</a></div></li>
+<li class="level2"><div class="li"><a href="minidlna#execute_daemon">Execute Daemon</a></div></li>
+<li class="level2"><div class="li"><a href="minidlna#notes">Notes</a></div></li>
+<li class="level2"><div class="li"><a href="minidlna#reference">Reference:</a></div></li>
+<li class="level1"><div class="li"><a href="minidlna#example">Example</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="minidlna">MiniDLNA</h1>
+<div class="level1">
+
+<p>
+MiniDLNA is a lightweight DLNA/UPnP media server. The MiniDNLA daemon serves media files (music, pictures, and video) to clients on a network. 
+</p>
+
+</div>
+
+<h3 class="sectionedit2" id="installation">Installation</h3>
+<div class="level3">
+
+<p>
+<pre class="code">root@OpenWrt:~# opkg update
+root@OpenWrt:~# opkg install minidlna</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="configuration">Configuration</h3>
+<div class="level3">
+
+<p>
+edit file: 
+/etc/minidlna.conf
+or
+/etc/config/minidlna.conf
+or
+/tmp/minidlna.conf
+depend on your miniDLNA Version
+</p>
+
+<p>
+<pre class="code">#------------------------------------------------------#
+# port for HTTP (descriptions, SOAP, media transfer) traffic
+#------------------------------------------------------#
+port=8200
+
+#------------------------------------------------------#
+# network interfaces to serve, comma delimited
+#------------------------------------------------------#
+network_interface=br-lan
+
+#------------------------------------------------------#
+# set this to the directory you want scanned.
+# * if have multiple directories, you can have multiple media_dir= lines
+# * if you want to restrict a media_dir to a specific content type, you
+#   can prepend the type, followed by a comma, to the directory:
+#   + &quot;A&quot; for audio  (eg. media_dir=A,/home/jmaggard/Music)
+#   + &quot;V&quot; for video  (eg. media_dir=V,/home/jmaggard/Videos)
+#   + &quot;P&quot; for images (eg. media_dir=P,/home/jmaggard/Pictures)
+#------------------------------------------------------#
+# Directory of media is depend on your storage
+#------------------------------------------------------#
+media_dir=A,/mnt/sda1/music
+media_dir=P,/mnt/sda1/picture
+media_dir=V,/mnt/sda1/video
+#------------------------------------------------------#
+# set this if you want to customize the name that shows up on your clients
+#------------------------------------------------------#
+friendly_name=My DLNA Server
+
+#------------------------------------------------------#
+# set this if you would like to specify the directory where you want MiniDLNA to store its database and album art cache
+#------------------------------------------------------#
+db_dir=/mnt/sda1/minidlna/db
+
+#------------------------------------------------------#
+# set this if you would like to specify the directory where you want MiniDLNA to store its log file
+#------------------------------------------------------#
+log_dir=/mnt/sda1/minidlna/log
+
+#------------------------------------------------------#
+# this should be a list of file names to check for when searching for album art
+# note: names should be delimited with a forward slash (&quot;/&quot;)
+#------------------------------------------------------#
+album_art_names=Cover.jpg/cover.jpg/AlbumArtSmall.jpg/albumartsmall.jpg/AlbumArt.jpg/albumart.jpg/Album.jpg/album.jpg/Folder.jpg/folder.jpg/Thumb.jpg/thumb.jpg
+
+#------------------------------------------------------#
+# set this to no to disable inotify monitoring to automatically discover new files
+# note: the default is yes
+#------------------------------------------------------#
+inotify=yes
+
+#------------------------------------------------------#
+# set this to yes to enable support for streaming .jpg and .mp3 files to a TiVo supporting HMO
+#------------------------------------------------------#
+enable_tivo=no
+
+#------------------------------------------------------#
+# set this to strictly adhere to DLNA standards.
+# * This will allow server-side downscaling of very large JPEG images,
+#   which may hurt JPEG serving performance on (at least) Sony DLNA products.
+#------------------------------------------------------#
+strict_dlna=no
+
+#------------------------------------------------------#
+# default presentation url is http address on port 80
+#------------------------------------------------------#
+presentation_url=http://192.168.1.1:8200/
+
+#------------------------------------------------------#
+# notify interval in seconds. default is 895 seconds.
+#------------------------------------------------------#
+notify_interval=900
+
+#------------------------------------------------------#
+# serial and model number the daemon will report to clients
+# in its XML description
+#------------------------------------------------------#
+serial=12345678
+model_number=1
+
+#------------------------------------------------------#
+# specify the path to the MiniSSDPd socket
+#------------------------------------------------------#
+#minissdpdsocket=/var/run/minissdpd.sock
+
+#------------------------------------------------------#
+# use different container as root of the tree
+# possible values:
+#   + &quot;.&quot; - use standard container (this is the default)
+#   + &quot;B&quot; - &quot;Browse Directory&quot;
+#   + &quot;M&quot; - &quot;Music&quot;
+#   + &quot;V&quot; - &quot;Video&quot;
+#   + &quot;P&quot; - &quot;Pictures&quot;
+# if you specify &quot;B&quot; and client device is audio-only then &quot;Music/Folders&quot; will be used as root
+#------------------------------------------------------#
+#root_container=.</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="configuration_uci">Configuration (uci)</h3>
+<div class="level3">
+
+<p>
+This describes the configuration options in <code>/etc/config/minidlna</code>.
+</p>
+<div class="table sectionedit5"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" />  This is just an initial dump of all the options I found, I am not certain about any other options or their actual meaning! </td>
+	</tr>
+</table></div>
+<div class="table sectionedit6"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> I just guessed the Type entries. — <em>hcc23 2013/02/21 02:02</em> </td>
+	</tr>
+</table></div>
+<div class="table sectionedit7"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>enabled</code> </td><td class="col1"> boolean </td><td class="col2"> ??? </td><td class="col3"> 0 </td><td class="col4"> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>port</code> </td><td class="col1"> string </td><td class="col2"> ??? </td><td class="col3"> 8200 </td><td class="col4"> port for HTTP (descriptions, SOAP, media transfer) traffic </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>interface</code> </td><td class="col1"> string </td><td class="col2"> ??? </td><td class="col3"> br-lan </td><td class="col4"> network interfaces to serve; comma (<code>,</code>) delimited </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>friendly_name</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> (<em>none</em>) </td><td class="col4"> set this if you want to customize the name that shows up on your clients </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>db_dir</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> /var/run/minidlna </td><td class="col4"> set this if you would like to specify the directory where you want MiniDLNA to store its database and album art cache </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>log_dir</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> /var/log </td><td class="col4"> set this if you would like to specify the directory where you want MiniDLNA to store its log file </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <code>inotify</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> 1 </td><td class="col4"> set this to no to disable inotify monitoring to automatically discover new files </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <code>enable_tivo</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> 0 </td><td class="col4"> set this to yes to enable support for streaming .jpg and .mp3 files to a TiVo supporting HMO </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <code>strict_dlna</code> </td><td class="col1"> boolean </td><td class="col2"> ??? </td><td class="col3"> 0 </td><td class="col4"> strictly adhere to DLNA standards; This will allow server-side down-scaling of very large JPEG images, which may hurt JPEG serving performance on (at least) Sony DLNA products. </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> <code>notify_interval</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> 895 </td><td class="col4"> notify interval in seconds </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> <code>serial</code> </td><td class="col1"> integer </td><td class="col2"> ??? </td><td class="col3"> 12345678 </td><td class="col4"> model number the daemon will report to clients in its XML description </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0"> <code>model_number</code> </td><td class="col1"> integer </td><td class="col2"> ??? </td><td class="col3"> 1 </td><td class="col4"> model number the daemon will report to clients in its XML description </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0"> <code>root_container</code> </td><td class="col1"> <code>.</code>,<code>B</code>,<code>M</code>,<code>V</code>,<code>P</code> </td><td class="col2"> no </td><td class="col3"> <code>.</code> </td><td class="col4"> container for the tree root; <code>.</code>: default, <code>B</code>:browse directory, <code>M</code>:music, <code>V</code>:video, <code>P</code>:pictures</td>
+	</tr>
+	<tr class="row14">
+		<td class="col0"> <code>media_dir</code> </td><td class="col1"> string </td><td class="col2"> ??? </td><td class="col3"> /mnt </td><td class="col4"> set this to the directory you want scanned;if have multiple directories, you can have multiple <code>media_dir</code> lines; if you want to restrict a media_dir to a specific content type, you can prepend the type, followed by a comma, to the directory: <code>A</code> for audio  (eg. <code>A,/home/jmaggard/Music</code>)<code>V</code> for video, <code>P</code> for pictures; if you specify <code>B</code> and client device is audio-only then &quot;Music/Folders&quot; will be used as root </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0"> <code>album_art_names</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> Cover.jpg/cover.jpg/AlbumArtSmall.jpg/albumartsmall.jpg/AlbumArt.jpg/albumart.jpg/Album.jpg/album.jpg/Folder.jpg/folder.jpg </td><td class="col4"> a list of file names to check when searching for album art; <code>/</code> delimited </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0"> <code>presentation_url</code> </td><td class="col1"> string </td><td class="col2"> ??? </td><td class="col3 leftalign">  </td><td class="col4"> default presentation url is http address on port 80 </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0"> <code>minisdpdsocket</code> </td><td class="col1"> string </td><td class="col2"> ??? </td><td class="col3"> </td><td class="col4"> specify the path to the MiniSSDPd socket </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit8" id="execute_daemon">Execute Daemon</h3>
+<div class="level3">
+
+<p>
+<pre class="code">root@OpenWrt:~# /etc/init.d/minidlna enable
+root@OpenWrt:~# /etc/init.d/minidlna start</pre>
+
+</p>
+
+<p>
+<strong>Done!</strong>
+</p>
+
+<p>
+miniDLNA server is ready to use <img src="../../lib/images/smileys/icon_biggrin.gif" class="icon" alt=":-D" />
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="notes">Notes</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> MiniDLNA&#039;s inotify support may not work as expected when trying to watch on an overlayfs filesystem. In the case of extroot, e.g. you can watch on `/overlay/root/minidlna` instead of `/root/minidlna`.</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit10" id="reference">Reference:</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <a href="http://en.wikipedia.org/wiki/Comparison of UPnP AV media servers" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Comparison of UPnP AV media servers">Comparison of UPnP AV media servers</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="https://wiki.archlinux.org/index.php/Minidlna" class="urlextern" title="https://wiki.archlinux.org/index.php/Minidlna"  rel="nofollow">https://wiki.archlinux.org/index.php/Minidlna</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://wiki.ubuntuusers.de/MiniDLNA" class="urlextern" title="http://wiki.ubuntuusers.de/MiniDLNA"  rel="nofollow">http://wiki.ubuntuusers.de/MiniDLNA</a></div>
+</li>
+<li class="level1"><div class="li"> The package has uci-support since <a href="https://dev.openwrt.org/changeset/31211/packages" class="urlextern" title="https://dev.openwrt.org/changeset/31211/packages"  rel="nofollow">R31211</a>.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit11" id="example">Example</h2>
+<div class="level2">
+
+<p>
+A video demonstration of how MiniDLNA 1.1.3-1 in the repositories can be installed on OpenWrt 14.07 Barrier Breaker: <a href="https://www.youtube.com/watch?v=-vU2zOw6ga0" class="urlextern" title="https://www.youtube.com/watch?v=-vU2zOw6ga0"  rel="nofollow">https://www.youtube.com/watch?v=-vU2zOw6ga0</a>
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/uci/minidlna.txt</bdi> · Last modified: 2015/01/27 09:20 by <bdi>Resilldoux</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="minidlna?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="minidlna?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="minidlna?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="minidlna#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Auci%253Aminidlna&amp;1432267232" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>OpenWrt Buildroot – Usage [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,build"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="build?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/build"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/build"/>
+<link rel="canonical" href="obtain.firmware.compile"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:build","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265087 166.182.3.55';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="obtain.firmware.compile#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="build?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="build?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:build" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="build?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="build?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="build?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="obtain.firmware.compile" class="wikilink1" title="doc:howto:build">OpenWrt Buildroot – Usage</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/build" class="media" title="cz:doc:howto:build"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/build" class="media" title="de:doc:howto:build"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="obtain.firmware.compile" class="media" title="doc:howto:build"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../es/doc/howto/build" class="media" title="es:doc:howto:build"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/build" class="media" title="fr:doc:howto:build"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/build" class="media" title="hu:doc:howto:build"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../jp/doc/howto/build" class="media" title="jp:doc:howto:build"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/build" class="media" title="pl:doc:howto:build"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/build" class="media" title="pt-br:doc:howto:build"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../ru/doc/howto/build" class="media" title="ru:doc:howto:build"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/build" class="media" title="tr:doc:howto:build"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../zh-cn/doc/howto/build" class="media" title="zh-cn:doc:howto:build"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../zh-tw/doc/howto/build" class="media" title="zh-tw:doc:howto:build"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:build</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="obtain.firmware.compile#prerequisites">Prerequisites</a></div></li>
+<li class="level1"><div class="li"><a href="obtain.firmware.compile#procedure">Procedure</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="obtain.firmware.compile#updating_sources_with_git">Updating Sources with Git</a></div></li>
+<li class="level2"><div class="li"><a href="obtain.firmware.compile#updating_feeds">Updating Feeds</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="obtain.firmware.compile#image_configuration">Image Configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="obtain.firmware.compile#make_menuconfig">Make menuconfig</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="obtain.firmware.compile#explanations">Explanations</a></div></li>
+<li class="level3"><div class="li"><a href="obtain.firmware.compile#kernel_configuration">Kernel configuration</a></div></li>
+<li class="level3"><div class="li"><a href="obtain.firmware.compile#source_mirrors">Source Mirrors</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="obtain.firmware.compile#patches">Patches</a></div></li>
+<li class="level2"><div class="li"><a href="obtain.firmware.compile#custom_files">Custom files</a></div></li>
+<li class="level2"><div class="li"><a href="obtain.firmware.compile#defconfig">Defconfig</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="obtain.firmware.compile#building_images">Building Images</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="obtain.firmware.compile#make_options">Make options</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="obtain.firmware.compile#building_on_multi-core_cpu">Building on multi-core CPU</a></div></li>
+<li class="level3"><div class="li"><a href="obtain.firmware.compile#building_in_the_background">Building in the background</a></div></li>
+<li class="level3"><div class="li"><a href="obtain.firmware.compile#building_single_packages">Building single Packages</a></div></li>
+<li class="level3"><div class="li"><a href="obtain.firmware.compile#spotting_build_errors">Spotting build errors</a></div></li>
+<li class="level3"><div class="li"><a href="obtain.firmware.compile#getting_beep_notification">Getting beep notification</a></div></li>
+<li class="level3"><div class="li"><a href="obtain.firmware.compile#skipping_failed_packages">Skipping failed packages</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="obtain.firmware.compile#locating_images">Locating Images</a></div></li>
+<li class="level1"><div class="li"><a href="obtain.firmware.compile#cleaning_up">Cleaning Up</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="obtain.firmware.compile#clean">Clean</a></div></li>
+<li class="level2"><div class="li"><a href="obtain.firmware.compile#dirclean">Dirclean</a></div></li>
+<li class="level2"><div class="li"><a href="obtain.firmware.compile#distclean">Distclean</a></div></li>
+<li class="level2"><div class="li"><a href="obtain.firmware.compile#clean_small_part">Clean small part</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="obtain.firmware.compile#examples">Examples</a></div></li>
+<li class="level1"><div class="li"><a href="obtain.firmware.compile#troubleshooting">Troubleshooting</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="obtain.firmware.compile#errors_building_gcc">Errors building gcc</a></div></li>
+<li class="level2"><div class="li"><a href="obtain.firmware.compile#missing_source_code_file_due_to_download_problems">Missing source code file, due to download problems</a></div></li>
+<li class="level2"><div class="li"><a href="obtain.firmware.compile#compilation_errors">Compilation errors</a></div></li>
+<li class="level2"><div class="li"><a href="obtain.firmware.compile#i_can_t_find_my_package_in_menuconfig">I can&#039;t find my &lt;package&gt; in menuconfig</a></div></li>
+<li class="level2"><div class="li"><a href="obtain.firmware.compile#warningskipping_package_--_package_not_selected">WARNING: skipping &lt;package&gt; -- package not selected</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="obtain.firmware.compile#notes">Notes</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="openwrt_buildroot_usage">OpenWrt Buildroot – Usage</h1>
+<div class="level1">
+<div class="table sectionedit2"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> → go back to <a href="obtain.firmware" class="wikilink1" title="doc:howto:obtain.firmware">obtain.firmware</a> or read →<a href="../../about/toolchain" class="wikilink1" title="about:toolchain">OpenWrt Buildroot – About</a> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit3" id="prerequisites">Prerequisites</h2>
+<div class="level2">
+
+<p>
+to generate an <a href="installing" class="wikilink1" title="doc:howto:generic.flashing">installable</a> OpenWrt firmware image file with a size of e.g. 8MB:
+</p>
+<ol>
+<li class="level1"><div class="li"> <strong><a href="buildroot.exigence" class="wikilink1" title="doc:howto:buildroot.exigence">Install OpenWrt Buildroot and its prerequisites</a></strong> on your <abbr title="Operating System">OS</abbr>.</div>
+</li>
+<li class="level1"><div class="li"> ca. 3-4 <abbr title="Gigabyte">GB</abbr> of available hard disk space</div>
+</li>
+<li class="level1"><div class="li"> environment variables:</div>
+<ul>
+<li class="level2"><div class="li"> <code>SED</code> should not be set.  If it is, run <code>`unset SED`</code> before compiling. (See <a href="https://dev.openwrt.org/ticket/10612" class="urlextern" title="https://dev.openwrt.org/ticket/10612"  rel="nofollow">Ticket 10612</a>.)</div>
+</li>
+<li class="level2"><div class="li"> <code>GREP_OPTIONS</code> should not have <code>–initial-tab</code> or other options affecting its output</div>
+</li>
+<li class="level2"><div class="li"> Add <code>&lt;buildroot dir&gt;/staging_dir/host/bin</code> and <code>&lt;buildroot dir&gt;/staging_dir/toolchain-&lt;platform&gt;-&lt;gcc_ver&gt;-&lt;libc_ver&gt;/bin</code> in front of your <code>PATH</code> variable in <code>~/.bashrc</code>. The staging directory is created shortly after starting the build and the toolchain directory is created when the toolchain build begins. The build spawns multiple shells, some of which expect the toolchain binaries to be present in the <code>PATH</code>.</div>
+</li>
+</ul>
+</li>
+</ol>
+
+</div>
+
+<h2 class="sectionedit4" id="procedure">Procedure</h2>
+<div class="level2">
+<div class="table sectionedit5"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/48px-emblem-important.svg.png" class="media" alt="" /> </td><td class="col1"> 1. Do everything as <em>non</em>-root user<br/>
+2. Issue all commands in the <code>&lt;buildroot dir&gt;</code> directory, e.g. <code>~/openwrt/trunk/</code> </td>
+	</tr>
+</table></div>
+<ol>
+<li class="level1"><div class="li"> Update OpenWrt sources.</div>
+</li>
+<li class="level1"><div class="li"> Update and install package feeds.</div>
+</li>
+<li class="level1"><div class="li"> Configure the firmware image you want to obtain.</div>
+</li>
+<li class="level1"><div class="li"> Start the build. This will automatically compile toolchain, cross-compile sources, package packages, and finally generate an image ready to be flashed.</div>
+</li>
+<li class="level1"><div class="li"> Proceed to <a href="installing" class="wikilink1" title="doc:howto:generic.flashing">Installing OpenWrt</a></div>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit6" id="updating_sources_with_git">Updating Sources with Git</h3>
+<div class="level3">
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> OpenWrt sources change frequently. It is recommended that you work with the latest sources.
+</p>
+
+<p>
+<pre class="code">git pull</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit7" id="updating_feeds">Updating Feeds</h3>
+<div class="level3">
+
+<p>
+see <a href="../devel/feeds" class="wikilink1" title="doc:devel:feeds">feeds</a>
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <em>Installing</em> in context of <code>./scripts/feeds</code> script means &quot;making package available in <code>make menuconfig</code>&quot; rather than really installing or compiling package.
+</p>
+<ol>
+<li class="level1"><div class="li"> Update feeds: <pre class="code">./scripts/feeds update -a</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> Make downloaded package/packages available in <code>make menuconfig</code>:</div>
+<ul>
+<li class="level2"><div class="li"> single package:<pre class="code">./scripts/feeds install &lt;PACKAGENAME&gt;</pre>
+</div>
+</li>
+<li class="level2"><div class="li"> all packages:<pre class="code">./scripts/feeds install -a</pre>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+
+</div>
+
+<h2 class="sectionedit8" id="image_configuration">Image Configuration</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit9" id="make_menuconfig">Make menuconfig</h3>
+<div class="level3">
+
+<p>
+The <strong>OpenWrt Buildroot configuration interface</strong> handles the selection of the target platform, packages to be compiled, packages to be included in the firmware file, some kernel options, etc. <br/>
+Start the OpenWrt Buildroot configuration interface by issuing the following command:<br/>
+
+<pre class="code">make menuconfig</pre>
+
+</p>
+
+<p>
+This will update the dependencies of your existing configuration automatically, and you can now proceed to build your updated images. 
+</p>
+
+<p>
+<a href="http://wiki.openwrt.org/_detail/doc/howto/openwrt_buildroot_tui.gif?id=doc%3Ahowto%3Abuild" class="media wikilink2" title="doc:howto:openwrt_buildroot_tui.gif"><img src="http://wiki.openwrt.org/_media/doc/howto/openwrt_buildroot_tui.gif" class="mediaright" alt="" /></a>
+</p>
+
+<p>
+You have three options:
+<code>y</code>, <code>m</code>, <code>n</code> which are represented as follows:
+</p>
+<ul>
+<li class="level1"><div class="li"> pressing <code><strong>y</strong></code> sets the <code><strong>&lt;*&gt;</strong></code> built-in label<br/>
+This package will be compiled and included in the firmware image file.</div>
+</li>
+<li class="level1"><div class="li"> pressing <code><strong>m</strong></code> sets the <code><strong>&lt;M&gt;</strong></code> package label<br/>
+This package will be compiled, but <strong>not</strong> included in the firmware image file. (E.g. to be installed with <code><a href="../techref/opkg" class="wikilink1" title="doc:techref:opkg">opkg</a></code> after <a href="installing" class="wikilink1" title="doc:howto:generic.flashing">flashing</a> the firmware image file to the device.)</div>
+</li>
+<li class="level1"><div class="li"> pressing <code><strong>n</strong></code> sets the <code><strong>&lt; &gt;</strong></code> excluded label<br/>
+The source code will not be processed.</div>
+</li>
+</ul>
+
+<p>
+When you save your configuration, the file <strong><code>&lt;buildroot dir&gt;/.config</code></strong> will be created according to your configuration.
+</p>
+
+</div>
+
+<h4 id="explanations">Explanations</h4>
+<div class="level4">
+
+<p>
+It has been the intention from the beginning, with the development of <code>menuconfig</code>, to create a simple, yet powerful, environment for the configuration of individual OpenWrt builds. <code>menuconfig</code> is more or less self-explanatory, and even the most specialized configuration requirements can be met by using it. Depending on the the particular target platform, package requirements and kernel module needs, the standard configuration process will include modifying:
+</p>
+<ol>
+<li class="level1"><div class="li"> Target system</div>
+</li>
+<li class="level1"><div class="li"> Package selection</div>
+</li>
+<li class="level1"><div class="li"> Build system settings</div>
+</li>
+<li class="level1"><div class="li"> Kernel modules</div>
+</li>
+</ol>
+
+<p>
+Target system is selected from the extensive list of supported platforms, with the numerous target profiles – ranging from specific devices to generic profiles, all depending on the particular device at hand. Package selection has the option of either &#039;selecting all package&#039;, which might be un-practical in certain situation, or relying on the default set of packages will be adequate or make an individual selection. It is here needed to mention that some package combinations might break the build process, so it can take some experimentation before the expected result is reached. Added to this, the OpenWrt developers are themselves only maintaining a smaller set of packages – which includes all default packages – but, the feeds-script makes it very simple to handle a locally maintained set of packages and integrate them in the build-process.
+</p>
+
+<p>
+The final step before the process of compiling the intended image(s) is to exit <code>menuconfig</code> – this also includes the option to save a specific configuration or load an already existing, and pre-configured, version.
+</p>
+
+<p>
+Exit the TUI, and choose to <code>save</code> your settings.
+</p>
+
+</div>
+
+<h4 id="kernel_configuration">Kernel configuration</h4>
+<div class="level4">
+
+<p>
+Note that <code>make kernel_menuconfig</code> modifies the Kernel configuration templates of the build tree and clearing the build_dir will not revert them:
+</p>
+
+<p>
+While you won&#039;t typically need to do this, you can do it:
+<pre class="code">make kernel_menuconfig CONFIG_TARGET=subtarget</pre>
+
+CONFIG_TARGET allows you to select which config you want to edit. possible options: target, subtarget, env.
+</p>
+
+<p>
+:<img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" />: (git)
+SVN: The changes can be reviewed with
+<pre class="code">svn diff target/linux/</pre>
+
+and reverted with 
+<pre class="code">svn revert -R target/linux/</pre>
+
+</p>
+
+</div>
+
+<h4 id="source_mirrors">Source Mirrors</h4>
+<div class="level4">
+
+<p>
+The &#039;Build system settings&#039; include some efficient options for changing package locations which makes it easy to handle a local package set:
+</p>
+<ol>
+<li class="level1"><div class="li"> Local mirror for source packages</div>
+</li>
+<li class="level1"><div class="li"> Download folder</div>
+</li>
+</ol>
+
+<p>
+In the case of the first option, you simply enter a full <abbr title="Uniform Resource Locator">URL</abbr> to the HTTP or <abbr title="File Transfer Protocol">FTP</abbr> server on which the package sources are hosted. Download folder would in the same way be the path to a local folder on the build system (or network). If you have a web/ftp-server hosting the tarballs, the OpenWrt build system will try this one before trying to download from the location(s) mentioned in the Makefiles . Similar if a local &#039;download folder&#039;, residing on the build system, has been specified. 
+</p>
+
+<p>
+The &#039;Kernel modules&#039; option is required if you need specific (non-standard) drivers and so forth – this would typically be things like modules for USB or particular network interface drivers etc.
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="patches">Patches</h3>
+<div class="level3">
+
+<p>
+OpenWrt Buildroot integrates <em><a href="http://en.wikipedia.org/wiki/Quilt (software)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Quilt (software)">quilt</a></em> for easy patch management:<br/>
+
+→<a href="../devel/patches" class="wikilink1" title="doc:devel:patches">patches</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="custom_files">Custom files</h3>
+<div class="level3">
+<div class="table sectionedit12"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/48px-dialog-warning.svg.png" class="media" alt="" /> </td><td class="col1"> <span style='color:red; '><strong>Warning! Be carefull!</strong></span> <a href="generic.failsafe" class="wikilink1" title="doc:howto:generic.failsafe">OpenWrt failsafe</a> relies on 100%-working base files on the <a href="../techref/flash.layout#partitioningofsquashfs-images" class="wikilink1" title="doc:techref:flash.layout">SquashFS-partition</a> (i.e. the <span style='color:magenta; '><code>/rom</code></span>-directory), so in case you mis-configure or misspell something, you will end up with a non-working OpenWrt failsafe and be forced to used more rudimentary methods to <a href="generic.debrick" class="wikilink1" title="doc:howto:generic.debrick">debrick</a> your device again! </td>
+	</tr>
+</table></div>
+
+<p>
+In case you want to include some custom configuration files, the correct place to put them is:
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong><code>&lt;buildroot dir&gt;/files/</code></strong></div>
+</li>
+</ul>
+
+<p>
+For example, let&#039;s say that you want an image with a custom <strong><code>/etc/config/firewall</code></strong> or a custom <strong><code>etc/sysctl.conf</code></strong>, then create this files as:
+</p>
+<ul>
+<li class="level1"><div class="li"> <code><strong>&lt;buildroot dir&gt;/files/</strong>etc/config/firewall</code></div>
+</li>
+<li class="level1"><div class="li"> <code><strong>&lt;buildroot dir&gt;/files/</strong>etc/sysctl.conf</code></div>
+</li>
+</ul>
+
+<p>
+E.g. if your &lt;buildroot dir&gt; is /openwrt/trunk and you want some files to be copied into firmware image&#039;s /etc/config directory, the correct place to put them is /openwrt/trunk/files/etc/config. 
+</p>
+
+</div>
+
+<h3 class="sectionedit13" id="defconfig">Defconfig</h3>
+<div class="level3">
+
+<p>
+<a href="https://forum.openwrt.org/viewtopic.php?pid=140470#p140470" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?pid=140470#p140470"  rel="nofollow">select your target before issuing defconfig</a>
+<pre class="code">make defconfig</pre>
+
+will produce a general purpose configuration of the build system including a check of dependencies and prerequisites for the build environment etc
+</p>
+
+<p>
+will check for dependencies. Install missing and run again.
+</p>
+
+</div>
+
+<h2 class="sectionedit14" id="building_images">Building Images</h2>
+<div class="level2">
+
+<p>
+Everything is now ready for building the image(s), which is done with one single command:
+</p>
+
+<p>
+<pre class="code">make</pre>
+
+</p>
+
+<p>
+This simple command will trigger a cascade of activity. As already stated, it will
+</p>
+<ol>
+<li class="level1"><div class="li"> compile the toolchain</div>
+</li>
+<li class="level1"><div class="li"> then crosscompile the sources with this toolchain</div>
+</li>
+<li class="level1"><div class="li"> create opkg-packages</div>
+</li>
+<li class="level1"><div class="li"> generate a firmware image file ready to be <a href="installing" class="wikilink1" title="doc:howto:generic.flashing">flashed</a>.</div>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit15" id="make_options">Make options</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="building_on_multi-core_cpu">Building on multi-core CPU</h4>
+<div class="level4">
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong>Build may FAIL</strong>
+</p>
+
+<p>
+The build process can be accelerated by running multiple concurrent job processes using the <code>-j</code>-option:
+<pre class="code">make -j 3</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Use the standard formula <code>&lt;your number of CPU cores + 1&gt;</code></div>
+</li>
+<li class="level1"><div class="li"> If this produces random build errors try compiling again without the <code>-j</code>-option</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="building_in_the_background">Building in the background</h4>
+<div class="level4">
+
+<p>
+If you intend to use your system while building, you can have the build process use only idle I/O and CPU capacity like this (dualcore CPU):
+</p>
+
+<p>
+<pre class="code">ionice -c 3 nice -n19 make -j 2</pre>
+
+</p>
+
+</div>
+
+<h4 id="building_single_packages">Building single Packages</h4>
+<div class="level4">
+
+<p>
+When developing or packaging software for OpenWrt, it is convenient to be able to build only the package in question (e.g. with package <code>cups</code>):
+</p>
+
+<p>
+<pre class="code">make package/cups/compile V=s</pre>
+
+</p>
+
+<p>
+For a rebuild:
+<pre class="code">make package/cups/{clean,compile,install} V=s</pre>
+
+</p>
+
+<p>
+It doesn&#039;t matter what feed the package is located in, this same syntax works for any installed package.
+</p>
+
+</div>
+
+<h4 id="spotting_build_errors">Spotting build errors</h4>
+<div class="level4">
+
+<p>
+If for some reason the build fails, the easiest way to spot the error is to do:
+</p>
+
+<p>
+<pre class="code">make V=s 2&gt;&amp;1 | tee build.log | grep -i error</pre>
+
+</p>
+
+<p>
+The above saves a full verbose copy of the build output (with stdout piped to stderr) in <code>/openwrt/trunk/build.log</code> and only shows errors on the screen.
+</p>
+
+<p>
+Another example:
+</p>
+
+<p>
+<pre class="code">ionice -c 3 nice -n 20 make -j 2 V=s CONFIG_DEBUG_SECTION_MISMATCH=y 2&gt;&amp;1 | tee build.log | egrep -i &#039;(warn|error)&#039;</pre>
+
+</p>
+
+<p>
+The above saves a full verbose copy of the build output (with stdout piped to stderr) in build.log and outputs only warnings and errors while building using only background resources on a dual core CPU.
+</p>
+
+<p>
+Yet another way to focus on the problem without having to wade through tons of output from Make as described above is to check the corresponding log in &#039;logs&#039; folder.
+<abbr title="Internet Explorer">IE</abbr>: if the build fails at &quot;make[3] -C package/kernel/mac80211 compile&quot;, then you can go to &lt;buildroot&gt;/logs/package/kernel/mac80211 and view the compile.txt found there.
+</p>
+
+</div>
+
+<h4 id="getting_beep_notification">Getting beep notification</h4>
+<div class="level4">
+
+<p>
+Depending on your CPU, the process will take a while, or while longer. If you want an acoustic notification, you could use <code>echo -e &#039;\a</code>&#039;:
+</p>
+
+<p>
+<pre class="code">make V=s ; echo -e &#039;\a&#039;</pre>
+
+</p>
+
+</div>
+
+<h4 id="skipping_failed_packages">Skipping failed packages</h4>
+<div class="level4">
+
+<p>
+If you are building everything (not just packages enough to make a flashable image) and build stops on a package you don&#039;t care about you can skip failed packages by using <em>IGNORE_ERRORS=1</em>
+<pre class="code">IGNORE_ERRORS=1 make &lt;make options&gt;</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit16" id="locating_images">Locating Images</h2>
+<div class="level2">
+
+<p>
+After a successful build, the freshly built image(s) can be found in the newly created <code>&lt;buildroot_dir&gt;/bin</code> directory. The compiled files are additionally classified by the target platform, so e.g. a firmware built for an ar71xx device will be located in <code>&lt;buildroot_dir&gt;/bin/ar71xx</code> directory.
+</p>
+
+<p>
+E.g. if your &lt;buildroot_dir&gt; is <code>~/openwrt/trunk</code>, the binaries are in <code>~/openwrt/trunk/bin/ar71xx</code>.
+</p>
+
+</div>
+
+<h2 class="sectionedit17" id="cleaning_up">Cleaning Up</h2>
+<div class="level2">
+
+<p>
+You might need to clean your <em>build environment</em> every now and then. The following <code>make</code>-targets are useful for that job:
+</p>
+
+</div>
+
+<h3 class="sectionedit18" id="clean">Clean</h3>
+<div class="level3">
+
+<p>
+<pre class="code">make clean</pre>
+
+</p>
+
+<p>
+deletes contents of the directories <code>/bin</code> and <code>/build_dir</code>.
+make clean does not remove the toolchain,
+it also avoids cleaning architectures/targets other than the one you have selected in your <code>.config</code>
+</p>
+
+</div>
+
+<h3 class="sectionedit19" id="dirclean">Dirclean</h3>
+<div class="level3">
+
+<p>
+<pre class="code">make dirclean</pre>
+
+</p>
+
+<p>
+deletes contents of the directories <code>/bin</code> and <code>/build_dir</code> and additionally <code>/staging_dir</code> and <code>/toolchain</code> (=the cross-compile tools) and <code>/logs</code>. &#039;Dirclean&#039; is your basic &quot;Full clean&quot; operation.
+</p>
+
+</div>
+
+<h3 class="sectionedit20" id="distclean">Distclean</h3>
+<div class="level3">
+
+<p>
+<pre class="code">make distclean</pre>
+
+</p>
+
+<p>
+nukes everything you have compiled or configured and also deletes all downloaded feeds contents and package sources.
+</p>
+
+<p>
+<strong>CAUTION</strong>: In addition to all else, this will <strong>erase your build configuration (<code>&lt;buildroot_dir&gt;/.config</code>)</strong>, your toolchain and all other sources. Use with care!
+</p>
+
+<p>
+There are numerous other functionalities in the OpenWrt build system, but the above should have covered some of the fundamentals.
+</p>
+
+</div>
+
+<h3 class="sectionedit21" id="clean_small_part">Clean small part</h3>
+<div class="level3">
+
+<p>
+In more time, you may not want to clean so many objects, then you can use some of the commands below to do it.
+</p>
+
+<p>
+Clean linux objects.
+<pre class="code">make target/linux/clean</pre>
+
+</p>
+
+<p>
+Clean package base-files objects.
+<pre class="code">make package/base-files/clean</pre>
+
+</p>
+
+<p>
+Clean luci.
+<pre class="code">make package/luci/clean</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit22" id="examples">Examples</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="https://forum.openwrt.org/viewtopic.php?pid=129319#p129319" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?pid=129319#p129319"  rel="nofollow">https://forum.openwrt.org/viewtopic.php?pid=129319#p129319</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="https://forum.openwrt.org/viewtopic.php?id=28267" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=28267"  rel="nofollow">https://forum.openwrt.org/viewtopic.php?id=28267</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit23" id="troubleshooting">Troubleshooting</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Beware of unusual environment variables such as</div>
+<ul>
+<li class="level2"><div class="li"> <code>GREP_OPTIONS</code> which should not have <code>–initial-tab</code> or other options affecting its output</div>
+</li>
+<li class="level2"><div class="li"> <strong><code>SED</code> should not be set.  If it is, run `unset SED` before compiling.</strong> (See <a href="https://dev.openwrt.org/ticket/10612" class="urlextern" title="https://dev.openwrt.org/ticket/10612"  rel="nofollow">Ticket 10612</a>.)</div>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> First get more information on the problem using the make option <code>&quot;make V=s&quot;</code>.</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit24" id="errors_building_gcc">Errors building gcc</h3>
+<div class="level3">
+
+<p>
+If the build fails with errors that include &quot;[s-attrib] Killed&quot; and &quot;[all-gcc] Error 2&quot; while compiling gcc, this indicates you are out of disk space or RAM. This could be likely if you are building within a virtual machine with &lt; 1 Gb RAM allocated and no swap.
+</p>
+
+</div>
+
+<h3 class="sectionedit25" id="missing_source_code_file_due_to_download_problems">Missing source code file, due to download problems</h3>
+<div class="level3">
+
+<p>
+First check if the <abbr title="Uniform Resource Locator">URL</abbr> path in the make file contains a trailing slash, then try with it removed (helped several times).
+Otherwise try to download the <a href="http://www.acalculator.com" class="urlextern" title="http://www.acalculator.com"  rel="nofollow">source</a> code manually and put it into &quot;dl&quot; directory.
+</p>
+
+</div>
+
+<h3 class="sectionedit26" id="compilation_errors">Compilation errors</h3>
+<div class="level3">
+
+<p>
+Try to update the main source and all the feeds (Warning! May result in other problems).
+Check for a related bug in (<a href="https://dev.openwrt.org/query" class="urlextern" title="https://dev.openwrt.org/query"  rel="nofollow">TRAC</a>), use the filters to find it.
+Otherwise report the problem there, by mentioning the package, the target data (CPU, image, etc.) and the code revisions (main &amp; package).
+Compiling with make -j … sometimes gives random errors. Try compiling without -j first before reporting the problem.
+</p>
+
+</div>
+
+<h3 class="sectionedit27" id="i_can_t_find_my_package_in_menuconfig">I can&#039;t find my &lt;package&gt; in menuconfig</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> Have you run this command? <span class="curid"><a href="obtain.firmware.compile#updatingfeeds" class="wikilink1" title="doc:howto:build">See this.</a></span> <pre class="code">./scripts/feeds install &lt;package&gt;</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> Maybe you are not looking for it in the right submenu. See the <code>Makefile</code> of the package to find out. <pre class="code">cat feeds/&lt;feedname&gt;/&lt;package&gt;/Makefile</pre>
+ You are looking for this: <br/>
+<code>define Package/&lt;package&gt;/Default
+  SUBMENU:=<strong>Firewall</strong>
+  SECTION:=net
+  CATEGORY:=<strong>Network</strong></code></div>
+</li>
+<li class="level1"><div class="li"> Menuconfig appears to cache package lists and (especially) profiles. Try deleting the <code>&lt;buildroot_dir&gt;/tmp</code> directory and then running <code>make menuconfig</code> again. <pre class="code">cd ~/openwrt/trunk
+rm -rf tmp
+make menuconfig</pre>
+ Also try refreshing your package indexes: <pre class="code">./scripts/feeds update -i</pre>
+ The <code>-i</code> is important if you&#039;re not using the latest revisions of any packages, as this flag prevents updates from the feed sources.</div>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit28" id="warningskipping_package_--_package_not_selected">WARNING: skipping &lt;package&gt; -- package not selected</h3>
+<div class="level3">
+
+<p>
+Run <code>make menuconfig</code> and enable compilation for your package. It should be labeled with <code>&lt;*&gt;</code> or <code>&lt;M&gt;</code> to work correctly. Read <span class="curid"><a href="obtain.firmware.compile#imageconfiguration" class="wikilink1" title="doc:howto:build">image.configuration</a></span> further up in this <a href="http://www.fixithere.net" class="urlextern" title="http://www.fixithere.net"  rel="nofollow"> article</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit29" id="notes">Notes</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="http://wiki.openwrt.org/doc/techref/buildroot" class="wikilink2" title="doc:techref:buildroot" rel="nofollow">OpenWrt Buildroot – Technical Reference</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://downloads.openwrt.org/docs/buildroot-documentation.html" class="urlextern" title="http://downloads.openwrt.org/docs/buildroot-documentation.html"  rel="nofollow">http://downloads.openwrt.org/docs/buildroot-documentation.html</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="https://dev.openwrt.org/browser/trunk/docs/working.tex" class="urlextern" title="https://dev.openwrt.org/browser/trunk/docs/working.tex"  rel="nofollow">https://dev.openwrt.org/browser/trunk/docs/working.tex</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="https://forum.openwrt.org/viewtopic.php?id=35323" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=35323"  rel="nofollow">Compiler Optimization Tweaks</a></div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/build.txt</bdi> · Last modified: 2015/04/27 19:32 by <bdi>theoradicus</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="build?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="build?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="build?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="obtain.firmware.compile#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Abuild&amp;1432265087" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

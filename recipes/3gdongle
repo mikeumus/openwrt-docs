@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Use 3g/UMTS USB Dongle for WAN connection [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="usbrelated"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="3gdongle?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:recipes"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/recipes/3gdongle"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/recipes/3gdongle"/>
+<link rel="canonical" href="3gdongle"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:recipes';var JSINFO = {"id":"doc:recipes:3gdongle","namespace":"doc:recipes"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266534 166.182.3.136';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="3gdongle#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="3gdongle?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="3gdongle?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:recipes:3gdongle" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="3gdongle?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="3gdongle?do=media&amp;ns=doc%253Arecipes"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="3gdongle?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:recipes:start">Recipes</a></bdi> » <bdi><span class="curid"><a href="3gdongle" class="wikilink1" title="doc:recipes:3gdongle">Use 3g/UMTS USB Dongle for WAN connection</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/recipes/3gdongle" class="media" title="cz:doc:recipes:3gdongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/recipes/3gdongle" class="media" title="de:doc:recipes:3gdongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="3gdongle" class="media" title="doc:recipes:3gdongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/recipes/3gdongle" class="media" title="es:doc:recipes:3gdongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/recipes/3gdongle" class="media" title="fr:doc:recipes:3gdongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/recipes/3gdongle" class="media" title="hu:doc:recipes:3gdongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/recipes/3gdongle" class="media" title="jp:doc:recipes:3gdongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/recipes/3gdongle" class="media" title="pl:doc:recipes:3gdongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/recipes/3gdongle" class="media" title="pt-br:doc:recipes:3gdongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../ru/doc/recipes/3gdongle" class="media" title="ru:doc:recipes:3gdongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/recipes/3gdongle" class="media" title="tr:doc:recipes:3gdongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../zh-cn/doc/recipes/3gdongle" class="media" title="zh-cn:doc:recipes:3gdongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/recipes/3gdongle" class="media" title="zh-tw:doc:recipes:3gdongle"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:recipes:3gdongle</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="3gdongle#preparations">Preparations</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="3gdongle#required_packages">Required Packages</a></div></li>
+<li class="level2"><div class="li"><a href="3gdongle#dependencies">Dependencies</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="3gdongle#installation">Installation</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="3gdongle#switching_usb_mode">switching USB mode</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="3gdongle#usb-modeswitch_method">usb-modeswitch method</a></div></li>
+<li class="level3"><div class="li"><a href="3gdongle#sdparm_method">sdparm method</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="3gdongle#configuration">Configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="3gdongle#network_configuration">Network configuration</a></div></li>
+<li class="level2"><div class="li"><a href="3gdongle#chat_configuration">Chat configuration</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="3gdongle#establishing_connection">Establishing connection</a></div></li>
+<li class="level1"><div class="li"><a href="3gdongle#troubleshooting">Troubleshooting</a></div></li>
+<li class="level1"><div class="li"><a href="3gdongle#aiccu_interaction">AICCU interaction</a></div></li>
+<li class="level1"><div class="li"><a href="3gdongle#installing_multiple_3g_dongles">Installing multiple 3G dongles</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="3gdongle#loadbalancermultiwan">LOADBALANCER/ MULTIWAN</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="3gdongle#additional_dns_configuration">Additional DNS configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="3gdongle#advertising_public_dns_to_clients">Advertising public DNS to clients</a></div></li>
+<li class="level2"><div class="li"><a href="3gdongle#using_dns_forwarding">Using DNS forwarding</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="3gdongle#easy_configuration_using_luci_web_interface">Easy Configuration Using Luci Web Interface</a></div></li>
+<li class="level1"><div class="li"><a href="3gdongle#obtaining_ipv6_address">Obtaining IPv6 address</a></div></li>
+<li class="level1"><div class="li"><a href="3gdongle#compile_things_yourself">Compile things yourself</a></div></li>
+<li class="level1"><div class="li"><a href="3gdongle#workarounds">Workarounds</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="3gdongle#tp-link_ma260attitude_adjustment">TP-Link MA260/Attitude Adjustment</a></div></li>
+<li class="level2"><div class="li"><a href="3gdongle#tp-link_ma260barrier_breaker">TP-Link MA260/Barrier Breaker</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="3gdongle#devices_using_qmi_and_mbim_protocol">Devices using qmi and mbim protocol</a></div>
+<ul class="toc">
+<li class="clear">
+<ul class="toc">
+<li class="level3"><div class="li"><a href="3gdongle#qmi_protocol_configuration">QMI Protocol Configuration</a></div></li>
+<li class="level3"><div class="li"><a href="3gdongle#mbim_protocol_configuration">MBIM Protocol configuration</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="use_3gumts_usb_dongle_for_wan_connection">Use 3g/UMTS USB Dongle for WAN connection</h1>
+<div class="level1">
+<div class="table sectionedit2"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" />: REDUNDANT with <a href="../howto/wired.wan.with.3g.dongle" class="wikilink1" title="doc:howto:wired.wan.with.3g.dongle">wired.wan.with.3g.dongle</a> </td>
+	</tr>
+</table></div>
+
+<p>
+This recipe explains how to setup and configure OpenWrt for using a USB 3g/UMTS-modem for WAN connection. You may want to checkout the <code><a href="../uci/multiwan" class="wikilink1" title="doc:uci:multiwan">multiwan</a></code> package to use this simultaneously with other connections to the internet.
+</p>
+
+<p>
+Please use OpenWrt 10.03.1-rc3 &#039;Backfire&#039; or newer image.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> You are advised to inform yourself on how easily cellular mobile telephony can be intercepted. Remember this is a wireless connection.  Also, some providers block certain ports: do not forget to inform yourself about that, too
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> If you&#039;ve got a Huawei E367 (which will work), or a Huawei E585 (which does not currently work), you may want to read the following tutorial (which includes info on why you may not be able to get the on-board micro-SD card to function):
+<a href="http://www.draisberghof.de/usb_modeswitch/bb/viewtopic.php?t=836" class="urlextern" title="http://www.draisberghof.de/usb_modeswitch/bb/viewtopic.php?t=836"  rel="nofollow">http://www.draisberghof.de/usb_modeswitch/bb/viewtopic.php?t=836</a>
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> If you have the Leadtek FlashOFDM card (Flarion) from T-Mobile in Slovakia and the Asus WL-500g Premium, you may use the image on <a href="http://www.accalio.com/index.php?id=301" class="urlextern" title="http://www.accalio.com/index.php?id=301"  rel="nofollow">http://www.accalio.com/index.php?id=301</a>. If you wish to get more information, or another distribution with the driver, please contact Accalio <a href="http://www.accalio.com" class="urlextern" title="http://www.accalio.com"  rel="nofollow">http://www.accalio.com</a>
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> You | <img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" />: need not | must not install <strong>usb-modeswitch</strong> onto your wrt device if you cure your 3g-usb modem from the so called <strong>&#039;NO-CD&#039;</strong> feature. Plug it into a desktop PC with usb-modeswitch and have a look at <a href="http://www.3g-modem-wiki.com/page/Huawei+AT-commands" class="urlextern" title="http://www.3g-modem-wiki.com/page/Huawei+AT-commands"  rel="nofollow">http://www.3g-modem-wiki.com/page/Huawei+AT-commands</a>. I was able to fix 3 modems with <strong>a simple AT-command</strong>. Plugged in, they just show up the serial lines (ttyUSB0-2) and the sd-card reader. Very nice!
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Some sticks provide an usb-ethernet-device. (E.g. E303) In that case usb-modeswitch and <a href="../howto/usb.tethering" class="wikilink1" title="doc:howto:usb.tethering">usb tethering</a> will help.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Some high speed usb modems provide <strong>qmi</strong> or <strong>mbim</strong> protocol for connection instead of legacy ppp protocol. For more information about qmi and mbim, see <a href="ltedongle" class="wikilink1" title="doc:recipes:ltedongle">How To Use LTE modem in QMI mode for WAN connection</a> section of this wiki.
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="preparations">Preparations</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit4" id="required_packages">Required Packages</h3>
+<div class="level3">
+
+<p>
+First install required packages:
+</p>
+<ul>
+<li class="level1"><div class="li"><em>comgt</em> <a href="http://dev.man-online.org/man1/comgt/" class="urlextern" title="http://dev.man-online.org/man1/comgt/"  rel="nofollow">manpage for comgt</a></div>
+</li>
+<li class="level1"><div class="li">Appropriate host controller interface for your USB hardware (precompiled images will most likely already contain the correct one)</div>
+<ul>
+<li class="level2"><div class="li"><em>kmod-usb2</em> (aka EHCI)</div>
+</li>
+<li class="level2"><div class="li"><em>kmod-usb-ohci</em></div>
+</li>
+<li class="level2"><div class="li"><em>kmod-usb-uhci</em> (for example VIA chips)</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li">Support for serial communication; needed to send control commands to the dongle and receive its responses. </div>
+</li>
+<li class="level1"><div class="li"><em>kmod-usb-serial</em>, and</div>
+</li>
+<li class="level1"><div class="li"><em>kmod-usb-serial-option</em>, and</div>
+</li>
+<li class="level1"><div class="li"><em>kmod-usb-serial-wwan</em>, or</div>
+</li>
+<li class="level1"><div class="li"><em>kmod-usb-acm</em> i.s.o. the last two, depending on dongle/phone hardware. </div>
+<ul>
+<li class="level2"><div class="li"><em>kmod-usb-serial-option</em> is not available for 2.4 kernel, install <em>kmod-usb-serial</em> and put a line equivalent to &quot;usbserial vendor=0x12d1 product=0x1003 maxSize=2048&quot; in /etc/modules.d/60-usb-serial)</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li">modeswitching tools, if your modem initially presents itself as a storage device - one of the following, depending on your modem:</div>
+<ul>
+<li class="level2"><div class="li"><em>usb-modeswitch</em> and <em>usb-modeswitch-data</em> (<em>recommended</em>) A mode switching tool for controlling &quot;flip flop&quot; (multiple device) USB gear.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+Note: as of <a href="https://dev.openwrt.org/changeset/36812" class="urlextern" title="https://dev.openwrt.org/changeset/36812"  rel="nofollow">r36812</a>, usb-modeswitch package  had been under major overhaul from ordinary draisberghof usb_modeswitch found in many linux distributions. <strong>usb-modeswitch-data is included in the package</strong>, with the new json format.
+</p>
+<ul>
+<li class="level1"><div class="li"><em>sdparm</em> - utility to send SCSI commands (needed on Ovation MC935D)</div>
+</li>
+<li class="level2"><div class="li"> <em>luci-proto-3g</em> for proper support in luci in RC6 and later</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit5" id="dependencies">Dependencies</h3>
+<div class="level3">
+
+<p>
+If you are doing an offline installation, you might need some of these packages handy
+</p>
+<ul>
+<li class="level1"><div class="li"><em>kmod-usb-core</em>, already in 10.03 RC3 Image</div>
+</li>
+<li class="level1"><div class="li"><em>chat</em>, dependency of <em>comgt</em></div>
+</li>
+<li class="level1"><div class="li"><em>ppp</em>, dependency of <em>chat</em>, already in 10.03 RC3 Image</div>
+</li>
+<li class="level1"><div class="li"><em>kmod-usb-serial</em>, dependency of <em>kmod-usb-serial-option</em></div>
+</li>
+<li class="level1"><div class="li"><em>libusb</em> <a href="http://www.draisberghof.de/usb_modeswitch/#download" class="urlextern" title="http://www.draisberghof.de/usb_modeswitch/#download"  rel="nofollow">or the &quot;compatible&quot; library</a> from <em>libusb-1.0</em>, dependency of <em>usb-modeswitch</em></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit6" id="installation">Installation</h2>
+<div class="level2">
+
+<p>
+First install needed packages:
+<pre class="code">opkg update
+opkg install comgt kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan usb-modeswitch usb-modeswitch-data</pre>
+
+</p>
+
+<p>
+Now plug your USB Dongle to the USB port and restart the router.
+</p>
+
+<p>
+Check dmesg for:
+<pre class="code">USB Serial support registered for generic
+usbserial_generic 1-1:1.0: generic converter detected
+USB Serial support registered for generic
+usbserial_generic 1-1:1.0: generic converter detected
+usb 1-1: generic converter now attached to ttyUSB0
+usbserial_generic 1-1:1.1: generic converter detected
+usb 1-1: generic converter now attached to ttyUSB1
+...
+usbcore: registered new interface driver usbserial_generic
+usbserial: USB Serial Driver core
+USB Serial support registered for GSM modem (1-port)
+usbcore: registered new interface driver option
+option: v0.7.2:USB Driver for GSM modems</pre>
+
+</p>
+
+<p>
+If above lines do not appear in dmesg, but instead you see something like:
+</p>
+
+<p>
+<pre class="code">scsi1 : SCSI emulation for USB Mass Storage devices
+usb-storage: device found at 4
+usb-storage: waiting for device to settle before scanning
+scsi 1:0:0:0: CD-ROM            Novatel  Mass Storage     2.31 PQ: 0 ANSI: 0
+scsi 1:0:0:0: Attached scsi generic sg1 type 5
+usb-storage: device scan complete</pre>
+
+</p>
+
+<p>
+then, depending on your modem, you have to switch device mode (described below).
+</p>
+
+<p>
+If you still can&#039;t see <code>usbserial_generic</code> in dmesg, try loading the usbserial module (&lt;vid&gt; and &lt;pid&gt; are Vendor and Product ID of your device):
+<pre class="code">rmmod usbserial #optional
+insmod /lib/modules/`uname -r`/usbserial.ko vendor=0x&lt;vid&gt; product=0x&lt;pid&gt;</pre>
+
+Alternatively, you can also use option GSM driver on your dongle. Option driver is more reliable, as it can distinguish between serial port and storage port.
+<pre class="code">insmod option #skip this if option driver is loaded already
+echo &#039;&lt;vid&gt; &lt;pid&gt; ff&#039; &gt; /sys/bus/usb-serial/drivers/option1/new_id</pre>
+
+</p>
+
+<p>
+To automate the process of attaching option serial driver on boot, just edit <code>/etc/rc.local</code> and place
+<pre class="code">echo &#039;&lt;vid&gt; &lt;pid&gt; ff&#039; &gt; /sys/bus/usb-serial/drivers/option1/new_id</pre>
+
+before the exit code
+<pre class="code">exit 0</pre>
+
+</p>
+
+<p>
+Adding the above to hotplug instead of rc.local:
+You can easily integrate this into hotplug in the following way - in this example we will use a fictional &quot;3G Dongie HSPA+&quot; Dongle:
+</p>
+
+<p>
+Create and edit the file /etc/hotplug.d/usb/22-dongie_hspaplus:
+<pre class="code">#!/bin/sh                                                                       
+...
+                                                                                
+DONGIEHSPAPLUS_PRODID=&quot;0815/9000/0&quot;                                                
+if [ &quot;${PRODUCT}&quot; = &quot;${DONGIEHSPAPLUS_PRODID}&quot; ]; then                             
+        if [ &quot;${ACTION}&quot; = &quot;add&quot; ]; then                           
+...             
+                echo &#039;0815 9000 ff&#039; &gt; /sys/bus/usb-serial/drivers/option1/new_id
+...</pre>
+
+</p>
+
+<p>
+If your modem&#039;s switched product id is 0815:9000, the above will work.
+So for your modem you will have to replace all appearances of the variable DONGIEHSPAPLUS_PRODID and all appearance of &quot;0815&quot; and &quot;9000&quot; in the above example with your matching product&#039;s name, vendor and product id.
+</p>
+
+<p>
+Check dmesg again for:
+<pre class="code">usbcore: registered new interface driver usbserial
+USB Serial support registered for generic
+usbserial_generic 1-1.3:1.0: generic converter detected
+usb 1-1.3: generic converter now attached to ttyUSB0
+usbserial_generic 1-1.3:1.1: generic converter detected
+usb 1-1.3: generic converter now attached to ttyUSB1
+usbcore: registered new interface driver usbserial_generic
+usbserial: USB Serial Driver core</pre>
+
+Also check kernel USB debug for loaded drivers
+<pre class="code">root@OpenWrt:~# cat /sys/kernel/debug/usb/devices
+
+T:  Bus=01 Lev=01 Prnt=01 Port=00 Cnt=01 Dev#=  3 Spd=480  MxCh= 0
+D:  Ver= 2.00 Cls=00(&gt;ifc ) Sub=00 Prot=00 MxPS=64 #Cfgs=  1
+P:  Vendor=1c9e ProdID=9800 Rev= 0.00
+S:  Manufacturer=USB Modem
+S:  Product=USB Modem
+S:  SerialNumber=1234567890ABCDEF
+C:* #Ifs= 4 Cfg#= 1 Atr=e0 MxPwr=500mA
+I:* If#= 0 Alt= 0 #EPs= 2 Cls=ff(vend.) Sub=ff Prot=ff Driver=option
+E:  Ad=81(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
+E:  Ad=01(O) Atr=02(Bulk) MxPS= 512 Ivl=4ms
+I:* If#= 1 Alt= 0 #EPs= 3 Cls=ff(vend.) Sub=ff Prot=ff Driver=option
+E:  Ad=82(I) Atr=03(Int.) MxPS=  64 Ivl=2ms
+E:  Ad=83(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
+E:  Ad=02(O) Atr=02(Bulk) MxPS= 512 Ivl=4ms
+I:* If#= 2 Alt= 0 #EPs= 2 Cls=ff(vend.) Sub=ff Prot=ff Driver=option
+E:  Ad=84(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
+E:  Ad=03(O) Atr=02(Bulk) MxPS= 512 Ivl=4ms
+I:* If#= 3 Alt= 0 #EPs= 2 Cls=08(stor.) Sub=06 Prot=50 Driver=usb-storage
+E:  Ad=04(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
+E:  Ad=85(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit7" id="switching_usb_mode">switching USB mode</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="usb-modeswitch_method">usb-modeswitch method</h4>
+<div class="level4">
+
+<p>
+Install and use the <code>usb-modeswitch</code> <strong>and</strong> <code>usb-modeswitch-data</code> packages with the correct hardware ID&#039;s for your USB Dongle in order to switch the USB dongle from CDROM file system to Modem mode (→ flip flop). Read on <a href="http://www.draisberghof.de/usb_modeswitch/" class="urlextern" title="http://www.draisberghof.de/usb_modeswitch/"  rel="nofollow">here</a> how to use this package.
+</p>
+
+<p>
+Now your USB Dongle should create logs in dmesg. If it doesn&#039;t, try <pre class="code">usb_modeswitch -c /etc/usb_modeswitch.d/&lt;file&gt;</pre>
+ where <code>&lt;file&gt;</code> represents the modem&#039;s combined vendor/product id, e.g. 19d2:0083 for a ZTE MF190. Obviously, that file must exist in the forementioned directory.
+</p>
+
+<p>
+For instance, with the DX 7.2M HSDPA 3G SIM Card USB Item# 80032, the reported scsi ID is 12d1:1001; running &quot;usb_modeswitch  -v 12d1 -p 1001&quot; results in 4 ttyUSB devices:
+<pre class="code">[426955.836000] option 1-1.2:1.0: GSM modem (1-port) converter detected
+[426955.844000] usb 1-1.2: GSM modem (1-port) converter now attached to ttyUSB0
+[426955.860000] option 1-1.2:1.1: GSM modem (1-port) converter detected
+[426955.868000] usb 1-1.2: GSM modem (1-port) converter now attached to ttyUSB1
+[426955.884000] option 1-1.2:1.2: GSM modem (1-port) converter detected
+[426955.892000] usb 1-1.2: GSM modem (1-port) converter now attached to ttyUSB2
+[426955.908000] option 1-1.2:1.3: GSM modem (1-port) converter detected
+[426955.916000] usb 1-1.2: GSM modem (1-port) converter now attached to ttyUSB3
+[426955.936000] scsi17 : usb-storage 1-1.2:1.4
+[426956.940000] scsi 17:0:0:0: CD-ROM            HSDPA    CDROM Storage    2.31PQ: 0 ANSI: 2
+[426956.948000] scsi 17:0:0:0: Attached scsi generic sg0 type 5
+[426956.960000] scsi 17:0:0:1: Direct-Access     HSDPA    MMC Storage      2.31PQ: 0 ANSI: 2
+[426956.968000] sd 17:0:0:1: Attached scsi generic sg1 type 0
+[426956.992000] sd 17:0:0:1: [sda] Attached SCSI removable disk</pre>
+
+</p>
+
+<p>
+<strong>NOTE:</strong> As of <a href="https://dev.openwrt.org/changeset/36812" class="urlextern" title="https://dev.openwrt.org/changeset/36812"  rel="nofollow">r36812</a>, OpenWrt made significant changes with <code>usb-modeswitch</code> as part of <code>procd</code> system init daemon. The new <code>usb-modeswitch</code> package includes binary usbmode with json-based configuration instead of classic usb_modeswitch binary. Supported modems should switch automatically as long as usbmode service is active.
+The <code>/etc/usb-mode.json</code> configuration file looks partially like below.
+<pre class="code json">{
+	&quot;messages&quot; : [
+		&quot;555342431234567800000000000006d0000000000000000000000000000000&quot;,
+		&quot;5553424312345678000000000000061b004600000000000000000000000000&quot;,
+],
+&quot;devices&quot; : {
+		&quot;03f0:002a&quot;: {
+			&quot;*&quot;: {
+				&quot;t_class&quot;: 7,
+				&quot;msg&quot;: [ 0 ],
+				&quot;response&quot;: true
+			}
+		},
+		&quot;0408:f000&quot;: {
+			&quot;*&quot;: {
+				&quot;t_vendor&quot;: 1032,
+				&quot;t_product&quot;: [ 53257 ],
+				&quot;msg&quot;: [ 1 ]
+			}
+		},
+	}
+}</pre>
+
+</p>
+
+<p>
+<code>03f0:002a</code> is default vendor and product in hexadecimal neotation, as it appears on executition of <code>lsusb</code> or kernel usb debug, while <code>msg</code> is the message content array. These messages issue the commands, that will either allow for media eject and/or eject the virtual CD-ROM, … in order to switch the device into 3G modem mode. <code>t_vendor</code> is target vendor in decimal notation, <code>t_product</code> is target product in decimal notation. 
+Depending to the recognized vendor and product id, you may send one of the messages to the dongle by just using the message array index
+If you want to know more, look at the file /etc/usb-mode.json.
+</p>
+
+<p>
+The above usbmode-json example will send this message code
+<pre class="code">&quot;555342431234567800000000000006d0000000000000000000000000000000&quot;</pre>
+
+to the usb device with the vendor id <strong>03f0</strong> and product id <strong>002a</strong>. After modeswitching, the usb device will stay with the same vendor id and product id, but with target device class number of 7.
+</p>
+
+<p>
+In addition, it will send message code
+<pre class="code">&quot;5553424312345678000000000000061b004600000000000000000000000000&quot;</pre>
+
+to the usb device with the vendor id and the product id of 0408:f000. After modeswitching, the usb device will switch to decimal vendor id and product id of 1032:53257, which you can convert to hexadecimal notation of 0408:D009 (You need decimal to hexadecimal converter such as your computer&#039;s calculator in &#039;programmer&#039;s mode&#039;.). The device vendor id and product id after modeswitch as show on <em>lsusb</em> and <code>/sys/kernel/debug/usb/devices</code> is 0408:D009.
+</p>
+
+<p>
+Note: the json file is generated automaticallly from ordinary usb_modeswitch data files during build process using perl script named <code>convert-modeswitch.pl</code>.
+For diagnostics purpose, you can create <code>usb-mode-custom.json</code> with defined message and devices part and launch the command
+<pre class="code">usbmode -l
+usbmode -s -v -c /path/to/usb-mode-custom.json</pre>
+
+Converting the standard usb-modeswitch file to json format can be done in a simple way.
+The standard usb-modeswitch file (0408:f000) content.
+<pre class="code shell"># Yota Router (Quanta 1QDLZZZ0ST2)
+TargetVendor=0x0408
+TargetProduct=0xd009
+MessageContent=&quot;5553424312345678000000000000061b004600000000000000000000000000&quot;</pre>
+
+Target vendor (0x0408) is converted to decimal notation to fill <em>t_vendor</em> value (1032) and target product (0xd009) is converted to decimal notation to fill <em>t_product</em> (53257). There is only one message content, so the message index is zero (0). The resulting usb-mode-custom.json content is as follows.
+<pre class="code json">{
+	&quot;messages&quot; : [
+		&quot;5553424312345678000000000000061b004600000000000000000000000000&quot;,
+],
+&quot;devices&quot; : {
+		&quot;0408:f000&quot;: {
+			&quot;*&quot;: {
+				&quot;t_vendor&quot;: 1032,
+				&quot;t_product&quot;: [ 53257 ],
+				&quot;msg&quot;: [ 0 ]
+			}
+		},
+	}
+}</pre>
+
+</p>
+
+<p>
+Based on this example, you can make another usb-mode-custom.json file to perform modeswitching on unsupported dongles for diagnostic purpose.
+</p>
+
+<p>
+If your device doesn&#039;t work with usb_modeswitch, try the sdparm method.
+</p>
+
+</div>
+
+<h4 id="sdparm_method">sdparm method</h4>
+<div class="level4">
+
+<p>
+This method uses <code>sdparm</code> to issue SCSI eject command to the emulated CDROM device. This is enough to put some modems into modem mode (tested on Ovation MC935D).
+</p>
+
+<p>
+Before you start, make note of your modem&#039;s vendor and product ID:
+<pre class="code"># cat /proc/bus/usb/devices
+...
+P:  Vendor=1410 ProdID=5020 Rev= 0.00
+S:  Manufacturer=Novatel Wireless, Inc.
+...</pre>
+
+</p>
+
+<p>
+First, find out your device address - in this example it&#039;s going to be <code>sg0</code>. Then issue the following:
+</p>
+
+<p>
+<pre class="code">sdparm --eject /dev/sg0</pre>
+
+</p>
+
+<p>
+For Attitude Adjustment try:
+<pre class="code">sdparm --command=eject /dev/sg0</pre>
+
+</p>
+
+<p>
+Then, check for changes of your product ID:
+</p>
+
+<p>
+<pre class="code"># cat /proc/bus/usb/devices
+...
+P:  Vendor=1410 ProdID=7001 Rev= 0.00
+S:  Manufacturer=Novatel Wireless, Inc.
+S:  Product=Qualcomm Configuration
+...
+I:* If#= 0 Alt= 0 #EPs= 3 Cls=ff(vend.) Sub=ff Prot=ff Driver=(none)
+...</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="configuration">Configuration</h2>
+<div class="level2">
+
+<p>
+The shown configuration replaces the WAN line, so no further changes are needed to the firewall/other configuration. Note that if you also want to use the WAN port, you have to define it as WAN2 in the configuration. If you define the 3g connection as WAN2, you have to do more changes to other parts, like firewall and so on.
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="network_configuration">Network configuration</h3>
+<div class="level3">
+
+<p>
+Edit your &#039;/etc/config/<a href="../uci/network" class="wikilink1" title="doc:uci:network">network</a>&#039; file: (see <a href="../uci/network#protocol3gpppoverev-docdmaumtsorgrps" class="wikilink1" title="doc:uci:network">network 3G section</a> for more details)
+</p>
+<div class="table sectionedit10"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config interface wan
+#        option ifname  ppp0 # on some carriers enable this line
+        option pincode 1234
+        option device  /dev/ttyUSB0
+        option apn     your.apn
+        option service umts
+        option proto   3g</code> </td>
+	</tr>
+</table></div>
+
+<p>
+Replace &#039;pincode&#039; with the correct pincode of your SIM card. Note that an disabled pincode on the SIM card is problematic, please enable it.
+If you are connecting to a phone where the pincode has already been entered, there if no need for this.
+</p>
+
+<p>
+Replace &#039;device&#039; with the correct USB port of your modem. On a phone this might for example be /dev/ttyACM0.
+</p>
+
+<p>
+Replace &#039;apn&#039; with the correct APN of your 3g/umts provider.
+</p>
+
+<p>
+Note in case your APN also requires an username/password, you can configure this too, just add to the network configuration file:
+</p>
+<div class="table sectionedit11"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>        option username yourusername
+        option password yourpassword</code> </td>
+	</tr>
+</table></div>
+
+<p>
+Replace &#039;username&#039; and &#039;password&#039; with the correct username/password you received from your 3g provider. You can also look for this information (apn, username and password) in the <a href="http://git.gnome.org/browse/mobile-broadband-provider-info/tree/serviceproviders.xml" class="urlextern" title="http://git.gnome.org/browse/mobile-broadband-provider-info/tree/serviceproviders.xml"  rel="nofollow">mobile-broadband-provider-info database</a> from the Gnome project.
+</p>
+
+<p>
+For some providers, apperently it is neccessary to add &#039;noipdefault&#039; to &#039;pppd_options&#039;. If logread shows that the connection was established and CHAP authentication was successful, but the connection was immediately dropped after, then try:
+</p>
+<pre class="code">       option &#039;pppd_options&#039; &#039;noipdefault&#039;</pre>
+
+<p>
+If your provider supports PAP authentication only then you need to disable all other protocols via these added options:
+</p>
+<pre class="code">       option &#039;pppd_options&#039; &#039;noipdefault refuse-chap refuse-mschap refuse-mschap-v2 refuse-eap&#039; </pre>
+
+<p>
+Now you have configured the network interface.
+</p>
+
+</div>
+
+<h3 class="sectionedit12" id="chat_configuration">Chat configuration</h3>
+<div class="level3">
+
+<p>
+Now we need to check if the default chatscript does work with your 3g provider or not.
+</p>
+
+<p>
+You can find it here &#039;/etc/chatscripts/3g.chat&#039;, it looks like this:
+<pre class="code">ABORT   BUSY
+ABORT   &#039;NO CARRIER&#039;
+ABORT   ERROR
+REPORT  CONNECT
+TIMEOUT 12
+&quot;&quot;      &quot;AT&amp;F&quot;
+OK      &quot;ATE1&quot;
+OK      &#039;AT+CGDCONT=1,&quot;IP&quot;,&quot;$USE_APN&quot;&#039;
+ABORT   &#039;NO CARRIER&#039;
+TIMEOUT 15
+OK      &quot;ATD*99***1#&quot;
+CONNECT &#039; &#039;</pre>
+
+</p>
+
+<p>
+If your modem needs a special AT command, your can add it to this file.
+You may have to edit the dial number of the ATD command to fit in with your provider&#039;s settings (for example &quot;*99#&quot; instead of &quot;*99***11#&quot;). 
+</p>
+
+</div>
+
+<h2 class="sectionedit13" id="establishing_connection">Establishing connection</h2>
+<div class="level2">
+
+<p>
+Just type on console &#039;ifup wan&#039;
+</p>
+
+<p>
+Now check <del>dmesg</del> logread for successful connect:
+<pre class="code">pppd 2.4.4 started by root, uid 0
+abort on (BUSY)
+abort on (ERROR)
+report (CONNECT)
+timeout set to 12 seconds
+send (AT&amp;F^M)
+expect (OK)
+AT&amp;F^M^M
+OK
+ -- got it
+send (ATE1^M)
+expect (OK)
+^M
+ATE1^M^M
+OK
+ -- got it
+send (AT+CGDCONT=1,&quot;IP&quot;,&quot;your.apn&quot;^M)
+abort on (NO CARRIER)
+timeout set to 15 seconds
+expect (OK)
+^M
+AT+CGDCONT=1,&quot;IP&quot;,&quot;your.apn&quot;^M^M
+OK
+ -- got it
+send (ATD*99***1#^M)
+expect (CONNECT)
+^M
+ATD*99***1#^M^M
+CONNECT
+ -- got it
+send ( ^M)
+Serial connection established.
+Using interface 3g-wan
+Connect: 3g-wan &lt;--&gt; /dev/ttyUSB0
+Could not determine remote IP address: defaulting to x.x.x.x
+local  IP address x.x.x.x
+remote IP address  x.x.x.x
+primary   DNS address  x.x.x.x
+secondary DNS address  x.x.x.x
+adding wan (3g-wan) to firewall zone wan</pre>
+
+</p>
+
+<p>
+That&#039;s it, now you should be connected.
+</p>
+
+<p>
+If you want an permanent connect from startup, add &#039;ifup wan&#039; command to &#039;/etc/rc.local&#039; file.
+</p>
+
+</div>
+
+<h2 class="sectionedit14" id="troubleshooting">Troubleshooting</h2>
+<div class="level2">
+
+<p>
+For troubleshooting or locating the best position for the USB Dongle, you can use <pre class="code">gcom info -d /dev/ttyUSBx</pre>
+ from the console. This tool will report signal strength, but also network registration and SIM status. If it returns a port-in-use error because your connection is already up, try <pre class="code">gcom -d /dev/ttyUSBx</pre>
+ where <code>x</code> represents a port number not used by the wan connection itself.
+</p>
+
+<p>
+<code>gcom</code> returns the signal quality in RSSI (<a href="http://en.wikipedia.org/wiki/Received signal strength indication" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Received signal strength indication">Received signal strength indication</a>) and in BER (<a href="http://en.wikipedia.org/wiki/Bit error rate" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Bit error rate">Bit error rate</a>, reported in percent). A higher RSSI value represents a stronger signal - scale is from 0 to 99, where 1 is the lowest detectable signal and 31 a very good signal. Don&#039;t expect your signal to go all the way up to 99, though. If BER returns 99 it means not known or not detectable.
+</p>
+
+<p>
+If your 3G modem is e.g. a ZTE K3565-Z featuring a LED SSI indicator to show it&#039;s status (Not Connected, GPRS, UMTS) you may be mislead to believe, that a strong signal strength of e.g. 17 may be better, while you only get GPRS, but a value of 4 allows for UMTS access. This is owed to the circumstance, that the device may switch over to another cell. The only method to prevent a handover between a GPRS and an UMTS station during the process of optimizing, is to initiate the device to use &#039;UMTS only&#039; in the first place.
+</p>
+
+<p>
+You can also add the AT command 
+<pre class="code">&quot;&quot;      &quot;AT+CSQ&quot;</pre>
+
+to your <span class="curid"><a href="3gdongle#chatconfiguration" class="wikilink1" title="doc:recipes:3gdongle">chat script</a></span> to check signal quality. 
+</p>
+
+<p>
+Command return is &quot;+CSQ: &lt;rssi&gt;,&lt;ber&gt;&quot; and looks like this in <code>logread</code>:
+<pre class="code">send (AT+CSQ^M)
+expect (OK)
+^M
+AT+CSQ^M^M
++CSQ: 11,99^M
+^M
+OK
+-- got it</pre>
+
+</p>
+
+<p>
+If you have problems establishing a connection and multiple modem devices (<code>/dev/ttyUSB0</code>, <code>/dev/ttyUSB1</code>, …) are present, try <strong>all</strong> of them. Some may not work at all while others seem to work at first, but will give a <code>NO CARRIER</code> during the connection process.
+</p>
+
+</div>
+
+<h2 class="sectionedit15" id="aiccu_interaction">AICCU interaction</h2>
+<div class="level2">
+
+<p>
+<code>/etc/hotplug.d/iface/30-aiccu</code> starts aiccu when the WAN connection is established. It seems however that, in the case of 3G connections, the start scripts are started just a bit too early and the start of aiccu fails. I have butchered the script a bit:
+</p>
+
+<p>
+<pre class="code">#!/bin/sh
+
+[ &quot;$ACTION&quot; = &quot;ifup&quot; -a &quot;$INTERFACE&quot; = &quot;wan&quot; ] &amp;&amp; /etc/init.d/aiccu enabled &amp;&amp; sleep 15; /etc/init.d/aiccu restart</pre>
+
+</p>
+
+<p>
+Note that sixxs really frowns upon quick re-re-restarts of aiccu, it may get your account blocked for unjust use of resources. Be careful with these scripts.
+</p>
+
+</div>
+
+<h2 class="sectionedit16" id="installing_multiple_3g_dongles">Installing multiple 3G dongles</h2>
+<div class="level2">
+
+<p>
+You can use many usb 3G dongles easily by using an active USB hub.
+</p>
+
+<p>
+Prepare for the next steps:
+We assume you have at least one 3g dongle configured. You will need an active internet connection in order to install modules for 3g support. Check <a href="3gdongle" class="urlextern" title="http://wiki.openwrt.org/doc/recipes/3gdongle"  rel="nofollow">http://wiki.openwrt.org/doc/recipes/3gdongle</a> for more information.
+</p>
+
+<p>
+1. Connect an active USB hub to the OpenWrt router. You need to assure, that the power supply will deliver sufficent power for all of your 3g dongles. A proper estimation is, that you will need 500+ mA per one 3g dongle. Remember that modem can slightly exceed its declared power consumption in HDSPA+ modes. Be generous and pick USB hub with some power source overhead.
+</p>
+
+<p>
+2. Connect all 3g dongles and start.
+</p>
+
+<p>
+3. Browse through logread to check if modems are properly recognized and /ttyUSB ports are assigned.
+</p>
+
+<p>
+4. Usually a 3g modem has a few &quot;modem ports&quot; - one for connection and others are service types. Exeplum gratum: A Huawei E1750 has three ports. The first in is a communication port and last is a service port. If you only have one modem, it will be recognized as /ttyUSB0, /ttyUSB1 and /ttyUSB2. You need to configure interface using /ttyUSB0 (first one). A Huawei E372 has five ports, but similar to other Huawei devices, the communication port is the first one.
+</p>
+
+<p>
+5. You need to configure interfaces. An example of &quot;/etc/config/network&quot; could look like this: 
+<pre class="code">config &#039;interface&#039; &#039;wan&#039;
+	option &#039;proto&#039; &#039;3g&#039;
+	option &#039;service&#039; &#039;umts&#039;
+	option &#039;device&#039; &#039;/dev/ttyUSB0&#039;
+	option &#039;apn&#039; &#039;internet&#039;
+	option &#039;pincode&#039; &#039;&#039;
+	option &#039;username&#039; &#039;&#039;
+	option &#039;password&#039; &#039;&#039;</pre>
+
+Usually you need to provide an APN name in &quot;option &#039;apn&#039; &#039;Name-Of-APN-HERE&#039;&quot;.
+If your sim card is locked with a PIN, or if your porvider requires to use a username and/or pass, add it accordingly.
+</p>
+
+<p>
+6. Check in log read next /ttyUSB[X] ports. In my case I have second modem starting with /ttyUSB3 (previous one use /ttyUSB0 to /ttyUSB2) so second interface looks like this:
+<pre class="code">config &#039;interface&#039; &#039;wan2&#039;
+	option &#039;proto&#039; &#039;3g&#039;
+	option &#039;service&#039; &#039;umts&#039;
+	option &#039;maxwait&#039; &#039;0&#039;
+	option &#039;device&#039; &#039;/dev/ttyUSB3&#039;
+	option &#039;apn&#039; &#039;internet&#039;
+	option &#039;pincode&#039; &#039;&#039;
+	option &#039;username&#039; &#039;&#039;
+	option &#039;password&#039; &#039;&#039;</pre>
+
+7. remember to add second interface to the zone &quot;wan&quot; in the firewall&#039;s config file &quot;/etc/config/firewall&quot; (it may differ in your case): 
+<pre class="code">config &#039;zone&#039;
+	option &#039;name&#039; &#039;wan&#039;
+	option &#039;input&#039; &#039;REJECT&#039;
+	option &#039;output&#039; &#039;ACCEPT&#039;
+	option &#039;forward&#039; &#039;REJECT&#039;
+	option &#039;masq&#039; &#039;1&#039;
+	option &#039;mtu_fix&#039; &#039;1&#039;
+	option &#039;network&#039; &#039;wan wan2&#039;</pre>
+
+Look at last line - there is wan2 added.
+</p>
+
+<p>
+8. Now you have both interfaces configured and they should work.
+</p>
+
+<p>
+9. You can use both interfaces as 
+failover 
+</p>
+
+</div>
+
+<h3 class="sectionedit17" id="loadbalancermultiwan">LOADBALANCER/ MULTIWAN</h3>
+<div class="level3">
+<div class="table sectionedit18"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" />: This section needs a complete rewrite to fix spelling and grammar errors. </td>
+	</tr>
+</table></div>
+
+<p>
+loadbalncer - <a href="https://forum.openwrt.org/viewtopic.php?id=23904" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=23904"  rel="nofollow">https://forum.openwrt.org/viewtopic.php?id=23904</a>
+</p>
+
+<p>
+Note: It seems multiwan isnt perfectly suit for 3G modems in terms of stability. Modems dont reconnect automatically by HealthMonitor. Also after Mobem being manually restarted, multiwan dont use newly restarted interface until multiwan restart is restarted.
+</p>
+
+<p>
+Configuration files for two 3G modems paired in multiwan:
+</p>
+
+<p>
+Network (default route to 0 and peerdns to 0):
+<pre class="code">config &#039;interface&#039; &#039;loopback&#039;
+	option &#039;ifname&#039; &#039;lo&#039;
+	option &#039;proto&#039; &#039;static&#039;
+	option &#039;ipaddr&#039; &#039;127.0.0.1&#039;
+	option &#039;netmask&#039; &#039;255.0.0.0&#039;
+
+config &#039;interface&#039; &#039;lan&#039;
+	option &#039;ifname&#039; &#039;eth0.1&#039;
+	option &#039;type&#039; &#039;bridge&#039;
+	option &#039;proto&#039; &#039;static&#039;
+	option &#039;ipaddr&#039; &#039;192.168.1.1&#039;
+	option &#039;netmask&#039; &#039;255.255.255.0&#039;
+
+config &#039;interface&#039; &#039;wan&#039;
+	option &#039;proto&#039; &#039;3g&#039;
+	option &#039;service&#039; &#039;umts&#039;
+	option &#039;device&#039; &#039;/dev/ttyUSB0&#039;
+	option &#039;apn&#039; &#039;vpn&#039;
+	option &#039;pincode&#039; &#039;&#039;
+	option &#039;username&#039; &#039;vpn&#039;
+	option &#039;password&#039; &#039;vpn&#039;
+	option &#039;maxwait&#039; &#039;20&#039;
+	option &#039;defaultroute&#039; &#039;0&#039;
+
+config &#039;interface&#039; &#039;wan2&#039;
+	option &#039;proto&#039; &#039;3g&#039;
+	option &#039;service&#039; &#039;umts&#039;
+	option &#039;device&#039; &#039;/dev/ttyUSB3&#039;
+	option &#039;apn&#039; &#039;erainternet&#039;
+	option &#039;pincode&#039; &#039;&#039;
+	option &#039;username&#039; &#039;erainternet&#039;
+	option &#039;password&#039; &#039;erainternet&#039;
+	option &#039;maxwait&#039; &#039;10&#039;
+	option &#039;defaultroute&#039; &#039;0&#039;
+
+config &#039;switch&#039;
+	option &#039;name&#039; &#039;rtl8366s&#039;
+	option &#039;reset&#039; &#039;1&#039;
+	option &#039;enable_vlan&#039; &#039;1&#039;
+	option &#039;blinkrate&#039; &#039;2&#039;
+
+config &#039;switch_vlan&#039;
+	option &#039;device&#039; &#039;rtl8366s&#039;
+	option &#039;vlan&#039; &#039;1&#039;
+	option &#039;ports&#039; &#039;0 1 2 3 5t&#039;
+
+config &#039;switch_port&#039;
+	option &#039;device&#039; &#039;rtl8366s&#039;
+	option &#039;port&#039; &#039;1&#039;
+	option &#039;led&#039; &#039;6&#039;
+
+config &#039;switch_port&#039;
+	option &#039;device&#039; &#039;rtl8366s&#039;
+	option &#039;port&#039; &#039;2&#039;
+	option &#039;led&#039; &#039;9&#039;
+
+config &#039;switch_port&#039;
+	option &#039;device&#039; &#039;rtl8366s&#039;
+	option &#039;port&#039; &#039;5&#039;
+	option &#039;led&#039; &#039;2&#039;
+
+</pre>
+
+</p>
+
+<p>
+Firewall  - add second wan zones
+<pre class="code">
+config &#039;defaults&#039;
+	option &#039;syn_flood&#039; &#039;1&#039;
+	option &#039;input&#039; &#039;ACCEPT&#039;
+	option &#039;output&#039; &#039;ACCEPT&#039;
+	option &#039;forward&#039; &#039;REJECT&#039;
+	option &#039;drop_invalid&#039; &#039;1&#039;
+
+config &#039;zone&#039;
+	option &#039;name&#039; &#039;lan&#039;
+	option &#039;network&#039; &#039;lan&#039;
+	option &#039;input&#039; &#039;ACCEPT&#039;
+	option &#039;output&#039; &#039;ACCEPT&#039;
+	option &#039;forward&#039; &#039;REJECT&#039;
+
+config &#039;zone&#039;
+	option &#039;name&#039; &#039;wan&#039;
+	option &#039;input&#039; &#039;REJECT&#039;
+	option &#039;output&#039; &#039;ACCEPT&#039;
+	option &#039;forward&#039; &#039;REJECT&#039;
+	option &#039;masq&#039; &#039;1&#039;
+	option &#039;mtu_fix&#039; &#039;1&#039;
+	option &#039;network&#039; &#039;wan&#039;
+
+config &#039;rule&#039;
+	option &#039;src&#039; &#039;wan&#039;
+	option &#039;proto&#039; &#039;udp&#039;
+	option &#039;dest_port&#039; &#039;68&#039;
+	option &#039;target&#039; &#039;ACCEPT&#039;
+	option &#039;family&#039; &#039;ipv4&#039;
+
+config &#039;rule&#039;
+	option &#039;src&#039; &#039;wan&#039;
+	option &#039;proto&#039; &#039;icmp&#039;
+	option &#039;icmp_type&#039; &#039;echo-request&#039;
+	option &#039;family&#039; &#039;ipv4&#039;
+	option &#039;target&#039; &#039;ACCEPT&#039;
+
+config &#039;rule&#039;
+	option &#039;src&#039; &#039;wan&#039;
+	option &#039;proto&#039; &#039;icmp&#039;
+	list &#039;icmp_type&#039; &#039;echo-request&#039;
+	list &#039;icmp_type&#039; &#039;destination-unreachable&#039;
+	list &#039;icmp_type&#039; &#039;packet-too-big&#039;
+	list &#039;icmp_type&#039; &#039;time-exceeded&#039;
+	list &#039;icmp_type&#039; &#039;bad-header&#039;
+	list &#039;icmp_type&#039; &#039;unknown-header-type&#039;
+	list &#039;icmp_type&#039; &#039;router-solicitation&#039;
+	list &#039;icmp_type&#039; &#039;neighbour-solicitation&#039;
+	option &#039;limit&#039; &#039;1000/sec&#039;
+	option &#039;family&#039; &#039;ipv6&#039;
+	option &#039;target&#039; &#039;ACCEPT&#039;
+
+config &#039;rule&#039;
+	option &#039;src&#039; &#039;wan&#039;
+	option &#039;dest&#039; &#039;*&#039;
+	option &#039;proto&#039; &#039;icmp&#039;
+	list &#039;icmp_type&#039; &#039;echo-request&#039;
+	list &#039;icmp_type&#039; &#039;destination-unreachable&#039;
+	list &#039;icmp_type&#039; &#039;packet-too-big&#039;
+	list &#039;icmp_type&#039; &#039;time-exceeded&#039;
+	list &#039;icmp_type&#039; &#039;bad-header&#039;
+	list &#039;icmp_type&#039; &#039;unknown-header-type&#039;
+	option &#039;limit&#039; &#039;1000/sec&#039;
+	option &#039;family&#039; &#039;ipv6&#039;
+	option &#039;target&#039; &#039;ACCEPT&#039;
+
+config &#039;include&#039;
+	option &#039;path&#039; &#039;/etc/firewall.user&#039;
+
+config &#039;forwarding&#039;
+	option &#039;dest&#039; &#039;wan&#039;
+	option &#039;src&#039; &#039;lan&#039;
+
+config &#039;rule&#039;
+	option &#039;target&#039; &#039;ACCEPT&#039;
+
+config &#039;zone&#039;
+	option &#039;name&#039; &#039;wan2&#039;
+	option &#039;forward&#039; &#039;REJECT&#039;
+	option &#039;output&#039; &#039;ACCEPT&#039;
+	option &#039;network&#039; &#039;wan2&#039;
+	option &#039;input&#039; &#039;REJECT&#039;
+	option &#039;masq&#039; &#039;1&#039;
+	option &#039;mtu_fix&#039; &#039;1&#039;
+
+config &#039;forwarding&#039;
+	option &#039;dest&#039; &#039;wan2&#039;
+	option &#039;src&#039; &#039;lan&#039;
+
+
+
+</pre>
+
+</p>
+
+<p>
+Multiwan - Additionally add <em>option &#039;health_monitor&#039; &#039;serial&#039;</em> at the beggining to help healthmonitor check for dropped ppp interface (Proposed by Jolouis).
+</p>
+
+<p>
+<pre class="code">
+
+config &#039;multiwan&#039; &#039;config&#039;
+	option &#039;health_monitor&#039; &#039;serial&#039;
+	option &#039;default_route&#039; &#039;fastbalancer&#039;
+	option &#039;debug&#039; &#039;1&#039;
+
+config &#039;interface&#039; &#039;wan&#039;
+	option &#039;health_fail_retries&#039; &#039;3&#039;
+	option &#039;health_recovery_retries&#039; &#039;5&#039;
+	option &#039;failover_to&#039; &#039;fastbalancer&#039;
+	option &#039;timeout&#039; &#039;10&#039;
+	option &#039;dns&#039; &#039;8.8.8.8 8.8.4.4&#039;
+	option &#039;weight&#039; &#039;10&#039;
+	option &#039;health_interval&#039; &#039;120&#039;
+	option &#039;icmp_hosts&#039; &#039;gateway&#039;
+
+config &#039;interface&#039; &#039;wan2&#039;
+	option &#039;timeout&#039; &#039;3&#039;
+	option &#039;health_fail_retries&#039; &#039;3&#039;
+	option &#039;health_recovery_retries&#039; &#039;5&#039;
+	option &#039;failover_to&#039; &#039;fastbalancer&#039;
+	option &#039;dns&#039; &#039;208.67.222.222 208.67.220.220&#039;
+	option &#039;weight&#039; &#039;10&#039;
+	option &#039;health_interval&#039; &#039;120&#039;
+	option &#039;icmp_hosts&#039; &#039;gateway&#039;
+
+config &#039;mwanfw&#039;
+	option &#039;src&#039; &#039;192.168.1.150&#039;
+	option &#039;wanrule&#039; &#039;wan2&#039;
+
+config &#039;mwanfw&#039;
+	option &#039;wanrule&#039; &#039;fastbalancer&#039;
+</pre>
+
+</p>
+
+<p>
+I have issues with auto reconnecting modems so Ive modified script for checking if modems are up. Script check modems separately.
+Ive based this on great tutorial found at <a href="http://eko.one.pl/?p=openwrt-3g#automatycznyrestartpoczenia" class="urlextern" title="http://eko.one.pl/?p=openwrt-3g#automatycznyrestartpoczenia"  rel="nofollow">http://eko.one.pl/?p=openwrt-3g#automatycznyrestartpoczenia</a>
+</p>
+
+<p>
+Create file
+<pre class="code"># touch /bin/tester.sh
+# chmod 755 /bin/tester.sh</pre>
+
+</p>
+
+<p>
+Put this into file:
+</p>
+
+<p>
+<pre class="code">#!/bin/sh
+if ! ping -q -c 1 -W 10 -I 3g-wan 8.8.8.8 &gt; /dev/null; then
+        (ifup wan; sleep 5; /etc/init.d/multiwan restart) &amp;
+    fi
+
+if ! ping -q -c 1 -W 10 -I 3g-wan2 8.8.8.8 &gt; /dev/null; then
+        (ifup wan2; sleep 5; /etc/init.d/multiwan restart) &amp;
+    fi</pre>
+
+</p>
+
+<p>
+Create CRON:
+<pre class="code"># /etc/init.d/cron stop
+# echo &quot;*/2 * * * * /bin/tester.sh&quot; &gt;&gt; /etc/crontabs/root
+# /etc/init.d/cron enable
+# /etc/init.d/cron start</pre>
+
+</p>
+
+<p>
+Script will ping through two wans: 3g-wan and 3g-wan2 and if not recieving ping restart interface respectively.
+Additionally, It will wait 5 sec and force restart multiwan as it seems restarting modem wasnt recognized by multiwan automatically and it wasnt add to routing table.
+Restart of multiwan should take care of this situation.
+</p>
+
+</div>
+
+<h2 class="sectionedit19" id="additional_dns_configuration">Additional DNS configuration</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit20" id="advertising_public_dns_to_clients">Advertising public DNS to clients</h3>
+<div class="level3">
+<div class="table sectionedit21"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <strong>NOTE:</strong> Advertising public <abbr title="Domain Name System">DNS</abbr> to clients is not recommended. Use <a href="3gdongle#usingdnsforwarding" title="doc:recipes:3gdongle ↵" class="wikilink1">DNS forwarding</a> instead of this method. </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> <img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" />: This subsection needs rewrite to fix spelling and grammar errors </td>
+	</tr>
+</table></div>
+
+<p>
+Additionally in case of <abbr title="Domain Name System">DNS</abbr> being not resolved by local clients put &#039;list &#039;dhcp_option&#039; &#039;6,208.67.222.222,208.67.220.220&#039; More here: <a href="https://forum.openwrt.org/viewtopic.php?id=17316" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=17316"  rel="nofollow">https://forum.openwrt.org/viewtopic.php?id=17316</a>
+&#039; code into etc/config/dhcp
+<pre class="code">
+config &#039;dnsmasq&#039;
+	option &#039;domainneeded&#039; &#039;1&#039;
+	option &#039;boguspriv&#039; &#039;1&#039;
+	option &#039;filterwin2k&#039; &#039;0&#039;
+	option &#039;localise_queries&#039; &#039;1&#039;
+	option &#039;rebind_protection&#039; &#039;1&#039;
+	option &#039;rebind_localhost&#039; &#039;1&#039;
+	option &#039;local&#039; &#039;/lan/&#039;
+	option &#039;domain&#039; &#039;lan&#039;
+	option &#039;expandhosts&#039; &#039;1&#039;
+	option &#039;nonegcache&#039; &#039;0&#039;
+	option &#039;authoritative&#039; &#039;1&#039;
+	option &#039;readethers&#039; &#039;1&#039;
+	option &#039;leasefile&#039; &#039;/tmp/dhcp.leases&#039;
+	option &#039;resolvfile&#039; &#039;/tmp/resolv.conf.auto&#039;
+
+config &#039;dhcp&#039; &#039;lan&#039;
+	option &#039;interface&#039; &#039;lan&#039;
+	option &#039;start&#039; &#039;100&#039;
+	option &#039;limit&#039; &#039;150&#039;
+	option &#039;leasetime&#039; &#039;12h&#039;
+	list &#039;dhcp_option&#039; &#039;6,208.67.222.222,208.67.220.220&#039;
+
+config &#039;dhcp&#039; &#039;wan&#039;
+	option &#039;interface&#039; &#039;wan&#039;
+	option &#039;ignore&#039; &#039;1&#039;
+</pre>
+
+</p>
+
+<p>
+It could be made to work as described <a href="https://forum.openwrt.org/viewtopic.php?pid=139499#p139499" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?pid=139499#p139499"  rel="nofollow">here</a> in our Forum.
+</p>
+
+</div>
+
+<h3 class="sectionedit22" id="using_dns_forwarding">Using DNS forwarding</h3>
+<div class="level3">
+
+<p>
+Please note that instead of advertising public dns servers<sup><a href="3gdongle#fn__1" id="fnt__1" class="fn_top">1)</a></sup> for clients, it&#039;s better to just add server forwarding for dnsmasq, so that client dns requests are handled by dnsmasq and forwarded to appropriate dns servers. This example is using <a href="../devel/uci-lua" class="wikilink1" title="doc:techref:uci">uci cli</a> to configure dnsmasq to forward public dns requests to Google public dns servers<sup><a href="3gdongle#fn__2" id="fnt__2" class="fn_top">2)</a></sup>.
+<pre class="code">uci add_list dhcp.@dnsmasq[-1].server=8.8.8.8
+uci add_list dhcp.@dnsmasq[-1].server=8.8.4.4
+uci commit dhcp</pre>
+
+</p>
+
+<p>
+If you prefer to edit /etc/config/dhcp configuration manually:
+</p>
+
+<p>
+<pre class="code">
+config &#039;dnsmasq&#039;
+	option &#039;domainneeded&#039; &#039;1&#039;
+	option &#039;boguspriv&#039; &#039;1&#039;
+	option &#039;filterwin2k&#039; &#039;0&#039;
+	option &#039;localise_queries&#039; &#039;1&#039;
+	option &#039;rebind_protection&#039; &#039;1&#039;
+	option &#039;rebind_localhost&#039; &#039;1&#039;
+	option &#039;local&#039; &#039;/lan/&#039;
+	option &#039;domain&#039; &#039;lan&#039;
+	option &#039;expandhosts&#039; &#039;1&#039;
+	option &#039;nonegcache&#039; &#039;0&#039;
+	option &#039;authoritative&#039; &#039;1&#039;
+	option &#039;readethers&#039; &#039;1&#039;
+	option &#039;leasefile&#039; &#039;/tmp/dhcp.leases&#039;
+	option &#039;resolvfile&#039; &#039;/tmp/resolv.conf.auto&#039;
+	option &#039;server&#039; &#039;8.8.8.8&#039;
+	option &#039;server&#039; &#039;8.8.4.4&#039;
+
+config &#039;dhcp&#039; &#039;lan&#039;
+	option &#039;interface&#039; &#039;lan&#039;
+	option &#039;start&#039; &#039;100&#039;
+	option &#039;limit&#039; &#039;150&#039;
+	option &#039;leasetime&#039; &#039;12h&#039;
+
+config &#039;dhcp&#039; &#039;wan&#039;
+	option &#039;interface&#039; &#039;wan&#039;
+	option &#039;ignore&#039; &#039;1&#039;
+</pre>
+
+</p>
+
+<p>
+If you prefer to ignore <abbr title="Domain Name System">DNS</abbr> servers obtained via PPP negotiation.
+<pre class="code shell">uci add dhcp.@dnsmasq[-1].noresolv=1
+uci commit dhcp</pre>
+
+</p>
+
+<p>
+File /etc/config/dhcp
+<pre class="code">config &#039;dnsmasq&#039;
+	option &#039;domainneeded&#039; &#039;1&#039;
+	option &#039;boguspriv&#039; &#039;1&#039;
+	option &#039;filterwin2k&#039; &#039;0&#039;
+	option &#039;localise_queries&#039; &#039;1&#039;
+	option &#039;rebind_protection&#039; &#039;1&#039;
+	option &#039;rebind_localhost&#039; &#039;1&#039;
+	option &#039;local&#039; &#039;/lan/&#039;
+	option &#039;domain&#039; &#039;lan&#039;
+	option &#039;expandhosts&#039; &#039;1&#039;
+	option &#039;nonegcache&#039; &#039;0&#039;
+	option &#039;authoritative&#039; &#039;1&#039;
+	option &#039;readethers&#039; &#039;1&#039;
+	option &#039;leasefile&#039; &#039;/tmp/dhcp.leases&#039;
+	option &#039;resolvfile&#039; &#039;/tmp/resolv.conf.auto&#039;
+	option &#039;server&#039; &#039;8.8.8.8&#039;
+	option &#039;server&#039; &#039;8.8.4.4&#039;
+	option &#039;noresolv&#039; &#039;1&#039;</pre>
+
+</p>
+
+<p>
+This configuration is better, because clients will be able to resolve local hostnames, while utilizing dnsmasq to cache client dns requests.
+</p>
+
+<p>
+More dnsmasq tweaks are available <a href="../uci/dhcp#alloptions" class="wikilink1" title="doc:uci:dhcp"> here</a> and <a href="../howto/dhcp.dnsmasq" class="wikilink1" title="doc:howto:dhcp.dnsmasq"> here</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit23" id="easy_configuration_using_luci_web_interface">Easy Configuration Using Luci Web Interface</h2>
+<div class="level2">
+
+<p>
+<a href="../luci" class="wikilink1" title="doc:howto:luci.essentials">Luci</a> has supported 3G configuration. Be sure to have <strong>luci</strong> and <strong>luci-proto-3g</strong> installed. If you want to do multiwan configuration, make sure that <strong>luci-apps-multiwan</strong> is installed and optionally, <strong>luci-app-mwan3</strong>.
+</p>
+
+<p>
+To create a new 3g connection, go to Luci web interface. Navigate to Network ⇒ interfaces. Click on <strong>Add new interface</strong> button. Give a simple name to the interface, for example <strong>3g</strong> and choose <strong>UMTS/GPRS/EVDO</strong> as its protocol.
+</p>
+
+<p>
+Here is basic configuration to get the connection working.
+<pre class="code"># General Setup
+Protocol : UMTS/GPRS/EVDO
+Modem device : /dev/ttyUSB0
+Service type : UMTS only (You may prefer UMTS/GPRS if you wish)
+APN : internet (Not needed for CDMA/EVDO)
+PIN : 1234 (Leave it blank if you don&#039;t use pin)
+PAP/CHAP username : &lt;ask your 3G provider&gt;
+PAP/CHAP password : &lt;ask your 3G provider&gt; 
+
+# Advanced Settings (leave them as default)
+
+# Firewall Settings
+Create / Assign firewall zone : wan</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit24" id="obtaining_ipv6_address">Obtaining IPv6 address</h2>
+<div class="level2">
+
+<p>
+If you want to enable IPv6 on 3G connection, make sure that your dongle supports PDPv6<sup><a href="3gdongle#fn__3" id="fnt__3" class="fn_top">3)</a></sup> and your 3G provider is providing IPv6 service.
+</p>
+
+<p>
+To enable IPv6 negotiation on the PPP link, issue the following command.
+<pre class="code">uci set network.3g.ipv6=1
+uci commit network.3g</pre>
+
+Be sure to replace <em>3g</em> with the correct name of 3G interface.
+</p>
+
+<p>
+In addition, be sure to edit file <code>/etc/chatscripts/3g.chat</code> for PDPv6 configuration as currently there is no <a href="../devel/uci-lua" class="wikilink1" title="doc:techref:uci">UCI</a> entry for PDPv6.
+<pre class="code">ABORT   BUSY
+ABORT   &#039;NO CARRIER&#039;
+ABORT   ERROR
+REPORT  CONNECT
+TIMEOUT 10
+&quot;&quot;      &quot;AT&amp;F&quot;
+OK      &quot;ATE1&quot;
+OK      &#039;AT+CGDCONT=1,&quot;IPV6&quot;,&quot;$USE_APN&quot;&#039;
+SAY     &quot;Calling UMTS/GPRS&quot;
+TIMEOUT 30
+OK      &quot;ATD$DIALNUMBER&quot;
+CONNECT &#039; &#039;</pre>
+
+</p>
+
+<p>
+You may use the following chatscript for PDPv4v6 configuration. Make sure that your dongle supports PDv4v6<sup><a href="3gdongle#fn__4" id="fnt__4" class="fn_top">4)</a></sup> before attempting to modify the chatscript.
+<pre class="code">ABORT   BUSY
+ABORT   &#039;NO CARRIER&#039;
+ABORT   ERROR
+REPORT  CONNECT
+TIMEOUT 10
+&quot;&quot;      &quot;AT&amp;F&quot;
+OK      &quot;ATE1&quot;
+OK      &#039;AT+CGDCONT=1,&quot;IPV4V6&quot;,&quot;$USE_APN&quot;&#039;
+SAY     &quot;Calling UMTS/GPRS&quot;
+TIMEOUT 30
+OK      &quot;ATD$DIALNUMBER&quot;
+CONNECT &#039; &#039;</pre>
+
+</p>
+
+<p>
+If you are using Luci, be sure to check <em>Enable IPv6 negotiation on the PPP link</em> and optionally <em>Use builtin IPv6-management</em> on the <em>Advanced settings</em> section of the 3G interface configuration page. Also, be sure to modify /etc/chatscripts/3g.chat file for PDPv6 as explained above.
+</p>
+
+<p>
+Of course you can use other methods to obtain IPv6 instead of relying on PPP negotiation. <a href="../uci/network6" class="wikilink1" title="doc:uci:network6">Go to this page</a> for more explanation.
+</p>
+
+</div>
+
+<h2 class="sectionedit25" id="compile_things_yourself">Compile things yourself</h2>
+<div class="level2">
+
+<p>
+If you want to build an own firmware containing support for a UMTS Modem, maybe this BuildHowTo will help you: <a href="../howtobuild/wireless-router-with-a-3g-dongle" class="wikilink1" title="doc:howtobuild:wireless-router-with-a-3g-dongle">Wireless router with a 3G dongle and multiwan for failover on Wired, Wireless client (routed) and 3G</a>
+</p>
+<div class="tags"><span>
+	<a href="../../tag/usbrelated?do=showtag&amp;tag=USBrelated" class="wikilink1" title="tag:usbrelated" rel="tag">USBrelated</a>
+</span></div>
+
+</div>
+
+<h2 class="sectionedit26" id="workarounds">Workarounds</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit27" id="tp-link_ma260attitude_adjustment">TP-Link MA260/Attitude Adjustment</h3>
+<div class="level3">
+
+<p>
+This workaround is valid for Attitude Adjustment, but has been obsoleted by <a href="https://dev.openwrt.org/changeset/36812" class="urlextern" title="https://dev.openwrt.org/changeset/36812"  rel="nofollow">r36812</a> and newer builds, such as Barrier Breaker 14.07.
+</p>
+
+<p>
+If you plug the MA260 into the USB port of a compatible OpenWRT device running Attitude Adjustment, you will notice certain issues, similar to those described in the Ubuntu forum: [TP Link MA260, Ubuntu 12.04 LTS[<a href="http://ubuntuforums.org/showthread.php?t=2197164]]" class="urlextern" title="http://ubuntuforums.org/showthread.php?t=2197164]]"  rel="nofollow">http://ubuntuforums.org/showthread.php?t=2197164]]</a>, e.g. missing modeswitch routines missing hotplug etc.
+</p>
+
+<p>
+Create and edit the file /etc/hotplug.d/usb/21-tplink_ma260 with the following content:
+</p>
+
+<p>
+<pre class="code">#!/bin/sh                                                                                                                                       
+BINARY=&quot;/usr/bin/usb_modeswitch&quot;                                                                                                                
+                                                                                                                                                
+TPLINKMA260_PRODID1=&quot;2357/f000/0&quot;                                                                                                               
+TPLINKMA260_PRODID2=&quot;2357/9000/0&quot;                                                                                                               
+                                                                                                                                                
+# switch from storage mode to modem mode                                                                                                        
+if [ &quot;${PRODUCT}&quot; = &quot;${TPLINKMA260_PRODID1}&quot; ]; then                                                                                            
+        if [ &quot;${ACTION}&quot; = &quot;add&quot; ]; then                                                                                                        
+                # give the storage some time to finish mounting                                                                                 
+                sleep 15                                                                                                                        
+                # issue the modeswitch and change the product id.                                                                               
+                ${BINARY} -v 2357 -p f000 -V 2357 -P 9000 -W -I -n \                                                                            
+                -M &#039;5553424312345678000000000000061e000000000000000000000000000000&#039; \                                                           
+                -2 &#039;5553424312345678000000000000061b000000020000000000000000000000&#039;                                                             
+                logger -t HOTPLUG &quot;${TPLINKMA260_PRODID1} plugged in.&quot;                                                                          
+        fi                                                                                                                                      
+        if [ &quot;${ACTION}&quot; = &quot;remove&quot; ]; then                                                                                                     
+                logger -t HOTPLUG &quot;${TPLINKMA260_PRODID1} was removed.&quot;                                                                         
+        fi                                                                                                                                      
+fi                                                                                                                                              
+                                                                                                                                                
+if [ &quot;${PRODUCT}&quot; = &quot;${TPLINKMA260_PRODID2}&quot; ]; then                                                                                            
+        if [ &quot;${ACTION}&quot; = &quot;add&quot; ]; then                                                                                                        
+                #register usbserial and option device driver with the modem mode id:                                                            
+                echo &#039;2357 9000 ff&#039; &gt; /sys/bus/usb-serial/drivers/option1/new_id                                                                
+                logger -t HOTPLUG &quot;${TPLINKMA260_PRODID2} plugged in.&quot;                                                                          
+        fi                                                                                                                                      
+        if [ &quot;${ACTION}&quot; = &quot;remove&quot; ]; then                                                                                                     
+                logger -t HOTPLUG &quot;${TPLINKMA260_PRODID2} was removed.&quot;                                                                         
+        fi                                                                                                                                      
+fi</pre>
+
+Similar workaround may apply to TP-Link MA180.
+</p>
+
+<p>
+In order to work correctly the package usb_modeswitch needs to be installed.
+</p>
+
+</div>
+
+<h3 class="sectionedit28" id="tp-link_ma260barrier_breaker">TP-Link MA260/Barrier Breaker</h3>
+<div class="level3">
+
+<p>
+The device works out of the box.
+If you update from Attitude Adjustment, you should probably remove old config files, since they are no longer used since <a href="https://dev.openwrt.org/changeset/36812" class="urlextern" title="https://dev.openwrt.org/changeset/36812"  rel="nofollow">r36812</a>.
+</p>
+
+<p>
+The <em>usbmode</em> binary has been replaced by the <em>usb_modeswitch</em> binary to do modeswitching tasks.
+A JSON-style 3g-dongle database now prepares all necessary information for initialization.
+You will find more information on how this works in <a href="3gdongle" class="urlextern" title="http://wiki.openwrt.org/doc/recipes/3gdongle"  rel="nofollow">3G-Dongle recipes</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit29" id="devices_using_qmi_and_mbim_protocol">Devices using qmi and mbim protocol</h2>
+<div class="level2">
+
+<p>
+Some new 3G/4G dongles use <strong>qmi</strong> and <strong>mbim</strong> protocol to establish connection to ISP.
+For your information, <a href="https://blogs.gnome.org/dcbw/2010/04/15/mobile-broadband-and-qualcomm-proprietary-protocols/" class="urlextern" title="https://blogs.gnome.org/dcbw/2010/04/15/mobile-broadband-and-qualcomm-proprietary-protocols/"  rel="nofollow">qmi protocol</a> is proprietary protocol by Qualcomm. In contrast to qmi, <a href="http://compliance.usb.org/mbim/" class="urlextern" title="http://compliance.usb.org/mbim/"  rel="nofollow">mbim</a> is more standardized protocol for 3G/4G dongles.
+</p>
+
+</div>
+
+<h4 id="qmi_protocol_configuration">QMI Protocol Configuration</h4>
+<div class="level4">
+
+<p>
+To make use of qmi protocol, package <strong>kmod-usb-net-qmi-wwan</strong> and <strong>uqmi</strong> are needed. <strong>uqmi</strong> is available on both <strong>barrier breaker</strong> and <strong>bleeding edge</strong> repository.
+</p>
+
+<p>
+Here is a brief help about <strong>uqmi</strong> command line usage.
+</p>
+
+<p>
+<pre class="code sh">No device given
+Usage: uqmi &lt;options|actions&gt;
+Options:
+  --single, -s:                     Print output as a single line (for scripts)
+  --device=NAME, -d NAME:           Set device name to NAME (required)
+  --keep-client-id &lt;name&gt;:          Keep Client ID for service &lt;name&gt;
+  --release-client-id &lt;name&gt;:       Release Client ID after exiting
+&nbsp;
+Services:                           dms, nas, pds, wds, wms
+&nbsp;
+Actions:
+  --get-versions:                   Get service versions
+  --set-client-id &lt;name&gt;,&lt;id&gt;:      Set Client ID for service &lt;name&gt; to &lt;id&gt;
+                                    (implies --keep-client-id)
+  --get-client-id &lt;name&gt;:           Connect and get Client ID for service &lt;name&gt;
+                                    (implies --keep-client-id)
+  --start-network &lt;apn&gt;:            Start network connection (use with options below)
+    --auth-type pap|chap|both|none: Use network authentication type
+    --username &lt;name&gt;:              Use network username
+    --password &lt;password&gt;:          Use network password
+    --autoconnect:                  Enable automatic connect/reconnect
+  --stop-network &lt;pdh&gt;:             Stop network connection (use with option below)
+    --autoconnect:                  Disable automatic connect/reconnect
+  --get-data-status:                Get current data access status
+  --set-autoconnect &lt;val&gt;:          Get current data access status (disabled, enabled, paused)
+  --get-pin-status:                 Get PIN verification status
+  --verify-pin1 &lt;pin&gt;:              Verify PIN1
+  --verify-pin2 &lt;pin&gt;:              Verify PIN2
+  --get-imsi:                       Get International Mobile Subscriber ID
+  --reset-dms:                      Reset the DMS service
+  --set-device-operating-mode &lt;m&gt;   Set the device operating mode
+                                    (modes: online, low_power, factory_test, offline
+                                     reset, shutting_down, persistent_low_power,
+                                     mode_only_low_power)
+  --set-network-modes &lt;modes&gt;:      Set usable network modes (Syntax: &lt;mode1&gt;[,&lt;mode2&gt;,...])
+                                    Available modes: all, lte, umts, gsm, cdma, td-scdma
+  --set-network-preference &lt;mode&gt;:  Set preferred network mode to &lt;mode&gt;
+                                    Available modes: auto, gsm, wcdma
+  --set-network-roaming &lt;mode&gt;:     Set roaming preference:
+                                    Available modes: any, off, only
+  --network-scan:                   Initiate network scan
+  --network-register:               Initiate network register
+  --get-signal-info:                Get signal strength info
+  --get-serving-system:             Get serving system info
+  --list-messages:                  List SMS messages
+  --get-message &lt;id&gt;:               Get SMS message at index &lt;id&gt;
+  --get-raw-message &lt;id&gt;:           Get SMS raw message contents at index &lt;id&gt;
+  --send-message &lt;data&gt;:            Send SMS message (use options below)
+    --send-message-smsc &lt;nr&gt;:       SMSC number (required)
+    --send-message-target &lt;nr&gt;:     Destination number (required)
+    --send-message-flash:           Send as Flash SMS</pre>
+
+</p>
+
+<p>
+<a href="../uci.1" class="wikilink1" title="doc:uci">UCI</a> has supported <strong>qmi</strong> network protocol configuration. The detailed explanation about qmi network configuration is explained <a href="../uci/network#protocolqmiusbmodemsusingqmiprotocol" class="wikilink1" title="doc:uci:network">here</a>.
+</p>
+
+<p>
+Currently, there is no such thing as <strong><del>luci-proto-qmi</del></strong> yet to make use of <a href="../techref/luci" class="wikilink1" title="doc:techref:luci"> Luci</a> for qmi configuration. You need to configure UCI manually using <a href="../devel/uci-lua" class="wikilink1" title="doc:techref:uci">uci command line</a> or <a href="../howto/user.beginner.cli#editingfiles" class="wikilink1" title="doc:howto:user.beginner.cli"> text editor</a>.
+</p>
+
+</div>
+
+<h4 id="mbim_protocol_configuration">MBIM Protocol configuration</h4>
+<div class="level4">
+
+<p>
+Currently, there is not enough information about mbim protocol as it&#039;s being actively developed. If you are curious about setting up mbim protocol, you may ask <a href="https://lists.openwrt.org/cgi-bin/mailman/listinfo" class="urlextern" title="https://lists.openwrt.org/cgi-bin/mailman/listinfo"  rel="nofollow"> OpenWrt users/devel mailing lists</a> or <a href="https://forum.openwrt.org" class="urlextern" title="https://forum.openwrt.org"  rel="nofollow"> OpenWrt forum</a>
+</p>
+
+<p>
+Here is a brief help about <strong>umbim</strong> command line.
+<pre class="code sh">umbim help
+Usage: mbim &lt;caps|pinstate|unlock|connect|disconnect&gt; [options]
+Options:
+    -d &lt;device&gt; the device (/dev/cdc-wdmX)
+    -t &lt;transaction&gt;    the transaction id
+    -n          no close
+&nbsp;
+    -v          verbose</pre>
+  - Ordered List Item
+</p>
+
+</div>
+<div class="footnotes">
+<div class="fn"><sup><a href="3gdongle#fnt__1" id="fn__1" class="fn_bot">1)</a></sup> 
+Some of public <abbr title="Domain Name System">DNS</abbr> servers are OpenDNS:208.67.222.222,208.67.220.220 and Google <abbr title="Domain Name System">DNS</abbr>:8.8.8.8,8.8.4.4</div>
+<div class="fn"><sup><a href="3gdongle#fnt__2" id="fn__2" class="fn_bot">2)</a></sup> 
+Google public dns doesn&#039;t hijack NXDOMAIN response, unlike OpenDNS</div>
+<div class="fn"><sup><a href="3gdongle#fnt__3" id="fn__3" class="fn_bot">3)</a></sup> 
+To check if your dongle support PDPv6, open up serial terminal (Putty, screen, minicom, microcom, or picocom), and type <strong>AT+CGDCONT=?</strong>. If the response shows a line containing &quot;IPV6&quot;, for example <strong>+CGDCONT: (1-11),&quot;IPV6&quot;,,,(0-2),(0-3)</strong>, your dongle supports PDPv6. Otherwise, your dongle is stuck with IPv4.</div>
+<div class="fn"><sup><a href="3gdongle#fnt__4" id="fn__4" class="fn_bot">4)</a></sup> 
+See previous note.</div>
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/recipes/3gdongle.txt</bdi> · Last modified: 2015/01/25 14:25 by <bdi>epek</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="3gdongle?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="3gdongle?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="3gdongle?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="3gdongle#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Arecipes%253A3gdongle&amp;1432266534" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

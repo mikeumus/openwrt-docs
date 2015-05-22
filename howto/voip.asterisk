@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Asterisk [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,voip.asterisk"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="voip.asterisk?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/voip.asterisk"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/voip.asterisk"/>
+<link rel="canonical" href="voip.asterisk"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:voip.asterisk","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267338 166.182.3.89';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="voip.asterisk#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="voip.asterisk?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="voip.asterisk?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:voip.asterisk" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="voip.asterisk?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="voip.asterisk?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="voip.asterisk?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="voip.asterisk" class="wikilink1" title="doc:howto:voip.asterisk">Asterisk</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/voip.asterisk" class="media" title="cz:doc:howto:voip.asterisk"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/voip.asterisk" class="media" title="de:doc:howto:voip.asterisk"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="voip.asterisk" class="media" title="doc:howto:voip.asterisk"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/voip.asterisk" class="media" title="es:doc:howto:voip.asterisk"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/voip.asterisk" class="media" title="fr:doc:howto:voip.asterisk"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/voip.asterisk" class="media" title="hu:doc:howto:voip.asterisk"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/voip.asterisk" class="media" title="jp:doc:howto:voip.asterisk"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/voip.asterisk" class="media" title="pl:doc:howto:voip.asterisk"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/voip.asterisk" class="media" title="pt-br:doc:howto:voip.asterisk"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/voip.asterisk" class="media" title="ru:doc:howto:voip.asterisk"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/voip.asterisk" class="media" title="tr:doc:howto:voip.asterisk"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../zh-cn/doc/howto/voip.asterisk" class="media" title="zh-cn:doc:howto:voip.asterisk"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/voip.asterisk" class="media" title="zh-tw:doc:howto:voip.asterisk"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:voip.asterisk</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="voip.asterisk#introduction">Introduction</a></div></li>
+<li class="level1"><div class="li"><a href="voip.asterisk#installation">Installation</a></div></li>
+<li class="level1"><div class="li"><a href="voip.asterisk#configuration">Configuration</a></div></li>
+<li class="level1"><div class="li"><a href="voip.asterisk#troubleshooting">Troubleshooting</a></div></li>
+<li class="level1"><div class="li"><a href="voip.asterisk#notes">Notes</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="asterisk">Asterisk</h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit2" id="introduction">Introduction</h2>
+<div class="level2">
+
+<p>
+<a href="http://en.wikipedia.org/wiki/Asterisk (PBX)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Asterisk (PBX)">Asterisk (PBX)</a>
+</p>
+
+<p>
+<strong><code>Note1:</code></strong> All packages here depend on the package <code>asterisk18</code>!<br/>
+
+<strong><code>Note2:</code></strong> All packages have Version 1.8.4.4-1.<br/>
+
+</p>
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign" colspan="4">  Asterisk Version 1.8.4.4-1  </th>
+	</tr>
+	<tr class="row1">
+		<th class="col0 leftalign"> Name        </th><th class="col1 leftalign"> Dependencies  </th><th class="col2 centeralign">  Size  </th><th class="col3 leftalign"> Description  </th>
+	</tr>
+	</thead>
+	<tr class="row2">
+		<td class="col0 leftalign"> asterisk18  </td><td class="col1 centeralign">  libopenssl, libncurses,<br/>
+libpopt, libpthread, zlib  </td><td class="col2 rightalign">  997477 </td><td class="col3"> Asterisk is a complete <a href="http://en.wikipedia.org/wiki/Private branch exchange" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Private branch exchange">PBX</a> in software. It provides all of the features you would expect from a PBX and more. Asterisk does <a href="http://en.wikipedia.org/wiki/Voice over Internet Protocol" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Voice over Internet Protocol">VoIP</a> in three protocols, and can inter-operate with almost all standards-based telephony equipment using relatively inexpensive hardware. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0" colspan="4"> </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> asterisk18-format-g726  </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  3780 </td><td class="col3 leftalign"> Support for headerless G.726 16/24/32/40kbps data format in Asterisk.  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> asterisk18-format-g729  </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  3571 </td><td class="col3 leftalign"> Support for raw headerless G729 data in Asterisk.  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0" colspan="4"> </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> asterisk18-codec-g722   </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  6407 </td><td class="col3 leftalign"> A high bit rate 48/56/64Kbps ITU standard CODEC in Asterisk.  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> asterisk18-codec-g726   </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  5012 </td><td class="col3"> Translation between signed linear and ITU G.726-32kbps codecs in Asterisk.</td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> asterisk18-codec-a-mu   </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  2934 </td><td class="col3 leftalign"> Translation between alaw and ulaw codecs in Asterisk.  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> asterisk18-codec-ulaw   </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  3150 </td><td class="col3 leftalign"> Translation between signed linear and ulaw codecs in Asterisk.  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> asterisk18-codec-alaw   </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  3069 </td><td class="col3 leftalign"> Translation between signed linear and alaw codecs in Asterisk.  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0" colspan="4"> </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> asterisk18-chan-local   </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  11586 </td><td class="col3 leftalign"> An implementation of local proxy channel in Asterisk.  </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 leftalign"> asterisk18-chan-agent   </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  22519 </td><td class="col3 leftalign"> An implementation of agents proxy channel in Asterisk.  </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 leftalign"> asterisk18-chan-gtalk   </td><td class="col1 centeralign">  libiksemel  </td><td class="col2 rightalign">  58144 </td><td class="col3 leftalign"> This package provides the channel chan_gtalk and res_jabber for GTalk support to Asterisk.  </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 leftalign"> asterisk18-chan-iax2    </td><td class="col1 centeralign">  asterisk18-res-crypto  </td><td class="col2 rightalign">  133735 </td><td class="col3 leftalign"> This package provides IAX support to Asterisk.  </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0 leftalign"> asterisk18-chan-skinny  </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  52033 </td><td class="col3 leftalign"> This package provides the channel chan_skinny support to Asterisk.  </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0 leftalign"> asterisk18-chan-mobile  </td><td class="col1 centeralign">  bluez-libs  </td><td class="col2 rightalign">  30089 </td><td class="col3 leftalign"> This package provides the channel chan_mobile support to Asterisk.  </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0 leftalign"> asterisk18-chan-mgcp    </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  42959 </td><td class="col3 leftalign"> This package provides the channel chan_mgcp support to Asterisk.  </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0" colspan="4"> </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0 leftalign"> asterisk18-pbx-spool    </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  9034 </td><td class="col3 leftalign"> outgoing call spool support in Asterisk.  </td>
+	</tr>
+	<tr class="row22">
+		<td class="col0 leftalign"> asterisk18-pbx-ael      </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  4012 </td><td class="col3 leftalign"> support for symbolic Asterisk Extension Logic in Asterisk.  </td>
+	</tr>
+	<tr class="row23">
+		<td class="col0" colspan="4"> </td>
+	</tr>
+	<tr class="row24">
+		<td class="col0 leftalign"> asterisk18-voicemail    </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  595818 </td><td class="col3 leftalign"> This package contains voicemail related modules for Asterisk.  </td>
+	</tr>
+	<tr class="row25">
+		<td class="col0 leftalign"> asterisk18-mysql        </td><td class="col1 centeralign">     libmysqlclient  </td><td class="col2 rightalign">  36817 </td><td class="col3 leftalign"> This package provides MySQL support to Asterisk.  </td>
+	</tr>
+	<tr class="row26">
+		<td class="col0 leftalign"> asterisk18-curl         </td><td class="col1 centeralign">     libcurl  </td><td class="col2 rightalign">  8447 </td><td class="col3 leftalign"> This package provides CURL support to Asterisk.  </td>
+	</tr>
+	<tr class="row27">
+		<td class="col0 leftalign"> asterisk18-cdr          </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  36202 </td><td class="col3 leftalign"> This package provides Call Detail Record support to Asterisk.  </td>
+	</tr>
+	<tr class="row28">
+		<td class="col0 leftalign"> asterisk18-sounds       </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  1058667 </td><td class="col3 leftalign"> This package contains sound files for Asterisk.  </td>
+	</tr>
+	<tr class="row29">
+		<td class="col0" colspan="4"> </td>
+	</tr>
+	<tr class="row30">
+		<td class="col0 leftalign"> asterisk18-app-sms  </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  16204 </td><td class="col3 leftalign"> SMS support (ETSI ES 201 912 protocol 1) in Asterisk.  </td>
+	</tr>
+	<tr class="row31">
+		<td class="col0 leftalign"> asterisk18-app-authenticate  </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  3938 </td><td class="col3 leftalign"> support for executing arbitrary authenticate commands in Asterisk.  </td>
+	</tr>
+	<tr class="row32">
+		<td class="col0 leftalign"> asterisk18-app-exec  </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  3892 </td><td class="col3 leftalign"> support for application execution in Asterisk.  </td>
+	</tr>
+	<tr class="row33">
+		<td class="col0 leftalign"> asterisk18-app-while  </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  4851 </td><td class="col3 leftalign"> a while loop implementation in Asterisk.  </td>
+	</tr>
+	<tr class="row34">
+		<td class="col0 leftalign"> asterisk18-app-waituntil  </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  3104 </td><td class="col3 leftalign"> support sleeping until the given epoch in Asterisk.  </td>
+	</tr>
+	<tr class="row35">
+		<td class="col0 leftalign"> asterisk18-app-stack  </td><td class="col1 centeralign">     asterisk18-res-agi  </td><td class="col2 rightalign">  7980 </td><td class="col3 leftalign"> stack applications Gosub Return etc. in Asterisk.  </td>
+	</tr>
+	<tr class="row36">
+		<td class="col0 leftalign"> asterisk18-app-sayunixtime  </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  2890 </td><td class="col3 leftalign"> an application to say Unix time in Asterisk.  </td>
+	</tr>
+	<tr class="row37">
+		<td class="col0 leftalign"> asterisk18-app-read  </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  4359 </td><td class="col3 leftalign"> a trivial application to read a variable in Asterisk.  </td>
+	</tr>
+	<tr class="row38">
+		<td class="col0 leftalign"> asterisk18-app-directed-pickup  </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  5365 </td><td class="col3 leftalign"> support for directed call pickup in Asterisk.  </td>
+	</tr>
+	<tr class="row39">
+		<td class="col0 leftalign"> asterisk18-app-setcallerid  </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  2795 </td><td class="col3 leftalign"> support for setting callerid in Asterisk.  </td>
+	</tr>
+	<tr class="row40">
+		<td class="col0 leftalign"> asterisk18-app-originate  </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  3857 </td><td class="col3 leftalign"> originating an outbound call and connecting it to a specified extension or application in Asterisk.  </td>
+	</tr>
+	<tr class="row41">
+		<td class="col0 leftalign"> asterisk18-app-system  </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  3312 </td><td class="col3 leftalign"> support for executing system commands in Asterisk.  </td>
+	</tr>
+	<tr class="row42">
+		<td class="col0 leftalign"> asterisk18-app-talkdetect  </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  4662 </td><td class="col3 leftalign"> for file playback with audio detect in Asterisk.  </td>
+	</tr>
+	<tr class="row43">
+		<td class="col0 leftalign"> asterisk18-app-readexten  </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  4668 </td><td class="col3 leftalign"> a trivial application to read an extension into a variable in Asterisk.  </td>
+	</tr>
+	<tr class="row44">
+		<td class="col0 leftalign"> asterisk18-app-verbose  </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  3388 </td><td class="col3 leftalign"> Verbose logging application in Asterisk.  </td>
+	</tr>
+	<tr class="row45">
+		<td class="col0 leftalign"> asterisk18-app-alarmreceiver  </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  7605 </td><td class="col3 leftalign"> Central Station Alarm receiver for Ademco Contact ID in Asterisk.  </td>
+	</tr>
+	<tr class="row46">
+		<td class="col0 leftalign"> asterisk18-app-chanspy  </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  9776 </td><td class="col3 leftalign"> support for listening in on any channel in Asterisk.  </td>
+	</tr>
+	<tr class="row47">
+		<td class="col0 leftalign"> asterisk18-app-chanisavail  </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  3572 </td><td class="col3 leftalign"> support for checking if a channel is available in Asterisk.  </td>
+	</tr>
+	<tr class="row48">
+		<td class="col0 leftalign"> asterisk18-app-minivm  </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  27656 </td><td class="col3 leftalign"> a voicemail system in small building blocks working together based on the Comedian Mail voicemail system in Asterisk.  </td>
+	</tr>
+	<tr class="row49">
+		<td class="col0" colspan="4"> </td>
+	</tr>
+	<tr class="row50">
+		<td class="col0 leftalign"> asterisk18-func-uri        </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  2769 </td><td class="col3 leftalign"> Encodes and decodes <abbr title="Uniform Resource Identifier">URI</abbr>-safe strings in Asterisk.  </td>
+	</tr>
+	<tr class="row51">
+		<td class="col0 leftalign"> asterisk18-func-global     </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  4536 </td><td class="col3 leftalign"> global variable dialplan functions in Asterisk.  </td>
+	</tr>
+	<tr class="row52">
+		<td class="col0 leftalign"> asterisk18-func-blacklist  </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  2960 </td><td class="col3 leftalign"> looking up the callerid number and see if it is blacklisted in Asterisk.  </td>
+	</tr>
+	<tr class="row53">
+		<td class="col0 leftalign"> asterisk18-func-channel    </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  7116 </td><td class="col3 leftalign"> Channel info dialplan function in Asterisk.  </td>
+	</tr>
+	<tr class="row54">
+		<td class="col0 leftalign"> asterisk18-func-db         </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  3504 </td><td class="col3 leftalign"> functions for interaction with the database in Asterisk.  </td>
+	</tr>
+	<tr class="row55">
+		<td class="col0 leftalign"> asterisk18-func-extstate   </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  2947 </td><td class="col3 leftalign"> retrieving the state of a hinted extension for dialplan control in Asterisk.  </td>
+	</tr>
+	<tr class="row56">
+		<td class="col0 leftalign"> asterisk18-func-shell      </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  2860 </td><td class="col3 leftalign"> support for shell execution in Asterisk.  </td>
+	</tr>
+	<tr class="row57">
+		<td class="col0 leftalign"> asterisk18-func-devstate   </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  4632 </td><td class="col3 leftalign"> functions for manually controlled blinky lights in Asterisk.  </td>
+	</tr>
+	<tr class="row58">
+		<td class="col0 leftalign"> asterisk18-func-vmcount    </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  2787 </td><td class="col3 leftalign"> a vmcount dialplan function in Asterisk.  </td>
+	</tr>
+	<tr class="row59">
+		<td class="col0" colspan="4"> </td>
+	</tr>
+	<tr class="row60">
+		<td class="col0 leftalign"> asterisk18-format-sln16  </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  3471 </td><td class="col3 leftalign"> support for Raw slinear 16 format in Asterisk.  </td>
+	</tr>
+	<tr class="row61">
+		<td class="col0 leftalign"> asterisk18-format-sln    </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  3459 </td><td class="col3 leftalign"> support for raw slinear format in Asterisk.  </td>
+	</tr>
+	<tr class="row62">
+		<td class="col0" colspan="4"> </td>
+	</tr>
+	<tr class="row63">
+		<td class="col0 leftalign"> asterisk18-res-musiconhold  </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  17432 </td><td class="col3 leftalign"> This package provides Music On Hold support to Asterisk.  </td>
+	</tr>
+	<tr class="row64">
+		<td class="col0 leftalign"> asterisk18-res-agi          </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  26069 </td><td class="col3 leftalign"> support for the Asterisk Gateway Interface extension in Asterisk.  </td>
+	</tr>
+	<tr class="row65">
+		<td class="col0 leftalign"> asterisk18-res-crypto       </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  7785 </td><td class="col3 leftalign"> Cryptographic Signature capability in Asterisk.  </td>
+	</tr>
+	<tr class="row66">
+		<td class="col0 leftalign"> asterisk18-res-ael-share    </td><td class="col1 leftalign">   </td><td class="col2 rightalign">  42733 </td><td class="col3 leftalign"> support for shareable AEL code mainly between internal and external modules in Asterisk.  </td>
+	</tr>
+</table></div>
+<div class="table sectionedit4"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign" colspan="5"> Dependencies  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> libopenssl      </td><td class="col1 centeralign">  1.0.0d-1  </td><td class="col2 leftalign"> zlib    </td><td class="col3 rightalign">  592118 </td><td class="col4 leftalign"> The OpenSSL Project is a collaborative effort to develop a robust, commercial-grade, full-featured, and Open Source toolkit implementing the Secure Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS v1) protocols as well as a full-strength general purpose cryptography library. This package contains the OpenSSL shared libraries, needed by other programs.  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> libncurses      </td><td class="col1 centeralign">  5.7-5  </td><td class="col2 leftalign"> terminfo   </td><td class="col3 rightalign">  109113 </td><td class="col4 leftalign"> Terminal handling library  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> libpopt         </td><td class="col1 centeralign">  1.7-5   </td><td class="col2 leftalign">           </td><td class="col3 rightalign">   13796 </td><td class="col4 leftalign"> A command line option parsing library  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> libpthread      </td><td class="col1 centeralign">  0.9.32-81  </td><td class="col2 leftalign">        </td><td class="col3 rightalign">   30505 </td><td class="col4 leftalign"> POSIX thread library  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> zlib            </td><td class="col1 centeralign">  1.2.5-1  </td><td class="col2 leftalign">          </td><td class="col3 rightalign">   40519 </td><td class="col4 leftalign"> Library implementing the deflate compression method  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> terminfo        </td><td class="col1 centeralign">  5.7-5  </td><td class="col2 leftalign">            </td><td class="col3 rightalign">    6056 </td><td class="col4 leftalign"> Terminal Info Database (ncurses)  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit5" id="installation">Installation</h2>
+<div class="level2">
+
+<p>
+<pre class="code">opkg update
+opkg install asterisk18</pre>
+
+</p>
+
+<p>
+NOTE: certain <strong>timezone</strong> related functions in asterisk assume a valid <em>/etc/localtime</em> file. This normally doesn&#039;t exist on OpenWRT, so you may want to set it up yourself to point to the TZ file describing the timezone you need. You can either just copy it from a Linux install from <em>/usr/share/zoneinfo</em>/ or install a limited <em>opkg install zoneinfo-core</em> OpenWRT package.
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>Before</strong> installation<pre class="code">root@openwrt:/etc$ df
+Filesystem           1K-blocks      Used Available Use% Mounted on
+/dev/mtdblock3            5248      1344      3904  26% /overlay
+overlayfs:/overlay        5248      1344      3904  26% /</pre>
+</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> <strong>After</strong> installation<pre class="code">Filesystem           1K-blocks      Used Available Use% Mounted on
+/dev/mtdblock3            5248      3192      2056  61% /overlay
+overlayfs:/overlay        5248      3192      2056  61% /</pre>
+</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit6" id="configuration">Configuration</h2>
+<div class="level2">
+
+<p>
+There is no UCI configuration file for the asterisk package, but there is a <a href="https://forum.openwrt.org/viewtopic.php?id=32154" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=32154"  rel="nofollow">LuCI based front-end for Asterisk</a>.
+</p>
+<div class="table sectionedit7"><table class="inline">
+	<tr class="row0">
+		<td class="col0 leftalign"> <code>/etc/init.d/asterisk</code>  </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 leftalign"> <code>/etc/default/asterisk</code>  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <code>/etc/asterisk/asterisk.conf</code>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> <code>/etc/asterisk/features.conf</code>  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> <code>/etc/asterisk/modules.conf</code>  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> <code>/etc/asterisk/extensions.conf</code>  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> <code>/etc/asterisk/manager.conf</code>  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> <code>/etc/asterisk/logger.conf</code>  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> <code>/etc/asterisk/rtp.conf</code>  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> <code>/etc/asterisk/indications.conf</code>  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> <code>/etc/asterisk/sip_notify.conf</code>  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> <code>/etc/asterisk/sip.conf</code>  </td>
+	</tr>
+</table></div>
+
+<p>
+If you are using SIP, most of the configuration is done in sip.conf and the dialplan in extensions.conf.
+If you do not have a SIP phone, you can also use a soft client on your PC.
+</p>
+
+<p>
+VoIP traffic is very time dependant, so make sure your internet connection has a delay below 100ms. You may also want to configure
+QoS (diffserv) to prioritize your SIP and RTP packets, especially if you are heavy using it together with other services.
+</p>
+
+<p>
+Most people recommended to setup port forwarding (SIP UDP and RTP UDP) when NAT is used, but i have found it is not always needed.
+</p>
+
+<p>
+Here is a very short, basic and tested example for one sip phone and a sip peer. 
+</p>
+
+<p>
+Example Working Tested Config<br/>
+
+Jan 1, 2014<br/>
+
+NETGEAR WNDR3800<br/>
+
+Firmware Version	OpenWrt Attitude Adjustment 12.09 / LuCI 0.11.1 Release (0.11.1)<br/>
+
+Asterisk1.8<br/>
+
+SIP Provider Les.net for DID<br/>
+
+Notes:<br/>
+
+<strong>Use the following command to start asterisk:  asterisk -gvvc<br/>
+
+NPANXXXXXX is your actual DID<br/>
+
+184XXXXXXX is the actual trunk reg from Les.net<br/>
+
+XXXXX is the actual pwd/secret from Les.net</strong>
+<pre class="code">extensions.conf
+[others]
+[my-phones]
+exten =&gt; 301, 1, Dial(SIP/301, 20)
+exten =&gt; 301, 2, VoiceMail(301,u)
+exten =&gt; 302, 1, Dial(SIP/302, 20)
+exten =&gt; 303, 1, Dial(SIP/303, 20)
+exten =&gt; 304, 1, Dial(SIP/304, 20)
+esten =&gt; 305, 1, Dial(SIP/305, 20)
+exten =&gt; _1NXXXXXXXXX,1,Dial(SIP/184XXXXXXX/${EXTEN})
+exten =&gt; *97, 1, VoiceMailMain(${CALLERID(NUM)},s)
+exten =&gt; *97, 2, Hangup
+[from-voip-provider]
+exten =&gt; NPANXXXXXX, 1, Dial(SIP/301, 20)
+exten =&gt;NPANXXXXXX, 2, VoiceMail(301,u)
+
+sip.conf
+[general]
+srvlookup=no
+bindport = 5060
+bindaddr = 0.0.0.0
+videosupport=yes
+context = others
+register =&gt; 184XXXXXXX:XXXXX@did.voip.les.net/301
+[301]
+type=friend
+context=my-phones
+secret=301
+qualify=yes
+port=5060
+nat=yes
+host=dynamic
+dtmfmode=rfc2833
+callerid=device &lt;301&gt;
+dial=SIP/301
+canreinvite=no
+disallow=all
+allow=ulaw
+allow=gsm
+allow=h261
+allow=h263
+
+[184XXXXXXX]
+type=friend
+context=from-voip-provider
+secret=XXXXX
+host=did.voip.les.net
+qualify=yes
+insecure=invite
+nat=yes
+dtmfmode=auto
+disallow=all
+allow=ulaw</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="troubleshooting">Troubleshooting</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> CLI</div>
+</li>
+</ul>
+
+<p>
+The Asterisk command line interface can help you a lot when doing troubleshooting.
+</p>
+
+<p>
+To see whats going on, start CLI with <code>asterisk -r</code> and enter <code>core set verbose 3</code>.
+SIP debugging can be enabled with <code>sip set debug on</code> but this kind of much to read, so 
+you may pipe this to a text file instead: <code>asterisk -vvvr &gt; dump.log</code>.
+</p>
+
+<p>
+To show a specific dialplan context: <code>dialplan show yourcontext</code>
+When you change your dialplan you need to reload it with: <code>dialplan reload</code>. 
+For changes in other files you need to restart your asterisk.
+</p>
+
+<p>
+Check if you peers are responsive and online: <code>sip show peers</code>
+</p>
+
+</div>
+
+<h2 class="sectionedit9" id="notes">Notes</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="http://www.asterisk.org/" class="urlextern" title="http://www.asterisk.org/"  rel="nofollow">Project Homepage</a></div>
+</li>
+<li class="level1"><div class="li"> linux-magazin.de: Workshop: Die eigene Asterisk-Anlage:</div>
+<ul>
+<li class="level2"><div class="li"> <a href="http://www.linux-magazin.de/Heft-Abo/Ausgaben/2008/01/Zeit-fuer-was-Neues" class="urlextern" title="http://www.linux-magazin.de/Heft-Abo/Ausgaben/2008/01/Zeit-fuer-was-Neues"  rel="nofollow">Teil 1</a></div>
+</li>
+<li class="level2"><div class="li"> <a href="http://www.linux-magazin.de/Heft-Abo/Ausgaben/2008/02/Erweiterte-Gespraechskultur" class="urlextern" title="http://www.linux-magazin.de/Heft-Abo/Ausgaben/2008/02/Erweiterte-Gespraechskultur"  rel="nofollow">Teil 2</a></div>
+</li>
+<li class="level2"><div class="li"> <a href="http://www.linux-magazin.de/Heft-Abo/Ausgaben/2008/03/Analog-digital-ganz-egal" class="urlextern" title="http://www.linux-magazin.de/Heft-Abo/Ausgaben/2008/03/Analog-digital-ganz-egal"  rel="nofollow">Teil 3</a></div>
+</li>
+<li class="level2"><div class="li"> <a href="http://www.linux-magazin.de/Heft-Abo/Ausgaben/2008/04/Gemeinschaft-an-der-Strippe" class="urlextern" title="http://www.linux-magazin.de/Heft-Abo/Ausgaben/2008/04/Gemeinschaft-an-der-Strippe"  rel="nofollow">Teil 4</a></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/voip.asterisk.txt</bdi> · Last modified: 2014/01/02 01:29 by <bdi>randcs12</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="voip.asterisk?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="voip.asterisk?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="voip.asterisk?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="voip.asterisk#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Avoip.asterisk&amp;1432267338" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

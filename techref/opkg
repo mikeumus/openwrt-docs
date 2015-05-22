@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>OPKG Package Manager [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,techref,opkg"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="opkg?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:techref"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/techref/opkg"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/techref/opkg"/>
+<link rel="canonical" href="opkg"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:techref';var JSINFO = {"id":"doc:techref:opkg","namespace":"doc:techref"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265520 166.182.3.232';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="opkg#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="opkg?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="opkg?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:techref:opkg" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="opkg?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="opkg?do=media&amp;ns=doc%253Atechref"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="opkg?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../techref.1" class="wikilink1" title="doc:techref:start">Technical Reference</a></bdi> » <bdi><span class="curid"><a href="opkg" class="wikilink1" title="doc:techref:opkg">OPKG Package Manager</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/techref/opkg" class="media" title="cz:doc:techref:opkg"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/techref/opkg" class="media" title="de:doc:techref:opkg"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="opkg" class="media" title="doc:techref:opkg"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/techref/opkg" class="media" title="es:doc:techref:opkg"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/techref/opkg" class="media" title="fr:doc:techref:opkg"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/techref/opkg" class="media" title="hu:doc:techref:opkg"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/techref/opkg" class="media" title="jp:doc:techref:opkg"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/techref/opkg" class="media" title="pl:doc:techref:opkg"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/techref/opkg" class="media" title="pt-br:doc:techref:opkg"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/techref/opkg" class="media" title="ru:doc:techref:opkg"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/techref/opkg" class="media" title="tr:doc:techref:opkg"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../zh-cn/doc/techref/opkg" class="media" title="zh-cn:doc:techref:opkg"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/techref/opkg" class="media" title="zh-tw:doc:techref:opkg"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:techref:opkg</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="opkg#invocation">Invocation</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="opkg#package_manipulation">Package Manipulation</a></div></li>
+<li class="level2"><div class="li"><a href="opkg#informational_commands">Informational Commands</a></div></li>
+<li class="level2"><div class="li"><a href="opkg#options">Options</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="opkg#examples">Examples</a></div></li>
+<li class="level1"><div class="li"><a href="opkg#configuration">Configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="opkg#adjust_repositories">Adjust Repositories</a></div></li>
+<li class="level2"><div class="li"><a href="opkg#local_repositories">Local Repositories</a></div></li>
+<li class="level2"><div class="li"><a href="opkg#adjust_architectures">Adjust Architectures</a></div></li>
+<li class="level2"><div class="li"><a href="opkg#proxy_support">Proxy support</a></div></li>
+<li class="level2"><div class="li"><a href="opkg#installation_destinations">Installation Destinations</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="opkg#extroot">Extroot</a></div></li>
+<li class="level3"><div class="li"><a href="opkg#mount_point">Mount Point</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="opkg#troubleshooting">Troubleshooting</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="opkg#out_of_space">Out of space</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="opkg#extras">Extras</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="opkg#commands">Commands</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="opkg#notes">Notes</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="opkg_package_manager">OPKG Package Manager</h1>
+<div class="level1">
+
+<p>
+The <code>opkg</code> utility (an ipkg fork) is a lightweight package manager used to download and install OpenWrt packages from local package repositories or ones located in the Internet.<br/>
+
+GNU/Linux users already familiar with <code>apt-get</code>, <code>aptitude</code>, <code>pacman</code>, <code>yum</code>, etc. will recognize the similarities. It also has similarities with NSLU2&#039;s <a href="http://www.nslu2-linux.org/wiki/Optware/" class="urlextern" title="http://www.nslu2-linux.org/wiki/Optware/"  rel="nofollow">Optware</a>, also made for embedded devices. OPKG is however a full package manager for the root file system, instead of just a way to add software to a seperate directory (e.g. <code>/opt</code>). This also includes the possibility to add kernel modules and drivers. OPKG is sometimes called <em>Entware</em>, but this is mainly to refer to the <a href="http://entware.wl500g.info" class="urlextern" title="http://entware.wl500g.info"  rel="nofollow">Entware repository</a> for embedded devices.
+</p>
+
+<p>
+<code>Opkg</code> attempts to resolve dependencies with packages in the repositories - if this fails, it will report an error, and abort the installation of that package.
+</p>
+
+<p>
+Missing dependencies with third-party packages are probably available from the source of the package.<br/>
+
+To ignore dependency errors, pass the <code>–force-depends</code> flag.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong>Please note:</strong> If you are using Barrier Breaker (bleeding edge version), <code>opkg install &lt;pkg&gt;</code> may fail, if the package in the repository is for a newer kernel version then the kernel version on your flash.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="invocation">Invocation</h2>
+<div class="level2">
+
+<p>
+<pre class="code">opkg must have one sub-command argument:
+usage: opkg [options...] sub-command [arguments...]
+where sub-command is one of:</pre>
+
+</p>
+
+<p>
+You can use <a href="http://en.wikipedia.org/wiki/Glob_(programming)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Glob_(programming)">glob patterns</a>.
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="package_manipulation">Package Manipulation</h3>
+<div class="level3">
+<div class="table sectionedit4"><table class="inline">
+	<tr class="row0">
+		<td class="col0 leftalign"> <code><strong>update</strong></code>  </td><td class="col1 leftalign"> Update list of available packages<br/>
+This simply retrieves a file like this one: <a href="http://downloads.openwrt.org/snapshots/trunk/ar71xx/packages/Packages" class="urlextern" title="http://downloads.openwrt.org/snapshots/trunk/ar71xx/packages/Packages"  rel="nofollow">example</a>, for your OpenWrt installation and stores it on your <a href="http://en.wikipedia.org/wiki/tmpfs" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/tmpfs">RAM partition</a> under <code>/tmp/opkg-lists/snapshots</code>. Currently this occupies about 1,3 MiB of space. OPKG needs the content of this file in order to install or upgrade packages or to print info about them. And the content of the file needs to represent the current available packages in the repository. You can safely delete this file anytime to free up some RAM, just don&#039;t forget to fetch a new one, before trying to install a package.  </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 leftalign"> <code><strong>upgrade</strong> &lt;pkgs&gt;</code>  </td><td class="col1"> Upgrade packages<br/>
+To upgrade a group of packages, run <code>opkg upgrade <em>packagename1</em> <em>packagename2</em></code>.<br/>
+A list of upgradeable packages can be obtained with the <code>opkg list-upgradable</code> command.<br/>
+Upgrading packages is generally <strong>not</strong> recommended for most users, because a typical OpenWrt system stores the base system in a read-only SquashFS partition. And while the upgrade process works just fine, it uses far more space than a default installation as the base packages are duplicated in the base SquashFS partition and the user JFFS2 partition.<br/>
+Thus, instead of upgrading, reflashing OpenWrt with a newer firmware image is recommended. Of course, upgrading packages installed afterwards does not have this drawback. Keep in mind though that for OpenWrt releases upgrading is for the most part not possible, since there is nothing to upgrade without changing the package repository. This is because the package repositories for OpenWrt&#039;s releases are generally not updated. However, the package repository in the trunk snapshots are updated by the build bots to new versions very often, as this is where the packages are updated, like the OpenWrt builds themselves. Note however that for kernel packages updating can be a risky business as it may brick the device if the trunk build kernel is incompatible with the new upgraded kernel package. You should therefore only upgrade non-kernel packages. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code><strong>install</strong> &lt;pkgs|FQDN&gt;</code> </td><td class="col1 leftalign"> Install package(s)<br/>
+Examples: <pre class="code">opkg install hiawatha</pre>
+ <pre class="code">opkg install http://downloads.openwrt.org/snapshots/trunk/ar71xx/packages/hiawatha_7.7-2_ar71xx.ipk</pre>
+ <pre class="code">opkg install /tmp/hiawatha_7.7-2_ar71xx.ipk</pre>
+  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code><strong>configure</strong> &lt;pkgs&gt;</code> </td><td class="col1 leftalign"> Configure unpacked package(s)  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code><strong>remove</strong> &lt;pkgs|globp&gt;</code> </td><td class="col1 leftalign"> Remove package(s)  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code><strong>flag</strong> &lt;flag&gt; &lt;pkgs&gt;</code> </td><td class="col1 leftalign"> Flag one or multiple package(s). Only one flag per invocation is allowed. Available flags:<br/>
+hold • noprune • user • ok • installed • unpacked  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit5" id="informational_commands">Informational Commands</h3>
+<div class="level3">
+<div class="table sectionedit6"><table class="inline">
+	<tr class="row0">
+		<td class="col0 leftalign"> <code><strong>list</strong> [pkg|globp]</code>      </td><td class="col1 leftalign"> List available packages<br/>
+<pre class="code">Package name - Version - Description</pre>
+ The Description can contain line breaks, so using merely grep is inapt since grep is line-based.  </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 leftalign"> <code><strong>list-installed</strong></code>         </td><td class="col1 leftalign"> List installed packages  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <code><strong>list-upgradable</strong></code>        </td><td class="col1 leftalign"> List installed and upgradable packages  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code><strong>list-changed-conffiles</strong></code> </td><td class="col1 leftalign"> List user modified configuration files  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> <code><strong>files</strong> &lt;pkg&gt;</code>            </td><td class="col1 leftalign"> List files belonging to &lt;pkg&gt;. The package has to be already installed for this to work. Example:<pre class="code">opkg files asterisk18
+Package asterisk18 (1.8.4.4-1) is installed on root and has the following files:
+/usr/lib/asterisk/modules/res_rtp_multicast.so
+/usr/lib/asterisk/modules/codec_ulaw.so
+/etc/asterisk/features.conf
+/usr/lib/asterisk/modules/format_wav_gsm.so
+/usr/lib/asterisk/modules/app_macro.so
+/usr/lib/asterisk/modules/chan_sip.so
+/usr/lib/asterisk/modules/app_dial.so
+/usr/lib/asterisk/modules/app_playback.so
+/usr/lib/asterisk/modules/format_gsm.so
+/usr/lib/asterisk/modules/func_callerid.so
+/usr/lib/asterisk/modules/func_timeout.so
+/etc/asterisk/asterisk.conf
+/etc/asterisk/modules.conf
+/usr/lib/asterisk/modules/format_wav.so
+/etc/asterisk/extensions.conf
+/etc/init.d/asterisk
+/etc/asterisk/manager.conf
+/usr/lib/asterisk/modules/res_rtp_asterisk.so
+/etc/asterisk/logger.conf
+/etc/asterisk/rtp.conf
+/usr/lib/asterisk/modules/codec_gsm.so
+/etc/asterisk/indications.conf
+/usr/lib/asterisk/modules/func_strings.so
+/usr/lib/asterisk/modules/app_echo.so
+/usr/lib/asterisk/modules/format_pcm.so
+/etc/asterisk/sip_notify.conf
+/etc/asterisk/sip.conf
+/etc/default/asterisk
+/usr/sbin/asterisk
+/usr/lib/asterisk/modules/pbx_config.so
+/usr/lib/asterisk/modules/func_logic.so</pre>
+  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> <code><strong>search</strong> &lt;file|globp&gt;</code>   </td><td class="col1 leftalign"> List package providing &lt;file&gt;  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> <code><strong>info</strong> [pkg|globp]</code>      </td><td class="col1"> Display all info for &lt;pkg&gt;<br/>
+<pre class="code">Package: horst
+Version: 2.0-rc1-2
+Depends: libncurses
+Provides:
+Status: install user installed
+Section: net
+Architecture: ar71xx
+Maintainer: Bruno Randolf &lt;br1@einfach.org&gt;
+MD5Sum: 378cea9894ec971c419876e822666a6a
+Size: 19224
+Filename: horst_2.0-rc1-2_ar71xx.ipk
+Source: feeds/packages/net/horst
+Description: [horst] is a scanning and analysis tool for 802.11 wireless networks and
+ especially IBSS (ad-hoc) mode and mesh networks (OLSR).</pre>
+ <strong><code>Note1:</code></strong> The <span style='color:red; '>size</span> is the size of the gzip compressed tar archive. At installation package gets un-tared and decompressed, but then again JFFS2 uses compression itself.<br/>
+<strong><code>Note2:</code></strong> Since the compression of JFFS2 is transparent, commands like <code>ls</code> will always report the size of the uncompressed file. </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> <code><strong>status</strong> [pkg|globp]</code>  </td><td class="col1 leftalign"> Display all status for &lt;pkg&gt;  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> <code><strong>download</strong> &lt;pkg&gt;</code>       </td><td class="col1 leftalign"> Download &lt;pkg&gt; to current directory  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> <code><strong>compare-versions</strong> &lt;v1&gt; &lt;op&gt; &lt;v2&gt;</code>  </td><td class="col1 leftalign"> Compare versions <code>v1</code> and <code>v2</code> using the operators <code>&lt;=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>=</code>, <code>&lt;&lt;</code> or <code>&gt;&gt;</code>  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> <code><strong>print-architecture</strong></code>   </td><td class="col1 leftalign"> List installable package architectures  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> <code><strong>whatdepends</strong> [-A] [pkgname|pat]+</code> </td><td class="col1 leftalign"> This only works for installed packages. So if you would like to know, how much storage a package and all of it&#039;s dependencies would need, at the moment, you will have to piece this information together with the <code>info</code>-option.  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> <code><strong>whatdependsrec</strong> [-A] [pkgname|pat]+</code>  </td><td class="col1 leftalign"> This only works for installed packages. So if you would like to know, how much storage a package and all of it&#039;s dependencies would need, at the moment, you will have to piece this information together with the <code>info</code>-option.  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> <code><strong>whatprovides</strong> [-A] [pkgname|pat]+</code>   </td><td class="col1 leftalign">  </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 leftalign"> <code><strong>whatconflicts</strong> [-A] [pkgname|pat]+</code>  </td><td class="col1 leftalign">  </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 leftalign"> <code><strong>whatreplaces</strong> [-A] [pkgname|pat]+</code>   </td><td class="col1 leftalign">  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit7" id="options">Options</h3>
+<div class="level3">
+<div class="table sectionedit8"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Option </th><th class="col1"> Long </th><th class="col2 leftalign"> Description  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> <code>-A</code>             </td><td class="col1 leftalign">                        </td><td class="col2 leftalign"> Query all packages not just those installed  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <code>-V[&lt;level&gt;]</code>    </td><td class="col1 leftalign"> <code>--verbosity[=&lt;level&gt;]</code>  </td><td class="col2 leftalign"> Set verbosity level to &lt;level&gt;.  Available verbosity levels:<br/>
+0 errors only<br/>
+1 normal messages (default)<br/>
+2 informative messages<br/>
+3 debug<br/>
+4 debug level 2  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> <code>-f &lt;conf_file&gt;</code>     </td><td class="col1 leftalign"> <code>--conf &lt;conf_file&gt;</code>  </td><td class="col2 leftalign"> Use &lt;conf_file&gt; as the opkg configuration file. Default is <code>/etc/opkg.conf</code>  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign">   </td><td class="col1 leftalign"> <code>--cache &lt;directory&gt;</code>  </td><td class="col2 leftalign"> Use a package cache  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> <code>-d &lt;dest_name&gt;</code>     </td><td class="col1 leftalign"> <code>--dest &lt;dest_name&gt;</code>  </td><td class="col2 leftalign"> Use &lt;dest_name&gt; as the the root directory for package installation, removal, upgrading. &lt;dest_name&gt; should be a defined dest name from the configuration file, (but can also be a directory name in a pinch).  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> <code>-o &lt;dir&gt;</code>           </td><td class="col1 leftalign"> <code>--offline-root &lt;dir&gt;</code>  </td><td class="col2 leftalign"> Use &lt;dir&gt; as the root directory for offline installation of packages.  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> </td><td class="col1 leftalign"> <code>--add-arch &lt;arch&gt;:&lt;prio&gt;</code>  </td><td class="col2 leftalign"> Register architecture with given priority  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> </td><td class="col1 leftalign"> <code>--add-dest &lt;name&gt;:&lt;path&gt;</code>  </td><td class="col2 leftalign"> Register destination with given path  </td>
+	</tr>
+	<tr class="row9">
+		<th class="col0" colspan="3"> Force Options </th>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> </td><td class="col1 leftalign"> <code>--force-depends</code>      </td><td class="col2 leftalign"> Install/remove despite failed dependencies  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> </td><td class="col1 leftalign"> <code>--force-maintainer</code>   </td><td class="col2 leftalign"> Overwrite preexisting config files  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0"> </td><td class="col1 leftalign"> <code>--force-reinstall</code>    </td><td class="col2 leftalign"> Reinstall package(s)  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0"> </td><td class="col1 leftalign"> <code>--force-overwrite</code>    </td><td class="col2 leftalign"> Overwrite files from other package(s)  </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0"> </td><td class="col1 leftalign"> <code>--force-downgrade</code>    </td><td class="col2 leftalign"> Allow opkg to downgrade packages  </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0"> </td><td class="col1 leftalign"> <code>--force-space</code>        </td><td class="col2 leftalign"> Disable free space checks  </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0"> </td><td class="col1 leftalign"> <code>--force-postinstall</code>  </td><td class="col2 leftalign"> Run postinstall scripts even in offline mode  </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0"> </td><td class="col1 leftalign"> <code>--noaction</code>           </td><td class="col2 leftalign"> No action – test only  </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0"> </td><td class="col1 leftalign"> <code>--download-only</code>      </td><td class="col2 leftalign"> No action – download only  </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0"> </td><td class="col1 leftalign"> <code>--nodeps</code>             </td><td class="col2 leftalign"> Do not follow dependencies  </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0"> </td><td class="col1 leftalign"> <code>--force-removal-of-dependent-packages</code>  </td><td class="col2 leftalign"> Remove package and all dependencies  </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0"> </td><td class="col1 leftalign"> <code>--autoremove</code>         </td><td class="col2 leftalign"> Remove packages that were installed automatically to satisfy dependencies  </td>
+	</tr>
+	<tr class="row22">
+		<td class="col0 leftalign"> <code>-t</code>  </td><td class="col1 leftalign"> <code>--tmp-dir</code>    </td><td class="col2 leftalign"> Specify tmp-dir.  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit9" id="examples">Examples</h2>
+<div class="level2">
+
+<p>
+To install a package run the following commands. List of available packages is lost upon reboot, so make sure to update the list before trying to install a package
+</p>
+
+<p>
+<pre class="code">opkg update
+opkg install &lt;package&gt;</pre>
+
+</p>
+
+<p>
+To search
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>opkg list</code> will display only <code>Package name — Version — Description</code></div>
+</li>
+<li class="level1"><div class="li"> <code>opkg info</code> will display all available information.</div>
+</li>
+</ul>
+
+<p>
+You can make use of <a href="http://en.wikipedia.org/wiki/Glob_(programming)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Glob_(programming)">glob pattern</a>s directly and also write a little  <a href="http://wiki.openwrt.org/doc/howto/commandlineinterpreter" class="wikilink2" title="doc:howto:commandlineinterpreter" rel="nofollow">shell script</a> to use <a href="http://en.wikipedia.org/wiki/Regular expression" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Regular expression">Regular expression</a>s and otherwise further process information. Use a pipe (<code>|</code>) and <code>grep</code> or <code>awk</code> or <code>sed</code> to filter that output:
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>opkg list | grep pattern</code> </div>
+</li>
+<li class="level1"><div class="li"> <code>opkg list | awk &#039;/pattern/ {print $0}</code></div>
+</li>
+<li class="level1"><div class="li"> <code>opkg info kmod-ipt-* | awk &#039;/length/ {print $0}</code>&#039;</div>
+</li>
+<li class="level1"><div class="li"> <code>opkg list-installed | awk &#039;{print $1}&#039; | sed &#039;:M;N;$!bM;s#\n# #g</code>&#039;</div>
+</li>
+<li class="level1"><div class="li"> <code>var=&quot;packagename1 packagename2 packagename2&quot;; for i in $var; do opkg info $i; done;</code></div>
+</li>
+<li class="level1"><div class="li"> <code>opkg depends dropbear</code> doesn&#039;t work either.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit10" id="configuration">Configuration</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit11" id="adjust_repositories">Adjust Repositories</h3>
+<div class="level3">
+
+<p>
+The only configuration file is <code>/etc/opkg.conf</code>. It could look like this:
+<pre class="code">src/gz snapshots http://downloads.openwrt.org/snapshots/trunk/ar71xx/packages
+dest root /
+dest ram /tmp
+lists_dir ext /var/opkg-lists
+option overlay_root /overlay</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit12" id="local_repositories">Local Repositories</h3>
+<div class="level3">
+
+<p>
+You can configure opkg to fetch the packages locally:
+<pre class="code">src/gz local file:////path/to/packagesDirectory</pre>
+
+</p>
+
+<p>
+Barrier_breaker uses multiple repositories, where every repository requires a unique identifier. It is logical to use their original names, e.g.:
+</p>
+
+<p>
+<pre class="code">...
+src/gz base file:///pathtopackagesdirectory///packages/base
+src/gz luci file:///pathtopackagesdirectory///packages/luci
+src/gz packages file:///pathtopackagesdirectory///packages/packages
+src/gz oldpackages file:///pathtopackagesdirectory///packages/oldpackages
+... etc ...</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit13" id="adjust_architectures">Adjust Architectures</h3>
+<div class="level3">
+
+<p>
+By default, <em>opkg</em> only allows packages with the architecture <code>all</code> (= architecture independant) and the architecture of the installed target.
+In order to source packages from a foreign, but compatible target, the list of allowed architectures can be overrided in opkg.conf with the use of
+<code>arch</code> options:
+</p>
+
+<p>
+<pre class="code">arch all 100
+arch brcm4716 200
+arch brcm47xx 300</pre>
+
+</p>
+
+<p>
+This example would allow installing <code>brcm47xx</code> (= family of <a href="../hardware/soc.1" class="wikilink1" title="doc:hardware:soc">SoC</a>s) packages on the <code>brcm4716</code> (a specific SoC) target. The number specifies a priority index which is used by <code>opkg</code> to determine which package to prefer in case it is available in multiple architectures.
+</p>
+
+</div>
+
+<h3 class="sectionedit14" id="proxy_support">Proxy support</h3>
+<div class="level3">
+
+<p>
+To use <code>opkg</code> through a proxy, add the following to <code>/etc/opkg.conf</code>:
+</p>
+
+<p>
+<pre class="code">option http_proxy http://proxy.example.org:8080/
+option ftp_proxy ftp://proxy.example.org:2121/</pre>
+
+</p>
+
+<p>
+Use the options below to authenticate against the proxy server:
+</p>
+
+<p>
+<pre class="code">option proxy_username xxxx
+option proxy_password xxxx</pre>
+
+</p>
+
+<p>
+The authentication may fail due to the limitations of busybox wget.
+Try passing the username and password as part of the url in this case.
+</p>
+
+<p>
+<pre class="code">option http_proxy http://username:password@proxy.example.org:8080/
+option ftp_proxy http://username:password@proxy.example.org:2121/</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit15" id="installation_destinations">Installation Destinations</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="extroot">Extroot</h4>
+<div class="level4">
+
+<p>
+Use <a href="../howto/extroot" class="wikilink1" title="doc:howto:extroot">extroot</a> and you are done with it. No further configuration is necessary.
+</p>
+
+</div>
+
+<h4 id="mount_point">Mount Point</h4>
+<div class="level4">
+
+<p>
+One very useful feature of opkg, which may be unfamiliar to those used to tools such as the apt family, is the ability to specify a destination for any package installation.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong>Many packages are not relocatable and will fail to install cleanly when installed to a non-root location! LuCI for example will fail to find its modules and will not work without manual fixes! Use Extroot instead!</strong> <br/>
+
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong>Don&#039;t expect this solution to work out-of-the-box, most packages will need additional symlinks or hacks to correctly work under the changed path!</strong>
+</p>
+
+<p>
+The default opkg.conf actually contains three destinations:
+</p>
+
+<p>
+<pre class="code">dest root /
+dest ram /tmp
+dest mnt /mnt</pre>
+
+</p>
+
+<p>
+The format of destination lines is simply the keyword dest, followed by a name for this destination (this can be anything), followed by a filesystem location.  Any destination that has been thus configured can then be specified on the opkg command line like this:
+</p>
+
+<p>
+<pre class="code">opkg install somepackage -d destination_name</pre>
+
+</p>
+
+<p>
+The <em>dest</em> argument must refer to one of the defined destinations in <code>/etc/opkg.conf</code>, e.g. <code>-d ram</code> to install packages to <code>/tmp/</code>.
+</p>
+
+<p>
+If you want to install kernel modules on any other destination than root, you might want to read this first: <a href="https://dev.openwrt.org/ticket/10739" class="urlextern" title="https://dev.openwrt.org/ticket/10739"  rel="nofollow">https://dev.openwrt.org/ticket/10739</a>
+</p>
+
+</div>
+
+<h5 id="detailed_instructions">Detailed Instructions</h5>
+<div class="level5">
+
+<p>
+First mount an external filesystem, see <a href="../howto/client.overview#mounting_filesystems" class="wikilink1" title="doc:howto:client.overview">Mounting Filesystems</a> for help with that. Then edit <code>/etc/opkg.conf</code>:
+</p>
+<ul>
+<li class="level1"><div class="li"> Add the line <code>dest usb /opt</code> to the bottom of the file</div>
+</li>
+<li class="level1"><div class="li"> Execute the following command (assuming that <code>/mnt/sda1</code> is the path to the mount point of your external filesystem): <pre class="code bash"><span class="kw2">ln</span> <span class="re5">-s</span> <span class="sy0">/</span>mnt<span class="sy0">/</span>sda1 <span class="sy0">/</span>opt</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> Edit <code>/etc/profile</code> and add the new mount point to your paths variables: <pre class="code bash"><span class="kw3">export</span> <span class="re2">PATH</span>=<span class="sy0">&lt;</span>current default path<span class="sy0">&gt;</span>:<span class="sy0">/</span>opt<span class="sy0">/</span>bin:<span class="sy0">/</span>opt<span class="sy0">/</span>sbin:<span class="sy0">/</span>opt<span class="sy0">/</span>usr<span class="sy0">/</span>bin:<span class="sy0">/</span>opt<span class="sy0">/</span>usr<span class="sy0">/</span>sbin
+<span class="kw3">export</span> <span class="re2">LD_LIBRARY_PATH</span>=<span class="sy0">&lt;</span>current default LD library path<span class="sy0">&gt;</span>:<span class="sy0">/</span>opt<span class="sy0">/</span>lib:<span class="sy0">/</span>opt<span class="sy0">/</span>usr<span class="sy0">/</span>lib</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> From here, you should be able to install new packages to your new mount point as follows: <pre class="code bash">opkg update
+opkg <span class="re5">-dest</span> usb <span class="kw2">install</span> asterisk14  <span class="co0"># or whatever else you want…</span></pre>
+</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> If you install packages to external filesystems that have a startup script under <em>/etc/init.d</em> and (if enabled) under <em>/etc/rc.d</em> you need to set a sysmlink to <em>/etc/init.d</em>, e.g.: <pre class="code bash"> <span class="kw2">ln</span> <span class="re5">-s</span> <span class="sy0">/</span>usb<span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>openvpn <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>openvpn</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> Libraries installed along with those packages are also installed to the external filesystem. This causes the programm not to start during bootup. You need to manually set the LD_LIBRARY_PATH in each &#039;external&#039; startup script: <pre class="code bash"> <span class="kw3">export</span> <span class="re2">LD_LIBRARY_PATH</span>=<span class="sy0">/</span>lib:<span class="sy0">/</span>usr<span class="sy0">/</span>lib:<span class="sy0">/</span>tmp<span class="sy0">/</span>lib:<span class="sy0">/</span>tmp<span class="sy0">/</span>usr<span class="sy0">/</span>lib:<span class="sy0">/</span>usb<span class="sy0">/</span>lib:<span class="sy0">/</span>usb<span class="sy0">/</span>usr<span class="sy0">/</span>lib</pre>
+</div>
+</li>
+</ul>
+
+</div>
+
+<h5 id="alternative_instructions">Alternative Instructions</h5>
+<div class="level5">
+<ol>
+<li class="level1"><div class="li"> mount external partition, see <a href="../howto/client.overview#mounting_filesystems" class="wikilink1" title="doc:howto:client.overview">Mounting Filesystems</a></div>
+</li>
+<li class="level1"><div class="li"> change <code>/etc/opkg.conf</code> and either add a new destination to desired mount point, or</div>
+</li>
+<li class="level1"><div class="li"> modify dest root to point to your usb drive</div>
+</li>
+<li class="level1"><div class="li"> copy contents of <code>/usr/lib/opkg</code> to your mount point, e.g. USB drive</div>
+</li>
+<li class="level1"><div class="li"> map directories where it is likely that they&#039;ll receive lots of files to your usb drive, for example with mount –bind during startup. <code>/etc/rc.local</code> could be one place where to map the directories.</div>
+</li>
+</ol>
+
+<p>
+      example:
+<pre class="code">mount --bind /mnt/usb/root /root
+mount --bind /mnt/usb/usr/local /usr/local
+mount --bind /mnt/usb/home  /home</pre>
+
+</p>
+
+</div>
+
+<h5 id="libraries">Libraries</h5>
+<div class="level5">
+
+<p>
+For packages which contain libraries, and are installed on external drive, those libraries need to be found.
+Installing <code>ldconfig</code>, and listing the additional library paths in <code>/etc/ld.so.conf</code> will take care of that. ldconfig must be executed after new libraries have been installed, and it can be installed to external drive. Executing it once during boot may be a good idea. Maybe <code><a href="../howto/notuci.config#etcrclocal" class="wikilink1" title="doc:howto:notuci.config">/etc/rc.local</a></code>.
+</p>
+
+</div>
+
+<h5 id="kernel_modules">Kernel Modules</h5>
+<div class="level5">
+
+<p>
+Kernel modules that are installed to a non-standard location may not be properly automatically inserted into the kernel when required, and manual insertion may be necessary.  For example, after installing libdevmapper under /mnt, insert the modules thus:
+</p>
+
+<p>
+<code>insmod /mnt/lib/modules/2.6.36.4/dm-mod.ko</code>
+</p>
+
+<p>
+You could install daemons and &quot;core&quot; services on the internal flash and install optional packages to external mount point. During boot, the external directories with executables (&lt;mountpoint&gt;/[bin,sbin,usr/bin,usr/sbin] are added to PATH if mount of external drive took place. That way the router continues to provide all relevant services, even with external storage disconnected.
+</p>
+
+<p>
+Problems arose with these packages, when installing to external drive:
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>file</code><br/>
+It installs its dependency libmagic to external drive too, but looks for that lib on root device.<br/>
+Fix: a script with be name &quot;file&quot; in a directory in PATH which is searched before the directory which contains the executable &quot;file&quot;, which calls file (full path) with option -m and path to the libmagic:<br/>
+<pre class="code bash"><span class="co0">#!/bin/sh</span>
+<span class="sy0">/</span>mnt<span class="sy0">/</span>usb<span class="sy0">/</span>usr<span class="sy0">/</span>bin<span class="sy0">/</span><span class="kw2">file</span> <span class="re5">-m</span> <span class="sy0">/</span>mnt<span class="sy0">/</span>usb<span class="sy0">/</span>usr<span class="sy0">/</span>share<span class="sy0">/</span>file<span class="sy0">/</span>magic <span class="st0">&quot;$@&quot;</span></pre>
+ after saving the script, and making it executable (chmod +x /path/of/script/file), executing once &quot;hash -r&quot; may or may not be needed.</div>
+</li>
+<li class="level1"><div class="li"> <code>netcat</code><br/>
+Not really a problem, but the link nc (busybox?) was still pointing to a file with wrong location.<br/>
+Moving the nc link to external drive (to the dir containing netcat) fixes that.</div>
+</li>
+<li class="level1"><div class="li"> <code>nfsd</code><br/>
+<code>/etc/init.d/nfsd</code> contains hardcoded paths to executables on <code>/usr/sbin</code><br/>
+Fix: edit <code>/etc/init.d/nfsd</code>, by changing those paths to updated location.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> <code>lvm2</code><br/>
+<code>/etc/init.d/lvm2</code> contains hardcoded paths to executables on <code>/sbin</code><br/>
+Fix: edit <code>/etc/init.d/lvm2</code>, by changing these paths to updated location.</div>
+</li>
+</ul>
+
+<p>
+More information on installing and using <code>ldconfig</code> can be found in <a href="https://forum.openwrt.org/viewtopic.php?pid=117496#p117496" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?pid=117496#p117496"  rel="nofollow">this article</a>.
+</p>
+
+</div>
+
+<h5 id="example_creating_links_to_files_from_the_root_file_system_to_make_programs_work">Example Creating Links to Files from the Root File System to Make Programs Work</h5>
+<div class="level5">
+
+<p>
+Some programs need additional config files to run, and you will have to create soft links between the root filesystem and the external storage one (e.g. USB). As an example, to successfully run Midnight Commander after installing it on a USB stick, you must run:<pre class="code">ln -s $USB/usr/share/terminfo/ /usb/share/
+ln -s $USB/etc/mc /etc/mc</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit16" id="troubleshooting">Troubleshooting</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit17" id="out_of_space">Out of space</h3>
+<div class="level3">
+
+<p>
+If <em>opkg</em> runs out of space, it usually fails to recover cleanly leaving dangling lock files in place resulting in a <code><em>Could not obtain administrative lock</em></code> error. The lock file can be deleted by issuing the <code>rm /usr/lib/opkg/lock</code> command.
+</p>
+
+<p>
+Additionally, <em>opkg</em> may not remove the files it was installing.<br/>
+
+One way to do this is get a list of the files it was installing, then delete them.
+</p>
+
+<p>
+Replace the url with the appropriate package.
+</p>
+
+<p>
+<pre class="code">(cd /; \
+ wget -qO- http://downloads.openwrt.org/snapshots/trunk/ar7/packages/6in4_10-1_all.ipk | \
+ tar -Oxz ./data.tar.gz | tar -tz | xargs rm)</pre>
+
+</p>
+
+<p>
+However, the above line does not delete the dependencies that were installed along with the package responsible. Also, it leaves empty directories around. The script below intends to fix those.
+</p>
+
+<p>
+<pre class="code">#!/bin/sh
+#takes one argument/parameter: the name of the package which didn&#039;t install correctly and should be removed along with its dependencies
+#do opkg update first
+#example: ./opkgremovepartlyinstalledpackage.sh pulseaudio-daemon
+
+#get list of all packages that would be installed along with package x
+opkg update
+PACKAGES=`opkg --force-space --noaction install $1 | grep &quot;http:&quot; | cut -f 2 -d &#039; &#039; | sed &#039;s/.$//&#039;`
+for i in $PACKAGES
+do
+        LIST=`wget -qO- $i | tar -Oxz ./data.tar.gz | tar -tz | sort -r | sed &#039;s/^./\/overlay/&#039;`
+        for f in $LIST
+        do
+                if [ -f $f ]
+                then
+                        echo &quot;Removing file $f&quot;
+                        rm -f $f
+                fi
+                if [ -d $f ]
+                then
+                        echo &quot;Try to remove directory $f (will only work on empty directories)&quot;
+                        rmdir $f
+                fi
+        done
+done
+echo &quot;You may need to reboot for the free space to become visible&quot;</pre>
+
+Save it as <code>opkgclean.sh</code> somewhere in your OpenWrt box, set it as an executable with <code>chmod +x ./opkgclean.sh</code> and you can execute it by doing <code>./opkgclean.sh &lt;package-name&gt; </code> .
+</p>
+
+</div>
+
+<h2 class="sectionedit18" id="extras">Extras</h2>
+<div class="level2">
+
+<p>
+For colorize opkg output, you can use <a href="http://pastie.org/5464938" class="urlextern" title="http://pastie.org/5464938"  rel="nofollow">http://pastie.org/5464938</a>.
+</p>
+
+</div>
+
+<h3 class="sectionedit19" id="commands">Commands</h3>
+<div class="level3">
+
+<p>
+To find installed pkgs of a specific install target (ex. USB) (<strong>DRAWBACK!!! if any update availlable, it will update the package, just be warned!!!</strong>):
+</p>
+
+<p>
+<code>for pkg in `opkg list-installed | sed -e &quot;s/^([0-9A-Za-z\-]+) - .*$/\1/p&quot; -n`; do opkg install $pkg; done | grep -i installed\ in\ &lt;TARGET&gt;</code>
+</p>
+
+</div>
+
+<h2 class="sectionedit20" id="notes">Notes</h2>
+<div class="level2">
+<div class="table sectionedit21"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/48px-outdated.svg.png" class="media" alt="" /> </td><td class="col1"> Since Trunk <a href="https://dev.openwrt.org/changeset/23173" class="urlextern" title="https://dev.openwrt.org/changeset/23173"  rel="nofollow">r23173</a> respectively Backfire <a href="https://dev.openwrt.org/changeset/23206" class="urlextern" title="https://dev.openwrt.org/changeset/23206"  rel="nofollow">r23206</a> the kernel and kmod packages are flagged as <em>hold</em>. <br/>
+The <code>opkg upgrade</code> command won&#039;t attempt to update them anymore. </td>
+	</tr>
+</table></div>
+<ul>
+<li class="level1"><div class="li"> <a href="../packages" class="wikilink1" title="doc:packages">packages</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="https://wiki.archlinux.org/index.php/Pacman_Rosetta" class="urlextern" title="https://wiki.archlinux.org/index.php/Pacman_Rosetta"  rel="nofollow">Pacman Rosetta</a></div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/techref/opkg.txt</bdi> · Last modified: 2015/04/22 19:25 by <bdi>micsu</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="opkg?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="opkg?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="opkg?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="opkg#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Atechref%253Aopkg&amp;1432265520" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

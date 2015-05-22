@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Network File System (NFS) [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,nfs.server"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="nfs.server?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/nfs.server"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/nfs.server"/>
+<link rel="canonical" href="nfs.server"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:nfs.server","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266353 166.182.3.117';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="nfs.server#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="nfs.server?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="nfs.server?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:nfs.server" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="nfs.server?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="nfs.server?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="nfs.server?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="nfs.server" class="wikilink1" title="doc:howto:nfs.server">Network File System (NFS)</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/nfs.server" class="media" title="cz:doc:howto:nfs.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/nfs.server" class="media" title="de:doc:howto:nfs.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="nfs.server" class="media" title="doc:howto:nfs.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/nfs.server" class="media" title="es:doc:howto:nfs.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/nfs.server" class="media" title="fr:doc:howto:nfs.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/nfs.server" class="media" title="hu:doc:howto:nfs.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/nfs.server" class="media" title="jp:doc:howto:nfs.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/nfs.server" class="media" title="pl:doc:howto:nfs.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/nfs.server" class="media" title="pt-br:doc:howto:nfs.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/nfs.server" class="media" title="ru:doc:howto:nfs.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/nfs.server" class="media" title="tr:doc:howto:nfs.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/nfs.server" class="media" title="zh-cn:doc:howto:nfs.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/nfs.server" class="media" title="zh-tw:doc:howto:nfs.server"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:nfs.server</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="nfs.server#preparations">Preparations</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="nfs.server#prerequisites">Prerequisites</a></div></li>
+<li class="level2"><div class="li"><a href="nfs.server#required_packages">Required Packages</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="nfs.server#server_openwrt">Server (OpenWrt)</a></div></li>
+<li class="level3"><div class="li"><a href="nfs.server#client_your_pcs">Client (your PCs)</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="nfs.server#installation">Installation</a></div></li>
+<li class="level1"><div class="li"><a href="nfs.server#configuration">Configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="nfs.server#server_configuration">Server configuration</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="nfs.server#start_on_boot">Start on boot</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="nfs.server#client_configuration">Client configuration</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="nfs.server#linux-client">Linux-Client</a></div></li>
+<li class="level3"><div class="li"><a href="nfs.server#windows-client">Windows-Client</a></div></li>
+<li class="level3"><div class="li"><a href="nfs.server#mac_os_x-client">Mac OS X-Client</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="nfs.server#problems">Problems</a></div></li>
+<li class="level1"><div class="li"><a href="nfs.server#performancetuning">Performance / Tuning</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="nfs.server#throughput_issues">Throughput Issues</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="network_file_system_nfs">Network File System (NFS)</h1>
+<div class="level1">
+
+<p>
+The <a href="http://en.wikipedia.org/wiki/Network File System" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Network File System">Network File System</a> is the protocol of choice to share files over an internal Local Area Network. Depending on your needs, you may also want to use <a href="../uci/samba" class="wikilink1" title="doc:uci:samba">Samba</a> or the <a href="sshfs.server" class="wikilink1" title="doc:howto:sshfs.server">SSH Filesystem</a> additionally or instead.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="preparations">Preparations</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit3" id="prerequisites">Prerequisites</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> <a href="usb.essentials" class="wikilink1" title="doc:howto:usb.essentials">usb.essentials</a>  obtain basic support for USB.</div>
+</li>
+<li class="level1"><div class="li"> <a href="usb.storage" class="wikilink1" title="doc:howto:usb.storage">usb.storage</a>  obtain support for USB storage and mount local filesystem</div>
+</li>
+<li class="level1"><div class="li"> In your <a href="../uci/firewall" class="wikilink1" title="doc:uci:firewall">firewall</a> (or see <a href="netfilter" class="wikilink1" title="doc:howto:netfilter">netfilter</a>) open port 111 tcp and udp, and 32777-32780 tcp and udp from your <abbr title="Local Area Network">LAN</abbr>. Following example may not work for you (set the right interface -i ):</div>
+</li>
+</ol>
+
+<p>
+<pre class="code bash"><span class="re1">$IPT</span> <span class="re5">-A</span> INPUT <span class="re5">-j</span> ACCEPT <span class="re5">-i</span> eth0.1 <span class="re5">-s</span> <span class="re1">$NET_LAN</span> <span class="re5">-p</span> tcp <span class="re5">--dport</span> <span class="nu0">111</span> <span class="co0">#--------- portmap</span>
+<span class="re1">$IPT</span> <span class="re5">-A</span> INPUT <span class="re5">-j</span> ACCEPT <span class="re5">-i</span> eth0.1 <span class="re5">-s</span> <span class="re1">$NET_LAN</span> <span class="re5">-p</span> udp <span class="re5">--dport</span> <span class="nu0">111</span> <span class="co0">#--------- portmap</span>
+<span class="re1">$IPT</span> <span class="re5">-A</span> INPUT <span class="re5">-j</span> ACCEPT <span class="re5">-i</span> eth0.1 <span class="re5">-s</span> <span class="re1">$NET_LAN</span> <span class="re5">-p</span> tcp <span class="re5">--dport</span> <span class="nu0">32777</span>:<span class="nu0">32780</span> <span class="co0">#- nfsd</span>
+<span class="re1">$IPT</span> <span class="re5">-A</span> INPUT <span class="re5">-j</span> ACCEPT <span class="re5">-i</span> eth0.1 <span class="re5">-s</span> <span class="re1">$NET_LAN</span> <span class="re5">-p</span> udp <span class="re5">--dport</span> <span class="nu0">32777</span>:<span class="nu0">32780</span> <span class="co0">#- nfsd</span></pre>
+
+</p>
+
+<p>
+The <em>portmap</em> service uses port 111 on both TCP and UDP, <em>nfsd</em> standard are ports between 32777 and 32780 on both TCP and UDP.<br/>
+
+It might be necessary to populate <code>/etc/hosts.allow</code> to whitelist NFS clients, insert an entry like <code>portmap: 192.168.1.*</code> then.
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="required_packages">Required Packages</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="server_openwrt">Server (OpenWrt)</h4>
+<div class="level4">
+<div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Dependencies </th><th class="col2"> Size </th><th class="col3 leftalign"> Description  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> nfs-kernel-server  </td><td class="col1 centeralign">  libwrap libblkid libuuid kmod-fs-nfsd kmod-fs-nfs portmap  </td><td class="col2 rightalign">  75854 </td><td class="col3 leftalign"> Kernel NFS server support  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> libwrap            </td><td class="col1 centeralign">  7.6-1        </td><td class="col2 rightalign">   11286 </td><td class="col3 leftalign"> Security wrapper library for TCP services  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> libblkid           </td><td class="col1 centeralign">  1.41.12-1    </td><td class="col2 rightalign">   19423 </td><td class="col3 leftalign"> The blkid library which allows system programs like fsck and mount to quickly and easily find block devices by filesystem UUID and LABEL.  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> libuuid            </td><td class="col1 centeralign">  1.41.12-1    </td><td class="col2 rightalign">    7624 </td><td class="col3 leftalign"> Library for generating DCE compatible Universally Unique Identifiers.   </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> kmod-fs-nfsd       </td><td class="col1 centeralign">  kmod-fs-nfs-common kmod-fs-exportfs  </td><td class="col2 rightalign">  52882 </td><td class="col3 leftalign"> Kernel module for NFS kernel server support  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> kmod-fs-exportfs   </td><td class="col1 centeralign">  2.6.32.27-1  </td><td class="col2 rightalign">    3612 </td><td class="col3 leftalign"> Kernel module for exportfs. Needed for some other modules.  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> kmod-fs-nfs        </td><td class="col1 centeralign">  2.6.32.27-1  </td><td class="col2 rightalign">   86611 </td><td class="col3 leftalign"> Kernel module for NFS support  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> portmap            </td><td class="col1 centeralign">  6.0-2        </td><td class="col2 rightalign">    7547 </td><td class="col3 leftalign"> Portmap is a server that converts RPC program numbers into DARPA protocol port numbers.  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> kmod-fs-nfs-common  </td><td class="col1 centeralign">  2.6.32.27-1   </td><td class="col2 rightalign">  133604 </td><td class="col3 leftalign"> Common NFS filesystem modules  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> nfs-kernel-server-utils  </td><td class="col1 centeralign">  1.1.6-1  </td><td class="col2 rightalign">  14617 </td><td class="col3 leftalign"> NFS server utils  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> nfs-server          </td><td class="col1 centeralign">  2.2beta47-1   </td><td class="col2 rightalign">   50620 </td><td class="col3 leftalign"> User Space NFS server  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> nfs-utils           </td><td class="col1 centeralign">  libwrap, libblkid, libuuid, libevent  </td><td class="col2 rightalign">  33390 </td><td class="col3 leftalign"> Updated mount.nfs command - allows mounting nfs4 volumes  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> libevent            </td><td class="col1 centeralign">  1.4.14b-1  </td><td class="col2 rightalign">  40436 </td><td class="col3 leftalign"> The libevent <abbr title="Application Programming Interface">API</abbr> provides a mechanism to execute a callback function when a specific event occurs on a file descriptor or after a timeout has been reached. Furthermore, libevent also support callbacks due to signals or regular timeouts. <br/>
+libevent is meant to replace the event loop found in event driven  network servers. An application just needs to call event_dispatch() and then add or remove events dynamically without having to change the event loop.  </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 leftalign"> unfs3               </td><td class="col1 centeralign">  0.9.22-1  </td><td class="col2 rightalign">  32804 </td><td class="col3"> UNFS3 is a user-space implementation of the NFSv3 server specification. It provides a daemon for the MOUNT and NFS protocols, which are used by NFS clients for accessing files on the server. </td>
+	</tr>
+</table></div>
+
+<p>
+<strong>NOTE:</strong> You do not need all packages: <strong><code>nfs-kernel-server</code></strong> should suffice.
+</p>
+
+<p>
+<strong>NOTE:</strong> You may need to install kmod-loop manually to fix &quot;mount: can&#039;t setup loop device: No such file or directory&quot; errors. (see <a href="https://dev.openwrt.org/ticket/11541" class="urlextern" title="https://dev.openwrt.org/ticket/11541"  rel="nofollow">https://dev.openwrt.org/ticket/11541</a>)
+</p>
+
+</div>
+
+<h4 id="client_your_pcs">Client (your PCs)</h4>
+<div class="level4">
+
+<p>
+GNU/Linux distribution come with pre-installed support for this. So does MacOS X since version 10.2. In case your distribution is missing support, you need to install the client software. ArchLinux offers a Wikipage: <a href="https://wiki.archlinux.org/index.php/Samba#Configuration" class="urlextern" title="https://wiki.archlinux.org/index.php/Samba#Configuration"  rel="nofollow">https://wiki.archlinux.org/index.php/Samba#Configuration</a>.
+</p>
+
+<p>
+For Windows download <em>Microsoft Windows Services for UNIX</em> from <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=896c9688-601b-44f1-81a4-02878ff11778&amp;DisplayLang=en" class="urlextern" title="http://www.microsoft.com/downloads/details.aspx?FamilyID=896c9688-601b-44f1-81a4-02878ff11778&amp;DisplayLang=en"  rel="nofollow">Microsoft</a>.
+</p>
+
+<p>
+You can also use <a href="http://j-ftp.sourceforge.net" class="urlextern" title="http://j-ftp.sourceforge.net"  rel="nofollow">JFtp</a> as an alternative client.
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="installation">Installation</h2>
+<div class="level2">
+
+<p>
+<a href="../techref/opkg" class="wikilink1" title="doc:techref:opkg">opkg</a>
+<pre class="code bash">opkg update
+opkg <span class="kw2">install</span> nfs-kernel-server
+<span class="kw2">vi</span> <span class="sy0">/</span>etc<span class="sy0">/</span>exports
+. <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>portmap start
+. <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>portmap <span class="kw3">enable</span>
+. <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>nfsd start
+. <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>nfsd <span class="kw3">enable</span>
+<span class="kw2">netstat</span> <span class="re5">-a</span>
+<span class="re1">$IPT</span> <span class="re5">-A</span> INPUT <span class="re5">-j</span> ACCEPT <span class="re5">-i</span> eth0.1 <span class="re5">-s</span> <span class="re1">$NET_LAN</span> <span class="re5">-p</span> tcp <span class="re5">--dport</span> <span class="nu0">111</span> <span class="co0">#------------------- portmap</span>
+<span class="re1">$IPT</span> <span class="re5">-A</span> INPUT <span class="re5">-j</span> ACCEPT <span class="re5">-i</span> eth0.1 <span class="re5">-s</span> <span class="re1">$NET_LAN</span> <span class="re5">-p</span> udp <span class="re5">--dport</span> <span class="nu0">111</span> <span class="co0">#------------------- portmap</span>
+<span class="re1">$IPT</span> <span class="re5">-A</span> INPUT <span class="re5">-j</span> ACCEPT <span class="re5">-i</span> eth0.1 <span class="re5">-s</span> <span class="re1">$NET_LAN</span> <span class="re5">-p</span> tcp <span class="re5">--dport</span> <span class="nu0">32777</span>:<span class="nu0">32780</span> <span class="co0">#----------- nfsd</span>
+<span class="re1">$IPT</span> <span class="re5">-A</span> INPUT <span class="re5">-j</span> ACCEPT <span class="re5">-i</span> eth0.1 <span class="re5">-s</span> <span class="re1">$NET_LAN</span> <span class="re5">-p</span> udp <span class="re5">--dport</span> <span class="nu0">32777</span>:<span class="nu0">32780</span> <span class="co0">#----------- nfsd</span>
+<span class="re1">$IPT</span> <span class="re5">-t</span> raw <span class="re5">-A</span> INPUT <span class="re5">-i</span> <span class="re1">$IF_LAN</span> <span class="re5">-s</span> <span class="re1">$NET_LAN</span> <span class="re5">-p</span> tcp <span class="re5">--dport</span> <span class="nu0">32777</span>:<span class="nu0">32780</span> <span class="re5">-j</span> CT <span class="re5">--notrack</span> <span class="co0">#-- don't track nfs</span>
+<span class="re1">$IPT</span> <span class="re5">-t</span> raw <span class="re5">-A</span> INPUT <span class="re5">-i</span> <span class="re1">$IF_LAN</span> <span class="re5">-s</span> <span class="re1">$NET_LAN</span> <span class="re5">-p</span> udp <span class="re5">--dport</span> <span class="nu0">32777</span>:<span class="nu0">32780</span> <span class="re5">-j</span> CT <span class="re5">--notrack</span> <span class="co0">#-- don't track nfs</span>
+<span class="re1">$IPT</span> <span class="re5">-t</span> raw <span class="re5">-A</span> OUTPUT <span class="re5">-o</span> <span class="re1">$IF_LAN</span> <span class="re5">-d</span> <span class="re1">$NET_LAN</span> <span class="re5">-p</span> tcp <span class="re5">--dport</span> <span class="nu0">32777</span>:<span class="nu0">32780</span> <span class="re5">-j</span> CT <span class="re5">--notrack</span> <span class="co0">#- don't track nfs</span>
+<span class="re1">$IPT</span> <span class="re5">-t</span> raw <span class="re5">-A</span> OUTPUT <span class="re5">-o</span> <span class="re1">$IF_LAN</span> <span class="re5">-d</span> <span class="re1">$NET_LAN</span> <span class="re5">-p</span> udp <span class="re5">--dport</span> <span class="nu0">32777</span>:<span class="nu0">32780</span> <span class="re5">-j</span> CT <span class="re5">--notrack</span> <span class="co0">#- don't track nfs</span></pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="configuration">Configuration</h2>
+<div class="level2">
+
+<p>
+We have a typical client «» server configuration.
+</p>
+
+</div>
+
+<h3 class="sectionedit8" id="server_configuration">Server configuration</h3>
+<div class="level3">
+
+<p>
+Use the file <code>/etc/exports</code> to configure your shares. Example:
+</p>
+<div class="table sectionedit9"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>/mnt/sda2   192.168.1.2,192.168.1.3,192.168.1.4(ro,sync,no_subtree_check)
+/mnt/sda3   192.168.1.2(rw,sync,no_subtree_check)
+/mnt/sda4   192.168.1.0/255.255.255.0(rw,sync,no_subtree_check)</code> </td>
+	</tr>
+</table></div>
+
+<p>
+You can&#039;t use the CIDR notation, so <code>/mnt/sda4 192.168.1.0/24(rw,sync,no_subtree_check)</code> would not work, however the above example does.
+</p>
+
+<p>
+If you set up pivot-root or pivot-overlay, use the path on /overlay/ partition, else you cannot export mounted fs.
+</p>
+
+<p>
+Assuming the daemons are already running, use the command <code>exportfs -ar</code> to reload and apply changes on the fly.
+</p>
+
+</div>
+
+<h4 id="start_on_boot">Start on boot</h4>
+<div class="level4">
+
+<p>
+Since <em>opkg</em>-installed init.d scripts are not enabled nor started by default, you need to do this manually. Same procedure as with most (all?) OpenWrt packages: The first commands will will start them right now, the third and fourth will create the symlinks <code>/etc/rc.d/S??portmap</code> and  <code>/etc/rc.d/S??nfsd</code> so they get started on boot:
+</p>
+
+<p>
+<pre class="code">root@OpenWrt:~# /etc/init.d/portmap start
+root@OpenWrt:~# /etc/init.d/nfsd start
+root@OpenWrt:~# /etc/init.d/portmap enable
+root@OpenWrt:~# /etc/init.d/nfsd enable</pre>
+
+</p>
+
+<p>
+After start (and after a reboot) verify with <code>top</code> or <code>ps</code> whether the services are running.<br/>
+
+The following entries should appear in the process list:
+</p>
+
+<p>
+<pre class="code">/usr/sbin/rpc.mountd -p 32780    
+/usr/sbin/rpc.statd -p 32778 -o 32779
+/usr/sbin/portmap</pre>
+
+</p>
+
+<p>
+Use the <code>netstat -l</code> command to see whether <em>portmap</em> is listening on port 111 for both tcp and udp. The <em>nfsd</em> process may use varying ports.
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="client_configuration">Client configuration</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="linux-client">Linux-Client</h4>
+<div class="level4">
+
+<p>
+Mount manually:
+<pre class="code bash"><span class="kw2">sudo</span> <span class="kw2">mount</span> 192.168.1.254:<span class="sy0">/</span>mnt<span class="sy0">/</span>share1 <span class="sy0">/</span>home<span class="sy0">/</span>sandra<span class="sy0">/</span>nfs_share</pre>
+
+</p>
+
+<p>
+Or mount permanently with entries in the <code>/etc/fstab</code> on each client PC:
+</p>
+<div class="table sectionedit11"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>192.168.1.254:/mnt/sda2 /media/openwrt       nfs  ro,async,auto  0  0
+192.168.1.254:/mnt/sda4 /media/remote_stuff  nfs  rw,async,auto  0  0</code> </td>
+	</tr>
+</table></div>
+
+<p>
+Check the manual for <a href="http://linux.die.net/man/8/mount" class="urlextern" title="http://linux.die.net/man/8/mount"  rel="nofollow">mount</a> and take a particular look at the options. Choose wisely.
+</p>
+
+<p>
+With portmap running on your OpenWrt-Machine you can use <code>rpcinfo -p 192.168.1.254</code> on clients side to see open ports. The clients must be in <code>/etc/hosts.allow</code>.
+</p>
+
+</div>
+
+<h4 id="windows-client">Windows-Client</h4>
+<div class="level4">
+
+<p>
+Java client: <a href="http://j-ftp.sourceforge.net" class="urlextern" title="http://j-ftp.sourceforge.net"  rel="nofollow">JFtp</a>.
+TODO
+</p>
+
+</div>
+
+<h4 id="mac_os_x-client">Mac OS X-Client</h4>
+<div class="level4">
+
+<p>
+Java client: .
+TODO
+</p>
+
+</div>
+
+<h2 class="sectionedit12" id="problems">Problems</h2>
+<div class="level2">
+
+<p>
+If the loopback device support is missing, an error like &quot;<em>Cannot register service: RPC: Timed out</em>&quot; may appear.
+Installing the kmod-loop package should solve this issue.
+</p>
+
+</div>
+
+<h2 class="sectionedit13" id="performancetuning">Performance / Tuning</h2>
+<div class="level2">
+
+<p>
+Maybe you want to compare the read and write performance with that of your <a href="../uci/samba" class="wikilink1" title="doc:uci:samba">samba</a> setup. Post it in the forum or right here:
+</p>
+
+<p>
+Do not expect to much. When i started with my RouterStationPro i got 7 <abbr title="Megabyte">MB</abbr>/s writing to and 10 <abbr title="Megabyte">MB</abbr>/s reading from it.
+</p>
+
+<p>
+Now:
+</p>
+
+<p>
+Server:
+</p>
+<ul>
+<li class="level1"><div class="li"> echo 4 &gt;  /proc/fs/nfsd/threads</div>
+</li>
+<li class="level1"><div class="li"> /etc/exports: /mnt/bla	192.168.1.0/255.255.255.0(rw,all_squash,insecure,async,no_subtree_check)</div>
+</li>
+<li class="level1"><div class="li"> Check out /proc/fs/nfsd/max_block_size if client reports other block size then what you have specified. It can be changed if the server is not running, but nfsd mounted. Now you can echo the right value to it. - Updated by fathom</div>
+</li>
+</ul>
+
+<p>
+Client: mount options: udp,async,rsize=32768,wsize=32768,intr,noatime 
+</p>
+
+<p>
+i get: writing: 15,3MB/s and reading: 17,4MB/s 
+</p>
+
+<p>
+I have TL-WR1043ND from TP-Link by default it has a throughput of 4,5mb/sec, after tweaking the block size, and the mount options it delivers 9,5 mb/sec. Cheers! (Still on wifi it has a speed of 6 mb/s)
+</p>
+
+</div>
+
+<h3 class="sectionedit14" id="throughput_issues">Throughput Issues</h3>
+<div class="level3">
+
+<p>
+Since <a href="netfilter" class="wikilink1" title="doc:howto:netfilter">netfilter</a> will track every connection, if you use MASQUERADING for example, you could disable con-tracking for data connections:
+<pre class="code sh">$IPT -t raw -A PREROUTING -i $IF_LAN -s $NET_LAN -p tcp --dport 32777:32780 -j CT --notrack #---------- don't track nfs
+$IPT -t raw -A PREROUTING -i $IF_LAN -s $NET_LAN -p udp --dport 32777:32780 -j CT --notrack #---------- don't track nfs
+$IPT -t raw -A OUTPUT -o $IF_LAN -d $NET_LAN -p tcp --sport 32777:32780 -j CT --notrack #---------- don't track nfs
+$IPT -t raw -A OUTPUT -o $IF_LAN -d $NET_LAN -p udp --sport 32777:32780 -j CT --notrack #---------- don't track nfs</pre>
+
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/nfs.server.txt</bdi> · Last modified: 2013/12/25 15:17 by <bdi>yeti</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="nfs.server?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="nfs.server?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="nfs.server?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="nfs.server#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Anfs.server&amp;1432266353" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

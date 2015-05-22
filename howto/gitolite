@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Gitolite on OpenWRT [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,gitolite"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="gitolite?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/gitolite"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/gitolite"/>
+<link rel="canonical" href="gitolite"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:gitolite","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432273792 166.182.3.179';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="gitolite#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="gitolite?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="gitolite?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:gitolite" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="gitolite?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="gitolite?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="gitolite?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="gitolite" class="wikilink1" title="doc:howto:gitolite">Gitolite on OpenWRT</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/gitolite" class="media" title="cz:doc:howto:gitolite"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/gitolite" class="media" title="de:doc:howto:gitolite"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="gitolite" class="media" title="doc:howto:gitolite"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/gitolite" class="media" title="es:doc:howto:gitolite"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/gitolite" class="media" title="fr:doc:howto:gitolite"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/gitolite" class="media" title="hu:doc:howto:gitolite"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/gitolite" class="media" title="jp:doc:howto:gitolite"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/gitolite" class="media" title="pl:doc:howto:gitolite"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/gitolite" class="media" title="pt-br:doc:howto:gitolite"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/gitolite" class="media" title="ru:doc:howto:gitolite"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/gitolite" class="media" title="tr:doc:howto:gitolite"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/gitolite" class="media" title="zh-cn:doc:howto:gitolite"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/gitolite" class="media" title="zh-tw:doc:howto:gitolite"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:gitolite</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="gitolite#gitolite_on_openwrt">Gitolite on OpenWRT</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="gitolite#a_typical_usage_scenariowhy_gitolite">A typical usage scenario / Why gitolite?</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="gitolite#installation_and_setup">Installation and Setup</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="gitolite#dependencies">Dependencies</a></div></li>
+<li class="level2"><div class="li"><a href="gitolite#backing_up_the_old_dropbear_configuration">Backing up the old dropbear configuration</a></div></li>
+<li class="level2"><div class="li"><a href="gitolite#downloading_and_installing_gitolite">Downloading and installing gitolite</a></div></li>
+<li class="level2"><div class="li"><a href="gitolite#administrating_gitolite">Administrating gitolite</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h2 class="sectionedit1" id="gitolite_on_openwrt">Gitolite on OpenWRT</h2>
+<div class="level2">
+
+<p>
+Gitolite acts as a simple authorisation system after ssh authorized a user.
+</p>
+
+</div>
+
+<h3 class="sectionedit2" id="a_typical_usage_scenariowhy_gitolite">A typical usage scenario / Why gitolite?</h3>
+<div class="level3">
+
+<p>
+You and a colleague would like to develop something together, so you&#039;d usually like to have some kind of version control system (VCS). The things you&#039;re developing should be no open source software, so you can&#039;t use platforms like Github. You&#039;ll want to have some 24/7 server in order to let both of you pull and push source whenever you want though. So setting up a VCS on your OpenWRT router which is running 24/7 anyways would make sense.
+</p>
+
+<p>
+Because your project isn&#039;t open source nobody else should be able to see it. So you need a way to encrypt data before it is sent to your OpenWRT box.
+One idea would be to install an apache server including the svn module, but you&#039;ll run into two problems:
+</p>
+<ul>
+<li class="level1"><div class="li"> The SVN module usually isn&#039;t compiled in the OpenWRT packages to save space.</div>
+</li>
+<li class="level1"><div class="li"> You&#039;ll need to encrypt the data using SSL.</div>
+</li>
+</ul>
+
+<p>
+Setting up this solution isn&#039;t trivial.
+</p>
+
+<p>
+This is the point where you&#039;ll like to set up a git repository using tools already packaged by the OpenWRT developers. Git usually offers two mechanisms for authentication and encryption:
+</p>
+<ul>
+<li class="level1"><div class="li"> SSH</div>
+</li>
+<li class="level1"><div class="li"> HTTPS-Basic</div>
+</li>
+</ul>
+
+<p>
+Getting a valid HTTPS certificate which won&#039;t make clients complain every time usually costs money, so you&#039;d like to use SSH. If you know your colleague very well you two could just use the root account on the OpenWRT box. You could log into that SSH-Account using git and would be done.
+</p>
+
+<p>
+If you don&#039;t trust your colleague that much you&#039;d most likely just want him to be able to access the repositories R/W and nothing further should be possible. On many other UNIX boxes you could just create him another system account and point the login shell to the so called &#039;git-shell&#039;. If you set up your system this way, he would reach a shell which only allows him to issue git-commands after he has authenticated himself.
+</p>
+
+<p>
+This would be the simpliest way to do authentification, but be carefull. Creating a new account for your colleage could also open doors on other services than ssh. In a worst case scenario a service configured to let any authenticated user connect by default could make the git-shell restrictions useless. Another problem you&#039;ll get is that multi-user setups are usually <a href="https://forum.openwrt.org/viewtopic.php?id=4409" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=4409"  rel="nofollow">omitted on OpenWRT</a>. You just don&#039;t know if the guy who packaged for example your ftp service ever thought about the fact that there could be more users than root on an OpenWRT box. This is probably the point where you&#039;ll want to set up gitolite.
+</p>
+
+<p>
+Gitolite acts after your ssh-authentification mechanism and will differ and authorize users by their SSH-public keys. It will in turn log them into different shells (Normal ash or gitolite) using ony one system account.
+</p>
+
+<p>
+A typical git clone on your local box would look like that:
+<pre class="code">git clone root@OpenWrt:repository</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="installation_and_setup">Installation and Setup</h2>
+<div class="level2">
+
+<p>
+This tutorial will show you how to setup the OpenWRT default SSH deamon dropbear to work together with gitolite.
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="dependencies">Dependencies</h3>
+<div class="level3">
+
+<p>
+You&#039;ll most likely want to run your OpenWRT box from a USB memory key using <a href="extroot" class="wikilink1" title="doc:howto:extroot">extroot</a>. Just installing the dependencies could make small devices run out of space and you haven&#039;t even stored any repository data yet.
+</p>
+
+<p>
+Gitolite was written in perl. This commands should install all required packages to run the application:
+<pre class="code">opkg update
+opkg install git perl perlbase-essential perlbase-getopt perlbase-findbin perlbase-cwd perlbase-config perlbase-file perlbase-data perlbase-bytes perlbase-xsloader openssh-keygen perlbase-hostname perlbase-fcntl perlbase-io perlbase-symbol perlbase-selectsaver perlbase-errno perlbase-base</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="backing_up_the_old_dropbear_configuration">Backing up the old dropbear configuration</h3>
+<div class="level3">
+
+<p>
+Make sure your /etc/config/dropbear loos like this one, so normal password-based login will work as backup if something goes wrong:
+<pre class="code">config dropbear
+        option Port &#039;22&#039;
+        option PasswordAuth &#039;on&#039;</pre>
+
+</p>
+
+<p>
+Backup your authorized_keys file if it is existing:
+<pre class="code">cp -p /etc/dropbear/authorized_keys /etc/dropbear/authorized_keys_backup</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="downloading_and_installing_gitolite">Downloading and installing gitolite</h3>
+<div class="level3">
+
+<p>
+Download gitolite to your homedirectory:
+<pre class="code">cd /root
+git clone git://github.com/sitaramc/gitolite</pre>
+
+</p>
+
+<p>
+Install a link to gitolite executable into /usr/bin… The gitolite developers provide a simple way for doing that in their documentation:
+<pre class="code">cd /root/
+gitolite/install -ln /usr/bin</pre>
+
+</p>
+
+<p>
+Create the gitolite logfile directory:
+<pre class="code">mkdir /root/.gitolite
+mkdir /root/.gitolite/logs</pre>
+
+</p>
+
+<p>
+Copy your ssh public key from your machine to your OpenWRT box. From your local machine issue:
+<pre class="code">scp ~/.ssh/id_rsa.pub root@openwrthostname:/root/</pre>
+
+</p>
+
+<p>
+Back again on your openwrt box, rename the file from id_rsa.pub to username.pub with username as the name of your useraccount on your local machine which generated the public key. This is important because gitolite will set up the default configuration with this username. An example with didi1357 as the account on your local machine:
+<pre class="code">cd /root/
+mv id_rsa.pub didi1357.pub</pre>
+
+</p>
+
+<p>
+Setup gitolite:
+<pre class="code">gitolite setup -pk didi1357.pub</pre>
+
+</p>
+
+<p>
+Now you can delete your public key file. Gitolite already kopied it to it&#039;s keydir:
+<pre class="code">rm didi1357.pub</pre>
+
+</p>
+
+<p>
+Gitolite sets up and expects the authorized_keys file for the root account in /root/.ssh/, but Dropbear and LuCI expect this file to be in in /etc/dropbear/
+</p>
+
+<p>
+This issue can be solved by creating a symbolic link to /root/.ssh/authorized_keys in /etc/dropbear/authorized_keys
+<pre class="code">rm /etc/dropbear/authorized_keys
+ln -s /root/.ssh/authorized_keys /etc/dropbear/authorized_keys</pre>
+
+</p>
+
+<p>
+Now you can append the old keys from your authorized_keys_backup to the authorized_keys file, but pay attention to not having a key listed twice in that file. If you&#039;re using linux and would still want to use public key authentication you could create a public key for your local machines root account and use your usual accounts public key for gitolite.
+</p>
+
+</div>
+
+<h3 class="sectionedit7" id="administrating_gitolite">Administrating gitolite</h3>
+<div class="level3">
+
+<p>
+Administrating gitolite usually works by cloning the gitolite-admin repository to your local machine, making changes to it and pushing them back to the openwrt box. From your local machine issue:
+<pre class="code">git clone root@OpenWRTBox:gitolite-admin</pre>
+
+</p>
+
+<p>
+The syntax of this repository can be looked up at: <a href="http://gitolite.com/gitolite/basic-admin.html" class="urlextern" title="http://gitolite.com/gitolite/basic-admin.html"  rel="nofollow">http://gitolite.com/gitolite/basic-admin.html</a>
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/gitolite.txt</bdi> · Last modified: 2015/03/08 13:37 by <bdi>Didi1357</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="gitolite?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="gitolite?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="gitolite?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="gitolite#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Agitolite&amp;1432273792" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

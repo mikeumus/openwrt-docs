@@ -1,0 +1,2107 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Firewall configuration [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="keywords" content="doc,uci,firewall"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="http://wiki.openwrt.org/doc/uci/firewall?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:uci"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="http://wiki.openwrt.org/_export/xhtml/doc/uci/firewall"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="http://wiki.openwrt.org/_export/raw/doc/uci/firewall"/>
+<link rel="canonical" href="firewall"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:uci';var JSINFO = {"id":"doc:uci:firewall","namespace":"doc:uci"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266629 166.182.3.141';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="firewall#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="http://wiki.openwrt.org/doc/uci/firewall?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="http://wiki.openwrt.org/doc/uci/firewall?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:uci:firewall" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="http://wiki.openwrt.org/doc/uci/firewall?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="http://wiki.openwrt.org/doc/uci/firewall?do=media&amp;ns=doc%3Auci"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="http://wiki.openwrt.org/doc/uci/firewall?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../uci.1" class="wikilink1" title="doc:uci">The UCI System</a></bdi> » <bdi><span class="curid"><a href="firewall" class="wikilink1" title="doc:uci:firewall">Firewall configuration</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/uci/firewall" class="media" title="cz:doc:uci:firewall"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/uci/firewall" class="media" title="de:doc:uci:firewall"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="firewall" class="media" title="doc:uci:firewall"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/uci/firewall" class="media" title="es:doc:uci:firewall"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/uci/firewall" class="media" title="fr:doc:uci:firewall"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/uci/firewall" class="media" title="hu:doc:uci:firewall"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/uci/firewall" class="media" title="jp:doc:uci:firewall"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/uci/firewall" class="media" title="pl:doc:uci:firewall"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/uci/firewall" class="media" title="pt-br:doc:uci:firewall"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../ru/doc/uci/firewall" class="media" title="ru:doc:uci:firewall"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/uci/firewall" class="media" title="tr:doc:uci:firewall"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../zh-cn/doc/uci/firewall" class="media" title="zh-cn:doc:uci:firewall"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/uci/firewall" class="media" title="zh-tw:doc:uci:firewall"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:uci:firewall</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="firewall#overview">Overview</a></div></li>
+<li class="level1"><div class="li"><a href="firewall#requirements">Requirements</a></div></li>
+<li class="level1"><div class="li"><a href="firewall#sections">Sections</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="firewall#defaults">Defaults</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#zones">Zones</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#forwardings">Forwardings</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#redirects">Redirects</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#rules">Rules</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#includes">Includes</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#ip_sets">IP Sets</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="firewall#possible_storagematch_combinations">Possible Storage / Match Combinations</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="firewall#ipv6_notes">IPv6 notes</a></div></li>
+<li class="level1"><div class="li"><a href="firewall#examples">Examples</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="firewall#opening_ports">Opening ports</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#port_forwarding_for_ipv4_destination_natdnat">Port forwarding for IPv4 (Destination NAT/DNAT)</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#dnatsnat_redirects_and_forwarding_combination">DNAT/SNAT redirects and forwarding combination</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#masquerading_on_lan">Masquerading on lan</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#port_accept_for_ipv6">Port accept for IPv6</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#source_nat_snat">Source NAT (SNAT)</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#true_destination_port_forwarding">True destination port forwarding</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#block_access_to_a_specific_host">Block access to a specific host</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#block_access_to_the_internet_using_mac">Block access to the Internet using MAC</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#block_access_to_the_internet_for_specific_ip_on_certain_times">Block access to the Internet for specific IP on certain times</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#restricted_forwarding_rule">Restricted forwarding rule</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#simple_output_rule">Simple output rule</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#transparent_proxy_rule_same_host">Transparent proxy rule (same host)</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#transparent_proxy_rule_external">Transparent proxy rule (external)</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#simple_dmz_rule">Simple DMZ rule</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#ipsec_passthrough">IPSec passthrough</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#zone_declaration_for_semi_non-uci_interfaces_manually_listed_in_the_network_config_and_forwardings">Zone declaration for semi non-UCI interfaces, manually listed in the network config, and forwardings</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#zone_declaration_for_non-uci_interfaces">Zone declaration for non-UCI interfaces</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#zone_declaration_for_a_specific_subnet_and_protocol">Zone declaration for a specific subnet and protocol</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#zone_declaration_for_a_specific_protocol_and_port">Zone declaration for a specific protocol and port</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#forwarding_ipv6_tunnel_traffic">Forwarding IPv6 tunnel traffic</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#manual_iptables_rules">Manual iptables rules</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="firewall#firewall_management">Firewall management</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="firewall#temporarily_disable_firewall">Temporarily disable firewall</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="firewall#hotplug_hooks_8092">Hotplug hooks (8.09.2+)</a></div></li>
+<li class="level1"><div class="li"><a href="firewall#implications_of_drop_vs_reject">Implications of DROP vs. REJECT</a></div></li>
+<li class="level1"><div class="li"><a href="firewall#notes_on_connection_tracking">Notes on connection tracking</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="firewall#notrack">NOTRACK</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#nf_conntrack_skip_filter">nf_conntrack_skip_filter</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="firewall#how_to_delete_a_rule">How to delete a rule</a></div></li>
+<li class="level1"><div class="li"><a href="firewall#debug_generated_rule_set">Debug generated rule set</a></div></li>
+<li class="level1"><div class="li"><a href="firewall#packet_flow">Packet flow</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="firewall#input_destined_to_router">INPUT (destined to router)</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#output_originating_from_router">OUTPUT (originating from router)</a></div></li>
+<li class="level2"><div class="li"><a href="firewall#forward_relayed_through_router">FORWARD (relayed through router)</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="firewall#open_questions">Open questions</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="firewall#enabled_option">&#039;enabled&#039; option</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="firewall_configuration">Firewall configuration</h1>
+<div class="level1">
+
+<p>
+The firewall configuration located in <strong><code>/etc/config/firewall</code></strong>.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="overview">Overview</h2>
+<div class="level2">
+
+<p>
+OpenWrt relies on <a href="../howto/netfilter" class="wikilink1" title="doc:howto:netfilter">netfilter</a> for packet filtering, NAT and mangling. The UCI Firewall provides a configuration interface that abstracts from the <strong>iptables</strong> system to provide a simplified configuration model that is fit for most regular purposes while enabling the user to supply needed iptables rules on his own when needed.
+</p>
+
+<p>
+UCI Firewall maps two or more <em>Interfaces</em> together into <em>Zones</em> that are used to describe default rules for a given interface, forwarding rules between interfaces, and extra rules that are not covered by the first two. In the config file, default rules come <em>first</em> but they are the last to take effect. The netfilter system is a chained processing filter where packets pass through various rules. The first rule that matches is executed, often leading to another rule-chain until a packet hits either ACCEPT or DROP/REJECT. Such an outcome is final, therefore the default rules take effect last, and the most specific rule takes effect first. Zones are also used to configure <em>masquerading</em> also known as NAT (network-address-translation) as well as port forwarding rules, which are more generally known as redirects.
+</p>
+
+<p>
+Zones must always be mapped onto one or more Interfaces which ultimately map onto physical devices; therefore zones cannot be used to specify networks (subnets), and the generated iptables rules operate on interfaces exclusively. The difference is that interfaces can be used to reach destinations not part of their own subnet, when their subnet contains another gateway. Usually however, forwarding is done between lan and wan interfaces, with the router serving as &#039;edge&#039; gateway to the internet. The default configuration of UCI Firewall provides for such a common setup.
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="requirements">Requirements</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <strong><code>firewall</code></strong> (or  <strong><code>firewall3</code></strong>) and its dependencies (<em>pre-installed</em>)</div>
+<ul>
+<li class="level2"><div class="li"> <strong><code>iptables</code></strong> (<em>pre-installed</em>)</div>
+</li>
+<li class="level2"><div class="li"> <strong><code>iptables-mod-?</code></strong> (<em>optional</em>), see <a href="../howto/netfilter#opkg_netfilter_packages" class="wikilink1" title="doc:howto:netfilter">OPKG Netfilter Packages</a>.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit4" id="sections">Sections</h2>
+<div class="level2">
+
+<p>
+Below is an overview of the section types that may be defined in the firewall configuration.
+A minimal firewall configuration for a router usually consists of one <em>defaults</em> section, at least two <em>zones</em> (<code>lan</code> and <code>wan</code>) and one <em>forwarding</em> to allow traffic from <code>lan</code> to <code>wan</code>. (The forwarding section is not strictly required when there are no more than two zones as the rule can then be set as the &#039;global default&#039; for that zone.)
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="defaults">Defaults</h3>
+<div class="level3">
+
+<p>
+The <code>defaults</code> section declares global firewall settings which do not belong to specific zones.
+The following options are defined within this section:
+</p>
+<div class="table sectionedit6"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>input</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>REJECT</code> </td><td class="col4"> Set policy for the <code>INPUT</code> chain of the <code>filter</code> table. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>output</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>REJECT</code> </td><td class="col4"> Set policy for the <code>OUTPUT</code> chain of the <code>filter</code> table. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>forward</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>REJECT</code> </td><td class="col4 leftalign"> Set policy for the <code>FORWARD</code> chain of the <code>filter</code> table.  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>drop_invalid</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Drop invalid packets (e.g. not matching any active connection). </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>syn_flood</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Enable <a href="http://en.wikipedia.org/wiki/SYN flood" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/SYN flood">SYN flood</a> protection (obsoleted by <code>synflood_protect</code> setting). </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>synflood_protect</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Enable <a href="http://en.wikipedia.org/wiki/SYN flood" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/SYN flood">SYN flood</a> protection. </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <code>synflood_rate</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>25</code> </td><td class="col4"> Set rate limit (packets/second) for SYN packets above which the traffic is considered a flood. </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <code>synflood_burst</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>50</code> </td><td class="col4"> Set burst limit for SYN packets above which the traffic is considered a flood if it exceeds the allowed rate. </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <code>tcp_syncookies</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>1</code> </td><td class="col4"> Enable the use of <a href="http://en.wikipedia.org/wiki/SYN cookies" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/SYN cookies">SYN cookies</a>. </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> <code>tcp_ecn</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4 leftalign">  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> <code>tcp_westwood</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4 leftalign">  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0"> <code>tcp_window_scaling</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>1</code> </td><td class="col4"> Enable TCP window scaling. </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0"> <code>accept_redirects</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4 leftalign">  </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0"> <code>accept_source_route</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4 leftalign">  </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0"> <code>custom_chains</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>1</code> </td><td class="col4 leftalign">  </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0"> <code>disable_ipv6</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Disable IPv6 firewall rules. </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit7" id="zones">Zones</h3>
+<div class="level3">
+
+<p>
+A <code>zone</code> section groups one or more <em>interfaces</em> and serves as a <em>source</em> or <em>destination</em> for <em>forwardings</em>, <em>rules</em> and <em>redirects</em>. Masquerading (NAT) of outgoing traffic is controlled on a per-zone basis. Note that masquerading is defined on the <em>outgoing</em> interface.
+</p>
+<ul>
+<li class="level1"><div class="li"> INPUT rules for a zone describe what happens to traffic trying to reach the router itself through that interface.</div>
+</li>
+<li class="level1"><div class="li"> OUTPUT rules for a zone describe what happens to traffic originating from the router itself going through that interface.</div>
+</li>
+<li class="level1"><div class="li"> FORWARD rules for a zone describe what happens to traffic coming from that zone and passing to another zone.</div>
+</li>
+</ul>
+
+<p>
+The options below are defined within <code>zone</code> sections:
+</p>
+<div class="table sectionedit8"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>name</code> </td><td class="col1"> zone name </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Unique zone name </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>network</code> </td><td class="col1"> list </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> List of <em><a href="network#interfaces" class="wikilink1" title="doc:uci:network">interfaces</a></em> attached to this zone. If omitted and neither extra* options, subnets or devices are given, the value of <code>name</code> is used by default. Use list syntax as explained in <a href="../uci.1" class="wikilink1" title="doc:uci">uci</a>. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>masq</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Specifies whether <em>outgoing</em> zone traffic should be masqueraded - this is typically enabled on the <em>wan</em> zone </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>masq_src</code> </td><td class="col1"> list of subnets </td><td class="col2"> no </td><td class="col3"> <code>0.0.0.0/0</code> </td><td class="col4"> Limit masquerading to the given source subnets. Negation is possible by prefixing the subnet with <code>!</code>; multiple subnets are allowed. </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>masq_dest</code> </td><td class="col1"> list of subnets </td><td class="col2"> no </td><td class="col3"> <code>0.0.0.0/0</code> </td><td class="col4"> Limit masquerading to the given destination subnets. Negation is possible by prefixing the subnet with <code>!</code>; multiple subnets are allowed. </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>conntrack</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>1</code> if masquerading is used, <code>0</code> otherwise </td><td class="col4"> Force connection tracking for this zone (see <a href="firewall#notes_on_connection_tracking" title="doc:uci:firewall ↵" class="wikilink1">Note on connection tracking</a>) </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <code>mtu_fix</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Enable MSS clamping for <em>outgoing</em> zone traffic </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <code>input</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>DROP</code> </td><td class="col4"> Default policy (<code>ACCEPT</code>, <code>REJECT</code>, <code>DROP</code>) for <em>incoming</em> zone traffic </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <code>forward</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>DROP</code> </td><td class="col4"> Default policy (<code>ACCEPT</code>, <code>REJECT</code>, <code>DROP</code>) for <em>forwarded</em> zone traffic </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> <code>output</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>DROP</code> </td><td class="col4"> Default policy (<code>ACCEPT</code>, <code>REJECT</code>, <code>DROP</code>) for <em>outgoing</em> zone traffic </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> <code>family</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>any</code> </td><td class="col4"> Protocol family (<code>ipv4</code>, <code>ipv6</code> or <code>any</code>) to generate iptables rules for. </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0"> <code>log</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Create log rules for rejected and dropped traffic in this zone. </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0"> <code>log_limit</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>10/minute</code> </td><td class="col4"> Limits the amount of log messages per interval. </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0"> <code>device</code> </td><td class="col1"> list </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> List of raw network device names attached to this zone, e.g. <code>ppp+</code> to match any PPP interface. <br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Only supported by the Firewall v2, version 58 and above ; not supported by 12.09 default installation </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0"> <code>subnet</code> </td><td class="col1"> list </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> List of IP subnets attached to this zone. <br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Only supported by the Firewall v2, version 58 and above, not supported by 12.09 default installation </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0"> <code>extra</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Extra arguments passed directly to iptables. Note that these options are passed to both source and destination classification rules, therfore direction-specific options like <code>–dport</code> should not be used here - in this case the <code>extra_src</code> and <code>extra_dest</code> options should be used instead. <br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Only supported by the Firewall v2, version 58 and above, not supported by 12.09 default installation </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0"> <code>extra_src</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>Value of <code>extra</code></em> </td><td class="col4"> Extra arguments passed directly to iptables for source classification rules. <br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Only supported by the Firewall v2, version 58 and above, not supported by 12.09 default installation </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0"> <code>extra_dest</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>Value of <code>extra</code></em> </td><td class="col4"> Extra arguments passed directly to iptables for destination classification rules. <br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Only supported by the Firewall v2, version 58 and above, not supported by 12.09 default installation </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit9" id="forwardings">Forwardings</h3>
+<div class="level3">
+
+<p>
+The <code>forwarding</code> sections control the traffic flow between <em>zones</em> and may enable <a href="http://en.wikipedia.org/wiki/Path_MTU_discovery#Problems_with_PMTUD" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Path_MTU_discovery#Problems_with_PMTUD">MSS clamping</a> for specific directions. Only one direction is covered by a <code>forwarding</code> rule. To allow bidirectional traffic flows between two <em>zones</em>, two <em>forwardings</em> are required, with <code>src</code> and <code>dest</code> reversed in each.
+</p>
+
+<p>
+Below is a listing of allowed option within <em>forwardings</em>:
+</p>
+<div class="table sectionedit10"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>src</code> </td><td class="col1"> zone name </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Specifies the traffic <em>source zone</em>. Must refer to one of the defined <em>zone names</em> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>dest</code> </td><td class="col1"> zone name </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Specifies the traffic <em>destination zone</em>. Must refer to one of the defined <em>zone names</em> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <del><code>mtu_fix</code></del> </td><td class="col1"> <del>boolean</del> </td><td class="col2"> <del>no</del> </td><td class="col3"> <del><code>0</code></del> </td><td class="col4"> <del>Enable MSS clamping for traffic flowing from the <em>source zone</em> to the <em>destination zone</em></del> (Deprecated and moved to <code>zone</code> sections in 8.09.2+) </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>family</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>any</code> </td><td class="col4"> Protocol family (<code>ipv4</code>, <code>ipv6</code> or <code>any</code>) to generate iptables rules for. </td>
+	</tr>
+</table></div>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> The <em>iptables</em> rules generated for this section rely on the <em>state match</em> which needs connection tracking to work.
+At least one of the <code>src</code> or <code>dest</code> zones needs to have <em>connection tracking</em> enabled through either the <code>masq</code> or the <code>conntrack</code> option.
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="redirects">Redirects</h3>
+<div class="level3">
+
+<p>
+Port forwardings (DNAT) are defined by <code>redirect</code> sections. All <em>incoming</em> traffic on the specified <em>source zone</em> which matches the given rules will be directed to the specified internal host.
+</p>
+
+<p>
+<em>Redirects are also commonly known as &quot;port forwarding&quot;, and &quot;virtual servers&quot;.</em>
+</p>
+
+<p>
+Port ranges are specified as <code>start:stop</code>, for instance <code>6666:6670</code>.  This is similar to the iptables syntax.
+</p>
+
+<p>
+The options below are valid for <em>redirects</em>:
+</p>
+<div class="table sectionedit12"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>src</code> </td><td class="col1"> zone name </td><td class="col2"> yes for <code>DNAT</code> target </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Specifies the traffic <em>source zone</em>. Must refer to one of the defined <em>zone names</em>. For typical port forwards this usually is <code>wan</code> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>src_ip</code> </td><td class="col1"> ip address </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Match incoming traffic from the specified <em>source ip address</em> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>src_dip</code> </td><td class="col1"> ip address </td><td class="col2"> yes for <code>SNAT</code> target </td><td class="col3"> <em>(none)</em> </td><td class="col4"> For <em>DNAT</em>, match incoming traffic directed at the given <em>destination ip address</em>. For <em>SNAT</em> rewrite the <em>source address</em> to the given address. </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>src_mac</code> </td><td class="col1"> mac address </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Match incoming traffic from the specified <em>mac address</em> </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>src_port</code> </td><td class="col1"> port or range </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Match incoming traffic originating from the given <em>source port or port range</em> on the client host </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>src_dport</code> </td><td class="col1"> port or range </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> For <em>DNAT</em>, match incoming traffic directed at the given <em>destination port or port range</em> on this host. For <em>SNAT</em> rewrite the <em>source ports</em> to the given value. </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <code>proto</code> </td><td class="col1"> protocol name or number </td><td class="col2"> yes </td><td class="col3"> <em>tcpudp</em> </td><td class="col4"> Match incoming traffic using the given <em>protocol</em> </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <code>dest</code> </td><td class="col1"> zone name </td><td class="col2"> yes for <code>SNAT</code> target </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Specifies the traffic <em>destination zone</em>. Must refer to one of the defined <em>zone names</em>. For <code>DNAT</code> target on Attitude Adjustment, NAT reflection works only if this is equal to <code>lan</code>. </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <code>dest_ip</code> </td><td class="col1"> ip address </td><td class="col2"> yes for <code>DNAT</code> target </td><td class="col3"> <em>(none)</em> </td><td class="col4"> For <em>DNAT</em>, redirect matched incoming traffic to the specified internal host. For <em>SNAT</em>, match traffic directed at the given address. </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> <code>dest_port</code> </td><td class="col1"> port or range </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> For <em>DNAT</em>, redirect matched incoming traffic to the given port on the internal host. For <em>SNAT</em>, match traffic directed at the given ports. </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> <code>ipset</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> If specified, match traffic against the given <em><a href="firewall#ipsets" title="doc:uci:firewall ↵" class="wikilink1">ipset</a></em>. The match can be inverted by prefixing the value with an exclamation mark </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0"> <code>mark</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> If specified, match traffic against the given firewall mark, e.g. <code>0xFF</code> to match mark 255 or <code>0x0/0x1</code> to match any even mark value. The match can be inverted by prefixing the value with an exclamation mark, e.g. <code>!0x10</code> to match all but mark #16. </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0"> <code>start_date</code> </td><td class="col1"> date (<code>yyyy-mm-dd</code>) </td><td class="col2"> no </td><td class="col3"> <em>(always)</em> </td><td class="col4"> If specifed, only match traffic after the given date (inclusive). </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0"> <code>stop_date</code> </td><td class="col1"> date (<code>yyyy-mm-dd</code>) </td><td class="col2"> no </td><td class="col3"> <em>(always)</em> </td><td class="col4"> If specified, only match traffic before the given date (inclusive). </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0"> <code>start_time</code> </td><td class="col1"> time (<code>hh:mm:ss</code>) </td><td class="col2"> no </td><td class="col3"> <em>(always)</em> </td><td class="col4"> If specified, only match traffic after the given time of day (inclusive). </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0"> <code>stop_time</code> </td><td class="col1"> time (<code>hh:mm:ss</code>) </td><td class="col2"> no </td><td class="col3"> <em>(always)</em> </td><td class="col4"> If specified, only match traffic before the given time of day (inclusive). </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0"> <code>weekdays</code> </td><td class="col1"> list of weekdays </td><td class="col2"> no </td><td class="col3"> <em>(always)</em> </td><td class="col4"> If specified, only match traffic during the given week days, e.g. <code>sun mon thu fri</code> to only match on sundays, mondays, thursdays and fridays. The list can be inverted by prefixing it with an exclamation mark, e.g. <code>! sat sun</code> to always match but on saturdays and sundays. </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0"> <code>monthdays</code> </td><td class="col1"> list of dates </td><td class="col2"> no </td><td class="col3"> <em>(always)</em> </td><td class="col4"> If specified, only match traffic during the given days of the month, e.g. <code>2 5 30</code> to only match on every 2nd, 5th and 30rd day of the month. The list can be inverted by prefixing it with an exclamation mark, e.g. <code>! 31</code> to always match but on the 31st of the month. </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0"> <code>utc_time</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Treat all given time values as UTC time instead of local time. </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0"> <code>target</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>DNAT</code> </td><td class="col4"> NAT target (<code>DNAT</code> or <code>SNAT</code>) to use when generating the rule </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0"> <code>family</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>any</code> </td><td class="col4"> Protocol family (<code>ipv4</code>, <code>ipv6</code> or <code>any</code>) to generate iptables rules for. </td>
+	</tr>
+	<tr class="row22">
+		<td class="col0"> <code>reflection</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>1</code> </td><td class="col4"> Activate NAT reflection for this redirect - applicable to <code>DNAT</code> targets. </td>
+	</tr>
+	<tr class="row23">
+		<td class="col0"> <code>reflection_src</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>internal</code> </td><td class="col4"> The source address to use for NAT-reflected packets if <code>reflection</code> is <code>1</code>. This can be <code>internal</code> or <code>external</code>, specifying which interface’s address to use. Applicable to <code>DNAT</code> targets. </td>
+	</tr>
+	<tr class="row24">
+		<td class="col0"> <code>limit</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Maximum average matching rate; specified as a number, with an optional <code>/second</code>, <code>/minute</code>, <code>/hour</code> or <code>/day</code> suffix. Examples: <code>3/second</code>, <code>3/sec</code> or <code>3/s</code>. </td>
+	</tr>
+	<tr class="row25">
+		<td class="col0"> <code>limit_burst</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <code>5</code> </td><td class="col4"> Maximum initial number of packets to match, allowing a short-term average above <code>limit</code> </td>
+	</tr>
+	<tr class="row26">
+		<td class="col0"> <code>extra</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Extra arguments to pass to iptables. Useful mainly to specify additional match options, such as <code>-m policy --dir in</code> for IPsec. </td>
+	</tr>
+	<tr class="row27">
+		<td class="col0"> <code>enabled</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>1</code> or <code>yes</code> </td><td class="col4"> Enable the redirect rule or not. </td>
+	</tr>
+</table></div>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> On Attitude Adjustment, for NAT reflection to work, you <strong>must</strong> specify <code>option dest lan</code> in the <code>redirect</code> section (even though we&#039;re using a <code>DNAT</code> target).
+</p>
+
+</div>
+
+<h3 class="sectionedit13" id="rules">Rules</h3>
+<div class="level3">
+
+<p>
+Sections of the type <code>rule</code> can be used to define basic accept or reject rules to allow or restrict access to specific ports or hosts.
+</p>
+
+<p>
+Up to Firewall v2, version 57 and below the rules behave like <em>redirects</em> and are tied to the given <em>source zone</em> and match incoming traffic occuring there.
+</p>
+
+<p>
+In later versions the rules are defined as follows:
+</p>
+<ul>
+<li class="level1"><div class="li"> If <code>src</code> and <code>dest</code> are given, the rule matches <em>forwarded</em> traffic</div>
+</li>
+<li class="level1"><div class="li"> If only <code>src</code> is given, the rule matches <em>incoming</em> traffic</div>
+</li>
+<li class="level1"><div class="li"> If only <code>dest</code> is given, the rule matches <em>outgoing</em> traffic</div>
+</li>
+<li class="level1"><div class="li"> If neither <code>src</code> nor <code>dest</code> are given, the rule defaults to an <em>outgoing</em> traffic rule</div>
+</li>
+</ul>
+
+<p>
+Port ranges are specified as <code>start:stop</code>, for instance <code>6666:6670</code>.  This is similar to the iptables syntax.
+</p>
+
+<p>
+Valid options for this section are:
+</p>
+<div class="table sectionedit14"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>src</code> </td><td class="col1"> zone name </td><td class="col2"> yes (<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> optional since Firewall v2, version 58 and above) </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Specifies the traffic <em>source zone</em>. Must refer to one of the defined <em>zone names</em>. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>src_ip</code> </td><td class="col1"> ip address </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Match incoming traffic from the specified <em>source ip address</em> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>src_mac</code> </td><td class="col1"> mac address </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Match incoming traffic from the specified <em>mac address</em> </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>src_port</code> </td><td class="col1"> port or range </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Match incoming traffic from the specified <em>source port</em> or <em>port range</em>, if relevant <code>proto</code> is specified. </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>proto</code> </td><td class="col1"> protocol name or number </td><td class="col2"> no </td><td class="col3"> <code>tcpudp</code> </td><td class="col4"> Match incoming traffic using the given <em>protocol</em>. Can be one of <code>tcp</code>, <code>udp</code>, <code>tcpudp</code>, <code>udplite</code>, <code>icmp</code>, <code>esp</code>, <code>ah</code>, <code>sctp</code>, or <code>all</code> or it can be a numeric value, representing one of these protocols or a different one. A protocol name from <code>/etc/protocols</code> is also allowed. The number 0 is equivalent to <code>all</code>. </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>dest</code> </td><td class="col1"> zone name </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Specifies the traffic <em>destination zone</em>. Must refer to one of the defined <em>zone names</em>, or * for any zone. If specified, the rule applies to <em>forwarded</em> traffic; otherwise, it is treated as <em>input</em> rule. </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <code>dest_ip</code> </td><td class="col1"> ip address </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Match incoming traffic directed to the specified <em>destination ip address</em>. With no dest zone, this is treated as an input rule! </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <code>dest_port</code> </td><td class="col1"> port or range </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Match incoming traffic directed at the given <em>destination port or port range</em>, if relevant <code>proto</code> is specified. </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <code>ipset</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> If specified, match traffic against the given <em><a href="firewall#ipsets" title="doc:uci:firewall ↵" class="wikilink1">ipset</a></em>. The match can be inverted by prefixing the value with an exclamation mark </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> <code>mark</code> </td><td class="col1"> mark/mask </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> If specified, match traffic against the given firewall mark, e.g. <code>0xFF</code> to match mark 255 or <code>0x0/0x1</code> to match any even mark value. The match can be inverted by prefixing the value with an exclamation mark, e.g. <code>!0x10</code> to match all but mark #16. </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> <code>start_date</code> </td><td class="col1"> date (<code>yyyy-mm-dd</code>) </td><td class="col2"> no </td><td class="col3"> <em>(always)</em> </td><td class="col4"> If specifed, only match traffic after the given date (inclusive). </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0"> <code>stop_date</code> </td><td class="col1"> date (<code>yyyy-mm-dd</code>) </td><td class="col2"> no </td><td class="col3"> <em>(always)</em> </td><td class="col4"> If specified, only match traffic before the given date (inclusive). </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0"> <code>start_time</code> </td><td class="col1"> time (<code>hh:mm:ss</code>) </td><td class="col2"> no </td><td class="col3"> <em>(always)</em> </td><td class="col4"> If specified, only match traffic after the given time of day (inclusive). </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0"> <code>stop_time</code> </td><td class="col1"> time (<code>hh:mm:ss</code>) </td><td class="col2"> no </td><td class="col3"> <em>(always)</em> </td><td class="col4"> If specified, only match traffic before the given time of day (inclusive). </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0"> <code>weekdays</code> </td><td class="col1"> list of weekdays </td><td class="col2"> no </td><td class="col3"> <em>(always)</em> </td><td class="col4"> If specified, only match traffic during the given week days, e.g. <code>sun mon thu fri</code> to only match on sundays, mondays, thursdays and fridays. The list can be inverted by prefixing it with an exclamation mark, e.g. <code>! sat sun</code> to always match but on saturdays and sundays. </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0"> <code>monthdays</code> </td><td class="col1"> list of dates </td><td class="col2"> no </td><td class="col3"> <em>(always)</em> </td><td class="col4"> If specified, only match traffic during the given days of the month, e.g. <code>2 5 30</code> to only match on every 2nd, 5th and 30rd day of the month. The list can be inverted by prefixing it with an exclamation mark, e.g. <code>! 31</code> to always match but on the 31st of the month. </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0"> <code>utc_time</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Treat all given time values as UTC time instead of local time. </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0"> <code>target</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <code>DROP</code> </td><td class="col4"> Firewall action (<code>ACCEPT</code>, <code>REJECT</code>, <code>DROP</code>, <code>MARK</code>, <code>NOTRACK</code>) for matched traffic </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0"> <code>set_mark</code> </td><td class="col1" rowspan="2"> mark/mask </td><td class="col2" rowspan="2"> yes for target <code>MARK</code> </td><td class="col3" rowspan="2"> <em>(none)</em> </td><td class="col4"> Zeroes out the bits given by mask and ORs value into the packet mark. If mask is omitted, 0xFFFFFFFF is assumed </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0"> <code>set_xmark</code> </td><td class="col1"> Zeroes out the bits given by mask and XORs value into the packet mark. If mask is omitted, 0xFFFFFFFF is assumed </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0"> <code>family</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>any</code> </td><td class="col4"> Protocol family (<code>ipv4</code>, <code>ipv6</code> or <code>any</code>) to generate iptables rules for. </td>
+	</tr>
+	<tr class="row22">
+		<td class="col0"> <code>limit</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Maximum average matching rate; specified as a number, with an optional <code>/second</code>, <code>/minute</code>, <code>/hour</code> or <code>/day</code> suffix. Examples: <code>3/minute</code>, <code>3/min</code> or <code>3/m</code>. </td>
+	</tr>
+	<tr class="row23">
+		<td class="col0"> <code>limit_burst</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <code>5</code> </td><td class="col4"> Maximum initial number of packets to match, allowing a short-term average above <code>limit</code> </td>
+	</tr>
+	<tr class="row24">
+		<td class="col0"> <code>extra</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Extra arguments to pass to iptables. Useful mainly to specify additional match options, such as <code>-m policy --dir in</code> for IPsec. </td>
+	</tr>
+	<tr class="row25">
+		<td class="col0"> <code>enabled</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> yes </td><td class="col4"> Enable or disable rule. </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit15" id="includes">Includes</h3>
+<div class="level3">
+
+<p>
+It is possible to include custom firewall scripts by specifying one or more <code>include</code> sections in the firewall configuration.
+</p>
+
+<p>
+There is only one possible parameter for <em>includes</em>:
+</p>
+<div class="table sectionedit16"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>enabled</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>1</code> </td><td class="col4"> Allows to disable the corresponding include without having to delete the section </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>type</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>script</code> </td><td class="col4"> Specifies the type of the include, can be <code>script</code> for traditional shell script includes or <code>restore</code> for plain files in <em>iptables-restore</em> format </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>path</code> </td><td class="col1"> file name </td><td class="col2"> yes </td><td class="col3"> <code>/etc/firewall.user</code> </td><td class="col4"> Specifies a shell script to execute on boot or firewall restarts </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>family</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>any</code> </td><td class="col4"> Specifies the address family (<code>ipv4</code>, <code>ipv6</code> or <code>any</code>) for which the include is called </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>reload</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Specifies whether the include should be called on reload - this is only needed if the include injects rules into internal chains </td>
+	</tr>
+</table></div>
+
+<p>
+Includes of type <code>script</code> may contain arbitary commands, for example advanced iptables rules or tc commands required for traffic shaping.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Since custom iptables rules are meant to be more specific than the generic ones, you must make sure to use <code>-I</code> (insert) instead of <code>-A</code> (append) so that the rules appear <strong>before</strong> the default rules.
+</p>
+
+</div>
+
+<h3 class="sectionedit17" id="ip_sets">IP Sets</h3>
+<div class="level3">
+
+<p>
+The UCI firewall version 3 supports referencing or creating <a href="http://ipset.netfilter.org/" class="urlextern" title="http://ipset.netfilter.org/"  rel="nofollow">ipsets</a> to simplify matching of
+huge address or port lists without the need for creating one rule per item to match,
+</p>
+
+<p>
+The following options are defined for <em>ipsets</em>:
+</p>
+<div class="table sectionedit18"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>enabled</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>1</code> </td><td class="col4"> Allows to disable the declaration fo the ipset without the need to delete the section. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>external</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> If the <code>external</code> option is set to a name, the firewall will simply reference an already existing ipset pointed to by the name. If the <code>external</code> option is unset, the firewall will create the ipset on start and destroy it on stop. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>name</code> </td><td class="col1"> string </td><td class="col2"> yes if <code>external</code> is unset <br/>
+no if <code>external</code> is set </td><td class="col3"> <em>(none)</em> if <code>external</code> is unset <br/>
+value of <code>external</code> if <code>external</code> is set </td><td class="col4"> Specifies the firewall internal name of the ipset which is used to reference the set in rules or redirects. </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>family</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>ipv4</code> </td><td class="col4"> Protocol family (<code>ipv4</code> or <code>ipv6</code>) to create ipset for. Only applicable to storage types <code>hash</code> and <code>list</code>, the <code>bitmap</code> type implies <code>ipv4</code>. </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>storage</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>varies</em> </td><td class="col4"> Specifies the storage method (<code>bitmap</code>, <code>hash</code> or <code>list</code>) used by the ipset, the default varies depending on the used datatypes (see <code>match</code> option below). In most cases the storage method can be automatically inferred from the datatype combination but in some cases multiple choices are possible (e.g. <code>bitmap:ip</code> vs. <code>hash:ip</code>). </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>match</code> </td><td class="col1"> list of direction/type tuples </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Specifies the matched data types (<code>ip</code>, <code>port</code>, <code>mac</code>, <code>net</code> or <code>set</code>) and their direction (<code>src</code> or <code>dest</code>). The direction is joined with the datatype by an underscore to form a tuple, e.g. <code>src_port</code> to match source ports or <code>dest_net</code> to match destination CIDR ranges. </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <code>iprange</code> </td><td class="col1"> IP range </td><td class="col2"> yes for storage type <code>bitmap</code> with datatype <code>ip</code> </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Specifies the IP range to cover, see <a href="http://ipset.netfilter.org/ipset.man.html" class="urlextern" title="http://ipset.netfilter.org/ipset.man.html"  rel="nofollow">ipset(8)</a>. Only applicable to the <code>hash</code> storage type. </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <code>portrange</code> </td><td class="col1"> Port range </td><td class="col2"> yes for storage type <code>bitmap</code> with datatype <code>port</code> </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Specifies the port range to cover, see <a href="http://ipset.netfilter.org/ipset.man.html" class="urlextern" title="http://ipset.netfilter.org/ipset.man.html"  rel="nofollow">ipset(8)</a>. Only applicable to the <code>hash</code> storage type. </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <code>netmask</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <code>32</code> </td><td class="col4"> If specified, network addresses will be stored in the set instead of IP host addresses. Value must be between <code>1</code> and <code>32</code>, see <a href="http://ipset.netfilter.org/ipset.man.html" class="urlextern" title="http://ipset.netfilter.org/ipset.man.html"  rel="nofollow">ipset(8)</a>. Only applicable to the <code>bitmap</code> storage type with match <code>ip</code> or the <code>hash</code> storage type with match <code>ip</code>. </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> <code>maxelem</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <code>65536</code> </td><td class="col4"> Limits the number of items that can be added to the set, only applicable to the <code>hash</code> and <code>list</code> storage types. </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> <code>hashsize</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <code>1024</code> </td><td class="col4"> Specifies the initial hash size of the set, only applicable to the <code>hash</code> storage type. </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0"> <code>timeout</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Specifies the default timeout for entries added to the set. A value of <code>0</code> means no timeout. </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h4 id="possible_storagematch_combinations">Possible Storage / Match Combinations</h4>
+<div class="level4">
+
+<p>
+The table below outlines the possible combinations of storage methods and matched datatypes as well as the usable IP address family.
+The order of the datatype matches is significant.
+</p>
+<div class="table sectionedit19"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Family </th><th class="col1"> Storage </th><th class="col2"> Match </th><th class="col3"> Notes </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>ipv4</code> </td><td class="col1"> <code>bitmap</code> </td><td class="col2"> <code>ip</code> </td><td class="col3"> Requries <code>iprange</code> option </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>ipv4</code> </td><td class="col1"> <code>bitmap</code> </td><td class="col2"> <code>ip mac</code> </td><td class="col3"> Requires <code>iprange</code> option </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>ipv4</code> </td><td class="col1"> <code>bitmap</code> </td><td class="col2"> <code>port</code> </td><td class="col3"> Requires <code>portrange</code> option </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <em>any</em> </td><td class="col1"> <code>hash</code> </td><td class="col2"> <code>ip</code> </td><td class="col3"> - </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <em>any</em> </td><td class="col1"> <code>hash</code> </td><td class="col2"> <code>net</code> </td><td class="col3"> - </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <em>any</em> </td><td class="col1"> <code>hash</code> </td><td class="col2"> <code>ip port</code> </td><td class="col3"> - </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <em>any</em> </td><td class="col1"> <code>hash</code> </td><td class="col2"> <code>net port</code> </td><td class="col3"> - </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <em>any</em> </td><td class="col1"> <code>hash</code> </td><td class="col2"> <code>ip port ip</code> </td><td class="col3"> - </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <em>any</em> </td><td class="col1"> <code>hash</code> </td><td class="col2"> <code>ip port net</code> </td><td class="col3"> - </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> - </td><td class="col1"> <code>list</code> </td><td class="col2"> <code>set</code> </td><td class="col3"> Meta type to create a set-of-sets </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit20" id="ipv6_notes">IPv6 notes</h2>
+<div class="level2">
+
+<p>
+As described above, the option <code>family</code> is used for distinguishing between IPv4, IPv6 and both protocols. However the family is inferred automatically if IPv6 addresses are used, e.g.
+</p>
+
+<p>
+<pre class="code">config rule
+        option src wan
+        option src_ip fdca:f00:ba3::/64
+        option target ACCEPT</pre>
+
+</p>
+
+<p>
+… is automatically treated as IPv6 only rule.
+</p>
+
+<p>
+Similar, such a rule:
+</p>
+
+<p>
+<pre class="code">config rule
+        option src wan
+        option dest_ip 88.77.66.55
+        option target REJECT</pre>
+
+</p>
+
+<p>
+… is detected as IPv4 only.
+</p>
+
+<p>
+Rules without IP addresses are automatically added to iptables and ip6tables, unless overridden by the family option.
+Redirect rules (portforwards) are always IPv4 (for now) since there is no IPv6 DNAT support (yet).
+</p>
+
+</div>
+
+<h2 class="sectionedit21" id="examples">Examples</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit22" id="opening_ports">Opening ports</h3>
+<div class="level3">
+
+<p>
+The default configuration accepts all <abbr title="Local Area Network">LAN</abbr> traffic, but blocks all incoming WAN traffic on ports not currently used for connections or NAT. To open a port for a service, add a <code>rule</code> section:
+<pre class="code">config rule
+        option src              wan
+        option dest_port        22
+        option target           ACCEPT
+        option proto            tcp</pre>
+
+</p>
+
+<p>
+This example enables machines on the internet to use SSH to access your router.
+</p>
+
+</div>
+
+<h3 class="sectionedit23" id="port_forwarding_for_ipv4_destination_natdnat">Port forwarding for IPv4 (Destination NAT/DNAT)</h3>
+<div class="level3">
+
+<p>
+This example forwards http (but not HTTPS) traffic to the webserver running on 192.168.1.10:
+</p>
+
+<p>
+<pre class="code">config redirect
+        option src       wan
+        option src_dport 80
+        option proto     tcp
+        option dest      lan
+        option dest_ip   192.168.1.10</pre>
+
+</p>
+
+<p>
+This other example forwards one arbitrary port that you define to a box running ssh.
+</p>
+
+<p>
+<pre class="code">config redirect
+        option src       wan
+        option src_dport 5555
+        option proto     tcp
+        option dest      lan
+        option dest_ip   192.168.1.100
+        option dest_port 22</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit24" id="dnatsnat_redirects_and_forwarding_combination">DNAT/SNAT redirects and forwarding combination</h3>
+<div class="level3">
+
+<p>
+Given a couple of redirect (DNAT and SNAT, like to redirect
+the traffic from an host to and from a specific ip address) such as:
+<pre class="file">config redirect
+        option name     &#039;icmp DNAT&#039;
+        option src      &#039;wan&#039;
+        option src_dip   &#039;1.2.3.4&#039;
+        option proto    &#039;icmp&#039;
+        option dest     &#039;dmz&#039;
+        option dest_ip  &#039;192.168.1.79&#039;
+        option target   &#039;DNAT&#039;
+
+config redirect
+        option name     &#039;icmp SNAT&#039;
+        option src      &#039;dmz&#039;
+        option src_ip   &#039;192.168.1.79&#039;
+        option src_dip  &#039;1.2.3.4&#039;
+        option proto    &#039;icmp&#039;
+        option dest     &#039;wan&#039;
+        option target   &#039;SNAT&#039;</pre>
+
+</p>
+
+<p>
+Someone could ask &quot;<em>Ok, the packet source or destination is changed,
+but still has to be forwarded towards the right network interface to reach the
+endpoint</em>&quot;. So the administrator of openwrt could wonder of adding
+additional forwarding rules but no, it is not needed. The forwarding
+rules are added by the firewall appliance itself.
+</p>
+
+<p>
+The same applies to the masquerading, the rules are applied <em>before</em>
+the global masquerading (if a masquerading is set), therefore they will
+not be overridden (at least the SNAT) by the masquerading mechanism.
+</p>
+
+</div>
+
+<h3 class="sectionedit25" id="masquerading_on_lan">Masquerading on lan</h3>
+<div class="level3">
+
+<p>
+Suppose that you have two routers, connected each other through the 
+lan zone (both have static ip and dhcp disabled), 
+and only one of them is connected to the internet through the wan zone. 
+In other words the situation is:
+<pre class="code">internet &lt;----&gt; wan (172.22.13.228) | router 1 | lan (192.168.1.254) &lt;----&gt; lan (192.168.1.1) | router 2 | wan (no connection)</pre>
+
+</p>
+
+<p>
+If both routers have the default openwrt configuration 
+(with the exceptions mentioned above), then a device on the lan side of the
+router 1 can communicate through the internet if it has the router 1 as
+gateway, this because the packet flow between devices is managed by routing.
+In our case the router 2 has no proper setup in terms of gateway,
+as the default openwrt configuration expects that a wan connection
+on the router 2 is provided.
+</p>
+
+<p>
+Anyway suppose that on the router 1 we have the following rule:
+<pre class="code">config redirect
+        option target &#039;DNAT&#039;
+        option src &#039;wan&#039;
+        option dest &#039;lan&#039;
+        option proto &#039;tcp&#039;
+        option src_dip &#039;172.22.13.228&#039;
+        option src_dport &#039;2023&#039;
+        option dest_ip &#039;192.168.1.1&#039;
+        option dest_port &#039;23&#039;
+        option name &#039;Telnet to new Router&#039; </pre>
+
+This rule is redirecting the tcp packets on the port 2023 with destination the wan ip of the router 1 
+(172.22.13.228) towards the lan ip of the router 2. 
+The router 2 cannot reply to those packets because we didn&#039;t adjust its routing table,
+that is we didn&#039;t specify that the gateway to reply to &quot;wan&quot; sources is the router 1.
+Indeed those redirected packets will have an source ip external from the (default) &quot;lan&quot; zone 192.168.1.0/24.
+</p>
+
+<p>
+We can solve this activating the masquerading on the &quot;lan&quot; zone on the router 1, in this way.
+<pre class="code">config zone
+        option name &#039;lan&#039;
+        option network &#039;lan&#039;
+        option input &#039;ACCEPT&#039;
+        option output &#039;ACCEPT&#039;
+        option forward &#039;REJECT&#039;
+        option masq &#039;1&#039;</pre>
+
+This setup will provide the following effect (that is the effect intended by the masquerading): if a packet, belonging to a certain <a href="http://en.wikipedia.org/wiki/Virtual_circuit" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Virtual_circuit">connection</a>, is coming into the lan zone with a source ip belonging to another zone, keep track of the connection, taking note of the source ip of that connection, and modify the source ip with the ip of the router in the lan zone (that is: source_ip from a.b.c.d to 192.168.1.254). <br/>
+
+Then deliver the packet to the intended destination (that is, 192.168.1.1, the router2). Afterwards, if a packet from 192.168.1.1 is coming back towards 192.168.1.254, belonging to the connection tracked before, changed back the destination ip (here is the second effect of the masquerading) with the source ip memorized before (that is, dest_ip from 192.168.1.254 to a.b.c.d ). In this way, for the point of view of the router 2, the router 2 just communicate with a device with an ip belonging to its &quot;lan&quot; zone , and therefore the default routing is working without problem.
+</p>
+
+<p>
+At least one side effect of this setup is that every device in the lan zone of the router 1 cannot see any &quot;wan&quot; ip, and this could be not wanted for several reasons (one of which: if you setup a proper gateway, there is no need for this masquerading). But this was just a &quot;special case&quot; to expose in brief how the masquerading works and how it could be applied to zones that usually don&#039;t use it. An improvement of &quot;masquerading only for a specific device in the zone&quot; could be the following:
+<pre class="code">config zone
+        option name &#039;lan&#039;
+        option network &#039;lan&#039;
+        option input &#039;ACCEPT&#039;
+        option output &#039;ACCEPT&#039;
+        option forward &#039;REJECT&#039;
+        option masq &#039;1&#039;
+        option masq_dest &#039;192.168.1.1/32&#039;</pre>
+
+This provide the masquerading feature only if the packets are send towards the destination 192.168.1.1/32 (this subnet should belong to the lan zone).
+</p>
+
+</div>
+
+<h3 class="sectionedit26" id="port_accept_for_ipv6">Port accept for IPv6</h3>
+<div class="level3">
+
+<p>
+To open port 80 so that a local webserver at <code>2001:db8:42::1337</code> can be reached from the Internet:
+</p>
+
+<p>
+<pre class="code">config rule
+        option src       wan
+        option proto     tcp
+        option dest      lan
+        option dest_ip   2001:db8:42::1337
+        option dest_port 80
+        option family    ipv6
+        option target    ACCEPT</pre>
+
+</p>
+
+<p>
+To open SSH access to all IPv6 hosts in the local network:
+</p>
+
+<p>
+<pre class="code">config rule
+        option src       wan
+        option proto     tcp
+        option dest      lan
+        option dest_port 22
+        option family    ipv6
+        option target    ACCEPT</pre>
+
+</p>
+
+<p>
+To open all TCP/UDP port between 1024 and 65535 towards the local IPv6 network:
+</p>
+
+<p>
+<pre class="code">config rule
+        option src       wan
+        option proto     tcpudp
+        option dest      lan
+        option dest_port 1024:65535
+        option family    ipv6
+        option target    ACCEPT</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit27" id="source_nat_snat">Source NAT (SNAT)</h3>
+<div class="level3">
+
+<p>
+Source NAT changes an outgoing packet so that it looks as though the OpenWrt system is the source of the packet.
+</p>
+
+<p>
+Define source NAT for UDP and TCP traffic directed to port 123 originating from the host with the IP address 10.55.34.85.
+The source address is rewritten to 63.240.161.99:
+</p>
+
+<p>
+<pre class="code">config redirect
+        option src              lan
+        option dest             wan
+        option src_ip           10.55.34.85
+        option src_dip          63.240.161.99
+        option dest_port        123
+        option target           SNAT</pre>
+
+</p>
+
+<p>
+When used alone, Source NAT is used to restrict a computer&#039;s access to the internet, but allow it to access a few services by forwarding what appear to be a few local services, e.g. <a href="http://en.wikipedia.org/wiki/Network_time_protocol" class="urlextern" title="http://en.wikipedia.org/wiki/Network_time_protocol"  rel="nofollow">NTP</a>, to the internet.  While DNAT hides the local network from the internet, SNAT hides the internet from the local network.
+</p>
+
+<p>
+Source NAT and destination NAT are combined and used dynamically in IP masquerading to make computers with private (192.168.x.x, etc.) IP address appear on the internet with the OpenWrt router&#039;s public WAN ip address.
+</p>
+
+</div>
+
+<h3 class="sectionedit28" id="true_destination_port_forwarding">True destination port forwarding</h3>
+<div class="level3">
+
+<p>
+<em>Most users won&#039;t want this</em>.  Its usage is similar to SNAT, but as the the destination IP address isn&#039;t changed, machines on the destination network need to be aware that they&#039;ll receive and answer requests from a public IP address that isn&#039;t necessarily theirs.  Port forwarding in this fashion is typically used for load balancing.
+<pre class="code">config redirect
+        option src              wan
+        option src_dport        80
+        option dest             lan
+        option dest_port        80
+        option proto            tcp</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit29" id="block_access_to_a_specific_host">Block access to a specific host</h3>
+<div class="level3">
+
+<p>
+The following rule blocks all connection attempts to the specified host address.
+</p>
+
+<p>
+<pre class="code">config rule
+        option src              lan
+        option dest             wan
+        option dest_ip          123.45.67.89
+        option target           REJECT</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit30" id="block_access_to_the_internet_using_mac">Block access to the Internet using MAC</h3>
+<div class="level3">
+
+<p>
+The following rule blocks all connection attempts from the client to the Internet.
+</p>
+
+<p>
+<pre class="code">config rule
+        option src              lan
+        option dest             wan
+        option src_mac          00:00:00:00:00:00
+        option target           REJECT</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit31" id="block_access_to_the_internet_for_specific_ip_on_certain_times">Block access to the Internet for specific IP on certain times</h3>
+<div class="level3">
+
+<p>
+The following rule blocks all connection attempts to the internet from 192.168.1.27 on weekdays between 21:00pm and 09:00am (times are specified in UTC unless the –kerneltz switch is used).<br/>
+
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> The package <code>iptables-mod-ipopt</code> must be installed to provide <code>xt_time</code>.
+</p>
+
+<p>
+<pre class="code">config rule
+        option src              lan
+        option dest             wan
+        option src_ip           192.168.1.27
+        option extra            &#039;-m time --weekdays Mon,Tue,Wed,Thu,Fri --timestart 21:00 --timestop 09:00&#039;
+        option target           REJECT</pre>
+
+</p>
+
+<p>
+Using firewall v3 and later the example becomes:
+</p>
+
+<p>
+<pre class="code">config rule
+        option src              lan
+        option dest             wan
+        option src_ip           192.168.1.27
+        option start_time       21:00
+        option stop_time        09:00
+        option weekdays         &#039;mon tue wed thu fri&#039;
+        option target           REJECT</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit32" id="restricted_forwarding_rule">Restricted forwarding rule</h3>
+<div class="level3">
+
+<p>
+The example below creates a <em>forward</em> rule rejecting traffic from lan to wan on the ports 1000-1100.
+</p>
+
+<p>
+<pre class="code">config rule
+        option src              lan
+        option dest             wan
+        option dest_port        1000-1100
+        option proto            tcpudp
+        option target           REJECT</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit33" id="simple_output_rule">Simple output rule</h3>
+<div class="level3">
+
+<p>
+The example below creates an <em>output</em> rule which prevents the router from pinging the address <code>8.8.8.8</code>.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Only supported by the Firewall v2, version 58 and above 
+</p>
+
+<p>
+<pre class="code">config rule
+        option dest             wan
+        option dest_ip          8.8.8.8
+        option proto            icmp
+        option target           REJECT</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit34" id="transparent_proxy_rule_same_host">Transparent proxy rule (same host)</h3>
+<div class="level3">
+
+<p>
+The rule below redirects all outgoing HTTP traffic from <em>lan</em> through a proxy server listening at port 3128 on the router itself.
+</p>
+
+<p>
+<pre class="code">config redirect
+	option src              lan
+	option proto            tcp
+	option src_dport        80
+	option dest_port        3128
+	option dest_ip          192.168.1.1</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit35" id="transparent_proxy_rule_external">Transparent proxy rule (external)</h3>
+<div class="level3">
+
+<p>
+The following rule redirects all outgoing HTTP traffic from <em>lan</em> through an external proxy at 192.168.1.100 listening on port 3128.
+It assumes the OpenWrt <em>lan</em> address to be 192.168.1.1 - this is needed to masquerade redirected traffic towards the proxy.
+</p>
+
+<p>
+<pre class="code">config redirect
+        option src              lan
+        option proto            tcp
+        option src_ip           !192.168.1.100
+        option src_dport        80
+        option dest_ip          192.168.1.100
+        option dest_port        3128
+        option target           DNAT
+
+config redirect
+        option dest             lan
+        option proto            tcp
+        option src_dip          192.168.1.1
+        option dest_ip          192.168.1.100
+        option dest_port        3128
+        option target           SNAT</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit36" id="simple_dmz_rule">Simple DMZ rule</h3>
+<div class="level3">
+
+<p>
+The following rule redirects all WAN ports for all protocols to the internal host 192.168.1.2.
+</p>
+
+<p>
+<pre class="code">config redirect
+	option src              wan
+	option proto            all
+	option dest_ip          192.168.1.2</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit37" id="ipsec_passthrough">IPSec passthrough</h3>
+<div class="level3">
+
+<p>
+This example enables proper forwarding of IPSec traffic through the wan.
+</p>
+
+<p>
+<pre class="code"># AH protocol
+config rule
+        option src              wan
+        option dest             lan
+        option proto            ah
+        option target           ACCEPT
+
+# ESP protocol
+config rule
+        option src              wan
+        option dest             lan
+        option proto            esp
+        option target           ACCEPT</pre>
+
+</p>
+
+<p>
+For some configurations you also have to open port 500/UDP.
+</p>
+
+<p>
+<pre class="code"># ISAKMP protocol
+config rule
+        option src              wan
+        option dest             lan
+        option proto            udp
+        option src_port         500
+        option dest_port        500
+        option target           ACCEPT</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit38" id="zone_declaration_for_semi_non-uci_interfaces_manually_listed_in_the_network_config_and_forwardings">Zone declaration for semi non-UCI interfaces, manually listed in the network config, and forwardings</h3>
+<div class="level3">
+
+<p>
+Scenario: having one or more vpn tunnels using openvpn,
+with the need of defining a zone to forward the traffic between the
+vpn interfaces and the lan.
+</p>
+
+<p>
+First list the interfaces in <strong>/etc/config/network</strong>, 
+for example in the following way: (be careful on the limits of interface naming in terms of name length, <a href="network" class="wikilink1" title="doc:uci:network">read more</a>)
+<pre class="code">config interface &#039;tun0&#039;
+	option ifname &#039;tun0&#039;
+	option proto &#039;none&#039;
+
+config interface &#039;tun1&#039;
+        option ifname &#039;tun1&#039;
+        option proto &#039;none&#039;</pre>
+
+</p>
+
+<p>
+Then create the zone in <strong>/etc/config/firewall</strong>, for example one zone for all the vpn interfaces.
+<pre class="code">config zone
+        option name             vpn_tunnel
+        list   network          &#039;tun0&#039;
+	list   network          &#039;tun1&#039;
+        option input            ACCEPT
+          #the traffic towards the router from the interface will be accepted
+          #(as for the lan communications)
+        option output           ACCEPT
+          #the traffic from the router to the interface will be accepted
+        option forward          REJECT
+          #traffic from this zone to other zones is normally rejected</pre>
+
+</p>
+
+<p>
+Then we want to communicate with the &quot;lan&quot; zone, therefore we need forwardings in both ways
+(from lan to wan and viceversa)
+<pre class="code">config forwarding
+        option src              lan
+        option dest             vpn_tunnel
+        #if a packet from lan wants to go to the vpn_tunnel zone
+        #let it pass
+
+config forwarding
+        option src              vpn_tunnel
+        option dest             lan
+        #if a packet from vpn_tunnel wants to go to the lan zone
+        #let it pass</pre>
+
+This will create a lot of &quot;automatic&quot; iptables rules (because automatic scripting is not
+as efficient as raw iptable commands in /etc/firewall.user) 
+but those rules will be more clear in the luci webinterface and also more readable for
+less expert users.
+</p>
+
+<p>
+In general remember that forwardings are relying how routing rules are defined, and afterwards which zones are
+defined on which interfaces.
+</p>
+
+</div>
+
+<h3 class="sectionedit39" id="zone_declaration_for_non-uci_interfaces">Zone declaration for non-UCI interfaces</h3>
+<div class="level3">
+
+<p>
+This example declares a zone which maches any Linux network device whose name begins with &quot;ppp&quot;.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Only supported by the Firewall v2, version 58 and above
+</p>
+
+<p>
+<pre class="code">config zone
+        option name             example
+        option input            ACCEPT
+        option output           ACCEPT
+        option forward          REJECT
+        option device           &#039;ppp+&#039;</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit40" id="zone_declaration_for_a_specific_subnet_and_protocol">Zone declaration for a specific subnet and protocol</h3>
+<div class="level3">
+
+<p>
+This example declares a zone which maches any TCP stream in the <code>10.21.0.0/16</code> subnet.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Only supported by the Firewall v2, version 58 and above
+</p>
+
+<p>
+<pre class="code">config zone
+        option name             example
+        option input            ACCEPT
+        option output           ACCEPT
+        option forward          REJECT
+        option subnet           &#039;10.21.0.0/16&#039;
+        option extra            &#039;-p tcp&#039;</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit41" id="zone_declaration_for_a_specific_protocol_and_port">Zone declaration for a specific protocol and port</h3>
+<div class="level3">
+
+<p>
+This example declares a zone which maches any TCP stream from and to port <code>22</code>.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Only supported by the Firewall v2, version 58 and above
+</p>
+
+<p>
+<pre class="code">config zone
+        option name             example
+        option input            ACCEPT
+        option output           ACCEPT
+        option forward          REJECT
+        option extra_src        &#039;-p tcp --sport 22&#039;
+        option extra_dest       &#039;-p tcp --dport 22&#039;</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit42" id="forwarding_ipv6_tunnel_traffic">Forwarding IPv6 tunnel traffic</h3>
+<div class="level3">
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> This example is for IPv6 tunnels only, and does not apply to native dual-stack interfaces.
+</p>
+
+<p>
+
+<table class="inline" style="width:70%; margin-left:15%">
+  <tr>
+    <td style="border-left:6px solid #f57900; vertical-align:middle">
+      <img src="../../_media/meta/icons/tango/48px-emblem-question.svg.png" alt="" style="float:left; margin-right:0.5em" />
+      <strong>Unverified Information!</strong><br />
+      From my experience all you need to do is just add the interface name of your ipv6 tunnel to the wan zone of your firewall. This worked for me <a href="http://wiki.openwrt.org/doc/uci/firewall?do=edit">Remove</a> the information below if this is the correct way to proceed. 
+    </td>
+  </tr>
+<tr><td>Caveat: The above will only work if the tunnel is bringing IPv6 connectivity to the router itself. If you use the tunnel to route a prefix into your lan as well, you will additionally need to allow Inter-Zone Forwarding from wan to lan (not enabled by default). Creating a separate firewall zone (as described below) is a cleaner solution, though.</td>
+</tr>
+</table>
+
+</p>
+
+<p>
+IPv6 packets are by default not forwarded from lan to your wan6 interface and vice versa. Make sure to add <code>net.ipv6.conf.all.forwarding=1</code> in <code>/etc/sysctl.conf</code> to enable it permanently. Assuming your tunnel interface is called <code>henet</code>, add the following sections to <code>/etc/config/firewall</code> to create a new zone <code>wan6</code>, covering <code>henet</code> and allowing forwarding betweeen <code>wan6</code> and <code>lan</code> in both directions:
+</p>
+
+<p>
+<pre class="code">config zone
+	option name wan6
+	option network henet
+	option family ipv6
+	option input ACCEPT
+	option output ACCEPT
+	option forward REJECT
+
+config forwarding
+	option dest lan
+	option src wan6
+#you don&#039;t need the below as you can a firewall rule to open the port that you need
+config forwarding
+	option dest wan6
+	option src lan</pre>
+
+</p>
+
+<p>
+The <code>family</code> option ensures that the zone and all associated entries (<code>rule</code>, <code>forwarding</code> and <code>redirect</code> sections) are only added to <em>ip6tables</em> but not <em>iptables</em>.
+</p>
+
+</div>
+
+<h3 class="sectionedit43" id="manual_iptables_rules">Manual iptables rules</h3>
+<div class="level3">
+
+<p>
+Traditional iptables rules, in the standard iptables unix command form, can be specified in an external file and included in the firewall config file. It is possible to include multiple files this way.
+<pre class="code">config include
+       option path /etc/firewall.user
+
+config include
+       option path /etc/firewall.vpn</pre>
+
+</p>
+
+<p>
+The syntax for the includes is Linux standard, and therefore different from UCI&#039;s; its documentation can be found in <a href="../howto/netfilter#configuration" class="wikilink1" title="doc:howto:netfilter">netfilter</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit44" id="firewall_management">Firewall management</h2>
+<div class="level2">
+
+<p>
+After a configuration change, firewall rules are rebuilt by executing <code>/etc/init.d/firewall restart</code>; calling <code>/etc/init.d/firewall stop</code> will flush all rules and set the policies to ACCEPT on all standard chains.
+To manually start the firewall, call <code>/etc/init.d/firewall start</code>.
+</p>
+
+<p>
+The firewall can be permananently disabled by executing <code>/etc/init.d/firewall disable</code>.
+Note that <code>disable</code> does not flush the rules, so it might be required to issue a <code>stop</code> before.
+Use <code>enable</code> to activate the firewall again.
+</p>
+
+</div>
+
+<h3 class="sectionedit45" id="temporarily_disable_firewall">Temporarily disable firewall</h3>
+<div class="level3">
+
+<p>
+Run <code>/etc/init.d/firewall stop</code> to flush all rules and set the policies to ACCEPT.
+To restart the firewall, run <code>/etc/init.d/firewall start</code>.
+</p>
+
+</div>
+
+<h2 class="sectionedit46" id="hotplug_hooks_8092">Hotplug hooks (8.09.2+)</h2>
+<div class="level2">
+
+<p>
+In addition to <em>includes</em> it is possible to let the firewall execute <em>hotplug handlers</em> when interfaces are added to a zone or removed from it. This is useful to create rules for interfaces with dynamic ip configurations (dhcp, pppoe) on the fly.
+</p>
+
+<p>
+Each time an interface is added or removed from a zone, all scripts in the <code>/etc/hotplug.d/firewall/</code> directory are executed. Scripts must be named in the form <code>NN-name</code> with <code>NN</code> being a numeric index between <code>00</code> and <code>99</code>. The <code>name</code> can be freely choosen.
+</p>
+
+<p>
+Once a handler script is invoked, the information about the event is passed through the environment.
+The table below lists defined variables and their meaning.
+</p>
+<div class="table sectionedit47"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Variable </th><th class="col1"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> ACTION </td><td class="col1"> Type of the event: <code>add</code> if an interface was added, <code>remove</code> if it was removed </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> ZONE </td><td class="col1"> Name of the firewall zone the interface was added to </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> INTERFACE </td><td class="col1"> OpenWrt name of the interface, for example &quot;lan&quot; or &quot;wan&quot; - corresponds to the interfaces defined in <code>/etc/config/network</code> </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> DEVICE </td><td class="col1"> The physical interface involved, for example &quot;eth0&quot; or &quot;ppp0&quot; </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit48" id="implications_of_drop_vs_reject">Implications of DROP vs. REJECT</h2>
+<div class="level2">
+
+<p>
+The decision whether to <em>drop</em> or to <em>reject</em> traffic should be done on a case-by-case basis. Many people see dropping traffic as a security advantage over rejecting it because it exposes less information to a hypothetical attacker.
+While dropping slightly increases security, it can also complicate the debugging of network issues or cause unwanted side-effects on client programs.
+</p>
+
+<p>
+If traffic is <em>rejected</em>, the router will respond with an ICMP error message (&quot;destination port unreachable&quot;) causing the connection attempt to fail immediately. This also means that for each connection attempt a certain amount of response traffic is generated. This can cause harm if the firewall is &quot;attacked&quot; with many simultaneous connection attempts; the resulting &quot;backfire&quot; of ICMP responses can clog up all available bandwidth and make the connection unusable (DoS).
+</p>
+
+<p>
+When connection attempts are <em>dropped</em> the client is not aware of the blocking and will continue to re-transmit its packets until the connection eventually times out. Depending on the way the client software is implemented, this could result in frozen or hanging programs that need to wait until a timeout occurs before they&#039;re able to continue.
+</p>
+
+<p>
+Also there is an interesting article which that claims dropping connections doesnt make you any safer - <a href="http://www.chiark.greenend.org.uk/~peterb/network/drop-vs-reject" class="urlextern" title="http://www.chiark.greenend.org.uk/~peterb/network/drop-vs-reject"  rel="nofollow">Drop versus Reject</a>.
+</p>
+
+<p>
+<strong>DROP</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> less information is exposed </div>
+</li>
+<li class="level1"><div class="li"> less attack surface</div>
+</li>
+<li class="level1"><div class="li"> client software may not cope well with it (hangs until connection times out)</div>
+</li>
+<li class="level1"><div class="li"> may complicate network debugging (where was traffic dropped and why)</div>
+</li>
+</ul>
+
+<p>
+<strong>REJECT</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> may expose information (like the ip at which traffic was actually blocked)</div>
+</li>
+<li class="level1"><div class="li"> client software can recover faster from rejected connection attempts</div>
+</li>
+<li class="level1"><div class="li"> network debugging easier (routing and firewall issues clearly distinguishable)</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit49" id="notes_on_connection_tracking">Notes on connection tracking</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit50" id="notrack">NOTRACK</h3>
+<div class="level3">
+
+<p>
+By default, the firewall will disable connection tracking for a zone if no masquerading is enabled. This is achieved by generating <em>NOTRACK</em> firewall rules matching all traffic passing via interfaces referenced by the firewall zone. The purpose of <em>NOTRACK</em> is to speed up routing and save memory by circumventing resource intensive connection tracking in cases where it is not needed. You can check if connection tracking is disabled by issuing <code>iptables -t raw -vnL</code>, it will list all rules, check for <em>NOTRACK</em> target.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <em>NOTRACK</em> will render certain ipables extensions unusable, for example the <em>MASQUERADE</em> target or the <em>state</em> match will not work!
+</p>
+
+<p>
+If connection tracking is required, for example by custom rules in <code>/etc/firewall.user</code>, the <code>conntrack</code> option must be enabled in the corresponding zone to disable <em>NOTRACK</em>. It should appear as <code>option &#039;conntrack&#039; &#039;1&#039; </code> in the right zone in <code>/etc/config/firewall</code>.
+For further information see <a href="http://security.maruhn.com/iptables-tutorial/x4772.html" class="urlextern" title="http://security.maruhn.com/iptables-tutorial/x4772.html"  rel="nofollow">http://security.maruhn.com/iptables-tutorial/x4772.html</a> .
+</p>
+
+</div>
+
+<h3 class="sectionedit51" id="nf_conntrack_skip_filter">nf_conntrack_skip_filter</h3>
+<div class="level3">
+
+<p>
+Since <a href="https://dev.openwrt.org/changeset/42048/trunk/package" class="urlextern" title="https://dev.openwrt.org/changeset/42048/trunk/package"  rel="nofollow">r42048</a>, there is a new setting activated by default which causes the packets with the established state, completely bypass iptables filter table. This is to <a href="https://dev.openwrt.org/ticket/17690#comment:6" class="urlextern" title="https://dev.openwrt.org/ticket/17690#comment:6"  rel="nofollow">help with network performance</a> and unless you need all packets to be counted by iptables filter or have some specific rules which would apply to already established connections, you should leave it active. 
+</p>
+
+<p>
+This behavior can be disabled by editing /etc/sysctl.conf :
+</p>
+<pre class="code">net.netfilter.nf_conntrack_skip_filter=0</pre>
+
+<p>
+and then activating the new setting:
+</p>
+<pre class="code">sysctl -p</pre>
+
+<p>
+or be temporarily turned off untill the next reboot by issuing :
+</p>
+<pre class="code">sysctl -w net.netfilter.nf_conntrack_skip_filter=0</pre>
+
+</div>
+
+<h2 class="sectionedit52" id="how_to_delete_a_rule">How to delete a rule</h2>
+<div class="level2">
+
+<p>
+If you made a mistake you can delete a rule this way.
+</p>
+
+<p>
+First, issue this command to find the index of the rule:
+</p>
+
+<p>
+<pre class="code"># iptables -L -t raw --line-numbers</pre>
+
+</p>
+
+<p>
+Now to delete, e.g. the third rule from chain OUTPUT, execute:
+</p>
+
+<p>
+<pre class="code"># iptables -t raw -D OUTPUT 3</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit53" id="debug_generated_rule_set">Debug generated rule set</h2>
+<div class="level2">
+
+<p>
+It is possible to observe the iptables commands generated by the firewall program,
+this is useful to track down iptables errors during firewall restarts or to verify
+the outcome of certain uci rules.
+</p>
+
+<p>
+In order to see the rules as they&#039;re executed, run the <code>fw</code> command with the <code>FW_TRACE</code>
+environment variable set to <code>1</code> (one):
+</p>
+
+<p>
+<pre class="code"># FW_TRACE=1 fw reload</pre>
+
+</p>
+
+<p>
+To direct the output to a file for later inspection, use the command below:
+<pre class="code"># FW_TRACE=1 fw reload 2&gt;/tmp/iptables.log</pre>
+
+</p>
+
+<p>
+If you are using the firewall3, you can enable debug mode using the <code>-d</code> switch:
+<pre class="code"># fw3 -d reload 2&gt;/tmp/iptables.log</pre>
+
+</p>
+
+<p>
+Furthermore it is also possible to print the to-be generated ruleset using the <code>print</code> command in conjunction with the <code>-4</code> and <code>-6</code> switches:
+<pre class="code"># fw3 -4 print &gt; /tmp/ipv4.rules
+# fw3 -6 print &gt; /tmp/ipv6.rules</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit54" id="packet_flow">Packet flow</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit55" id="input_destined_to_router">INPUT (destined to router)</h3>
+<div class="level3">
+<div class="table sectionedit56"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign"> Table  </th><th class="col1 leftalign"> Chain                         </th><th class="col2 leftalign"> Type     </th><th class="col3"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign" rowspan="2"> raw    </td><td class="col1 leftalign"> <code>PREROUTING</code>                </td><td class="col2 leftalign"> system   </td><td class="col3"> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <code>notrack</code>                   </td><td class="col1"> internal </td><td class="col2"> Internal chain for NOTRACK rules </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0" rowspan="2"> mangle </td><td class="col1 leftalign"> <code>PREROUTING</code>                </td><td class="col2 leftalign"> system   </td><td class="col3"> </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> <code>fwmark</code>                    </td><td class="col1"> internal </td><td class="col2"> Internal chain for MARK rules </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign" rowspan="5"> nat    </td><td class="col1 leftalign"> <code>PREROUTING</code>                </td><td class="col2 leftalign"> system   </td><td class="col3"> </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> <code>delegate_prerouting</code>       </td><td class="col1"> internal </td><td class="col2"> Internal chain to hold toplevel prerouting rules, dispatches traffic to the corresponding <code>zone_<em>name</em>_prerouting</code> chains </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> <code>prerouting_rule</code>           </td><td class="col1 leftalign"> user     </td><td class="col2"> Container chain for custom user prerouting rules (firewall.user) </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> <code>zone_<em>name</em>_prerouting</code>  </td><td class="col1"> internal </td><td class="col2"> Per-zone container chains for DNAT (port forwarding) rules </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> <code>prerouting_<em>name</em>_rule</code>  </td><td class="col1 leftalign"> user     </td><td class="col2"> Per-zone container chains for custom user prerouting rules (firewall.user) </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> mangle </td><td class="col1 leftalign"> <code>INPUT</code>                     </td><td class="col2 leftalign"> system   </td><td class="col3"> </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0" rowspan="6"> filter </td><td class="col1 leftalign"> <code>INPUT</code>                     </td><td class="col2 leftalign"> system   </td><td class="col3"> </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> <code>delegate_input</code>            </td><td class="col1"> internal </td><td class="col2"> Internal chain to hold toplevel input rules, dispatches traffic to the corresponding <code>zone_<em>name</em>_input</code> chains </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> <code>input_rule</code>                </td><td class="col1 leftalign"> user     </td><td class="col2"> Container chain for custom user input rules (firewall.user) </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 leftalign"> <code>syn_flood</code>                 </td><td class="col1"> internal </td><td class="col2"> Internal chain to match and drop syn flood attempts </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 leftalign"> <code>zone_<em>name</em>_input</code>       </td><td class="col1"> internal </td><td class="col2"> Per-zone container chains for input rules </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 leftalign"> <code>input_<em>name</em>_rule</code>       </td><td class="col1 leftalign"> user     </td><td class="col2"> Per-zone container chains for custom user input rules (firewall.user) </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit57" id="output_originating_from_router">OUTPUT (originating from router)</h3>
+<div class="level3">
+<div class="table sectionedit58"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign"> Table  </th><th class="col1 leftalign"> Chain                         </th><th class="col2 leftalign"> Type     </th><th class="col3"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> raw    </td><td class="col1 leftalign"> <code>OUTPUT</code>                    </td><td class="col2 leftalign"> system   </td><td class="col3"> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> mangle </td><td class="col1 leftalign"> <code>OUTPUT</code>                    </td><td class="col2 leftalign"> system   </td><td class="col3"> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> nat    </td><td class="col1 leftalign"> <code>OUTPUT</code>                    </td><td class="col2 leftalign"> system   </td><td class="col3"> </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0" rowspan="5"> filter </td><td class="col1 leftalign"> <code>OUTPUT</code>                    </td><td class="col2 leftalign"> system   </td><td class="col3"> </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> <code>delegate_output</code>           </td><td class="col1"> internal </td><td class="col2"> Internal chain to hold toplevel output rules, dispatches traffic to the corresponding <code>zone_<em>name</em>_output</code> chains </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> <code>output_rule</code>               </td><td class="col1 leftalign"> user     </td><td class="col2"> Container chain for custom user output rules (firewall.user) </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> <code>zone_<em>name</em>_output</code>      </td><td class="col1"> internal </td><td class="col2"> Per-zone container chains for output rules </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> <code>output_<em>name</em>_rule</code>      </td><td class="col1 leftalign"> user     </td><td class="col2"> Per-zone container chains for custom user output rules (firewall.user) </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> mangle </td><td class="col1 leftalign"> <code>POSTROUTING</code>               </td><td class="col2 leftalign"> system   </td><td class="col3"> </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign" rowspan="5"> nat    </td><td class="col1 leftalign"> <code>POSTROUTING</code>               </td><td class="col2 leftalign"> system   </td><td class="col3"> </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> <code>delegate_postrouting</code>      </td><td class="col1"> internal </td><td class="col2"> Internal chain to hold toplevel postrouting rules, dispatches traffic to the corresponding <code>zone_<em>name</em>_postrouting</code> chains </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> <code>postrouting_rule</code>          </td><td class="col1 leftalign"> user     </td><td class="col2"> Container chain for custom user postrouting rules (firewall.user) </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0"> <code>zone_<em>name</em>_postrouting</code> </td><td class="col1"> internal </td><td class="col2"> Per-zone container chains for postrouting rules (masq, snat) </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0"> <code>postrouting_<em>name</em>_rule</code> </td><td class="col1 leftalign"> user     </td><td class="col2"> Per-zone container chains for custom user postrouting rules (firewall.user) </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit59" id="forward_relayed_through_router">FORWARD (relayed through router)</h3>
+<div class="level3">
+<div class="table sectionedit60"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign"> Table  </th><th class="col1 leftalign"> Chain                         </th><th class="col2 leftalign"> Type     </th><th class="col3"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign" rowspan="2"> raw    </td><td class="col1 leftalign"> <code>PREROUTING</code>                </td><td class="col2 leftalign"> system   </td><td class="col3"> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <code>notrack</code>                   </td><td class="col1"> internal </td><td class="col2"> Internal chain for NOTRACK rules </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0" rowspan="2"> mangle </td><td class="col1 leftalign"> <code>PREROUTING</code>                </td><td class="col2 leftalign"> system   </td><td class="col3"> </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> <code>fwmark</code>                    </td><td class="col1"> internal </td><td class="col2"> Internal chain for MARK rules </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign" rowspan="5"> nat    </td><td class="col1 leftalign"> <code>PREROUTING</code>                </td><td class="col2 leftalign"> system   </td><td class="col3"> </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> <code>delegate_prerouting</code>       </td><td class="col1"> internal </td><td class="col2"> Internal chain to hold toplevel prerouting rules, dispatches traffic to the corresponding <code>zone_<em>name</em>_prerouting</code> chains </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> <code>prerouting_rule</code>           </td><td class="col1 leftalign"> user     </td><td class="col2"> Container chain for custom user prerouting rules (firewall.user) </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> <code>zone_<em>name</em>_prerouting</code>  </td><td class="col1"> internal </td><td class="col2"> Per-zone container chains for DNAT (port forwarding) rules </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> <code>prerouting_<em>name</em>_rule</code>  </td><td class="col1 leftalign"> user     </td><td class="col2"> Per-zone container chains for custom user prerouting rules (firewall.user) </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0" rowspan="2"> mangle </td><td class="col1 leftalign"> <code>FORWARD</code>                   </td><td class="col2 leftalign"> system   </td><td class="col3"> </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> <code>mssfix</code>                    </td><td class="col1"> internal </td><td class="col2"> Internal chain to hold for TCPMSS rules (mtu_fix) </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0" rowspan="5"> filter </td><td class="col1 leftalign"> <code>FORWARD</code>                   </td><td class="col2 leftalign"> system   </td><td class="col3"> </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> <code>delegate_forward</code>          </td><td class="col1"> internal </td><td class="col2"> Internal chain to hold toplevel forward rules, dispatches traffic to the corresponding <code>zone_<em>name</em>_forward</code> chains </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 leftalign"> <code>forwarding_rule</code>           </td><td class="col1 leftalign"> user     </td><td class="col2"> Container chain for custom user forward rules (firewall.user) </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 leftalign"> <code>zone_<em>name</em>_forward</code>     </td><td class="col1"> internal </td><td class="col2"> Per-zone container chains for output rules </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 leftalign"> <code>forwarding_<em>name</em>_rule</code>  </td><td class="col1 leftalign"> user     </td><td class="col2"> Per-zone container chains for custom user forward rules (firewall.user) </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0"> mangle </td><td class="col1 leftalign"> <code>POSTROUTING</code>               </td><td class="col2 leftalign"> system   </td><td class="col3"> </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0 leftalign" rowspan="5"> nat    </td><td class="col1 leftalign"> <code>POSTROUTING</code>               </td><td class="col2 leftalign"> system   </td><td class="col3"> </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0 leftalign"> <code>delegate_postrouting</code>      </td><td class="col1"> internal </td><td class="col2"> Internal chain to hold toplevel postrouting rules, dispatches traffic to the corresponding <code>zone_<em>name</em>_postrouting</code> chains </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0 leftalign"> <code>postrouting_rule</code>          </td><td class="col1 leftalign"> user     </td><td class="col2"> Container chain for custom user postrouting rules (firewall.user) </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0"> <code>zone_<em>name</em>_postrouting</code> </td><td class="col1"> internal </td><td class="col2"> Per-zone container chains for postrouting rules (masq, snat) </td>
+	</tr>
+	<tr class="row22">
+		<td class="col0"> <code>postrouting_<em>name</em>_rule</code> </td><td class="col1 leftalign"> user     </td><td class="col2"> Per-zone container chains for custom user postrouting rules (firewall.user) </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit61" id="open_questions">Open questions</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit62" id="enabled_option">&#039;enabled&#039; option</h3>
+<div class="level3">
+
+<p>
+Could it be that the enable option is available for every section
+of the firewall file?
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/uci/firewall.txt</bdi> · Last modified: 2015/05/21 10:48 by <bdi>DarkEnd</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="http://wiki.openwrt.org/doc/uci/firewall?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="http://wiki.openwrt.org/doc/uci/firewall?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="http://wiki.openwrt.org/doc/uci/firewall?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="firewall#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="http://wiki.openwrt.org/lib/exe/indexer.php?id=doc%3Auci%3Afirewall&amp;1432266629" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

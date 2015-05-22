@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>DNS and DHCP configuration [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,uci,dhcp"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="dhcp?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:uci"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/uci/dhcp"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/uci/dhcp"/>
+<link rel="canonical" href="dhcp"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:uci';var JSINFO = {"id":"doc:uci:dhcp","namespace":"doc:uci"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265619 166.182.3.192';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="dhcp#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="dhcp?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="dhcp?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:uci:dhcp" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="dhcp?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="dhcp?do=media&amp;ns=doc%253Auci"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="dhcp?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../uci.1" class="wikilink1" title="doc:uci">The UCI System</a></bdi> » <bdi><span class="curid"><a href="dhcp" class="wikilink1" title="doc:uci:dhcp">DNS and DHCP configuration</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/uci/dhcp" class="media" title="cz:doc:uci:dhcp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/uci/dhcp" class="media" title="de:doc:uci:dhcp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="dhcp" class="media" title="doc:uci:dhcp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/uci/dhcp" class="media" title="es:doc:uci:dhcp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/uci/dhcp" class="media" title="fr:doc:uci:dhcp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/uci/dhcp" class="media" title="hu:doc:uci:dhcp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/uci/dhcp" class="media" title="jp:doc:uci:dhcp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/uci/dhcp" class="media" title="pl:doc:uci:dhcp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/uci/dhcp" class="media" title="pt-br:doc:uci:dhcp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../ru/doc/uci/dhcp" class="media" title="ru:doc:uci:dhcp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/uci/dhcp" class="media" title="tr:doc:uci:dhcp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/uci/dhcp" class="media" title="zh-cn:doc:uci:dhcp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/uci/dhcp" class="media" title="zh-tw:doc:uci:dhcp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:uci:dhcp</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="dhcp#sections">Sections</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="dhcp#common_options">Common Options</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp#all_options">All Options</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp#dhcp_pools">DHCP Pools</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp#static_leases">Static Leases</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp#dhcp_option_example_to_set_an_alternative_default_gateway">DHCP OPTION example to set an alternative default gateway</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp#booting_options">Booting Options</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp#classifying_clients_and_assigning_individual_options">Classifying Clients And Assigning Individual Options</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="dhcp#using_plain_dnsmasqconf">Using plain dnsmasq.conf</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="dhcp#dns_and_dhcp_ports">DNS and DHCP Ports</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="dhcp#examples">Examples</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="dhcp#static_lease_mac_address_hot_swap">Static Lease (MAC address hot swap)</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="dhcp#troubleshooting">Troubleshooting</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="dhcp#only_allow_static_leases">Only allow static leases</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp#custom_domain">Custom Domain</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp#srv_rr_for_sip">SRV RR for SIP</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp#cname_rr">CNAME RR</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp#mx_rr">MX RR</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp#tftp_boot">TFTP Boot</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp#multiple_dhcp_options">Multiple DHCP options</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp#multiple_dhcpdns_serverforwarder_instances">Multiple DHCP/DNS server/forwarder instances</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp#assigning_dhcp_pool_to_a_subnet_in_a_large_network">Assigning DHCP pool to a subnet in a large network</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp#classifying_clients_and_assigning_individual_options1">Classifying Clients And Assigning Individual Options</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp#enabling_dhcp_without_enabling_dns">Enabling DHCP without enabling DNS</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp#enabling_dns_without_enabling_dhcp">Enabling DNS without enabling DHCP</a></div></li>
+<li class="level2"><div class="li"><a href="dhcp#several_dns_servers">Several DNS servers</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="dns_and_dhcp_configuration">DNS and DHCP configuration</h1>
+<div class="level1">
+
+<p>
+The <em>dnsmasq</em> and dhcpd configuration is located in <code>/etc/config/dhcp</code> and controls both <abbr title="Domain Name System">DNS</abbr> and DHCP server options on the device (both DHCP and <abbr title="Domain Name System">DNS</abbr> services are implemented using the same OpenWrt program, dnsmasq).
+</p>
+
+<p>
+In the default configuration this file contains one <em>common section</em> to specify <abbr title="Domain Name System">DNS</abbr> and daemon related options and one or more <em>DHCP pools</em> to define DHCP serving on network interfaces.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="sections">Sections</h2>
+<div class="level2">
+
+<p>
+Possible section types of the <code>dhcp</code> configuration file are defined below. Not all types may appear in the file and most of them are only needed for special configurations. The common ones are the <em>Common Options</em>, the <em>DHCP Pools</em> and <em>Static Leases</em>.
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="common_options">Common Options</h3>
+<div class="level3">
+
+<p>
+The config section type <code>dnsmasq</code> determines values and options relevant to the overall operation of dnsmasq
+and the DHCP options on all interfaces served. The following table lists all available options, their default value,
+as well as the corresponding <em>dnsmasq</em> command line option. See <a href="http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html" class="urlextern" title="http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html"  rel="nofollow">the dnsmasq man page</a> for further details.
+</p>
+
+<p>
+These are the default settings for the common options:
+</p>
+
+<p>
+<pre class="code">config &#039;dnsmasq&#039;
+	option domainneeded	 1
+	option boguspriv	 1
+	option filterwin2k	 0
+	option localise_queries	 1
+	option rebind_protection 1
+	option rebind_localhost  0
+	option local        	 &#039;/lan/&#039;
+	option domain	         &#039;lan&#039;
+	option expandhosts	 1
+	option nonegcache	 0
+	option authoritative	 1
+	option readethers        1
+	option leasefile	 &#039;/tmp/dhcp.leases&#039;
+	option resolvfile	 &#039;/tmp/resolv.conf.auto&#039;</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Options <code>local</code> and <code>domain</code> enable <em>dnsmasq</em> to serve entries in <code>/etc/hosts</code> as well as the DHCP client&#039;s names as if they were entered into the <em>lan</em> <abbr title="Domain Name System">DNS</abbr> domain.</div>
+</li>
+<li class="level1"><div class="li"> Options <code>domainneeded</code>, <code>boguspriv</code>, <code>localise_queries</code>, and <code>expandhosts</code> make sure that requests for these local host names (and the reverse lookup) never get forwarded to the upstream <abbr title="Domain Name System">DNS</abbr> servers.</div>
+</li>
+<li class="level1"><div class="li"> Option <code>authoritative</code> makes the router the only DHCP server on this network; clients get their IP lease a lot faster this way.</div>
+</li>
+<li class="level1"><div class="li"> Option <code>leasefile</code> stores the leases in a file, so that they can be picked up again if <em>dnsmasq</em> is restarted.</div>
+</li>
+<li class="level1"><div class="li"> Option <code>resolvfile</code> tells <em>dnsmasq</em> to use this file to find upstream name servers; it gets created by the WAN DHCP client or the PPP client.</div>
+</li>
+<li class="level1"><div class="li"> Options &quot;enable_tftp&quot; and &quot;tftp_root&quot; turn on the TFTP server and serve files from tftp_root.  You may need to set the server&#039;s IP on the client.  On the client,  change it by setting &quot;serverip&quot; (e.g. &quot;setenv serverip 192.168.1.10&quot;).</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit4" id="all_options">All Options</h3>
+<div class="level3">
+<div class="sortable"><div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Default </th><th class="col3"> Option </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>add_local_domain</code> </td><td class="col1"> boolean </td><td class="col2"> <code>1</code> </td><td class="col3"> </td><td class="col4"> Add the local domain as search directive in resolv.conf. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>add_local_hostname</code> </td><td class="col1"> boolean </td><td class="col2"> <code>1</code> </td><td class="col3"> </td><td class="col4"> Add A and PTR records automatically for the local hostname. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>addnhosts</code> </td><td class="col1"> list of file paths </td><td class="col2"> <em>(none)</em> </td><td class="col3"> <code>-H</code> </td><td class="col4"> Additional host files to read for serving <abbr title="Domain Name System">DNS</abbr> responses </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>authoritative</code> </td><td class="col1"> boolean </td><td class="col2"> <code>0</code> </td><td class="col3"> <code>-K</code> </td><td class="col4"> Force <em>dnsmasq</em> into authoritative mode. This speeds up DHCP leasing. Used if this is the only server on the network </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>bogusnxdomain</code> </td><td class="col1"> list of IP addresses </td><td class="col2"> <em>(none)</em> </td><td class="col3"> <code>-B</code> </td><td class="col4"> IP addresses to convert into NXDOMAIN responses (to counteract &quot;helpful&quot; upstream <abbr title="Domain Name System">DNS</abbr> servers that never return NXDOMAIN). </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>boguspriv</code> </td><td class="col1"> boolean </td><td class="col2"> <code>0</code> </td><td class="col3"> <code>-b</code> </td><td class="col4"> Reject reverse lookups to private IP ranges where no corresponding entry exists in <code>/etc/hosts</code> </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <code>cachelocal</code> </td><td class="col1"> boolean </td><td class="col2"> <code>1</code> </td><td class="col3"> </td><td class="col4"> When set to <code>0</code>, use each network interface&#039;s <code>dns</code> address in the local <code>/etc/resolv.conf</code>. Normally, only the loopback address is used, and all queries go through <em>dnsmasq</em>. </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <code>cachesize</code> </td><td class="col1"> integer </td><td class="col2"> <code>150</code> </td><td class="col3"> <code>-c</code> </td><td class="col4"> Size of <em>dnsmasq</em> query cache. </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <code>dbus</code> </td><td class="col1"> boolean </td><td class="col2"> <code>0</code> </td><td class="col3"> <code>-1</code> </td><td class="col4"> Enable DBus messaging for <em>dnsmasq</em>.<br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Standard builds of <em>dnsmasq</em> on OpenWRT do not include DBus support. </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> <code>dhcp_boot</code> </td><td class="col1"> string </td><td class="col2"> <em>(none)</em> </td><td class="col3"><pre class="code">--dhcp-boot</pre>
+</td><td class="col4"> Specifies BOOTP options, in most cases just the file name </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> <code>dhcphostsfile</code> </td><td class="col1"> file path </td><td class="col2"> <em>(none)</em> </td><td class="col3"> <pre class="code">--dhcp-hostsfile</pre>
+ </td><td class="col4"> Specify an external file with per host DHCP options </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0"> <code>dhcpleasemax</code> </td><td class="col1"> integer </td><td class="col2"> <code>150</code> </td><td class="col3"> <code>-X</code> </td><td class="col4"> Maximum number of DHCP leases </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0"> <code>dnsforwardmax</code> </td><td class="col1"> integer </td><td class="col2"> <code>150</code> </td><td class="col3"> <code>-0</code> (zero) </td><td class="col4"> Maximum number of concurrent connections </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0"> <code>domain</code> </td><td class="col1"> domain name </td><td class="col2"> <em>(none)</em> </td><td class="col3"> <code>-s</code> </td><td class="col4"> <abbr title="Domain Name System">DNS</abbr> domain handed out to DHCP clients </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0"> <code>domainneeded</code> </td><td class="col1"> boolean </td><td class="col2"> <code>0</code> </td><td class="col3"> <code>-D</code> </td><td class="col4"> Tells <em>dnsmasq</em> never to forward queries for plain names, without dots or domain parts, to upstream nameservers. If the name is not known from /etc/hosts or DHCP then a &quot;not found&quot; answer is returned </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0"> <code>dnssec</code> </td><td class="col1"> boolean </td><td class="col2"> <code>0</code> </td><td class="col3"> <pre class="code">--dnssec</pre>
+ </td><td class="col4"> Validate <abbr title="Domain Name System">DNS</abbr> replies and cache DNSSEC data.<br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Requires the <em>dnsmasq-full</em> package. </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0"> <code>dnsseccheckunsigned</code> </td><td class="col1"> boolean </td><td class="col2"> <code>0</code> </td><td class="col3"> <pre class="code">--dnssec-check-unsigned</pre>
+ </td><td class="col4"> Check the zones of unsigned replies to ensure that unsigned replies are allowed in those zones. This protects against an attacker forging unsigned replies for signed <abbr title="Domain Name System">DNS</abbr> zones, but is slower and requires that the nameservers upstream of <em>dnsmasq</em> are DNSSEC-capable.<br/>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Requires the <em>dnsmasq-full</em> package. </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0"> <code>ednspacket_max</code> </td><td class="col1"> integer </td><td class="col2"> <code>1280</code> </td><td class="col3"> <code>-P</code> </td><td class="col4"> Specify the largest EDNS.0 UDP packet which is supported by the <abbr title="Domain Name System">DNS</abbr> forwarder </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0"> <code>enable_tftp</code> </td><td class="col1"> boolean </td><td class="col2"> <code>0</code> </td><td class="col3"> <pre class="code">--enable-tftp</pre>
+ </td><td class="col4"> Enable the builtin TFTP server </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0"> <code>expandhosts</code> </td><td class="col1"> boolean </td><td class="col2"> <code>0</code> </td><td class="col3"> <code>-E</code> </td><td class="col4"> Add the local domain part to names found in <code>/etc/hosts</code> </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0"> <code>filterwin2k</code> </td><td class="col1"> boolean </td><td class="col2"> <code>0</code> </td><td class="col3"> <code>-f</code> </td><td class="col4"> Do not forward requests that cannot be answered by public name servers </td>
+	</tr>
+	<tr class="row22">
+		<td class="col0"> <code>fqdn</code> </td><td class="col1"> boolean </td><td class="col2"> <code>0</code> </td><td class="col3"> <pre class="code">--dhcp-fqdn</pre>
+ </td><td class="col4"> Do not resolve unqualifed local hostnames. Needs <code>domain</code> to be set. </td>
+	</tr>
+	<tr class="row23">
+		<td class="col0"> <code>interface</code> </td><td class="col1"> list of interface names </td><td class="col2"> <em>(all interfaces)</em> </td><td class="col3"> <code>-i</code> </td><td class="col4"> List of interfaces to listen on. If unspecified, <em>dnsmasq</em> will listen to all interfaces except those listed in <code>notinterface</code>. Note that <em>dnsmasq</em> listens on loopback by default. </td>
+	</tr>
+	<tr class="row24">
+		<td class="col0"> <code>leasefile</code> </td><td class="col1"> file path </td><td class="col2"> <em>(none)</em> </td><td class="col3"> <code>-l</code> (ell) </td><td class="col4"> Store DHCP leases in this file </td>
+	</tr>
+	<tr class="row25">
+		<td class="col0"> <code>local</code> </td><td class="col1"> string </td><td class="col2"> <em>(none)</em> </td><td class="col3"> <code>-S</code> </td><td class="col4"> Look up <abbr title="Domain Name System">DNS</abbr> entries for this domain from <code>/etc/hosts</code>. This follows the same syntax as <code>server</code> entries, see the man page. </td>
+	</tr>
+	<tr class="row26">
+		<td class="col0"> <code>localise_queries</code> </td><td class="col1"> boolean </td><td class="col2"> <code>0</code> </td><td class="col3"> <code>-y</code> </td><td class="col4"> Choose IP address to match the incoming interface if multiple addresses are assigned to a host name in <code>/etc/hosts</code>. <img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Note well the spelling of this option. </td>
+	</tr>
+	<tr class="row27">
+		<td class="col0"> <code>localservice</code> </td><td class="col1"> boolean </td><td class="col2"> <code>0</code> </td><td class="col3"> <pre class="code">--local-service</pre>
+ </td><td class="col4"> Accept <abbr title="Domain Name System">DNS</abbr> queries only from hosts whose address is on a local subnet, ie a subnet for which an interface exists on the server. </td>
+	</tr>
+	<tr class="row28">
+		<td class="col0"> <code>logqueries</code> </td><td class="col1"> boolean </td><td class="col2"> <code>0</code> </td><td class="col3"> <code>-q</code> </td><td class="col4"> Log the results of <abbr title="Domain Name System">DNS</abbr> queries, dump cache on SIGUSR1 </td>
+	</tr>
+	<tr class="row29">
+		<td class="col0"> <code>nodaemon</code> </td><td class="col1"> boolean </td><td class="col2"> <code>0</code> </td><td class="col3"> <code>-d</code> </td><td class="col4"> Don&#039;t daemonize the <em>dnsmasq</em> process </td>
+	</tr>
+	<tr class="row30">
+		<td class="col0"> <code>nohosts</code> </td><td class="col1"> boolean </td><td class="col2"> <code>0</code> </td><td class="col3"> <code>-h</code> </td><td class="col4"> Don&#039;t read <abbr title="Domain Name System">DNS</abbr> names from <code>/etc/hosts</code> </td>
+	</tr>
+	<tr class="row31">
+		<td class="col0"> <code>nonegcache</code> </td><td class="col1"> boolean </td><td class="col2"> <code>0</code> </td><td class="col3"> <code>-N</code> </td><td class="col4"> Disable caching of negative &quot;no such domain&quot; responses </td>
+	</tr>
+	<tr class="row32">
+		<td class="col0"> <code>noresolv</code> </td><td class="col1"> boolean </td><td class="col2"> <code>0</code> </td><td class="col3"> <code>-R</code> </td><td class="col4"> Don&#039;t read upstream servers from <code>/etc/resolv.conf</code> </td>
+	</tr>
+	<tr class="row33">
+		<td class="col0"> <code>notinterface</code> </td><td class="col1"> list of interface names </td><td class="col2 rightalign">  <em>(none)</em> </td><td class="col3"> <code>-I</code> (eye) </td><td class="col4"> Interfaces <em>dnsmasq</em> should not listen on. </td>
+	</tr>
+	<tr class="row34">
+		<td class="col0"> <code>nonwildcard</code> </td><td class="col1"> boolean </td><td class="col2"> <code>0</code> </td><td class="col3"> <code>-z</code> </td><td class="col4 leftalign"> Bind only configured interface addresses, instead of the wildcard address.  </td>
+	</tr>
+	<tr class="row35">
+		<td class="col0"> <code>port</code> </td><td class="col1"> port number </td><td class="col2"> <code>53</code> </td><td class="col3"> <code>-p</code> </td><td class="col4"> Listening port for <abbr title="Domain Name System">DNS</abbr> queries, disables <abbr title="Domain Name System">DNS</abbr> server functionality if set to <code>0</code> </td>
+	</tr>
+	<tr class="row36">
+		<td class="col0"> <code>queryport</code> </td><td class="col1"> integer </td><td class="col2"> <em>(none)</em> </td><td class="col3"> <code>-Q</code> </td><td class="col4"> Use a fixed port for outbound <abbr title="Domain Name System">DNS</abbr> queries </td>
+	</tr>
+	<tr class="row37">
+		<td class="col0"> <code>readethers</code> </td><td class="col1"> boolean </td><td class="col2"> <code>0</code> </td><td class="col3"> <code>-Z</code> </td><td class="col4"> Read static lease entries from <code>/etc/ethers</code>, re-read on SIGHUP </td>
+	</tr>
+	<tr class="row38">
+		<td class="col0"> <code>rebind_protection</code> </td><td class="col1"> boolean </td><td class="col2"> <code>1</code> </td><td class="col3"> <pre class="code">--stop-dns-rebind</pre>
+ </td><td class="col4"> Enables <abbr title="Domain Name System">DNS</abbr> rebind attack protection by discarding upstream RFC1918 responses </td>
+	</tr>
+	<tr class="row39">
+		<td class="col0"> <code>rebind_localhost</code> </td><td class="col1"> boolean </td><td class="col2"> <code>0</code> </td><td class="col3"> <pre class="code">--rebind-localhost-ok</pre>
+ </td><td class="col4"> Allows upstream 127.0.0.0/8 responses, required for <abbr title="Domain Name System">DNS</abbr> based blacklist services, only takes effect if rebind protection is enabled </td>
+	</tr>
+	<tr class="row40">
+		<td class="col0"> <code>rebind_domain</code> </td><td class="col1"> list of domain names </td><td class="col2"> <em>(none)</em> </td><td class="col3"> <pre class="code">--rebind-domain-ok</pre>
+ </td><td class="col4"> List of domains to allow RFC1918 responses for, only takes effect if rebind protection is enabled </td>
+	</tr>
+	<tr class="row41">
+		<td class="col0"> <code>resolvfile</code> </td><td class="col1"> file path </td><td class="col2"> <code>/etc/resolv.conf</code> </td><td class="col3"> <code>-r</code> </td><td class="col4"> Specifies an alternative resolv file </td>
+	</tr>
+	<tr class="row42">
+		<td class="col0"> <code>server</code> </td><td class="col1"> list of strings </td><td class="col2"> <em>(none)</em> </td><td class="col3"> <code>-S</code> </td><td class="col4"> List of <abbr title="Domain Name System">DNS</abbr> servers to forward requests to. See the <em>dnsmasq</em> man page for syntax details. </td>
+	</tr>
+	<tr class="row43">
+		<td class="col0"> <code>strictorder</code> </td><td class="col1"> boolean </td><td class="col2"> <code>0</code> </td><td class="col3"> <code>-o</code> </td><td class="col4"> Obey order of <abbr title="Domain Name System">DNS</abbr> servers in <code>/etc/resolv.conf</code> </td>
+	</tr>
+	<tr class="row44">
+		<td class="col0"> <code>tftp_root</code> </td><td class="col1"> directory path </td><td class="col2"> <em>(none)</em> </td><td class="col3"> <pre class="code">--tftp-root</pre>
+ </td><td class="col4"> Specifies the TFTP root directory </td>
+	</tr>
+</table></div>
+</div>
+</div>
+
+<h3 class="sectionedit6" id="dhcp_pools">DHCP Pools</h3>
+<div class="level3">
+
+<p>
+Sections of the type <code>dhcp</code> specify per interface lease pools and settings for serving DHCP requests.
+Typically there is at least one section of this type present in the <code>/etc/config/dhcp</code> file to cover the lan interface.
+</p>
+
+<p>
+You can disable a lease pool for a specific interface by specifying the <code>ignore</code> option in the corresponding section.
+</p>
+
+<p>
+A minimal example of a <code>dhcp</code> section is listed below:
+</p>
+
+<p>
+<pre class="code">config &#039;dhcp&#039; &#039;lan&#039;
+	option &#039;interface&#039;   &#039;lan&#039;
+	option &#039;start&#039;       &#039;100&#039;
+	option &#039;limit&#039;	     &#039;150&#039;
+	option &#039;leasetime&#039;   &#039;12h&#039;
+        option ra server
+        option dhcpv6 server</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>lan</code> specifies the OpenWrt interface that is served by this DHCP pool</div>
+</li>
+<li class="level1"><div class="li"> <code>100</code> is the offset from the network address, in the default configuration this would mean start leasing addresses from <code>192.168.1.100</code></div>
+</li>
+<li class="level1"><div class="li"> <code>150</code> is the maximum number of addresses that may be leased, in the default configuration this would mean leasing addresses up to <code>192.168.1.250</code></div>
+</li>
+<li class="level1"><div class="li"> <code>12h</code> specifies the time to live for handed out leases, twelve hours in this example</div>
+</li>
+<li class="level1"><div class="li"> <code>server</code> defines the mode for IPv6 configuration (RA &amp; DHCPv6)</div>
+</li>
+</ul>
+
+<p>
+Below is a listing of legal options for <code>dhcp</code> sections.
+</p>
+<div class="sortable"><div class="table sectionedit7"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>dhcp_option</code> </td><td class="col1"> list of strings </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> The ID dhcp_option here must be with written with an underscore. OpenWrt will translate this to –dhcp-option, with a hyphen, as ultimately used by dnsmasq. Multiple option values can be given for this <em>network-id</em>, with a a space between them and the total string between &quot;&quot;. E.g. &#039;26,1470&#039; or &#039;option:mtu, 1470&#039; that can assign an MTU per DHCP. Your client must accept MTU by DHCP for this to work. Or &quot;3,192.168.1.1 6,192.168.1.1&quot; to give out gateway and dns server addresses. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>dynamicdhcp</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>1</code> </td><td class="col4"> Dynamically allocate client addresses, if set to <code>0</code> only clients present in the <code>ethers</code> files are served </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>force</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Forces DHCP serving on the specified interface even if another DHCP server is detected on the same network segment </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>ignore</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Specifies whether <em>dnsmasq</em> should ignore this pool if set to <code>1</code> </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>dhcpv6</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>none</code> </td><td class="col4"> Specifies whether DHCPv6 server should be enabled (<code>server</code>), relayed (<code>relay</code>) or disabled (<code>disabled</code>) </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>ra</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>none</code> </td><td class="col4"> Specifies whether Router Advertisements should be enabled (<code>server</code>), relayed (<code>relay</code>) or disabled (<code>disabled</code>) </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <code>ndp</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>none</code> </td><td class="col4"> Specifies whether NDP should be relayed <code>relay</code> or disabled <code>none</code> </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <code>master</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> 0 </td><td class="col4"> Specifies whether DHCPv6, RA and NDP in relay mode is a master interface or not. </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <code>interface</code> </td><td class="col1"> logical interface name </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Specifies the interface associated with this DHCP address pool; must be one of the interfaces defined in <code>/etc/config/network</code>.</td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> <code>leasetime</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <code>12h</code> </td><td class="col4"> Specifies the lease time of addresses handed out to clients, for example <code>12h</code> or <code>30m</code> </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> <code>limit</code> </td><td class="col1"> integer </td><td class="col2"> yes </td><td class="col3"> <code>150</code> </td><td class="col4"> Specifies the maximum allowable address that may be leased to clients, calculated as network address + &quot;start&quot; + &quot;limit&quot;. <img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> The maximum number of leased addresses is limit+1 </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0"> <code>networkid</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>(value of <code>interface</code>)</em> </td><td class="col4 leftalign"> The dhcp functionality defined in the dhcp section is limited to the interface indicated here through its <em>network-id</em>. In case omitted the system tries to know the network-id via the &#039;interface&#039; setting in this dhcp section, through consultation of /etc/config/network. Some IDs get assigned dynamically, are not provided by network, but still can be set here.  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0"> <code>start</code> </td><td class="col1"> integer </td><td class="col2"> yes </td><td class="col3"> <code>100</code> </td><td class="col4"> Specifies the offset from the network address of the underlying interface to calculate the minimum address that may be leased to clients. It may be greater than 255 to span subnets.</td>
+	</tr>
+</table></div>
+</div>
+<p>
+Notes:
+</p>
+<ul>
+<li class="level1"><div class="li"> Although called &#039;interface&#039;, this is the network name, i.e. lan, wan, wifi etc. (section names in /etc/config/network), NOT the interface name used internally, like eth0, eth1, wlan0 etc. (the &#039;ifname&#039; IDs in /etc/config/network).</div>
+</li>
+<li class="level1"><div class="li"> Although called &#039;networkid&#039;, this is the interface name used internally, i.e. eth0, eth1, wlan0 etc., not the network name (lan, wan, wifi etc.).</div>
+</li>
+</ul>
+
+<p>
+This departs from &#039;ifname&#039; and &#039;network&#039; as used in /etc/config/network and in /etc/config/wireless, so double check!
+</p>
+
+</div>
+
+<h3 class="sectionedit8" id="static_leases">Static Leases</h3>
+<div class="level3">
+
+<p>
+You can assign fixed IP addresses to hosts on your network, based on their MAC (hardware) address.
+</p>
+
+<p>
+The configuration options in this section are used to construct a <code>-G</code> option for <em>dnsmasq</em>.
+</p>
+
+<p>
+<pre class="code">config host
+        option ip       &#039;192.168.1.2&#039;
+        option mac      &#039;00:11:22:33:44:55&#039;
+        option name     &#039;mypc&#039;</pre>
+
+This adds the fixed IP address 192.168.1.2 and the name &quot;mypc&quot; for a machine with the (Ethernet) hardware address 00:11:22:33:44:55.
+</p>
+
+<p>
+<pre class="code">config host
+        option ip       &#039;192.168.1.3&#039;
+        option mac      &#039;11:22:33:44:55:66 aa:bb:cc:dd:ee:ff&#039;
+        option name     &#039;mylaptop&#039;</pre>
+
+This adds the fixed IP address 192.168.1.3 and the name &quot;mylaptop&quot; for a machine with the (Ethernet) hardware address 11:22:33:44:55:66 or aa:bb:cc:dd:ee:ff. Note that this is <strong>unreliable</strong> if more than one of the listed mac addresses is on the network simultaneously. It&#039;s useful for cases such as a laptop with both wireless and wired interfaces, provided that only one will be active at a given time.
+</p>
+<div class="table sectionedit9"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>ip</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> &#039;ignore&#039; or the IP address to be used for this host. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>mac</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> The hardware address(es) of this host, separated by commas. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>hostid</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> The IPv6 interface identifier (address suffix) as hexadecimal number (max. 8 chars) </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>duid</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> The DHCPv6-DUID of this host. </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>name</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Optional hostname to assign. </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>tag</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Set the given tag for matching hosts. </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <code>dns</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Add static forward and reverse <abbr title="Domain Name System">DNS</abbr> entries for this host. </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <code>broadcast</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Force broadcast DHCP response. </td>
+	</tr>
+</table></div>
+
+<p>
+As well as adding <code>host</code> sections, you can also enable the <code>dnsmasq</code> section option <code>readethers</code>, and add entries to the <code>/etc/ethers</code> file.
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="dhcp_option_example_to_set_an_alternative_default_gateway">DHCP OPTION example to set an alternative default gateway</h3>
+<div class="level3">
+
+<p>
+You can specify an alternative default Gateway
+</p>
+
+<p>
+<pre class="code">config &#039;dhcp&#039; &#039;lan&#039;
+        option &#039;interface&#039; &#039;lan&#039;
+        option &#039;start&#039; &#039;100&#039;
+        option &#039;limit&#039; &#039;150&#039;
+        option &#039;leasetime&#039; &#039;12h&#039;
+        list &#039;dhcp_option&#039; &#039;3,192.168.1.2&#039;</pre>
+
+</p>
+
+<p>
+use the list &#039;dhcp_option&#039; &#039;3,192.168.1.2&#039; to set the default gateway. A list of options can be found here  <a href="http://www.networksorcery.com/enp/protocol/bootp/options.htm" class="urlextern" title="http://www.networksorcery.com/enp/protocol/bootp/options.htm"  rel="nofollow"> here</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="booting_options">Booting Options</h3>
+<div class="level3">
+
+<p>
+Some hosts support booting over the network. DHCP/BOOTP is used to tell the host which file to boot and the server to load it from. Each client can only receive one set of filename and server address options. If different hosts should boot different files, or boot from different servers, you can use <em>network-ids</em> to map options to each client.
+</p>
+
+<p>
+Usually, you need to set additional DHCP options (through <code>dhcp_option</code>) for further stages of the boot process. See the <em>dnsmasq</em> man page for details on the syntax of the <code>O</code> option.
+</p>
+
+<p>
+The configuration options in this section are used to construct a <code>-M</code> option for <em>dnsmasq</em>.
+</p>
+
+<p>
+<pre class="code">config boot linux
+        option filename         &#039;/tftpboot/pxelinux.0&#039;
+        option serveraddress    &#039;192.168.1.2&#039;
+        option servername       &#039;fileserver&#039;
+        list   dhcp_option      &#039;option:root-path,192.168.1.2:/data/netboot/root&#039;</pre>
+
+This tells the client to load pxelinux.0 from the server at 192.168.1.2, and mount root from /data/netboot/root on the same server.
+</p>
+<div class="sortable"><div class="table sectionedit12"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>dhcp_option</code> </td><td class="col1"> list of strings </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Additional options to be added for this network-id. <img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> If you specify this, you also need to specify the network-id. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>filename</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> The filename the host should request from the boot server. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>networkid</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> The network-id these boot options should apply to. Applies to all clients if left unspecified. </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>serveraddress</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> The IP address of the boot server. </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>servername</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> The hostname of the boot server. </td>
+	</tr>
+</table></div>
+</div>
+</div>
+
+<h3 class="sectionedit13" id="classifying_clients_and_assigning_individual_options">Classifying Clients And Assigning Individual Options</h3>
+<div class="level3">
+
+<p>
+DHCP can provide the client with numerous options, such as the domain name, NTP servers, network booting options, etc. While some settings are applicable to all hosts in a network segment, other are more specific and apply only to a group of hosts, or even only a single one. <em>dnsmasq</em> offers to group DHCP options and their values by a <em>network-id</em>, an alphanumeric identifier, and sending options only to hosts which have been tagged with that <em>network-id</em>.
+</p>
+
+<p>
+In OpenWrt, you can tag hosts by the DHCP range they&#039;re in (section <code>dhcp</code>), or a number of options the client might send with their DHCP request. In each of these sections, you can use the <code>dhcp_option</code> list to add DHCP options to be sent to hosts with this <em>network-id</em>.
+</p>
+
+<p>
+Each classifying section has two configuration options: the value of the DHCP option used to distinguish clients, and the <em>network-id</em> that these clients should be tagged with. Here&#039;s a template:
+</p>
+
+<p>
+<code>config <em>classifier</em>
+        option <em>classifier</em>  &#039;<em>value</em>&#039;
+        option networkid   &#039;<em>network-id</em>&#039;
+        list   dhcp_option &#039;<em>DHCP-option</em>&#039; </code>
+</p>
+
+<p>
+The placeholder <code><em>classifier</em></code> can be one of these values:
+</p>
+<div class="table sectionedit14"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Classifier </th><th class="col1"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> <code>mac</code>  </td><td class="col1"> Hardware address of the client </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <code>vendorclass</code>  </td><td class="col1"> String sent by the client representing the vendor of the client. <em>dnsmasq</em> performs a substring match on the vendor class string using this value. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> <code>userclass</code>  </td><td class="col1"> String sent by the client representing the user of the client. <em>dnsmasq</em> performs a substring match on the user class string using this value. </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> <code>circuitid</code>  </td><td class="col1"> Matches the circuit ID as sent by the relay agent, as defined in RFC3046. </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> <code>remoteid</code>  </td><td class="col1"> Matches the remote ID as sent by the relay agent, as defined in RFC3046. </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> <code>subscrid</code>  </td><td class="col1"> Matches the subscriber ID as sent by the relay agent, as defined in RFC3993. </td>
+	</tr>
+</table></div>
+
+<p>
+An example using the &#039;mac&#039; classifier to create a tagged network for openvpn would look like this in the config file:
+<pre class="code">config mac &#039;opnvpn&#039;
+        option mac  &#039;00:FF:*:*:*:*&#039;
+        option networkid   &#039;opnvpn&#039;
+        list   dhcp_option &#039;3&#039;</pre>
+
+</p>
+
+<p>
+And like this in UCI
+<pre class="code">dhcp.opnvpn=mac
+dhcp.opnvpn.mac=00:FF:*:*:*:*
+dhcp.opnvpn.networkid=opnvpn
+dhcp.opnvpn.dhcp_option=3</pre>
+
+</p>
+
+<p>
+<em>DHCP-option</em> adds a DHCP option for this <em>network-id</em>. See the <em>dnsmsq</em> man page for a complete explanation of the syntax of the <code>-O</code> option.
+</p>
+
+</div>
+
+<h2 class="sectionedit15" id="using_plain_dnsmasqconf">Using plain dnsmasq.conf</h2>
+<div class="level2">
+
+<p>
+It is possible to mix the traditional <code>/etc/dnsmasq.conf</code> configuration file with the options found in <code>/etc/config/dhcp</code>.
+</p>
+
+<p>
+The <code>dnsmasq.conf</code> file does not exist by default but will be processed by <em>dnsmasq</em> on startup if it is present. Note that options in <code>/etc/config/dhcp</code> take precendence over <code>dnsmasq.conf</code> since they are translated to command line arguments.
+</p>
+
+<p>
+You can have <code>dnsmasq</code> execute a script on every action:
+</p>
+
+<p>
+<pre class="code">dhcp-script=/sbin/action.sh</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit16" id="dns_and_dhcp_ports">DNS and DHCP Ports</h3>
+<div class="level3">
+
+<p>
+<abbr title="Domain Name System">DNS</abbr> needs TCP and UDP port 53 open on the firewall.  DHCP needs UDP ports 67 and 68 open from your zone to/from the firewall.  See <a href="../recipes/guest-wlan" class="urlextern" title="http://wiki.openwrt.org/doc/recipes/guest-wlan"  rel="nofollow">http://wiki.openwrt.org/doc/recipes/guest-wlan</a> and <a href="http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html" class="urlextern" title="http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html"  rel="nofollow">http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html</a> (viz &quot;–dhcp-alternate-port&quot;) for more information.
+</p>
+
+</div>
+
+<h2 class="sectionedit17" id="examples">Examples</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit18" id="static_lease_mac_address_hot_swap">Static Lease (MAC address hot swap)</h3>
+<div class="level3">
+
+<p>
+Define a static lease for a host with MAC addresses <code>00:a0:24:5a:33:69</code> and <code>00:11:22:33:44:55</code> (handy when you use both wired and wireless connection on the same computer/laptop - of course, you can use just one MAC address) and assign the IP address <code>192.168.1.230</code> and the hostname <code>example-host</code> to it. We call this <em>MAC address hot swap</em>, since IP address stay same, but MAC address changes.
+</p>
+
+<p>
+<pre class="code">config &#039;host&#039;
+	option &#039;name&#039; &#039;example-host&#039;
+	option &#039;ip&#039;   &#039;192.168.1.230&#039;
+	option &#039;mac&#039;  &#039;00:a0:24:5a:33:69 00:11:22:33:44:55&#039;</pre>
+
+</p>
+
+</div>
+
+<h4 id="troubleshooting">Troubleshooting</h4>
+<div class="level4">
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong>Windows 7</strong> has introduced a new <em>Microsoft-enhanced</em> feature. It won&#039;t assign IP address obtained from a DHCP server to an interface, if the IP was used before for another interface, even if that other interface is <strong>NOT</strong> active currently (i.e. cable disconnected). This behaviour is unique and was not reported for older Windows versions, Mac <abbr title="Operating System">OS</abbr> nor Linux.
+</p>
+
+<p>
+If you try configure MAC address hot swap on your router, Windows 7 clients will end up in an infinite <a href="http://tools.ietf.org/html/rfc1531#section-3.1" class="urlextern" title="http://tools.ietf.org/html/rfc1531#section-3.1"  rel="nofollow">DORA</a> loop.
+</p>
+
+<p>
+Solution:
+</p>
+<ol>
+<li class="level1"><div class="li"> Create a bridge from the wireless and ethernet interfaces on your client</div>
+<ul>
+<li class="level2"><div class="li"> it&#039;s trivial: <a href="http://www.google.com/search?q=windows%207%20create%20bridge&amp;btnI=lucky" class="interwiki iw_go" title="http://www.google.com/search?q=windows%207%20create%20bridge&amp;btnI=lucky">google it</a></div>
+</li>
+<li class="level2"><div class="li"> you will have to add the MAC address of the bridge to <code>/etc/config/dhcp</code></div>
+<ul>
+<li class="level3"><div class="li"> <pre class="code">config &#039;host&#039;
+	option &#039;name&#039; &#039;example-host&#039;
+	option &#039;ip&#039;   &#039;192.168.1.230&#039;
+	option &#039;mac&#039;  &#039;00:a0:24:5a:33:69 00:11:22:33:44:55 02:a0:24:5a:33:69 02:11:22:33:44:55&#039;</pre>
+</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> Since the bridge will probably take and alter your ethernet MAC address, you will lose SLAAC on wifi interface, making your laptop IPv6-disabled when only wireless is up.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Another solution is IPv6 friendly, you don&#039;t need to create a bridge, nor add MAC address to dnsmasq config file, but it involves user interaction:</div>
+<ul>
+<li class="level2"><div class="li"> When you plug the ethernet cable in, disable wireless interface in control panel (power off wireless won&#039;t do it). </div>
+</li>
+<li class="level2"><div class="li"> When you unplug ethernet cable, enable wireless and disable ethernet.</div>
+</li>
+</ul>
+</li>
+</ol>
+
+<p>
+Notes:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://answers.microsoft.com/en-us/windows/forum/windows_7-networking/windows-7-refuses-dhcp-addresses-if-they-were/1b72b289-0f58-492f-afb8-e76c80a81f00" class="urlextern" title="http://answers.microsoft.com/en-us/windows/forum/windows_7-networking/windows-7-refuses-dhcp-addresses-if-they-were/1b72b289-0f58-492f-afb8-e76c80a81f00"  rel="nofollow">http://answers.microsoft.com/en-us/windows/forum/windows_7-networking/windows-7-refuses-dhcp-addresses-if-they-were/1b72b289-0f58-492f-afb8-e76c80a81f00</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit19" id="only_allow_static_leases">Only allow static leases</h3>
+<div class="level3">
+
+<p>
+If you want to distribute IPv4 addresses to known clients only (static leases), use:
+</p>
+
+<p>
+<pre class="code">config dhcp &#039;lan&#039;
+        ...
+        option dynamicdhcp 0</pre>
+
+</p>
+
+<p>
+With this, dnsmasq will consider static leases defined in &quot;config host&quot; blocks and in /etc/ethers, and refuse to hand out any IPv4 address to unknown clients.
+</p>
+
+<p>
+Note that you shouldn&#039;t use this as a security feature to prevent unwanted clients from connecting.  A client can simply configure a static IP in the right range to have access to the network.
+</p>
+
+</div>
+
+<h3 class="sectionedit20" id="custom_domain">Custom Domain</h3>
+<div class="level3">
+
+<p>
+Define a custom domain name and the corresponding PTR record - assigns the IP address <code>192.168.1.140</code> to the domain name <code>typhoon</code> and construct an appropriate reverse record <code>140.1.168.192.in-addr.arpa</code>.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Note that this currently only works for IPv4 addresses and that this functionality is not present in release prior to 8.09.2 .
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Note that reverse records are not properly generated at present. (Barrier Breaker 14.07-RC2)
+</p>
+
+<p>
+<pre class="code">config &#039;domain&#039;
+	option &#039;name&#039; &#039;typhoon&#039;
+	option &#039;ip&#039;   &#039;192.168.1.140&#039;</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit21" id="srv_rr_for_sip">SRV RR for SIP</h3>
+<div class="level3">
+
+<p>
+To define an SRV record for SIP over UDP, with the default port of 5060 on the host pbx.mydomain.com, with a class of 0 and a weight of 10 one would use:
+</p>
+
+<p>
+<pre class="code">config &#039;srvhost&#039;
+	option srv  &#039;_sip._udp.mydomain.com&#039;
+	option target &#039;pbx.mydomain.com&#039;
+	option port 5060
+	option class 0
+	option weight 10</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit22" id="cname_rr">CNAME RR</h3>
+<div class="level3">
+
+<p>
+To specify that the web server also doubles as the <abbr title="File Transfer Protocol">FTP</abbr> server (at least in name), one might use:
+</p>
+
+<p>
+<pre class="code">config &#039;cname&#039;
+	option cname &#039;ftp&#039;
+	option target &#039;www&#039;</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit23" id="mx_rr">MX RR</h3>
+<div class="level3">
+
+<p>
+If you&#039;re running the mail server for your domain behind a firewall (and therefore, with split-horizon for your own domain) then you might need to convince that mailer that it&#039;s actually authoritative for your domain.
+</p>
+
+<p>
+If sendmail tells you &quot;Domain of sender address xxx@yyy.zzz does not exist&quot; this is because it isn&#039;t finding an MX record confirming that it&#039;s an MX relay for that domain.
+</p>
+
+<p>
+Adding:
+</p>
+
+<p>
+<pre class="code">config &#039;mxhost&#039;
+	option domain &#039;yyy.zzz&#039;
+	option relay &#039;my.host.com&#039;
+	option pref 10</pre>
+
+</p>
+
+<p>
+will mitigate the issues caused by split-horizon.
+</p>
+
+</div>
+
+<h3 class="sectionedit24" id="tftp_boot">TFTP Boot</h3>
+<div class="level3">
+
+<p>
+Direct BOOTP requests to the TFTP server at the IP address <code>192.168.1.2</code> and use <code>/tftpboot/pxelinux.0</code> as boot file name.
+</p>
+
+<p>
+<pre class="code">config &#039;boot&#039;
+	option &#039;filename&#039;      &#039;pxelinux.0&#039;
+	option &#039;servername&#039;    &#039;data&#039;
+	option &#039;serveraddress&#039; &#039;192.168.1.2&#039;</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit25" id="multiple_dhcp_options">Multiple DHCP options</h3>
+<div class="level3">
+
+<p>
+Multiple DHCP options can be configured under a single dhcp_option object.  In this case, option 66 (tftp-server) and option 150 (multiple tftp servers) were used for a Cisco Callmanager deployment.
+</p>
+
+<p>
+<pre class="code">config &#039;dhcp&#039; &#039;lan&#039;
+        option &#039;interface&#039; &#039;lan&#039;
+        option &#039;start&#039; &#039;62&#039;
+        option &#039;limit&#039; &#039;192&#039;
+        option &#039;leasetime&#039; &#039;600h&#039;
+        list &#039;dhcp_option&#039; &#039;66,172.16.60.64&#039;
+        list &#039;dhcp_option&#039; &#039;150,172.16.60.64&#039;</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit26" id="multiple_dhcpdns_serverforwarder_instances">Multiple DHCP/DNS server/forwarder instances</h3>
+<div class="level3">
+
+<p>
+If you need multiple <abbr title="Domain Name System">DNS</abbr> forwarders with different configurations or DHCP server with different sets of lease files,
+have a look at this <a href="https://dev.openwrt.org/ticket/8862" class="urlextern" title="https://dev.openwrt.org/ticket/8862"  rel="nofollow">patch</a>.
+Multiple dnsmasq &quot;named&quot; instances can be configured:
+<pre class="code">config &#039;dnsmasq&#039; &#039;hotspot&#039;
+        option nonwildcard &#039;1&#039; # Tell dnsmasq to bind specific address(es)
+        option resolvfile &#039;/tmp/resolv.conf.hotspot&#039;
+        ...</pre>
+
+</p>
+
+<p>
+Your configs are usally active for all instances, but you can limit them to single instances by:
+<pre class="code">config &#039;dhcp&#039; &#039;lan&#039;
+        option &#039;interface&#039; &#039;lan&#039;
+        option &#039;dnsmasq_config&#039; &#039;hotspot&#039;
+
+config &#039;host&#039;
+        option &#039;name&#039; &#039;chef&#039;
+        option &#039;mac&#039; &#039;00:00:00:00:00:00&#039;
+        option &#039;ip&#039; &#039;192.168.1.66&#039;
+        option &#039;dnsmasq_config&#039; &#039;hotspot&#039;</pre>
+
+</p>
+
+<p>
+The web interface (luci) has not been updated for this patch yet.
+</p>
+
+</div>
+
+<h3 class="sectionedit27" id="assigning_dhcp_pool_to_a_subnet_in_a_large_network">Assigning DHCP pool to a subnet in a large network</h3>
+<div class="level3">
+
+<p>
+In DHCP pool limit setting, the start and limit values do *not* refer to the &quot;last digit&quot;, they&#039;re relative offsets to the network address.
+</p>
+<ul>
+<li class="level1"><div class="li"> the network address of 10.0.0.1 / 255.0.0.0 is 10.0.0.0</div>
+</li>
+<li class="level1"><div class="li"> the 10.22.0.1 start address is 22 x /16 subnets away: (2^16) * 22 = 1441792</div>
+</li>
+<li class="level1"><div class="li"> 10.0.0.0 + 1441792 + 1 = 10.22.0.1 → start = 1441793</div>
+</li>
+<li class="level1"><div class="li"> 10.22.0.254 - 10.22.0.1 = 253 → limit = 253</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">config dhcp lan
+  option interface lan
+  option start 1441793
+  option limit 253</pre>
+
+Test:
+<pre class="code">root@OpenWrt:~# ipcalc.sh 10.0.0.1 255.0.0.0 1441793 253
+IP=10.0.0.1
+NETMASK=255.0.0.0
+BROADCAST=10.255.255.255
+NETWORK=10.0.0.0
+PREFIX=8
+START=10.22.0.1
+END=10.22.0.254
+root@OpenWrt:~#</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit28" id="classifying_clients_and_assigning_individual_options1">Classifying Clients And Assigning Individual Options</h3>
+<div class="level3">
+
+<p>
+Assign different dhcp-options to a single MAC address:
+<pre class="code bash">uci batch <span class="co2">&lt;&lt;'EOF'
+add dhcp mac
+set dhcp.@mac[-1].mac=00:11:22:33:44:55
+set dhcp.@mac[-1].networkid=someone
+add_list dhcp.@mac[-1].dhcp_option=6,192.168.1.3,192.168.1.2,192.168.1.1
+add_list dhcp.@mac[-1].dhcp_option=3,192.168.1.2
+add_list dhcp.@mac[-1].dhcp_option=44,192.168.1.3
+commit dhcp
+EOF</span>
+uci commit dhcp
+<span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>dnsmasq reload</pre>
+
+Where 6=<abbr title="Domain Name System">DNS</abbr>, 3=Default Gateway, 44=WINS
+</p>
+
+<p>
+Assign different dhcp-options to multiple hosts:
+</p>
+
+<p>
+<pre class="code bash">config host
+    option name <span class="st0">'j400'</span>
+    option mac <span class="st0">'00:21:63:75:aa:17'</span>
+    option ip <span class="st0">'10.11.12.14'</span>
+    option tag <span class="st0">'vpn'</span>  <span class="co0"># assign tag &quot;vpn&quot; to this host</span>
+&nbsp;
+config host
+    option name <span class="st0">'j500'</span>
+    option mac <span class="st0">'01:22:64:76:bb:18'</span>
+    option ip <span class="st0">'10.11.12.15'</span>
+    option tag <span class="st0">'vpn'</span>  <span class="co0"># assign tag &quot;vpn&quot; to this host</span>
+&nbsp;
+config tag <span class="st0">'vpn'</span>  <span class="co0"># match tag &quot;vpn&quot;</span>
+    list dhcp_option <span class="st0">'6,8.8.8.8,8.8.4.4'</span>  <span class="co0"># assign arbritary extra dhcp options to this tag</span></pre>
+
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Generally, specifying a dhcp option without any value, would disable that option. so for example you can use:
+<pre class="code">list dhcp_option &#039;3&#039;</pre>
+
+to disable sending a default gateway to a specific client
+</p>
+
+<p>
+<img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> Convert to procd: etc/init.d/dnsmasq restart 
+</p>
+
+</div>
+
+<h3 class="sectionedit29" id="enabling_dhcp_without_enabling_dns">Enabling DHCP without enabling DNS</h3>
+<div class="level3">
+
+<p>
+This is useful when you just want to hand out addresses to clients, without doing any <abbr title="Domain Name System">DNS</abbr>.
+</p>
+
+<p>
+<pre class="code">config dnsmasq
+       ...
+       option port 0
+       option domain &#039;&#039;</pre>
+
+</p>
+
+<p>
+The second option prevents dnsmasq from giving out a domain name and <abbr title="Domain Name System">DNS</abbr> search list to clients: this is useless without <abbr title="Domain Name System">DNS</abbr> resolving.
+</p>
+
+<p>
+Of course, you will want to hand out the address of a <abbr title="Domain Name System">DNS</abbr> resolver to clients:
+</p>
+
+<p>
+<pre class="code">config dhcp lan
+       option interface lan
+       ...
+       list dhcp_option &quot;6,80.67.188.188,6,80.67.169.12&quot;
+       list dns         &quot;2001:913::8&quot;
+       list dns         &quot;2001:910:800::12&quot;       </pre>
+
+</p>
+
+<p>
+The `dhcp_option` entry is meant for dnsmasq, while the more elegant `dns` entries are understood by odhcpd.  By default, odhcpd is only used for IPv6, but if you also use odhcpd for IPv4, you can just use `dns` entries for everything.
+</p>
+
+</div>
+
+<h3 class="sectionedit30" id="enabling_dns_without_enabling_dhcp">Enabling DNS without enabling DHCP</h3>
+<div class="level3">
+
+<p>
+dnsmasq can be used to provide clients with a <abbr title="Domain Name System">DNS</abbr> server but not with DHCP (for example, if DHCP is already supplied by a separate server).
+</p>
+
+<p>
+First, dnsmasq must be turned on for the internal interface:
+</p>
+<ul>
+<li class="level1"><div class="li"> Network &gt; Interfaces</div>
+<ul>
+<li class="level2"><div class="li"> click the desired internal interface to select it</div>
+<ul>
+<li class="level3"><div class="li"> DHCP Server</div>
+<ul>
+<li class="level4"><div class="li"> click the &quot;Setup DHCP Server&quot; button to enable dnsmasq on this interface – this will enable both DHCP and <abbr title="Domain Name System">DNS</abbr></div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+Now that dnsmasq is enabled, the DHCP portion of dnsmasq needs to be turned off.
+</p>
+<ul>
+<li class="level1"><div class="li"> Network &gt; Interfaces</div>
+<ul>
+<li class="level2"><div class="li"> click the desired internal interface to select it</div>
+<ul>
+<li class="level3"><div class="li"> DHCP Server</div>
+<ul>
+<li class="level4"><div class="li"> Ignore interface: Enable this option</div>
+</li>
+</ul>
+</li>
+<li class="level3"><div class="li"> Save &amp; Apply</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+This change will turn off just DHCP but leave <abbr title="Domain Name System">DNS</abbr> services available on the specified interface.
+</p>
+
+</div>
+
+<h3 class="sectionedit31" id="several_dns_servers">Several DNS servers</h3>
+<div class="level3">
+
+<p>
+<pre class="file">config dnsmasq
+        option domainneeded &#039;1&#039;
+        option localise_queries &#039;1&#039;
+        option local &#039;/lan/&#039;
+        option domain &#039;lan&#039;
+        option expandhosts &#039;1&#039;
+        option authoritative &#039;1&#039;
+        option readethers &#039;1&#039;
+        option leasefile &#039;/tmp/dhcp.leases&#039;
+        option resolvfile &#039;/tmp/resolv.conf.auto&#039;
+        list server &#039;/subdomain.example.com/192.0.2.1&#039;
+          #be careful that some options should be absent (or set to False)
+          #to allow the forwarding towards the &quot;so defined&quot; private networks
+          #http://en.wikipedia.org/wiki/Private_network
+        list server &#039;/example.com/208.67.222.222&#039;
+        option rebind_protection &#039;0&#039;</pre>
+
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/uci/dhcp.txt</bdi> · Last modified: 2015/04/09 18:57 by <bdi>twein</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="dhcp?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="dhcp?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="dhcp?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="dhcp#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Auci%253Adhcp&amp;1432265619" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

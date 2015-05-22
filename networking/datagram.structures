@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Datagram Structures [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,networking,datagram.structures"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="datagram.structures?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:networking"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/networking/datagram.structures"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/networking/datagram.structures"/>
+<link rel="canonical" href="datagram.structures"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:networking';var JSINFO = {"id":"doc:networking:datagram.structures","namespace":"doc:networking"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266397 166.182.3.178';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="datagram.structures#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="datagram.structures?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="datagram.structures?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:networking:datagram.structures" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="datagram.structures?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="datagram.structures?do=media&amp;ns=doc%253Anetworking"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="datagram.structures?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:networking:start">Networking</a></bdi> » <bdi><span class="curid"><a href="datagram.structures" class="wikilink1" title="doc:networking:datagram.structures">Datagram Structures</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/networking/datagram.structures" class="media" title="cz:doc:networking:datagram.structures"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/networking/datagram.structures" class="media" title="de:doc:networking:datagram.structures"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="datagram.structures" class="media" title="doc:networking:datagram.structures"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/networking/datagram.structures" class="media" title="es:doc:networking:datagram.structures"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/networking/datagram.structures" class="media" title="fr:doc:networking:datagram.structures"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/networking/datagram.structures" class="media" title="hu:doc:networking:datagram.structures"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/networking/datagram.structures" class="media" title="jp:doc:networking:datagram.structures"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/networking/datagram.structures" class="media" title="pl:doc:networking:datagram.structures"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/networking/datagram.structures" class="media" title="pt-br:doc:networking:datagram.structures"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/networking/datagram.structures" class="media" title="ru:doc:networking:datagram.structures"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/networking/datagram.structures" class="media" title="tr:doc:networking:datagram.structures"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/networking/datagram.structures" class="media" title="zh-cn:doc:networking:datagram.structures"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/networking/datagram.structures" class="media" title="zh-tw:doc:networking:datagram.structures"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:networking:datagram.structures</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="datagram.structures#osi_layer_2">OSI Layer 2</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="datagram.structures#ethernet">Ethernet</a></div></li>
+<li class="level2"><div class="li"><a href="datagram.structures#wireless_lan">Wireless LAN</a></div></li>
+<li class="level2"><div class="li"><a href="datagram.structures#atm_cell">ATM cell</a></div></li>
+<li class="level2"><div class="li"><a href="datagram.structures#ppp">PPP</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="datagram.structures#osi_layer_3">OSI Layer 3</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="datagram.structures#ip">IP</a></div></li>
+<li class="level2"><div class="li"><a href="datagram.structures#icmp">ICMP</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="datagram.structures#osi_layer_4">OSI Layer 4</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="datagram.structures#tcp">TCP</a></div></li>
+<li class="level2"><div class="li"><a href="datagram.structures#udp">UDP</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="datagram.structures#datagram_structure">Datagram Structure</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="datagram.structures#example">Example</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="datagram_structures">Datagram Structures</h1>
+<div class="level1">
+
+<p>
+Please read <a href="http://en.wikipedia.org/wiki/Datagram" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Datagram">Datagram</a> and <a href="http://en.wikipedia.org/wiki/OSI model" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/OSI model">OSI model</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="osi_layer_2">OSI Layer 2</h2>
+<div class="level2">
+
+<p>
+<a href="http://en.wikipedia.org/wiki/OSI_model#Layer_2%3A_data_link_layer" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/OSI_model#Layer_2%3A_data_link_layer">OSI Layer 2</a> datagrams are called <strong>frames</strong>.
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="ethernet">Ethernet</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <a href="http://en.wikipedia.org/wiki/Ethernet" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Ethernet">IEEE 802.3</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://en.wikipedia.org/wiki/IEEE 802.1Q" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/IEEE 802.1Q">IEEE 802.1q: VLANs</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit4" id="wireless_lan">Wireless LAN</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"><a href="http://en.wikipedia.org/wiki/Wireless_lan" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Wireless_lan">Wireless LAN</a>. </div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit5" id="atm_cell">ATM cell</h3>
+<div class="level3">
+
+<p>
+Layer 2  datagrams of the ATM protocol are called <strong>cells</strong>.
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://en.wikipedia.org/wiki/Asynchronous_Transfer_Mode#Structure_of_an_ATM_cell" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Asynchronous_Transfer_Mode#Structure_of_an_ATM_cell"> ATM cell structure</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit6" id="ppp">PPP</h3>
+<div class="level3">
+
+<p>
+The <a href="http://en.wikipedia.org/wiki/Point-to-point protocol" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Point-to-point protocol">PPP (Point-to-point protocol)</a> is a somewhat of a partial Layer 2 protocol. It is always used in conjunction with a second Layer 2 protocol, working as a carrier.
+</p>
+<div class="table sectionedit7"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign" colspan="3"> PPP Header or Field or Tag  </th><td class="col3"></td><td class="col4"></td><td class="col5"></td><td class="col6"></td><td class="col7"></td>
+	</tr>
+	<tr class="row1">
+		<th class="col0"> Field </th><th class="col1"> Version </th><th class="col2"> Type </th><th class="col3"> Code </th><th class="col4"> Session-ID </th><th class="col5"> Length </th><th class="col6"> PPP protocol </th><th class="col7 centeralign">  <strong>Payload</strong>  </th>
+	</tr>
+	</thead>
+	<tr class="row2">
+		<th class="col0 leftalign"> Bit   </th><td class="col1 centeralign">  4      </td><td class="col2 centeralign">  4   </td><td class="col3 centeralign">  8   </td><td class="col4 centeralign">   16       </td><td class="col5 centeralign">  16    </td><td class="col6 centeralign">  16          </td><td class="col7 centeralign">  x  </td>
+	</tr>
+</table></div>
+
+<p>
+Such PPP frames are encapsulated into the carrier frame: common are Ethernet and ATM. So we talk about 
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>PPPoE Frame</strong>: TODO (or simply combine the already given information)</div>
+</li>
+<li class="level1"><div class="li"> <strong>PPPoA Cell</strong>: TODO (or simply combine the already given information)</div>
+</li>
+</ul>
+
+<p>
+But since ATM protocol is ever present, you only seldom have pure PPPoE over the whole distance from your Modem to the DSLAM. You have ATM as well as Ethernet. And this gives you two possibilities to combine the two protocols. You can either encapsulate or bridge:
+</p>
+<ul>
+<li class="level1"><div class="li"> Encapsulating: <strong>PPPoEoA Frame</strong>: <a href="http://en.wikipedia.org/wiki/Point-to-Point_Protocol_over_Ethernet#How_PPPoE_fits_in_the_DSL_Internet_access_architecture" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Point-to-Point_Protocol_over_Ethernet#How_PPPoE_fits_in_the_DSL_Internet_access_architecture">Point-to-Point_Protocol_over_Ethernet#How_PPPoE_fits_in_the_DSL_Internet_access_architecture</a></div>
+</li>
+<li class="level1"><div class="li"> Briding: <strong>PPPoE-2-PPPoA</strong> this means that the Modem, strips the PPPoE header of every frame and replaces it with a PPPoA header.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Pure PPPoE: it is being claimed that many VDSL2 connections relinquish the ATM protocols, and use pure PPPoE.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit8" id="osi_layer_3">OSI Layer 3</h2>
+<div class="level2">
+
+<p>
+Datagrams at <a href="http://en.wikipedia.org/wiki/OSI_model#Layer_3%3A_network_layer" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/OSI_model#Layer_3%3A_network_layer">OSI Layer 2</a> are called <strong>packets</strong>.
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="ip">IP</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <a href="http://en.wikipedia.org/wiki/IPv4#Packet_structure" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/IPv4#Packet_structure">IPv4 Packet</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://en.wikipedia.org/wiki/IPv6 packet" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/IPv6 packet">IPv6 Packet</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit10" id="icmp">ICMP</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <a href="http://en.wikipedia.org/wiki/Internet Control Message Protocol" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Internet Control Message Protocol">ICMPv4 Packet</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://en.wikipedia.org/wiki/ICMPv6" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/ICMPv6">ICMPv6 Packet</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit11" id="osi_layer_4">OSI Layer 4</h2>
+<div class="level2">
+
+<p>
+Some <a href="http://en.wikipedia.org/wiki/OSI_model#Layer_4%3A_transport_layer" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/OSI_model#Layer_4%3A_transport_layer">OSI Layer 4</a> datagrams are referred to as <strong>packets</strong>. TCP datagrams are called <strong>segments</strong>.  By definition UDP datagrams remain <strong>datagrams</strong> because they are <a href="http://en.wikipedia.org/wiki/Stateless_protocol" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Stateless_protocol">stateless</a> but are often referred to as <strong>packets</strong>.
+</p>
+
+</div>
+
+<h3 class="sectionedit12" id="tcp">TCP</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <a href="http://en.wikipedia.org/wiki/Transmission_Control_Protocol" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit13" id="udp">UDP</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <a href="http://en.wikipedia.org/wiki/User_Datagram_Protocol" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/User_Datagram_Protocol">UDP</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit14" id="datagram_structure">Datagram Structure</h2>
+<div class="level2">
+<div class="table sectionedit15"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Protocol </th><th class="col1"> Header Size in Bytes </th><th class="col2"> Total Size in Bytes </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> <a href="http://en.wikipedia.org/wiki/Ethernet frame#Structure" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Ethernet frame#Structure">Ethernet frame</a>  </td><td class="col1 centeralign">  38–42   </td><td class="col2 leftalign"> Size: 84–1542Bytes, <a href="http://en.wikipedia.org/wiki/Jumbo frame" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Jumbo frame">Jumbo frame</a> up to 9042  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <a href="http://en.wikipedia.org/wiki/IEEE 802.11#Frames" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/IEEE 802.11#Frames">Wireless LAN</a>                                  </td><td class="col1 centeralign">  ??      </td><td class="col2 centeralign">  23??  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> <a href="http://en.wikipedia.org/wiki/IPv4#Packet_structure" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/IPv4#Packet_structure">IPv4 Packet</a>  </td><td class="col1 centeralign">  20–60   </td><td class="col2 centeralign">  Size: 20– (20-byte header + 0 bytes data) 65.535  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> <a href="http://en.wikipedia.org/wiki/IPv6 packet" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/IPv6 packet">IPv6 Packet</a>            </td><td class="col1 centeralign">  40 fixed, Optional Extension Header possible  </td><td class="col2 centeralign">  up to 65.535  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> <a href="http://en.wikipedia.org/wiki/Transmission_Control_Protocol#TCP_segment_structure" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Transmission_Control_Protocol#TCP_segment_structure">TCP Segment</a>  </td><td class="col1 centeralign">  20–60  </td><td class="col2 centeralign">  up to 65.535  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> <a href="http://en.wikipedia.org/wiki/User_Datagram_Protocol#Packet_structure" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/User_Datagram_Protocol#Packet_structure">UDP Packet</a>  </td><td class="col1 centeralign">  4–8 with IPv4 and 6–8 with IPv6  </td><td class="col2 centeralign">  up to 65.535  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit16" id="example">Example</h3>
+<div class="level3">
+
+<p>
+TCP segment in IPv4 packet in Ethernet frame
+</p>
+<div class="table sectionedit17"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  Ethernet  </th><th class="col1 centeralign">  Octets  </th><td class="col2"></td><td class="col3"></td><td class="col4"></td><td class="col5"></td><td class="col6"></td>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Preamble  </td><td class="col1 centeralign">  7  </td><td class="col2"></td><td class="col3"></td><td class="col4"></td><td class="col5"></td><td class="col6"></td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Start of frame delimiter  </td><td class="col1 centeralign">  1  </td><td class="col2"></td><td class="col3"></td><td class="col4"></td><td class="col5"></td><td class="col6"></td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  MAC destination  </td><td class="col1 centeralign">  6  </td><td class="col2"></td><td class="col3"></td><td class="col4"></td><td class="col5"></td><td class="col6"></td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  MAC source  </td><td class="col1 centeralign">  6  </td><td class="col2"></td><td class="col3"></td><td class="col4"></td><td class="col5"></td><td class="col6"></td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  802.1Q tag (opt.)  </td><td class="col1 centeralign">  4  </td><td class="col2"></td><td class="col3"></td><td class="col4"></td><td class="col5"></td><td class="col6"></td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  Ethertype or length  </td><td class="col1 centeralign">  2  </td><th class="col2 centeralign">  IPv4  </th><th class="col3 centeralign">  Bits  </th><td class="col4"></td><td class="col5"></td><td class="col6"></td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  Payload  </td><td class="col1 centeralign">  46 -1500  </td><td class="col2 centeralign">  Version  </td><td class="col3 centeralign">  4  </td><td class="col4"></td><td class="col5"></td><td class="col6"></td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign">  </td><td class="col1 leftalign">  </td><td class="col2 centeralign">  Header Length  </td><td class="col3 centeralign">  4  </td><td class="col4"></td><td class="col5"></td><td class="col6"></td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign">  </td><td class="col1 leftalign">  </td><td class="col2 centeralign">  Differentiated Services Code Point   </td><td class="col3 centeralign">  6  </td><td class="col4"></td><td class="col5"></td><td class="col6"></td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign">  </td><td class="col1 leftalign">  </td><td class="col2 centeralign">  Explicit Congestion Notification  </td><td class="col3 centeralign">  2  </td><td class="col4"></td><td class="col5"></td><td class="col6"></td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign">  </td><td class="col1 leftalign">  </td><td class="col2 centeralign">  Total Length  </td><td class="col3 centeralign">  16  </td><td class="col4"></td><td class="col5"></td><td class="col6"></td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign">  </td><td class="col1 leftalign">  </td><td class="col2 centeralign">  Identification  </td><td class="col3 centeralign">  16  </td><td class="col4"></td><td class="col5"></td><td class="col6"></td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign">  </td><td class="col1 leftalign">  </td><td class="col2 centeralign">  Flags  </td><td class="col3 centeralign">  3  </td><td class="col4"></td><td class="col5"></td><td class="col6"></td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 leftalign">  </td><td class="col1 leftalign">  </td><td class="col2 centeralign">  Fragment Offset  </td><td class="col3 centeralign">  13  </td><td class="col4"></td><td class="col5"></td><td class="col6"></td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 leftalign">  </td><td class="col1 leftalign">  </td><td class="col2 centeralign">  Time to Live  </td><td class="col3 centeralign">  8  </td><td class="col4"></td><td class="col5"></td><td class="col6"></td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 leftalign">  </td><td class="col1 leftalign">  </td><td class="col2 centeralign">  Protocol  </td><td class="col3 centeralign">  8  </td><td class="col4"></td><td class="col5"></td><td class="col6"></td>
+	</tr>
+	<tr class="row17">
+		<td class="col0 leftalign">  </td><td class="col1 leftalign">  </td><td class="col2 centeralign">  Header Checksum  </td><td class="col3 centeralign">  16  </td><td class="col4"></td><td class="col5"></td><td class="col6"></td>
+	</tr>
+	<tr class="row18">
+		<td class="col0 leftalign">  </td><td class="col1 leftalign">  </td><td class="col2 centeralign">  Source IP Address  </td><td class="col3 centeralign">  32  </td><td class="col4"></td><td class="col5"></td><td class="col6"></td>
+	</tr>
+	<tr class="row19">
+		<td class="col0 leftalign">  </td><td class="col1 leftalign">  </td><td class="col2 centeralign">  Destination IP Address  </td><td class="col3 centeralign">  32  </td><td class="col4"></td><td class="col5"></td><td class="col6"></td>
+	</tr>
+	<tr class="row20">
+		<td class="col0 leftalign">  </td><td class="col1 leftalign">  </td><td class="col2 centeralign">  Options ( if Header Length &gt; 5 )  </td><td class="col3 centeralign">  ?  </td><td class="col4"></td><td class="col5"></td><td class="col6"></td>
+	</tr>
+	<tr class="row21">
+		<td class="col0 leftalign">  </td><td class="col1 leftalign">  </td><td class="col2 centeralign">  Payload  </td><td class="col3 centeralign">  1440-1480 Bytes  </td><th class="col4 centeralign">  TCP  </th><th class="col5 centeralign">  Bits  </th><td class="col6"></td>
+	</tr>
+	<tr class="row22">
+		<td class="col0 leftalign">  </td><td class="col1 leftalign">  </td><td class="col2 leftalign">    </td><td class="col3 leftalign">    </td><td class="col4 centeralign">  Source Port  </td><td class="col5 centeralign">  16  </td><td class="col6"></td>
+	</tr>
+	<tr class="row23">
+		<td class="col0 leftalign">  </td><td class="col1 leftalign">  </td><td class="col2 leftalign">    </td><td class="col3 leftalign">    </td><td class="col4 centeralign">  Destination Port  </td><td class="col5 centeralign">  16  </td><td class="col6"></td>
+	</tr>
+	<tr class="row24">
+		<td class="col0 leftalign">  </td><td class="col1 leftalign">  </td><td class="col2 leftalign">    </td><td class="col3 leftalign">    </td><td class="col4 centeralign">  Sequence number  </td><td class="col5 centeralign">  32  </td><td class="col6"></td>
+	</tr>
+	<tr class="row25">
+		<td class="col0 leftalign">  </td><td class="col1 leftalign">  </td><td class="col2 leftalign">    </td><td class="col3 leftalign">    </td><td class="col4 centeralign">  Acknowledgment number  </td><td class="col5 centeralign">  32  </td><td class="col6"></td>
+	</tr>
+	<tr class="row26">
+		<td class="col0 leftalign">  </td><td class="col1 leftalign">  </td><td class="col2 leftalign">    </td><td class="col3 leftalign">    </td><td class="col4 centeralign">  Data offset 	</td><td class="col5 centeralign">  4   </td><td class="col6"></td>
+	</tr>
+	<tr class="row27">
+		<td class="col0 leftalign">  </td><td class="col1 leftalign">  </td><td class="col2 leftalign">    </td><td class="col3 leftalign">    </td><td class="col4 centeralign">  Reserved  </td><td class="col5 centeralign">  4  </td><td class="col6"></td>
+	</tr>
+	<tr class="row28">
+		<td class="col0 leftalign">  </td><td class="col1 leftalign">  </td><td class="col2 leftalign">    </td><td class="col3 leftalign">    </td><td class="col4 centeralign">  Flag  </td><td class="col5 centeralign">  8  </td><td class="col6"></td>
+	</tr>
+	<tr class="row29">
+		<td class="col0 leftalign">  </td><td class="col1 leftalign">  </td><td class="col2 leftalign">    </td><td class="col3 leftalign">    </td><td class="col4 centeralign">  Window Size 	</td><td class="col5 centeralign">  16  </td><td class="col6"></td>
+	</tr>
+	<tr class="row30">
+		<td class="col0 leftalign">  </td><td class="col1 leftalign">  </td><td class="col2 leftalign">    </td><td class="col3 leftalign">    </td><td class="col4 centeralign">  Checksum   </td><td class="col5 centeralign">	 16  </td><td class="col6"></td>
+	</tr>
+	<tr class="row31">
+		<td class="col0 leftalign">  </td><td class="col1 leftalign">  </td><td class="col2 leftalign">    </td><td class="col3 leftalign">    </td><td class="col4 centeralign">  Urgent pointer  </td><td class="col5 centeralign" colspan="2">  16  </td>
+	</tr>
+	<tr class="row32">
+		<td class="col0 leftalign">  </td><td class="col1 leftalign">  </td><td class="col2 leftalign">    </td><td class="col3 leftalign">    </td><td class="col4 centeralign">  Options (if Data Offset &gt; 5)  </td><td class="col5 centeralign">  varies  </td><td class="col6"></td>
+	</tr>
+	<tr class="row33">
+		<td class="col0 leftalign">  </td><td class="col1 leftalign">  </td><td class="col2 leftalign">    </td><td class="col3 leftalign">    </td><td class="col4 centeralign">  padding  </td><td class="col5 centeralign">	8  </td><td class="col6"></td>
+	</tr>
+	<tr class="row34">
+		<td class="col0 leftalign">  </td><td class="col1 leftalign">  </td><td class="col2 leftalign">    </td><td class="col3 leftalign">    </td><td class="col4 centeralign">  Payload  </td><td class="col5 centeralign">  Payload  </td><td class="col6"></td>
+	</tr>
+	<tr class="row35">
+		<td class="col0 centeralign">  CRC  </td><td class="col1 centeralign">  4  </td><td class="col2"></td><td class="col3"></td><td class="col4"></td><td class="col5"></td><td class="col6"></td>
+	</tr>
+	<tr class="row36">
+		<td class="col0 centeralign">  Interframe gap  </td><td class="col1 centeralign">  12  </td><td class="col2"></td><td class="col3"></td><td class="col4"></td><td class="col5"></td><td class="col6"></td>
+	</tr>
+</table></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/networking/datagram.structures.txt</bdi> · Last modified: 2012/11/30 16:13 by <bdi>uvray313</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="datagram.structures?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="datagram.structures?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="datagram.structures?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="datagram.structures#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Anetworking%253Adatagram.structures&amp;1432266397" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Strongswan IPsec Configuration [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,uci,ipsec"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="ipsec?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:uci"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/uci/ipsec"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/uci/ipsec"/>
+<link rel="canonical" href="ipsec"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:uci';var JSINFO = {"id":"doc:uci:ipsec","namespace":"doc:uci"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432279275 166.182.3.231';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="ipsec#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="ipsec?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="ipsec?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:uci:ipsec" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="ipsec?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="ipsec?do=media&amp;ns=doc%253Auci"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="ipsec?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../uci.1" class="wikilink1" title="doc:uci">The UCI System</a></bdi> » <bdi><span class="curid"><a href="ipsec" class="wikilink1" title="doc:uci:ipsec">Strongswan IPsec Configuration</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/uci/ipsec" class="media" title="cz:doc:uci:ipsec"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/uci/ipsec" class="media" title="de:doc:uci:ipsec"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="ipsec" class="media" title="doc:uci:ipsec"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/uci/ipsec" class="media" title="es:doc:uci:ipsec"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/uci/ipsec" class="media" title="fr:doc:uci:ipsec"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/uci/ipsec" class="media" title="hu:doc:uci:ipsec"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/uci/ipsec" class="media" title="jp:doc:uci:ipsec"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/uci/ipsec" class="media" title="pl:doc:uci:ipsec"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/uci/ipsec" class="media" title="pt-br:doc:uci:ipsec"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/uci/ipsec" class="media" title="ru:doc:uci:ipsec"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/uci/ipsec" class="media" title="tr:doc:uci:ipsec"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/uci/ipsec" class="media" title="zh-cn:doc:uci:ipsec"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/uci/ipsec" class="media" title="zh-tw:doc:uci:ipsec"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:uci:ipsec</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="ipsec#sections">Sections</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="ipsec#ipsec">ipsec</a></div></li>
+<li class="level2"><div class="li"><a href="ipsec#remote">remote</a></div></li>
+<li class="level2"><div class="li"><a href="ipsec#p1_proposal">p1_proposal</a></div></li>
+<li class="level2"><div class="li"><a href="ipsec#tunnel">tunnel</a></div></li>
+<li class="level2"><div class="li"><a href="ipsec#p2_proposal">p2_proposal</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="ipsec#windows_native_vpn_client_proposals">Windows Native VPN Client Proposals</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="strongswan_ipsec_configuration">Strongswan IPsec Configuration</h1>
+<div class="level1">
+
+<p>
+Linux Charon IPsec daemon can be configured through /etc/config/ipsec.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="sections">Sections</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit3" id="ipsec">ipsec</h3>
+<div class="level3">
+<div class="table sectionedit4"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">Name</th><th class="col1">Type</th><th class="col2">Required</th><th class="col3">Default</th><th class="col4">Description</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">zone</td><td class="col1">string</td><td class="col2">no</td><td class="col3">vpn</td><td class="col4">Firewall zone. Has to match the defined <a href="../howto/vpn.ipsec.firewall#zones" class="wikilink1" title="doc:howto:vpn.ipsec.firewall">firewall zone</a></td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">listen</td><td class="col1">list</td><td class="col2">yes</td><td class="col3">&#039;&#039;</td><td class="col4">Interface that accept VPN traffic (empty for all interfaces, multiple lines for several interfaces)</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">debug</td><td class="col1">string</td><td class="col2">no</td><td class="col3">0</td><td class="col4">Trace level. Logs are written to /var/log/charon.log</td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit5" id="remote">remote</h3>
+<div class="level3">
+
+<p>
+Contains tunnel definition.
+</p>
+<div class="table sectionedit6"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">Name</th><th class="col1">Type</th><th class="col2">Required</th><th class="col3">Default</th><th class="col4">Description</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">enabled</td><td class="col1">boolean</td><td class="col2">yes</td><td class="col3">(none)</td><td class="col4">Configuration is enabled or not</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">gateway</td><td class="col1">ipaddr</td><td class="col2">yes</td><td class="col3">(none)</td><td class="col4">IP address or FQDN name of the tunnel remote endpoint. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">exchange_mode</td><td class="col1">string</td><td class="col2">no</td><td class="col3">main</td><td class="col4">Phase 1 negotiation (main, aggressive)</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">local_identifier</td><td class="col1">string</td><td class="col2">no</td><td class="col3">(none)</td><td class="col4">local identifier for phase 1 </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0">remote_identifier</td><td class="col1">string</td><td class="col2">no</td><td class="col3">(none)</td><td class="col4">remote identifier for phase 1 </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0">authentication_method</td><td class="col1">string</td><td class="col2">yes</td><td class="col3">(none)</td><td class="col4">Phase 1 authentication. Only allowed value ath the moment is psk</td>
+	</tr>
+	<tr class="row7">
+		<td class="col0">pre_shared_key</td><td class="col1">string</td><td class="col2">no</td><td class="col3">(none)</td><td class="col4">The preshared key for the tunnel if authentication is psk</td>
+	</tr>
+	<tr class="row8">
+		<td class="col0">p1_proposal</td><td class="col1">list</td><td class="col2">yes</td><td class="col3">(none)</td><td class="col4">Name of phase 1 proposal (see below)</td>
+	</tr>
+	<tr class="row9">
+		<td class="col0">tunnel</td><td class="col1">list</td><td class="col2">yes</td><td class="col3">(none)</td><td class="col4">Name of phase 2 section (see below)</td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit7" id="p1_proposal">p1_proposal</h3>
+<div class="level3">
+
+<p>
+Definition of phase 1 proposals. Derived from <a href="https://wiki.strongswan.org/projects/strongswan/wiki/IKEv1CipherSuites" class="urlextern" title="https://wiki.strongswan.org/projects/strongswan/wiki/IKEv1CipherSuites"  rel="nofollow">stronSwan cipher suites</a>
+</p>
+<div class="table sectionedit8"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">Name</th><th class="col1">Type</th><th class="col2">Required</th><th class="col3">Default</th><th class="col4">Description</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">encryption_algorithm</td><td class="col1">string</td><td class="col2">yes</td><td class="col3">(none)</td><td class="col4">Phase 1 encryption method (aes128, aes192, aes256, 3des)</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">hash_alogrithm</td><td class="col1">string</td><td class="col2">yes</td><td class="col3">(none)</td><td class="col4">Phase 1 hash alogrithm (md5,sha1) </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">dh_group</td><td class="col1">string</td><td class="col2">yes</td><td class="col3">(none)</td><td class="col4">Diffie-Hellman exponentiation (modp768, modp1024, …</td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit9" id="tunnel">tunnel</h3>
+<div class="level3">
+
+<p>
+Contains network defintion per tunnel.
+</p>
+<div class="table sectionedit10"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">Name</th><th class="col1">Type</th><th class="col2">Required</th><th class="col3">Default</th><th class="col4">Description</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">local_subnet</td><td class="col1">subnet</td><td class="col2">yes</td><td class="col3">(none)</td><td class="col4">Local network</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">remote_subnet</td><td class="col1">subnet</td><td class="col2">yes</td><td class="col3">(none)</td><td class="col4">Remote network</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">local_nat</td><td class="col1">subnet</td><td class="col2">no</td><td class="col3">(none)</td><td class="col4">NAT range for tunnels with <a href="../howto/vpn.ipsec.overlappingsubnets" class="wikilink1" title="doc:howto:vpn.ipsec.overlappingsubnets">overlapping IP addresses</a></td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">p2_proposal</td><td class="col1">string</td><td class="col2">yes</td><td class="col3">(none)</td><td class="col4">link to phase 2 proposal</td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit11" id="p2_proposal">p2_proposal</h3>
+<div class="level3">
+
+<p>
+Definition of phase 2 proposal. Derived from <a href="https://wiki.strongswan.org/projects/strongswan/wiki/IKEv1CipherSuites" class="urlextern" title="https://wiki.strongswan.org/projects/strongswan/wiki/IKEv1CipherSuites"  rel="nofollow">stronSwan cipher suites</a>
+</p>
+<div class="table sectionedit12"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">Name</th><th class="col1">Type</th><th class="col2">Required</th><th class="col3">Default</th><th class="col4">Description</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">pfs_group</td><td class="col1">string</td><td class="col2">yes</td><td class="col3">(none)</td><td class="col4">Comma separated list of of Diffie-Hellman exponentiations (you can omit this, when peer is Cisco ASA)</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">encryption_algorithm</td><td class="col1">string</td><td class="col2">yes</td><td class="col3">(none)</td><td class="col4">Comma separaeted list of encryption algorithms (aes128, aes192, aes256, 3des)</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">authentication_algorithm</td><td class="col1">string</td><td class="col2">yes</td><td class="col3">(none)</td><td class="col4">Comma separated list of authentications (md5, sha1)</td>
+	</tr>
+</table></div>
+
+<p>
+Example 1 taken from the <a href="../howto/vpn.ipsec.site2site" class="wikilink1" title="doc:howto:vpn.ipsec.site2site">IPSec site to site howto</a>.
+</p>
+
+<p>
+<pre class="code">config &#039;ipsec&#039;
+  option &#039;zone&#039; &#039;vpn&#039;
+
+config &#039;remote&#039; &#039;acme&#039;
+  option &#039;enabled&#039; &#039;1&#039;
+  option &#039;gateway&#039; &#039;7.7.7.7&#039;
+  option &#039;authentication_method&#039; &#039;psk&#039;
+  option &#039;pre_shared_key&#039; &#039;yourpasswordhere&#039;
+  list   &#039;p1_proposal&#039; &#039;pre_g2_aes_sha1&#039;
+  list   &#039;sainfo&#039; &#039;acme_dmz&#039;
+  list   &#039;sainfo&#039; &#039;acme_lan&#039;
+
+config &#039;p1_proposal&#039; &#039;pre_g2_aes_sha1&#039;
+  option &#039;encryption_algorithm&#039; &#039;aes128&#039;
+  option &#039;hash_algorithm&#039; &#039;sha1&#039;
+  option &#039;dh_group&#039; &#039;modp1024&#039;
+
+config &#039;tunnel&#039; &#039;acme_lan&#039;
+  option &#039;local_subnet&#039; &#039;192.168.2.64/26&#039;
+  option &#039;remote_subnet&#039; &#039;10.1.2.0/24&#039;
+  option &#039;p2_proposal&#039; &#039;g2_aes_sha1&#039;
+
+config &#039;p2_proposal&#039; &#039;g2_aes_sha1&#039;
+  option &#039;pfs_group&#039; &#039;modp1024&#039;
+  option &#039;encryption_algorithm&#039; &#039;aes 128&#039;
+  option &#039;authentication_algorithm&#039; &#039;sha1&#039;</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit13" id="windows_native_vpn_client_proposals">Windows Native VPN Client Proposals</h2>
+<div class="level2">
+
+<p>
+The following table lists the phase 1 proposals offered by the Windows native VPN client (as tested with Windows 7)
+</p>
+<div class="table sectionedit14"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">Proposal</th><th class="col1">Encryption</th><th class="col2">Hash</th><th class="col3">DH Group</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">#1</td><td class="col1">aes256</td><td class="col2">sha1</td><td class="col3">20</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">#2</td><td class="col1">aes128</td><td class="col2">sha1</td><td class="col3">19</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">#3</td><td class="col1">aes256</td><td class="col2">sha1</td><td class="col3">modp2048</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">#4</td><td class="col1">3des</td><td class="col2">sha1</td><td class="col3">modp2048</td>
+	</tr>
+	<tr class="row5">
+		<td class="col0">#5</td><td class="col1">3des</td><td class="col2">sha1</td><td class="col3">modp1024</td>
+	</tr>
+</table></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/uci/ipsec.txt</bdi> · Last modified: 2015/04/17 16:27 by <bdi>folke</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="ipsec?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="ipsec?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="ipsec?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="ipsec#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Auci%253Aipsec&amp;1432279275" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

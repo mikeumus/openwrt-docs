@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Linux Packet Scheduling [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,packet.scheduler,packet.scheduler.theory"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../../index.html"/>
+<link rel="contents" href="../packet.scheduler/packet.scheduler.theory?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../../feed.php?mode=list&amp;ns=doc:howto:packet.scheduler"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../../_export/xhtml/doc/howto/packet.scheduler/packet.scheduler.theory"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../../_export/raw/doc/howto/packet.scheduler/packet.scheduler.theory"/>
+<link rel="canonical" href="tc.theory"/>
+<link rel="stylesheet" type="text/css" href="../../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto:packet.scheduler';var JSINFO = {"id":"doc:howto:packet.scheduler:packet.scheduler.theory","namespace":"doc:howto:packet.scheduler"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432276117 166.182.3.186';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="tc.theory#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../../start"  accesskey="h" title="[H]"><img src="../../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="../packet.scheduler/packet.scheduler.theory?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="../packet.scheduler/packet.scheduler.theory?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:packet.scheduler:packet.scheduler.theory" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="../packet.scheduler/packet.scheduler.theory?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="../packet.scheduler/packet.scheduler.theory?do=media&amp;ns=doc%253Ahowto%253Apacket.scheduler"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="../packet.scheduler/packet.scheduler.theory?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><a href="../traffic.shaping" class="wikilink1" title="doc:howto:packet.scheduler:packet.scheduler">Network Traffic Control</a></bdi> » <bdi><span class="curid"><a href="tc.theory" class="wikilink1" title="doc:howto:packet.scheduler:packet.scheduler.theory">Linux Packet Scheduling</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/packet.scheduler/packet.scheduler.theory" class="media" title="cz:doc:howto:packet.scheduler:packet.scheduler.theory"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/packet.scheduler/packet.scheduler.theory" class="media" title="de:doc:howto:packet.scheduler:packet.scheduler.theory"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="tc.theory" class="media" title="doc:howto:packet.scheduler:packet.scheduler.theory"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/packet.scheduler/packet.scheduler.theory" class="media" title="es:doc:howto:packet.scheduler:packet.scheduler.theory"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/packet.scheduler/packet.scheduler.theory" class="media" title="fr:doc:howto:packet.scheduler:packet.scheduler.theory"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/packet.scheduler/packet.scheduler.theory" class="media" title="hu:doc:howto:packet.scheduler:packet.scheduler.theory"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/packet.scheduler/packet.scheduler.theory" class="media" title="jp:doc:howto:packet.scheduler:packet.scheduler.theory"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/packet.scheduler/packet.scheduler.theory" class="media" title="pl:doc:howto:packet.scheduler:packet.scheduler.theory"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/packet.scheduler/packet.scheduler.theory" class="media" title="pt-br:doc:howto:packet.scheduler:packet.scheduler.theory"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/packet.scheduler/packet.scheduler.theory" class="media" title="ru:doc:howto:packet.scheduler:packet.scheduler.theory"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/packet.scheduler/packet.scheduler.theory" class="media" title="tr:doc:howto:packet.scheduler:packet.scheduler.theory"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/packet.scheduler/packet.scheduler.theory" class="media" title="zh-cn:doc:howto:packet.scheduler:packet.scheduler.theory"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/packet.scheduler/packet.scheduler.theory" class="media" title="zh-tw:doc:howto:packet.scheduler:packet.scheduler.theory"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:packet.scheduler:packet.scheduler.theory</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="tc.theory#linux_packet_scheduling">Linux Packet Scheduling</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="tc.theory#packets">Packets</a></div></li>
+<li class="level2"><div class="li"><a href="tc.theory#network_interfaces">Network Interfaces</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="tc.theory#queues">Queues</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="tc.theory#putting_it_all_together">Putting it all together</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h2 class="sectionedit1" id="linux_packet_scheduling">Linux Packet Scheduling</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Packet Scheduler, Queueing Discipline(QDisc),  queueing algorithm and packet scheduler algorithm are all names for the same thing. Usually contained in distinct kernel modules, one of multiple schedulers can be loaded into the kernel and utilized to make scheduling decisions.</div>
+</li>
+<li class="level1"><div class="li"> The packet scheduler is integral to the network parts of the Kernel - embedded in the network stack and the network driver. You can find the source code in: <a href="http://lxr.free-electrons.com/source/net/sched/" class="urlextern" title="http://lxr.free-electrons.com/source/net/sched/"  rel="nofollow">net/sched</a></div>
+</li>
+<li class="level1"><div class="li"> The packet scheduler is configured with the program <code>tc</code>.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> <a href="http://lca2013.linux.org.au/schedule/30118/view_talk" class="urlextern" title="http://lca2013.linux.org.au/schedule/30118/view_talk"  rel="nofollow">http://lca2013.linux.org.au/schedule/30118/view_talk</a></div>
+<ul>
+<li class="level2"><div class="li"> <a href="http://www.youtube.com/watch?v=y5KPryOHwk8" class="urlextern" title="http://www.youtube.com/watch?v=y5KPryOHwk8"  rel="nofollow">Video: lca2013 Bufferbloat from a Plumber&#039;s point of view 41min</a> (<a href="http://r1---sn-35cxacf-935e.c.youtube.com/videoplayback?title=%5BLinux.conf.au%202013%5D%20-%20Bufferbloat%20from%20a%20Plumber%27s%20point%20of%20view&amp;itag=44&amp;mv=m&amp;ipbits=8&amp;fexp=916602%2C902903%2C919318%2C935800%2C932304%2C909546%2C906397%2C929117%2C929121%2C929906%2C929907%2C929127%2C929129%2C929131%2C929930%2C925720%2C925722%2C925718%2C925714%2C929917%2C929919%2C912521%2C932306%2C904830%2C919373%2C904122%2C929609%2C911423%2C909549%2C935006%2C900816%2C912711%2C935802%2C904494%2C906001&amp;ms=au&amp;sver=3&amp;cp=U0hWS1FQUl9FTkNONl9JSlZIOjAtaFg4NkJmSldF&amp;ip=37.209.1.176&amp;upn=-gFRS1tnMuA&amp;mt=1376129826&amp;sparams=cp%2Cid%2Cip%2Cipbits%2Citag%2Cratebypass%2Csource%2Cupn%2Cexpire&amp;ratebypass=yes&amp;expire=1376154704&amp;key=yt1&amp;source=youtube&amp;id=cb928faf2387c24f&amp;signature=67DE7167FCEF80A35CA7E3CFEC4C7506A11E05A0.936390E1B9B03E6D46EB5F8C61F03111FF343675" class="urlextern" title="http://r1---sn-35cxacf-935e.c.youtube.com/videoplayback?title=%5BLinux.conf.au%202013%5D%20-%20Bufferbloat%20from%20a%20Plumber%27s%20point%20of%20view&amp;itag=44&amp;mv=m&amp;ipbits=8&amp;fexp=916602%2C902903%2C919318%2C935800%2C932304%2C909546%2C906397%2C929117%2C929121%2C929906%2C929907%2C929127%2C929129%2C929131%2C929930%2C925720%2C925722%2C925718%2C925714%2C929917%2C929919%2C912521%2C932306%2C904830%2C919373%2C904122%2C929609%2C911423%2C909549%2C935006%2C900816%2C912711%2C935802%2C904494%2C906001&amp;ms=au&amp;sver=3&amp;cp=U0hWS1FQUl9FTkNONl9JSlZIOjAtaFg4NkJmSldF&amp;ip=37.209.1.176&amp;upn=-gFRS1tnMuA&amp;mt=1376129826&amp;sparams=cp%2Cid%2Cip%2Cipbits%2Citag%2Cratebypass%2Csource%2Cupn%2Cexpire&amp;ratebypass=yes&amp;expire=1376154704&amp;key=yt1&amp;source=youtube&amp;id=cb928faf2387c24f&amp;signature=67DE7167FCEF80A35CA7E3CFEC4C7506A11E05A0.936390E1B9B03E6D46EB5F8C61F03111FF343675"  rel="nofollow">Download link</a>)</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.bufferbloat.net/projects/cerowrt/wiki/Bloat-videos" class="urlextern" title="http://www.bufferbloat.net/projects/cerowrt/wiki/Bloat-videos"  rel="nofollow">http://www.bufferbloat.net/projects/cerowrt/wiki/Bloat-videos</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit2" id="packets">Packets</h3>
+<div class="level3">
+
+<p>
+We will start with what you probably already know - that almost all network communication takes place in chunks and not as a continuous flow. If you do not, this <a href="../../networking/start" class="wikilink1" title="doc:networking:start">networking article</a> should help. 
+</p>
+
+<p>
+These chunks are more commonly referred to as packets, so network communication is packet-based. 
+</p>
+
+<p>
+These packets begin their lives as data on a computing device that needs to get from where it presently resides to another device somewhere on the local area network or a different network.
+</p>
+
+<p>
+This data is first broken into packets. Then a header and sometimes a footer are added with delivery instructions and other information. This process is repeated each time the packet traverses an application or device that uses a different format for handling packets.
+</p>
+
+<p>
+The opposite takes place as the packet nears its destination. The various headers and footers are removed and the packet reaches the end of it&#039;s journey as it began - the same chunk of data we started with.  When combined with all the other chunks, in the correct order, we end up with the same data we started with only that data is in a new location. A <a href="http://www.tcpipguide.com/free/t_UnderstandingTheOSIReferenceModelAnAnalogy.htm" class="urlextern" title="http://www.tcpipguide.com/free/t_UnderstandingTheOSIReferenceModelAnAnalogy.htm"  rel="nofollow">real world analogy</a>.
+</p>
+
+<p>
+We use QoS to ensure packets get to their destination in a timely fashion and that they are not delayed by lower priority traffic.  While we don&#039;t have much control of what happens to packets outside of our own network, there are QoS options that allow us to drop or reorder packets at each of our own network interfaces.  The most important of these is usually the WAN port of our router.
+</p>
+
+<p>
+Why?
+</p>
+
+<p>
+Well, this where <abbr title="Local Area Network">LAN</abbr> traffic converges to be transferred to another network, often over a lower capacity connection. Similar to the way traffic backs up on a busy freeway when multiple lanes merge into one, packets are either dropped or backed up in the interface queue waiting for their turn to pass through the bottleneck.
+</p>
+
+<p>
+In fact unless there is traffic congestion there is no need for QoS.  By itself QoS does not increase bandwidth or make packets travel faster.  It queues, or drops packets in cases where there is less bandwidth available than needed. We could also eliminate the congestion by increasing the bandwidth of the connection, but this is not always possible or practical.
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="network_interfaces">Network Interfaces</h3>
+<div class="level3">
+
+<p>
+Network interfaces can drop, forward, queue, delay and re-order packets.
+</p>
+
+</div>
+
+<h4 id="queues">Queues</h4>
+<div class="level4">
+
+<p>
+Every network interface has two queues, also referred to as a buffers, where packets reside briefly before being transmitted.  The queue for incoming packets is called the <strong>ingress queue</strong>. The queue for outgoing packets is called the <strong>egress queue</strong>.
+</p>
+
+</div>
+
+<h5 id="egress_queue">Egress Queue</h5>
+<div class="level5">
+
+<p>
+Let us look at the <strong>egress queue</strong> of a typical <a href="../../networking/network.interfaces" class="wikilink1" title="doc:networking:network.interfaces">network interface</a>.
+</p>
+
+<p>
+We can determine and change the size of the queue using the <code>ifconfig</code> command. The <code>txqueuelen:</code> in the response indicates the capacity of the queue. 
+</p>
+
+<p>
+Queue capacity is not measured in bytes or bits as you might expect, but by the number of packets it can hold. When the queue is full, any further incoming packets will &quot;overflow&quot;.  They are dropped and never reach the intended recipient. 
+</p>
+
+<p>
+Activating QoS is not necessary with Linux as it is already active by default. The standard packet scheduler that manages egress queues in Linux, is &quot;pfifo_fast&quot;, which means &quot;prioritized first in first out&quot;. It is based on the QoS/TOS flags in the packet headers.
+</p>
+
+<p>
+Network interfaces are serial devices.  Packets leave the queue one a time, and are transmitted one after the other, single file. The task of the scheduler is to decide which packet leaves next. It does this by ordering the packets according to an algorithm and its configuration.  In the case of &quot;pfifo_fast&quot;, the first packet to the enter the buffer is the first to leave.
+</p>
+
+</div>
+
+<h5 id="ingress_queue">Ingress Queue</h5>
+<div class="level5">
+
+<p>
+Unlike the egress queue, the ingress queue has limited control over the packets it receives.  Other than forwarding packets as they are received it&#039;s only other capability is to drop packets.  This can be used to advantage though with the TCP protocol which uses flow and congestion control. Dropping TCP &quot;ACK&quot; packets will imply congestion to the transmission source which will reduce it&#039;s transmission rate.  There is no similar mechanism available for UDP packets however.
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="putting_it_all_together">Putting it all together</h3>
+<div class="level3">
+
+<p>
+A basic QoS setup.
+</p>
+
+<p>
+<pre class="code">                                                               ____
+User1==============\                                       ___(    )__
+         Line_A     \                                    _(           )_
+User2===============[ROUTER]·············[ISP]≡≡≡≡≡≡≡≡≡≡(_  Internet  __)
+         Line_B     /          Line_X           Line_Z   (_        __)
+User3==============/                                       (______)
+         Line_C
+
+Line_A, Line_B and Line_C are Gigabit Ethernet
+Line_X  phone line using ADSL2+ protocol
+Line_Z 10 Gigabit fiber 
+
+We implement QoS at the [ROUTER] WAN interface.
+
+--&gt;--&gt;--[egress queue]--&gt;--&gt;--[interface output]--&gt;--&gt;--Internet
+           \    /
+            \  /
+            QDisc  
+
+1. Drop packets exceeding available bandwidth.
+2. Reorder packets currently in the buffer. 
+
+--&gt;--&gt;--[ingress queue]--&gt;--[bridge check]--&gt;--&gt;--intranet
+            \    /
+             \  /
+             QDisc  
+
+1. Drop packets that exceed configured bandwidth (&quot;policing&quot;) 
+   With TCP =&gt; no line congestion
+2. No reordering
+</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> We limit outgoing traffic to a rate slightly below the capacity of the outgoing connection.  This moves the traffic bottleneck upstream to the router where we can control congestion instead of downstream where we cannot.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> We drop incoming packets that exceed bandwidth.  TCP recognizes this as a sign of traffic congestion and reduces the transmission rate at the source. </div>
+</li>
+</ul>
+
+<p>
+Below are some articles about packet reordering.
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://linux.die.net/man/8/tc" class="urlextern" title="http://linux.die.net/man/8/tc"  rel="nofollow"> tc command manual</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://lartc.org/howto/index.html" class="urlextern" title="http://lartc.org/howto/index.html"  rel="nofollow"> Linux Advanced Routing &amp; Traffic Control HowTo</a></div>
+<ul>
+<li class="level2"><div class="li"> <a href="http://lartc.org/howto/lartc.qdisc.html" class="urlextern" title="http://lartc.org/howto/lartc.qdisc.html"  rel="nofollow"> 9. Queueing Disciplines for Bandwidth Management</a></div>
+</li>
+<li class="level2"><div class="li"> <a href="http://lartc.org/howto/lartc.netfilter.html" class="urlextern" title="http://lartc.org/howto/lartc.netfilter.html"  rel="nofollow"> 11. Netfilter &amp; iproute - marking packets</a></div>
+</li>
+<li class="level2"><div class="li"> <a href="http://lartc.org/howto/lartc.adv-filter.html" class="urlextern" title="http://lartc.org/howto/lartc.adv-filter.html"  rel="nofollow"> 12. Advanced filters for (re-)classifying packets</a></div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> <a href="http://luxik.cdi.cz/~devik/qos/htb/manual/userg.htm" class="urlextern" title="http://luxik.cdi.cz/~devik/qos/htb/manual/userg.htm"  rel="nofollow">HTB Linux queuing discipline manual - user guide</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.cs.cmu.edu/~hzhang/HFSC/main.html" class="urlextern" title="http://www.cs.cmu.edu/~hzhang/HFSC/main.html"  rel="nofollow"> Hierarchical Packet Fair Queueing (H-PFQ) and  Hierarchical Fair Service Curve (H-FSC)</a></div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/packet.scheduler/packet.scheduler.theory.txt</bdi> · Last modified: 2013/08/10 12:22 by <bdi>lorema</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="../packet.scheduler/packet.scheduler.theory?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="../packet.scheduler/packet.scheduler.theory?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="../packet.scheduler/packet.scheduler.theory?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="tc.theory#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../../lib/exe/indexer.php?id=doc%253Ahowto%253Apacket.scheduler%253Apacket.scheduler.theory&amp;1432276117" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

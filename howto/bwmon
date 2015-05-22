@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Bandwidth Monitoring [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,bwmon"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="bwmon?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/bwmon"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/bwmon"/>
+<link rel="canonical" href="bwmon"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:bwmon","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266348 166.182.3.117';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="bwmon#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="bwmon?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="bwmon?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:bwmon" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="bwmon?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="bwmon?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="bwmon?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="bwmon" class="wikilink1" title="doc:howto:bwmon">Bandwidth Monitoring</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/bwmon" class="media" title="cz:doc:howto:bwmon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/bwmon" class="media" title="de:doc:howto:bwmon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="bwmon" class="media" title="doc:howto:bwmon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/bwmon" class="media" title="es:doc:howto:bwmon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/bwmon" class="media" title="fr:doc:howto:bwmon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/bwmon" class="media" title="hu:doc:howto:bwmon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/bwmon" class="media" title="jp:doc:howto:bwmon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/bwmon" class="media" title="pl:doc:howto:bwmon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/bwmon" class="media" title="pt-br:doc:howto:bwmon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/bwmon" class="media" title="ru:doc:howto:bwmon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/bwmon" class="media" title="tr:doc:howto:bwmon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/bwmon" class="media" title="zh-cn:doc:howto:bwmon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/bwmon" class="media" title="zh-tw:doc:howto:bwmon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:bwmon</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="bwmon#monitoring_with_bmon_and_iftop">Monitoring with bmon and iftop</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="bwmon#using_bmon">Using bmon</a></div></li>
+<li class="level2"><div class="li"><a href="bwmon#using_iftop">Using iftop</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="bwmon#measuring_maximum_bandwidth">Measuring maximum bandwidth</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="bwmon#troubleshooting_bandwidth_problems">Troubleshooting bandwidth problems</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="bwmon#does_your_local_network_provide_enough_bandwidth">Does your local network provide enough bandwidth?</a></div></li>
+<li class="level3"><div class="li"><a href="bwmon#is_your_local_network_traffic_clean">Is your local network traffic clean?</a></div></li>
+<li class="level3"><div class="li"><a href="bwmon#is_your_router_hard-_and_software_fast_enough">Is your router hard- and software fast enough?</a></div></li>
+<li class="level3"><div class="li"><a href="bwmon#does_your_isp_provide_the_bandwidth_promised">Does your ISP provide the bandwidth promised?</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="bwmon#links">Links</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="bandwidth_monitoring">Bandwidth Monitoring</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> Howto: <a href="bandwidthd" class="wikilink1" title="doc:howto:bandwidthd">bandwidthd</a></div>
+</li>
+<li class="level2"><div class="li"> Howto: <a href="vnstat" class="wikilink1" title="doc:howto:vnstat">vnstat</a></div>
+</li>
+<li class="level2"><div class="li"> Howto: <a href="wrtbwmon" class="wikilink1" title="doc:howto:wrtbwmon">wrtbwmon</a></div>
+</li>
+<li class="level2"><div class="li"> Howto: <a href="http://wiki.openwrt.org/doc/howto/collectd_rrdtool" class="wikilink2" title="doc:howto:collectd_rrdtool" rel="nofollow">collectd+rrdtool</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit2" id="monitoring_with_bmon_and_iftop">Monitoring with bmon and iftop</h2>
+<div class="level2">
+
+<p>
+Although <a href="bandwidthd" class="wikilink1" title="doc:howto:bandwidthd">bandwidthd</a> seems to be the best and most feature-rich application for bandwidth monitoring and measurement it consumes a lot of system resources on your OpenWrt router system. Effective bandwidth measurement and monitoring can also be achieved with the small two tools bmon and iftop which require less system resources on your OpenWrt system.
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="using_bmon">Using bmon</h3>
+<div class="level3">
+
+<p>
+bmon is available as a package for most platforms and has a very nice little graphical user interface. After being installed (Note: bmon requires some additional packages) you can run bmon just by typing it and on the console based user interface you can see all the network interfaces on your system. Pressing &quot;g&quot; shows up a graph with the current bandwidth being used. Pressing &quot;d&quot; shows up the details of it.
+</p>
+
+<p>
+You can also configure bmon render html not just to output in teminal window. To do that you need to install uhttp package and do a little bit of configuration, it is not too hard. Here are the steps:
+</p>
+<div class="table sectionedit4"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><pre class="code">opkg install uhttpd bmon
+/etc/init.d/uhttpd start
+mkdir /tmp/bmon
+ln -s /tmp/bmon/ /www/
+bmon -O html:path=/www/bmon/</pre>
+</td>
+	</tr>
+</table></div>
+
+<p>
+Also an option to only run to html output so you can start on boot (Can add the following to rc.local)
+</p>
+<div class="table sectionedit5"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><pre class="code">bmon -o null -O html:path=/www/bmon/ 2&gt;&amp;1 &gt;/dev/null &amp;</pre>
+</td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit6" id="using_iftop">Using iftop</h3>
+<div class="level3">
+
+<p>
+As well as bmon the package iftop is available for most OpenWrt platforms and allows a deeper insight into the data being transferred and the active connections. You can run iftop for your bridged lan interface by typing in the following:
+</p>
+<div class="table sectionedit7"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><pre class="code">opkg install iftop
+iftop -i br-lan</pre>
+</td>
+	</tr>
+</table></div>
+
+<p>
+iftop will then show you the connections being established, the data being transferred as well as the bandwidth.
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="measuring_maximum_bandwidth">Measuring maximum bandwidth</h2>
+<div class="level2">
+
+<p>
+With higher bandwidths being provided by internet service providers it becomes harder both for the end-user and the service provider to provide these bandwidths. That is also the reason why many websites that offer bandwidth measurement have become quite popular (such as <a href="http://www.speed.io" class="urlextern" title="http://www.speed.io"  rel="nofollow">www.speed.io</a>). Some internet providers even provide their own speed tests for their customers. 
+</p>
+
+<p>
+Just because you have a 50 Mbit/s internet line (such as with EuroDOCSIS 3.0 or VDSL) does not necessarily mean that each download you do with your internet browser works a 6 Mbytes/s. There are differnet factors that effect your download and/or upload speed.
+</p>
+
+<p>
+The following factors effect your bandwidth and thereby your download/upload speed:
+</p>
+<ul>
+<li class="level1"><div class="li"> The maximum bandwidth the remote server provides you</div>
+</li>
+<li class="level1"><div class="li"> The bandwidth between your provider and the provider of the remote server</div>
+</li>
+<li class="level1"><div class="li"> The total bandwidth behind the access multiplexer (DSLAM) of your ADSL modem (if you&#039;re using ADSL)</div>
+</li>
+<li class="level1"><div class="li"> The total bandwidth behind the access multiplexer of your DOCSIS modem (if you&#039;re using DOCIS/Cable TV)</div>
+</li>
+<li class="level1"><div class="li"> The bandwidth being used by other clients connected to your OpenWrt router</div>
+</li>
+<li class="level1"><div class="li"> The bandwidth your <abbr title="Local Area Network">LAN</abbr> provides (Wi-Fi, Ethernet, Gigabit Ethernet, Fibre)</div>
+</li>
+</ul>
+
+<p>
+To measure your maximum bandwidth now, you should start a terminal with iftop and bmon. Next up you should shut down or disconnect all clients except the machine your connected to the router with.
+</p>
+
+<p>
+Now you can start some online speed tests (such as <a href="http://www.speed.io" class="urlextern" title="http://www.speed.io"  rel="nofollow">www.speed.io</a>) and check the real bandwidth that is been used by these services. Afterwards you should find at least 3 to 4 fast internet services in your area. You should then open up an additional terminal and start 3 downloads with wget on your OpenWrt router in parallel. Note: you should always tell wget to store large files in &quot;/dev/null&quot;, because otherwise it might brick your router by writing into the RAM until its full.
+</p>
+<div class="table sectionedit9"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><pre class="code">wget http://speedtest.netcologne.de/test_1gb.bin -O /dev/null &amp;&amp;
+wget http://speedtest.qsc.de/1GB.qsc -O /dev/null &amp;&amp;
+wget ftp://ftp.halifax.rwth-aachen.de/opensuse/distribution/11.3/iso/openSUSE-11.3-DVD-i586.iso
+ -O /dev/null</pre>
+</td>
+	</tr>
+</table></div>
+
+<p>
+The best test servers are mostly those from which you normally download. So try to find a fast university server for example that mirrors Unix/Linux distributions and try to download from these servers. Also some ISPs provide test files or downloads. If your ISP provides big downloadable files you should also use them to test your bandwidth, because your ISP should be the one that can provide you the best download speed as there is no other provider in between.
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="troubleshooting_bandwidth_problems">Troubleshooting bandwidth problems</h3>
+<div class="level3">
+
+<p>
+If you tested your maximum bandwidth and it is either not reaching the maximum contracted with your ISP or only sometimes reaches the maximum there is a short checklist that you should walk through and check.
+</p>
+
+<p>
+Sometimes end-user service contracts with ISP state the bandwidth as &quot;up to&quot; which means that the can provide you the maximum bandwidth, but they cannot guarantee that it is available. This is often the case with some ADSL or VDSL providers Germany.
+</p>
+
+</div>
+
+<h4 id="does_your_local_network_provide_enough_bandwidth">Does your local network provide enough bandwidth?</h4>
+<div class="level4">
+
+<p>
+You should make sure that when you do have a 50 Mbit/s line that your <abbr title="Local Area Network">LAN</abbr> has at least 100 Mbit/s. A Gigabit <abbr title="Local Area Network">LAN</abbr> would be recommend for bandwidths greater than 40 Mbit/s, because otherwise your <abbr title="Local Area Network">LAN</abbr> bandwidth might be consumed by local file transfers or other <abbr title="Local Area Network">LAN</abbr> services being used by other clients connected to your router. Try not to make internet bandwidth tests from your wireless network and instead test your wireless network separately by transferring data from cable-connected clients (Ethernet or Fibre) to wireless clients.
+</p>
+
+</div>
+
+<h4 id="is_your_local_network_traffic_clean">Is your local network traffic clean?</h4>
+<div class="level4">
+
+<p>
+Running iftop helps you find all traffic that is currently active in your local network. So if another client transfers gigabytes of data within your local network this can also dramatically slow down your internet transfers. Make sure the only connection that is available in your <abbr title="Local Area Network">LAN</abbr> while testing is the test download traffic. Especially services such as SMB (Samba/Windows Workgroups or Domains) produce lots of overhead and unwanted network traffic. Try to find that unwanted network traffic and eliminate the services on the clients that consume the bandwidth.
+</p>
+
+</div>
+
+<h4 id="is_your_router_hard-_and_software_fast_enough">Is your router hard- and software fast enough?</h4>
+<div class="level4">
+
+<p>
+Just make sure that your router has sufficient RAM free and the CPU is not fully used while transferring big amounts of data. Usually this is not a problem, but installing too much software and using your router for other services (which is for some people common with OpenWrt) it can slow down the network management of your router. Also make sure that when you have an internet line that has a bandwidth greater than 70 Mbit/s it is highly recommend to use Gigabit Ethernet.
+</p>
+
+</div>
+
+<h4 id="does_your_isp_provide_the_bandwidth_promised">Does your ISP provide the bandwidth promised?</h4>
+<div class="level4">
+
+<p>
+Due to some press reports about ISP not providing the proper bandwidth, many people in the first place start to blame the ISP when their bandwidth is not as expected. In fact most ISPs do all they can to provide the proper bandwidth blaming them for not trying to do so is often wrong. If you did check all points above and direct downloads from the website or a website directly located in the network of your ISP are still not at the speed expected and that happens around the clock (24hrs/day) you should call your ISP to do bandwidth measurement on his side.
+</p>
+
+</div>
+
+<h2 class="sectionedit11" id="links">Links</h2>
+<div class="level2">
+<div class="table sectionedit12"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <a href="http://freshmeat.net/projects/bmon/" class="urlextern" title="http://freshmeat.net/projects/bmon/"  rel="nofollow">bmon</a> </td><td class="col1"> a portable bandwidth monitor and rate estimator </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> <a href="http://collectd.org" class="urlextern" title="http://collectd.org"  rel="nofollow">collectd</a> </td><td class="col1"> collectd is a daemon which collects system performance statistics periodically </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <a href="http://www.ntop.org/" class="urlextern" title="http://www.ntop.org/"  rel="nofollow">ntop</a>  </td><td class="col1"> ntop is a network traffic probe that shows the network usage </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <a href="http://www.pmacct.net/" class="urlextern" title="http://www.pmacct.net/"  rel="nofollow">pmacct</a> </td><td class="col1"> IP usage accounting suite </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <a href="http://fprobe.sourceforge.net/" class="urlextern" title="http://fprobe.sourceforge.net/"  rel="nofollow">fprobe</a> </td><td class="col1"> Forward aggregated traffic data as NetFlows to tools like ntop or pmacct </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <a href="http://dmr.ath.cx/net/darkstat/" class="urlextern" title="http://dmr.ath.cx/net/darkstat/"  rel="nofollow">darkstat</a> </td><td class="col1"> Captures network traffic, calculates statistics about usage, and serves reports over HTTP </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <a href="http://oss.oetiker.ch/mrtg/" class="urlextern" title="http://oss.oetiker.ch/mrtg/"  rel="nofollow">MRTG</a> </td><td class="col1"> Tobi Oetiker&#039;s MRTG - The Multi Router Traffic Grapher </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <a href="http://www.gropp.org/?id=projects&amp;sub=bwm-ng" class="urlextern" title="http://www.gropp.org/?id=projects&amp;sub=bwm-ng"  rel="nofollow">bwm-ng</a> </td><td class="col1"> small and simple console-based live network and disk io bandwidth monitor </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <a href="http://www.ex-parrot.com/pdw/iftop/" class="urlextern" title="http://www.ex-parrot.com/pdw/iftop/"  rel="nofollow">iftop</a> </td><td class="col1"> iftop does for network usage what top(1) does for CPU usage. </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> <a href="http://iptraf.seul.org/" class="urlextern" title="http://iptraf.seul.org/"  rel="nofollow">IPTraf</a>  </td><td class="col1"> IPTraf is a console-based network statistics utility for Linux </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> <a href="http://bandwidthd.sourceforge.net/" class="urlextern" title="http://bandwidthd.sourceforge.net/"  rel="nofollow">bandwidthd</a> </td><td class="col1"> builds html files with graphs and charts are built by individual IPs, </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> <a href="http://humdi.net/vnstat/" class="urlextern" title="http://humdi.net/vnstat/"  rel="nofollow">vnstat</a> </td><td class="col1"> vnStat is a console-based network traffic monitor </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0"> <a href="http://code.google.com/p/wrtbwmon/" class="urlextern" title="http://code.google.com/p/wrtbwmon/"  rel="nofollow">wrtbwmon</a> </td><td class="col1"> Per-user bandwidth monitoring tool for linux-based routers </td>
+	</tr>
+</table></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/bwmon.txt</bdi> · Last modified: 2014/06/26 18:39 by <bdi>stefanmonnier</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="bwmon?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="bwmon?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="bwmon?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="bwmon#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Abwmon&amp;1432266348" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

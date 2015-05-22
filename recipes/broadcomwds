@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Broadcom WDS (brcm-2.4 only) [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,recipes,broadcomwds"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="broadcomwds?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:recipes"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/recipes/broadcomwds"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/recipes/broadcomwds"/>
+<link rel="canonical" href="broadcomwds"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:recipes';var JSINFO = {"id":"doc:recipes:broadcomwds","namespace":"doc:recipes"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266331 166.182.3.117';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="broadcomwds#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="broadcomwds?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="broadcomwds?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:recipes:broadcomwds" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="broadcomwds?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="broadcomwds?do=media&amp;ns=doc%253Arecipes"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="broadcomwds?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:recipes:start">Recipes</a></bdi> » <bdi><span class="curid"><a href="broadcomwds" class="wikilink1" title="doc:recipes:broadcomwds">Broadcom WDS (brcm-2.4 only)</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/recipes/broadcomwds" class="media" title="cz:doc:recipes:broadcomwds"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/recipes/broadcomwds" class="media" title="de:doc:recipes:broadcomwds"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="broadcomwds" class="media" title="doc:recipes:broadcomwds"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/recipes/broadcomwds" class="media" title="es:doc:recipes:broadcomwds"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/recipes/broadcomwds" class="media" title="fr:doc:recipes:broadcomwds"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/recipes/broadcomwds" class="media" title="hu:doc:recipes:broadcomwds"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/recipes/broadcomwds" class="media" title="jp:doc:recipes:broadcomwds"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/recipes/broadcomwds" class="media" title="pl:doc:recipes:broadcomwds"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/recipes/broadcomwds" class="media" title="pt-br:doc:recipes:broadcomwds"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/recipes/broadcomwds" class="media" title="ru:doc:recipes:broadcomwds"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/recipes/broadcomwds" class="media" title="tr:doc:recipes:broadcomwds"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/recipes/broadcomwds" class="media" title="zh-cn:doc:recipes:broadcomwds"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/recipes/broadcomwds" class="media" title="zh-tw:doc:recipes:broadcomwds"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:recipes:broadcomwds</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="broadcomwds#configuration">Configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="broadcomwds#step_1configure_device_1_wds-test-1">Step 1: Configure Device 1 (wds-test-1)</a></div></li>
+<li class="level2"><div class="li"><a href="broadcomwds#step_2configure_device_2_wds-test-2">Step 2: Configure Device 2 (wds-test-2)</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="broadcomwds#further_information">Further Information</a></div></li>
+<li class="level1"><div class="li"><a href="broadcomwds#complete_configuration_files">Complete Configuration Files</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="broadcomwds#device_1">Device 1</a></div></li>
+<li class="level2"><div class="li"><a href="broadcomwds#device_2">Device 2</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="broadcom_wds_brcm-24_only">Broadcom WDS (brcm-2.4 only)</h1>
+<div class="level1">
+
+<p>
+The <em>brcm-2.4</em> platform using the proprietary <em>wl.o</em> driver implements AP-to-AP WDS to connect two or more devices wirelessly to form one common broadcast domain.
+</p>
+
+<p>
+This configuration is for routers based on the Broadcom chipset and will not work for routers that are on other platforms, such as Atheros chipsets - see <a href="atheroswds" class="wikilink1" title="doc:recipes:atheroswds">WDS (Atheros)</a>.
+</p>
+
+<p>
+In contrast to <a href="bridgedclient" class="wikilink1" title="doc:recipes:bridgedclient">Bridged Client</a> the <em>WDS</em> allow to extend the Wireless access area using more than two routers. You need to have control over all routers and they should have compatible WDS implementations. 
+</p>
+
+<p>
+WEP and WPA-PSK or WPA2-PSK encryption is possible.
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/wds_1.png?id=doc%253Arecipes%253Abroadcomwds" class="media" title="doc:howto:wds_1.png"><img src="../../_media/doc/howto/wds_1.png" class="media" alt="" /></a>
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="configuration">Configuration</h2>
+<div class="level2">
+
+<p>
+Relevant configuration files:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="../uci/wireless" class="wikilink1" title="doc:uci:wireless">/etc/config/wireless</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../uci/network" class="wikilink1" title="doc:uci:network">/etc/config/network</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../uci/firewall" class="wikilink1" title="doc:uci:firewall">/etc/config/firewall</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../uci/dhcp" class="wikilink1" title="doc:uci:dhcp">/etc/config/dhcp</a></div>
+</li>
+</ul>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> The changes below assume an OpenWrt Kamikaze or Backfire version. It is assumed that the wireless has already been enabled and that the AP network was configured properly, if not you can visit: <a href="bridgedap" class="wikilink1" title="doc:recipes:bridgedap">Bridged Access Point</a>
+</p>
+
+<p>
+First of all, determine the MAC addresses on your devices:
+</p>
+<div class="table sectionedit3"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>root@<strong>wds-test-1</strong>:~# ifconfig wl0
+wl0       Link encap:Ethernet  HWaddr <strong>00:16:01:0A:B2:8F</strong>
+          BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:5133 errors:0 dropped:0 overruns:0 frame:97274
+          TX packets:5157 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:495642 (484.0 KiB)  TX bytes:538242 (525.6 KiB)
+          Interrupt:2 Base address:0x5000</code> </td>
+	</tr>
+</table></div>
+
+<p>
+On the second box:
+</p>
+<div class="table sectionedit4"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>root@<strong>wds-test-2</strong>:~# ifconfig wl0
+wl0       Link encap:Ethernet  HWaddr <strong>00:14:BF:3B:B9:53</strong>
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:5138 errors:0 dropped:0 overruns:0 frame:19653
+          TX packets:5171 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:496132 (484.5 KiB)  TX bytes:539222 (526.5 KiB)
+          Interrupt:4 Base address:0x1000</code> </td>
+	</tr>
+</table></div>
+
+<p>
+So we now have the addresses:
+</p>
+<div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Host </th><th class="col1"> MAC </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> wds-test-1 </td><td class="col1"> 00:16:01:0A:B2:8F </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> wds-test-2 </td><td class="col1"> 00:14:BF:3B:B9:53 </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit6" id="step_1configure_device_1_wds-test-1">Step 1: Configure Device 1 (wds-test-1)</h3>
+<div class="level3">
+
+<p>
+In this example we&#039;ll use a bridged setup, means we bridge the WDS vif to the existing <em>br-lan</em> interface.<br/>
+
+This way we only need one IP for all three networks (<abbr title="Local Area Network">LAN</abbr>, AP, WDS) and traffic can flow in all directions.
+</p>
+
+<p>
+Edit the <code>/etc/config/wireless</code> file and define a second wireless network in addition to the AP:
+</p>
+<div class="table sectionedit7"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config wifi-iface
+        option device      wl0
+        option network     <strong>lan</strong>
+        option mode        <strong>wds</strong>
+        option bssid       <strong>00:14:BF:3B:B9:53</strong>
+      # option encryption  psk2
+      # option key         &#039;secret_key&#039; </code> </td>
+	</tr>
+</table></div>
+<ul>
+<li class="level1"><div class="li"> <em>network lan</em> - attach this wireless network to the br-lan bridge</div>
+</li>
+<li class="level1"><div class="li"> <em>mode wds</em> - enable WDS mode</div>
+</li>
+<li class="level1"><div class="li"> <em>bssid 00:14:BF:3B:B9:53</em> - specify the <em>peer address</em>, this is the wireless MAC of <em>wds-test-2</em></div>
+</li>
+<li class="level1"><div class="li"> Optionally un-comment the last two lines to enable <a href="../uci/wireless/encryption#wpaencryption" class="wikilink1" title="doc:uci:wireless:encryption">WPA encryption</a><br/>
+</div>
+</li>
+</ul>
+
+<p>
+<br/>
+
+</p>
+
+<p>
+Open the <code>/etc/config/firewall</code> file and set the <em>forward policy</em> in the <abbr title="Local Area Network">LAN</abbr> zone to accept:
+</p>
+<div class="table sectionedit8"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config zone
+        option name     lan
+        option input    ACCEPT
+        option output   ACCEPT 
+        option forward  <strong>ACCEPT</strong></code> </td>
+	</tr>
+</table></div>
+
+<p>
+Finally edit the network configuration in <code>/etc/config/network</code> and enable the spanning tree protocol:
+</p>
+<div class="table sectionedit9"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config interface lan
+        option type     bridge
+        <strong>option stp      1</strong>
+        option ifname   eth0.0
+        option proto    static
+        option ipaddr   192.168.1.1
+        option netmask  255.255.255.0</code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit10" id="step_2configure_device_2_wds-test-2">Step 2: Configure Device 2 (wds-test-2)</h3>
+<div class="level3">
+
+<p>
+Like on <em>Device 1</em>, add a WDS network to <code>/etc/config/wireless</code>:
+</p>
+<div class="table sectionedit11"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config wifi-iface
+        option device      wl0
+        option network     <strong>lan</strong>
+        option mode        <strong>wds</strong>
+        option bssid       <strong>00:16:01:0A:B2:8F</strong>
+      # option encryption  psk2
+      # option key         &#039;secret_key&#039; </code> </td>
+	</tr>
+</table></div>
+<ul>
+<li class="level1"><div class="li"> <em>bssid 00:16:01:0A:B2:8F</em> - this is the wireless MAC of <em>wds-test-1</em><br/>
+</div>
+</li>
+</ul>
+
+<p>
+<br/>
+
+</p>
+
+<p>
+Open the <code>/etc/config/firewall</code> file and set the <em>forward policy</em> in the <abbr title="Local Area Network">LAN</abbr> zone to accept:
+</p>
+<div class="table sectionedit12"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config zone
+        option name     lan
+        option input    ACCEPT
+        option output   ACCEPT 
+        option forward  <strong>ACCEPT</strong></code> </td>
+	</tr>
+</table></div>
+
+<p>
+Proceed with the network configuration in <code>/etc/config/network</code>, enable the spanning tree protocol and change the IP address to avoid a collision with <em>Device 1</em>:
+</p>
+<div class="table sectionedit13"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config interface lan
+        option type     bridge
+        <strong>option stp      1</strong>
+        option ifname   eth0.0
+        option proto    static
+        option ipaddr   <strong>192.168.1.2</strong>
+        option netmask  255.255.255.0</code> </td>
+	</tr>
+</table></div>
+
+<p>
+Disable DHCP on the <abbr title="Local Area Network">LAN</abbr> interface in <code>/etc/config/dhcp</code> since <em>Device 1</em> will serve local hosts:
+</p>
+<div class="table sectionedit14"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config dhcp lan
+        <strong>option ignore     1</strong>
+        option interface  lan
+        option start      100
+        option limit      150
+        option leasetime  12h</code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit15" id="further_information">Further Information</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> The AP SSID should be the same on all WDS peers</div>
+</li>
+<li class="level1"><div class="li"> You can setup multiple WDS links per device, define one extra <code>wifi-iface</code> section for each WDS link</div>
+</li>
+<li class="level1"><div class="li"> WPA is <em>only</em> possible with WDS, if at least one AP and one or more WDS networks are defined with the same crypto settings (encryption, key) on all</div>
+</li>
+<li class="level1"><div class="li"> To troubleshoot a WDS connection, install the <code>wl</code> utility with <em>opkg</em> and run the following commands:</div>
+<ul>
+<li class="level2"><div class="li"> <code>wl wds</code> - print the WDS peer addresses, compare them carefully with the MAC addresses of your devices</div>
+</li>
+<li class="level2"><div class="li"> <code>wl sta_info &lt;peer_mac&gt;</code> - show the connection state of a remote WDS peer. State should be &quot;AUTHORIZED&quot;.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> If WDS doesn&#039;t go &#039;AUTHORIZED&#039; try setting mode to 802.11g only on all WDS devices.</div>
+</li>
+</ul>
+<hr />
+
+</div>
+
+<h2 class="sectionedit16" id="complete_configuration_files">Complete Configuration Files</h2>
+<div class="level2">
+
+<p>
+Below are all involved configuration files listed, changed options are highlighted.
+</p>
+
+</div>
+
+<h3 class="sectionedit17" id="device_1">Device 1</h3>
+<div class="level3">
+<div class="table sectionedit18"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>root@wds-test-1:~# cat /etc/config/wireless 
+
+config wifi-device wl0
+	option type        broadcom
+	option channel     <strong>3</strong>
+
+config wifi-iface
+	option device      wl0
+	option mode        ap
+	option network     lan
+	option ssid        <strong>OpenWrt-WDS</strong>
+	option encryption  <strong>psk2</strong>
+	<strong>option key         &#039;secret_key&#039;</strong>
+
+<strong>config wifi-iface
+	option device      wl0
+	option network     lan
+	option mode        wds
+	option bssid       00:14:BF:3B:B9:53
+	option encryption  psk2
+	option key         &#039;secret_key&#039;</strong></code> </td>
+	</tr>
+</table></div>
+<div class="table sectionedit19"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>root@wds-test-1:~# cat /etc/config/network 
+
+config switch eth0
+	option vlan0       &#039;1 2 3 4 5*&#039;
+	option vlan1       &#039;0 5&#039;
+
+config interface loopback
+	option ifname      lo
+	option proto       static
+	option ipaddr      127.0.0.1
+	option netmask     255.0.0.0
+
+config interface lan
+	option type        bridge
+	<strong>option stp         1</strong>
+	option ifname      eth0.0
+	option proto       static
+	option ipaddr      192.168.1.1
+	option netmask     255.255.255.0
+
+config interface wan
+	option ifname      eth0.1
+	option proto       dhcp</code> </td>
+	</tr>
+</table></div>
+<div class="table sectionedit20"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>root@wds-test-1:~# cat /etc/config/firewall 
+
+config defaults
+	option syn_flood   1
+	option input       ACCEPT
+	option output      ACCEPT
+	option forward     REJECT
+
+config zone
+	option name        lan
+	option input       ACCEPT
+	option output      ACCEPT
+	option forward     <strong>ACCEPT</strong>
+
+config zone
+	option name        wan
+	option input       REJECT
+	option output      ACCEPT
+	option forward     REJECT
+	option masq        1
+	option mtu_fix     1
+
+config forwarding
+	option src         lan
+	option dest        wan
+
+config rule
+	option src         wan
+	option proto       udp
+	option dest_port   68
+	option target      ACCEPT
+
+config include
+	option path        /etc/firewall.user</code> </td>
+	</tr>
+</table></div>
+<div class="table sectionedit21"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>root@wds-test-1:~# cat /etc/config/system 
+
+config system
+	option timezone    UTC
+	option hostname    <strong>wds-test-1</strong></code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit22" id="device_2">Device 2</h3>
+<div class="level3">
+<div class="table sectionedit23"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>root@wds-test-2:~# cat /etc/config/wireless 
+
+config wifi-device wl0
+	option type        broadcom
+	option channel     <strong>3</strong>
+
+config wifi-iface
+	option device      wl0
+	option mode        ap
+	option network     lan
+	option ssid        <strong>OpenWrt-WDS</strong>
+	option encryption  <strong>psk2</strong>
+	<strong>option key         &#039;secret_key&#039;</strong>
+
+<strong>config wifi-iface
+	option device      wl0
+	option network     lan
+	option mode        wds
+	option bssid       00:16:01:0A:B2:8F
+	option encryption  psk2
+	option key         &#039;secret_key&#039;</strong></code> </td>
+	</tr>
+</table></div>
+<div class="table sectionedit24"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>root@wds-test-2:~# cat /etc/config/network 
+
+config switch eth0
+	option vlan0       &#039;1 2 3 4 5*&#039;
+	option vlan1       &#039;0 5&#039;
+
+config interface loopback
+	option ifname      lo
+	option proto       static
+	option ipaddr      127.0.0.1
+	option netmask     255.0.0.0
+
+config interface lan
+	option type        bridge
+	<strong>option stp         1</strong>
+	option ifname      eth0.0
+	option proto       static
+	option ipaddr      <strong>192.168.1.2</strong>
+	option netmask     255.255.255.0
+
+config interface wan
+	option ifname      eth0.1
+	option proto       dhcp</code> </td>
+	</tr>
+</table></div>
+<div class="table sectionedit25"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>root@wds-test-2:~# cat /etc/config/firewall 
+
+config defaults
+	option syn_flood   1
+	option input       ACCEPT
+	option output      ACCEPT
+	option forward     REJECT
+
+config zone
+	option name        lan
+	option input       ACCEPT
+	option output      ACCEPT
+	option forward     <strong>ACCEPT</strong>
+
+config zone
+	option name        wan
+	option input       REJECT
+	option output      ACCEPT
+	option forward     REJECT
+	option masq        1
+	option mtu_fix     1
+
+config forwarding
+	option src         lan
+	option dest        wan
+
+config rule
+	option src         wan
+	option proto       udp
+	option dest_port   68
+	option target      ACCEPT
+
+config include
+	option path        /etc/firewall.user</code> </td>
+	</tr>
+</table></div>
+<div class="table sectionedit26"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>root@wds-test-2:~# cat /etc/config/dhcp        
+
+config dnsmasq
+	option domainneeded      1
+	option boguspriv         1
+	option filterwin2k       0
+	option localise_queries  1
+	option local             /lan/
+	option domain            lan
+	option expandhosts       1
+	option nonegcache        0
+	option authoritative     1
+	option readethers        1
+	option leasefile         /tmp/dhcp.leases
+	option resolvfile        /tmp/resolv.conf.auto
+
+config dhcp lan
+	<strong>option ignore      1</strong>
+	option interface   lan
+	option start       100
+	option limit       150
+	option leasetime   12h
+
+config dhcp wan
+	option interface   wan
+	option ignore      1</code> </td>
+	</tr>
+</table></div>
+<div class="table sectionedit27"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>root@wds-test-2:~# cat /etc/config/system 
+
+config system
+	option timezone    UTC
+	option hostname    <strong>wds-test-2</strong></code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/recipes/broadcomwds.txt</bdi> · Last modified: 2012/12/02 14:55 by <bdi>daniellek</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="broadcomwds?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="broadcomwds?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="broadcomwds?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="broadcomwds#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Arecipes%253Abroadcomwds&amp;1432266331" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

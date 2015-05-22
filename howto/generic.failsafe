@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>OpenWrt Failsafe [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,generic.failsafe"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="generic.failsafe?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/generic.failsafe"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/generic.failsafe"/>
+<link rel="canonical" href="generic.failsafe"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:generic.failsafe","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265437 166.182.3.25';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="generic.failsafe#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="generic.failsafe?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="generic.failsafe?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:generic.failsafe" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="generic.failsafe?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="generic.failsafe?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="generic.failsafe?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="generic.failsafe" class="wikilink1" title="doc:howto:generic.failsafe">OpenWrt Failsafe</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/generic.failsafe" class="media" title="cz:doc:howto:generic.failsafe"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../de/doc/howto/generic.failsafe" class="media" title="de:doc:howto:generic.failsafe"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="generic.failsafe" class="media" title="doc:howto:generic.failsafe"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/generic.failsafe" class="media" title="es:doc:howto:generic.failsafe"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../fr/doc/howto/generic.failsafe" class="media" title="fr:doc:howto:generic.failsafe"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../hu/doc/howto/generic.failsafe" class="media" title="hu:doc:howto:generic.failsafe"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/generic.failsafe" class="media" title="jp:doc:howto:generic.failsafe"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/generic.failsafe" class="media" title="pl:doc:howto:generic.failsafe"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/generic.failsafe" class="media" title="pt-br:doc:howto:generic.failsafe"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/generic.failsafe" class="media" title="ru:doc:howto:generic.failsafe"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/generic.failsafe" class="media" title="tr:doc:howto:generic.failsafe"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../zh-cn/doc/howto/generic.failsafe" class="media" title="zh-cn:doc:howto:generic.failsafe"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/generic.failsafe" class="media" title="zh-tw:doc:howto:generic.failsafe"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:generic.failsafe</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="generic.failsafe#prerequisites">Prerequisites</a></div></li>
+<li class="level1"><div class="li"><a href="generic.failsafe#triggering_via_hardware_button_standard_openwrt_method">Triggering via Hardware Button (Standard OpenWrt method)</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="generic.failsafe#stage_0router_preparation">Stage 0: Router preparation</a></div></li>
+<li class="level2"><div class="li"><a href="generic.failsafe#stage_1computer_ip_settings">Stage 1: Computer IP settings</a></div></li>
+<li class="level2"><div class="li"><a href="generic.failsafe#stage_2detect_when_failsafe_mode_can_be_triggered">Stage 2: Detect when failsafe mode can be triggered</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="generic.failsafe#stage_2_option_1trigger_failsafe_mode_when_the_sys_led_begins_to_blink">Stage 2 option 1: Trigger failsafe mode when the SYS LED begins to blink</a></div></li>
+<li class="level3"><div class="li"><a href="generic.failsafe#stage_2_option_2trigger_failsafe_mode_when_the_router_sends_a_broadcast_packet_to_udp_port_4919">Stage 2 option 2: Trigger failsafe mode when the router sends a broadcast packet to UDP port 4919</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="generic.failsafe#stage_3trigger_a_failsafe_boot_using_a_button">Stage 3: Trigger a failsafe boot using a button</a></div></li>
+<li class="level2"><div class="li"><a href="generic.failsafe#stage_4log_into_the_router_using_failsafe">Stage 4: Log into the router using failsafe</a></div></li>
+<li class="level2"><div class="li"><a href="generic.failsafe#remarks">Remarks</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="generic.failsafe#triggering_via_keyboard_key_combination_in_a_serial_console">Triggering via keyboard key combination in a serial console</a></div></li>
+<li class="level1"><div class="li"><a href="generic.failsafe#in_failsafe_mode">In failsafe mode</a></div></li>
+<li class="level1"><div class="li"><a href="generic.failsafe#notes">Notes</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="openwrt_failsafe">OpenWrt Failsafe</h1>
+<div class="level1">
+
+<p>
+OpenWrt SquashFS-Images have a built-in failsafe mode. OpenWrt failsafe mode bypasses all configuration located on the JFFS2 partition (that is the writable partition), in favor of a few hard coded defaults located on the SquashFS partition (that is the read-only partition), resulting in a device boots up as <strong><code>192.168.1.1/24</code></strong> on the <strong><code>eth0</code></strong> network interface with only essential services running. (In case your device has multiple network interfaces (eth0, eth1, …), usually eth0 is the interface connected to the <a href="../hardware/switch" class="wikilink1" title="doc:hardware:switch">switch</a>. There may be very seldom exceptions.)
+</p>
+
+<p>
+From this state you can <strong><code>telnet</code></strong> in, mount the JFFS2 partition with the command <code>mount_root</code> and fix problems located on the JFFS2 partition, e.g. forgotten password, bad firewall settings, broken startup scripts, etc. Please read <strong><a href="../techref/flash.layout#partitioningofsquashfs-images" class="wikilink1" title="doc:techref:flash.layout">OpenWrt Flash Layout</a></strong> to understand why OpenWrt failsafe is possible, and also <a href="../techref/process.boot" class="wikilink1" title="doc:techref:process.boot">Boot Process</a> to understand how it works: basically OpenWrt contains an additional boot up stage, called preinit. This allows to boot into normal mode by default or boot into failsafe mode, if this was triggered by the user. The triggering can happen in two ways: via pressing a hardware button during preinit-stage or via keyboard command while connected over a serial cable to the PCB during preinit-stage. No matter how the booting into failsafe mode was triggered, once OpenWrt booted into failsafe mode, you can telnet in over Ethernet.
+</p>
+
+<p>
+<strong>→ <a href="generic.debrick" class="wikilink1" title="doc:howto:generic.debrick">generic.debrick</a></strong>
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="prerequisites">Prerequisites</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <span style='color:red; '>your device must have a <strong>configurable hardware button</strong></span>, if there&#039;s a button on your router, it&#039;s likely to be configurable. Check if there&#039;s specific info about failsafe mode for your <a href="../../toh/start" class="wikilink1" title="toh:start">device</a> and make sure everything still works as expected everytime you update!</div>
+</li>
+<li class="level1"><div class="li"> there must be a <strong>SquashFS-Image</strong> flashed to the device. Failsafe cannot be implemented on JFFS2-Images</div>
+</li>
+<li class="level1"><div class="li"> everything but the <a href="../techref/filesystems#jffs2" class="wikilink1" title="doc:techref:filesystems">JFFS2</a> partition, i.e. the kernel partition and the <a href="../techref/filesystems#squashfs" class="wikilink1" title="doc:techref:filesystems">SquashFS</a> partition, must be intact, so that…</div>
+<ul>
+<li class="level2"><div class="li"> …the boot process is able to get as far as required to register the pressing of the button</div>
+</li>
+<li class="level2"><div class="li"> …the minimal required binaries and the configuration files with some default settings are available (all on SquashFS)</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit3" id="triggering_via_hardware_button_standard_openwrt_method">Triggering via Hardware Button (Standard OpenWrt method)</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit4" id="stage_0router_preparation">Stage 0: Router preparation</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Power off the router</div>
+</li>
+<li class="level1"><div class="li"> Unplug the WAN port (in case that WAN IP address and <abbr title="Local Area Network">LAN</abbr> IP address are same (address collision happened), if you do not plug out wan port, you cannot enter failsafe mode)</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit5" id="stage_1computer_ip_settings">Stage 1: Computer IP settings</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Set your computer&#039;s IP to <code>192.168.1.2</code>, subnet <code>255.255.255.0</code>. The router will be reached at <code>192.168.1.1</code> when failsafe mode is running.</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit6" id="stage_2detect_when_failsafe_mode_can_be_triggered">Stage 2: Detect when failsafe mode can be triggered</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> To detect when failsafe mode can be triggered, there are two options: look for a bootup LED blink pattern, or look for a special broadcast packet from the router</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="stage_2_option_1trigger_failsafe_mode_when_the_sys_led_begins_to_blink">Stage 2 option 1: Trigger failsafe mode when the SYS LED begins to blink</h4>
+<div class="level4">
+
+<p>
+On some routers (e.g. TP-LINK models), OpenWrt will start to blink a LED (e.g. the &quot;SYS&quot; LED) on the front of the router when it is in its early boot cycle. The blink rate is about twice a second. Looking for a blink pattern is much more convenient to use instead of having to use a packet sniffer.
+</p>
+<ul>
+<li class="level1"><div class="li"> Power on the router</div>
+</li>
+<li class="level1"><div class="li"> As soon as this blink pattern is seen, press the hardware button the front of the router</div>
+</li>
+<li class="level1"><div class="li"> The SYS LED will change to faster blink pattern, indicating the router is now in failsafe mode</div>
+</li>
+</ul>
+
+<p>
+On some TP-Link routers, the button is on the back of the unit (often labeled &quot;WPS/Reset&quot;). The switch may have a physical button, or may be behind a hole in the case and require a paper clip or similar tool to operate.
+</p>
+
+<p>
+At least <a href="../../toh/tp-link/tl-wdr4300#failsafemode" class="wikilink1" title="toh:tp-link:tl-wdr4300">one TP-Link router</a> seems to respond better to repeatedly clicking the button <em>before </em>the SYS LED starts to blink, until the SYS LED lights with the rapid-flash pattern.
+</p>
+
+</div>
+
+<h4 id="stage_2_option_2trigger_failsafe_mode_when_the_router_sends_a_broadcast_packet_to_udp_port_4919">Stage 2 option 2: Trigger failsafe mode when the router sends a broadcast packet to UDP port 4919</h4>
+<div class="level4">
+
+<p>
+If the LED blink detection method isn&#039;t desired, the alternative is to listen on the  UDP 4919 port for a broadcast packet on the computer and then press the front button when this packet is seen. 
+</p>
+
+</div>
+
+<h5 id="start_a_network_sniffer_under_linux_using_tcpdump">Start a network sniffer under Linux using tcpdump</h5>
+<div class="level5">
+
+<p>
+In a terminal enter the command  <pre class="code">tcpdump -Ani eth0 port 4919 and udp</pre>
+
+
+<table class="inline" style="width:70%; margin-left:15%">
+  <tr>
+    <td style="border-left:6px solid #f57900; vertical-align:middle">
+      <img src="../../_media/meta/icons/tango/48px-emblem-question.svg.png" alt="" style="float:left; margin-right:0.5em" />
+      <strong>Unverified Information!</strong><br />
+      Up to today (Jan 11, 2013) this page didn't precise on which port to listen. In the case of TL-WR1043ND, it's the WAN port. If you find a contradictory example, it will be necessarry to <a href="generic.failsafe?do=edit">remove or adapt </a> this note.
+    </td>
+  </tr>
+</table>
+
+</p>
+
+</div>
+
+<h5 id="start_a_network_sniffer_under_windows_using_recvudpexe">Start a network sniffer under Windows using recvudp.exe</h5>
+<div class="level5">
+
+<p>
+You can employ the 
+<a href="http://downloads.openwrt.org/people/florian/recvudp/recvudp-win32.zip" class="urlextern" title="http://downloads.openwrt.org/people/florian/recvudp/recvudp-win32.zip"  rel="nofollow">recvudp.exe</a> utility software - Launch it. You may also need to temporarily disable firewall.
+</p>
+
+</div>
+
+<h5 id="look_for_the_early_boot_network_broadcast_message">Look for the early boot network broadcast message</h5>
+<div class="level5">
+
+<p>
+Power-cycle the router. The router will deliver a message telling it waits for your click on the button.
+</p>
+
+</div>
+
+<h5 id="message_under_linux_only_the_firt_part">Message under Linux (only the firt part)</h5>
+<div class="level5">
+
+<p>
+<a href="../../_detail/doc/howto/linux-failsafe.png?id=doc%253Ahowto%253Ageneric.failsafe" class="media" title="doc:howto:linux-failsafe.png"><img src="../../_media/doc/howto/linux-failsafe.png" class="media" alt="" /></a> <br/>
+
+</p>
+
+</div>
+
+<h5 id="message_under_windows_only_the_first_line">Message under Windows (only the first line)</h5>
+<div class="level5">
+
+<p>
+<a href="../../_detail/media/failsafe2.png?id=doc%253Ahowto%253Ageneric.failsafe" class="media" title="media:failsafe2.png"><img src="../../_media/media/failsafe2.png" class="media" alt="" /></a>
+</p>
+
+</div>
+
+<h3 class="sectionedit7" id="stage_3trigger_a_failsafe_boot_using_a_button">Stage 3: Trigger a failsafe boot using a button</h3>
+<div class="level3">
+
+<p>
+Immediately when the LED blink pattern or the network broadcast message is seen, click the device button. If your device has multiple buttons, any button should work. OpenWrt is configured in a way, that pressing of any button during preinit will trigger booting into failsafe mode. But in case a button should not work, try another.
+</p>
+
+</div>
+
+<h3 class="sectionedit8" id="stage_4log_into_the_router_using_failsafe">Stage 4: Log into the router using failsafe</h3>
+<div class="level3">
+
+<p>
+Indications of failsafe mode:
+</p>
+<ul>
+<li class="level1"><div class="li"> Once in failsafe mode, a network broadcast confirmation message appears (not always, for the TL-WR1043ND no message comes).</div>
+</li>
+<li class="level1"><div class="li"> On some router models (e.g. TP-LINK models), the SYS led blinks very quickly</div>
+</li>
+</ul>
+
+<p>
+Now, <strong>telnet</strong> (<em>not</em> SSH) to 192.168.1.1 from the computer. There is no username or password required.
+</p>
+
+<p>
+Now go to section <a href="generic.failsafe#in_failsafe_mode" title="doc:howto:generic.failsafe ↵" class="wikilink1">In failsafe mode</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="remarks">Remarks</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> If the router does not boot in safe mode despite clicking the button, it may be a timing problem, missing the brief window when OpenWrt is looking for a button press. If so, immediately after turning the router on, rapidly click and keep clicking the button on the router for about 60 seconds to try to not miss the safe mode boot window.</div>
+</li>
+<li class="level1"><div class="li"> If your router has a ridiculously long boot time (such as <a href="../../toh/d-link/dir-300#withmanualstepbystepguide" class="wikilink1" title="toh:d-link:dir-300">DIR-300 A</a>), then you may do this for a longer time.   </div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit10" id="triggering_via_keyboard_key_combination_in_a_serial_console">Triggering via keyboard key combination in a serial console</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> Unplug the router&#039;s power cord.</div>
+</li>
+<li class="level1"><div class="li"> Connect the router&#039;s WAN port directly to your PC.</div>
+</li>
+<li class="level1"><div class="li"> Configure your PC with a static IP address between 192.168.1.2 and 192.168.1.254. E. g. 192.168.1.2 (gateway and <abbr title="Domain Name System">DNS</abbr> is not required).</div>
+</li>
+<li class="level1"><div class="li"> Plugin the power.</div>
+</li>
+<li class="level1"><div class="li"> Connect via serial </div>
+</li>
+<li class="level1"><div class="li"> Wait until the following messages is passing: Press the [f] key and hit [enter] to enter failsafe mode</div>
+</li>
+<li class="level1"><div class="li"> Press &quot;f&quot; and the &quot;enter&quot; key</div>
+</li>
+<li class="level1"><div class="li"> You should be able to <strong>telnet</strong> (<em>not</em> SSH) to the router at 192.168.1.1 now (no username and password)</div>
+</li>
+</ol>
+
+</div>
+
+<h2 class="sectionedit11" id="in_failsafe_mode">In failsafe mode</h2>
+<div class="level2">
+
+<p>
+You get a message similar or same like this (using OpenWrt 12.09):
+</p>
+<div class="table sectionedit12"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><pre class="code"> === IMPORTANT ============================
+  Use &#039;passwd&#039; to set your login password
+  this will disable telnet and enable SSH
+ ------------------------------------------
+
+
+BusyBox v1.19.4 (2013-03-14 11:28:31 UTC) built-in shell (ash)
+Enter &#039;help&#039; for a list of built-in commands.
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+ ATTITUDE ADJUSTMENT (12.09, r36088)
+ -----------------------------------------------------
+  * 1/4 oz Vodka      Pour all ingredients into mixing
+  * 1/4 oz Gin        tin with ice, strain into glass.
+  * 1/4 oz Amaretto
+  * 1/4 oz Triple sec
+  * 1/4 oz Peach schnapps
+  * 1/4 oz Sour mix
+  * 1 splash Cranberry juice
+ -----------------------------------------------------
+root@(none):/#</pre>
+</td>
+	</tr>
+</table></div>
+
+<p>
+Additional note (<a href="https://dev.openwrt.org/changeset/42985/trunk" class="urlextern" title="https://dev.openwrt.org/changeset/42985/trunk"  rel="nofollow">r42985</a>):
+</p>
+<div class="table sectionedit13"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><pre class="code">================= FAILSAFE MODE active ================
+special commands:
+
+    firstboot reset settings to factory defaults
+    mount_root mount root-partition with config files 
+
+after mount_root:
+
+    passwd change root&#039;s password
+    /etc/config directory with config files 
+
+for more help see:
+​http://wiki.openwrt.org/doc/howto/generic.failsafe
+=======================================================</pre>
+</td>
+	</tr>
+</table></div>
+
+<p>
+<strong>NOTE:</strong> The root file system in failsafe mode is the only the <a href="../techref/flash.layout" class="wikilink1" title="doc:techref:flash.layout">SquashFS</a> partition. The JFFS2 is not present. To mount JFFS2 in read-write mode run <code><a href="https://dev.openwrt.org/browser/trunk/package/base-files/files/sbin/mount_root" class="urlextern" title="https://dev.openwrt.org/browser/trunk/package/base-files/files/sbin/mount_root"  rel="nofollow">mount_root</a></code>:
+</p>
+
+<p>
+<pre class="code">mount_root</pre>
+
+</p>
+
+<p>
+and then repair your system:
+</p>
+<ul>
+<li class="level1"><div class="li"> In case you forgot your password, you need to set a new one. Type:<pre class="code">passwd</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> In case you forgot the routers IP address, get it with<pre class="code">uci get network.lan.ipaddr</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> In case you filled up the entire JFFS2 by installing too big/too many packages, clean the entire JFFS2 partition. All settings will be reset and all installed packages are removed. (OpenWrt equivalent of a factory reset)<pre class="code">firstboot</pre>
+ or (this will reboot the device as part of the process) <pre class="code">mtd -r erase rootfs_data</pre>
+ or <pre class="code">rm -r /overlay/*</pre>
+</div>
+</li>
+</ul>
+
+<p>
+If you are done with failsafe mode use <pre class="code">reboot -f</pre>
+ to reboot. <em>Note: Normal <code>/sbin/reboot</code> will not work, because <code>init</code> is not running.</em> Or power cycle the router.
+</p>
+
+</div>
+
+<h2 class="sectionedit14" id="notes">Notes</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> the article <a href="../techref/process.boot" class="wikilink1" title="doc:techref:process.boot">process.boot</a> may help you better understand when <code>failsafe</code> &quot;kicks in&quot; once activated</div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/generic.failsafe.txt</bdi> · Last modified: 2014/10/21 23:31 by <bdi>tmomas</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="generic.failsafe?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="generic.failsafe?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="generic.failsafe?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="generic.failsafe#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Ageneric.failsafe&amp;1432265437" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

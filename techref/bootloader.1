@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>The Bootloader [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,techref,bootloader"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="bootloader?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:techref"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/techref/bootloader"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/techref/bootloader"/>
+<link rel="canonical" href="bootloader.1"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:techref';var JSINFO = {"id":"doc:techref:bootloader","namespace":"doc:techref"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265455 166.182.3.25';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="bootloader.1#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="bootloader?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="bootloader?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:techref:bootloader" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="bootloader?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="bootloader?do=media&amp;ns=doc%253Atechref"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="bootloader?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../techref.1" class="wikilink1" title="doc:techref:start">Technical Reference</a></bdi> » <bdi><span class="curid"><a href="bootloader.1" class="wikilink1" title="doc:techref:bootloader">The Bootloader</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/techref/bootloader" class="media" title="cz:doc:techref:bootloader"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/techref/bootloader" class="media" title="de:doc:techref:bootloader"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="bootloader.1" class="media" title="doc:techref:bootloader"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/techref/bootloader" class="media" title="es:doc:techref:bootloader"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/techref/bootloader" class="media" title="fr:doc:techref:bootloader"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/techref/bootloader" class="media" title="hu:doc:techref:bootloader"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/techref/bootloader" class="media" title="jp:doc:techref:bootloader"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/techref/bootloader" class="media" title="pl:doc:techref:bootloader"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/techref/bootloader" class="media" title="pt-br:doc:techref:bootloader"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/techref/bootloader" class="media" title="ru:doc:techref:bootloader"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/techref/bootloader" class="media" title="tr:doc:techref:bootloader"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/techref/bootloader" class="media" title="zh-cn:doc:techref:bootloader"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/techref/bootloader" class="media" title="zh-tw:doc:techref:bootloader"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:techref:bootloader</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="bootloader.1#main_function">Main Function</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="bootloader.1#why_this_is_necessary">Why this is necessary?</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="bootloader.1#features">Features</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="bootloader.1#limitations">Limitations</a></div></li>
+<li class="level2"><div class="li"><a href="bootloader.1#additional_functions">Additional Functions</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="bootloader.1#boot_procedure">Boot Procedure</a></div></li>
+<li class="level1"><div class="li"><a href="bootloader.1#individual_bootloaders">Individual Bootloaders</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="bootloader.1#pc">PC</a></div></li>
+<li class="level2"><div class="li"><a href="bootloader.1#embedded_devices">Embedded Devices</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="bootloader.1#bootloader_pages">Bootloader Pages</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="the_bootloader">The Bootloader</h1>
+<div class="level1">
+
+<p>
+The <a href="http://en.wikipedia.org/wiki/Bootloader" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Bootloader">Bootloader</a> is a piece of software that is executed every time the hardware device is powered up. It is executable machine code and thus <a href="../hardware/cpu#theisainstructionsetarchitecture" class="wikilink1" title="doc:hardware:cpu">ARCH</a>-specific. It&#039;s quite heavily device-specific because its main task is to initialize all the low-level hardware details. The bootloader can be contained on a separate <a href="http://en.wikipedia.org/wiki/EEPROM" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/EEPROM">EEPROM</a> (very seldom) or directly on flash storage (most common).
+</p>
+<div class="wrap_round wrap_tip plugin_wrap">
+<p>
+Being a piece of software, the bootloader is considered part of the firmware, but <span style='color:red; '><strong>the bootloader is not part of OpenWrt!</strong></span><br/>
+Only on seldom occasions a change of the <em>bootloader settings</em> or the <em>bootloader code</em> is necessary to allow for booting/installing OpenWrt<br/>
+There are a number of bootloaders under diverse <a href="http://en.wikipedia.org/wiki/software license" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/software license">software license</a>s
+</p>
+</div>
+</div>
+
+<h2 class="sectionedit4" id="main_function">Main Function</h2>
+<div class="level2">
+
+<p>
+The bootloader&#039;s main function is to initialize the hardware, pass an abstraction of the initialized hardware, a hardware description, to and execute the Kernel. (A very nice technical example can be seen <a href="http://www.wehavemorefun.de/fritzbox/index.php/ADAM2#Funktionen" class="urlextern" title="http://www.wehavemorefun.de/fritzbox/index.php/ADAM2#Funktionen"  rel="nofollow">here</a>.) After that the bootloader is done and not needed in memory any longer. Most bootloaders offer <a href="bootloader.1#additional_functions" title="doc:techref:bootloader ↵" class="wikilink1">additional functions</a>.
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="why_this_is_necessary">Why this is necessary?</h3>
+<div class="level3">
+
+<p>
+It&#039;s not. A bootloader is not required to boot Linux. The use of one (or several) bootloaders in a row to chainload (or <a href="http://en.wikipedia.org/wiki/Bootstrapping (computing)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Bootstrapping (computing)">bootstrap</a>) a Kernel is not a categorical necessity, it is merely a very crafty method to start an operating system. The main advantage for OpenWrt is, that the existence of a bootloader offers users and developers additional possibilities to <a href="../howto/generic.debrick" class="wikilink1" title="doc:howto:generic.debrick">debrick</a> a device.
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="features">Features</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit7" id="limitations">Limitations</h3>
+<div class="level3">
+
+<p>
+Some bootloader or implementation of universal bootloaders come with certain limitation implemented by the OEM, such as:
+</p>
+<ul>
+<li class="level1"><div class="li"> a willfully designed kernel/firmware size limitation</div>
+</li>
+<li class="level1"><div class="li"> make the bootloader expect a certain exotic firmware format</div>
+</li>
+<li class="level1"><div class="li"> inability of the bootloader to execute the <a href="http://en.wikipedia.org/wiki/Executable and Linkable Format" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Executable and Linkable Format">ELF</a> binary format</div>
+</li>
+<li class="level1"><div class="li"> the need of some obscure &quot;magic value&quot; to be present and correct</div>
+</li>
+<li class="level1"><div class="li"> you name it</div>
+</li>
+</ul>
+
+<p>
+The reasons are variable, from simple ineptitude of the creators to the willful sabotage of the users&#039; attempts to run <a href="http://en.wikipedia.org/wiki/free software" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/free software">free software</a> on their own property.
+</p>
+
+</div>
+
+<h3 class="sectionedit8" id="additional_functions">Additional Functions</h3>
+<div class="level3">
+
+<p>
+The bootloader can be more or less sophisticated, and offer none to many additional functions. In many situations additional functions would give the user a huge advantage, so most bootloaders offer them, such as:
+</p>
+<ul>
+<li class="level1"><div class="li"> Flash new firmware, see <a href="../howto/installing" class="wikilink1" title="doc:howto:generic.flashing">generic.flashing</a></div>
+</li>
+<li class="level1"><div class="li"> The bootloader can possibly validate data on the flash-storage, and e.g. should the firmware fail to pass a CRC, the bootloader would presume the firmware is corrupt and wait for a new firmware to be uploaded over the network. Of course, this also means, that every time you change something on the flash, you have to update this CRC-value…</div>
+</li>
+<li class="level1"><div class="li"> this could also be triggered by setting a boot_wait variable or by a command executed in the serial console</div>
+</li>
+<li class="level1"><div class="li"> a <a href="http://en.wikipedia.org/wiki/Command-line interface" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Command-line interface">CLI</a> (aka <em>serial console</em>), which usually can only be accessed over the <a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console" class="wikilink1" title="doc:hardware:port.serial">serial port</a> <strong>only</strong>. There are several ways to access the <em>serial console</em> port on your target system, such as using a terminal server, but the most common way is to attach it to a serial port on your host. Additionally, you will need a terminal emulation program on your host system, such as <code>cu</code> or <code>kermit</code>.</div>
+<ul>
+<li class="level2"><div class="li"> once the bootloader has fulfilled its main function - chainload the Kernel - it does not run any longer, so to play with it, you have to login to it before it loads the Kernel and you may also have to prevent it from loading the Kernel, i.e. to stop the boot process.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> boot from USB</div>
+<ul>
+<li class="level2"><div class="li"> Like the Kernel requires the module <code>kmod-fs-ext4</code> to read/write to a EXT3 filesystem, so a bootloader requires such a module to do the same. <a href="http://en.wikipedia.org/wiki/GRUB2" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/GRUB2">GRUB2</a> has this functionality implemented, so with it, you can very comfortably configure your boot options and also update and maintain your <abbr title="Operating System">OS</abbr>. The lightweight bootloaders we use with OpenWrt, usually do not have this functionality. But see <a href="flash.layout" class="wikilink1" title="doc:techref:flash.layout">flash.layout</a> for further reference. One exception is the U-Boot implementation of the <a href="../../toh/seagate/dockstar" class="wikilink1" title="toh:seagate:dockstar">dockstar</a>. It can not only initialize the USB (like all the rest of the hardware) but additionally utilize the USB and also understand the EXT2 filesystem. Thus, the dockstar can be booted directly from an ext2-formated harddisc/usb-stick connected to any of it&#039;s USB-ports.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> <a href="../../inbox/netboot" class="wikilink1" title="inbox:netboot">net booting</a> functionality via <a href="http://en.wikipedia.org/wiki/Bootstrap Protocol" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Bootstrap Protocol">BOOTP</a> or <a href="http://en.wikipedia.org/wiki/Preboot Execution Environment" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Preboot Execution Environment">PXE</a> or DHCP or NFS or <a href="http://en.wikipedia.org/wiki/Trivial File Transfer Protocol" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Trivial File Transfer Protocol">TFTP</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit9" id="boot_procedure">Boot Procedure</h2>
+<div class="level2">
+
+<p>
+→ <strong><a href="process.boot" class="wikilink1" title="doc:techref:process.boot">boot process</a></strong> should give a more detailed description of whole boot procedure. The bootloader is the beginning.
+</p>
+
+</div>
+
+<h2 class="sectionedit10" id="individual_bootloaders">Individual Bootloaders</h2>
+<div class="level2">
+
+<p>
+<a href="http://en.wikipedia.org/wiki/Comparison of boot loaders" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Comparison of boot loaders">Comparison of boot loaders</a>
+</p>
+<div class="table sectionedit11"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <em>Please use <code><a href="../../meta/templates" class="wikilink1" title="meta:templates">templates</a></code> to create and maintain these articles. ATM they are quite unmaintained and without a structure and almost useless</em> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit12" id="pc">PC</h3>
+<div class="level3">
+
+<p>
+An embedded bootloader fulfills the same functionality as the <a href="http://en.wikipedia.org/wiki/BIOS" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/BIOS">BIOS</a> plus <a href="http://en.wikipedia.org/wiki/GNU GRUB" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/GNU GRUB">GNU GRUB</a> together on a PC.
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://en.wikipedia.org/wiki/BIOS" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/BIOS">BIOS</a> <span style='color:red; '>proprietary</span> the BIOS of your PC <em>is</em> nothing else but a bootloader!</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://en.wikipedia.org/wiki/Extensible Firmware Interface" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Extensible Firmware Interface">UEFI</a> <span style='color:red; '>proprietary</span> successor want-to-be of the BIOS</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://en.wikipedia.org/wiki/coreboot" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/coreboot">coreboot</a> <span style='color:green; '>GPLv2</span> successor of the BIOS, alternative to UEFI based on the Linux kernel;<br/>
+support for x86, x86-64 and ARM. There is no MIPS support.<br/>
+Coreboot does only &quot;a little bit of hardware initialization&quot;</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://en.wikipedia.org/wiki/GNU GRUB" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/GNU GRUB">GNU GRUB</a> <span style='color:green; '>GPLv2</span> </div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit13" id="embedded_devices">Embedded Devices</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <strong><a href="bootloader/uboot" class="wikilink1" title="doc:techref:bootloader:uboot">Das U-Boot</a></strong> <span style='color:green; '>GPLv2</span> arguably the richest, most flexible, and most actively developed <abbr title="Free &amp; Open-Source Software">FOSS</abbr> bootloader available</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> <a href="bootloader/redboot" class="wikilink1" title="doc:techref:bootloader:redboot">RedBoot</a> <span style='color:green; '>mod <abbr title="GNU General Public License">GPL</abbr></span></div>
+</li>
+<li class="level1"><div class="li"> <a href="bootloader/cfe" class="wikilink1" title="doc:techref:bootloader:cfe">CFE</a> <span style='color:orange; '>BSD like</span> by Broadcom; the orange color means, the OEM is not obliged to deliver the source code</div>
+</li>
+<li class="level1"><div class="li"> <a href="bootloader/adam2" class="wikilink1" title="doc:techref:bootloader:adam2">Adam2</a> <span style='color:red; '>proprietary</span> for AR7/UR8</div>
+<ul>
+<li class="level2"><div class="li"> <a href="bootloader/pspboot" class="wikilink1" title="doc:techref:bootloader:pspboot">PSPBoot</a> <span style='color:red; '>proprietary</span> the only slightly compatible successor of Adam2.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> <a href="bootloader/brnboot" class="wikilink1" title="doc:techref:bootloader:brnboot">brnboot</a> <span style='color:red; '>unknown</span> sometimes called AMAZON Loader.</div>
+</li>
+<li class="level1"><div class="li"> <a href="bootloader/yamon" class="wikilink1" title="doc:techref:bootloader:yamon">yamon</a> <span style='color:red; '>unknown</span> by <a href="http://en.wikipedia.org/wiki/Imagination Technology" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Imagination Technology">Imagination Technology</a>; the Linux kernel can only be booted when it is in SREC format.</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://wiki.openwrt.org/doc/techref/bootloader/bootbase" class="wikilink2" title="doc:techref:bootloader:bootbase" rel="nofollow">Bootbase</a> <span style='color:red; '>unknown</span> used by the ZyXEL Prestige 660HW-xx and Prestige 660M-xx devices (and probably other ZyXEL products). <a href="http://www.ixo.de/info/zyxel_uclinux/" class="urlextern" title="http://www.ixo.de/info/zyxel_uclinux/"  rel="nofollow">http://www.ixo.de/info/zyxel_uclinux/</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="bootloader/myloader" class="wikilink1" title="doc:techref:bootloader:myloader">MyLoader</a> <span style='color:red; '>unknown</span> </div>
+</li>
+<li class="level1"><div class="li"> <a href="bootloader/pp_boot" class="wikilink1" title="doc:techref:bootloader:pp_boot">PP_Boot</a> <span style='color:red; '>unknown</span> </div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> VxWorks&#039; own bootloader - most Atheros devices (There is a description of the basic workings on the <a href="http://wiki.openwrt.org/oldwiki/openwrtdocs/hardware/netgear/wgt624" class="wikilink1" title="oldwiki:openwrtdocs:hardware:netgear:wgt624">Netgear WGT624</a> page.)</div>
+</li>
+<li class="level1"><div class="li"> NetBoot - the standard loader in DWL7100AP allows to boot firmware image via network from TFTP server direct to RAM</div>
+</li>
+<li class="level1"><div class="li"> ThreadX - D-Link uses <abbr title="Operating System">OS</abbr> called ThreadX on lowend 1MiB Flash storage &amp; 8MiB RAM models. They have custom boot loader that doesn&#039;t output anything sensible to serial port but does have recovery mode so you can upload firmware using browser.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit14" id="bootloader_pages">Bootloader Pages</h2>
+<div class="level2">
+
+
+
+<!-- $dir = /var/www/servers/beta.openwrt.org/pages/data/pages/doc/techref/bootloader  $ns = doc:techref:bootloader -->
+
+<ul class="idx">
+<li class="level1"><div class="li"><a href="bootloader/adam2" class="wikilink1" title="doc:techref:bootloader:adam2">Adam2</a></div></li>
+<li class="level1"><div class="li"><a href="bootloader/armboot" class="wikilink1" title="doc:techref:bootloader:armboot">ARMBoot</a></div></li>
+<li class="level1"><div class="li"><a href="bootloader/brnboot" class="wikilink1" title="doc:techref:bootloader:brnboot">brnboot</a></div></li>
+<li class="level1"><div class="li"><a href="bootloader/cfe" class="wikilink1" title="doc:techref:bootloader:cfe">CFE</a></div></li>
+<li class="level1"><div class="li"><a href="bootloader/kboot" class="wikilink1" title="doc:techref:bootloader:kboot">kboot</a></div></li>
+<li class="level1"><div class="li"><a href="bootloader/myloader" class="wikilink1" title="doc:techref:bootloader:myloader">MyLoader</a></div></li>
+<li class="level1"><div class="li"><a href="bootloader/pp_boot" class="wikilink1" title="doc:techref:bootloader:pp_boot">PP Boot</a></div></li>
+<li class="level1"><div class="li"><a href="bootloader/pspboot" class="wikilink1" title="doc:techref:bootloader:pspboot">PSPBoot</a></div></li>
+<li class="level1"><div class="li"><a href="bootloader/redboot" class="wikilink1" title="doc:techref:bootloader:redboot">RedBoot</a></div></li>
+<li class="level1"><div class="li"><a href="bootloader/uboot.config" class="wikilink1" title="doc:techref:bootloader:uboot.config">Das U-Boot Environment</a></div></li>
+<li class="level1"><div class="li"><a href="bootloader/uboot" class="wikilink1" title="doc:techref:bootloader:uboot">Das U-Boot</a></div></li>
+<li class="level1"><div class="li"><a href="bootloader/yamon" class="wikilink1" title="doc:techref:bootloader:yamon">YAMON</a></div></li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/techref/bootloader.txt</bdi> · Last modified: 2015/04/26 08:57 by <bdi>theoradicus</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="bootloader?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="bootloader?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="bootloader?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="bootloader.1#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Atechref%253Abootloader&amp;1432265455" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

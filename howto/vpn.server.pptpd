@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Point-to-Point Tunneling Protocol (PPTP) Server [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,vpn.server.pptpd"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="vpn.server.pptpd?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/vpn.server.pptpd"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/vpn.server.pptpd"/>
+<link rel="canonical" href="vpn.server.pptpd"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:vpn.server.pptpd","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432273856 166.182.3.179';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="vpn.server.pptpd#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="vpn.server.pptpd?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="vpn.server.pptpd?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:vpn.server.pptpd" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="vpn.server.pptpd?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="vpn.server.pptpd?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="vpn.server.pptpd?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="vpn.server.pptpd" class="wikilink1" title="doc:howto:vpn.server.pptpd">Point-to-Point Tunneling Protocol (PPTP) Server</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/vpn.server.pptpd" class="media" title="cz:doc:howto:vpn.server.pptpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/vpn.server.pptpd" class="media" title="de:doc:howto:vpn.server.pptpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="vpn.server.pptpd" class="media" title="doc:howto:vpn.server.pptpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/vpn.server.pptpd" class="media" title="es:doc:howto:vpn.server.pptpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/vpn.server.pptpd" class="media" title="fr:doc:howto:vpn.server.pptpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/vpn.server.pptpd" class="media" title="hu:doc:howto:vpn.server.pptpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/vpn.server.pptpd" class="media" title="jp:doc:howto:vpn.server.pptpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/vpn.server.pptpd" class="media" title="pl:doc:howto:vpn.server.pptpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/vpn.server.pptpd" class="media" title="pt-br:doc:howto:vpn.server.pptpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/vpn.server.pptpd" class="media" title="ru:doc:howto:vpn.server.pptpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/vpn.server.pptpd" class="media" title="tr:doc:howto:vpn.server.pptpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/vpn.server.pptpd" class="media" title="zh-cn:doc:howto:vpn.server.pptpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/vpn.server.pptpd" class="media" title="zh-tw:doc:howto:vpn.server.pptpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:vpn.server.pptpd</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="vpn.server.pptpd#preparation">Preparation</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="vpn.server.pptpd#prerequisites">Prerequisites</a></div></li>
+<li class="level2"><div class="li"><a href="vpn.server.pptpd#required_packages">Required Packages</a></div></li>
+<li class="level2"><div class="li"><a href="vpn.server.pptpd#installation">Installation</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="vpn.server.pptpd#configuration">Configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="vpn.server.pptpd#server_configuration">Server configuration</a></div></li>
+<li class="level2"><div class="li"><a href="vpn.server.pptpd#network_configuration">Network configuration</a></div></li>
+<li class="level2"><div class="li"><a href="vpn.server.pptpd#firewall_configuration">Firewall configuration</a></div></li>
+<li class="level2"><div class="li"><a href="vpn.server.pptpd#start_service">Start service</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="vpn.server.pptpd#set-up_and_configuration_for_historic_versions_pre_1407">Set-up and configuration for historic versions (pre 14.07)</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="vpn.server.pptpd#openwrt_generic">OpenWrt Generic</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="vpn.server.pptpd#configuration1">Configuration</a></div></li>
+<li class="level3"><div class="li"><a href="vpn.server.pptpd#tunnel_remote_ip_addresses">Tunnel Remote IP Addresses</a></div></li>
+<li class="level3"><div class="li"><a href="vpn.server.pptpd#firewall">Firewall</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="vpn.server.pptpd#configure_routing">Configure Routing</a></div></li>
+<li class="level2"><div class="li"><a href="vpn.server.pptpd#setup_for_windows_filesharing">Setup for Windows filesharing</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="vpn.server.pptpd#troubleshooting">Troubleshooting</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="vpn.server.pptpd#test_connection">Test Connection</a></div></li>
+<li class="level2"><div class="li"><a href="vpn.server.pptpd#configure_debug_logging">Configure Debug Logging</a></div></li>
+<li class="level2"><div class="li"><a href="vpn.server.pptpd#notes">Notes</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="point-to-point_tunneling_protocol_pptp_server">Point-to-Point Tunneling Protocol (PPTP) Server</h1>
+<div class="level1">
+
+<p>
+The Point-to-Point Tunneling Protocol (PPTP) is a method for implementing virtual private networks. PPTP uses a control channel over TCP and a GRE tunnel operating to encapsulate PPP packets. pptpd is server daemon which enables pptp clients to establish tunnel over IP network.
+As it is today PPTP with MS-CHAP-v2 encryption is not secure and should not be used<sup><a href="vpn.server.pptpd#fn__1" id="fnt__1" class="fn_top">1)</a></sup> <sup><a href="vpn.server.pptpd#fn__2" id="fnt__2" class="fn_top">2)</a></sup>. Please consider to use other VPN server. For alternative solutions, please visit <a href="vpn.overview" class="wikilink1" title="doc:howto:vpn.overview">vpn.overview</a>. See → <a href="vpn.client.pptp" class="wikilink1" title="doc:howto:vpn.client.pptp">vpn.client.pptp</a> to set up a client.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="preparation">Preparation</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit3" id="prerequisites">Prerequisites</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Study the documentation available in <a href="http://poptop.sourceforge.net/dox/" class="urlextern" title="http://poptop.sourceforge.net/dox/"  rel="nofollow"> sourceforge</a>.</div>
+</li>
+<li class="level1"><div class="li"> Plan your networks. Remote clients can be in &quot;lan&quot;, but it is feasible to configure dedicated network for clients and set up routing accordingly.</div>
+</li>
+<li class="level1"><div class="li"> Modify your firewall rules as described below.</div>
+</li>
+<li class="level1"><div class="li"><strong>If upgrading from previous OpenWrt version make backup from pptpd configuration files. 14.07 init script overwrites chap-secrets file.</strong></div>
+</li>
+</ul>
+
+<p>
+<pre class="code">/etc/pptpd.conf
+/etc/ppp/options.pptpd
+/etc/ppp/chap-secrets</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="required_packages">Required Packages</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> pptpd</div>
+</li>
+<li class="level1"><div class="li"> kmod-mppe</div>
+</li>
+<li class="level1"><div class="li"> ppp</div>
+</li>
+</ul>
+
+<p>
+See OpenWrt log for other required packages. 
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="installation">Installation</h3>
+<div class="level3">
+
+<p>
+<pre class="code"> opkg install pptpd kmod-mppe</pre>
+
+</p>
+
+<p>
+There are bugs in BARRIER BREAKER (14.07, r42625) init script. 
+Modify /etc/init.d/pptpd  to clean up temporary pptp.conf and chap-secrets. Original init script does not enable multiple simultaneous clients with fixed remote IP&#039;s. Following script and modified configuration file enables it:
+<pre class="code">#!/bin/sh /etc/rc.common
+# Copyright (C) 2006 OpenWrt.org
+
+START=60
+BIN=/usr/sbin/pptpd
+DEFAULT=/etc/default/$BIN
+RUN_D=/var/run
+PID_F=$RUN_D/$BIN.pid
+CONFIG=/var/etc/pptpd.conf
+CHAP_SECRETS=/var/etc/chap-secrets
+
+setup_login() {
+	local section=&quot;$1&quot;
+	config_get username &quot;$section&quot; username
+	config_get password &quot;$section&quot; password
+	config_get remoteip &quot;$section&quot; remoteip
+	[ -n &quot;$username&quot; ] || return 0
+	[ -n &quot;$password&quot; ] || return 0
+	[ -n &quot;$remoteip&quot; ] || return 0
+
+	echo &quot;$username pptp-server $password $remoteip&quot; &gt;&gt; $CHAP_SECRETS
+}
+
+setup_config() {
+	local section=&quot;$1&quot;
+
+	config_get enabled &quot;$section&quot; enabled
+	[ &quot;$enabled&quot; -eq 0 ] &amp;&amp; return 1
+
+	mkdir -p /var/etc
+	cp /etc/pptpd.conf $CONFIG
+
+	config_get localip &quot;$section&quot; localip
+	[ -n &quot;$localip&quot; ] &amp;&amp; echo &quot;localip  $localip&quot; &gt;&gt; $CONFIG
+	return 0
+}
+
+start_pptpd() {
+	[ -f $DEFAULT ] &amp;&amp; . $DEFAULT
+	mkdir -p $RUN_D
+	for m in arc4 sha1_generic slhc crc-ccitt ppp_generic ppp_async ppp_mppe; do
+		insmod $m &gt;/dev/null 2&gt;&amp;1
+	done
+	ln -sfn $CHAP_SECRETS /etc/ppp/chap-secrets
+	service_start $BIN $OPTIONS -c $CONFIG
+}
+
+start() {
+	config_load pptpd
+	setup_config pptpd || return
+	config_foreach setup_login login
+	start_pptpd
+}
+
+stop() {
+	service_stop $BIN
+	rm -rf $CHAP_SECRETS $CONFIG /etc/ppp/chap-secrets
+}</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="configuration">Configuration</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit7" id="server_configuration">Server configuration</h3>
+<div class="level3">
+
+<p>
+There is no need to modify server configuration files /etc/pptpd.conf /etc/ppp/options.pptpd, however some parameters needs to be adjusted depending from clients and network configuration ( such as mtu, mru, ms-dns, proxyarp). See documentation and tips below.
+</p>
+
+<p>
+Clients configuration is located in /etc/config/pptpd. Modify it to enable pptpd and configure clients and network. Following is example for two clients. You can add multiple config &#039;login&#039;.
+<pre class="code">config service &#039;pptpd&#039;
+	option &#039;enabled&#039; &#039;1&#039;
+	option &#039;localip&#039; ‘xxx.yyy.www.zzz’
+
+config &#039;login&#039; 
+	option &#039;username&#039; ‘foo’
+	option &#039;password&#039; ‘bar’
+	option &#039;remoteip&#039; &#039;xxx.yyy.zzz.1’
+
+config &#039;login&#039; 
+	option &#039;username&#039; ‘foo’
+	option &#039;password&#039; ‘bar’
+	option &#039;remoteip&#039; &#039;xxx.yyy.zzz.2’</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit8" id="network_configuration">Network configuration</h3>
+<div class="level3">
+
+<p>
+If you are using different subnet for VPN clients you need to add route to /etc/network:
+<pre class="code">config route
+	option interface &#039;lan&#039;
+	option target &#039;xxx.yyy.zzz.0&#039;
+	option netmask &#039;255.255.255.0&#039;
+	option gateway &#039;xxx.yyy.www.zzz&#039;</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="firewall_configuration">Firewall configuration</h3>
+<div class="level3">
+
+<p>
+In order to accept pptp traffic in wan to router you need to open following protocols and ports.  Add following to /etc/config/network:
+<pre class="code">config rule
+	option target &#039;ACCEPT&#039;
+	option _name &#039;pptp&#039;
+	option src &#039;wan&#039;
+	option proto &#039;tcp&#039;
+	option dest_port &#039;1723&#039;
+
+config rule
+	option target &#039;ACCEPT&#039;
+	option _name &#039;gre&#039;
+	option src &#039;wan&#039;
+	option proto &#039;47&#039;</pre>
+
+</p>
+
+<p>
+In order to enable traffic inside VPN to enter, leave and pass trough router you need to add following. Be aware, that if you are using ppp (PPPoE or similar) in wan following configuration is insecure and shall be modified. You can add it to /etc/firewall.user:
+<pre class="code"># Allow all traffic in and out of the ppp interface. No reason to specify nets.
+iptables -A input_rule -i ppp+ -j ACCEPT
+iptables -A output_rule -o ppp+ -j ACCEPT
+# This rule will allow traffic towards internet
+iptables -A forwarding_rule -i ppp+ -j ACCEPT
+iptables -A forwarding_rule -o ppp+ -j ACCEPT</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="start_service">Start service</h3>
+<div class="level3">
+
+<p>
+<pre class="code">/etc/init.d/pptpd enable
+/etc/init.d/pptpd start</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit11" id="set-up_and_configuration_for_historic_versions_pre_1407">Set-up and configuration for historic versions (pre 14.07)</h2>
+<div class="level2">
+
+<p>
+<pre class="code">opkg install pptpd kmod-mppe
+/etc/init.d/pptpd enable
+/etc/init.d/pptpd start</pre>
+
+</p>
+
+<p>
+pptpd will be running, and will be running on boot.  Add a user to <code>/etc/ppp/chap-secrets</code> (see below).  Optionally add <em>proxyarp</em> to <code>/etc/ppp/options.pptpd</code>.  Then try to connect from a client.
+</p>
+
+<p>
+The kernel module kmod-mppe is needed for encryption. If you are on trunk, you might need to update your firmware to latest before installing kernel modules, as the kernel sometimes changes, thus the trunk repository modules will not match the older kernel.
+</p>
+
+</div>
+
+<h3 class="sectionedit12" id="openwrt_generic">OpenWrt Generic</h3>
+<div class="level3">
+
+<p>
+Instructions that are not specific to any particular version of OpenWrt.
+</p>
+
+</div>
+
+<h4 id="configuration1">Configuration</h4>
+<div class="level4">
+
+<p>
+The default IP address of the server end of the tunnel is 172.16.1.1, and is set in the file <code>/etc/ppp/options.pptpd</code>, with a colon after it, like this:
+</p>
+
+<p>
+<pre class="code">172.16.1.1:</pre>
+
+</p>
+
+<p>
+Change this if you want a different IP address. There is no need to restart <em>pptpd</em> if you change this file, because it is used by <em>pppd</em> as soon as the next connection arrives. The file contains options for <em>pppd</em>, see <em>man pppd</em> on a Linux system for more information on the options available.
+</p>
+
+<p>
+/!\ <em>ppp</em> has obsoleted this option (as of v2.4.3-7). In order to assign the local IP address of the server end of the tunnel, include the <em>localip</em> option in your <em>/etc/pptpd.conf</em>. For example:
+</p>
+
+<p>
+<pre class="code">localip 172.16.1.1</pre>
+
+</p>
+
+<p>
+The easiest way to get <abbr title="Local Area Network">LAN</abbr> access is to make sure the localip is in the <abbr title="Local Area Network">LAN</abbr> ip range. To dynamicly assign IP addresses to clients, you can add the following which dynamicly assigns an IP to the client.
+</p>
+
+<p>
+<pre class="code">remoteip 172.16.1.100-109</pre>
+
+</p>
+
+</div>
+
+<h4 id="tunnel_remote_ip_addresses">Tunnel Remote IP Addresses</h4>
+<div class="level4">
+
+<p>
+Add lines to <code>/etc/ppp/chap-secrets</code> for each client. The format is:
+</p>
+
+<p>
+<pre class="code">username provider password ipaddress</pre>
+
+</p>
+
+<p>
+Add an IP address for every client. An example <em>chap-secrets</em> looks like this:
+</p>
+
+<p>
+<pre class="code">vpnuser pptp-server vpnpassword 172.16.1.2</pre>
+
+</p>
+
+<p>
+See <em>man pppd</em> on a Linux system for more information on this file. Take care that the provider field matches the <em>name</em> option in <em>/etc/ppp/options.pptpd</em>. The default is <em>pptp-server</em>.
+</p>
+
+<p>
+/!\ If you have x-wrt installed and use it to edit the <em>chap-secrets</em> file, it will create every entry with the provider of <em>pptpd</em>.  Also, every time the router is rebooted the file will be rewritten so that the provider is <em>pptpd</em>.  The easiest way to deal with this is to set the default provider in <em>/etc/ppp/options.pptpd</em> to <em>pptpd</em>.
+</p>
+
+<p>
+/!\ For the <em>bin</em> and <em>pptp</em> builds of OpenWrt, the file will start out being a symbolic link to a template in <em>/rom</em>, so remove the link, copy the template, and make sure it is <em>chmod 600</em>.
+</p>
+
+<p>
+/!\ It is important to set an IP address rather than use the default asterisk.  If you use an asterisk, the peer may propose it&#039;s own address, which could cause a routing loop.  This results in very large transmit counters on <em>ifconfig ppp0</em> and a badly performing router, as it spends all it&#039;s time trying to move packets through the loop.
+</p>
+
+</div>
+
+<h4 id="firewall">Firewall</h4>
+<div class="level4">
+
+<p>
+For your security OpenWrt will ignore connections on the WAN interface, but accept connection from a client on the <abbr title="Local Area Network">LAN</abbr> or wireless interfaces.  If your client is to connect on the WAN interface, edit the <em>/etc/firewall.user</em> file and add the following:
+</p>
+
+<p>
+<pre class="code">iptables -t nat -A prerouting_rule -i $WAN -p tcp --dport 1723 -j ACCEPT
+iptables        -A input_rule      -i $WAN -p tcp --dport 1723 -j ACCEPT
+iptables        -A output_rule             -p 47               -j ACCEPT
+iptables        -A input_rule              -p 47               -j ACCEPT</pre>
+
+</p>
+
+<p>
+See the <a href="../uci/firewall" class="wikilink1" title="doc:uci:firewall">firewall</a> for help. Be aware that $WAN might not be defined. If that is the case, insert the interface name instead. I.e. replace $WAN by eth1.
+</p>
+
+<p>
+Alternatively you can configure the firewall using UCI in &quot;/etc/config/firewall&quot;:
+<pre class="code">config &#039;rule&#039;
+	option &#039;target&#039; &#039;ACCEPT&#039;
+	option &#039;_name&#039; &#039;pptpd&#039;
+	option &#039;proto&#039; &#039;tcp&#039;
+	option &#039;dest_port&#039; &#039;1723&#039;
+	option &#039;family&#039; &#039;ipv4&#039;
+	option &#039;src&#039; &#039;wan&#039;</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit13" id="configure_routing">Configure Routing</h3>
+<div class="level3">
+
+<p>
+While we now have a VPN ready where the clients can connect to the OpenWrt router we might want to allow the clients to see inside the <abbr title="Local Area Network">LAN</abbr>. Of course we can alway give appropriate routes to server and clients but there&#039;s another way. In our example we have a <abbr title="Local Area Network">LAN</abbr> network 192.168.0.1/24 on the <abbr title="Local Area Network">LAN</abbr> port of our router. We want multiple clients to connect to the <em>pptpd</em> server and be able to connect to the <abbr title="Local Area Network">LAN</abbr> without the need of client routes. This is especially useful for Windows machines as they either route everything through the <em>pptpd</em> tunnel or nothing and we want them to be able to connect without much configuration hassle for the users. We will use <em>proxyarp</em> for that purpose and add the following line to <em>/etc/ppp/options.pptpd</em>:
+</p>
+
+<p>
+<pre class="code">proxyarp</pre>
+
+</p>
+
+<p>
+When the next client connection arrives you should see something like:
+</p>
+
+<p>
+<pre class="code">found interface vlan0 for proxy arp</pre>
+
+</p>
+
+<p>
+in the logs. The kernel will now answer arp requests for the clients connected through the PPTP tunnel and thus the packets are routed correctly to either the ppp+ device or vlan0. We will have to add additional iptables rules.
+</p>
+
+<p>
+<pre class="code"># Allow all traffic in and out of the ppp interface. No reason to specify nets.
+/usr/sbin/iptables -A input_rule -i ppp+ -j ACCEPT
+/usr/sbin/iptables -A output_rule -o ppp+ -j ACCEPT
+# This rule will allow traffic towards internet
+/usr/sbin/iptables -A forwarding_rule -i ppp+ -j ACCEPT</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit14" id="setup_for_windows_filesharing">Setup for Windows filesharing</h3>
+<div class="level3">
+
+<p>
+If you have Windows PPTP clients and you want them to be able to access file shares on the <abbr title="Local Area Network">LAN</abbr>, you need to set the  IP addresses of the PPTP clients to be on the same subnet as the <abbr title="Local Area Network">LAN</abbr>.  This is because of a limitation in proxyarp.  They also cannot be on the same subnet as the local addresses of the PPTP clients.  For example, if your PPTP clients have addresses in the 192.168.0.0/24 subnet, you can set you <abbr title="Local Area Network">LAN</abbr> to be 192.168.30.0/24 with DCHP assigning 192.168.30.50-192.168.30.100, but be careful that your PPTP clients&#039; subnets are not in the 192.168.0.0 range. You would be better off selecting something in the 172.16.0.0/12 range (such as 172.18 for your <abbr title="Local Area Network">LAN</abbr> and 172.19 for the VPN clients with a bitmask of 16, i.e. 255.255.0.0). You can set the IP address of the PPTP server to be 192.168.30.200 by adding the following line to /etc/ppp/options.pptpd:
+</p>
+
+<p>
+<pre class="code">192.168.30.200:</pre>
+
+</p>
+
+<p>
+You can then assign the client IP address beginning with 192.168.30.201.  Use the following settings for VPN in /etc/firewall.user.
+</p>
+
+<p>
+<pre class="code">iptables        -A forwarding_rule -s 192.168.30.0/24 -d 192.168.30.0/24 -j ACCEPT
+iptables        -A output_rule     -o ppp+ -s 192.168.30.0/24 -d 192.168.30.0/24 -j ACCEPT
+iptables        -A input_rule      -i ppp+ -s 192.168.30.0/24 -d 192.168.30.0/24 -j ACCEPT
+# allow VPN connections to get out WAN interface (to internet)
+iptables        -A forwarding_rule -i ppp+ -o $WAN -j ACCEPT</pre>
+
+</p>
+
+<p>
+You will now be able to access file shares by IP address.  For example, you can type
+</p>
+
+<p>
+<pre class="code">\\192.168.30.50</pre>
+
+</p>
+
+<p>
+into the address bar of Windows Explorer.  Network neighborhood still doesn&#039;t detect available computers.  If anyone knows how to make this work please post the instructions here.  The desired configuration would have automatic detection and population, so there is no need to edit host files.  I tried following <a href="http://poptop.sourceforge.net/dox/replacing-windows-pptp-with-linux-howto.phtml" class="urlextern" title="http://poptop.sourceforge.net/dox/replacing-windows-pptp-with-linux-howto.phtml"  rel="nofollow">instructions</a> for setting up samba to run as a WINS server but I couldn&#039;t get it to work.  Perhaps this is because OpenWrt is running an older version of samba that was selected because it has a smaller memory footprint.
+</p>
+
+<p>
+⇒ In general the way for computers to appear in Net-Hood is to have server (master browser) to populate browse list across networks + have hosts or lmhosts file setup on client machines(that is only way I discovered so far). For samba servers you need to have config options in smb.conf:  (ip address of router/name of workgroup), but I&#039;m not sure how it works on wrt (as it only have cups I couldn&#039;t get them installed due to space limitation) remote announce = 192.168.11.1/UR-WG-NAME and hosts file in windoze (c:\Windows\System32\drivers\etc\hosts) like 192.168.11.10    mypc       mypc.behind-wrt54g.org ..
+</p>
+
+<p>
+⇒ Other way way for computers to appear in Net-Hood is to use on router side utility called <em>bcrelay</em>. <em>Bcrelay</em> turns on broadcast relay mode, sending all broadcasts received on the server&#039;s internal interface to the clients. Default pptpd package on <a href="http://wiki.openwrt.org/doc/howto/whiterussian" class="wikilink2" title="doc:howto:whiterussian" rel="nofollow">WhiteRussian</a> 0.9 contains pptpd version 1.3.0 compiled without <em>bcrelay</em> support. Good discussion about this problem can be found at <a href="http://forum.openwrt.org/viewtopic.php?pid=56890" class="urlextern" title="http://forum.openwrt.org/viewtopic.php?pid=56890"  rel="nofollow">http://forum.openwrt.org/viewtopic.php?pid=56890</a>
+</p>
+
+<p>
+Decision:
+</p>
+
+<p>
+1. Recompile pptpd with bcrelay support or get compiled by simba87 package from <a href="http://rapidshare.com/files/59421121/pptpd_1.3.4-1_mipsel.ipk.html" class="urlextern" title="http://rapidshare.com/files/59421121/pptpd_1.3.4-1_mipsel.ipk.html"  rel="nofollow">http://rapidshare.com/files/59421121/pptpd_1.3.4-1_mipsel.ipk.html</a>.
+2. Backup <em>/etc/pptpd.conf</em> and all files in <em>/etc/ppp</em>/. Uninstall old pptpd package.
+3. I put <em>pptpd_1.3.4-1_mipsel.ipk</em> to my hosting, then use <em>wget</em> on the router and use <em>ipkg install pptpd_1.3.4-1_mipsel.ipk</em>.
+4. Add <em>bcrelay br0</em> to /etc/pptpd.conf and <em>proxyarp</em> to /etc/ppp/options.pptpd.
+</p>
+
+</div>
+
+<h2 class="sectionedit15" id="troubleshooting">Troubleshooting</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit16" id="test_connection">Test Connection</h3>
+<div class="level3">
+
+<p>
+Tell a client to connect to the PPTP server, using the username and password you set in <em>chap-secrets</em>.
+</p>
+
+<p>
+The connection should work, ping between the client and the server should work, but you may have to do some more configuring to let the client use your PPTP server as a gateway to the internet, or to see inside your <abbr title="Local Area Network">LAN</abbr>.  See the routing section above .
+</p>
+
+</div>
+
+<h3 class="sectionedit17" id="configure_debug_logging">Configure Debug Logging</h3>
+<div class="level3">
+
+<p>
+If you have problems making a connection, increase the amount of information logged:
+</p>
+<ul>
+<li class="level1"><div class="li"> edit <em>/etc/pptpd.conf</em> and add the line <em>debug</em>, and restart <em>pptpd</em> using <em>/etc/init.d/S50pptpd stop</em> followed by <em>/etc/init.d/S50pptpd start</em>,</div>
+</li>
+<li class="level1"><div class="li"> edit <em>/etc/ppp/options.pptpd</em> and add the line <em>debug</em>, and the line <em>logfile &quot;/tmp/pptpd.log&quot;</em> … these changes take effect on next client connection, there is no need to restart <em>pptpd</em>.</div>
+</li>
+</ul>
+
+<p>
+To understand the <em>pppd</em> debug log, read these key sections of the PPTP Client Diagnosis HOWTO:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://pptpclient.sourceforge.net/howto-diagnosis.phtml#confreqacknakrej" class="urlextern" title="http://pptpclient.sourceforge.net/howto-diagnosis.phtml#confreqacknakrej"  rel="nofollow">What does ConfReq, ConfAck, ConfNak, and ConfRej mean?</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://pptpclient.sourceforge.net/howto-diagnosis.phtml#mppe_bits" class="urlextern" title="http://pptpclient.sourceforge.net/howto-diagnosis.phtml#mppe_bits"  rel="nofollow">What are those CCP MPPE bitmasks?</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit18" id="notes">Notes</h3>
+<div class="level3">
+
+<p>
+If you can not ping router, host in lan or in internet from VPN client and there are no errors in pptpd log or system log, most likely packets get dropped in firewall.
+</p>
+
+<p>
+If you can connect to the <em>pptpd</em> and can ping the client from the server and vice versa but are not able to ping anything else refer to this <a href="http://poptop.sourceforge.net/dox/diagnose-forwarding.phtml" class="urlextern" title="http://poptop.sourceforge.net/dox/diagnose-forwarding.phtml"  rel="nofollow">checklist for diagnosis</a>
+</p>
+
+<p>
+There is a <a href="http://www.windowsecurity.com/articles/Configure-VPN-Connection-Windows-XP.html" class="urlextern" title="http://www.windowsecurity.com/articles/Configure-VPN-Connection-Windows-XP.html"  rel="nofollow">Windows XP client HOWTO</a> that may help.
+</p>
+
+<p>
+There is also the <a href="http://pptpclient.sourceforge.net/" class="urlextern" title="http://pptpclient.sourceforge.net/"  rel="nofollow">PPTP Client for Linux</a> or check the OpenWrt <a href="http://wiki.openwrt.org/doc/howto/vpn.pptp.client" class="wikilink2" title="doc:howto:vpn.pptp.client" rel="nofollow">vpn.pptp.client</a>.
+</p>
+
+<p>
+If the PPTP clients are behind an Actiontec DSL Modem/Router, only one of them will be able to connect.  This is do to a bug in the Actiontec.  Apparently it locks the connection to one client.  If the router is rebooted the first client to reconnect is locked in.  Putting the Actiontec into bridged mode and using a different router will probably bypass the problem.  Does anyone else have any experience with this?
+</p>
+
+</div>
+<div class="footnotes">
+<div class="fn"><sup><a href="vpn.server.pptpd#fnt__1" id="fn__1" class="fn_bot">1)</a></sup> 
+<a href="http://poptop.sourceforge.net/dox/protocol-security.phtml" class="urlextern" title="http://poptop.sourceforge.net/dox/protocol-security.phtml"  rel="nofollow">http://poptop.sourceforge.net/dox/protocol-security.phtml</a></div>
+<div class="fn"><sup><a href="vpn.server.pptpd#fnt__2" id="fn__2" class="fn_bot">2)</a></sup> 
+<a href="https://www.cloudcracker.com/blog/2012/07/29/cracking-ms-chap-v2/" class="urlextern" title="https://www.cloudcracker.com/blog/2012/07/29/cracking-ms-chap-v2/"  rel="nofollow">https://www.cloudcracker.com/blog/2012/07/29/cracking-ms-chap-v2/</a></div>
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/vpn.server.pptpd.txt</bdi> · Last modified: 2014/12/14 14:52 by <bdi>silverk</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="vpn.server.pptpd?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="vpn.server.pptpd?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="vpn.server.pptpd?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="vpn.server.pptpd#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Avpn.server.pptpd&amp;1432273856" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

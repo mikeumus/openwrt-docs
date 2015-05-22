@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>GPIO [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="wip"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="port.gpio?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:hardware"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/hardware/port.gpio"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/hardware/port.gpio"/>
+<link rel="canonical" href="port.gpio"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:hardware';var JSINFO = {"id":"doc:hardware:port.gpio","namespace":"doc:hardware"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265808 166.182.3.44';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="port.gpio#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="port.gpio?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="port.gpio?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:hardware:port.gpio" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="port.gpio?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="port.gpio?do=media&amp;ns=doc%253Ahardware"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="port.gpio?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:hardware:start">Hardware</a></bdi> » <bdi><span class="curid"><a href="port.gpio" class="wikilink1" title="doc:hardware:port.gpio">GPIO</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/hardware/port.gpio" class="media" title="cz:doc:hardware:port.gpio"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/hardware/port.gpio" class="media" title="de:doc:hardware:port.gpio"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="port.gpio" class="media" title="doc:hardware:port.gpio"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/hardware/port.gpio" class="media" title="es:doc:hardware:port.gpio"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/hardware/port.gpio" class="media" title="fr:doc:hardware:port.gpio"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/hardware/port.gpio" class="media" title="hu:doc:hardware:port.gpio"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/hardware/port.gpio" class="media" title="jp:doc:hardware:port.gpio"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/hardware/port.gpio" class="media" title="pl:doc:hardware:port.gpio"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/hardware/port.gpio" class="media" title="pt-br:doc:hardware:port.gpio"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../ru/doc/hardware/port.gpio" class="media" title="ru:doc:hardware:port.gpio"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/hardware/port.gpio" class="media" title="tr:doc:hardware:port.gpio"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../zh-cn/doc/hardware/port.gpio" class="media" title="zh-cn:doc:hardware:port.gpio"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/hardware/port.gpio" class="media" title="zh-tw:doc:hardware:port.gpio"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:hardware:port.gpio</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="port.gpio#hardware">Hardware</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="port.gpio#gpio_interrupts">GPIO Interrupts</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="port.gpio#software">Software</a></div></li>
+<li class="level1"><div class="li"><a href="port.gpio#finding_gpio_pins_on_the_pcb">Finding GPIO pins on the PCB</a></div></li>
+<li class="level1"><div class="li"><a href="port.gpio#links">Links</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="gpio">GPIO</h1>
+<div class="level1">
+
+<p>
+Read <a href="http://en.wikipedia.org/wiki/General Purpose Input/Output" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/General Purpose Input/Output">General Purpose Input/Output</a> and <a href="http://www.mjmwired.net/kernel/Documentation/gpio.txt" class="urlextern" title="http://www.mjmwired.net/kernel/Documentation/gpio.txt"  rel="nofollow">GPIO access conventions on Linux</a>.
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="../howto/mmc_over_gpio" class="wikilink1" title="doc:howto:mmc_over_gpio">mmc_over_gpio</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../toh/tp-link/tl-wr1043nd#gpios" class="wikilink1" title="toh:tp-link:tl-wr1043nd">GPIOs of AR913x SoC</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://wiki.openwrt.org/oldwiki/port.gpio" class="wikilink1" title="oldwiki:port.gpio">oldwiki GPIO</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit2" id="hardware">Hardware</h2>
+<div class="level2">
+
+<p>
+GPIOs are commonly used in router devices for buttons or leds. They only safely supply or sink (pull to GND) a maximum of 4mA aprox., and the voltage is usually 3V when active. Only two states are posible: high or low. Depending on how a device is activated by a GPIO, active low or active high is defined.
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>active high</strong>: the device is activated when the GPIO is HIGH</div>
+</li>
+<li class="level1"><div class="li"> <strong>active low</strong>: the device is activated when the GPIO is LOW</div>
+</li>
+</ul>
+
+<p>
+In this image you can see how a GPIO is wired to buttons or leds, to work as active low or high
+<br/>
+<br/>
+<a href="../../_detail/media/gpios-high_low.png?id=doc%253Ahardware%253Aport.gpio" class="media" title="media:gpios-high_low.png"><img src="../../_media/media/gpios-high_low.png?w=600&amp;tok=a21639" class="media" alt="" width="600" /></a><br/>
+<br/>
+
+</p>
+
+<p>
+<strong>GPIOs can be used for complex tasks:</strong>
+</p>
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<td class="col0"> </td><th class="col1"> kernel module </th><th class="col2"> description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <strong><a href="http://wiki.openwrt.org/doc/hardware/port.gpio/1-wire" class="wikilink2" title="doc:hardware:port.gpio:1-wire" rel="nofollow">1-wire</a></strong> </td><td class="col1"> kmod-w1-master-gpio </td><td class="col2"> 1-wire bus master </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <strong><a href="http://wiki.openwrt.org/doc/hardware/port.gpio/pwm" class="wikilink2" title="doc:hardware:port.gpio:pwm" rel="nofollow">PWM</a></strong> </td><td class="col1"> kmod-pwm-gpio </td><td class="col2"> pulse width modulator </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0" rowspan="2"> <strong><a href="http://wiki.openwrt.org/doc/hardware/port.gpio/spi" class="wikilink2" title="doc:hardware:port.gpio:spi" rel="nofollow">SPI</a></strong> </td><td class="col1"> kmod-spi-gpio </td><td class="col2"> bitbanging Serial Peripheral Interface </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> kmod-mmc-over-gpio </td><td class="col1"> <a href="../howto/mmc_over_gpio" class="wikilink1" title="doc:howto:mmc_over_gpio">MMC/SD card over GPIO</a> </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <strong><a href="port.i2c" class="wikilink1" title="doc:hardware:port.i2c">I2C</a></strong> </td><td class="col1"> kmod-i2c-gpio </td><td class="col2"> bitbanging I2C </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <strong><a href="http://wiki.openwrt.org/doc/hardware/port.gpio/lirc" class="wikilink2" title="doc:hardware:port.gpio:lirc" rel="nofollow">LIRC</a></strong><br/>
+<a href="../howto/lirc-gpioblaster" class="wikilink1" title="doc:howto:lirc-gpioblaster">LIRC GPIO blaster </a> </td><td class="col1"> no official module yet<br/>
+kmod-lirc_gpioblaster </td><td class="col2"> Linux Infrared Remote Control </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <strong><a href="http://wiki.openwrt.org/doc/hardware/port.gpio/rotary_encoder" class="wikilink2" title="doc:hardware:port.gpio:rotary_encoder" rel="nofollow">Rotary encoder</a></strong> </td><td class="col1"> kmod-input-gpio-encoder </td><td class="col2"> GPIO rotary encoder </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <strong><a href="https://github.com/wendlers/rcswitch-kmod" class="urlextern" title="https://github.com/wendlers/rcswitch-kmod"  rel="nofollow">rcswitch-kmod</a></strong> </td><td class="col1"> rcswitch-kmod (not yet packaged in OpenWrt) </td><td class="col2"> 433 <abbr title="Megahertz">MHz</abbr> RC power outlets (switches) </td>
+	</tr>
+</table></div>
+
+<p>
+You can connect 5V digital signal sensors if you use a voltage devider to get a 3.3V range signal.You need to get acces to GND and 5V-power from the router and connect the sensor to them.
+Sensor signal output is in the 5V range, connect it to the voltage devider!
+<br/>
+<br/>
+<a href="../../_detail/media/voltagedividergpio.jpg?id=doc%253Ahardware%253Aport.gpio" class="media" title="media:voltagedividergpio.jpg"><img src="../../_media/media/voltagedividergpio.jpg?w=200&amp;tok=44c5e3" class="media" alt="" width="200" /></a> <a href="../../_detail/media/5vsignal.jpg?id=doc%253Ahardware%253Aport.gpio" class="media" title="media:5vsignal.jpg"><img src="../../_media/media/5vsignal.jpg?w=200&amp;tok=44cf1c" class="media" alt="" width="200" /></a><br/>
+<br/>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="gpio_interrupts">GPIO Interrupts</h3>
+<div class="level3">
+
+<p>
+GPIO interrupts are useful when a GPIO is used as input and you need to manage high signal frequencies. Without interrupts, GPIO inputs must be managed using the <strong>polling</strong> method. With polling you cannot manage signal inputs with high frequencies.
+</p>
+
+<p>
+Not all boards have GPIO interrupts. For example <strong>bcm63xx SoCs haven&#039;t GPIO interrupts</strong> and that&#039;s because their buttons are polled. As a result of this, some input drivers listed above won&#039;t work in these boards.
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="software">Software</h2>
+<div class="level2">
+
+<p>
+In linux GPIOs can be accesed through GPIO SYSFS interface: <strong>/sys/class/gpio/</strong>
+</p>
+
+<p>
+<strong>Example</strong><br/>
+
+In this example we will use GPIO29 and use it as a switch.
+</p>
+
+<p>
+First step is making GPIO available in Linux:
+<pre class="code">echo &quot;29&quot; &gt; /sys/class/gpio/export</pre>
+
+then you need to decide if it will be input or output, as we will use it as a switch so we need output
+<pre class="code">echo &quot;out&quot; &gt; /sys/class/gpio/gpio29/direction</pre>
+
+and last line turns GPIO on or off with 1 or 0:
+<pre class="code">echo &quot;1&quot; &gt; /sys/class/gpio/gpio29/value</pre>
+
+</p>
+
+<p>
+To control GPIOs you can use <strong>gpioctl-sysfs</strong>. Also manually or with this simple script you can control GPIOs not used by buttons or leds.
+<pre class="code bash"><span class="co0">#!/bin/sh</span>
+&nbsp;
+show_usage<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    <span class="kw3">printf</span> <span class="st0">&quot;<span class="es1">\n</span>gpio.sh &lt;gpio pin number&gt; [in|out [&lt;value&gt;]]<span class="es1">\n</span>&quot;</span>
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw1">if</span> <span class="br0">&#91;</span> \<span class="br0">&#40;</span> <span class="re4">$#</span> <span class="re5">-eq</span> <span class="nu0">0</span> \<span class="br0">&#41;</span> <span class="re5">-o</span> \<span class="br0">&#40;</span> <span class="re4">$#</span> <span class="re5">-gt</span> <span class="nu0">3</span> \<span class="br0">&#41;</span> <span class="br0">&#93;</span> ; <span class="kw1">then</span>
+    show_usage
+    <span class="kw3">printf</span> <span class="st0">&quot;<span class="es1">\n</span><span class="es1">\n</span>ERROR: incorrect number of parameters<span class="es1">\n</span>&quot;</span>
+    <span class="kw3">exit</span> <span class="nu0">255</span>
+<span class="kw1">fi</span>
+&nbsp;
+<span class="co0">#doesn't hurt to export a gpio more than once</span>
+<span class="br0">&#40;</span><span class="kw3">echo</span> <span class="re4">$1</span> <span class="sy0">&gt;</span> <span class="sy0">/</span>sys<span class="sy0">/</span>class<span class="sy0">/</span>gpio<span class="sy0">/</span><span class="kw3">export</span><span class="br0">&#41;</span> <span class="sy0">&gt;&amp;</span> <span class="sy0">/</span>dev<span class="sy0">/</span>null
+&nbsp;
+<span class="kw1">if</span> <span class="br0">&#91;</span>  <span class="re4">$#</span> <span class="re5">-eq</span> <span class="nu0">1</span> <span class="br0">&#93;</span> ; <span class="kw1">then</span>
+   <span class="kw2">cat</span> <span class="sy0">/</span>sys<span class="sy0">/</span>class<span class="sy0">/</span>gpio<span class="sy0">/</span>gpio<span class="re4">$1</span><span class="sy0">/</span>value
+   <span class="kw3">exit</span> <span class="nu0">0</span>
+<span class="kw1">fi</span>
+&nbsp;
+<span class="kw1">if</span> <span class="br0">&#91;</span> \<span class="br0">&#40;</span> <span class="st0">&quot;$2&quot;</span> <span class="sy0">!</span>= <span class="st0">&quot;in&quot;</span> \<span class="br0">&#41;</span> <span class="re5">-a</span>  \<span class="br0">&#40;</span> <span class="st0">&quot;$2&quot;</span> <span class="sy0">!</span>= <span class="st0">&quot;out&quot;</span> \<span class="br0">&#41;</span> <span class="br0">&#93;</span> ; <span class="kw1">then</span>
+    show_usage
+    <span class="kw3">printf</span> <span class="st0">&quot;<span class="es1">\n</span><span class="es1">\n</span>ERROR: second parameter must be 'in' or 'out'<span class="es1">\n</span>&quot;</span>
+    <span class="kw3">exit</span> <span class="nu0">255</span>
+<span class="kw1">fi</span>
+&nbsp;
+<span class="kw3">echo</span> <span class="re4">$2</span> <span class="sy0">&gt;</span> <span class="sy0">/</span>sys<span class="sy0">/</span>class<span class="sy0">/</span>gpio<span class="sy0">/</span>gpio<span class="re4">$1</span><span class="sy0">/</span>direction
+&nbsp;
+<span class="kw1">if</span> <span class="br0">&#91;</span>  <span class="re4">$#</span> <span class="re5">-eq</span> <span class="nu0">2</span> <span class="br0">&#93;</span> ; <span class="kw1">then</span>
+   <span class="kw2">cat</span> <span class="sy0">/</span>sys<span class="sy0">/</span>class<span class="sy0">/</span>gpio<span class="sy0">/</span>gpio<span class="re4">$1</span><span class="sy0">/</span>value
+   <span class="kw3">exit</span> <span class="nu0">0</span>
+<span class="kw1">fi</span>
+&nbsp;
+&nbsp;
+<span class="re2">VAL</span>=<span class="re4">$3</span>
+&nbsp;
+<span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re1">$VAL</span> <span class="re5">-ne</span> <span class="nu0">0</span> <span class="br0">&#93;</span> ; <span class="kw1">then</span>
+    <span class="re2">VAL</span>=<span class="nu0">1</span>
+<span class="kw1">fi</span>
+&nbsp;
+<span class="kw3">echo</span> <span class="re1">$VAL</span> <span class="sy0">&gt;</span> <span class="sy0">/</span>sys<span class="sy0">/</span>class<span class="sy0">/</span>gpio<span class="sy0">/</span>gpio<span class="re4">$1</span><span class="sy0">/</span>value </pre>
+
+</p>
+<div class="tags"><span>
+	<a href="../../tag/wip?do=showtag&amp;tag=wip" class="wikilink1" title="tag:wip" rel="tag">wip</a>
+</span></div>
+
+</div>
+
+<h2 class="sectionedit6" id="finding_gpio_pins_on_the_pcb">Finding GPIO pins on the PCB</h2>
+<div class="level2">
+
+<p>
+Sometimes you do not know where the physical GPIO pins are on your device&#039;s PCB. In that case, you can use this little script and a multimeter to find out.
+</p>
+
+<p>
+<pre class="code bash"><span class="co0">#!/bin/sh</span>
+<span class="kw3">cd</span> <span class="sy0">/</span>sys<span class="sy0">/</span>class<span class="sy0">/</span>gpio
+<span class="kw1">for</span> i <span class="kw1">in</span> <span class="sy0">`</span><span class="kw2">seq</span> <span class="re4">$1</span> <span class="re4">$2</span><span class="sy0">`</span>; <span class="kw1">do</span>
+<span class="kw3">echo</span> <span class="re1">$i</span> <span class="sy0">&gt;</span> <span class="kw3">export</span>; <span class="kw3">echo</span> out <span class="sy0">&gt;</span>gpio<span class="re1">$i</span><span class="sy0">/</span>direction
+<span class="kw1">done</span>
+<span class="re2">nums</span>=<span class="sy0">`</span><span class="kw2">seq</span> <span class="re4">$1</span> <span class="re4">$2</span><span class="sy0">`</span>
+<span class="kw1">while</span> <span class="kw2">true</span>; <span class="kw1">do</span>
+  <span class="kw1">for</span> i <span class="kw1">in</span> <span class="re1">$nums</span>; <span class="kw1">do</span>
+     <span class="kw3">echo</span> <span class="nu0">0</span> <span class="sy0">&gt;</span> gpio<span class="re1">$i</span><span class="sy0">/</span>value
+ <span class="kw1">done</span>
+  <span class="kw2">sleep</span> <span class="nu0">1</span>
+  <span class="kw1">for</span> i <span class="kw1">in</span> <span class="re1">$nums</span>; <span class="kw1">do</span>
+     <span class="kw3">echo</span> <span class="nu0">1</span> <span class="sy0">&gt;</span> gpio<span class="re1">$i</span><span class="sy0">/</span>value
+  <span class="kw1">done</span>
+  <span class="kw2">sleep</span> <span class="nu0">1</span>
+<span class="kw1">done</span></pre>
+
+</p>
+<ol>
+<li class="level1"><div class="li"> Start with <code>./gpio 0 30</code>, which means pin 0 to 30</div>
+</li>
+<li class="level1"><div class="li"> Press ctrl-c to stop the script, then check which GPIOs have been created: <code>find /sys/class/gpio/gpio*</code></div>
+</li>
+<li class="level1"><div class="li"> Restart the script and measure with a multimeter which pins &quot;blink&quot;.</div>
+</li>
+<li class="level1"><div class="li"> When you find one, then cut the 0-30 range from above in half;</div>
+</li>
+<li class="level1"><div class="li"> Repeat until you have identified the gpio number</div>
+</li>
+</ol>
+
+</div>
+
+<h2 class="sectionedit7" id="links">Links</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/Documentation/gpio" class="urlextern" title="http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/Documentation/gpio"  rel="nofollow">Kernel gpio documentation</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.mjmwired.net/kernel/Documentation/gpio.txt" class="urlextern" title="http://www.mjmwired.net/kernel/Documentation/gpio.txt"  rel="nofollow">other kernel gpio doc</a></div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/hardware/port.gpio.txt</bdi> · Last modified: 2015/04/27 20:16 by <bdi>theoradicus</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="port.gpio?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="port.gpio?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="port.gpio?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="port.gpio#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahardware%253Aport.gpio&amp;1432265808" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

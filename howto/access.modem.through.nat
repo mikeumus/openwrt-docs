@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Accessing your modem [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,access.modem.through.nat"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="access.modem.through.nat?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/access.modem.through.nat"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/access.modem.through.nat"/>
+<link rel="canonical" href="access.modem.through.nat"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:access.modem.through.nat","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266345 166.182.3.117';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="access.modem.through.nat#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="access.modem.through.nat?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="access.modem.through.nat?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:access.modem.through.nat" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="access.modem.through.nat?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="access.modem.through.nat?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="access.modem.through.nat?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="access.modem.through.nat" class="wikilink1" title="doc:howto:access.modem.through.nat">Accessing your modem</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/access.modem.through.nat" class="media" title="cz:doc:howto:access.modem.through.nat"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/access.modem.through.nat" class="media" title="de:doc:howto:access.modem.through.nat"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="access.modem.through.nat" class="media" title="doc:howto:access.modem.through.nat"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/access.modem.through.nat" class="media" title="es:doc:howto:access.modem.through.nat"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/access.modem.through.nat" class="media" title="fr:doc:howto:access.modem.through.nat"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/access.modem.through.nat" class="media" title="hu:doc:howto:access.modem.through.nat"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/access.modem.through.nat" class="media" title="jp:doc:howto:access.modem.through.nat"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/access.modem.through.nat" class="media" title="pl:doc:howto:access.modem.through.nat"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/access.modem.through.nat" class="media" title="pt-br:doc:howto:access.modem.through.nat"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/access.modem.through.nat" class="media" title="ru:doc:howto:access.modem.through.nat"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/access.modem.through.nat" class="media" title="tr:doc:howto:access.modem.through.nat"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/access.modem.through.nat" class="media" title="zh-cn:doc:howto:access.modem.through.nat"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/access.modem.through.nat" class="media" title="zh-tw:doc:howto:access.modem.through.nat"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:access.modem.through.nat</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="access.modem.through.nat#through_nat">Through NAT</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="access.modem.through.nat#wan_by_dhcp_or_static_ip">WAN by DHCP or static IP</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="access.modem.through.nat#uci_command_line_version">UCI command line version</a></div></li>
+<li class="level3"><div class="li"><a href="access.modem.through.nat#gui_version">GUI version</a></div></li>
+<li class="level3"><div class="li"><a href="access.modem.through.nat#raw_iptables_variant_required_for_pppoe_setup">Raw iptables variant (required for pppoe setup)</a></div></li>
+<li class="level3"><div class="li"><a href="access.modem.through.nat#advanced_users">Advanced users</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="access.modem.through.nat#wan_by_pppoe">WAN by PPPoE</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="access.modem.through.nat#uci_command_line_version1">UCI command line version</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="access.modem.through.nat#docsis">DOCSIS</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="accessing_your_modem">Accessing your modem</h1>
+<div class="level1">
+
+<p>
+Some DSL-/DOCSIS-Modems can be accessed by the end user. To do that, you have to find out which IP address the device has and on which port using which protocol you can access it. Sometimes you additionally need the correct username and the password to gain access or to apply changes.
+</p>
+
+<p>
+Once you have the information, you connect the router directly to your PC, give your PC an IP address from the same net and access it with the appropriate program. Easy. To still be able to do that through NAT, follow the instructions:
+</p>
+<div class="table sectionedit2"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/48px-outdated.svg.png" class="media" alt="" /> </td><td class="col1"> The &quot;config alias&quot; approach is <em>deprecated</em>, according to a note on the <a href="../uci/network" class="urlextern" title="http://wiki.openwrt.org/doc/uci/network"  rel="nofollow">network configuration page</a>.  And the relevant bits of <abbr title="Graphical User Interface">GUI</abbr> are not present in Barrier Breaker r38392.  If I find out how else to do this, I&#039;ll add it here. <a href="http://simplebeian.wordpress.com/2014/03/12/accessing-your-modem-from-openwrt-router" class="urlextern" title="http://simplebeian.wordpress.com/2014/03/12/accessing-your-modem-from-openwrt-router"  rel="nofollow">Possible resolution to configure from the GUI</a> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit3" id="through_nat">Through NAT</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit4" id="wan_by_dhcp_or_static_ip">WAN by DHCP or static IP</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="uci_command_line_version">UCI command line version</h4>
+<div class="level4">
+
+<p>
+<em>Follow these instructions if you are using a default install of backfire and manage the firewall through UCI</em>
+</p>
+
+<p>
+An IP in the same net as the modem must be assigned to the <em>interface</em> which is connected to the modem. To do this, we create an alias as shown below. 
+</p>
+
+<p>
+For this example we assume two things: that the modem&#039;s IP is <code>169.254.1.8</code>, and that the interface &quot;wan&quot; we are adding an alias to is on eth1.
+</p>
+
+<p>
+Head towards /etc/config/network and add these lines.
+</p>
+
+<p>
+<pre class="code">config interface modem
+	option ifname eth1
+	option proto static
+	option ipaddr 169.254.1.1
+	option netmask 255.255.255.0</pre>
+
+</p>
+
+<p>
+To exempt the internal modem address range from masquerading, add a &quot;masq_dest&quot; expression to the wan zone in /etc/config/firewall:
+</p>
+
+<p>
+<pre class="code">config zone
+        option name             wan
+        option network          &#039;wan&#039;
+        option input            REJECT
+        option output           ACCEPT 
+        option forward          REJECT
+        option masq             1
+        # The firewall will resolve the expression &quot;!modem&quot; to 
+        # &quot;! -s 169.254.1.1/255.255.255.0&quot; or whatever range 
+        # was configured in the modem alias.
+        option masq_dest        &#039;!modem&#039;
+        option mtu_fix          1</pre>
+
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> If the modem should have an IP address like say <code>192.168.1.8</code>, you could not use the network <code>192.168.1.0/24</code> for your <abbr title="Local Area Network">LAN</abbr> and at the same time access your modem with this method. Use any other network in that case, like <code>192.168.0.0/24</code> or <code>192.168.33.0/24</code>.
+</p>
+
+</div>
+
+<h4 id="gui_version">GUI version</h4>
+<div class="level4">
+
+<p>
+<strong> 1. Add alias</strong>
+</p>
+
+<p>
+Navigate to Admin → Network → Interfaces → WAN, fill in a name in the &quot;IP-Aliases&quot; add field and click &quot;Add&quot;.<br/>
+
+<a href="../../_detail/doc/howto/modem-step-1.png?id=doc%253Ahowto%253Aaccess.modem.through.nat" class="media" title="doc:howto:modem-step-1.png"><img src="../../_media/doc/howto/modem-step-1.png" class="media" alt="" /></a> <br/>
+
+<br/>
+
+Within the appearing alias section, fill out the IP address and netmask fields suitable for your modem, hit &quot;Save &amp; Apply&quot;.<br/>
+
+In my case the modem is reachable via 192.168.100.1, so I&#039;ve choosen 192.168.100.10 as alias address. <br/>
+
+After a while you should see the alias prefix appear in the interface status display (underlined red). <br/>
+
+<a href="../../_detail/doc/howto/modem-step-2.png?id=doc%253Ahowto%253Aaccess.modem.through.nat" class="media" title="doc:howto:modem-step-2.png"><img src="../../_media/doc/howto/modem-step-2.png" class="media" alt="" /></a> <br/>
+
+<br/>
+
+Navigate to Admin → Network → Firewall and open the WAN zone properties (framed red).<br/>
+
+<a href="../../_detail/doc/howto/modem-step-3.png?id=doc%253Ahowto%253Aaccess.modem.through.nat" class="media" title="doc:howto:modem-step-3.png"><img src="../../_media/doc/howto/modem-step-3.png" class="media" alt="" /></a> <br/>
+
+<br/>
+
+Switch to the &quot;Advanced Settings&quot; tab and enter <code>!modem</code> into the destionation restriction field,
+this will tell the firewall to <em>not</em> NAT traffic directed at the modem address range.<br/>
+
+Hit &quot;Save &amp; Apply&quot; to make the change effective.<br/>
+
+<a href="../../_detail/doc/howto/modem-step-4.png?id=doc%253Ahowto%253Aaccess.modem.through.nat" class="media" title="doc:howto:modem-step-4.png"><img src="../../_media/doc/howto/modem-step-4.png" class="media" alt="" /></a> <br/>
+
+<br/>
+
+At this point the modem should be reachable from any host in the <abbr title="Local Area Network">LAN</abbr>.
+</p>
+
+</div>
+
+<h4 id="raw_iptables_variant_required_for_pppoe_setup">Raw iptables variant (required for pppoe setup)</h4>
+<div class="level4">
+
+<p>
+Let&#039;s configure source NAT. This is done with <code>iptables</code>, see <a href="netfilter" class="wikilink1" title="doc:howto:netfilter">netfilter</a>.
+You can add these custom rules to /etc/firewall.user , or by using the LuCI interface (Network &gt; Firewall &gt; Custom rules).
+</p>
+
+<p>
+<pre class="code">iptables -t nat -I postrouting_rule -s 192.168.1.0/24 -d 169.254.1.8 -j SNAT --to 169.254.1.1
+iptables -I zone_lan_forward -s 192.168.1.0/24 -d 169.254.1.8 -j ACCEPT</pre>
+
+</p>
+
+<p>
+If you changed the <code>lan</code> network from the OpenWrt default of <code>192.168.1.1</code>, you&#039;ll have to replace <code>192.168.1.0</code> with the net you&#039;ve chosen.
+</p>
+
+<p>
+<strong>NOTE:</strong> Depending on how restrictive your firewall and the policy is, you may need to execute the following as well to allow flow (the above rules only manage the SNAT):
+<pre class="code">iptables -I FORWARD -j ACCEPT -i br-lan -o eth0.2
+iptables -I FORWARD -j ACCEPT -m state --state ESTABLISHED,RELATED</pre>
+
+</p>
+
+<p>
+This works because <code>pppd</code> (needed for PPPoE) spawns <code>pppoe-dsl</code>, so eth0.2 remains freely usable. After testing the configuration changes, add all the necessary commands to <code>/etc/firewall.user</code>. Now for example, you could use a <abbr title="Graphical User Interface">GUI</abbr> program to show some information about your DSL status:
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/speedmodem.200.png?id=doc%253Ahowto%253Aaccess.modem.through.nat" class="media" title="doc:howto:speedmodem.200.png"><img src="../../_media/doc/howto/speedmodem.200.png" class="media" alt="" /></a>
+</p>
+
+<p>
+<strong>NOTE:</strong> Not all modems offer access! Above picture is obtain through a (closed source) program written for the purpose of obtaining a graphic overview for distinct modems. It is very useful to track down connection problems and monitor your DSL-connection. But some modem even offer a WebUI so you can access them with your web browser.
+</p>
+
+</div>
+
+<h4 id="advanced_users">Advanced users</h4>
+<div class="level4">
+
+<p>
+<em> Follow these instructions if you don&#039;t use UCI to manage your firewall </em>
+</p>
+
+<p>
+Most of the  <strong>Easy Version</strong> still applies. After assigning the modem interface an address, 
+</p>
+
+<p>
+you will have to source nat packets to the IP address of the DSL modem, by adding the following line, after the MASQUERADE:
+</p>
+
+<p>
+<pre class="code bash"><span class="re2">IF_LAN</span>=<span class="st0">&quot;br-lan&quot;</span>
+<span class="re2">NET_LAN</span>=<span class="st0">&quot;192.168.1.0/24&quot;</span>
+iptables <span class="re5">-t</span> nat <span class="re5">-A</span> POSTROUTING <span class="re5">-o</span> eth0.2 <span class="re5">-i</span> <span class="re1">$IF_LAN</span> <span class="re5">-s</span> <span class="re1">$NET_LAN</span> <span class="re5">-d</span> 169.254.1.0<span class="sy0">/</span><span class="nu0">8</span> <span class="re5">-j</span> SNAT <span class="re5">--to-source</span> 169.254.1.1</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="wan_by_pppoe">WAN by PPPoE</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="uci_command_line_version1">UCI command line version</h4>
+<div class="level4">
+
+<p>
+<em>Follow these instructions if you are using a default install of Attitude Adjustment 12.09 and later</em>
+</p>
+
+<p>
+In this example the modem has <code>192.168.254.254</code> as default IP. Declare a new interface called &quot;modem&quot;. An Alias is not needed anymore, as multiple interfaces can share the same ifname. Make sure you use a different network than your existing <abbr title="Local Area Network">LAN</abbr>. Head towards /etc/config/network and add these lines:
+</p>
+
+<p>
+<pre class="code">config interface &#039;modem&#039;
+        option ifname &#039;eth1&#039;
+        option proto &#039;static&#039;
+        option ipaddr &#039;192.168.254.1&#039;
+        option netmask &#039;255.255.255.0&#039;</pre>
+
+</p>
+
+<p>
+Replace eth1 with whatever interface pppoe uses. eg eth0.2
+</p>
+
+<p>
+Check if your interface is up with:
+</p>
+
+<p>
+<pre class="code">ifstatus modem</pre>
+
+</p>
+
+<p>
+The modem should now be pingable from your Router. Because forwarding between lan and eth1 below pppoe-wan is not allowed, now just simply stick the new interface to the wan zone so it will be forwarded:
+</p>
+
+<p>
+<pre class="code">uci set firewall.@zone[1].network=&#039;wan modem&#039;
+uci commit firewall
+fw reload</pre>
+
+</p>
+
+<p>
+And thats really all to be done. You could also create a new zone called &quot;modem&quot; and make interzone-forwarding, but thats more work to do.
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="docsis">DOCSIS</h3>
+<div class="level3">
+
+<p>
+With DOCSIS-Modem, we do not use the pppd and do not spawn any additional interfaces, so the SNAT-hook need to be before the MASQUERADING-hook. Also, you need to set an alias to the interface with which your Cable modem it connected.
+</p>
+
+<p>
+First give the interface (in this case it&#039;s even a virtual interface) facing the Internet a second IP address:
+<pre class="code bash"><span class="kw2">ifconfig</span> eth0.2:<span class="nu0">1</span> add 192.168.100.2</pre>
+
+With UCI you can accomplish this as well: <a href="../uci/network#aliases" class="wikilink1" title="doc:uci:network">aliases</a>.
+</p>
+
+<p>
+Then source nat packets to the IP address of the cable modem. Add the following line, before the MASQUERADE:
+<pre class="code bash">iptables <span class="re5">-t</span> nat <span class="re5">-I</span> POSTROUTING <span class="re5">-o</span> eth0.2:<span class="nu0">1</span> <span class="re5">-i</span> eth0.1 <span class="re5">-s</span> <span class="re1">$NET_LAN</span> <span class="re5">-d</span> 192.168.100.1 <span class="re5">-j</span> SNAT <span class="re5">--to-source</span> 192.168.100.2</pre>
+
+<strong>NOTE:</strong> Depending on how restrictive your firewall and the policy is, you may need to execute the following as well to allow flow (the above rules only manage the SNAT):
+<pre class="code bash">iptables <span class="re5">-I</span> FORWARD <span class="re5">-j</span> ACCEPT <span class="re5">-i</span> <span class="re1">$IF_LAN</span> <span class="re5">-o</span> <span class="re1">$IF_DSL</span>
+iptables <span class="re5">-I</span> FORWARD <span class="re5">-j</span> ACCEPT <span class="re5">-m</span> state <span class="re5">--state</span> ESTABLISHED,RELATED</pre>
+
+</p>
+
+<p>
+Now access you cable modem from your PC with a telnet program or with your browser:
+</p>
+
+<p>
+<a href="http://wiki.openwrt.org/_detail/doc/howto/some.cable.modem.png?id=doc%3Ahowto%3Aaccess.modem.through.nat" class="media wikilink2" title="doc:howto:some.cable.modem.png"><img src="http://wiki.openwrt.org/_media/doc/howto/some.cable.modem.png" class="media" alt="" /></a>
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/access.modem.through.nat.txt</bdi> · Last modified: 2015/02/04 06:26 by <bdi>jasonblewis</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="access.modem.through.nat?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="access.modem.through.nat?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="access.modem.through.nat?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="access.modem.through.nat#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Aaccess.modem.through.nat&amp;1432266345" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

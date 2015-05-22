@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>LuCI on lighttpd [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,luci.on.lighttpd"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="luci.on.lighttpd?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/luci.on.lighttpd"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/luci.on.lighttpd"/>
+<link rel="canonical" href="luci.on.lighttpd"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:luci.on.lighttpd","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265635 166.182.3.192';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="luci.on.lighttpd#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="luci.on.lighttpd?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="luci.on.lighttpd?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:luci.on.lighttpd" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="luci.on.lighttpd?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="luci.on.lighttpd?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="luci.on.lighttpd?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="luci.on.lighttpd" class="wikilink1" title="doc:howto:luci.on.lighttpd">LuCI on lighttpd</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/luci.on.lighttpd" class="media" title="cz:doc:howto:luci.on.lighttpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/luci.on.lighttpd" class="media" title="de:doc:howto:luci.on.lighttpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="luci.on.lighttpd" class="media" title="doc:howto:luci.on.lighttpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/luci.on.lighttpd" class="media" title="es:doc:howto:luci.on.lighttpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/luci.on.lighttpd" class="media" title="fr:doc:howto:luci.on.lighttpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/luci.on.lighttpd" class="media" title="hu:doc:howto:luci.on.lighttpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/luci.on.lighttpd" class="media" title="jp:doc:howto:luci.on.lighttpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/luci.on.lighttpd" class="media" title="pl:doc:howto:luci.on.lighttpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/luci.on.lighttpd" class="media" title="pt-br:doc:howto:luci.on.lighttpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/luci.on.lighttpd" class="media" title="ru:doc:howto:luci.on.lighttpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/luci.on.lighttpd" class="media" title="tr:doc:howto:luci.on.lighttpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/luci.on.lighttpd" class="media" title="zh-cn:doc:howto:luci.on.lighttpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/luci.on.lighttpd" class="media" title="zh-tw:doc:howto:luci.on.lighttpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:luci.on.lighttpd</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="luci.on.lighttpd#installation">Installation</a></div></li>
+<li class="level1"><div class="li"><a href="luci.on.lighttpd#luci_and_another_website_simultaneously_on_lighttpd_listening_on_multiple_ports">LuCI and Another Website Simultaneously on lighttpd (Listening on Multiple Ports)</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="luci_on_lighttpd">LuCI on lighttpd</h1>
+<div class="level1">
+
+<p>
+This article explains how to run the <a href="../techref/luci" class="wikilink1" title="doc:techref:luci">LuCI</a> web interface on the <a href="http.lighttpd" class="wikilink1" title="doc:howto:http.lighttpd">lighttpd</a> web server. 
+LuCI is the main web administration utility for OpenWrt. By default it is installed with <a href="http.uhttpd" class="wikilink1" title="doc:howto:http.uhttpd">uHTTPd</a>. You can of course use any other web server for LuCI. There are a couple available in the OpenWrt archives: <a href="http.overview" class="wikilink1" title="doc:howto:http.overview">http.overview</a>
+This is the howto for lighttpd.
+</p>
+
+<p>
+See also:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http.lighttpd" class="wikilink1" title="doc:howto:http.lighttpd">http.lighttpd</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../luci" class="wikilink1" title="doc:howto:luci.essentials">luci.essentials</a> </div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit2" id="installation">Installation</h2>
+<div class="level2">
+
+<p>
+The following procedure brings you a minimal LuCI-Installation (instead of the full installation that is obtained when using the meta-package &quot;<strong>luci</strong>&quot; or &quot;<strong>luci-ssl</strong>&quot;, which also automatically installs the webserver &quot;<strong>uHTTPd</strong>&quot;)
+</p>
+
+<p>
+First, install lighttpd and LuCI packages:
+<pre class="code">opkg update
+opkg install lighttpd lighttpd-mod-cgi luci-mod-admin-full libiwinfo</pre>
+
+<strong>NOTE</strong>: The <strong>libiwinfo</strong> package is only needed if your router has wireless. 
+</p>
+
+<p>
+Then choose a LuCI theme
+<pre class="code">opkg install luci-theme-openwrt</pre>
+
+or
+<pre class="code">opkg install luci-theme-bootstrap</pre>
+
+</p>
+
+<p>
+Afterwards check that <code>/etc/lighttpd/conf.d/10-cgi.conf</code> loads the <strong>mod_cgi</strong>-module:
+</p>
+<div class="table sectionedit3"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>server.modules += ( &quot;mod_cgi&quot; )</code></td>
+	</tr>
+</table></div>
+
+<p>
+Now we need to tell lighttpd to process requests for the web interface using Lua. The LuCI administation package installs a file <code>/cgi-bin/luci</code>, which is the default CGI gateway for LuCI. This is a script (with shebang line) that can run LuCI independently and calls Lua by itself. To tell lighttpd that it needs to load everything starting with <code>/cgi-bin/luci</code> by that script simply add
+</p>
+<div class="table sectionedit4"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>&quot;cgi-bin/luci&quot; =&gt; &quot;&quot;</code></td>
+	</tr>
+</table></div>
+
+<p>
+to the cgi configuration file (<code>/etc/lighttpd/conf.d/10-cgi.conf</code>):
+</p>
+<div class="table sectionedit5"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>cgi.assign                 = ( &quot;.pl&quot;  =&gt; &quot;/usr/bin/perl&quot;,
+                               &quot;.cgi&quot; =&gt; &quot;/usr/bin/perl&quot;,
+                               &quot;.rb&quot;  =&gt; &quot;/usr/bin/ruby&quot;,
+                               &quot;.erb&quot; =&gt; &quot;/usr/bin/eruby&quot;,
+                               &quot;.py&quot;  =&gt; &quot;/usr/bin/python&quot;,
+                               &quot;cgi-bin/luci&quot; =&gt; &quot;&quot; )
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+This makes LuCI work as a CGI process. See <a href="http://redmine.lighttpd.net/projects/1/wiki/docs_modcgi" class="urlextern" title="http://redmine.lighttpd.net/projects/1/wiki/docs_modcgi"  rel="nofollow">http://redmine.lighttpd.net/projects/1/wiki/docs_modcgi</a> for an explanation of the <code>cgi.assign</code> syntax.
+Note that the index.html file in the document root <code>/www</code> that comes with the LuCI package redirects to <code>/cgi-bin/luci</code>, thereby allowing access to the web interface by just loading the address of your OpenWrt device (e.g. 192.168.1.1 instead of having to load 192.168.1.1/cgi-bin/luci).
+</p>
+
+<p>
+If you want lighttpd&#039;s logs in the output of &quot;<strong>logread</strong>&quot;, add this:
+</p>
+<div class="table sectionedit6"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>## enable syslog
+server.errorlog-use-syslog = &quot;enable&quot;
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+Enable lighttpd (so that it will be started at every boot) and start it:
+<pre class="code">/etc/init.d/lighttpd enable
+/etc/init.d/lighttpd start</pre>
+
+</p>
+
+<p>
+Add the following for the server to listen on ipv4 and ipv6
+<pre class="code">#Listen on ipv4
+$SERVER[&quot;socket&quot;] == &quot;:80&quot; {
+}
+#Listen on ipv6
+$SERVER[&quot;socket&quot;] == &quot;[::]:80&quot; {
+        server.use-ipv6 = &quot;enable&quot;
+}</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="luci_and_another_website_simultaneously_on_lighttpd_listening_on_multiple_ports">LuCI and Another Website Simultaneously on lighttpd (Listening on Multiple Ports)</h2>
+<div class="level2">
+
+<p>
+You can easily add other content to the document root and use it as your website. For example, you might aggregate the web interfaces of other OpenWrt programs under the same socket listening instance in lighttpd. However, you may want to have the web interface LuCI listening on another socket altogether. This is useful for example if you want to run a website next to the LuCI interface on another port. Or if you want to run an SSL website next to a regular one. Another reason is to prevent people that visit your website to see the LuCI log in screen, if they happen to access the document root, which normally accesses LuCI. (Another way to just prevent this, is to hide it a bit more by not serving LuCI on the docroot by removing the redirect <abbr title="HyperText Markup Language">HTML</abbr> file explained above. And instead of putting the CGI script under <code>/cgi-bin/luci</code> you might come up with a more secret path for that as well.)
+</p>
+
+<p>
+Listening on a second port with its own document root is very straigtforward in lighttpd. Here we consider the case where we run a simple static website next the LuCI web interface.
+</p>
+
+<p>
+Suppose we make a directory for the website that we want to run next to LuCI and put some content in it:
+<pre class="code">mkdir /website
+echo &quot;&lt;P&gt;It works!&lt;/P&gt;&quot; &gt; /website/index.html</pre>
+
+</p>
+
+<p>
+Now we simply need to use lighttpd&#039;s &quot;matching on socket&quot; mechanism (see <a href="http://redmine.lighttpd.net/projects/1/wiki/Docs_Configuration#Conditional-Configuration" class="urlextern" title="http://redmine.lighttpd.net/projects/1/wiki/Docs_Configuration#Conditional-Configuration"  rel="nofollow">the documentation on conditional configuration</a>), for which you have to put the following somewhere in your lighttpd.conf:
+</p>
+<div class="table sectionedit8"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>$SERVER[&quot;socket&quot;] == &quot;:80&quot; {
+server.document-root = &quot;/website/&quot;
+}</code> </td>
+	</tr>
+</table></div>
+
+<p>
+After restarting lighttpd your website is on port 81 and LuCI is still on port 80 using lighttpd. Naturally, you can interchange these two ports such that the website is on the default HTTP port 80 and set the web interface on port 81.
+</p>
+
+<p>
+You can of course also add other statements to this conditional configuration (conditional on listening and serving requests on another port), such as another CGI package or a different PHP configuration. For more information, see the following from the lighttpd website:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://redmine.lighttpd.net/projects/1/wiki/docs_modcgi" class="urlextern" title="http://redmine.lighttpd.net/projects/1/wiki/docs_modcgi"  rel="nofollow">http://redmine.lighttpd.net/projects/1/wiki/docs_modcgi</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://redmine.lighttpd.net/projects/1/wiki/Docs_Configuration" class="urlextern" title="http://redmine.lighttpd.net/projects/1/wiki/Docs_Configuration"  rel="nofollow">http://redmine.lighttpd.net/projects/1/wiki/Docs_Configuration</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://redmine.lighttpd.net/projects/1/wiki/Docs_SSL" class="urlextern" title="http://redmine.lighttpd.net/projects/1/wiki/Docs_SSL"  rel="nofollow">http://redmine.lighttpd.net/projects/1/wiki/Docs_SSL</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://redmine.lighttpd.net/projects/lighttpd/wiki/HowToRedirectHttpToHttps/9" class="urlextern" title="http://redmine.lighttpd.net/projects/lighttpd/wiki/HowToRedirectHttpToHttps/9"  rel="nofollow">http://redmine.lighttpd.net/projects/lighttpd/wiki/HowToRedirectHttpToHttps/9</a></div>
+</li>
+</ul>
+
+<p>
+<em>Remark:</em> Instead of opening a 2nd port for lighttpd it should be possible to activate the module &quot;<strong>mod_simple_vhost</strong>&quot; and serve your website (in a vhost) in friendly coexistence of LuCI via port 80. Please document this here if you get it to work.
+</p>
+
+<p>
+  
+</p>
+
+<p>
+<em>‌&gt; Please document this here if you get it to work.</em>
+</p>
+
+<p>
+Some hints for achieving &quot;friendly coexistence&quot; of luci, ssl and php-based website, but without using mod_simple_vhost:
+First, file layout (notice the luci → /www links):
+<pre class="code">root@OpenWrt / # tree /srv/www 
+/srv/www
+|-- default
+|   |-- example.org -&gt; ../example.org
+|   `-- luci -&gt; /www
+`-- example.org
+    |-- index.html
+    |-- luci -&gt; /www
+    `-- phpinfo.php</pre>
+
+luci-related (and php-related) lines in /etc/lighttpd/lighttpd.conf
+<pre class="code">server.modules = (
+        &quot;mod_rewrite&quot;, # needed for luci
+        &quot;mod_fastcgi&quot;, # needed for php
+        &quot;mod_cgi&quot; # needed for luci
+)
+
+# luci - no handler means invoking the file
+cgi.assign = ( &quot;cgi-bin/luci&quot; =&gt; &quot;&quot; )
+
+# php via socket-driven fastcgi.
+# to get cgi-php working one needs to comment out (or update
+# accordingly) doc_root and user_dir in /etc/php.ini
+fastcgi.server = (
+        &quot;.php&quot; =&gt;
+        ((
+                &quot;bin-path&quot; =&gt; &quot;/usr/bin/php-fcgi&quot;,
+                &quot;socket&quot; =&gt; &quot;/tmp/php.socket&quot;
+        ))
+)
+
+# port 80 is default, so this line can be commented out
+server.port = 80
+
+# this enables https
+$SERVER[&quot;socket&quot;] == &quot;0.0.0.0:443&quot; { 
+        ssl.engine = &quot;enable&quot;
+        ssl.pemfile = &quot;/etc/lighttpd/server.pem&quot;
+}
+
+# I prefer to keep sites here
+server.document-root = &quot;/srv/www/default/&quot;
+
+# rewrites to keep luci code untouched 
+url.rewrite = ( &quot;^/luci$&quot; =&gt; &quot;/luci/&quot;, # helper only
+                &quot;^/cgi-bin/luci.*&quot; =&gt; &quot;/luci$0&quot;,
+                &quot;^/luci-static/.*&quot; =&gt; &quot;/luci$0&quot; )
+
+# block to catch accessing luci via http and &quot;kind&quot; redirect to https
+$HTTP[&quot;scheme&quot;] == &quot;http&quot; {
+        $HTTP[&quot;url&quot;] =~ &quot;^/(cgi-bin/)?luci&quot; {
+                url.redirect = (&quot;.*&quot; =&gt; &quot;https://%0$0&quot; )
+        }
+}
+
+# rules for lan access
+$HTTP[&quot;host&quot;] =~ &quot;^10.0.0.1(\:[0-9]*)?$&quot; {
+        dir-listing.activate = &quot;enable&quot;
+}
+
+# rules for remote acces by example.org and www.example.org
+$HTTP[&quot;host&quot;] =~ &quot;^(www.)?example.org(\:[0-9]*)?$&quot; {
+        server.document-root = &quot;/srv/www/example.org/&quot;
+}</pre>
+
+</p>
+
+<p>
+ 
+</p>
+
+<p>
+The &quot;minimalistic&quot; setup for putting own page in <strong>/srv/www/</strong> and getting luci by http:/‌/…/luci I expect to work is to execute
+<pre class="code">mkdir -p /srv/www
+ln -s /www /srv/www/luci</pre>
+and add to /etc/lighttpd/lighttpd.conf file the following:
+<pre class="code">server.document-root = &quot;/srv/www/&quot;
+server.modules += (&quot;mod_rewrite&quot;, &quot;mod_cgi&quot;)
+cgi.assign = ( &quot;cgi-bin/luci&quot; =&gt; &quot;&quot; )
+url.rewrite = ( &quot;^/luci$&quot; =&gt; &quot;/luci/&quot;,
+                &quot;^/cgi-bin/luci.*&quot; =&gt; &quot;/luci$0&quot;,
+                &quot;^/luci-static/.*&quot; =&gt; &quot;/luci$0&quot; )</pre>
+
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/luci.on.lighttpd.txt</bdi> · Last modified: 2014/09/24 00:19 by <bdi>ewxn</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="luci.on.lighttpd?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="luci.on.lighttpd?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="luci.on.lighttpd?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="luci.on.lighttpd#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Aluci.on.lighttpd&amp;1432265635" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

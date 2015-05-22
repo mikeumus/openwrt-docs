@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>PP Boot [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,techref,bootloader,pp boot"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../../index.html"/>
+<link rel="contents" href="pp_boot?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../../feed.php?mode=list&amp;ns=doc:techref:bootloader"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../../_export/xhtml/doc/techref/bootloader/pp_boot"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../../_export/raw/doc/techref/bootloader/pp_boot"/>
+<link rel="canonical" href="pp_boot"/>
+<link rel="stylesheet" type="text/css" href="../../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:techref:bootloader';var JSINFO = {"id":"doc:techref:bootloader:pp_boot","namespace":"doc:techref:bootloader"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267718 166.182.3.132';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="pp_boot#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../../start"  accesskey="h" title="[H]"><img src="../../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="pp_boot?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="pp_boot?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:techref:bootloader:pp_boot" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="pp_boot?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="pp_boot?do=media&amp;ns=doc%253Atechref%253Abootloader"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="pp_boot?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../../techref.1" class="wikilink1" title="doc:techref:start">Technical Reference</a></bdi> » <bdi><a href="../bootloader.1" class="wikilink1" title="doc:techref:bootloader">The Bootloader</a></bdi> » <bdi><span class="curid"><a href="pp_boot" class="wikilink1" title="doc:techref:bootloader:pp_boot">PP Boot</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/techref/bootloader/pp_boot" class="media" title="cz:doc:techref:bootloader:pp_boot"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/techref/bootloader/pp_boot" class="media" title="de:doc:techref:bootloader:pp_boot"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="pp_boot" class="media" title="doc:techref:bootloader:pp_boot"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/techref/bootloader/pp_boot" class="media" title="es:doc:techref:bootloader:pp_boot"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/techref/bootloader/pp_boot" class="media" title="fr:doc:techref:bootloader:pp_boot"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/techref/bootloader/pp_boot" class="media" title="hu:doc:techref:bootloader:pp_boot"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/techref/bootloader/pp_boot" class="media" title="jp:doc:techref:bootloader:pp_boot"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/techref/bootloader/pp_boot" class="media" title="pl:doc:techref:bootloader:pp_boot"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/techref/bootloader/pp_boot" class="media" title="pt-br:doc:techref:bootloader:pp_boot"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/techref/bootloader/pp_boot" class="media" title="ru:doc:techref:bootloader:pp_boot"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/techref/bootloader/pp_boot" class="media" title="tr:doc:techref:bootloader:pp_boot"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/techref/bootloader/pp_boot" class="media" title="zh-cn:doc:techref:bootloader:pp_boot"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/techref/bootloader/pp_boot" class="media" title="zh-tw:doc:techref:bootloader:pp_boot"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:techref:bootloader:pp_boot</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="pp_boot#pp_boot_v15">PP Boot v1.5</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="pp_boot#commands">Commands</a></div></li>
+<li class="level2"><div class="li"><a href="pp_boot#structure">Structure</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="pp_boot#disclaimer">DISCLAIMER!</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="pp_boot">PP Boot</h1>
+<div class="level1">
+
+<p>
+This is propietary bootloader with no open sources.
+</p>
+
+<p>
+All trails point to Conexant as owner.
+</p>
+
+<p>
+There are known evolutions of this PP boot, v1.5, v5.09… but little documentation in general.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="pp_boot_v15">PP Boot v1.5</h2>
+<div class="level2">
+
+<p>
+PP Boot v1.5 seems to be unique to the Conexant Solos CX946xx board as used in the Linksys <a href="http://wiki.openwrt.org/oldwiki/openwrtdocs/hardware/linksys/wag54g2" class="urlextern" title="http://wiki.openwrt.org/oldwiki/openwrtdocs/hardware/linksys/wag54g2"  rel="nofollow">WAG54G2</a>, <a href="../../../toh/xavi/xavi_7968" class="urlextern" title="http://wiki.openwrt.org/toh/xavi/xavi_7968"  rel="nofollow">Xavi 7968</a>, DG834, Billion 7402XL and some others.
+</p>
+
+<p>
+However, the behaviour and look of pp-boot seems to change depending on the vendor. For instance, Xavi pp-boot seems to have ethernet uploading cancelled, which prevents firmware replacement.
+</p>
+
+<p>
+On the contrary, routers WAG54G2, DG834 and Billion 7402XL have a recovery tool, allowing replacement of working firmware via pp-boot.
+</p>
+
+<p>
+Preliminary investigation shows that the default config of PP Boot simply tries to boot the kernel at rom offset 0x20000.
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="commands">Commands</h3>
+<div class="level3">
+
+<p>
+Boot can be interrupted and a console entered by pressing space on the serial console (usually 38400 bauds) early in the boot sequence.
+</p>
+
+<p>
+Pressing help or ? will pop the following text:
+</p>
+
+<p>
+<pre class="code">Commands to the console are:
+ configeeprom             display EEPROM configuration information
+ configflash              display FLASH configuration information
+        mac &lt;address&gt;               set MAC address
+        networkboot {yes | auto}    boot auto-select Ethernet, USB or PCI
+        networkboot ethernet        boot from Ethernet only
+        networkboot usb             boot from USB only
+        networkboot pci             boot from PCI only
+        networkboot no              boot from FLASH
+        networkboot ask             always prompt user for boot source
+        copyimages {yes | no}       copy network booted image files
+        flashfs {auto | emergency}  use automatic FLASHFS selection or
+                                    force boot from emergency FLASHFS
+        flashnetboot {yes | no}     flash boots auto network boots
+        autolanrecover {yes | no}   attempt LAN recovery if flash corrupt
+        initialise                  initialise configuration information
+        listenv                     list environment variables
+        setenv &lt;key&gt; &lt;value&gt;        set environment variable
+        unsetenv &lt;key&gt;              unset environment variable
+        pda read                    read PDA information
+ configpci                          display EEPROM PCI configuration
+ configpci set &lt;idx&gt; &lt;addr&gt; &lt;data&gt;  set PCI pair
+ dw &lt;address&gt; [&lt;length&gt;]  dump words (hex/ascii)
+ enter &lt;address&gt;          enter an image
+ erw &lt;wrdaddress&gt;         read a single word from EEPROM
+ eww &lt;wrdaddress&gt; &lt;value&gt; write a single word to EEPROM
+ fdw &lt;address&gt; [&lt;length&gt;] dump flash words (hex/ascii)
+ flash config             print flash configuration
+ help                     print this text
+ netboot [recover]        perform immediate network boot [in recovery mode]
+ quit                     leave the console
+ reset                    reset system
+ rw &lt;address&gt;             read a single word
+ why                      reason for console entry
+ ww &lt;address&gt; &lt;value&gt;     write a single word
+ xmodem [fast]            download mkflash image using X-Modem</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="structure">Structure</h3>
+<div class="level3">
+
+<p>
+Taken from <a href="http://www.edimax.com/images/Image/OpenSourceCode/Wireless/Router/AR-7284WnA/AR-7284WnA&amp;B_SDK_6222.tar.zip" class="urlextern" title="http://www.edimax.com/images/Image/OpenSourceCode/Wireless/Router/AR-7284WnA/AR-7284WnA&amp;B_SDK_6222.tar.zip"  rel="nofollow">Edimax</a> sources, the following code checks the integrity of a working pp-boot 1.5 binary (and enlightens us with its structure):
+</p>
+
+<p>
+<pre class="code">//       This reads the flash boot program from flash. This program needs
+//       to comprehend the format that mkflash has built the flash in.
+//       This is
+//
+//       Word 0: NP boot length in words (b)
+//       Word 1: First word of NP boot
+//       :
+//       Word b:Last word of NP boot
+//       Word b + 1: NP boot checksum
+//       Word b + 2: Number of unused words (u)
+//       :
+//       Word b + u + 3: PP boot length (p)
+//       Word b + u + 4: First word of PP boot
+//       :
+//       Word b + u + p + 3:Last word of PP boot
+//       Word b + u + p + 4: Number of unused words (v)
+//       :
+//       Word b + u + p + v + 4: Configuration Information </pre>
+
+</p>
+
+</div>
+
+<h4 id="disclaimer">DISCLAIMER!</h4>
+<div class="level4">
+
+<p>
+ The following data is a proposal that hasn&#039;t be tested yet.
+Analysing the code of <a href="http://www.edimax.com/images/Image/OpenSourceCode/Wireless/Router/AR-7284WnA/AR-7284WnA&amp;B_SDK_6222.tar.zip" class="urlextern" title="http://www.edimax.com/images/Image/OpenSourceCode/Wireless/Router/AR-7284WnA/AR-7284WnA&amp;B_SDK_6222.tar.zip"  rel="nofollow">Edimax</a> sources, this is the booting sequence of a Conexant 94610:
+</p>
+<ol>
+<li class="level1"><div class="li"> Reading of flash 0x38000000 word 0: Amount of words (b) that will be copied to cache 0x50000000</div>
+</li>
+<li class="level1"><div class="li"> Automatic copy from flash (0x3800000 + 1) → (0x38000000 + b) to cache</div>
+</li>
+<li class="level1"><div class="li"> Executing cache at 0x50000000</div>
+</li>
+</ol>
+
+<p>
+The NPboot is a piece of code compiled at cache address 0x50000000 that makes the first set-up, including SDRAM access. Because it must fit the cache, its size is very small, below 4kb.
+</p>
+
+<p>
+After it, the same code has to jump back to the flash at (0x38000000 + b +1) and then continue booting sequence. This latter would be the place for u-boot as an example.
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/techref/bootloader/pp_boot.txt</bdi> · Last modified: 2013/09/22 11:33 by <bdi>mandrake</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="pp_boot?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="pp_boot?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="pp_boot?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="pp_boot#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../../lib/exe/indexer.php?id=doc%253Atechref%253Abootloader%253App_boot&amp;1432267718" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Switch Documentation [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,uci,network,switch"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../../index.html"/>
+<link rel="contents" href="switch?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../../feed.php?mode=list&amp;ns=doc:uci:network"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../../_export/xhtml/doc/uci/network/switch"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../../_export/raw/doc/uci/network/switch"/>
+<link rel="canonical" href="switch"/>
+<link rel="stylesheet" type="text/css" href="../../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:uci:network';var JSINFO = {"id":"doc:uci:network:switch","namespace":"doc:uci:network"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267252 166.182.3.150';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="switch#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../../start"  accesskey="h" title="[H]"><img src="../../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="switch?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="switch?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:uci:network:switch" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="switch?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="switch?do=media&amp;ns=doc%253Auci%253Anetwork"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="switch?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../../uci.1" class="wikilink1" title="doc:uci">The UCI System</a></bdi> » <bdi><a href="../network" class="wikilink1" title="doc:uci:network">Network configuration</a></bdi> » <bdi><span class="curid"><a href="switch" class="wikilink1" title="doc:uci:network:switch">Switch Documentation</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/uci/network/switch" class="media" title="cz:doc:uci:network:switch"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/uci/network/switch" class="media" title="de:doc:uci:network:switch"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="switch" class="media" title="doc:uci:network:switch"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/uci/network/switch" class="media" title="es:doc:uci:network:switch"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/uci/network/switch" class="media" title="fr:doc:uci:network:switch"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/uci/network/switch" class="media" title="hu:doc:uci:network:switch"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/uci/network/switch" class="media" title="jp:doc:uci:network:switch"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/uci/network/switch" class="media" title="pl:doc:uci:network:switch"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/uci/network/switch" class="media" title="pt-br:doc:uci:network:switch"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../../ru/doc/uci/network/switch" class="media" title="ru:doc:uci:network:switch"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/uci/network/switch" class="media" title="tr:doc:uci:network:switch"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../../zh-cn/doc/uci/network/switch" class="media" title="zh-cn:doc:uci:network:switch"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/uci/network/switch" class="media" title="zh-tw:doc:uci:network:switch"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:uci:network:switch</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="switch#uci_config_swconfig_style">UCI config, swconfig style</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="switch#known_problems">Known problems</a></div></li>
+<li class="level2"><div class="li"><a href="switch#assumptions">Assumptions</a></div></li>
+<li class="level2"><div class="li"><a href="switch#the_configuration">The configuration</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="switch#the_switch">The Switch</a></div></li>
+<li class="level3"><div class="li"><a href="switch#vlanswitch_config">VLAN: switch config</a></div></li>
+<li class="level3"><div class="li"><a href="switch#vlaninterfacenetwork_config">VLAN: interface/network config</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="switch#examples">Examples</a></div></li>
+<li class="level2"><div class="li"><a href="switch#example_on_the_asus_wl500gp_v2_openwrt_1003_every_physical_port">Example on the asus wl500gp v2 , openwrt 10.03, every physical port</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="switch_documentation">Switch Documentation</h1>
+<div class="level1">
+
+<p>
+<img src="../../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" />: This page assumes you know what this is and why you want it.  (Someone please add info or another page and a link).
+</p>
+
+<p>
+If your device has more than 1 <abbr title="Local Area Network">LAN</abbr> port, it may contain a special connection between the different ports called <strong>switch</strong>. Most likely the internals may look like in the following picture
+</p>
+
+<p>
+<a href="../../../_detail/oldwiki/openwrtdocs/asus-internals-default.png?id=doc%253Auci%253Anetwork%253Aswitch" class="media" title="oldwiki:openwrtdocs:asus-internals-default.png"><img src="../../../_media/oldwiki/openwrtdocs/asus-internals-default.png" class="media" alt="" /></a>
+</p>
+
+<p>
+If you want to change how these ports are connected to each other you need to configure the <strong>switch</strong> of your device (see also <a href="../../networking/network.interfaces" class="wikilink1" title="doc:networking:network.interfaces">network.interfaces</a>)
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="uci_config_swconfig_style">UCI config, swconfig style</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit3" id="known_problems">Known problems</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> if a switch interface (for the cpu point of view) is controlling several &#039;physical interfaces&#039;, every time than one physical interface is connected all the switch interface result connected (that means all the ports <code>ethN.Y</code> are UP) and therefore every rule (routing for example) is applied. This could cause serious problem, for example if one relies on the automatic mechanism of routing metric when one route is not available anymore.</div>
+<ul>
+<li class="level2"><div class="li"> One way to detect this is: <code>swconfig dev &lt;switch_interface_name&gt; show | grep link</code> or see <a href="../../techref/swconfig" class="wikilink1" title="doc:techref:swconfig">swconfig</a></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit4" id="assumptions">Assumptions</h3>
+<div class="level3">
+
+<p>
+<img src="../../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> Some of the assumptions, does not see to add up with the provided diagram. Someone familiar with the matter, should either fix them or add a better explanation.
+</p>
+<ul>
+<li class="level1"><div class="li"> device is running kernel 2.6 or 3</div>
+</li>
+<li class="level1"><div class="li"> device uses an <code>swconfig</code> type switch configuration</div>
+</li>
+<li class="level1"><div class="li"> —————————————————</div>
+</li>
+<li class="level1"><div class="li"> The switch is on <code>eth1</code>.  <img src="../../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> (Many are on <code>eth0</code>)  [Howto find out: → /proc/switch directory appears to contain the right eth number for the switch. please confirm], and also on chips like <code>rtl8366s</code></div>
+</li>
+<li class="level1"><div class="li"> Five-port switch with 0-3 connected externally, 4 not connected, and 5 connected to the CPU&#039;s eth1 interface (which adds up to six ports except that 4 is not counted)</div>
+</li>
+<li class="level1"><div class="li"> <code>vlan0</code> is to be all external ports but the last one</div>
+</li>
+<li class="level1"><div class="li"> <code>vlan1</code> is only the last external port [Howto find out which Port corresponds:]</div>
+</li>
+<li class="level1"><div class="li"> <code>vlan0</code> is the default vlan, meaning if a packet is untagged, it will be treated a vlan0 packet</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit5" id="the_configuration">The configuration</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="the_switch">The Switch</h4>
+<div class="level4">
+
+<p>
+in <code>/etc/config/network</code>
+</p>
+
+<p>
+<pre class="code">config &#039;switch&#039; &#039;eth1&#039;
+   option &#039;enable&#039;      &#039;1&#039;
+   option &#039;enable_vlan&#039; &#039;1&#039;
+   option &#039;reset&#039;       &#039;1&#039;</pre>
+
+</p>
+
+</div>
+
+<h4 id="vlanswitch_config">VLAN: switch config</h4>
+<div class="level4">
+
+<p>
+in <code>/etc/config/network</code>
+</p>
+
+</div>
+
+<h5 id="notes">Notes</h5>
+<div class="level5">
+
+<p>
+The number of the VLAN is specified on the <code>option vlan</code> line. The VID (VLAN ID) associated with a VLAN is by default the same as the number of the VLAN. This is overridden by using an <code>option vid</code> line so, for example, that VLAN 1 could use VID 100.
+</p>
+
+<p>
+In the <code>option ports</code> line, a number indicates that the specified vlan includes the port with that number.  If the number is followed by a &quot;t&quot; then packets <strong>transmitted</strong> out that port on this VLAN are tagged, and that packets <strong>received</strong> on that port may be received with this VLAN tag.  5 is generally the CPU or &#039;internal&#039; port and is most often used as tagged. Other suffixes are ignored on devices using <code>swconfig</code> but Broadcom kmod-switch style interfaces (<code>/proc/switch/</code>) use &quot;*&quot; and &quot;u&quot; to indicate PVID and untagged ports respectively (as they have the CPU port implicitly tagged one needs to use &quot;u&quot; to untag it).
+</p>
+
+<p>
+So, &#039;0 1 2 3 5t&#039; would mean that packets on this VLAN are transmitted untagged when leaving ports 0, 1, 2 and 3, but tagged when leaving port 5 (generally the CPU internal port as described above).
+</p>
+
+<p>
+Tagged packets received on a port will be directed to the VLAN indicated by the VID contained in the packet. Untagged packets received on a port will be directed to the default port VLAN (usually called the PVID). A separate <code>config switch_port</code> section is required to set the default port VLAN.
+</p>
+
+<p>
+The relevant standards document is 801.2q which says that VID values 0 and 4095 may not be used for tagging packets as they denote reserved values - VID 0 is the default &#039;native&#039; vlan - leaving 4094 valid values in between, although VID 1 is often reserved for network management (see Dell 2708 for example). This means vlan0 can be used as a VLAN within or between devices, but you cannot tag packets with it.
+</p>
+
+</div>
+
+<h5 id="the_config_sections">The config sections</h5>
+<div class="level5">
+
+<p>
+<pre class="code">config &#039;switch_vlan&#039;
+   option &#039;vlan&#039;       &#039;0&#039;
+   option &#039;device&#039;     &#039;eth1&#039;
+   option &#039;ports&#039;      &#039;0 1 2 5t&#039;
+
+config &#039;switch_vlan&#039;
+   option &#039;vlan&#039;       &#039;1&#039;
+   option &#039;device&#039;     &#039;eth1&#039;
+   option &#039;ports&#039;      &#039;3 5t&#039;
+
+config &#039;switch_port&#039;
+    option &#039;port&#039;      &#039;3&#039;
+    option &#039;pvid&#039;      &#039;1&#039;</pre>
+
+</p>
+
+</div>
+
+<h4 id="vlaninterfacenetwork_config">VLAN: interface/network config</h4>
+<div class="level4">
+
+<p>
+VLAN interface sections look just like regular interface sections, except that instead of <code>eth1</code> (or <code>eth0</code>, or whatever), you have <code>eth1.0</code>, <code>eth1.1</code>, etc. where a digit after a <code>.</code> is a VLAN number.  (that is, for kernel 2.6; 2.4 kernels do something different).
+</p>
+
+<p>
+The following example is for a two-interface router, with eth0 being the WAN and eth1 being the five-port switch configured as above.  It goes in <code>/etc/config/network</code>
+</p>
+
+<p>
+e.g.
+<pre class="code">config &#039;interface&#039; &#039;lan&#039;
+    option &#039;ifname&#039; &#039;eth1.0&#039;
+    option &#039;proto&#039; &#039;static&#039;
+    option &#039;ipaddr&#039; &#039;192.168.1.1&#039;
+    option &#039;netmask&#039; &#039;255.255.255.0&#039;
+    option &#039;defaultroute&#039; &#039;0&#039;
+    option &#039;peerdns&#039; &#039;0&#039;
+    option &#039;nat&#039;    &#039;1&#039;
+
+config &#039;interface&#039; &#039;extranet&#039;
+    option &#039;ifname&#039;  &#039;eth1.1&#039;
+    option &#039;proto&#039;   &#039;dhcp&#039;
+
+config &#039;interface&#039;  &#039;wan&#039;
+   option &#039;ifname&#039;  &#039;eth0.2&#039;
+   option &#039;proto&#039;   &#039;pppoe&#039;
+   option &#039;username&#039; &#039;szabozsolt-em&#039;
+   option &#039;password&#039; &#039;M3IuWBt4&#039;</pre>
+
+</p>
+
+<p>
+Of course, if you only had a five port switch on eth0 (and no other interfaces), you might make the <code>wan</code> interface <code>eth0.1</code> and the lan <code>eth0.0</code> with appropriately matching <code>switch</code>, <code>switch_vlan</code> and <code>switch_port</code> sections.
+</p>
+
+<p>
+See also <a href="http://en.wikipedia.org/wiki/backplane" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/backplane">backplane</a>.
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="examples">Examples</h3>
+<div class="level3">
+
+</div>
+
+<h3 class="sectionedit7" id="example_on_the_asus_wl500gp_v2_openwrt_1003_every_physical_port">Example on the asus wl500gp v2 , openwrt 10.03, every physical port</h3>
+<div class="level3">
+
+<p>
+<pre class="code">config &#039;switch&#039; &#039;eth0&#039;
+	option &#039;enable&#039; &#039;1&#039;
+
+
+config &#039;switch_vlan&#039; &#039;eth0_0&#039;
+	option &#039;device&#039; &#039;eth0&#039;
+	option &#039;vlan&#039; &#039;0&#039;
+	option &#039;ports&#039; &#039;4 5&#039; #wan
+
+config &#039;switch_vlan&#039; &#039;eth0_1&#039;
+	option &#039;device&#039; &#039;eth0&#039;
+	option &#039;vlan&#039; &#039;1&#039;
+	option &#039;ports&#039; &#039;3 5&#039; #lan 1
+
+config &#039;switch_vlan&#039; &#039;eth0_2&#039;
+	option &#039;device&#039; &#039;eth0&#039;
+	option &#039;vlan&#039; &#039;2&#039;
+	option &#039;ports&#039; &#039;2 5&#039; #lan2
+
+config &#039;switch_vlan&#039; &#039;eth0_3&#039;
+	option &#039;device&#039; &#039;eth0&#039;
+	option &#039;vlan&#039; &#039;3&#039;
+	option &#039;ports&#039; &#039;1 5&#039; #lan3
+
+config &#039;switch_vlan&#039; &#039;eth0_4&#039;
+	option &#039;device&#039; &#039;eth0&#039;
+	option &#039;vlan&#039; &#039;4&#039;
+	option &#039;ports&#039; &#039;0 5&#039; #lan4
+
+#note that to use a particular port in an interface the ifname
+#should be &#039;devicename.vlan&#039; . So for example ifname &#039;eth0.3&#039;</pre>
+
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/uci/network/switch.txt</bdi> · Last modified: 2015/03/09 18:55 by <bdi>pier4r</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="switch?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="switch?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="switch?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="switch#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../../lib/exe/indexer.php?id=doc%253Auci%253Anetwork%253Aswitch&amp;1432267252" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

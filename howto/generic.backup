@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Generic Backup [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,generic.backup"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="generic.backup?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/generic.backup"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/generic.backup"/>
+<link rel="canonical" href="generic.backup"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:generic.backup","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265436 166.182.3.25';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="generic.backup#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="generic.backup?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="generic.backup?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:generic.backup" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="generic.backup?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="generic.backup?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="generic.backup?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="generic.backup" class="wikilink1" title="doc:howto:generic.backup">Generic Backup</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/generic.backup" class="media" title="cz:doc:howto:generic.backup"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/generic.backup" class="media" title="de:doc:howto:generic.backup"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="generic.backup" class="media" title="doc:howto:generic.backup"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/generic.backup" class="media" title="es:doc:howto:generic.backup"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/generic.backup" class="media" title="fr:doc:howto:generic.backup"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/generic.backup" class="media" title="hu:doc:howto:generic.backup"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/generic.backup" class="media" title="jp:doc:howto:generic.backup"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/generic.backup" class="media" title="pl:doc:howto:generic.backup"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/generic.backup" class="media" title="pt-br:doc:howto:generic.backup"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/generic.backup" class="media" title="ru:doc:howto:generic.backup"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/generic.backup" class="media" title="tr:doc:howto:generic.backup"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../zh-cn/doc/howto/generic.backup" class="media" title="zh-cn:doc:howto:generic.backup"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/generic.backup" class="media" title="zh-tw:doc:howto:generic.backup"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:generic.backup</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="generic.backup#create_backup">Create Backup</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="generic.backup#create_backup_from_bootloader">Create Backup from Bootloader</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="generic.backup#restore_backup">Restore Backup</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="generic.backup#from_bootloader_console">from Bootloader console</a></div></li>
+<li class="level2"><div class="li"><a href="generic.backup#from_openwrt">from OpenWrt</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="generic.backup#backup_your_configuration">Backup your configuration</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="generic_backup">Generic Backup</h1>
+<div class="level1">
+
+<p>
+If you have a look at <a href="../techref/file_system" class="wikilink1" title="doc:techref:file_system">file_system</a> you will notice a couple of partition, that contain data, that is not part of OpenWrt and probably unique to your device. To be on the safe side, you should create a copy of this data, on your PC.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="create_backup">Create Backup</h2>
+<div class="level2">
+
+<p>
+Once again, please have a look at the <a href="../techref/flash.layout#details" class="wikilink1" title="doc:techref:flash.layout">Details</a> and take notice, that the <a href="../techref/bootloader.1" class="wikilink1" title="doc:techref:bootloader">bootloader</a> partition and <code>ART</code>/<code>NVRAM</code>/etc. and similar partition are NOT part of the OpenWrt firmware. So if something should go wrong and the data on these partition gets corrupted, you will not be able to replace it! You would have to go to the forum and ask somebody to make a backup of his, send it to you, you would have to replace the MAC address and then flash it via <a href="../hardware/port.jtag" class="wikilink1" title="doc:hardware:port.jtag">port.JTAG</a> since your device would probably not boot any longer.
+</p>
+
+<p>
+As already stated, these partition are not part of OpenWrt, and so we do not write to them, and thus it is very unlikely, that they get corrupted. But it is not impossible, and you should make a backup.
+</p>
+
+<p>
+If your ART-partition got corrupted, you would still be able to boot OpenWrt and only your wireless would not function correctly any longer. Easy fix with <code><a href="../techref/mtd" class="wikilink1" title="doc:techref:mtd">mtd</a></code>.
+</p>
+
+<p>
+<pre class="code">dd if=/dev/$(grep -i &#039;&quot;art&quot;&#039; /proc/mtd |cut -c 1-4) of=/tmp/art.backup</pre>
+
+</p>
+
+<p>
+If your bootloader-partition got corrupted, you would not even have a <a href="../techref/bootloader.1#additionalfunctions" class="wikilink1" title="doc:techref:bootloader">booloader console</a> which you could only access through <a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console" class="wikilink1" title="doc:hardware:port.serial">Serial Port</a> any longer, and the only way to recover from this would be though the <a href="../hardware/port.jtag" class="wikilink1" title="doc:hardware:port.jtag">JTAG Port</a> or by de-soldering the flash-chip, but please see <a href="generic.debrick" class="wikilink1" title="doc:howto:generic.debrick">generic.debrick</a> for help.
+</p>
+
+<p>
+However, once you&#039;ve gotten yourself into the position to write to the flash again, you will still need something you can write to it. Something that will work. And here is, where your backup will come in handy:
+</p>
+
+<p>
+<pre class="code">dd if=/dev/mtd0 of=/tmp/boot.backup</pre>
+
+</p>
+
+<p>
+Then copy your backup-file via scp or ssh to your PC and keep them safe for the time when you may need them.
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="create_backup_from_bootloader">Create Backup from Bootloader</h3>
+<div class="level3">
+
+<p>
+Sometimes it might be necessary to backup settings/partitions from original firmware. Depending on the bootloader different strategies might be possible.
+</p>
+
+<p>
+The flash-chip is mapped to a start adress. With uboot it should be in settings
+<pre class="code">printenv
+bdinfo</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> memory dump to serial that is logged (uboot: <em>md</em> ; redboot: <em>dump</em>)</div>
+</li>
+<li class="level1"><div class="li"> writing dumps to tftp or nfs</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit4" id="restore_backup">Restore Backup</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit5" id="from_bootloader_console">from Bootloader console</h3>
+<div class="level3">
+
+<p>
+Many bootloader allow you to work with mtd partition, but beware: they do not have to be identical with the Kernel mtd partitions! Also, with some bootloaders, you cannot use mtd-partition, you must work with offsets. In the latter case, it is probably a good idea to write down these correct offsets when you make the backups.
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="from_openwrt">from OpenWrt</h3>
+<div class="level3">
+
+<p>
+try <pre class="code">mtd write art.backup art</pre>
+
+Above method could work, but most probably will not as art partition is usually not writable, so you will have to compile you own kernel after doing some minor modification like described here:
+<a href="../../toh/tp-link/tl-wr1043nd#makingreadonlymtdpartitionwritable" class="wikilink1" title="toh:tp-link:tl-wr1043nd">TL-WR1043ND</a>
+or here: <a href="https://forum.openwrt.org/viewtopic.php?pid=135278#p135278" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?pid=135278#p135278"  rel="nofollow">https://forum.openwrt.org/viewtopic.php?pid=135278#p135278</a>.
+Then you must flash this to you device, boot it, and now the partition should be writable.
+</p>
+
+<p>
+From:
+<a href="https://forum.openwrt.org/viewtopic.php?pid=134950#p134950" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?pid=134950#p134950"  rel="nofollow">https://forum.openwrt.org/viewtopic.php?pid=134950#p134950</a>
+<a href="https://forum.openwrt.org/viewtopic.php?pid=99089#p99089" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?pid=99089#p99089"  rel="nofollow">https://forum.openwrt.org/viewtopic.php?pid=99089#p99089</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="backup_your_configuration">Backup your configuration</h2>
+<div class="level2">
+
+<p>
+You can backup configuration through the web interface, at System:Backup / Flash Firmware:Generate Archive. If the web interface is not available, connect using SSH and enter:
+<pre class="code">sysupgrade --create-backup /tmp/backup-`cat /proc/sys/kernel/hostname`-`date +%F`.tar.gz; ls /tmp/backup*</pre>
+
+</p>
+
+<p>
+Now on your local computer, use scp to retreive the file:
+(Remember to use the ip of your OpenWRT device and the filename of your backup file.)
+</p>
+
+<p>
+<pre class="code">scp root@192.168.1.1:/tmp/backup-openwrt-2014-08-26.tar.gz .</pre>
+
+</p>
+
+<p>
+You might also want to backup other files you have edited such as:
+</p>
+<ul>
+<li class="level1"><div class="li"> /etc/ethers</div>
+</li>
+<li class="level1"><div class="li"> /home (if you added users)</div>
+</li>
+<li class="level1"><div class="li"> /etc/config/firewall.user</div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/generic.backup.txt</bdi> · Last modified: 2015/04/26 08:41 by <bdi>theoradicus</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="generic.backup?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="generic.backup?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="generic.backup?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="generic.backup#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Ageneric.backup&amp;1432265436" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

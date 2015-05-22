@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>OpenWrt native IPv6-stack [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,uci,network6"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="network6?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:uci"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/uci/network6"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/uci/network6"/>
+<link rel="canonical" href="network6"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:uci';var JSINFO = {"id":"doc:uci:network6","namespace":"doc:uci"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265616 166.182.3.192';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="network6#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="network6?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="network6?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:uci:network6" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="network6?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="network6?do=media&amp;ns=doc%253Auci"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="network6?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../uci.1" class="wikilink1" title="doc:uci">The UCI System</a></bdi> » <bdi><span class="curid"><a href="network6" class="wikilink1" title="doc:uci:network6">OpenWrt native IPv6-stack</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/uci/network6" class="media" title="cz:doc:uci:network6"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/uci/network6" class="media" title="de:doc:uci:network6"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="network6" class="media" title="doc:uci:network6"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/uci/network6" class="media" title="es:doc:uci:network6"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/uci/network6" class="media" title="fr:doc:uci:network6"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/uci/network6" class="media" title="hu:doc:uci:network6"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/uci/network6" class="media" title="jp:doc:uci:network6"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/uci/network6" class="media" title="pl:doc:uci:network6"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/uci/network6" class="media" title="pt-br:doc:uci:network6"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/uci/network6" class="media" title="ru:doc:uci:network6"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/uci/network6" class="media" title="tr:doc:uci:network6"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/uci/network6" class="media" title="zh-cn:doc:uci:network6"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/uci/network6" class="media" title="zh-tw:doc:uci:network6"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:uci:network6</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="network6#obtaining_ipv6_support">Obtaining IPv6 support</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="network6#barrier_breaker_and_later">Barrier Breaker and later</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="network6#implementation">Implementation</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="network6#features">Features</a></div></li>
+<li class="level2"><div class="li"><a href="network6#compliance">Compliance</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="network6#upstream_configuration_for_wan-interfaces">Upstream configuration for WAN-Interfaces</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="network6#native_ipv6_connection">Native IPv6 connection</a></div></li>
+<li class="level2"><div class="li"><a href="network6#static_ipv6_connection">Static IPv6 connection</a></div></li>
+<li class="level2"><div class="li"><a href="network6#in4_tunnel_henet_tunnelbroker_sixxs_static_tunnel">6in4 tunnel (HEnet tunnelbroker, sixxs static tunnel, ...)</a></div></li>
+<li class="level2"><div class="li"><a href="network6#rd_tunnel_isp-provided_ipv6_transition">6rd tunnel (ISP-provided IPv6 transition)</a></div></li>
+<li class="level2"><div class="li"><a href="network6#pe_l2tp_tunnel_softwire_isp-provided_ipv6_transition">6pe, L2TP tunnel, softwire (ISP-provided IPv6 transition)</a></div></li>
+<li class="level2"><div class="li"><a href="network6#to4_tunnel">6to4 tunnel</a></div></li>
+<li class="level2"><div class="li"><a href="network6#dual-stack_lite_tunnel_ds-lite_ipv4_in_ipv6">Dual-Stack Lite tunnel (ds-lite IPv4 in IPv6)</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="network6#downstream_configuration_for_lan-interfaces">Downstream configuration for LAN-Interfaces</a></div></li>
+<li class="level1"><div class="li"><a href="network6#router_advertisement_dhcpv6">Router Advertisement &amp; DHCPv6</a></div></li>
+<li class="level1"><div class="li"><a href="network6#routing_mangement">Routing Mangement</a></div></li>
+<li class="level1"><div class="li"><a href="network6#migration_from_attitude_adjustment_1209_and_earlier">Migration from Attitude Adjustment 12.09 and earlier</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="network6#ipv6_forwarding">IPv6 Forwarding</a></div></li>
+<li class="level2"><div class="li"><a href="network6#downstream_configuration_for_lan-interfaces1">Downstream configuration for LAN-Interfaces</a></div></li>
+<li class="level2"><div class="li"><a href="network6#router_advertisement_dhcpv61">Router Advertisement &amp; DHCPv6</a></div></li>
+<li class="level2"><div class="li"><a href="network6#upstream_configuration_for_wan-interfaces1">Upstream Configuration for WAN-Interfaces</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="network6#generic_changes">Generic Changes</a></div></li>
+<li class="level3"><div class="li"><a href="network6#in4_tunnel_and_static_ipv6_connection">6in4 tunnel and Static IPv6 connection</a></div></li>
+<li class="level3"><div class="li"><a href="network6#rd_and_6to4_tunnel">6rd and 6to4 tunnel</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="openwrt_native_ipv6-stack">OpenWrt native IPv6-stack</h1>
+<div class="level1">
+<div class="table sectionedit2"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/48px-construction.svg.png" class="media" alt="" /> </td><td class="col1 rightalign">  This page applies to Barrier Breaker, Attitude Adjustment release 12.09.1 and later OpenWrt versions only. It is not valid for Backfire 10.03 or Attitude Adjustment 12.09. See <a href="../howto/ipv6" class="wikilink1" title="doc:howto:ipv6">Old IPv6 HowTo</a> for these versions. </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit3" id="obtaining_ipv6_support">Obtaining IPv6 support</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit4" id="barrier_breaker_and_later">Barrier Breaker and later</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Native IPv6-support with DHCPv6, an RA &amp; DHCPv6-Server and an IPv6-firewall are installed and configured by default.</div>
+</li>
+<li class="level1"><div class="li"> Transitioning technologies like <code>6in4</code>, <code>6rd</code>, <code>6to4</code> or <code>ds-lite</code> can be installed using the packages with the same names.</div>
+</li>
+<li class="level1"><div class="li"> For WebUI-support install the package <code>luci-proto-ipv6</code>.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit5" id="implementation">Implementation</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit6" id="features">Features</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Prefix Handling</div>
+<ul>
+<li class="level2"><div class="li"> Management of prefixes, addresses and routes from upstream connections and local ULA-prefixes</div>
+</li>
+<li class="level2"><div class="li"> Management of prefix unreachable-routes, prefix deprecation (<a href="http://tools.ietf.org/html/rfc7084" class="urlextern" title="http://tools.ietf.org/html/rfc7084"  rel="nofollow">RFC 7084</a>) and prefix classes</div>
+</li>
+<li class="level2"><div class="li"> Distribution of prefixes onto downstream interfaces (including size, ID  and class hints)</div>
+</li>
+<li class="level2"><div class="li"> Source-based policy routing to correctly handle multiple uplink interfaces, ingress policy filtering (<a href="http://tools.ietf.org/html/rfc7084" class="urlextern" title="http://tools.ietf.org/html/rfc7084"  rel="nofollow">RFC 7084</a>)</div>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Native IPv6 configuration</div>
+<ul>
+<li class="level2"><div class="li"> Automatic bootstrap from SLAAC, stateless DHCPv6, stateful DHCPv6, DHCPv6-PD and any combination</div>
+</li>
+<li class="level2"><div class="li"> Handling of preferred and valid address and prefix lifetimes</div>
+</li>
+<li class="level2"><div class="li"> Duplicate address and Link-MTU detection</div>
+</li>
+<li class="level2"><div class="li"> DHCPv6 Extensions: Reconfigure, Information-Refresh, SOL_MAX_RT=3600</div>
+</li>
+<li class="level2"><div class="li"> DHCPv6 Extensions: RDNSS, <abbr title="Domain Name System">DNS</abbr> Search Domain, NTP, SIP, ds-lite, prefix exclusion (experimental)</div>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> IPv6 transitioning technologies</div>
+<ul>
+<li class="level2"><div class="li"> Setup and management of IPv6-in-IPv4 tunnels (6rd, 6to4, 6in4)</div>
+</li>
+<li class="level2"><div class="li"> Setup and management of IPv4-in-IPv6 tunnels (ds-lite, lw4o6, map-e)</div>
+</li>
+<li class="level2"><div class="li"> Setup and management of IPv4-to-IPv6 translation (map-t, 464xlat CLAT) [since Chaos Calmer]</div>
+</li>
+<li class="level2"><div class="li"> Automatic setup of tunnels from DHCP and DHCPv6 [since Chaos Calmer]</div>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Downstream IPv6 configuration</div>
+<ul>
+<li class="level2"><div class="li"> Server support for Router Advertisement, DHCPv6 (stateless and stateful) and DHCPv6-PD</div>
+</li>
+<li class="level2"><div class="li"> Automatic detection of announced prefixes, delegated prefixes, default routes and MTU</div>
+</li>
+<li class="level2"><div class="li"> Change detection for prefixes and routes triggering resending of RAs and DHCPv6-Reconfigure</div>
+</li>
+<li class="level2"><div class="li"> Detection of client hostnames and export as augmented hosts-file</div>
+</li>
+<li class="level2"><div class="li"> Support for RA &amp; DHCPv6-relaying and NDP-proxying to e.g. support uplinks without prefix delegation</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit7" id="compliance">Compliance</h3>
+<div class="level3">
+
+<p>
+Our aim is to follow <a href="http://tools.ietf.org/html/rfc7084" class="urlextern" title="http://tools.ietf.org/html/rfc7084"  rel="nofollow">RFC 7084</a> where possible.
+Nevertheless compliance has not been verified yet. Please notify us if you find any standard violations.
+</p>
+
+<p>
+The following requirements of <a href="http://tools.ietf.org/html/rfc7084" class="urlextern" title="http://tools.ietf.org/html/rfc7084"  rel="nofollow">RFC 7084</a> are currently known not to be met.
+</p>
+<ul>
+<li class="level1"><div class="li">  <a href="http://tools.ietf.org/html/rfc7084" class="urlextern" title="http://tools.ietf.org/html/rfc7084"  rel="nofollow">RFC 7084</a> WAA-5 (SHOULD-requirement): The NTP-Server is requested and received but currently not processed or used.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit8" id="upstream_configuration_for_wan-interfaces">Upstream configuration for WAN-Interfaces</h2>
+<div class="level2">
+
+<p>
+The following sections describe the configuration of IPv6 connections to your ISP or an upstream router. Please note that most tunneling mechanisms like 6in4, 6rd and 6to4 may not work behind a NAT-router.
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="native_ipv6_connection">Native IPv6 connection</h3>
+<div class="level3">
+
+<p>
+For an uplink with native IPv6-connectivity you can use the following example configuration. It will work both for uplinks supporting DHCPv6 with Prefix Delegation and those that don&#039;t support DHCPv6-PD or DHCPv6 at all (SLAAC-only).
+</p>
+
+<p>
+/etc/config/network
+<pre class="code">config interface wan
+        option ipv6 1 # only required for PPP-based protocols
+        ...
+
+config interface wan6
+        option ifname   eth1 # use same ifname as in wan-section or &quot;@wan&quot;
+        option proto    dhcpv6
+
+config interface lan
+        option proto    static
+        option ip6assign 60
+        ...</pre>
+
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> The package <code>odhcp6c</code> must be installed to use dhcpv6. See <a href="network#protocoldhcpv6" class="wikilink1" title="doc:uci:network">protocol.dhcpv6</a> for advanced configuration options.
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="static_ipv6_connection">Static IPv6 connection</h3>
+<div class="level3">
+
+<p>
+Static configuration of the IPv6 uplink is supported as well. The following example demonstrates this.
+</p>
+
+<p>
+/etc/config/network
+<pre class="code">config interface wan
+        option ifname   eth1
+        option proto    static
+        option ip6addr  2001:db80::2/64   # Own address
+        option ip6gw    2001:db80::1      # Gateway address
+        option ip6prefix 2001:db80:1::/48 # Prefix addresses for distribution to downstream interfaces
+        option dns      2001:db80::1      # DNS server
+
+config interface lan
+        option proto    static
+        option ip6assign 60
+        ...</pre>
+
+For advanced configuration options see <a href="network#protocolstatic" class="wikilink1" title="doc:uci:network">protocol.static</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="in4_tunnel_henet_tunnelbroker_sixxs_static_tunnel">6in4 tunnel (HEnet tunnelbroker, sixxs static tunnel, ...)</h3>
+<div class="level3">
+
+<p>
+6in4 tunnels are usually provided by external tunnel providers like HE.net or Sixxs. You can use the following example configuration as a basis.
+</p>
+
+<p>
+/etc/config/network:
+<pre class="code">config &#039;interface&#039; &#039;wan6&#039;
+        option &#039;proto&#039; &#039;6in4&#039;
+        option &#039;mtu&#039; &#039;1424&#039;                          # the IPv6 tunnel MTU (optional)
+        option &#039;peeraddr&#039; &#039;62.12.34.56&#039;              # the IPv4 tunnel endpoint
+        option &#039;ip6addr&#039; &#039;2001:DB8:2222:EFGH::2/64&#039;  # the IPv6 tunnel 
+        option &#039;ip6prefix&#039; &#039;2001:DB8:1234:ABCD::/64&#039; # Your routed prefix (required!)
+        # configuration options below are only valid for HEnet tunnels. ignore them for other tunnel providers.
+        option tunnelid &#039;123456&#039; # HE.net tunnel id
+        option username &#039;username&#039; # HE.net username, which you use to login into tunnelbroker, not the User ID shows after you have login in.
+        option password &#039;password&#039; # HE.net password if there is no updatekey for tunnel
+        option updatekey &#039;updatekey&#039; # HE.net updatekey instead of password, default for new tunnels
+
+config &#039;interface&#039; &#039;lan&#039;
+        option &#039;proto&#039; &#039;static&#039;
+        option ip6assign 60
+...</pre>
+
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> If you choose a name for your tunnel-interface that is different from &#039;wan6&#039; make sure to add that name to the network-option of the firewall-zone &#039;wan&#039; in /etc/config/firewall.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> The package <code>6in4</code> must be installed to use 6in4-tunnels. See <a href="network#protocol6in4ipv6-in-ipv4tunnel" class="wikilink1" title="doc:uci:network">protocol.6in4.ipv6-in-ipv4.tunnel</a> for advanved configuration options.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Note that HE.net assigns an &quot;updatekey&quot; by default for new tunnels since February 2014. If updatekey exists (visible in tunnel&#039;s advanced info page at the he.net site), it needs to be used instead of the password. Support for that option has been introduced in Openwrt trunk by r39646. Old tunnels without updatekey will continue to work with password.
+</p>
+
+</div>
+
+<h3 class="sectionedit12" id="rd_tunnel_isp-provided_ipv6_transition">6rd tunnel (ISP-provided IPv6 transition)</h3>
+<div class="level3">
+
+<p>
+6rd is a tunnelmechanism based on 6to4. Unlike other tunneling mechanisms 6rd is usually provided by the ISP itself. The values for the tunnel are usually obtained with the DHCPv4 request for the WAN interface.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> In Chaos Calmer and later the configuration is usually auto-detected and manual configuration is not needed, simply installing the 6rd package (and rebooting) is usually enough.
+</p>
+
+<p>
+/etc/config/network:
+<pre class="code">config interface &#039;wan&#039;
+        option ifname &#039;eth0.2&#039;
+        option proto &#039;dhcp&#039;
+        
+        # The following two lines are only needed in Barrier Breaker
+        option iface6rd wan_6rd
+        option zone6rd wan</pre>
+
+</p>
+
+<p>
+To debug 6rd via DHCP, first check if the parameters are sent. Create a /etc/udhcpc.user with the following content:
+</p>
+
+<p>
+<pre class="code">#!/bin/sh
+env &gt;&gt; /tmp/udhcpc.log</pre>
+
+</p>
+
+<p>
+Reboot the router and check the log file for the following line:
+</p>
+
+<p>
+<pre class="code">ip6rd=16 40 2001:0838:ad00:0000:0000:0000:0000:0000 77.174.0.2</pre>
+
+</p>
+
+<p>
+If this line isn&#039;t present, you need to obtain the correct values for peeraddr, ip6prefix, ip6prefixlen and ip4prefixlen from your ISP. The above ip6rd or the obtained values can be used to hardcode the 6RD tunnel. Remove or comment out the iface6rd line in the wan section.
+</p>
+
+<p>
+/etc/config/network:
+<pre class="code">config interface &#039;wan6&#039;
+        option proto &#039;6rd&#039;
+        option peeraddr &#039;77.174.0.2&#039;
+        option ip6prefix &#039;2001:838:ad00::&#039;
+        option ip6prefixlen &#039;40&#039;
+        option ip4prefixlen &#039;16&#039;</pre>
+
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> In Chaos Calmer the default /etc/config/network works after installing the 6rd package. The mentioned dhcpv6 is ignored if it doesn&#039;t succeed. The above configuration for Barrier Breaker works also in later variants and may be less confusing.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> If you choose a name for your tunnel-interface that is different from &#039;wan6&#039; make sure to add that name to the network-option of the firewall-zone &#039;wan&#039; in /etc/config/firewall.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> The package <code>6rd</code> must be installed to use 6rd-tunnels. See <a href="network#protocol_6rd_ipv6_rapid_deployment" class="wikilink1" title="doc:uci:network">protocol_6rd_ipv6_rapid_deployment</a> for advanved configuration options.
+</p>
+
+</div>
+
+<h3 class="sectionedit13" id="pe_l2tp_tunnel_softwire_isp-provided_ipv6_transition">6pe, L2TP tunnel, softwire (ISP-provided IPv6 transition)</h3>
+<div class="level3">
+
+<p>
+This is another transitional mechanism for IPv6, used by some ISPs.  It relies on a L2TPv2 tunnel.
+</p>
+
+<p>
+Detailed configuration: <a href="../howto/ipv6.softwire" class="wikilink1" title="doc:howto:ipv6.softwire">ipv6.softwire</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit14" id="to4_tunnel">6to4 tunnel</h3>
+<div class="level3">
+
+<p>
+6to4 is the simplest IPv6 tunneling mechanism and relies on publicly available gateways.
+</p>
+
+<p>
+/etc/config/network:
+<pre class="code">config &#039;interface&#039; &#039;wan6&#039;
+        option &#039;proto&#039; &#039;6to4&#039;
+
+config &#039;interface&#039; &#039;lan&#039;
+        option &#039;proto&#039; &#039;static&#039;
+        option ip6assign 60
+...</pre>
+
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> If you choose a name for your tunnel-interface that is different from &#039;wan6&#039; make sure to add that name to the network-option of the firewall-zone &#039;wan&#039; in /etc/config/firewall.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> The package <code>6to4</code> must be installed to use 6to4-tunnels. See <a href="network#protocol6to4ipv6-in-ipv4tunnel" class="wikilink1" title="doc:uci:network">protocol.6to4.ipv6-in-ipv4.tunnel</a> for advanved configuration options.
+</p>
+
+</div>
+
+<h3 class="sectionedit15" id="dual-stack_lite_tunnel_ds-lite_ipv4_in_ipv6">Dual-Stack Lite tunnel (ds-lite IPv4 in IPv6)</h3>
+<div class="level3">
+
+<p>
+ds-lite is a transitioning-mechanism which is used by ISPs to support legacy IPv4-connectivity over a native IPv6 connection.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> In Chaos Calmer and later the configuration is usually auto-detected and manual configuration is not needed, simply installing the ds-lite package (and rebooting) is usually enough.
+</p>
+
+<p>
+/etc/config/network:
+<pre class="code">config &#039;interface&#039; &#039;wan6&#039;
+        option &#039;ifname&#039; &#039;eth1&#039;
+        option &#039;proto&#039; &#039;dhcpv6&#039;
+
+config &#039;interface&#039; &#039;wan&#039;
+        option &#039;proto&#039; &#039;dslite&#039;
+        option &#039;peeraddr&#039; &#039;2001:db80::1&#039; # Your ISP&#039;s DS-Lite AFTR</pre>
+
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> If you choose a name for your tunnel-interface that is different from &#039;wan&#039; make sure to add that name to the network-option of the firewall-zone &#039;wan&#039; in /etc/config/firewall.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> The package <code>ds-lite</code> must be installed to use ds-lite-tunnels. See <a href="network#protocoldslitedual-stacklite" class="wikilink1" title="doc:uci:network">protocol.dslite.dual-stack.lite</a> for advanved configuration options.
+</p>
+
+</div>
+
+<h2 class="sectionedit16" id="downstream_configuration_for_lan-interfaces">Downstream configuration for LAN-Interfaces</h2>
+<div class="level2">
+
+<p>
+OpenWrt includes a flexible local prefix delegation mechanism.
+It can be tuned for each downstream-interface individually with 3 parameters which are all optional:
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>ip6assign</code>: Prefix size used for assigned prefix to the interface (e.g. 64 will assign /64-prefixes)</div>
+</li>
+<li class="level1"><div class="li"> <code>ip6hint</code>: Subprefix ID to be used if available (e.g. 1234 with an ip6assign of 64 will assign prefixes of the form …:1234::/64)</div>
+</li>
+<li class="level1"><div class="li"> <code>ip6class</code>: Filter for prefix classes to accept on this interface (e.g. wan6 will only assign prefixes with class &quot;wan6&quot; but not e.g. &quot;local&quot;)</div>
+</li>
+</ul>
+
+<p>
+ip6assign and / or ip6hint-settings might be ignored if the desired subprefix cannot be assigned. In this case OpenWrt will first try to assign a prefix with the same length but different subprefix-ID.
+If this fails as well the prefix length is reduced until the assignment can be satisfied. If ip6hint is not set an arbitrary ID will be chosen. Setting the ip6assign-parameter to a value &lt; 64 will allow the DHCPv6-server to hand out all but the first /64 via DHCPv6-Prefix Delegation to downstream routers on the interface. If the ip6hint is not suitable for the given ip6assign it will be rounded down to the nearest possible value.
+</p>
+
+<p>
+If ip6class is not set then all prefix classes are accepted on this interface. The default class for a prefix is the interface-name (e.g. &quot;wan6&quot;) or &quot;local&quot; for the ULA-prefix.
+This can be used to select upstream interfaces from which subprefixes are assigned. For prefixes received from dynamic-configuration methods like DHCPv6 it is possible that the prefix-class
+is not equal to the source-interface but e.g. augmented with an ISP-provided numeric prefix class-value.
+</p>
+
+<p>
+Example (/etc/config/network):
+<pre class="code">config globals globals
+        option ula_prefix fd00:db80::/48
+
+config interface wan6
+        option proto static
+        option ip6prefix 2001:db80::/56
+        ...
+
+config interface lan
+        option proto static
+        option ip6assign 60
+        option ip6hint 10
+        ...
+
+config interface guest
+        option proto static
+        option ip6assign 64
+        option ip6hint abcd
+        list ip6class wan6
+        ...</pre>
+
+</p>
+
+<p>
+The results of that configuration would be:
+</p>
+<ul>
+<li class="level1"><div class="li"> The <code>lan</code> interface will be assigned the prefixes 2001:db80:0:10::/60 and fd00:db80:0:10::/60.</div>
+</li>
+<li class="level1"><div class="li"> The DHCPv6-server can offer both prefixes except 2001:db80:0:10::/64 and fd00:db80:0:10::/64 to downstream routers on <code>lan</code> via DHCPv6-PD.</div>
+</li>
+<li class="level1"><div class="li"> The <code>guest</code> interface will only get assinged the prefix 2001:db80:0:abcd::/64 due to the class filter.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit17" id="router_advertisement_dhcpv6">Router Advertisement &amp; DHCPv6</h2>
+<div class="level2">
+
+<p>
+OpenWrt features a versatile RA &amp; DHCPv6 server and relay. Per default SLAAC, stateless and stateful DHCPv6 are enabled on an interface. If there are prefix of size /64 or greater present then addresses will be handed out from each prefix. If all prefixes on an interface have a size greater /64 then DHCPv6-Prefix Delegation is enabled for downstream-routers. If a default route is present the router advertises itself as default router on the interface.
+</p>
+
+<p>
+OpenWrt is also able to detect when there is no prefix available from an upstream interface and can switch into relaying mode automatically to extend the upstream interface configuration onto its downstream interfaces. This is useful for putting an OpenWrt behind another IPv6-router which doesn&#039;t offer prefixes via DHCPv6-PD.
+</p>
+
+<p>
+Example configuration section for SLAAC + DHCPv6 server mode (/etc/config/dhcp)
+<pre class="code">config dhcp lan
+    option dhcpv6 server
+    option ra server</pre>
+
+</p>
+
+<p>
+Example configuration section for SLAAC alone (/etc/config/dhcp)
+<pre class="code">config dhcp lan
+    option dhcpv6 disabled
+    option ra server</pre>
+
+</p>
+
+<p>
+Example configuration section for relaying (/etc/config/dhcp)
+<pre class="code">config dhcp wan6
+    option dhcpv6 relay
+    option ra relay
+    option ndp relay
+    option master 1
+
+config dhcp lan
+    option dhcpv6 relay
+    option ra relay
+    option ndp relay</pre>
+
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> The package <code>odhcpd</code> must be installed to provide these services.
+</p>
+
+</div>
+
+<h2 class="sectionedit18" id="routing_mangement">Routing Mangement</h2>
+<div class="level2">
+
+<p>
+OpenWrt uses a source-address and source-interface based policy-routing system. This is required to correctly handle different uplink interfaces.
+Each delegated prefix is added with an unreachable route to avoid IPv6-routing loops.
+</p>
+
+<p>
+To determine the current status of routes you can consult the information provided by <code>ifstatus</code>.
+</p>
+
+<p>
+Example (ifstatus wan6):
+<pre class="code">...
+        &quot;ipv6-address&quot;: [
+                {
+                        &quot;address&quot;: &quot;2001:db80::a00:27ff:fe67:cd9c&quot;,
+                        &quot;mask&quot;: 64,
+                        &quot;preferred&quot;: 1681,
+                        &quot;valid&quot;: 7081
+                }
+        ],
+        &quot;ipv6-prefix&quot;: [
+                {
+                        &quot;address&quot;: &quot;2001:db80:0:100::&quot;,
+                        &quot;mask&quot;: 56,
+                        &quot;preferred&quot;: 86282,
+                        &quot;valid&quot;: 86282,
+                        &quot;class&quot;: &quot;wan6&quot;,
+                        &quot;assigned&quot;: {
+                                &quot;lan&quot;: {
+                                        &quot;address&quot;: &quot;2001:db80:0:110::&quot;,
+                                        &quot;mask&quot;: 60
+                                }
+                        }
+                }
+        ],
+        &quot;route&quot;: [
+                {
+                        &quot;target&quot;: &quot;2001:db80::&quot;,
+                        &quot;mask&quot;: 48,
+                        &quot;nexthop&quot;: &quot;fe80::800:27ff:fe00:0&quot;,
+                        &quot;metric&quot;: 1024,
+                        &quot;valid&quot;: 7081
+                },
+                {
+                        &quot;target&quot;: &quot;::&quot;,
+                        &quot;mask&quot;: 0,
+                        &quot;nexthop&quot;: &quot;fe80::800:27ff:fe00:0&quot;,
+                        &quot;metric&quot;: 1024,
+                        &quot;valid&quot;: 7081
+                }
+        ],
+...</pre>
+
+Interpretation:
+</p>
+<ul>
+<li class="level1"><div class="li"> On the interface 2 routes are provided: 2001:db80::/48 and a default-route via the router fe80::800:27ff:fe00:0.</div>
+</li>
+<li class="level1"><div class="li"> These routes can only be used by locally generated traffic and traffic with a suitable source-address, that is either one of the local addresses or an address out of the delegated prefix.</div>
+</li>
+</ul>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> OpenWrt adds IPv6-routes (like default routes) to specific routing-tables and not the main-table thus they may not be seen by default. You can use the command <code>ip -6 rule</code> to list all current routing policies.
+</p>
+
+</div>
+
+<h2 class="sectionedit19" id="migration_from_attitude_adjustment_1209_and_earlier">Migration from Attitude Adjustment 12.09 and earlier</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit20" id="ipv6_forwarding">IPv6 Forwarding</h3>
+<div class="level3">
+
+<p>
+To ensure that IPv6 forwarding is working correctly, please check that your /etc/sysctl.conf contains the following entries:
+<pre class="code">net.ipv6.conf.default.forwarding=1
+net.ipv6.conf.all.forwarding=1</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit21" id="downstream_configuration_for_lan-interfaces1">Downstream configuration for LAN-Interfaces</h3>
+<div class="level3">
+
+<p>
+It is discouraged to use <strong>ip6addr</strong> to set addresses / prefixes on downstream interfaces (e.g. lan) because it can easily lead to conflicts with the local address delegation.
+Also it might lead to unexpected result or brokenness due to the source-based policy-routing used in the IPv6-stack.
+</p>
+
+<p>
+Please use the new options <strong>ip6assign</strong> and <strong>ip6hint</strong> instead.
+</p>
+
+<p>
+Example: If your delegated prefix is 2001:db80:1234::/48 and you want your lan interface to have the subprefix 2001:db80:1234:5678::/64 you could use the following configuration:
+<pre class="code">config &#039;interface&#039; &#039;lan&#039;
+       option &#039;proto&#039; &#039;static&#039;
+       option &#039;ip6assign&#039; &#039;64&#039;
+       option &#039;ip6hint&#039; &#039;5678&#039;
+       ...</pre>
+
+</p>
+
+<p>
+If the router can ping6 the internet, but lan machines get &quot;Destination unreachable: Unknown code 5&quot; or &quot;Source address failed ingress/egress policy&quot; then the <strong>ip6assign</strong> option is missing on your lan interface.
+</p>
+
+</div>
+
+<h3 class="sectionedit22" id="router_advertisement_dhcpv61">Router Advertisement &amp; DHCPv6</h3>
+<div class="level3">
+
+<p>
+The use of radvd is now unnecessary. The service 6relayd is used for Router Advertisement and DHCPv6 and picks up addresses from interfaces automatically.
+To configure the 6relayd service see <a href="6relayd" class="wikilink1" title="doc:uci:6relayd">6relayd</a>.
+</p>
+
+</div>
+
+<h3 class="sectionedit23" id="upstream_configuration_for_wan-interfaces1">Upstream Configuration for WAN-Interfaces</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="generic_changes">Generic Changes</h4>
+<div class="level4">
+
+<p>
+Router Advertisements are not accepted by default anymore and thus OpenWrt will not configure itself with default routes and / or addresses. Also the interface-options <strong>accept_ra</strong> and <strong>send_rs</strong> have been removed.
+You should add an interface with proto dhcpv6 - also for receiving RAs only - as described in <a href="network6#nativeipv6connection" title="doc:uci:network6 ↵" class="wikilink1">Native IPv6 Connection</a>.
+</p>
+
+</div>
+
+<h4 id="in4_tunnel_and_static_ipv6_connection">6in4 tunnel and Static IPv6 connection</h4>
+<div class="level4">
+
+<p>
+It is now necessary to add your routed-prefix (e.g. routed /48  of your tunnel) as option <strong>ip6prefix</strong> to the tunnel/static-interface in /etc/config/network.
+If you omit this option your lan-clients will not be able to reach the internet.
+</p>
+
+<p>
+Example:
+<pre class="code">config &#039;interface&#039; &#039;wan6&#039;
+        option &#039;proto&#039; &#039;6in4&#039;
+        option &#039;peeraddr&#039; &#039;62.12.34.56
+        option &#039;ip6addr&#039; &#039;2001:DB8:2222:EFGH::2/64&#039;
+        option &#039;ip6prefix&#039; &#039;2001:DB8:1234:ABCD::/64&#039; # &lt;- Your routed prefix
+        ...</pre>
+
+</p>
+
+</div>
+
+<h4 id="rd_and_6to4_tunnel">6rd and 6to4 tunnel</h4>
+<div class="level4">
+
+<p>
+Your public address prefix is now automatically calculated and sent to the network subsystem (netifd).
+You should follow the advice for <a href="network6#downstreamconfigurationforlan-interfaces1" title="doc:uci:network6 ↵" class="wikilink1">lan-interface configuration</a>.
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/uci/network6.txt</bdi> · Last modified: 2015/04/29 14:27 by <bdi>steven</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="network6?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="network6?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="network6?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="network6#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Auci%253Anetwork6&amp;1432265616" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

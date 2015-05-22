@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>LuCI – Technical Reference [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,techref,luci"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="luci?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:techref"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/techref/luci"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/techref/luci"/>
+<link rel="canonical" href="luci"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:techref';var JSINFO = {"id":"doc:techref:luci","namespace":"doc:techref"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265634 166.182.3.192';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="luci#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="luci?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="luci?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:techref:luci" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="luci?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="luci?do=media&amp;ns=doc%253Atechref"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="luci?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../techref.1" class="wikilink1" title="doc:techref:start">Technical Reference</a></bdi> » <bdi><span class="curid"><a href="luci" class="wikilink1" title="doc:techref:luci">LuCI – Technical Reference</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/techref/luci" class="media" title="cz:doc:techref:luci"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/techref/luci" class="media" title="de:doc:techref:luci"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="luci" class="media" title="doc:techref:luci"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/techref/luci" class="media" title="es:doc:techref:luci"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/techref/luci" class="media" title="fr:doc:techref:luci"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/techref/luci" class="media" title="hu:doc:techref:luci"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/techref/luci" class="media" title="jp:doc:techref:luci"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/techref/luci" class="media" title="pl:doc:techref:luci"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/techref/luci" class="media" title="pt-br:doc:techref:luci"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/techref/luci" class="media" title="ru:doc:techref:luci"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/techref/luci" class="media" title="tr:doc:techref:luci"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../zh-cn/doc/techref/luci" class="media" title="zh-cn:doc:techref:luci"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/techref/luci" class="media" title="zh-tw:doc:techref:luci"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:techref:luci</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="luci#what_is_luci">What is LuCI</a></div></li>
+<li class="level1"><div class="li"><a href="luci#dependencies">Dependencies</a></div></li>
+<li class="level1"><div class="li"><a href="luci#forum">Forum</a></div></li>
+<li class="level1"><div class="li"><a href="luci#encompassed_packages">Encompassed Packages</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="luci_technical_reference">LuCI – Technical Reference</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> <a href="http://luci.subsignal.org/trac" class="urlextern" title="http://luci.subsignal.org/trac"  rel="nofollow">LuCI Wiki</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://luci.subsignal.org/trac/wiki/Documentation" class="urlextern" title="http://luci.subsignal.org/trac/wiki/Documentation"  rel="nofollow">Luci Documentation</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://luci.subsignal.org/trac/browser" class="urlextern" title="http://luci.subsignal.org/trac/browser"  rel="nofollow">LuCI Downloads</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://nbd.name/gitweb.cgi?p=luci.git;a=summary" class="urlextern" title="http://nbd.name/gitweb.cgi?p=luci.git;a=summary"  rel="nofollow">http://nbd.name/gitweb.cgi?p=luci.git;a=summary</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit2" id="what_is_luci">What is LuCI</h2>
+<div class="level2">
+
+<p>
+LuCI was founded in March 2008 as &quot;FFLuCI&quot; as part of the efforts to create a port of the Freifunk-Firmware from the OpenWrt branch <a href="../../about/history" class="wikilink1" title="about:history">White Russian</a> to its successor branch <a href="../../about/history" class="wikilink1" title="about:history">Kamikaze</a>.
+</p>
+
+<p>
+The initial reason for this project was the absence of a free, clean, extensible and easily maintainable <a href="../howto/webinterface.overview" class="wikilink1" title="doc:howto:webinterface.overview">web user interface</a> for embedded devices. While most similar configuration interfaces make heavy use of the Shell-scripting language, LuCI:
+</p>
+<ul>
+<li class="level1"><div class="li"> uses the Lua programming language and</div>
+</li>
+<li class="level1"><div class="li"> splits the interface up into logical parts like models and views, uses object-oriented libraries and templating.</div>
+</li>
+</ul>
+
+<p>
+That ensures better performance, smaller installation size, faster runtimes and simple maintainability.
+</p>
+
+<p>
+Meanwhile LuCI evolved from a MVC-Webframework to a collection of several libraries, applications and user interfaces with general purpose for Lua programmers while the focus still remains on the <a href="../howto/webinterface.overview" class="wikilink1" title="doc:howto:webinterface.overview">web user interface</a> which also became an official part of OpenWrt releases since OpenWrt &#039;Kamikaze&#039; 8.09.
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="dependencies">Dependencies</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="../devel/uci-lua" class="wikilink1" title="doc:techref:uci">UCI</a> (including libuci-lua)</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit4" id="forum">Forum</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="https://forum.openwrt.org/viewtopic.php?pid=141931#p141931" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?pid=141931#p141931"  rel="nofollow">Making a dependent service restart after change in LuCI</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit5" id="encompassed_packages">Encompassed Packages</h2>
+<div class="level2">
+
+<p>
+<code>luci</code> and <code>luci-ssl</code> are meta-packages. Here you see what they comprise, the sizes are in Bytes compiled for the ar71xx platform. They should differ too much from binaries compiled for other architectures. Also note, that with JFFS2 it is not possible to precisely predict the occupied space.
+</p>
+
+<p>
+In case you want to use a different web server than <a href="../howto/http.uhttpd" class="wikilink1" title="doc:howto:http.uhttpd">uhttpd</a> and not install uhttpd at all, do not install the meta-package because it includes it. Install the individual components instead and a web server of your choice. The article <a href="../howto/http.overview" class="wikilink1" title="doc:howto:http.overview">http.overview</a> shows you some choices from the repos.
+</p>
+<div class="table sectionedit6"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  Name  </th><th class="col1 centeralign">  Size  </th><th class="col2 leftalign"> Description  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> luci                 </td><td class="col1 rightalign">    779 </td><td class="col2 leftalign"> Meta package. Standard OpenWrt set including full and mini admin and the standard theme  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> uhttpd               </td><td class="col1 rightalign">  23778 </td><td class="col2 leftalign"> uHTTPd is a tiny single threaded HTTP server with TLS, CGI and Lua support. It is intended as a drop-in replacement for the Busybox HTTP daemon.  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> luci-mod-admin-full  </td><td class="col1 rightalign">  60827 </td><td class="col2 leftalign"> LuCI Administration - full-featured for full control  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> luci-mod-admin-core  </td><td class="col1 rightalign">   5257 </td><td class="col2 leftalign"> Web UI Core module  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> luci-theme-openwrt   </td><td class="col1 rightalign">   7226 </td><td class="col2 leftalign"> OpenWrt.org (default)  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> luci-i18n-english    </td><td class="col1 rightalign">   1252 </td><td class="col2 leftalign"> English  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> luci-app-firewall    </td><td class="col1 rightalign">  16630 </td><td class="col2 leftalign"> Firmware and Portforwarding application  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> firewall             </td><td class="col1 rightalign">  11603 </td><td class="col2 leftalign"> UCI based firewall for OpenWrt /etc/config/firewall /etc/firewall.user. Dependencies: iptables, iptables-mod-conntrack, iptables-mod-nat  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> luci-app-initmgr     </td><td class="col1 rightalign">   5713 </td><td class="col2 leftalign"> LuCI Initscript Management  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> libiwinfo            </td><td class="col1 rightalign">  25362 </td><td class="col2 leftalign"> Wireless information library with consistent interface for proprietary Broadcom, madwifi, nl80211 and wext driver interfaces.  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> luci-lib-ipkg        </td><td class="col1 rightalign">   2846 </td><td class="col2 leftalign"> LuCI IPKG/OPKG call abstraction library  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> luci-theme-base      </td><td class="col1 rightalign">  25065 </td><td class="col2 leftalign"> Common base for all themes  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> libnl-tiny           </td><td class="col1 rightalign">  14390 </td><td class="col2 leftalign"> This package contains a stripped down version of libnl  </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 leftalign"> liblua               </td><td class="col1 rightalign">  81477 </td><td class="col2 leftalign"> Lua is a powerful light-weight programming language designed for extending applications. Lua is also frequently used as a general-purpose, stand-alone  language. Lua is free software. This package contains the Lua shared libraries, needed by other programs.  </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 leftalign"> lua                  </td><td class="col1 rightalign">   9069 </td><td class="col2 leftalign"> Lua is a powerful light-weight programming language designed for extending applications. Lua is also frequently used as a general-purpose, stand-alone  language. Lua is free software. This package contains the Lua language interpreter. (5.1.4-7)  </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 leftalign"> luci-lib-web         </td><td class="col1 rightalign">  59695 </td><td class="col2 leftalign"> MVC Webframework  </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0 leftalign"> luci-lib-sys         </td><td class="col1 rightalign">  15795 </td><td class="col2 leftalign"> LuCI Linux/POSIX system library  </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0 leftalign"> luci-lib-nixio       </td><td class="col1 rightalign">  31683 </td><td class="col2 leftalign"> NIXIO POSIX library  </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0 leftalign"> luci-lib-core        </td><td class="col1 rightalign">  28096 </td><td class="col2 leftalign"> LuCI core libraries  </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0 leftalign"> luci-sgi-cgi         </td><td class="col1 rightalign">   2420 </td><td class="col2 leftalign"> CGI Gateway behind existing Webserver  </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0 leftalign"> luci-lib-lmo         </td><td class="col1 rightalign">   4714 </td><td class="col2 leftalign"> LuCI LMO I18N library  </td>
+	</tr>
+	<tr class="row22">
+		<th class="col0 leftalign" colspan="3"> Additionally Required for HTTPS  </th>
+	</tr>
+	<tr class="row23">
+		<td class="col0 leftalign"> luci-ssl        </td><td class="col1 rightalign">    782 </td><td class="col2"> Meta package. Standard OpenWrt set including full and mini admin, the standard theme + HTTPS support </td>
+	</tr>
+	<tr class="row24">
+		<td class="col0 leftalign"> uhttpd-mod-tls  </td><td class="col1 rightalign">   5825 </td><td class="col2 leftalign"> The TLS plugin adds HTTPS support to uHTTPd.  </td>
+	</tr>
+	<tr class="row25">
+		<td class="col0 leftalign"> uhttpd-mod-lua  </td><td class="col1 rightalign">   9178 </td><td class="col2 leftalign"> The Lua plugin adds a CGI-like Lua runtime interface to uHTTPd.  </td>
+	</tr>
+	<tr class="row26">
+		<td class="col0 leftalign"> libcyassl       </td><td class="col1 rightalign">  69682 </td><td class="col2 leftalign"> CyaSSL is an SSL library optimized for small footprint, both on disk and for memory use.  </td>
+	</tr>
+	<tr class="row27">
+		<td class="col0 leftalign"> px5g            </td><td class="col1 rightalign">  28480 </td><td class="col2 leftalign"> Px5g is a tiny standalone X.509 certificate generator.  It&#039;s suitable to create key files and certificates in <a href="http://en.wikipedia.org/wiki/Distinguished Encoding Rules" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Distinguished Encoding Rules">DER</a> and <a href="http://en.wikipedia.org/wiki/Privacy Enhanced Mail" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Privacy Enhanced Mail">PEM</a> format for use with stunnel, uhttpd and others.  </td>
+	</tr>
+	<tr class="row28">
+		<th class="col0 leftalign" colspan="3"> Internationalization and localization packages  </th>
+	</tr>
+	<tr class="row29">
+		<td class="col0 leftalign"> luci-i18n-xxx         </td><td class="col1 rightalign">  ????? </td><td class="col2 leftalign"> Please confer to <a href="http://i18n.luci.subsignal.org/pootle/" class="urlextern" title="http://i18n.luci.subsignal.org/pootle/"  rel="nofollow">http://i18n.luci.subsignal.org/pootle/</a> for an overview of the translation progress.   </td>
+	</tr>
+</table></div>
+<div class="table sectionedit7"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <strong><code>Note:</code></strong> According to <a href="https://forum.openwrt.org/viewtopic.php?pid=135623#p135623" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?pid=135623#p135623"  rel="nofollow">this post</a> a <code>mini-admin-package</code> is no longer available </td>
+	</tr>
+</table></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/techref/luci.txt</bdi> · Last modified: 2014/04/11 10:13 by <bdi>zz.zhangz.gmail.com</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="luci?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="luci?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="luci?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="luci#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Atechref%253Aluci&amp;1432265634" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

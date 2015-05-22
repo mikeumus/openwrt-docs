@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Cryptographic Hardware Accelerators [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="crypto"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="cryptographic.hardware.accelerators?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:hardware"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/hardware/cryptographic.hardware.accelerators"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/hardware/cryptographic.hardware.accelerators"/>
+<link rel="canonical" href="cryptographic.hardware.accelerators"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:hardware';var JSINFO = {"id":"doc:hardware:cryptographic.hardware.accelerators","namespace":"doc:hardware"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267137 166.182.3.14';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="cryptographic.hardware.accelerators#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="cryptographic.hardware.accelerators?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="cryptographic.hardware.accelerators?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:hardware:cryptographic.hardware.accelerators" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="cryptographic.hardware.accelerators?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="cryptographic.hardware.accelerators?do=media&amp;ns=doc%253Ahardware"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="cryptographic.hardware.accelerators?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:hardware:start">Hardware</a></bdi> » <bdi><span class="curid"><a href="cryptographic.hardware.accelerators" class="wikilink1" title="doc:hardware:cryptographic.hardware.accelerators">Cryptographic Hardware Accelerators</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/hardware/cryptographic.hardware.accelerators" class="media" title="cz:doc:hardware:cryptographic.hardware.accelerators"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/hardware/cryptographic.hardware.accelerators" class="media" title="de:doc:hardware:cryptographic.hardware.accelerators"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="cryptographic.hardware.accelerators" class="media" title="doc:hardware:cryptographic.hardware.accelerators"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/hardware/cryptographic.hardware.accelerators" class="media" title="es:doc:hardware:cryptographic.hardware.accelerators"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/hardware/cryptographic.hardware.accelerators" class="media" title="fr:doc:hardware:cryptographic.hardware.accelerators"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/hardware/cryptographic.hardware.accelerators" class="media" title="hu:doc:hardware:cryptographic.hardware.accelerators"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/hardware/cryptographic.hardware.accelerators" class="media" title="jp:doc:hardware:cryptographic.hardware.accelerators"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/hardware/cryptographic.hardware.accelerators" class="media" title="pl:doc:hardware:cryptographic.hardware.accelerators"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/hardware/cryptographic.hardware.accelerators" class="media" title="pt-br:doc:hardware:cryptographic.hardware.accelerators"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/hardware/cryptographic.hardware.accelerators" class="media" title="ru:doc:hardware:cryptographic.hardware.accelerators"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/hardware/cryptographic.hardware.accelerators" class="media" title="tr:doc:hardware:cryptographic.hardware.accelerators"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/hardware/cryptographic.hardware.accelerators" class="media" title="zh-cn:doc:hardware:cryptographic.hardware.accelerators"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/hardware/cryptographic.hardware.accelerators" class="media" title="zh-tw:doc:hardware:cryptographic.hardware.accelerators"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:hardware:cryptographic.hardware.accelerators</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="cryptographic.hardware.accelerators#performance">Performance</a></div></li>
+<li class="level1"><div class="li"><a href="cryptographic.hardware.accelerators#enablingdevcrypto">Enabling /dev/crypto</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="cryptographic.hardware.accelerators#with_cryptodev-linux">With cryptodev-linux</a></div></li>
+<li class="level2"><div class="li"><a href="cryptographic.hardware.accelerators#with_ocf">With OCF</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="cryptographic.hardware.accelerators#addingdevcrypto_support_to_crypto_libraries">Adding /dev/crypto support to crypto libraries</a></div></li>
+<li class="level1"><div class="li"><a href="cryptographic.hardware.accelerators#enabling_specific_hardware_driver">Enabling specific hardware driver</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="cryptographic.hardware.accelerators#soekris_vpn1411">Soekris vpn1411</a></div></li>
+<li class="level2"><div class="li"><a href="cryptographic.hardware.accelerators#marvell_cesa">Marvell CESA</a></div></li>
+<li class="level2"><div class="li"><a href="cryptographic.hardware.accelerators#geode_aes_engine">Geode AES engine</a></div></li>
+<li class="level2"><div class="li"><a href="cryptographic.hardware.accelerators#via_padlock">VIA padlock</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="cryptographic.hardware.accelerators#oldwiki_outdated_information">Oldwiki Outdated Information</a></div></li>
+<li class="level1"><div class="li"><a href="cryptographic.hardware.accelerators#tags">Tags</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="cryptographic_hardware_accelerators">Cryptographic Hardware Accelerators</h1>
+<div class="level1">
+
+<p>
+A Cryptographic Hardware Accelerator can be
+</p>
+<ul>
+<li class="level1"><div class="li"> integrated into the <a href="soc.1" class="wikilink1" title="doc:hardware:soc">SoC</a> as a separate processor, as special purpose CPU (aka Core).</div>
+</li>
+<li class="level1"><div class="li"> integrated in a <a href="http://en.wikipedia.org/wiki/Coprocessor" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Coprocessor">Coprocessor</a> on the circuit board</div>
+</li>
+<li class="level1"><div class="li"> contained on a Chip on an extension circuit board, this can be connected to the mainboard via some BUS, e.g. PCI</div>
+</li>
+<li class="level1"><div class="li"> an <a href="http://en.wikipedia.org/wiki/Template:Multimedia_extensions" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Template:Multimedia_extensions">ISA extension</a> like e.g. <a href="http://en.wikipedia.org/wiki/AES instruction set" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/AES instruction set">AES instruction set</a> and thus integral part of the CPU (in that case a kernel driver in not needed)</div>
+</li>
+</ul>
+
+<p>
+The purpose is to load off the very computing intensive tasks of encryption/decryption and compression/decompression.<br/>
+
+As can be seen in this <a href="http://en.wikipedia.org/wiki/AES instruction set" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/AES instruction set">AES instruction set</a> article, the acceleration is usually achieved by doing certain arithmetic calculation in hardware.
+</p>
+
+<p>
+When the acceleration is not in the instruction set of the CPU, it is supported via a kernel driver (/dev/crypto).
+There are two drivers offering /dev/crypto in OpenWRT:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="https://github.com/openwrt/packages/tree/master/utils/cryptodev-linux" class="urlextern" title="https://github.com/openwrt/packages/tree/master/utils/cryptodev-linux"  rel="nofollow">Cryptodev-linux</a> kernel module, which utilizes the Linux kernel crypto drivers</div>
+</li>
+<li class="level1"><div class="li"> OCF (OpenBSD Crypto Framework), which utilizes the OpenBSD crypto drivers</div>
+</li>
+</ul>
+
+<p>
+Both ways result to a /dev/crypto device which can be used by userspace crypto applications (e.g., the ones that utilize openssl or gnutls).
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="performance">Performance</h2>
+<div class="level2">
+
+<p>
+Depending on which arithmetic calculations exactly are being done in the specific hardware, the results differ widely. You should not concern yourself with theoretical bla,bla but find out how a certain implementation performs in the task you want to do with it! You could want to
+</p>
+<ul>
+<li class="level1"><div class="li"> you could attach a USB drive to your device and mount a <a href="../howto/usb.storage" class="wikilink1" title="doc:howto:usb.storage">local filesystem</a> like ext3 from it. Then you want to read from and write to this filesystem from the Internet over a secured protocol. Let&#039;s use <code>sshfs</code>. You would set up a  <a href="../howto/sshfs.server" class="wikilink1" title="doc:howto:sshfs.server">sshfs.server</a> on your device and a <a href="../howto/sshfs.client" class="wikilink1" title="doc:howto:sshfs.client">sshfs.client</a> on the other end. Now how fast can you read/write to this with and without Cryptographic Hardware Accelerators. If the other end, the client, is a &quot;fully grown PC&quot; with a 2GHz CPU, it will probably perform fast enough to use the entire bandwidth of your Internet connection. If the server side is some embedded device, with let&#039;s say some 400MHz MIPS CPU, it could benefit highly from some integrated (and supported!) acceleration. You probably want enough performance, that you can use your entire bandwidth. Well, now go and find some benchmark showing you precisely the difference with enabled/disabled acceleration. Because you will not be able to extrapolate this information from specifications you find on this page or on the web.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> you could want to run an OpenVPN or an OpenConnect server on your router/embedded device, instead of using WEP/WPA/WPA2. There will be no reading from/writing to a USB device. Find benchmarks that show you exactly the performance for this purpose. You won&#039;t be able to extrapolate this information from other benchmarks.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> think of other practical uses, and find specific benchmarks.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit3" id="enablingdevcrypto">Enabling /dev/crypto</h2>
+<div class="level2">
+
+<p>
+Run <code>make menuconfig</code> and select
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="with_cryptodev-linux">With cryptodev-linux</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> kmod-crypto-core: m</div>
+<ul>
+<li class="level2"><div class="li"> kmod-cryptodev: m</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit5" id="with_ocf">With OCF</h3>
+<div class="level3">
+
+<p>
+This must not be combined with cryptodev-linux.
+</p>
+
+<p>
+Kernel modules → Cryptographic <abbr title="Application Programming Interface">API</abbr> modules
+</p>
+<ul>
+<li class="level1"><div class="li"> kmod-crypto-core: m</div>
+<ul>
+<li class="level2"><div class="li"> kmod-crypto-ocf: m</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+Utilities
+</p>
+<ul>
+<li class="level1"><div class="li"> ocf-crypto-headers: m</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit6" id="addingdevcrypto_support_to_crypto_libraries">Adding /dev/crypto support to crypto libraries</h2>
+<div class="level2">
+
+<p>
+Libraries → SSL
+</p>
+<ul>
+<li class="level1"><div class="li"> libopenssl: m</div>
+<ul>
+<li class="level2"><div class="li"> Crypto acceleration support: y</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> libgnutls: m</div>
+<ul>
+<li class="level2"><div class="li"> enable /dev/crypto support: y</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+Note that there are some known issues with <a href="http://rt.openssl.org/Ticket/Display.html?id=2770&amp;user=guest&amp;pass=guest" class="urlextern" title="http://rt.openssl.org/Ticket/Display.html?id=2770&amp;user=guest&amp;pass=guest"  rel="nofollow">openssl&#039;s /dev/crypto support</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="enabling_specific_hardware_driver">Enabling specific hardware driver</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit8" id="soekris_vpn1411">Soekris vpn1411</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <a href="http://www.soekris.com/vpn1401.htm" class="urlextern" title="http://www.soekris.com/vpn1401.htm"  rel="nofollow">http://www.soekris.com/vpn1401.htm</a></div>
+</li>
+</ul>
+
+<p>
+Run <code>make menuconfig</code> and select
+</p>
+
+<p>
+Kernel modules → Cryptographic <abbr title="Application Programming Interface">API</abbr> modules
+</p>
+<ul>
+<li class="level1"><div class="li"> kmod-crypto-core: m</div>
+<ul>
+<li class="level2"><div class="li"> kmod-crypto-aes: m</div>
+</li>
+<li class="level2"><div class="li"> kmod-crypto-des: m</div>
+</li>
+<li class="level2"><div class="li"> kmod-crypto-hw-hifn-795x: m</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit9" id="marvell_cesa">Marvell CESA</h3>
+<div class="level3">
+
+<p>
+Cryptographic Engine and Security Acceleration
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://www.google.com/search?sclient=psy&amp;hl=en&amp;source=hp&amp;q=site%3Awww.marvell.com+cesa&amp;btnG=Search" class="urlextern" title="http://www.google.com/search?sclient=psy&amp;hl=en&amp;source=hp&amp;q=site%3Awww.marvell.com+cesa&amp;btnG=Search"  rel="nofollow">PDF download</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../toh/seagate/dockstar#cryptohardwareacceleration" class="wikilink1" title="toh:seagate:dockstar">Seagate Dockstar</a></div>
+</li>
+<li class="level1"><div class="li"> 2.6.32: AES <a href="http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commitdiff;h=85a7f0ac5370901916a21935e1fafbe397b70f80" class="urlextern" title="http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commitdiff;h=85a7f0ac5370901916a21935e1fafbe397b70f80"  rel="nofollow">commit</a></div>
+</li>
+<li class="level1"><div class="li"> 2.6.35: SHA1 and HMAC-SHA1 <a href="http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commitdiff;h=750052dd2400cd09e0864d75b63c2c0bf605056f" class="urlextern" title="http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commitdiff;h=750052dd2400cd09e0864d75b63c2c0bf605056f"  rel="nofollow">commit</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="https://dev.openwrt.org/changeset/22877" class="urlextern" title="https://dev.openwrt.org/changeset/22877"  rel="nofollow">r22877</a>: [kirkwood] Add kernel package for the mv_cesa crypto module</div>
+</li>
+<li class="level1"><div class="li"> <a href="https://dev.openwrt.org/changeset/23145" class="urlextern" title="https://dev.openwrt.org/changeset/23145"  rel="nofollow">r23145</a>: [kirkwood] Fix mv_cesa module dependencies and .ko file location Thanks KanjiMonster &amp; Memphiz</div>
+</li>
+<li class="level1"><div class="li"> <a href="https://dev.openwrt.org/changeset/23229" class="urlextern" title="https://dev.openwrt.org/changeset/23229"  rel="nofollow">r23229</a>: [packages/kernel] Make mv_cesa crypto module available on Orion as well.</div>
+</li>
+<li class="level1"><div class="li"> <a href="https://dev.openwrt.org/changeset/23383" class="urlextern" title="https://dev.openwrt.org/changeset/23383"  rel="nofollow">r23383</a>: [package] kernel: underscores in package names are bad, rename kmod-crypto-mv_cesa to kmod-crypto-mv-cesa</div>
+</li>
+<li class="level1"><div class="li"> <a href="https://dev.openwrt.org/changeset/26406" class="urlextern" title="https://dev.openwrt.org/changeset/26406"  rel="nofollow">r26406</a>: kernel: add a missing dependency for the mv_cesa crypto driver</div>
+</li>
+<li class="level1"><div class="li"> <a href="https://dev.openwrt.org/changeset/26407" class="urlextern" title="https://dev.openwrt.org/changeset/26407"  rel="nofollow">r26407</a>: kernel: mv_cesa depends on CRYPTO_BLKCIPHER2 and CRYPTO_HASH2</div>
+</li>
+<li class="level1"><div class="li"> <a href="https://dev.openwrt.org/changeset/26413" class="urlextern" title="https://dev.openwrt.org/changeset/26413"  rel="nofollow">r26413</a>: kernel: remove double definition of depends in crypto-mv-cesa and make it look like the other entries. Thank you Maarten</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit10" id="geode_aes_engine">Geode AES engine</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <a href="../../toh/pcengines/alix#usingthegeodesaesengine" class="wikilink1" title="toh:pcengines:alix">using.the.geode.s.aes.engine</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit11" id="via_padlock">VIA padlock</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <a href="http://www.via.com.tw/en/initiatives/padlock/hardware.jsp" class="urlextern" title="http://www.via.com.tw/en/initiatives/padlock/hardware.jsp"  rel="nofollow">VIA Padlock security engine</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://en.wikipedia.org/wiki/Padlock_(disambiguation)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Padlock_(disambiguation)">Padlock_(disambiguation)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://fijam.eu.org/blog/?p=198" class="urlextern" title="http://fijam.eu.org/blog/?p=198"  rel="nofollow">http://fijam.eu.org/blog/?p=198</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit12" id="oldwiki_outdated_information">Oldwiki Outdated Information</h2>
+<div class="level2">
+<div class="table sectionedit13"><table class="inline">
+	<tr class="row0">
+		<td class="col0 leftalign"><strong>Note:</strong> If you want to learn about the current situation, you should search the Internet or maybe ask in the forum. This is outdated. Especially if you want to know, how fast a copy from a mounted filesystem (say ext3 over USB) over the scp is, you should specifically search for such benchmarks.  </td>
+	</tr>
+</table></div>
+
+<p>
+Some models of the BCM47xx/53xx family support hardware accelerated encryption for IPSec (AES, DES, 3DES), simple hash calculations (MD5, SHA1) and TLS/SSL+HMAC processing. Not all devices have a hw crypto supporting chip. At least Asus WL500GD/X, Netgear WGT634U and Asus WL700gE do have hw crypto.  However, testing of a WGT634U indicates that a pin under the BCM5365 was not pulled low to enable strong bulk cryptography, limiting the functionality to single DES.
+</p>
+<ul>
+<li class="level1"><div class="li"> How did you find that out?</div>
+<ul>
+<li class="level2"><div class="li"> Do you get an interrupt when sending a crypto job to the chip and limiting the request to DES only?)</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+The specification states the hardware is able to support 75Mbps (9,4MB/s) of encrypted throughput. Without hardware acceleration using the blowfish encryption throughput is only ~0,4MB/s.
+</p>
+
+<p>
+Benchmark results that show the difference between software and hardware accelerated encryption/decryption can be found <a href="http://www.danm.de/files/src/bcm5365p/bench/" class="urlextern" title="http://www.danm.de/files/src/bcm5365p/bench/"  rel="nofollow">here</a>. Due to the overhead of hardware/DMA transfers and buffer copies between kernel/user space it gives only a good return for packet sizes greater than 256 bytes. This size can be reduced for IPSec, because network hardware uses DMA and there is no need to copy the (encrypted) data between kernel and user space.
+</p>
+
+<p>
+The hardware specification needed for programming the crypto <abbr title="Application Programming Interface">API</abbr> of the bcm5365P (Broadcom 5365P) can be found <a href="http://voodoowarez.com/bcm5365p.pdf" class="urlextern" title="http://voodoowarez.com/bcm5365p.pdf"  rel="nofollow">here</a>.
+</p>
+<hr />
+<ul>
+<li class="level1"><div class="li"> The crypto chip is accessible through the SSB bus (Sonics Silicon Backplane). A Linux driver for SSB is available in OpenWRT&#039;s kernel &gt;= 2.6.23 (Kamikaze)</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> An example about how to communicate with the crypto chip can be found <a href="http://www.danm.de/files/src/bcm5365p/" class="urlextern" title="http://www.danm.de/files/src/bcm5365p/"  rel="nofollow">here</a> (file b5365ips.tar.bz2).</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> An OCF Linux driver that works with the ASUS WL500gP can be found in Trunk (SVN) or <a href="http://www.danm.de/files/src/bcm5365p/" class="urlextern" title="http://www.danm.de/files/src/bcm5365p/"  rel="nofollow">here</a> and is called <strong>ubsec_ssb</strong>. Only OCF-enabled applications can be accelerated. That means, if you want e.g. an accelerated OpenSSH you have to manually enable cryptodev in OpenSSL. The driver is still considered experimental.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Links to mailing-list posts with references to more recent and working version of Linux driver for Broadcom crypto chips <a href="http://marc.theaimsgroup.com/?l=openssl-dev&amp;m=110915540208913&amp;w=2" class="urlextern" title="http://marc.theaimsgroup.com/?l=openssl-dev&amp;m=110915540208913&amp;w=2"  rel="nofollow">here</a> and <a href="http://www.mail-archive.com/openssl-dev@openssl.org/msg18804.html" class="urlextern" title="http://www.mail-archive.com/openssl-dev@openssl.org/msg18804.html"  rel="nofollow">here</a>.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Sun Crypto Accelerator 500 and 1000 (X6762A) cards are based on BCM5821. Might be worth checking Solaris references as well. <a href="http://src.opensolaris.org/source/xref/crypto/quantis/usr/src/uts/common/crypto/io/" class="urlextern" title="http://src.opensolaris.org/source/xref/crypto/quantis/usr/src/uts/common/crypto/io/"  rel="nofollow">Here</a> is OpenSolaris driver for Broadcom crypto chips.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Asus WL-700gE sources come with patched FreeSwan to utilize ubsec.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Closed-source binary included in Asus Wl-700gE sources do support AES based on headers.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> There&#039;s a <a href="http://ocf-linux.sourceforge.net/" class="urlextern" title="http://ocf-linux.sourceforge.net/"  rel="nofollow">Linux port</a> of the OpenBSD Cryptographic Framework (OCF) but the ubsec driver (Broadcom 58xx PCI cards) is not ported yet. If you compile OCF with the /dev/crypto device driver, userspace applications and libraries such as OpenSSL can be accelerated. There are patches for Openswan as well.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> <a href="http://forum.openwrt.org/viewtopic.php?id=5032" class="urlextern" title="http://forum.openwrt.org/viewtopic.php?id=5032"  rel="nofollow">Discussion</a> about hardware accelerated crypto.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Various versions of old <a href="http://sukkamehulinko.romikselle.com/openwrt/bcm5820/" class="urlextern" title="http://sukkamehulinko.romikselle.com/openwrt/bcm5820/"  rel="nofollow">BCM5820 driver sources</a>.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> BCM5801/BCM5805/BCM5820 Security Processor Software Reference Library <a href="http://www.broadcom.com/products/access_request.php?category_id=0&amp;id=7&amp;filename=5801-5805-5820-SRL101-R.pdf" class="urlextern" title="http://www.broadcom.com/products/access_request.php?category_id=0&amp;id=7&amp;filename=5801-5805-5820-SRL101-R.pdf"  rel="nofollow">http://www.broadcom.com/products/access_request.php?category_id=0&amp;id=7&amp;filename=5801-5805-5820-SRL101-R.pdf</a></div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Cisco PIX VAC+ Encryption module is 64-bit PCI card based on Broadcom BCM5823. Another similar card is Checkpoint VPN-1 Accelerator Card II, III and IV from <a href="http://www.silicom.co.il/" class="urlextern" title="http://www.silicom.co.il/"  rel="nofollow">Silicom</a>.</div>
+</li>
+</ul>
+<hr />
+<div class="table sectionedit14"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> SoC / CPU </th><th class="col1 centeralign">  Accelerated Methods  </th><th class="col2"> Datasheet </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> BCM94704AGR  </td><td class="col1 leftalign"> WEP 128, AES OCB AES CCM       </td><td class="col2 leftalign"> <a href="http://www.broadcom.com/collateral/pb/94704AGR-PB00-R.pdf" class="urlextern" title="http://www.broadcom.com/collateral/pb/94704AGR-PB00-R.pdf"  rel="nofollow">94704AGR-PB00-R.pdf</a>  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> BCM?4704P    </td><td class="col1"> WEP 128, AES OCB, AES CCM, VPN </td><td class="col2 leftalign"> <a href="http://www.broadcom.com/collateral/pb/94704AGR-PB00-R.pdf" class="urlextern" title="http://www.broadcom.com/collateral/pb/94704AGR-PB00-R.pdf"  rel="nofollow">94704AGR-PB00-R.pdf</a>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> BCM5365      </td><td class="col1"> AES (up to 256-bit CTR and CBC modes), DES, 3DES (CBC), HMAC-SHA1, HMAC-MD5, SHA1 and MD5. IPSec encryption and single pass authentication. </td><td class="col2 leftalign"> <a href="http://www.broadcom.com/collateral/pb/5365_5365P-PB01-R.pdf" class="urlextern" title="http://www.broadcom.com/collateral/pb/5365_5365P-PB01-R.pdf"  rel="nofollow">5365_5365P-PB01-R.pdf</a>  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> BCM5365P     </td><td class="col1"> AES (up to 256-bit CTR and CBC modes), DES, 3DES (CBC), HMAC-SHA1, HMAC-MD5, SHA1 and MD5. IPSec encryption and single pass authentication. </td><td class="col2 leftalign"> <a href="http://www.broadcom.com/collateral/pb/5365_5365P-PB01-R.pdf" class="urlextern" title="http://www.broadcom.com/collateral/pb/5365_5365P-PB01-R.pdf"  rel="nofollow">5365_5365P-PB01-R.pdf</a>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit15" id="tags">Tags</h2>
+<div class="level2">
+<div class="tags"><span>
+	<a href="../../tag/crypto?do=showtag&amp;tag=crypto" class="wikilink1" title="tag:crypto" rel="tag">crypto</a>
+</span></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/hardware/cryptographic.hardware.accelerators.txt</bdi> · Last modified: 2014/10/24 22:19 by <bdi>nmav</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="cryptographic.hardware.accelerators?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="cryptographic.hardware.accelerators?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="cryptographic.hardware.accelerators?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="cryptographic.hardware.accelerators#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahardware%253Acryptographic.hardware.accelerators&amp;1432267137" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

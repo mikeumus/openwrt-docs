@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Writable NTFS [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="usbrelated"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="writable_ntfs?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/writable_ntfs"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/writable_ntfs"/>
+<link rel="canonical" href="writable_ntfs"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:writable_ntfs","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432273860 166.182.3.244';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="writable_ntfs#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="writable_ntfs?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="writable_ntfs?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:writable_ntfs" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="writable_ntfs?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="writable_ntfs?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="writable_ntfs?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="writable_ntfs" class="wikilink1" title="doc:howto:writable_ntfs">Writable NTFS</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/writable_ntfs" class="media" title="cz:doc:howto:writable_ntfs"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/writable_ntfs" class="media" title="de:doc:howto:writable_ntfs"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="writable_ntfs" class="media" title="doc:howto:writable_ntfs"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/writable_ntfs" class="media" title="es:doc:howto:writable_ntfs"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/writable_ntfs" class="media" title="fr:doc:howto:writable_ntfs"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/writable_ntfs" class="media" title="hu:doc:howto:writable_ntfs"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/writable_ntfs" class="media" title="jp:doc:howto:writable_ntfs"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/writable_ntfs" class="media" title="pl:doc:howto:writable_ntfs"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/writable_ntfs" class="media" title="pt-br:doc:howto:writable_ntfs"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/writable_ntfs" class="media" title="ru:doc:howto:writable_ntfs"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/writable_ntfs" class="media" title="tr:doc:howto:writable_ntfs"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/writable_ntfs" class="media" title="zh-cn:doc:howto:writable_ntfs"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/writable_ntfs" class="media" title="zh-tw:doc:howto:writable_ntfs"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:writable_ntfs</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="writable_ntfs#preparations">Preparations</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="writable_ntfs#prerequisites">Prerequisites</a></div></li>
+<li class="level2"><div class="li"><a href="writable_ntfs#required_packages">Required Packages</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="writable_ntfs#configuration">Configuration</a></div></li>
+<li class="level1"><div class="li"><a href="writable_ntfs#hotplug_mounting">Hotplug Mounting</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="writable_ntfs#by_enabling_the_busybox_mount_helper_option_self_built_openwrt_required">By enabling the Busybox mount helper option (self built OpenWrt required)</a></div></li>
+<li class="level2"><div class="li"><a href="writable_ntfs#with_a_custom_hotplug_script">With a custom hotplug script</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="writable_ntfs">Writable NTFS</h1>
+<div class="level1">
+
+<p>
+Once you have obtained <a href="usb.essentials" class="wikilink1" title="doc:howto:usb.essentials"> Basic USB support</a>, you now want to connect a storage (USB stick, USB harddisk, etc) device to your router. Using kmod-fs-ntfs only provides read support. This HowTo will show you how to obtain read/write support for NTFS volumes.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="preparations">Preparations</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit3" id="prerequisites">Prerequisites</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> Obtain <a href="usb.essentials" class="wikilink1" title="doc:howto:usb.essentials">Basic USB support</a> and <a href="usb.storage" class="wikilink1" title="doc:howto:usb.storage">USB Storage</a> on your OpenWrt</div>
+</li>
+<li class="level1"><div class="li"> Connect your storage device to your OpenWrt router, the device and its partitions should immediately be available as <a href="http://en.wikipedia.org/wiki/Device file" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Device file">Device file</a>s under <code>/dev</code>, for example <code>/dev/sda</code>, <code>/dev/sda1</code>, <code>/dev/sda2</code>, etc.</div>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit4" id="required_packages">Required Packages</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <strong><code>ntfs-3g</code></strong></div>
+</li>
+<li class="level1"><div class="li"> <strong><code>fdisk</code></strong> <em>optional</em> Required to autodetect the filesystem type when using the hotplug script. </div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit5" id="configuration">Configuration</h2>
+<div class="level2">
+
+<p>
+There is nothing to configure! Note however, you can only mount a partition to an existing directory. You can create on with <code>mkdir</code>, for example <code>mkdir -p /mnt/usb-ntfs</code>.
+</p>
+
+<p>
+To manually mount a partition:
+<pre class="code">ntfs-3g /dev/sda1 /mnt/usb-ntfs -o rw,sync</pre>
+
+</p>
+
+<p>
+To unmount:
+<pre class="code">umount /dev/sda1</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="hotplug_mounting">Hotplug Mounting</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit7" id="by_enabling_the_busybox_mount_helper_option_self_built_openwrt_required">By enabling the Busybox mount helper option (self built OpenWrt required)</h3>
+<div class="level3">
+
+<p>
+<a href="https://forum.openwrt.org/viewtopic.php?id=24653" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=24653"  rel="nofollow">This forum post might be relevant</a> if you already have built OpenWrt by yourself you have to rebuild the firmware with the Busybox&#039;s mount melper option enabled and reflash the new image. If you have not yet built OpenWrt once, <a href="../start#building" class="wikilink1" title="doc:start">Documentation - Building</a> may help.
+</p>
+<div class="table sectionedit8"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/48px-outdated.svg.png" class="media" alt="" /> </td><td class="col1"> As of Backfire <a href="https://dev.openwrt.org/changeset/25816" class="urlextern" title="https://dev.openwrt.org/changeset/25816"  rel="nofollow">r25816</a> and trunk <a href="https://dev.openwrt.org/changeset/25815" class="urlextern" title="https://dev.openwrt.org/changeset/25815"  rel="nofollow">r25815</a> this option is already enabled by default. </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit9" id="with_a_custom_hotplug_script">With a custom hotplug script</h3>
+<div class="level3">
+
+<p>
+Now that you can get your volume to mount on command, the next step is mounting it when it&#039;s plugged in automatically.
+</p>
+
+<p>
+To get our drive to mount on plugin, we utilize the <a href="http://wiki.openwrt.org/inbox/interface.hotplug" class="wikilink2" title="inbox:interface.hotplug" rel="nofollow">hotplug</a> system.
+Create the following files as <code>/etc/hotplug.d/block/10-mount</code>.
+</p>
+<div class="table sectionedit10"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>#!/bin/sh
+# Copyright (C) 2011 OpenWrt.org
+
+blkdev=`dirname $DEVPATH`
+if [ `basename $blkdev` != &quot;block&quot; ]; then
+	device=`basename $DEVPATH`
+	case &quot;$ACTION&quot; in
+		add)
+			mkdir -p /mnt/$device
+			# vfat &amp; ntfs-3g check
+			if [ `which fdisk` ]; then
+				isntfs=`fdisk -l | grep $device | grep NTFS`
+				isvfat=`fdisk -l | grep $device | grep FAT`
+				isfuse=`lsmod | grep fuse`
+				isntfs3g=`which ntfs-3g`
+			else
+				isntfs=&quot;&quot;
+				isvfat=&quot;&quot;
+			fi
+
+			# mount with ntfs-3g if possible, else with default mount
+			if [ &quot;$isntfs&quot; -a &quot;$isfuse&quot; -a &quot;$isntfs3g&quot; ]; then
+				ntfs-3g /dev/$device /mnt/$device
+			elif [ &quot;$isvfat&quot; ]; then
+				mount -o iocharset=utf8 /dev/$device /mnt/$device
+			else
+				mount /dev/$device /mnt/$device
+			fi
+		;;
+		remove)
+			umount -l /dev/$device
+		;;
+	esac
+fi</code> </td>
+	</tr>
+</table></div>
+
+<p>
+(The script above comes from <a href="http://blog.podspring.com/?p=288" class="urlextern" title="http://blog.podspring.com/?p=288"  rel="nofollow">this blog post</a>)
+</p>
+
+<p>
+Now, whenever you plug in an NTFS USB disk, it should automatically mount. (Note that this will be a different path than <code>/mnt/usb-ntfs</code>)
+</p>
+<hr />
+<div class="tags"><span>
+	<a href="../../tag/usbrelated?do=showtag&amp;tag=USBrelated" class="wikilink1" title="tag:usbrelated" rel="tag">USBrelated</a>
+</span></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/writable_ntfs.txt</bdi> · Last modified: 2015/04/18 21:46 by <bdi>nostradamus1935</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="writable_ntfs?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="writable_ntfs?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="writable_ntfs?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="writable_ntfs#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Awritable_ntfs&amp;1432273860" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

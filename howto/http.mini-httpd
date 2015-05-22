@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>mini-httpd [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,http.mini-httpd"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="http.mini-httpd?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/http.mini-httpd"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/http.mini-httpd"/>
+<link rel="canonical" href="http.mini-httpd"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:http.mini-httpd","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266356 166.182.3.117';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="http.mini-httpd#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="http.mini-httpd?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="http.mini-httpd?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:http.mini-httpd" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="http.mini-httpd?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="http.mini-httpd?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="http.mini-httpd?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="http.mini-httpd" class="wikilink1" title="doc:howto:http.mini-httpd">mini-httpd</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/http.mini-httpd" class="media" title="cz:doc:howto:http.mini-httpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/http.mini-httpd" class="media" title="de:doc:howto:http.mini-httpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="http.mini-httpd" class="media" title="doc:howto:http.mini-httpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/http.mini-httpd" class="media" title="es:doc:howto:http.mini-httpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/http.mini-httpd" class="media" title="fr:doc:howto:http.mini-httpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/http.mini-httpd" class="media" title="hu:doc:howto:http.mini-httpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/http.mini-httpd" class="media" title="jp:doc:howto:http.mini-httpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/http.mini-httpd" class="media" title="pl:doc:howto:http.mini-httpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/http.mini-httpd" class="media" title="pt-br:doc:howto:http.mini-httpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/http.mini-httpd" class="media" title="ru:doc:howto:http.mini-httpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/http.mini-httpd" class="media" title="tr:doc:howto:http.mini-httpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/http.mini-httpd" class="media" title="zh-cn:doc:howto:http.mini-httpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/http.mini-httpd" class="media" title="zh-tw:doc:howto:http.mini-httpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:http.mini-httpd</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="http.mini-httpd#requirements">Requirements</a></div></li>
+<li class="level1"><div class="li"><a href="http.mini-httpd#installation">Installation</a></div></li>
+<li class="level1"><div class="li"><a href="http.mini-httpd#configuration">Configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="http.mini-httpd#get_mini-httpd-openssl_working_without_ssl_certificate_errors">Get mini-httpd-openssl working without SSL Certificate errors</a></div></li>
+<li class="level2"><div class="li"><a href="http.mini-httpd#process_breakdown">Process Breakdown</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="http.mini-httpd#backup_your_mini-httpdpem">Backup your mini-httpd.pem</a></div></li>
+<li class="level3"><div class="li"><a href="http.mini-httpd#a_simple_understanding_of_tls_and_ssl">A Simple Understanding of TLS and SSL</a></div></li>
+<li class="level3"><div class="li"><a href="http.mini-httpd#creating_the_1024-bit_key_and_certificate">Creating the 1024-bit key and certificate</a></div></li>
+<li class="level3"><div class="li"><a href="http.mini-httpd#optionalcreate_a_2048-bit_key_and_certificate_instead">Optional: Create a 2048-bit key and certificate instead</a></div></li>
+<li class="level3"><div class="li"><a href="http.mini-httpd#fill_in_the_certificate">Fill in the certificate</a></div></li>
+<li class="level3"><div class="li"><a href="http.mini-httpd#convert_and_sign_the_certificate">Convert and sign the certificate</a></div></li>
+<li class="level3"><div class="li"><a href="http.mini-httpd#grabbing_the_key_and_certificate">Grabbing the key and certificate</a></div></li>
+<li class="level3"><div class="li"><a href="http.mini-httpd#creating_a_new_mini-httpdpem">Creating a new mini-httpd.pem</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="http.mini-httpd#installing_the_certificate_to_windows_7">Installing the certificate to Windows 7</a></div></li>
+<li class="level1"><div class="li"><a href="http.mini-httpd#upload_mini_httpdpem_and_starting_the_service">Upload mini_httpd.pem and starting the service</a></div></li>
+<li class="level1"><div class="li"><a href="http.mini-httpd#starting_the_service">Starting the service</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="http.mini-httpd#testing">Testing</a></div></li>
+<li class="level2"><div class="li"><a href="http.mini-httpd#shutting_down_regular_http_access_uhttpd">Shutting Down regular HTTP access (uhttpd)</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="http.mini-httpd#forcing_a_strong_ssltls_cipher">Forcing a strong SSL/TLS Cipher</a></div></li>
+<li class="level1"><div class="li"><a href="http.mini-httpd#using_a_different_port">Using a different port</a></div></li>
+<li class="level1"><div class="li"><a href="http.mini-httpd#troubleshooting">Troubleshooting</a></div></li>
+<li class="level1"><div class="li"><a href="http.mini-httpd#notes">Notes</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="mini-httpd">mini-httpd</h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit2" id="requirements">Requirements</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> you need to have followed <a href="firstlogin" class="wikilink1" title="doc:howto:firstlogin">firstlogin</a> before attempting this</div>
+</li>
+</ol>
+
+</div>
+
+<h2 class="sectionedit3" id="installation">Installation</h2>
+<div class="level2">
+
+<p>
+See →<code><a href="../techref/opkg" class="wikilink1" title="doc:techref:opkg">opkg</a></code> on its usage.
+</p>
+
+<p>
+First update, then install mini-httpd, openssl-util, and libopenssl.
+<pre class="code">opkg update
+opkg install mini-httpd
+opkg install mini-httpd-openssl
+opkg install openssl-util</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="configuration">Configuration</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit5" id="get_mini-httpd-openssl_working_without_ssl_certificate_errors">Get mini-httpd-openssl working without SSL Certificate errors</h3>
+<div class="level3">
+
+<p>
+As with Telnet, HTTP will transmit your usernames, passwords, and all data in clear text across the network.
+This means that anyone on the same subnet on either the client or the server networks could intercept the traffic and steal your credentials. 
+Using packages from Backports, you can install an HTTPS-only Web server.
+</p>
+
+<p>
+This guide will show you how to turn on SSL access to your OpenWrt running LuCI. Enabling https access to your router, and disabling http access, will provide greater 
+security. 
+This guide will also show you how to install your certificate in Windows 7, which will get rid of browser errors stating the certificate is not valid.
+</p>
+
+<p>
+<strong><code>Note:</code></strong> My build at the time of this article trunk (r32793)
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="process_breakdown">Process Breakdown</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> Create keys and certs</div>
+</li>
+<li class="level1"><div class="li"> Create mini_httpd.pem </div>
+</li>
+<li class="level1"><div class="li"> Install cert to Windows 7 </div>
+</li>
+<li class="level1"><div class="li"> Upload mini_httpd.pem </div>
+</li>
+<li class="level1"><div class="li"> Enable / Start mini_httpd </div>
+</li>
+<li class="level1"><div class="li"> Test </div>
+</li>
+<li class="level1"><div class="li"> Disable http access </div>
+</li>
+</ol>
+
+</div>
+
+<h4 id="backup_your_mini-httpdpem">Backup your mini-httpd.pem</h4>
+<div class="level4">
+
+<p>
+<a href="../../_detail/doc/howto/winscp-ss1.png?id=doc%253Ahowto%253Ahttp.mini-httpd" class="media" title="doc:howto:winscp-ss1.png"><img src="../../_media/doc/howto/winscp-ss1.png" class="media" title="?400" alt="?400" /></a><br/>
+
+</p>
+
+<p>
+Next, get into the router using WinSCP (don&#039;t forget to change the protocol) and navigate to /etc
+Make a backup of <code>mini_httpd.pem</code> and stick it in a secure place, just in case you need to revert back to this original key at some point. 
+What I did was copy the file to my desktop and renamed it to <code>mini_httpd-ORG.pem</code>
+</p>
+
+</div>
+
+<h4 id="a_simple_understanding_of_tls_and_ssl">A Simple Understanding of TLS and SSL</h4>
+<div class="level4">
+
+<p>
+After much discussion with mancha in the #openssl <abbr title="Internet Relay Chat">IRC</abbr> channel, he explained some basics about the underlying encrypted network connections that I feel are important for those of you who are doing this. Without knowing some of what this guide will teaching, changing it to suit your situation will be more difficult. 
+Creating a certificate is for your router to say to a browser, &quot;Hey this is me and you can trust it is me.&quot;
+The webserver on the router and your browser will use transport protocol SSL or TLS to negotiate a cipher. 
+Your browser client says &quot;Here are the ciphers I understand&quot;. The server will reply &quot;Good, I understand this subset of ciphers, now pick this one.&quot; This all goes on without our interaction. We just see a browser connecting via HTTPS. This process has nothing to do with the certificate we are creating. This is important to understand, as creating a strong certificate does <em class="u">not</em> mean mini_httpd and your browser will use the <em>maximum</em> available cipher. So you can generate a 4096-bit RSA certificate, only to have your browser and the server decide to use DES-CBC-SHA (Kx=RSA Au=RSA Enc=DES(56) Mac=SHA1) which is considered a Medium Strength Cipher (&gt;= 56-bit and &lt; 112-bit key). Fortunately, we can force mini-httpd to always use a stronger one. This is detailed below in the section <em>Forcing a strong SSL/TLS Cipher</em>. 
+</p>
+
+</div>
+
+<h4 id="creating_the_1024-bit_key_and_certificate">Creating the 1024-bit key and certificate</h4>
+<div class="level4">
+
+<p>
+Step 1: Using PuTTY to access the router over SSH, we then make our keys using openssl by issuing these commands:
+<pre class="code">openssl req -nodes -new &gt; cert.csr</pre>
+
+This requests the key and certificate creation. <code>-nodes</code> creates a key which will not be encrypted with a DES pass phrase. More info <a href="http://www.madboa.com/geek/openssl/#cert-self" class="urlextern" title="http://www.madboa.com/geek/openssl/#cert-self"  rel="nofollow">here</a>
+</p>
+
+</div>
+
+<h4 id="optionalcreate_a_2048-bit_key_and_certificate_instead">Optional: Create a 2048-bit key and certificate instead</h4>
+<div class="level4">
+
+<p>
+If you prefer to have stronger than 1024-bit encryption, use this command <em class="u">instead</em> to get 2048-bit encryption:
+<pre class="code">openssl req -nodes -newkey rsa:2048 -new &gt; cert.csr</pre>
+
+</p>
+
+</div>
+
+<h4 id="fill_in_the_certificate">Fill in the certificate</h4>
+<div class="level4">
+
+<p>
+Step 2: Next enter this stuff based on your own info:
+</p>
+<div class="table sectionedit7"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>Country Name: US
+State/Province: CA
+Locality Name: Los Angeles
+Organization Name: You may hit enter to leave blank.
+Organization Unit Name: You may hit enter to leave blank.
+Common Name: 192.168.1.1
+Email Address: You may hit enter to leave blank.
+A Challenge Password: You may hit enter to leave blank.
+Optional company name: You may hit enter to leave blank.</code></td>
+	</tr>
+</table></div>
+
+<p>
+Note that <code>Common Name:</code> is VERY important. Without this entered properly, it will always error out. Make this the IP of the router, and <em class="u">do not</em> suffix it with the cgi-bin/luci.
+</p>
+
+</div>
+
+<h4 id="convert_and_sign_the_certificate">Convert and sign the certificate</h4>
+<div class="level4">
+
+<p>
+Step 3: Lastly, issue this command:
+<pre class="code">openssl x509 -in cert.csr -out cert.pem -req -signkey privkey.pem -days 365</pre>
+
+</p>
+
+<p>
+x509 option converts the certificate (.csr) to .pem certificate. It then signs the privkey.pem and makes it valid for 1 year. For more info 
+<a href="http://en.wikipedia.org/wiki/X.509#Certificate_filename_extensions" class="urlextern" title="http://en.wikipedia.org/wiki/X.509#Certificate_filename_extensions"  rel="nofollow">see this page</a>
+</p>
+
+</div>
+
+<h4 id="grabbing_the_key_and_certificate">Grabbing the key and certificate</h4>
+<div class="level4">
+
+<p>
+Use WinSCP to login and navigate to /root 
+Copy these 2 files to your <abbr title="Operating System">OS</abbr>, as you will be manipulating them (I threw mine on my desktop): 
+<pre class="code">cert.pem (copy to OS, then delete)
+privkey.pem (copy to OS, then delete)
+cert.csr (Just delete)</pre>
+
+</p>
+
+</div>
+
+<h4 id="creating_a_new_mini-httpdpem">Creating a new mini-httpd.pem</h4>
+<div class="level4">
+
+<p>
+Open <code>cert.pem</code> with a text editor and copy the contents from the top starting with:
+<pre class="code">-----BEGIN CERTIFICATE-----</pre>
+
+</p>
+
+<p>
+all the way to the end and including the line
+<pre class="code">-----END CERTIFICATE-----</pre>
+
+</p>
+
+<p>
+Open <code>privkey.pem</code>, and right after
+<pre class="code">-----END RSA PRIVATE KEY-----</pre>
+
+</p>
+
+<p>
+Paste onto the line below it, the contents of cert.pem that you copied.
+</p>
+
+<p>
+It should look like this:
+<pre class="code">-----BEGIN PRIVATE KEY-----
+RANDOM GARBLED ENCRYPTION RANDOM GARBLED ENCRYPTION
+RANDOM GARBLED ENCRYPTION RANDOM GARBLED ENCRYPTION
+RANDOM GARBLED ENCRYPTION RANDOM GARBLED ENCRYPTION
+RANDOM GARBLED ENCRYPTION RANDOM GARBLED ENCRYPTION
+RANDOM GARBLED ENCRYPTION RANDOM GARBLED ENCRYPTION
+RANDOM GARBLED ENCRYPTION RANDOM GARBLED ENCRYPTION
+RANDOM GARBLED ENCRYPTION RANDOM GARBLED ENCRYPTION
+RANDOM GARBLED ENCRYPTION RANDOM GARBLED ENCRYPTION
+RANDOM GARBLED ENCRYPTION RANDOM GARBLED ENCRYPTION
+-----END PRIVATE KEY-----
+-----BEGIN CERTIFICATE-----
+RANDOM GARBLED ENCRYPTION RANDOM GARBLED ENCRYPTION
+RANDOM GARBLED ENCRYPTION RANDOM GARBLED ENCRYPTION
+RANDOM GARBLED ENCRYPTION RANDOM GARBLED ENCRYPTION
+RANDOM GARBLED ENCRYPTION RANDOM GARBLED ENCRYPTION
+RANDOM GARBLED ENCRYPTION RANDOM GARBLED ENCRYPTION
+RANDOM GARBLED ENCRYPTION RANDOM GARBLED ENCRYPTION
+RANDOM GARBLED ENCRYPTION RANDOM GARBLED ENCRYPTION
+RANDOM GARBLED ENCRYPTION RANDOM GARBLED ENCRYPTION
+RANDOM GARBLED ENCRYPTION RANDOM GARBLED ENCRYPTION
+-----END CERTIFICATE-----</pre>
+
+Save <code>privkey.pem</code>. Then rename it to: <code>mini_httpd.pem</code>
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="installing_the_certificate_to_windows_7">Installing the certificate to Windows 7</h2>
+<div class="level2">
+
+<p>
+<a href="../../_detail/doc/howto/chromeerror.png?id=doc%253Ahowto%253Ahttp.mini-httpd" class="media" title="doc:howto:chromeerror.png"><img src="../../_media/doc/howto/chromeerror.png?w=400&amp;tok=0bc541" class="media" alt="" width="400" /></a> <a href="../../_detail/doc/howto/ie-cert-error.jpg?id=doc%253Ahowto%253Ahttp.mini-httpd" class="media" title="doc:howto:ie-cert-error.jpg"><img src="../../_media/doc/howto/ie-cert-error.jpg?w=400&amp;tok=e5e3a1" class="media" alt="" width="400" /></a>
+</p>
+
+<p>
+To avoid issues with your browser whining that the SSL connection is not secure, we will install the certificate we made to the <abbr title="Operating System">OS</abbr>, so that it knows it is indeed safe. Note: At this point in the guide you won&#039;t see the above erros in your browser, as the service is not started. They are to demonstrate what it will whine about after you have the service running, but have not yet installed the certificate to your <abbr title="Operating System">OS</abbr>.
+</p>
+
+<p>
+To accomplish this, we need to install <code>cert.pem</code> on the computer(s) accessing the WebGUI. On Windows 7 execute:<pre class="code">certmgr.msc</pre>
+
+</p>
+
+<p>
+Next, on the left pane click on Trusted Root Certification Authorities, expand it, or double click on Certificates in the right pane. You should now see a bunch of other certificates.
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/certmgr-ss.jpg?id=doc%253Ahowto%253Ahttp.mini-httpd" class="media" title="doc:howto:certmgr-ss.jpg"><img src="../../_media/doc/howto/certmgr-ss.jpg" class="media" title="?300" alt="?300" /></a>
+</p>
+
+<p>
+Now, Right-click in the right pane (or click Action in the toolbar) and choose &#039;All Tasks&#039; then &#039;Import…&#039;
+Click on next. Click Browse, in the explorer window that pops up, change the extension (bottom right) from &#039;X.509 Certificate (*.cer,*.crt) to All Files (*.*) then select <code>cert.pem</code> from your Desktop. 
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/cert-ext-window-ss.png?id=doc%253Ahowto%253Ahttp.mini-httpd" class="media" title="doc:howto:cert-ext-window-ss.png"><img src="../../_media/doc/howto/cert-ext-window-ss.png" class="media" title="?300" alt="?300" /></a>
+</p>
+
+<p>
+Then click on next. Choose &#039;Place all certificates in the following store. If &#039;Trusted Root Certification Authorities&#039; <em class="u">is</em> select already, click next, then Finish.
+If it <em class="u">is not</em> already selected, click browse and then click on &#039;Trusted Root Certification Authorities&#039; and click ok. Then click next, and Finish. 
+</p>
+
+<p>
+Now, it will issue a security warning. It warns you that it cannot validate the certificate is actually from your router IP address. As this is a self-signed certificate, you know it&#039;s from you, so click on YES to install the certificate. It will then successfully install to the Trusted Root Certification Authorities. If you do not see it in the list, simply hit right-click in the right pane, and choose &#039;Refresh&#039;. Ta-da!
+</p>
+
+</div>
+
+<h2 class="sectionedit9" id="upload_mini_httpdpem_and_starting_the_service">Upload mini_httpd.pem and starting the service</h2>
+<div class="level2">
+
+<p>
+Now, before you can access the router by HTTPS, you will need to do a couple more things: giving the router the private key and cert in the form of the <code>mini_httpd.pem</code>, and enabling then starting the service.
+</p>
+
+<p>
+Now, we already created <code>mini_httpd.pem</code> above, so let&#039;s place it on the router where it belongs. Using WinSCP, login and navigate to /etc. Delete the existing<code>mini_httpd.pem</code> from the router (If you have been following this word for word, then you should already have a backup named <code>mini_httpd-ORG.pem</code> on the desktop or wherever) and copy your created <code>mini_httpd.pem</code> over to /etc.
+</p>
+
+<p>
+Once that is completed, you can close WinSCP. 
+</p>
+
+</div>
+
+<h2 class="sectionedit10" id="starting_the_service">Starting the service</h2>
+<div class="level2">
+
+<p>
+<pre class="code">/etc/init.d/mini_httpd enable
+/etc/init.d/mini_httpd start</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="testing">Testing</h3>
+<div class="level3">
+
+<p>
+Try opening a browser and navigate to: <a href="https://192.168.1.1" class="urlextern" title="https://192.168.1.1"  rel="nofollow">https://192.168.1.1</a>
+</p>
+
+<p>
+If you have trouble, try:
+Clearing the cookies/cache in your browser.
+Trying Incognito mode (Chrome) or InPrivate (Internet Explorer)
+Try navigating to the full url: <code><a href="https://192.168.1.1/cgi-bin/luci" class="urlextern" title="https://192.168.1.1/cgi-bin/luci"  rel="nofollow">https://192.168.1.1/cgi-bin/luci</a></code>
+</p>
+
+<p>
+You should get NO error regarding the certificate. :)
+</p>
+
+</div>
+
+<h3 class="sectionedit12" id="shutting_down_regular_http_access_uhttpd">Shutting Down regular HTTP access (uhttpd)</h3>
+<div class="level3">
+
+<p>
+<pre class="code">/etc/init.d/uhttpd stop
+/etc/init.d/uhttpd disable</pre>
+
+</p>
+
+<p>
+To test it&#039;s down, navigate to your <a href="http://192.168.1.1" class="urlextern" title="http://192.168.1.1"  rel="nofollow">http://192.168.1.1</a> and it should error out.
+</p>
+
+<p>
+You can also stop and disable this through Luci.
+Log into Luci (HTTPS), go to the System tab, then to the Startup sub tab. Find uhttpd and choose STOP. Then DISABLE.
+</p>
+
+</div>
+
+<h2 class="sectionedit13" id="forcing_a_strong_ssltls_cipher">Forcing a strong SSL/TLS Cipher</h2>
+<div class="level2">
+
+<p>
+As written above, creating a strong certificate does not mean mini_httpd and your browser will use the maximum available cipher. <br/>
+
+Following <a href="http://www.skytale.net/blog/archives/22-SSL-cipher-settings.html" class="urlextern" title="http://www.skytale.net/blog/archives/22-SSL-cipher-settings.html"  rel="nofollow">information that I found here</a>, I found some strong SSL ciphers and plugged them into mini-httpd.
+</p>
+
+<p>
+You will need to find which cipher you prefer, or you should be able to use one of the following: <br/>
+
+<strong>SSL v3</strong> <br/>
+
+DES-CBC3-SHA <br/>
+
+RC4-MD5 <br/>
+
+RC4-SHA <br/>
+
+</p>
+
+<p>
+<strong>TLSv1</strong> <br/>
+
+DES-CBC3-SHA <br/>
+
+AES128-SHA <br/>
+
+AES256-SHA <br/>
+
+RC4-MD5 <br/>
+
+RC4-SHA <br/>
+
+SEED-SHA <br/>
+
+</p>
+
+<p>
+You can find out more about the different ciphers by running: 
+<pre class="code">openssl ciphers -v</pre>
+
+The format being Cipher name, Key eXchange, Authentication, Encryption method, and Message Authentication Code
+</p>
+
+<p>
+Now, if you run <a href="http://www.digipedia.pl/man/doc/view/mini-httpd.8/" class="urlextern" title="http://www.digipedia.pl/man/doc/view/mini-httpd.8/"  rel="nofollow">mini_httpd --help</a> you will see that there is a [-Y cipher] option. To utilize this, edit your mini_httpd.conf
+<pre class="code">vi /etc/mini_httpd.conf</pre>
+
+</p>
+
+<p>
+At the bottom, insert a new line:
+<pre class="code">cipher=&lt;NAME OF CIPHER&gt;</pre>
+
+</p>
+
+<p>
+Obviously replacing &lt;NAME OF CIPHER&gt; with one of those from above. For example:
+<pre class="code">cipher=AES128-SHA</pre>
+
+</p>
+
+<p>
+Save the file. Restart mini_httpd. 
+</p>
+
+</div>
+
+<h2 class="sectionedit14" id="using_a_different_port">Using a different port</h2>
+<div class="level2">
+
+<p>
+By using an un-standard port to run mini-httpd, you add one more layer to the onion of security. Security by obscurity may not be an end-all-be-all, but it never hurts. <br/>
+
+Dynamic/Private ports exist in this range: 49152-65535.
+</p>
+
+<p>
+If you run <a href="http://www.digipedia.pl/man/doc/view/mini-httpd.8/" class="urlextern" title="http://www.digipedia.pl/man/doc/view/mini-httpd.8/"  rel="nofollow">mini_httpd --help</a> you will see that there is a [-p port] option. To utilize this, edit your mini_httpd.conf
+<pre class="code">vi /etc/mini_httpd.conf</pre>
+
+</p>
+
+<p>
+At the bottom, insert a new line:
+<pre class="code">port=&lt;PORT NUMBER&gt;</pre>
+
+</p>
+
+<p>
+Obviously replacing &lt;PORT NUMBER&gt; with something other than 80 or 443. For example:
+<pre class="code">port=51529</pre>
+
+</p>
+
+<p>
+Save the file. Restart mini_httpd. 
+</p>
+
+</div>
+
+<h2 class="sectionedit15" id="troubleshooting">Troubleshooting</h2>
+<div class="level2">
+
+<p>
+<strong>Help! I need my http back!</strong>
+</p>
+
+<p>
+Now, if something happened and need to get back into your router through the normal HTTP <abbr title="Graphical User Interface">GUI</abbr>. It’s easy to bring it back using SSH.
+</p>
+
+<p>
+Login to your router by SSH. Issue the following 2 commands:
+<pre class="code">/etc/init.d/uhttpd enable
+/etc/init.d/uhttpd start</pre>
+
+</p>
+
+<p>
+Now, try accessing your 192.168.1.1 via regular http and not https. It should be back up and running.
+</p>
+
+</div>
+
+<h2 class="sectionedit16" id="notes">Notes</h2>
+<div class="level2">
+
+<p>
+I found that a couple of times, I needed to run the commands to shut down and disable uhttpd and restart mini_httpd like this
+</p>
+
+<p>
+<pre class="code">/etc/init.d/uhttpd stop
+/etc/init.d/uhttpd disable
+/etc/init.d/mini_httpd stop
+/etc/init.d/mini_httpd disable
+/etc/init.d/mini_httpd enable
+/etc/init.d/mini_httpd start</pre>
+
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/http.mini-httpd.txt</bdi> · Last modified: 2012/07/26 09:01 by <bdi>bean</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="http.mini-httpd?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="http.mini-httpd?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="http.mini-httpd?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="http.mini-httpd#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Ahttp.mini-httpd&amp;1432266356" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

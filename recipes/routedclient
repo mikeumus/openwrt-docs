@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Routed Client [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,recipes,routedclient"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="routedclient?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:recipes"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/recipes/routedclient"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/recipes/routedclient"/>
+<link rel="canonical" href="routedclient"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:recipes';var JSINFO = {"id":"doc:recipes:routedclient","namespace":"doc:recipes"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266330 166.182.3.117';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="routedclient#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="routedclient?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="routedclient?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:recipes:routedclient" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="routedclient?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="routedclient?do=media&amp;ns=doc%253Arecipes"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="routedclient?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:recipes:start">Recipes</a></bdi> » <bdi><span class="curid"><a href="routedclient" class="wikilink1" title="doc:recipes:routedclient">Routed Client</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/recipes/routedclient" class="media" title="cz:doc:recipes:routedclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/recipes/routedclient" class="media" title="de:doc:recipes:routedclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="routedclient" class="media" title="doc:recipes:routedclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/recipes/routedclient" class="media" title="es:doc:recipes:routedclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/recipes/routedclient" class="media" title="fr:doc:recipes:routedclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/recipes/routedclient" class="media" title="hu:doc:recipes:routedclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/recipes/routedclient" class="media" title="jp:doc:recipes:routedclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/recipes/routedclient" class="media" title="pl:doc:recipes:routedclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/recipes/routedclient" class="media" title="pt-br:doc:recipes:routedclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/recipes/routedclient" class="media" title="ru:doc:recipes:routedclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/recipes/routedclient" class="media" title="tr:doc:recipes:routedclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/recipes/routedclient" class="media" title="zh-cn:doc:recipes:routedclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/recipes/routedclient" class="media" title="zh-tw:doc:recipes:routedclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:recipes:routedclient</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="routedclient#using_masquerade">Using MASQUERADE</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="routedclient#configuration">Configuration</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="routedclient#step_1change_the_wan_interface">Step 1: Change the WAN interface</a></div></li>
+<li class="level3"><div class="li"><a href="routedclient#step_2change_the_existing_wireless_network">Step 2: Change the existing wireless network</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="routedclient#apply_changes">Apply changes</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="routedclient#using_routing">Using routing</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="routedclient#configuration1">Configuration</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="routedclient#step_1change_the_firewall_configuration">Step 1: Change the firewall configuration</a></div></li>
+<li class="level3"><div class="li"><a href="routedclient#step_2configure_the_access_point">Step 2: Configure the Access Point</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="routedclient#apply_changes1">Apply changes</a></div></li>
+<li class="level2"><div class="li"><a href="routedclient#after_setup_everything_works_but_client_subnet_cannot_access_internet">After setup everything works BUT client subnet cannot access internet</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="routedclient#using_routingan_alternative_solution">Using routing : an alternative solution</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="routedclient#scenario_description">Scenario description</a></div></li>
+<li class="level2"><div class="li"><a href="routedclient#connecting_wc_lan_side_to_the_wp_lan_side_and_to_the_internet">Connecting WC lan side to the WP lan side and to the internet</a></div></li>
+<li class="level2"><div class="li"><a href="routedclient#connecting_wp_lan_side_to_the_wc_lan_side">Connecting WP lan side to the WC lan side</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="routed_client">Routed Client</h1>
+<div class="level1">
+
+<p>
+In the default configuration, OpenWrt bridges the wireless network to the <abbr title="Local Area Network">LAN</abbr> of the device.
+Most wireless drivers do not support bridging in client mode (see <a href="../howto/clientmode#bridgedclientmodeissues" class="wikilink1" title="doc:howto:clientmode">Bridged Client Mode Issues</a>), 
+therefore the traffic between <abbr title="Local Area Network">LAN</abbr> and the wireless client must be routed.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="using_masquerade">Using MASQUERADE</h2>
+<div class="level2">
+
+<p>
+If you have no administrative access (e.g. ability to configure static route entries) to the target Access Point, the local <abbr title="Local Area Network">LAN</abbr> subnet must be <em>masqueraded</em> to ensure proper routing.<br/>
+
+When configuration of the target Access Point is possible, start with the <em>masqueraded</em> configuration below and proceed with the steps in the <a href="routedclient#usingrouting" title="doc:recipes:routedclient ↵" class="wikilink1">Using routing</a> section to define a fully routed setup.
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/802.11-routed-masq.png?id=doc%253Arecipes%253Aroutedclient" class="media" title="doc:howto:802.11-routed-masq.png"><img src="../../_media/doc/howto/802.11-routed-masq.png" class="media" title="Masqueraded" alt="Masqueraded" /></a>
+</p>
+
+<p>
+The steps outlined below cover the process of putting the radio into client mode and reusing the existing WAN interface and its NAT firewall rules to connect to the target network.
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="configuration">Configuration</h3>
+<div class="level3">
+
+<p>
+The changes below assume an OpenWrt default configuration, the relevant files are:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="../uci/network" class="wikilink1" title="doc:uci:network">/etc/config/network</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../uci/wireless" class="wikilink1" title="doc:uci:wireless">/etc/config/wireless</a></div>
+</li>
+</ul>
+
+<p>
+Before doing any actual configuration, the wifi interface must be enabled and put into station mode in order to be able to scan for networks in the vincinity:
+</p>
+
+<p>
+<pre class="code">uci del wireless.@wifi-device[0].disabled
+uci del wireless.@wifi-iface[0].network
+uci set wireless.@wifi-iface[0].mode=sta
+uci commit wireless
+wifi</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Remove the <em>disable 1</em> option from the wireless configuration</div>
+</li>
+<li class="level1"><div class="li"> Set the <em>mode</em> option to station</div>
+</li>
+<li class="level1"><div class="li"> Save changed configuration file</div>
+</li>
+<li class="level1"><div class="li"> Start wireless using the <em>wifi</em> command</div>
+</li>
+</ul>
+
+<p>
+Now we can issue the <code>iwlist scan</code> command to list networks in range, the required information is highlighted:
+</p>
+<div class="table sectionedit4"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>root@OpenWrt:~# iwlist scan
+wlan0       Scan completed :
+          Cell 01 - Address: 00:1D:19:0E:03:8F
+                    ESSID:&quot;<strong>Vodafone-0E0301</strong>&quot;
+                    Mode:Managed
+                    Channel:<strong>9</strong>
+                    Quality:3/5  Signal level:-69 dBm  Noise level:-92 dBm
+                    <abbr title="Internet Explorer">IE</abbr>: <strong>IEEE 802.11i/WPA2 Version 1</strong>
+                        Group Cipher : TKIP
+                        Pairwise Ciphers (2) : TKIP CCMP
+                        Authentication Suites (1) : PSK
+                       Preauthentication Supported
+                    <abbr title="Internet Explorer">IE</abbr>: <strong>WPA Version 1</strong>
+                        Group Cipher : TKIP
+                        Pairwise Ciphers (2) : TKIP CCMP
+                        Authentication Suites (1) : PSK
+                    Encryption key:on
+                    Bit Rates:1 Mb/s; 2 Mb/s; 5.5 Mb/s; 6 Mb/s; 9 Mb/s
+                              11 Mb/s; 12 Mb/s; 18 Mb/s; 24 Mb/s; 36 Mb/s
+                              48 Mb/s; 54 Mb/s</code></td>
+	</tr>
+</table></div>
+<ul>
+<li class="level1"><div class="li"> <em>ESSID</em> is the name of the network</div>
+</li>
+<li class="level1"><div class="li"> <em>Channel</em> specifies at which frequency the corresponding network is operating on</div>
+</li>
+<li class="level1"><div class="li"> The lines starting with <em><abbr title="Internet Explorer">IE</abbr>:</em> report which encryption capabilities are supported by the access point:</div>
+<ul>
+<li class="level2"><div class="li"> <em>IEEE 802.11i/WPA2 Version 1</em> indicates WPA2</div>
+</li>
+<li class="level2"><div class="li"> <em>WPA Version 1</em> indicates WPA</div>
+</li>
+<li class="level2"><div class="li"> If both WPA and WPA2 are present, the network is most likely operating in WPA/WPA2 mixed mode</div>
+</li>
+<li class="level2"><div class="li"> If no <em><abbr title="Internet Explorer">IE</abbr>:</em> appears after the scanning, the wireless network could be using WEP mode. </div>
+</li>
+</ul>
+</li>
+</ul>
+<div class="table sectionedit5"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/48px-dialog-warning.svg.png" class="media" alt="" /> </td><td class="col1"> If you see a message like <code>Device or resource busy</code>, a <em>wpa_supplicant</em> instance is most likely locking the interface. In this case kill the running process and repeat the scan: <pre class="code">killall -9 wpa_supplicant
+iwlist scan</pre>
+ </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h4 id="step_1change_the_wan_interface">Step 1: Change the WAN interface</h4>
+<div class="level4">
+
+<p>
+Edit <code>/etc/config/network</code> and change the WAN interface by editing the existing <code>ifname</code> option:
+</p>
+<div class="table sectionedit6"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;interface&#039; <strong>&#039;wan&#039;</strong>
+        option &#039;proto&#039;      &#039;dhcp&#039; </code> </td>
+	</tr>
+</table></div>
+
+<p>
+Note that the <code>wan</code> network section <strong>must not</strong> contain any <code>ifname</code> option.
+</p>
+
+</div>
+
+<h4 id="step_2change_the_existing_wireless_network">Step 2: Change the existing wireless network</h4>
+<div class="level4">
+
+<p>
+Supposed we want to connect to the network called &quot;Vodafone-0E0301&quot;, the previous scan result revealed the following information:
+</p>
+<ul>
+<li class="level1"><div class="li"> ESSID is <code>Vodafone-0E0301</code></div>
+</li>
+<li class="level1"><div class="li"> Channel is <code>9</code></div>
+</li>
+<li class="level1"><div class="li"> The network uses WPA/WPA2 mixed mode<br/>
+</div>
+</li>
+</ul>
+
+<p>
+<br/>
+
+In <code>/etc/config/wireless</code>, locate the existing <code><a href="../uci/wireless#wifinetworks" class="wikilink1" title="doc:uci:wireless">wifi-iface</a></code> section and change its network option to point to the WAN interface.
+Change the <code>mode</code> option to <code>sta</code> (Station) and alter the SSID and <a href="../uci/wireless#wpaencryption" class="wikilink1" title="doc:uci:wireless">encryption options</a> to match those of the target network. Channel doesn&#039;t necessary have to match.
+</p>
+<div class="table sectionedit7"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;wifi-device&#039; &#039;wlan0&#039;
+        option &#039;type&#039;       &#039;broadcom&#039;
+        option &#039;channel&#039;    &#039;9&#039;
+
+config &#039;wifi-iface&#039;
+        option &#039;device&#039;     &#039;wlan0&#039;
+        option &#039;network&#039;    <strong>&#039;wan&#039;</strong>
+        option &#039;mode&#039;       <strong>&#039;sta&#039;</strong>
+        option &#039;ssid&#039;       <strong>&#039;Vodafone-0E0301&#039;</strong>
+        option &#039;encryption&#039; <strong>&#039;psk2&#039;</strong>
+        <strong>option &#039;key&#039;        &#039;secret-key&#039;</strong> </code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit8" id="apply_changes">Apply changes</h3>
+<div class="level3">
+
+<p>
+Reconfigure the wireless network.
+</p>
+
+<p>
+<pre class="code">ifup wan
+wifi</pre>
+
+</p>
+<div class="table sectionedit9"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/48px-dialog-warning.svg.png" class="media" alt="" /> </td><td class="col1"> If the target network uses the 192.168.1.0/24 subnet, you <strong>must</strong> change the default <abbr title="Local Area Network">LAN</abbr> IP address to a different subnet, e.g. 192.168.<strong>2</strong>.1 .<br/>
+You can determine the assigned WAN address with the following command: <pre class="code">. /lib/functions/network.sh; network_get_ipaddr IP_WAN wan; echo $IP_WAN
+192.168.1.30</pre>
+ </td>
+	</tr>
+</table></div>
+
+<p>
+At this point, the masqueraded client configuration should be finished.
+</p>
+
+</div>
+
+<h2 class="sectionedit10" id="using_routing">Using routing</h2>
+<div class="level2">
+
+<p>
+In contrast to <em>masquerading</em>, a fully routed setup allows access from hosts of the Access Point network to hosts in the client network by using the client routers WAN IP address as gateway for the client network behind it.
+</p>
+
+<p>
+This kind of network topology is not possible when the client does NAT, since the addresses behind the NAT are not reachable from the outside, unless additional measures like port forwardings are configured.
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/802.11-routed-client.png?id=doc%253Arecipes%253Aroutedclient" class="media" title="doc:howto:802.11-routed-client.png"><img src="../../_media/doc/howto/802.11-routed-client.png" class="media" title="Routed network topology" alt="Routed network topology" /></a>
+</p>
+
+<p>
+This section covers the process of changing the firewall config to allow incoming WAN traffic and disabling <em>masquerading</em> in the corresponding zone.
+</p>
+<hr />
+<div class="table sectionedit11"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/48px-dialog-warning.svg.png" class="media" alt="" /> </td><td class="col1"> The fully routed client configuration is based on the <a href="routedclient#usingmasquerade" title="doc:recipes:routedclient ↵" class="wikilink1">masqueraded config</a> and assumes an already working client setup.<br/>
+<strong>Only proceed with the routed configuration below if you have the ability to reconfigure the remote Access Point!</strong> </td>
+	</tr>
+</table></div>
+<hr />
+
+</div>
+
+<h3 class="sectionedit12" id="configuration1">Configuration</h3>
+<div class="level3">
+
+<p>
+In addition to the files in the <a href="routedclient#usingmasquerade" title="doc:recipes:routedclient ↵" class="wikilink1">masqueraded setup</a>, the relevant config files are:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="../uci/firewall" class="wikilink1" title="doc:uci:firewall">/etc/config/firewall</a></div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="step_1change_the_firewall_configuration">Step 1: Change the firewall configuration</h4>
+<div class="level4">
+
+<p>
+Edit the <code>/etc/config/firewall</code> file and locate the WAN <a href="../uci/firewall#zones" class="wikilink1" title="doc:uci:firewall">zone</a> definition.
+Disable masquerading and set the incoming traffic policy to ACCEPT:
+</p>
+<div class="table sectionedit13"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;zone&#039;
+        option &#039;name&#039;       <strong>&#039;wan&#039;</strong>
+        option &#039;input&#039;      <strong>&#039;ACCEPT&#039;</strong>
+        option &#039;output&#039;     &#039;ACCEPT&#039;
+        option &#039;forward&#039;    &#039;REJECT&#039;
+        option &#039;mtu_fix&#039;    &#039;1&#039;
+        option &#039;masq&#039;       <strong>&#039;0&#039;</strong> </code> </td>
+	</tr>
+</table></div>
+
+<p>
+Proceed with adding a new <a href="../uci/firewall#forwardings" class="wikilink1" title="doc:uci:firewall">forwarding</a> section allowing traffic flow from WAN to <abbr title="Local Area Network">LAN</abbr>:
+</p>
+<div class="table sectionedit14"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;forwarding&#039;
+        option &#039;src&#039;        <strong>&#039;wan&#039;</strong>
+        option &#039;dest&#039;       &#039;lan&#039; </code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h4 id="step_2configure_the_access_point">Step 2: Configure the Access Point</h4>
+<div class="level4">
+
+<p>
+In order to make the local <abbr title="Local Area Network">LAN</abbr> subnet reachable for clients in the Access Point subnet, you need to configure a <em>static route</em> pointing to our <abbr title="Local Area Network">LAN</abbr> network on the AP.
+How to configure leases and routes on the Access Point differs from model to model. In doubt, consult the operation manual.
+</p>
+
+<p>
+Since static routes need a static gateway to work properly, the WAN IP address of the client mode wireless must be fixed, there are two possible ways to achieve that:
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>Use a static DHCP lease</strong> - the AP will associate the MAC address of the requesting client mode wireless adapter to a fixed IP address in the AP network, e.g. 192.168.1.30</div>
+</li>
+<li class="level1"><div class="li"> <strong>Use a fixed IP on WAN</strong> - the client mode wireless adapter will not request DHCP at all but use a fixed IP configuration instead.</div>
+</li>
+</ul>
+
+<p>
+When using the fixed IP approach, the WAN interface in <code>/etc/config/network</code> must be changed from the DHCP protocol to <code>static</code>:
+</p>
+<div class="table sectionedit15"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;interface&#039; <strong>&#039;wan&#039;</strong>
+        option &#039;proto&#039;      <strong>&#039;static&#039;</strong>
+        <strong>option &#039;ipaddr&#039;     &#039;192.168.1.30&#039;</strong>
+        <strong>option &#039;netmask&#039;    &#039;255.255.255.0&#039;</strong> </code> </td>
+	</tr>
+</table></div>
+
+<p>
+<br/>
+
+</p>
+<div class="table sectionedit16"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/48px-dialog-warning.svg.png" class="media" alt="" /> </td><td class="col1"> Make sure that the address range does not overlap with the <abbr title="Local Area Network">LAN</abbr> network.<br/>
+You <strong>must</strong> change the <abbr title="Local Area Network">LAN</abbr> address if it is in the same subnet, e.g. to 192.168.<strong>2</strong>.1 </td>
+	</tr>
+</table></div>
+
+<p>
+After fixing the WAN address, a static route must be added to the Access Point with the following information:
+</p>
+<ul>
+<li class="level1"><div class="li"> IP address: 192.168.2.1 (IP address of our <abbr title="Local Area Network">LAN</abbr> interface)</div>
+</li>
+<li class="level1"><div class="li"> Destination <abbr title="Local Area Network">LAN</abbr> NET (required in DD-WRT): 192.168.2.0 (our <abbr title="Local Area Network">LAN</abbr> interface subnet)</div>
+</li>
+<li class="level1"><div class="li"> Netmask: 255.255.255.0 (Netmask of our <abbr title="Local Area Network">LAN</abbr> interface)</div>
+</li>
+<li class="level1"><div class="li"> Gateway: 192.168.1.30 (IP address of our WAN interface)</div>
+</li>
+</ul>
+
+<p>
+You may also need to set the policy of the firewall of the Access Point to &#039;ACCEPT&#039; forwarded traffic for the <abbr title="Local Area Network">LAN</abbr> zone, in order for hosts in the Client network to communicate with hosts (other than directly to the router itself) on the Access Point network. E.g. (referring to the diagram) for Client Host 1 to communicate with <abbr title="Local Area Network">LAN</abbr> Host 1.
+</p>
+
+</div>
+
+<h3 class="sectionedit17" id="apply_changes1">Apply changes</h3>
+<div class="level3">
+
+<p>
+Reconfigure the wireless network.
+</p>
+
+<p>
+<pre class="code">ifup wan
+wifi</pre>
+
+</p>
+
+<p>
+Restart the firewall.
+</p>
+
+<p>
+<pre class="code">/etc/init.d/firewall restart</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit18" id="after_setup_everything_works_but_client_subnet_cannot_access_internet">After setup everything works BUT client subnet cannot access internet</h3>
+<div class="level3">
+
+<p>
+This is due to the reason that AP router (in this case 192.168.1.1) does not masquerade client subnet (192.168.2.0/24).<br/>
+
+<br/>
+
+If you cannot (or don&#039;t want to) modify AP router&#039;s firewall in deep, you can configure client router (192.168.2.1) in the following way:<br/>
+
+Edit the <code>/etc/config/firewall</code> file and locate the WAN <a href="../uci/firewall#zones" class="wikilink1" title="doc:uci:firewall">zone</a> definition. <br/>
+
+</p>
+<div class="table sectionedit19"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;zone&#039;
+        option &#039;name&#039;       <strong>&#039;wan&#039;</strong>
+        option &#039;input&#039;      &#039;ACCEPT&#039;
+        option &#039;output&#039;     &#039;ACCEPT&#039;
+        option &#039;forward&#039;    &#039;REJECT&#039;
+        option &#039;mtu_fix&#039;    &#039;1&#039;
+        option masq_dest    <strong>!192.168.1.0/24</strong>
+        option &#039;masq&#039;       <strong>&#039;1&#039;</strong> </code></td>
+	</tr>
+</table></div>
+
+<p>
+Please not that in this way client router (192.168.2.1) will masquerade everything EXCEPT AP subnet and AP router (192.168.1.1) will handle packets from client subnet to internet and vica-versa. <br/>
+
+This is double masquerading which works fine especially if you cannot make it work otherwise. Avoid double NATting whenever possible!!
+</p>
+
+</div>
+
+<h2 class="sectionedit20" id="using_routingan_alternative_solution">Using routing : an alternative solution</h2>
+<div class="level2">
+
+<p>
+(assumption: you know how to apply the changes)
+</p>
+
+</div>
+
+<h3 class="sectionedit21" id="scenario_description">Scenario description</h3>
+<div class="level3">
+
+<p>
+There is a router access point (based on openwrt 12.09 final ) and a router wifi client (based on openwrt 12.09 final). The router access point from now on is called WP (wifi provider) and the router wifi client is called WC (wifi client) The diagram of the network is the following:
+<pre class="file">Internet &lt;---wired---&gt; WP &lt;---wireless---&gt; WC</pre>
+
+</p>
+
+<p>
+The <strong>WP</strong> is creating a lan network, through wireless and lan ports, using the subnet <code>192.168.10.0/24</code>.
+The <strong>WP</strong> lan interface is configured as follows (file <code>etc/config/network</code> ):
+<pre class="file">config interface &#039;lan&#039;
+        option type &#039;bridge&#039;
+        option ifname &#039;eth0.0&#039;
+        option proto &#039;static&#039;
+        option netmask &#039;255.255.255.0&#039;
+        option ipaddr &#039;192.168.10.1&#039;</pre>
+
+</p>
+
+<p>
+The <strong>WC</strong> instead, is using the wireless to connect to the <strong>WP</strong> and to create a second wifi network.
+In this case the wireless interface is attached to the network <code>wan</code> as <code>sta</code> mode and is attached to the network <code>lan</code> as <code>ap</code> mode, as follows (file <code>/etc/config/wireless</code> ):
+<pre class="file">config wifi-iface
+        option device   radio0
+        option network  lan
+        option mode     ap
+        option ssid     &#039;Second wifi&#039;
+        option encryption       psk2
+        option key      &#039;password.2&#039;
+
+config wifi-iface
+        option device   radio0
+        option network  wan
+        option mode     &#039;sta&#039;
+        option ssid     &#039;Master wifi&#039;
+        option encryption       psk2
+        option key      &#039;password.1&#039;</pre>
+
+</p>
+
+<p>
+The second network created by the <strong>WC</strong> is using the subnet <code>192.168.11.0/24</code> and is getting a dhcp IP on the wan interface, as follows:
+<pre class="file">config interface &#039;lan&#039;
+        option ifname &#039;eth0&#039;
+        option type &#039;bridge&#039;
+        option proto &#039;static&#039;
+        option ipaddr &#039;192.168.11.1&#039;
+        option netmask &#039;255.255.255.0&#039;
+        
+config interface &#039;wan&#039;
+        option proto     &#039;dhcp&#039;
+        option hostname  &#039;WC&#039;</pre>
+
+</p>
+
+<p>
+Now we want that both networks see each other.
+</p>
+
+</div>
+
+<h3 class="sectionedit22" id="connecting_wc_lan_side_to_the_wp_lan_side_and_to_the_internet">Connecting WC lan side to the WP lan side and to the internet</h3>
+<div class="level3">
+
+<p>
+For the lan side of  <strong>WC</strong> there is not so much problem to reach the <code>192.168.10.0/24</code> provided by the <strong>WP</strong>. Because the latter is seen as wan network, and to reach that network from the lan side of <strong>WC</strong> only the &#039;classic&#039; forwarding lan→wan is needed. This means, in the file <code>/etc/config/firewall</code>, that the following rule is needed:
+<pre class="file">config forwarding
+        option src              lan
+        option dest             wan</pre>
+
+</p>
+
+<p>
+In this way requests from the <strong>WC</strong> lan side are allowed to reach the <strong>WC</strong> wan side that contains the <strong>WP</strong> lan network.
+</p>
+
+<p>
+But we should not forget about masquerading (explained briefly at least here <a href="../uci/network" class="wikilink1" title="doc:uci:network">network</a> ). By default the wan zone has masquerading, but this means that when a computer from the <strong>WC</strong> lan side wants to connect to a computer on the <strong>WP</strong> lan side, its ip will be masqueraded. Therefore we should avoid masquerading when a computer on the <strong>WC</strong> lan side wants to reach an IP address in the network <code>192.168.10.0/24</code> this is done in this way (file <code>/etc/config/firewall</code> ):
+<pre class="file">config zone
+        option name                 wan
+        list   network              &#039;wan&#039;
+        option input                REJECT
+        option output               ACCEPT
+        option forward              REJECT
+        option masq                 1
+        #routed bridged wireless network - start
+        option masq_dest            &#039;!192.168.10.1/24&#039;
+        list comment &#039;(do not with !)&#039;
+        list comment &#039; masquerade what is going to the declared subnet(s)&#039;
+        list comment &#039;remember that is &quot;masq_destination&quot;&#039;
+        #routed bridged wireless network - end
+        option mtu_fix              1</pre>
+
+</p>
+
+<p>
+In this way the <strong>WC</strong> lan side is able to reach the <strong>WP</strong> lan side without &quot;obscuration&quot; and the internet side (this with obscuration by masquerading).
+</p>
+
+</div>
+
+<h3 class="sectionedit23" id="connecting_wp_lan_side_to_the_wc_lan_side">Connecting WP lan side to the WC lan side</h3>
+<div class="level3">
+
+<p>
+First we should enable the possibility that packets coming on
+the wan side of <strong>WC</strong> could reach the lan side of <strong>WC</strong>. This
+is done through forwarding (see <a href="../uci/firewall" class="wikilink1" title="doc:uci:firewall">firewall</a> and <a href="../../inbox/doc/iptables_and_firewall" class="wikilink1" title="inbox:doc:iptables_and_firewall">iptables_and_firewall</a> ).
+</p>
+
+<p>
+In particular we want that if a packet coming on the wan side of <strong>WC</strong> has the source in the network
+<code>192.168.10.0/24</code> then it is allowed to go through the device (that is: coming from an interface and going to another interface decided by routing rules). So on <strong>WC</strong> in <code>/etc/config/firewall</code> we add:
+<pre class="file">config rule &#039;forward_from_master_net&#039;
+        option src      wan
+        option dest     lan
+        option src_ip   &#039;192.168.10.0/24&#039;
+        option proto    all
+        option target   ACCEPT
+        
+#this means: if a packet, of whatever protocol, is coming on the wan side from a source in 192.168.10.0/24
+#            and the routing rules are sending it towards the lan side, let it pass.</pre>
+
+</p>
+
+<p>
+Now it is the turn of configuration on <strong>WP</strong>. First <strong>WP</strong> should know that the <strong>WC</strong> is &#039;a device to ask&#039; about the network <code>192.168.11.0/24</code> and this means a static routing rule. But a static routing rule requires a gateway that is consistently reachable. Since <strong>WC</strong> is using dhcp on lan, we have to assign a static dhcp on the <strong>WP</strong> side for <strong>WC</strong>. So on <strong>WP</strong> we modifiy <code>/etc/config/dhcp</code> adding a reservation for <strong>WC</strong>.
+<pre class="file">config host wc
+        option ip       192.168.10.20
+        option mac      &#039;&lt;mac address&gt;&#039;</pre>
+
+</p>
+
+<p>
+Now (after we applied the changes on both systems) we have the possibility of defining a static route on <strong>WP</strong> in <code>/etc/config/network</code>:
+<pre class="file">config &#039;route&#039; &#039;to_repeater&#039;
+        option &#039;interface&#039; &#039;lan&#039;
+        option &#039;target&#039; &#039;192.168.11.0&#039;
+        option &#039;netmask&#039; &#039;255.255.255.0&#039;
+        option &#039;gateway&#039; &#039;192.168.10.20&#039;
+        list comment &#039;to the wifi repeater&#039;
+        list comment &#039;as routed wireless client&#039;
+        list comment &#039;as exposed in the owrt wiki&#039;</pre>
+
+</p>
+
+<p>
+It seems all but it is not. It is a subtle problem of how the networking standards behave (but once you knwo them, it is ok). On the <strong>WP</strong> the command <code>route -n</code> shows this:
+<pre class="file">Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+...lines...
+192.168.10.0    0.0.0.0         255.255.255.0   U     0      0        0 br-lan
+192.168.11.0    192.168.10.20   255.255.255.0   UG    0      0        0 br-lan</pre>
+
+</p>
+
+<p>
+So it seems that if a packet is coming from br-lan and wants to go to 192.168.11.0, since it will
+go through the same interface, no problem should occur. And instead not, different routes, even on the
+same interface, create a bit of obstacles. It is like that only packets coming from an interface and going through the same interface, when the source of the packet and the destination of the packet are matched by the same routing rule, do not create any problem.
+</p>
+
+<p>
+In the case that the interface is the same (for input and output) but the source of the packet differs from the destination shown in the routing rule, then the packet is stopped. What do we need then? Seems counter-intuitive but: forwarding.
+</p>
+
+<p>
+On <strong>WP</strong> in <code>/etc/config/firewall</code> we need a rule that says &quot;a packet coming on the lan side can go through the lan side without being stopped&quot;:
+<pre class="file">config forwarding
+        option src &#039;lan&#039;
+        option dest &#039;lan&#039;</pre>
+
+</p>
+
+<p>
+And with this we have ended our problems. Computer in <code>192.168.10.0/24</code> can communicate with computers in <code>192.168.11.0/24</code> and viceversa using original ip addresses.
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/recipes/routedclient.txt</bdi> · Last modified: 2015/03/01 14:25 by <bdi>pier4r</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="routedclient?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="routedclient?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="routedclient?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="routedclient#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Arecipes%253Aroutedclient&amp;1432266330" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

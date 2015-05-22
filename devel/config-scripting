@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Configuration in scripts [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,devel,config-scripting"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="config-scripting?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:devel"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/devel/config-scripting"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/devel/config-scripting"/>
+<link rel="canonical" href="config-scripting"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:devel';var JSINFO = {"id":"doc:devel:config-scripting","namespace":"doc:devel"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265707 166.182.3.62';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="config-scripting#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="config-scripting?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="config-scripting?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:devel:config-scripting" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="config-scripting?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="config-scripting?do=media&amp;ns=doc%253Adevel"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="config-scripting?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:devel:start">Developing</a></bdi> » <bdi><span class="curid"><a href="config-scripting" class="wikilink1" title="doc:devel:config-scripting">Configuration in scripts</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/devel/config-scripting" class="media" title="cz:doc:devel:config-scripting"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/devel/config-scripting" class="media" title="de:doc:devel:config-scripting"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="config-scripting" class="media" title="doc:devel:config-scripting"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/devel/config-scripting" class="media" title="es:doc:devel:config-scripting"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/devel/config-scripting" class="media" title="fr:doc:devel:config-scripting"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../hu/doc/devel/config-scripting" class="media" title="hu:doc:devel:config-scripting"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/devel/config-scripting" class="media" title="jp:doc:devel:config-scripting"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/devel/config-scripting" class="media" title="pl:doc:devel:config-scripting"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/devel/config-scripting" class="media" title="pt-br:doc:devel:config-scripting"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/devel/config-scripting" class="media" title="ru:doc:devel:config-scripting"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/devel/config-scripting" class="media" title="tr:doc:devel:config-scripting"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/devel/config-scripting" class="media" title="zh-cn:doc:devel:config-scripting"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/devel/config-scripting" class="media" title="zh-tw:doc:devel:config-scripting"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:devel:config-scripting</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="config-scripting#loading">Loading</a></div></li>
+<li class="level1"><div class="li"><a href="config-scripting#callbacks">Callbacks</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="config-scripting#config_cb_callback">&#039;&#039;config_cb&#039;&#039; callback</a></div></li>
+<li class="level2"><div class="li"><a href="config-scripting#option_cb_callback">&#039;&#039;option_cb&#039;&#039; callback</a></div></li>
+<li class="level2"><div class="li"><a href="config-scripting#list_cb_callback">&#039;&#039;list_cb&#039;&#039; callback</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="config-scripting#iterating">Iterating</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="config-scripting#reading_options">Reading options</a></div></li>
+<li class="level2"><div class="li"><a href="config-scripting#setting_options">Setting options</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="config-scripting#direct_access">Direct access</a></div></li>
+<li class="level1"><div class="li"><a href="config-scripting#reading_lists">Reading lists</a></div></li>
+<li class="level1"><div class="li"><a href="config-scripting#reading_booleans">Reading booleans</a></div></li>
+<li class="level1"><div class="li"><a href="config-scripting#should_i_use_callbacks_or_explicit_access_to_options">Should I use callbacks or explicit access to options?</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="config-scripting#use_case_and_example_for_callbacks">Use case and example for callbacks</a></div></li>
+<li class="level2"><div class="li"><a href="config-scripting#use_case_and_example_for_direct_access">Use case and example for direct access</a></div></li>
+<li class="level2"><div class="li"><a href="config-scripting#mixing_the_two_styles">Mixing the two styles</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="configuration_in_scripts">Configuration in scripts</h1>
+<div class="level1">
+
+<p>
+OpenWrt offers a set of standard shell procedures to interface with UCI in order to efficiently read
+and process configuration files from within shell scripts.  This is most likely useful for writing startup scripts in <code>/etc/init.d/</code>.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="loading">Loading</h2>
+<div class="level2">
+
+<p>
+To be able to load UCI configuration files, you need to include the common functions with:
+</p>
+<div class="table sectionedit3"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>. /lib/functions.sh</code> </td>
+	</tr>
+</table></div>
+
+<p>
+Then you can use <code>config_load <em>name</em></code> to load config files.
+</p>
+
+<p>
+The function first checks for <code><em>name</em></code> as absolute filename and falls back to loading it from
+<code>/etc/config/</code> (which is the most common way of using it).
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="callbacks">Callbacks</h2>
+<div class="level2">
+
+<p>
+The first method for parsing an UCI config file is through <strong>callbacks</strong>, which will be called for each <code>section</code>, <code>option</code> and <code>list</code> encountered during parsing.
+</p>
+
+<p>
+You can define three callbacks: <code>config_cb()</code>, <code>option_cb()</code>, and <code>list_cb()</code>.  You need to define these functions before calling <code>config_load</code>, but after including <code>/lib/functions.sh</code>.
+</p>
+
+<p>
+Additionally, you may call <code>reset_cb()</code> to reset all three callbacks to no-op functions.
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="config_cb_callback">&#039;&#039;config_cb&#039;&#039; callback</h3>
+<div class="level3">
+
+<p>
+The <code>config_cb</code> procedure is called every time a UCI section heading is encountered during parsing. Also an extra call to <code>config_cb</code> (without any argument) is generated after <code>config_load</code> is done.  This may be useful if you accumulate something while parsing options (see below) and want to do something with the accumulated values (write them to a file, …) when a section has been entirely parsed.
+</p>
+
+<p>
+When called, the procedure receives two arguments:
+</p>
+<ol>
+<li class="level1"><div class="li"> Type, the section type, e.g. <code>interface</code> for <code>config interface wan</code></div>
+</li>
+<li class="level1"><div class="li"> Name, the section name, e.g. <code>wan</code> for <code>config interface wan</code> or an autogenerated ID like <code>cfg13abef</code> for anonymous sections like <code>config route</code></div>
+</li>
+</ol>
+<div class="table sectionedit6"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config_cb() {
+    local type=&quot;$1&quot;
+    local name=&quot;$2&quot;
+    # commands to be run for every section
+}</code> </td>
+	</tr>
+</table></div>
+
+<p>
+Also an extra call to <code>config_cb</code> (without a new section) is generated after config_load is done -
+this allows you to process sections both before and after all options were processed.
+</p>
+
+</div>
+
+<h3 class="sectionedit7" id="option_cb_callback">&#039;&#039;option_cb&#039;&#039; callback</h3>
+<div class="level3">
+
+<p>
+Similar to <code>config_cb</code>, the <code>option_cb</code> procedure is called each time a UCI option is encountered.
+</p>
+
+<p>
+When called, the procedure receives two arguments:
+</p>
+<ol>
+<li class="level1"><div class="li"> Name, the option name, e.g. <code>ifname</code> for <code>option ifname eth0</code></div>
+</li>
+<li class="level1"><div class="li"> Value, the option value, e.g. <code>eth0</code> for <code>option ifname eth0</code></div>
+</li>
+</ol>
+<div class="table sectionedit8"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>option_cb() {
+    local name=&quot;$1&quot;
+    local value=&quot;$2&quot;
+    # commands to be run for every option
+}</code> </td>
+	</tr>
+</table></div>
+
+<p>
+Within the callback, the ID of the current section is accessible via the <code>$CONFIG_SECTION</code> variable.
+</p>
+
+<p>
+You can define <code>option_cb</code> inside <code>config_cb</code>: this allows to define different <code>option_cb</code> callbacks based on the section type.
+This allows you to process every single config section based on its type individually.
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="list_cb_callback">&#039;&#039;list_cb&#039;&#039; callback</h3>
+<div class="level3">
+
+<p>
+<code>list_cb</code> works exactly like <code>option_cb</code> above, but gets called each time a <code>list</code> item is encountered.
+</p>
+
+<p>
+When called, the procedure receives two arguments:
+</p>
+<ol>
+<li class="level1"><div class="li"> Name, the list name, e.g. <code>server</code> for <code>list server 192.168.42.1</code></div>
+</li>
+<li class="level1"><div class="li"> Value, the list value, e.g. <code>192.168.42.1</code> for <code>list server 192.168.42.1</code></div>
+</li>
+</ol>
+<div class="table sectionedit10"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>list_cb() {
+    local name=&quot;$1&quot;
+    local value=&quot;$2&quot;
+    # commands to be run for every list item
+}</code> </td>
+	</tr>
+</table></div>
+
+<p>
+Each item of a given list generates a new call to <code>list_cb</code>.
+</p>
+
+</div>
+
+<h2 class="sectionedit11" id="iterating">Iterating</h2>
+<div class="level2">
+
+<p>
+An alternative approach to callback based parsing is iterating the configuration sections
+with the <code>config_foreach</code> procedure.
+</p>
+
+<p>
+The <code>config_foreach</code> procedure takes at least one argument:
+</p>
+<ol>
+<li class="level1"><div class="li"> Function, name of a previously defined procedure called for each encountered section</div>
+</li>
+<li class="level1"><div class="li"> Type (optional), only iterate sections of the given type, skip others</div>
+</li>
+<li class="level1"><div class="li"> Additional arguments (optional), all following arguments are passed to the callback procedure as-is</div>
+</li>
+</ol>
+
+<p>
+In the example below, the <code>handle_interface</code> procedure is called for each <code>config interface</code> section
+in <code>/etc/config/network</code>. The string <code>test</code> is passed as second argument on each invocation.
+</p>
+<div class="table sectionedit12"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>handle_interface() {
+    local config=&quot;$1&quot;
+    local custom=&quot;$2&quot;
+    # run commands for every interface section
+}
+
+config_load network
+config_foreach handle_interface interface test</code> </td>
+	</tr>
+</table></div>
+
+<p>
+It is possible to abort the iteration from within the callback by returning a non-zero value (<code>return 1</code>).
+</p>
+
+<p>
+Within the per-section callback, the <code>config_get</code> or <code>config_set</code> procedures may be used to read or set
+values belonging to the currently processed section.
+</p>
+
+</div>
+
+<h3 class="sectionedit13" id="reading_options">Reading options</h3>
+<div class="level3">
+
+<p>
+The <code>config_get</code> procedure takes at least three arguments:
+</p>
+<ol>
+<li class="level1"><div class="li"> Name of a variable to store the retrieved value in</div>
+</li>
+<li class="level1"><div class="li"> ID of the section to read the value from</div>
+</li>
+<li class="level1"><div class="li"> Name of the option to read the value from</div>
+</li>
+<li class="level1"><div class="li"> Default (optional), value to return instead if option is unset</div>
+</li>
+</ol>
+<div class="table sectionedit14"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>    …
+    # read the value of &quot;option ifname&quot; into the &quot;iface&quot; variable
+    # $config contains the ID of the current section
+    local iface
+    config_get iface &quot;$config&quot; ifname
+    echo &quot;Interface name is $iface&quot;
+    …</code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit15" id="setting_options">Setting options</h3>
+<div class="level3">
+
+<p>
+The <code>config_set</code> procedure takes three arguments:
+</p>
+<ol>
+<li class="level1"><div class="li"> ID of the section to set the option in</div>
+</li>
+<li class="level1"><div class="li"> Name of the option to assign the value to</div>
+</li>
+<li class="level1"><div class="li"> Value to assign</div>
+</li>
+</ol>
+<div class="table sectionedit16"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>    …
+    # set the value of &quot;option auto&quot; to &quot;0&quot;
+    # $config contains the ID of the current section
+    config_set &quot;$config&quot; auto 0
+    …</code> </td>
+	</tr>
+</table></div>
+
+<p>
+Note that values changed with <code>config_set</code> are only kept in memory. Subsequent calls to <code>config_get</code> will
+return the updated values but the underlying configuration files are <em>not</em> altered. If you want to alter values, use the uci_* functions from /lib/config/uci.sh which are automatically included by /etc/functions.sh.
+</p>
+
+</div>
+
+<h2 class="sectionedit17" id="direct_access">Direct access</h2>
+<div class="level2">
+
+<p>
+If the name of a configuration section is known in advance (it is named), options can be read directly without 
+using a section iterator callback.
+</p>
+
+<p>
+The example below reads &quot;option proto&quot; from the &quot;config interface wan&quot; section.
+</p>
+<div class="table sectionedit18"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>…
+local proto
+config_get proto wan proto
+echo &quot;Current WAN protocol is $proto&quot;
+…</code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit19" id="reading_lists">Reading lists</h2>
+<div class="level2">
+
+<p>
+Some UCI configurations may contain <code>list</code> options in the form:
+</p>
+<div class="table sectionedit20"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>…
+list network lan
+list network wifi
+…</code> </td>
+	</tr>
+</table></div>
+
+<p>
+Calling <code>config_get</code> on the <code>network</code> list will return the list values separated by space, <code>lan wifi</code> in this example.
+</p>
+
+<p>
+However, this behaviour might break values if the list items itself contain spaces like illustrated below:
+</p>
+<div class="table sectionedit21"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>…
+list animal &#039;White Elephant&#039;
+list animal &#039;Mighty Unicorn&#039;
+…</code> </td>
+	</tr>
+</table></div>
+
+<p>
+The <code>config_get</code> approach would return the values in the form <code>White Elephant Mighty Unicorn</code> and the original list items
+are not clearly separated anymore.
+</p>
+
+<p>
+To circumvent this problem, the <code>config_list_foreach</code> iterator can be used. It works similar to <code>config_foreach</code> but
+operates on list values instead of config sections.
+</p>
+
+<p>
+The <code>config_list_foreach</code> procedure takes at least three arguments:
+</p>
+<ol>
+<li class="level1"><div class="li"> ID of the section to read the list from</div>
+</li>
+<li class="level1"><div class="li"> Name of the list option to read items from</div>
+</li>
+<li class="level1"><div class="li"> Procedure to call for each list item</div>
+</li>
+<li class="level1"><div class="li"> Additional arguments (optional), all following arguments are passed to the callback procedure as-is</div>
+</li>
+</ol>
+<div class="table sectionedit22"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code># handle list items in a callback
+# $config contains the ID of the section
+handle_animal() {
+    local value=&quot;$1&quot;
+    # do something with $value
+}
+
+config_list_foreach &quot;$config&quot; animal handle_animal</code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit23" id="reading_booleans">Reading booleans</h2>
+<div class="level2">
+
+<p>
+Boolean options may contain various values to signify a <em>true</em> value like <code>on</code>, <code>true</code>, <code>enabled</code> or <code>1</code>.
+</p>
+
+<p>
+The <code>config_get_bool</code> procedure simplifies the process of reading a boolean option and casting it to a plain
+integer value (<code>1</code> for <em>true</em> and <code>0</code> for <em>false</em>).
+</p>
+
+<p>
+At least three arguments are expected by the procedure:
+</p>
+<ol>
+<li class="level1"><div class="li"> Name of a variable to store the retrieved value in</div>
+</li>
+<li class="level1"><div class="li"> ID of the section to read the value from</div>
+</li>
+<li class="level1"><div class="li"> Name of the option to read the value from</div>
+</li>
+<li class="level1"><div class="li"> Default (optional), boolean value to return if option is unset</div>
+</li>
+</ol>
+
+</div>
+
+<h2 class="sectionedit24" id="should_i_use_callbacks_or_explicit_access_to_options">Should I use callbacks or explicit access to options?</h2>
+<div class="level2">
+
+<p>
+It depends on what you want to parse.
+</p>
+
+</div>
+
+<h3 class="sectionedit25" id="use_case_and_example_for_callbacks">Use case and example for callbacks</h3>
+<div class="level3">
+
+<p>
+If, for a given section, all options should be treated in the same way (say, write them to a config file), whatever their order or name, then callbacks are a good option.  It allows you to parse all options without having to know their name in advance.
+</p>
+
+<p>
+For instance, consider this script:
+</p>
+
+<p>
+<pre class="code">config_cb() {
+    local type=&quot;$1&quot;
+    local name=&quot;$2&quot;
+    if [ &quot;$type&quot; = &quot;mysection&quot; ]
+    then
+        option_cb() {                                            
+            local option=&quot;$1&quot;                                
+            local value=&quot;$2&quot;                                 
+            echo &quot;${option//_/-} $value&quot; &gt;&gt; /var/etc/myfile.conf
+        }
+    else {
+        option_cb() { return; }
+    }
+}</pre>
+
+</p>
+
+<p>
+This would parse a configuration like this one:
+</p>
+<div class="table sectionedit26"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config mysection foo
+    option link_quality auto
+    option rxcost 256
+    option hello_inverval 4</code> </td>
+	</tr>
+</table></div>
+
+<p>
+And generate a file containing:
+</p>
+<div class="table sectionedit27"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>link-quality auto
+rxcost 256
+hello-interval 4</code></td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit28" id="use_case_and_example_for_direct_access">Use case and example for direct access</h3>
+<div class="level3">
+
+<p>
+On the other hand, if different options play a very different role, then it may be more convenient to pick each option explicitly.
+</p>
+
+<p>
+For instance, <a href="http://www.pps.univ-paris-diderot.fr/~jch/software/babel/" class="urlextern" title="http://www.pps.univ-paris-diderot.fr/~jch/software/babel/"  rel="nofollow">babeld</a> has the following syntax for filters:
+</p>
+
+<p>
+<pre class="code">{in|out|redistribute} selector* [allow|deny|metric n]</pre>
+
+</p>
+
+<p>
+where a selector can be one of:
+</p>
+
+<p>
+<pre class="code">local
+ip prefix
+proto p
+if interface
+...</pre>
+
+</p>
+
+<p>
+At most one instance of each selector type is allowed in a filter.  The UCI configuration looks like this:
+</p>
+
+<p>
+<pre class="code">config filter
+    option ip &#039;172.22.0.0/15&#039;
+    option local &#039;true&#039;
+    option type &#039;redistribute&#039;
+    option action &#039;metric 128&#039;</pre>
+
+</p>
+
+<p>
+The result of this section should be:
+</p>
+
+<p>
+<pre class="code">redistribute ip 172.22.0.0/15 local metric 128</pre>
+
+</p>
+
+<p>
+That is, the type should come first, then selectors (with a special case for <code>local</code>, which doesn&#039;t take an argument), and finally the action.  The basic parsing method is the following:
+</p>
+
+<p>
+<pre class="code">parse_filter() {
+    local section=&quot;$1&quot;
+    local _buffer
+    local _value
+
+    config_get _value &quot;$section&quot; &quot;type&quot;
+    append _buffer &quot;$_value&quot;
+
+    config_get _value &quot;$section&quot; &quot;ip&quot;
+    append _buffer &quot;ip $_value&quot;
+    config_get _value &quot;$section&quot; &quot;proto&quot;
+    append _buffer &quot;proto $_value&quot;
+    ...
+
+    config_get_bool _value &quot;$section&quot; &quot;local&quot; 0
+    [ &quot;$_value&quot; -eq 1 ] &amp;&amp; append _buffer &quot;local&quot;
+
+    config_get _value &quot;$section&quot; &quot;action&quot;
+    append _buffer &quot;$_value&quot;
+
+    echo &quot;$_buffer&quot; &gt;&gt; /var/etc/babeld.conf
+}
+config_load babeld
+config_foreach parse_filter filter</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit29" id="mixing_the_two_styles">Mixing the two styles</h3>
+<div class="level3">
+
+<p>
+Of course, it is possible to mix the two styles of parsing, for instance parsing one section with callbacks and another section explicitly.  Don&#039;t forget to reset or unset the callbacks (<code>reset_cb</code> or <code>option_cb() { return; }</code>) for sections you don&#039;t want to parse with callbacks.
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/devel/config-scripting.txt</bdi> · Last modified: 2014/08/28 16:17 by <bdi>zorun</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="config-scripting?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="config-scripting?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="config-scripting?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="config-scripting#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Adevel%253Aconfig-scripting&amp;1432265707" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

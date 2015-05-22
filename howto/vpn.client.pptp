@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>PPTP client [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,vpn.client.pptp"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="vpn.client.pptp?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/vpn.client.pptp"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/vpn.client.pptp"/>
+<link rel="canonical" href="vpn.client.pptp"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:vpn.client.pptp","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267252 166.182.3.150';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="vpn.client.pptp#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="vpn.client.pptp?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="vpn.client.pptp?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:vpn.client.pptp" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="vpn.client.pptp?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="vpn.client.pptp?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="vpn.client.pptp?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="vpn.client.pptp" class="wikilink1" title="doc:howto:vpn.client.pptp">PPTP client</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/vpn.client.pptp" class="media" title="cz:doc:howto:vpn.client.pptp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/vpn.client.pptp" class="media" title="de:doc:howto:vpn.client.pptp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="vpn.client.pptp" class="media" title="doc:howto:vpn.client.pptp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/vpn.client.pptp" class="media" title="es:doc:howto:vpn.client.pptp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/vpn.client.pptp" class="media" title="fr:doc:howto:vpn.client.pptp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/vpn.client.pptp" class="media" title="hu:doc:howto:vpn.client.pptp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/vpn.client.pptp" class="media" title="jp:doc:howto:vpn.client.pptp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/vpn.client.pptp" class="media" title="pl:doc:howto:vpn.client.pptp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/vpn.client.pptp" class="media" title="pt-br:doc:howto:vpn.client.pptp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/vpn.client.pptp" class="media" title="ru:doc:howto:vpn.client.pptp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/vpn.client.pptp" class="media" title="tr:doc:howto:vpn.client.pptp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/vpn.client.pptp" class="media" title="zh-cn:doc:howto:vpn.client.pptp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/vpn.client.pptp" class="media" title="zh-tw:doc:howto:vpn.client.pptp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:vpn.client.pptp</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="vpn.client.pptp#preparation">Preparation</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="vpn.client.pptp#prerequisites">Prerequisites</a></div></li>
+<li class="level2"><div class="li"><a href="vpn.client.pptp#required_packages">Required Packages</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="vpn.client.pptp#server_remote_station">Server (remote station)</a></div></li>
+<li class="level3"><div class="li"><a href="vpn.client.pptp#client_openwrt">Client (OpenWrt)</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="vpn.client.pptp#installation">Installation</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.client.pptp#configuration">Configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="vpn.client.pptp#server_configuration">Server configuration</a></div></li>
+<li class="level2"><div class="li"><a href="vpn.client.pptp#client_configuration">Client configuration</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="vpn.client.pptp#configuration_through_terminal">Configuration through terminal</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="vpn.client.pptp#firewall">Firewall</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.client.pptp#routing">Routing</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.client.pptp#troubleshooting">Troubleshooting</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.client.pptp#notes">Notes</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.client.pptp#oldwikipptp_client">Oldwiki: PPTP Client</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.client.pptp#requirements">Requirements</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="vpn.client.pptp#packages">Packages</a></div></li>
+<li class="level2"><div class="li"><a href="vpn.client.pptp#modules">Modules</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="vpn.client.pptp#configuring_a_tunnel">Configuring a Tunnel</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="vpn.client.pptp#etcpppoptionspptp">/etc/ppp/options.pptp</a></div></li>
+<li class="level2"><div class="li"><a href="vpn.client.pptp#etcppppeerspeer_name">/etc/ppp/peers/peer_name</a></div></li>
+<li class="level2"><div class="li"><a href="vpn.client.pptp#etcpppchap-secrets">/etc/ppp/chap-secrets</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="vpn.client.pptp#testing_a_tunnel">Testing a Tunnel</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.client.pptp#configuring_routing">Configuring Routing</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="vpn.client.pptp#etcpppip-up_andetcpppip-down">/etc/ppp/ip-up and /etc/ppp/ip-down</a></div></li>
+<li class="level2"><div class="li"><a href="vpn.client.pptp#iptables_firewall_rules">iptables (firewall) rules</a></div></li>
+<li class="level2"><div class="li"><a href="vpn.client.pptp#static_routing">static routing</a></div></li>
+<li class="level2"><div class="li"><a href="vpn.client.pptp#static_routing_for_all_packets">static routing for all packets</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="vpn.client.pptp#connecting_on_startup">Connecting on startup</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.client.pptp#on_demand_dial">On demand &quot;dial&quot;</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.client.pptp#routing_back">Routing back</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="vpn.client.pptp#quagga">Quagga</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="vpn.client.pptp#troubleshooting1">Troubleshooting</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.client.pptp#example_scripts">Example Scripts</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="vpn.client.pptp#etcpppip-up">/etc/ppp/ip-up</a></div></li>
+<li class="level2"><div class="li"><a href="vpn.client.pptp#etcpppip-down">/etc/ppp/ip-down</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="vpn.client.pptp#questions">Questions</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="pptp_client">PPTP client</h1>
+<div class="level1">
+<div class="table sectionedit2"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> For an overview over all existing Virtual private network (VPN)-related articles in the OpenWrt wiki, please visit <a href="vpn.overview" class="wikilink1" title="doc:howto:vpn.overview">vpn.overview</a> </td>
+	</tr>
+</table></div>
+
+<p>
+This is a very basic guide to connect OpenWrt running pptp-client with a pptp-server over a PPTP tunnel.
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="preparation">Preparation</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit4" id="prerequisites">Prerequisites</h3>
+<div class="level3">
+
+<p>
+You should read this <a href="vpn.overview" class="wikilink1" title="doc:howto:vpn.overview">vpn.overview</a> first.
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="required_packages">Required Packages</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="server_remote_station">Server (remote station)</h4>
+<div class="level4">
+
+<p>
+We assume this is preconfigured. This howto concentrates on configuring the client side running OpenWrt.
+</p>
+
+</div>
+
+<h4 id="client_openwrt">Client (OpenWrt)</h4>
+<div class="level4">
+<div class="table sectionedit6"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Packages Name </th><th class="col1"> Size in Bytes </th><th class="col2 leftalign"> Description  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> kmod-gre </td><td class="col1"> 10832 </td><td class="col2"> Generic Routing Encapsulation support </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> kmod-mppe </td><td class="col1"> 5111 </td><td class="col2"> Kernel modules for Microsoft PPP compression/encryption </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> kmod-ppp </td><td class="col1"> 23177 </td><td class="col2"> Kernel modules for PPP support </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> kmod-pppoe </td><td class="col1"> 6989 </td><td class="col2"> Kernel module for PPPoE (PPP over Ethernet) support </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> kmod-pppox </td><td class="col1"> 2480 </td><td class="col2"> Kernel helper module for PPPoE and PPTP support </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> kmod-pptp </td><td class="col1"> 5790 </td><td class="col2"> PPtP support </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> luci-proto-ppp </td><td class="col1"> 3622 </td><td class="col2"> Support for PPP/PPPoE/PPPoA/PPtP </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> ppp </td><td class="col1"> 104784 </td><td class="col2"> This package contains the PPP (Point-to-Point Protocol) daemon.<br/>
+Configuration files:<br/>
+<code>/etc/ppp/chap-secrets</code><br/>
+<code>/etc/ppp/filter</code><br/>
+<code>/etc/ppp/options</code></td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> ppp-mod-pppoe </td><td class="col1"> 9128 </td><td class="col2"> This package contains a PPPoE (PPP over Ethernet) plugin for ppp. </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> ppp-mod-pptp </td><td class="col1"> 16083 </td><td class="col2"> This package contains a PPtP plugin for ppp. </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit7" id="installation">Installation</h2>
+<div class="level2">
+
+<p>
+<a href="../techref/opkg" class="wikilink1" title="doc:techref:opkg">opkg</a>
+<pre class="code sh">opkg update
+opkg install ppp-mod-pptp</pre>
+
+</p>
+
+<p>
+If LuCI support is desired, additionally install the protocol package:
+<pre class="code sh">opkg install luci-proto-ppp</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="configuration">Configuration</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit9" id="server_configuration">Server configuration</h3>
+<div class="level3">
+
+<p>
+This howto concentrates on configuring the client side running OpenWrt. There is a different guide to configure the pptp-server <code>pptpd</code>: <a href="vpn.server.pptpd" class="wikilink1" title="doc:howto:vpn.server.pptpd">vpn.server.pptpd</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="client_configuration">Client configuration</h3>
+<div class="level3">
+
+<p>
+<strong><em>NOTE:</em></strong> As of writing this guide, the <code>pptp</code> client used in OpenWrt is version 1.7.1-3, same version used by many Linux flavors so if the configuration with help of LuCI described bellow does not work for you, it&#039;s possible to configure it in the original intended Linux way, adapting instructions. In this case, the tunnel will work normally, but the interface will not show in LuCI, which is perfectly normal.
+</p>
+
+<p>
+The configuration described here is all done by adding a <em>VPN interface</em> in LuCI. This automatically makes the configuration UCI compliant and the VPN interface will show up in your <code>/etc/config/network</code> file.
+</p>
+
+<p>
+Access your router from any web browser and change to the advanced menu clicking in Administration. Chose ⇒ <em>Network</em> ⇒ <em>Interfaces</em> and give your <em>VPN interface</em> a name in the &#039;Add entry&#039; field (just <code>vpn</code> will do). Chose <code>PPTP</code> as protocol and LuCI will show the main options for PPTP connection as fields.
+</p>
+
+<p>
+Now Create / Assign the firewall zone (usually the name given to the VPN) and fill &#039;PPTP-Server&#039; (with your server&#039;s IP address) and &#039;Username&#039; and &#039;Password&#039; all three must be obtained from your VPN provider. 
+</p>
+
+<p>
+Now you must decide if you&#039;ll leave the &quot;Let pppd replace the current default route&#039; enable (default) or not and for that you must understand how it works. Leaving it enable will not create a new default route in your router. Actually PPTP client handles this only after a successful connection. So when the tunnel goes up, the route is defaulted to the VPN and is defaulted back to the original route if the tunnel collapses. If you want all your traffic going through the tunnel just leave it. If you don&#039;t, it&#039;s better to leave it checked for testing purposes and uncheck it after being sure everything is ok.
+</p>
+
+<p>
+The above may be or may be not all you need. It will depend on your VPN provider&#039;s requirements. You&#039;ll have to enable the tunnel and check the log to see if it goes up and stays that way. If you already know what you need, add the corresponding options using the &#039;Additional Field&#039; menu. Keep-Alive, for example, is advisable and supported by many VPN providers, but just for you to know, the number you put in this field is actually the number of attempts that will be made to reconnect if the tunnel brakes and not the interval between keep-alive packages. Another interesting field is &#039;Additional pptp options&#039; where everything not listed but supported goes. Common parameters are mppe required and stateless. They must be separated by commas <strong>without spaces after the comma</strong>.
+</p>
+
+<p>
+Now you must click Save &amp; Apply to see if your VPN is working. If everything went fine, it will be &quot;Active&#039; in LuCI&#039;s Network / Interfaces menu, and your IP VPN address, the address of your end of the tunnel, will be in the &quot;Addresses&#039; column. Also check your routing table in Status / Routes. The default route is always the one with 0.0.0.0 in &#039;Target&#039; and &#039;IPv4 Network&#039; columns. Your VPN gateway will also appear here. This address is your provider&#039;s end of the tunnel so it will be different of the one showing in Interfaces menu, but it must be in the same subnet.
+</p>
+
+</div>
+
+<h4 id="configuration_through_terminal">Configuration through terminal</h4>
+<div class="level4">
+
+<p>
+Edit <code><a href="../uci/network" class="wikilink1" title="doc:uci:network">/etc/config/network</a></code> file, replacing <code>vpnusername</code>, <code>vpnpassword</code> and <code>server</code> with the parameters given by your VPN provider.
+</p>
+<div class="table sectionedit11"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>
+config &#039;interface&#039; &#039;vpn&#039; 
+        option &#039;ifname&#039;    &#039;pptp-vpn&#039;  
+        option &#039;proto&#039;     &#039;pptp&#039;
+        option &#039;username&#039;  &#039;vpnusername&#039;
+        option &#039;password&#039;  &#039;vpnpassword&#039;
+        option &#039;server&#039;    &#039;vpn.example.org or ipaddress&#039; 
+        option &#039;buffering&#039; &#039;1&#039; 
+</code> </td>
+	</tr>
+</table></div>
+
+<p>
+The <code>buffering</code> option enables (&#039;1&#039;) or disables (&#039;0&#039;) buffering and reordering of packets. It&#039;s optional and the default is already &#039;1&#039; (enabled). If you don&#039;t know what buffering and reordering mean either don&#039;t use it or leave it enabled. Disabling it will most likely slow your VPN to a crawl! 
+</p>
+
+<p>
+All other options are UCI standard and information about them can be found in <code><a href="../uci/network" class="wikilink1" title="doc:uci:network">/etc/config/network</a></code>. In the tested setup the physical interface <code>ifname</code> option automatically defaults to <code>pptp-vpn</code>, no matter how you name it, but feel free to test.
+</p>
+
+<p>
+After restarting network service or rebooting your router, and if your VPN handshake and authentication went well, the <code>pptp-vpn</code> interface will show up as enabled in LuCI. You can also check it using CLI with <code>ifconfig</code>. From your router (not your computer), try to ping some wan address to see if everything is fine and skip to the Routing part bellow.
+</p>
+
+</div>
+
+<h2 class="sectionedit12" id="firewall">Firewall</h2>
+<div class="level2">
+
+<p>
+ Go to Network / Firewall / Traffic Control and use &quot;Add entry&#039; to put a &#039;Source&#039; <code>lan</code> - &#039;Destination&#039; <code>vpn</code> (the name you gave to it) to allow traffic form your <abbr title="Local Area Network">LAN</abbr> to go to the VPN. Then verify your Network /  Firewall settings. Your VPN will be now in the &#039;Zones&#039; area, but with everything set as &#039;reject&#039;. Just change &#039;OUTPUT&#039; to <code>accept</code> and check the &#039;MASQ&#039; box to enable NAT for the traffic going through the VPN. If you made your VPN your default route as suggested above, just test your settings using any &#039;my IP&#039; website from a computer browser that uses your router as gateway. If everything works, your IP will be the same of your tunnel endpoint instead of the usual one.
+</p>
+
+<p>
+If your needs are more complex than route it all through the tunnel, you can now revert your default route to what it was and do some routing work.
+</p>
+
+</div>
+
+<h2 class="sectionedit13" id="routing">Routing</h2>
+<div class="level2">
+<div class="table sectionedit14"><table class="inline">
+	<tr class="row0">
+		<td class="col0 leftalign"> <img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" />: this is unfinished and not yet fully tested  </td>
+	</tr>
+</table></div>
+
+<p>
+<a href="../networking/routing" class="wikilink1" title="doc:networking:routing">routing</a>
+</p>
+
+<p>
+<a href="http://en.wikipedia.org/wiki/Routing" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Routing">Routing</a> is the process of selecting paths in a network along which to send network traffic. There are a couple of <a href="http://en.wikipedia.org/wiki/Routing protocol" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Routing protocol">Routing protocol</a>s to make this happen more or less automatically. For this, we are going to use <em>static routing</em>. The routing is handled by a component of the Kernel and can be configured by the user space tool <code>ip</code> which is contained in the package <code><a href="http://en.wikipedia.org/wiki/iproute2" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/iproute2">iproute2</a></code>. Analogue to <code><a href="netfilter#configuration" class="wikilink1" title="doc:howto:netfilter">iptables</a></code> or <code><a href="tc" class="wikilink1" title="doc:howto:tc">tc</a></code> you configure one thing per invocation and you would write a shell script which is executed at every boot or at every <em>ifup</em>.
+</p>
+
+<p>
+But since OpenWrt offers <a href="../uci.1" class="wikilink1" title="doc:uci">UCI</a>, we will do the configuration with it. Stuff related to routing is configured in <code><a href="../uci/network" class="wikilink1" title="doc:uci:network">/etc/config/network</a></code>. The <em><a href="../recipes/start" class="wikilink1" title="doc:recipes:start">recipes</a></em> should give you a couple of examples, since most of them involve some special routing configuration.
+</p>
+
+<p>
+You can of course do this without UCI, read on how:
+</p>
+
+<p>
+Routing through your tunnel can be as simple as &#039;send-it-all&#039;, the default if you use LuCI to create the interface, or as complex as you want. Advanced routing is not the purpose of this howto, but if all you want is to do simple source based routing, that is, route traffic through your VPN based in the hosts IP addresses, here is how.
+</p>
+
+<p>
+First you need to install the <code>ip</code> package (formerly <code>iproute2</code>). It allows you, among other things, to enable more than one routing table and to create rules to apply them, without any additional firewall rules. For this to work, host&#039;s IP must be always the same. You can configure it manually in the host or designate one in your DHCP using it&#039;s MAC address or host name. 
+</p>
+
+<p>
+Now use <code>opkg</code> or LuCI to install <code>ip</code> and create a new routing table. To do that edit <code><a href="notuci.config#etciproute2rt_tables" class="wikilink1" title="doc:howto:notuci.config">/etc/iproute2/rt_tables</a></code>. It should look like this:
+</p>
+
+<p>
+<pre class="code">#
+# reserved values
+#
+255  local
+254  main
+253  default
+10   vpn
+0    unspec
+#
+# local
+#
+#1   inr.ruhelp</pre>
+
+</p>
+
+<p>
+Only the line <code>10  vpn</code> was added and both, the number and the name are for you to chose, just don&#039;t mess with the tables already there unless you really know what you&#039;re doing. Save the file and add one ore more host rules in terminal. Supposing you want to route two hosts with addresses 192.168.1.20 and 192.168.1.30 (could be any addresses) use
+</p>
+
+<p>
+<pre class="code">ip rule add from 192.168.1.20 table vpn
+ip rule add from 192.168.1.30 table vpn</pre>
+
+</p>
+
+<p>
+Now add a default route to your new table and flush the route cache using
+</p>
+
+<p>
+<pre class="code">ip route add default via &lt;ip_of_the_far_end_of_your_tunnel&gt; dev &lt;pptp_iface_name&gt; table vpn
+ip route flush cache</pre>
+
+</p>
+
+<p>
+Now all the traffic from hosts using the alternate routing table will go through the VPN. You can <code>traceroute</code> from a VPN routed host to check it. The table you created will survive reboots (it&#039;s written), but the route and rules won&#039;t so you must add them in some way.  Search documentation for the proper way to do that or wait until this part of the howto is finished.
+</p>
+
+<p>
+You can do a lot using only <code>ip</code> package routing manipulation. For even more complex routing rules, it can also be coupled with <code>iptables</code> marking rules: <code>iptables</code> marks the packets using <code>PREROUTING</code> and <code>mangle</code> table, and <code>ip</code> routes them according to the marking. Just google for information about it.
+</p>
+
+</div>
+
+<h2 class="sectionedit15" id="troubleshooting">Troubleshooting</h2>
+<div class="level2">
+
+<p>
+If the interface is not up you must check your router&#039;s log (in LuCi or using the command <code>logread</code> in CLI) to see what went wrong and troubleshoot accordingly.
+</p>
+
+</div>
+
+<h2 class="sectionedit16" id="notes">Notes</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> The PPTP Client Project Homepage: <a href="http://pptpclient.sourceforge.net/" class="urlextern" title="http://pptpclient.sourceforge.net/"  rel="nofollow">http://pptpclient.sourceforge.net/</a></div>
+</li>
+<li class="level1"><div class="li"> The IProute2 Project Homepage: <a href="http://www.policyrouting.org" class="urlextern" title="http://www.policyrouting.org"  rel="nofollow">http://www.policyrouting.org</a></div>
+</li>
+</ul>
+<hr />
+
+</div>
+<div class="plugin_include_content plugin_include__meta:infobox:outdated" id="plugin_include__meta__infobox__outdated">
+<div class="level2">
+
+<p>
+
+<table class="inline" style="width:70%; margin-left:15%">
+  <tr>
+    <td style="border-left:6px solid #f57900; vertical-align:middle">
+      <img src="../../_media/meta/icons/tango/48px-outdated.svg.png" alt="" style="float:left; margin-right:0.5em" />
+      <strong>Outdated Information!</strong><br />
+      This article contains information that is outdated or no longer valid. You can <a href="vpn.client.pptp?do=edit">edit</a> this page to update it.
+    </td>
+  </tr>
+</table>
+
+</p>
+
+</div>
+</div>
+<div class="level2">
+
+</div>
+
+<h2 class="sectionedit19" id="oldwikipptp_client">Oldwiki: PPTP Client</h2>
+<div class="level2">
+
+<p>
+How to configure your router as a PPTP client to connect to a PPTP server such as MS VPN.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> If your service provider needs you to use PPTP for internet access, see the simpler <a href="http://wiki.openwrt.org/doc/howto/obsolete.faq" class="wikilink2" title="doc:howto:obsolete.faq" rel="nofollow">obsolete.faq</a> answer <em>How do I configure PPTP for internet access?</em>
+</p>
+
+</div>
+
+<h2 class="sectionedit20" id="requirements">Requirements</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit21" id="packages">Packages</h3>
+<div class="level3">
+
+<p>
+Install the <em>pptp</em>, <em>kmod-mppe</em> and <em>kmod-crypto</em> package:
+<pre class="code">ipkg install pptp kmod-mppe kmod-crypto</pre>
+
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_smile.gif" class="icon" alt=":-)" /> While the <em>pptp</em> package is installed already if you are using the White Russian RC5 <em>pptp</em> build of OpenWrt, you still need to install <em>kmod-mppe</em> and <em>kmod-crypto</em> for encryption and compression support.
+</p>
+
+</div>
+
+<h3 class="sectionedit22" id="modules">Modules</h3>
+<div class="level3">
+<div class="table sectionedit23"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Feature </th><th class="col1"> Required Modules </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> Minimum PPTP support</td><td class="col1"> slhc ppp_generic ppp_async</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> Encryption or compression</td><td class="col1"> sha1 arc4 ppp_mppe_mppc</td>
+	</tr>
+</table></div>
+
+<p>
+At minimum, add the following lines to <em>/etc/modules</em>:
+<pre class="code">slhc
+ppp_generic
+ppp_async</pre>
+
+</p>
+
+<p>
+If you need to use encryption or compression, add the following lines to <em>/etc/modules</em>:
+<pre class="code">ppp_mppe_mppc
+arc4
+sha1</pre>
+
+</p>
+
+<p>
+then either reboot or load the modules this once:
+<pre class="code">insmod slhc
+insmod ppp_generic
+insmod ppp_async
+insmod ppp_mppe_mppc
+insmod arc4
+insmod sha1</pre>
+
+</p>
+
+<p>
+See ticket <a href="https://dev.openwrt.org/ticket/412" class="urlextern" title="https://dev.openwrt.org/ticket/412"  rel="nofollow">#412</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit24" id="configuring_a_tunnel">Configuring a Tunnel</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit25" id="etcpppoptionspptp">/etc/ppp/options.pptp</h3>
+<div class="level3">
+
+<p>
+This file is provided by the <em>pptp</em> package, and works as-is.  It sets the options for all tunnels initiated from your router.
+</p>
+
+<p>
+There&#039;s no need to change the file now, but there are several options you can change later if you like, see the manual page for <em>pppd</em>:
+</p>
+<div class="table sectionedit26"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign"> Option                 </th><th class="col1"> Purpose </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> lcp-echo-failure n      </td><td class="col1"> keep-alive, maximum number of echo attempts before considering the link to be dead </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> lcp-echo-interval n     </td><td class="col1"> keep-alive, time between each echo attempt in seconds </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> idle n                  </td><td class="col1"> terminated tunnel after  n seconds of inactivity, set to 0 to disable </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> refuse-eap              </td><td class="col1 leftalign"> refuse to authenticate using EAP, needed with some recent servers, try it if you see EAP responses in debug log  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> persist                 </td><td class="col1 leftalign"> do not exit after a connection is terminated; instead try to reopen the connection  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> mppe required,no40,no56 </td><td class="col1"> forces 128-bit encryption </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit27" id="etcppppeerspeer_name">/etc/ppp/peers/peer_name</h3>
+<div class="level3">
+
+<p>
+Make the <em>/etc/ppp/peers directory</em> and create a file named after the peer:
+<pre class="code">mkdir -p /etc/ppp/peers
+cd /etc/ppp/peers
+touch peer_name
+chmod 600 peer_name</pre>
+
+</p>
+
+<p>
+Substitute <em>peer_name</em> above with a descriptive one for the link you are trying to establish.
+</p>
+
+<p>
+The file created defines the link with the VPN server and there are a few necessary options. Edit and add the following to your peer-file:
+<pre class="code">pty &quot;pptp hostnameOrIp --nolaunchpppd&quot;</pre>
+
+</p>
+
+<p>
+Here we instruct <em>pppd</em> to launch <em>pptp</em> to communicate with the VPN server. Substitute <em>hostnameOrIp</em> with the <abbr title="Domain Name System">DNS</abbr> hostname or IP-address of the VPN server you want to connect to.
+</p>
+
+<p>
+<pre class="code">mppe required,stateless</pre>
+
+</p>
+
+<p>
+Require that the connection be encrypted, using stateless encryption.  Most tunnel servers require encryption, so try this first, and if you get a warning suggesting that the server doesn&#039;t want MPPE, then remove this line.
+</p>
+
+<p>
+<pre class="code">name DOMAIN\\Username</pre>
+
+</p>
+
+<p>
+Define the username for the VPN-connection (the password is stored in <em>chap-secrets</em>, see below). Substitute <em>DOMAIN</em> with the Windows Domain your user belongs to or remove <em>DOMAIN\\</em> if none is required. Also substitute <em>Username</em> above with the user you want to use to connect with the VPN server.
+</p>
+
+<p>
+<pre class="code">remotename peer_name</pre>
+
+</p>
+
+<p>
+Add this to properly specify the account and password in <em>chap-secrets</em> (see below).
+</p>
+
+<p>
+<pre class="code">file /etc/ppp/options.pptp</pre>
+
+</p>
+
+<p>
+Instruct <em>pppd</em> to load the generic options provided by the <em>pptp</em> package.
+</p>
+
+<p>
+<pre class="code">replacedefaultroute</pre>
+
+</p>
+
+<p>
+You need to add this line in case you use PPTP to access the Internet.
+</p>
+
+<p>
+<pre class="code">ipparam name</pre>
+
+</p>
+
+<p>
+This is optional.  Substitute <em>name</em> with the one chosen for the peer-file. This is used as a parameter to the <em>ip-up</em> and <em>ip-down</em> script executed upon connection and tear down of the link. Hence, you can write that script to behave differently depending on which peer we are connecting to or disconnecting from.
+</p>
+
+<p>
+Any other <em>pppd</em><em>/pptp</em> options not considered generic (usable by all PPTP connections) should go below the above options in the peer-file. To enable on demand &quot;dialling&quot; for example; add <em>persist</em>, <em>demand</em> and <em>idle 3600</em>, to make the router disconnect after one hour of inactivity and bring it back up again once the link is required.
+</p>
+
+</div>
+
+<h3 class="sectionedit28" id="etcpppchap-secrets">/etc/ppp/chap-secrets</h3>
+<div class="level3">
+
+<p>
+The <em>/etc/ppp/chap-secrets</em> file contains a list of usernames and passwords for use by <em>pppd</em>.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> For the <em>bin</em> and <em>pptp</em> builds of OpenWrt, the file will start out being a symbolic link to a template in <em>/rom</em>, so remove the link, copy the template, and make sure it is <em>chmod 600</em>.
+</p>
+
+<p>
+Add the following to the <em>/etc/ppp/chap-secrets</em> file:
+<pre class="code">DOMAIN\\Username peer_name Password *</pre>
+
+</p>
+
+<p>
+There are four fields separated by spaces:
+</p>
+<ul>
+<li class="level1"><div class="li"> substitute <em>DOMAIN\\Username</em>. It is important that this match the <em>name</em> in the <em>/etc/ppp/peers/peer_name</em> file above. So, if no <em>DOMAIN\\</em> was used, do not enter one here either.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> substitute <em>peer_name</em> with whatever you used for <em>remotename</em> in the <em>/etc/ppp/peers/peer_name</em> file.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> substitute <em>Password</em> with the password given to you by the owner of the PPTP server.  If the password contains blanks or special characters, enclose it in double-quotes, &quot;like this&quot;.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> the asterisk tells <em>pppd</em> that this tunnel may use any IP address.  Normally the PPTP server determines the address.</div>
+</li>
+</ul>
+
+<p>
+Anyway, in many cases this is still not enough to get PPTP-internet work. Due to critical bug in <em>pppd</em>, it create route to your pptp-server through self-established interface (ppp0). This way it gets not route to the VPN server (loop) and breaks the connection in some minutes. To prevent this, you have to delete this route upon the connection (see ip-up). If your VPN-server lies behind your default gateway (not in your subnet), you also MUST add additional route to VPN-server. This case quite common and very few routers have an ability to define a route to VPN-server.
+</p>
+
+<p>
+So for this mentioned to work, you need to add following lines to your /etc/ppp/ip-up:
+</p>
+
+<p>
+<pre class="code">DG=10.188.0.17 #this is your default gateway
+/sbin/route del -host $5 dev ppp0 #we delete &quot;stupid&quot; pppd route
+/sbin/route add -host $5 gw $DG dev vlan1 #we add route to vpn-server in case you need it</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit29" id="testing_a_tunnel">Testing a Tunnel</h2>
+<div class="level2">
+
+<p>
+The <em>pppd</em> command is used to start a tunnel. The syntax is <em>pppd call peername</em>, where <em>peername</em> is one of the peer files in <em>/etc/ppp/peers</em>:
+<pre class="code">pppd call peername updetach</pre>
+
+</p>
+<div class="table sectionedit30"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Option </th><th class="col1"> Purpose </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<th class="col0"> call<em> name| obtain options from file </em>/etc/ppp/peers/&#039;&#039;name</th><td class="col1"></td>
+	</tr>
+	<tr class="row2">
+		<th class="col0"> updetach </th><th class="col1">wait until the connection is made and then detach process from terminal</th>
+	</tr>
+</table></div>
+
+<p>
+To stop the tunnel, kill the <em>pppd</em> process:
+<pre class="code">killall pppd</pre>
+
+</p>
+
+<p>
+To test a tunnel and send debug output to the console, enter from the command prompt:
+<pre class="code">pppd call peername debug dump nodetach</pre>
+
+</p>
+<div class="table sectionedit31"><table class="inline">
+	<tr class="row0">
+		<th class="col0"> Option </th><th class="col1"> Purpose </th>
+	</tr>
+	<tr class="row1">
+		<th class="col0"> debug </th><th class="col1">display what is happening during negotation</th>
+	</tr>
+	<tr class="row2">
+		<th class="col0"> dump </th><th class="col1">display the <em>pppd</em> options and where they came from</th>
+	</tr>
+	<tr class="row3">
+		<th class="col0"> nodetach </th><th class="col1">do not detach the process from terminal once link is started</th>
+	</tr>
+</table></div>
+
+<p>
+The output of a successful connection may look as follows:
+<pre class="code">root@ap1:~# pppd call peername debug nodetach
+using channel 2
+Using interface ppp1
+Connect: ppp1  /dev/pts/2
+sent [LCP ConfReq id=0x1   ]
+rcvd [LCP ConfReq id=0x0         ]
+sent [LCP ConfRej id=0x0     ]
+rcvd [LCP ConfAck id=0x1   ]
+rcvd [LCP ConfReq id=0x1    ]
+sent [LCP ConfNak id=0x1 ]
+rcvd [LCP ConfReq id=0x2    ]
+sent [LCP ConfAck id=0x2    ]
+sent [LCP EchoReq id=0x0 magic=0xeae657f6]
+rcvd [CHAP Challenge id=0x0 , name = &quot;VPNSERVER&quot;]
+sent [CHAP Response id=0x0 , name = &quot;DOMAIN\\Username&quot;]
+rcvd [LCP EchoRep id=0x0 magic=0x71251209]
+rcvd [CHAP Success id=0x0 &quot;S=09F4D2BD2B89C41308C4853687110838FB1D1DE3&quot;]
+sent [CCP ConfReq id=0x1 ]
+sent [IPCP ConfReq id=0x1  ]
+rcvd [CCP ConfReq id=0x4 ]
+sent [CCP ConfNak id=0x4 ]
+rcvd [IPCP ConfReq id=0x5 ]
+sent [IPCP ConfAck id=0x5 ]
+rcvd [CCP ConfNak id=0x1 ]
+sent [CCP ConfReq id=0x2 ]
+rcvd [IPCP ConfRej id=0x1 ]
+sent [IPCP ConfReq id=0x2 ]
+rcvd [CCP ConfReq id=0x6 ]
+sent [CCP ConfAck id=0x6 ]
+rcvd [CCP ConfAck id=0x2 ]
+MPPC/MPPE 128-bit stateful compression enabled
+rcvd [IPCP ConfNak id=0x2 ]
+sent [IPCP ConfReq id=0x3 ]
+rcvd [IPCP ConfAck id=0x3 ]
+local IP address 192.168.0.2
+remote IP address 192.168.0.1
+Script /etc/ppp/ip-up started (pid 872)
+Script /etc/ppp/ip-up finished (pid 872), status = 0x0</pre>
+
+</p>
+
+<p>
+If problems arise, from here search the <em>pppd</em> and <em>pptp</em> documentation and forums, since there is already tons of information available.
+</p>
+
+</div>
+
+<h2 class="sectionedit32" id="configuring_routing">Configuring Routing</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit33" id="etcpppip-up_andetcpppip-down">/etc/ppp/ip-up and /etc/ppp/ip-down</h3>
+<div class="level3">
+
+<p>
+The file <em>/etc/ppp/ip-up</em> is a shell script which is executed when the tunnel is started. It is nice to be able to configure <em>iptables</em> or routing once the tunnel is up and remove that configuration once the tunnel is taken down.
+</p>
+
+<p>
+<strong>note:</strong> In Kamikaze both ip-up and ip-down are provided. Instead put your scripts in <em>/etc/ppp/ip-up.d</em> and <em>/etc/ppp/ip-down.d</em> respectfully. Make sure they are marked executable.
+</p>
+
+<p>
+Create the files and set execute permission if they do not already exist:
+<pre class="code">touch /etc/ppp/ip-up
+chmod 755 /etc/ppp/ip-up
+touch /etc/ppp/ip-down
+chmod 755 /etc/ppp/ip-down</pre>
+
+</p>
+
+<p>
+Edit the files and add the following preamble. <em>#!/bin/sh</em> is required as the first line, to enable execution of the script. The other text, is good as a reminder of the parameters used when pppd calls these scripts.
+<pre class="code">#!/bin/sh
+# parameters
+# $1 the interface name used by pppd (e.g. ppp3)
+# $2 the tty device name
+# $3 the tty device speed
+# $4 the local IP address for the interface
+# $5 the remote IP address
+# $6 the parameter specified by the &#039;ipparam&#039; option to pppd</pre>
+
+</p>
+
+<p>
+It is the sixth parameter which is defined by <em>ipparam</em> in the peer-file above. It is a useful parameter to distinguish the scripts behaviour depending on which tunnel or PPP connection we are bringing up or down.
+</p>
+
+<p>
+A generic structure for the ip-up and ip-down script shall check the <em>$6</em> parameter to match with an appropriate code section through a <em>case</em> branch as follows:
+<pre class="code">case &quot;$6&quot; in
+ peer-name1)
+  
+  ;;
+ peer-name2)
+  
+  ;;
+  *)
+esac
+exit 0</pre>
+
+</p>
+
+<p>
+Substitute <em>peer-name1</em>, with the value given to <em>ipparam</em> above in the peer-file. Since we are configuring the first VPN link, you probably do not <em>peer-name2</em>, it is included here as a template when adding another link. For now, remove it. Also, remove <em>&gt;</em>, these will be replaced with actual commands below.
+</p>
+
+<p>
+When you use commands in these scripts, be sure to either use their full path or add `/usr/sbin` and `/sbin` to the <em>PATH</em> first.  pppd intentionally restricts the <em>PATH</em> available to the scripts for security reasons.
+</p>
+
+</div>
+
+<h3 class="sectionedit34" id="iptables_firewall_rules">iptables (firewall) rules</h3>
+<div class="level3">
+
+<p>
+To update your firewall rules when the tunnel is brought up or torn down, we need to add a few commands to the ip-up and ip-down scripts created above. Also note, all these commands you can add to something like /etc/init.d/S70routes (create it). Though you have no ppp0 interface upon <em>S70routes</em> execution, it will work nevetherless. In this case you also do not need to remove these rules in ip-down. You can just add these lines to your S70routes:
+</p>
+
+<p>
+<pre class="code">iptables -A FORWARD -t filter -i br0 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+iptables -A FORWARD -t filter -i ppp0 -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -t nat -A POSTROUTING -o ppp0 -s 192.168.168.0/24 -d 0/0 -j MASQUERADE</pre>
+
+</p>
+
+<p>
+Where 192.168.168.0/24 is your internal subnet (<abbr title="Local Area Network">LAN</abbr>). This, though not delicate, works for common case.
+</p>
+
+<p>
+To allow outgoing communication with the tunnel add the following to <em>ip-up</em>:
+<pre class="code">iptables -A forwarding_rule -o $1 -j ACCEPT</pre>
+
+</p>
+
+<p>
+Likewise, if we want to allow incoming traffic from the tunnel add to <em>ip-up</em>:
+<pre class="code">iptables -A forwarding_rule -i $1 -j ACCEPT</pre>
+
+</p>
+
+<p>
+To enable masquerading (NAT) to the network beyond the tunnel add to ip-up:
+<pre class="code">iptables -t nat -A postrouting_rule -o $1 -j MASQUERADE</pre>
+
+</p>
+
+<p>
+Masquerading does not require <pre class="code">iptables -A forwarding_rule -i $1 -j ACCEPT</pre>
+
+ as described above. It is only required if the other end of the tunnel will send traffic to our network. Incoming traffic requires the other end of the tunnel to know about our local network topology either through static routes or by other means (routing protocols such as RIP and OSPF).
+</p>
+
+<p>
+When adding (inserting) into the <em>iptables</em> ruleset, we need a corresponding removal in <em>ip-down</em> when the tunnel is taken down. Simply add the same command as above into ip-down substituting <em>-A</em> with <em>-D</em>:
+<pre class="code">iptables -D forwarding_rule -o $1 -j ACCEPT
+iptables -D forwarding_rule -i $1 -j ACCEPT
+iptables -t nat -D postrouting_rule -o $1 -j MASQUERADE</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit35" id="static_routing">static routing</h3>
+<div class="level3">
+
+<p>
+This howto assumes you will not use the tunnel as a default route. Instead each relevant network will be added to the static routing table of the OpenWrt router. Other means, such as routing protocols could likely be used. Please update this Wiki if you have any good ideas regarding this.
+</p>
+
+<p>
+To add a network to the routing table for the tunnel we again go to the <em>ip-up</em> script and add the route. The general syntax is:
+<pre class="code">route add -net  netmask  $1</pre>
+
+</p>
+
+<p>
+Subsititue <strong>&#039; with one you want to reach through the VPN-link. Also, </strong>&#039; should be replaced with the appropriate value.
+</p>
+
+<p>
+For example, to make network 192.168.0.0 with a netmask of 255.255.255.0 reachable, add:
+<pre class="code">route add -net 192.168.0.0 netmask 255.255.255.0 $1</pre>
+
+</p>
+
+<p>
+Again, a corresponding route <em>delete</em> command should be added to the <em>ip-down</em> script. To delete a network from the routing table, replace <em>add</em> with <em>del</em> and also remove <em>$1</em> at the end of the command, since it is not needed.
+</p>
+
+<p>
+To continue the example above, deleting the route added by <em>ip-up</em> for the 192.168.0.0/255.255.255.0 network:
+<pre class="code">route del -net 192.168.0.0 netmask 255.255.255.0</pre>
+
+</p>
+
+<p>
+If entered in <em>ip-down</em> for the appropriate link, the 192.168.0.0/24-network will be removed from the static routing table when the link is taken down.
+</p>
+
+</div>
+
+<h3 class="sectionedit36" id="static_routing_for_all_packets">static routing for all packets</h3>
+<div class="level3">
+
+<p>
+(It should be possible to direct all packets into the tunnel, if that&#039;s what you want. But be careful; if you direct the tunnel&#039;s packets as well, you&#039;ll end up with a routing loop and nothing will work.  To avoid this, add a static route for your tunnel server using the network interface.  Then add a default route that directs everything else to the tunnel network interface. The static host route takes priority over the default route, avoiding the  loop.  – <a href="http://wiki.openwrt.org/doc/howto/jamescameron" class="wikilink2" title="doc:howto:jamescameron" rel="nofollow">JamesCameron</a>, PPTP Linux maintainer.)
+</p>
+
+</div>
+
+<h2 class="sectionedit37" id="connecting_on_startup">Connecting on startup</h2>
+<div class="level2">
+
+<p>
+To connect instantly as the router boots, add the <em>pppd call peername</em> command to a start script in <pre class="code">/etc/init.d/</pre>
+
+. If a connection cannot be made with the VPN-server as the WAN link may not be active yet, either experiment with a sleep prior to calling <em>pppd</em> or come up with a better solution (see on demand dial below as well).
+</p>
+
+</div>
+
+<h2 class="sectionedit38" id="on_demand_dial">On demand &quot;dial&quot;</h2>
+<div class="level2">
+
+<p>
+<em>pppd</em> supports bringing a link up when it is needed. This requires that the static routes are already in place, prior to establishing the connection. Hence, it wont help adding them to <em>ip-up</em>. Instead these routes need to be entered in the start script.
+</p>
+
+<p>
+Edit the start script in <pre class="code">/etc/init.d/</pre>
+
+ and add the required networks through route add for the link in question.
+</p>
+
+<p>
+Consider the example, where we have a peer defined in <pre class="code">/etc/ppp/peers</pre>
+
+ called peer1. Then, when establishing the link in demand dial mode, we sleep for a bit, then add the static routes in question.
+<pre class="code">pppd call peer1 persist demand idle 3600
+sleep 2
+route add -net 192.168.0.0 netmask 255.255.255.0 ppp0</pre>
+
+</p>
+
+<p>
+Here we can not use a parameter for the link (normally $1 in the ip-up and ip-down scripts). We have to make sure the routes are entered for the correct link, since we are in a start script we can be quite certain no other ppp-links have been brought up. Type <em>ifconfig</em> in a console to ensure that the correct interface is used. When using PPPoE it is likely a ppp0 interface already exists. Then, the <em>pppd call</em> command will bring up the next one, ppp1 in this case. Hence, update the start script to reflect the correct interface name.
+</p>
+
+<p>
+Once an IP packet is sent to the router destined for the VPN ppp interface, the link is brought up. After 3600 (the idle option above) seconds of inactivity, the link is brought down anew and it will revert to the behaviour of waiting for a packet to arrive destined for the VPN link.
+</p>
+
+</div>
+
+<h2 class="sectionedit39" id="routing_back">Routing back</h2>
+<div class="level2">
+
+<p>
+If you want the other end of the VPN-connection to be able to route packets back to the local (OpenWrt) network you will have to add the appropriate static routes to the VPN-server or use a better solution such as a routing protocol.
+</p>
+
+<p>
+To add static routes to a pppd server, use the ip-up and ip-down scripts on the server.
+</p>
+
+<p>
+In Windows, you can define static routes for a VPN connection by administering the VPN-user in question. Choose the <em>Dial-in</em> tab and tick the checkbox next to <em>Apply Static Routes</em>. Click the <em>Static Routes …</em> button to add the necessary routes for traffic to flow in the opposite direction.
+</p>
+
+</div>
+
+<h3 class="sectionedit40" id="quagga">Quagga</h3>
+<div class="level3">
+
+<p>
+The OSPF, RIP and other routing protocols are provided by Quagga.  The OSPF and RIP protocols are commonly implemented and also by Microsoft Windows®.  The routing protocol can be made responsible to handle the routing table updates when a pptp link is brought up or taken down.  Please see the relevant documentation for Quagga or other routing daemons you may need to use.
+</p>
+
+</div>
+
+<h2 class="sectionedit41" id="troubleshooting1">Troubleshooting</h2>
+<div class="level2">
+
+<p>
+if you cannot connect, and you get some error like:
+</p>
+
+<p>
+<pre class="code">rcvd [CCP ConfReq id=0x1 ]
+sent [CCP ConfNak id=0x1 ]
+rcvd [LCP TermReq id=0x3 &quot;MPPE required but peer negotiation failed&quot;]
+LCP terminated by peer (MPPE required but peer negotiation failed)</pre>
+
+</p>
+
+<p>
+you have to add a line in the <em>/etc/ppp/options.pptp</em>
+<pre class="code">mppe required,no40,no56,stateless</pre>
+
+</p>
+
+<p>
+if you get an error like this:
+<pre class="code">Received bad configure-ack:  02 06 00 00 00 00 05 06 92 64 55 28</pre>
+
+</p>
+
+<p>
+you propably stumbled into <a href="http://pptpclient.sourceforge.net/howto-diagnosis.phtml#bad_configure_ack" class="urlextern" title="http://pptpclient.sourceforge.net/howto-diagnosis.phtml#bad_configure_ack"  rel="nofollow">LCP ConfNak id=0x1 &lt;mru 1500&gt;</a>
+To fix this you need to edit
+<pre class="code">/lib/network/pptp.sh</pre>
+
+</p>
+
+<p>
+Find the lines at the end of the file, which set the mtu and delete them.
+</p>
+
+</div>
+
+<h2 class="sectionedit42" id="example_scripts">Example Scripts</h2>
+<div class="level2">
+
+<p>
+These example scripts show how to configure <em>iptables</em> rules when a tunnel comes up or goes down.
+</p>
+
+<p>
+Several things to note about the scripts:
+</p>
+<ol>
+<li class="level1"><div class="li"> the <em>iptables</em> and <em>route</em> commands were entered in full path format, if this isn&#039;t done the scripts silently fail with a 127 exit code reported by <em>pppd</em>,</div>
+</li>
+<li class="level1"><div class="li"> logging is done to to `/var/log/ppp` using <em>echo</em>,</div>
+</li>
+<li class="level1"><div class="li"> incoming connections aren&#039;t enabled, add <em>iptables</em> rules if you need them,</div>
+</li>
+<li class="level1"><div class="li"> change the 10.0.0.0/8 remote subnet according to your needs.</div>
+</li>
+</ol>
+
+<p>
+Improvements are welcome.
+</p>
+
+</div>
+
+<h3 class="sectionedit43" id="etcpppip-up">/etc/ppp/ip-up</h3>
+<div class="level3">
+
+<p>
+<pre class="code">#!/bin/sh
+# parameters
+# $1 the interface name used by pppd (e.g. ppp3)
+# $2 the tty device name
+# $3 the tty device speed
+# $4 the local IP address for the interface
+# $5 the remote IP address
+# $6 the parameter specified by the &#039;ipparam&#039; option to pppd
+
+logfile=/var/log/ppp
+echo &quot;`date` $0 $1 $2 $3 $4 $5 $6&quot; &gt;&gt; $logfile
+
+case &quot;$6&quot; in
+ peer-name1)
+  A=&quot;/usr/sbin/iptables -t filter -I FORWARD -o $1 -j ACCEPT&quot;
+  B=&quot;/usr/sbin/iptables -t nat -A POSTROUTING -o $1 -j MASQUERADE&quot;
+  C=&quot;/sbin/route add -net 10.0.0.0 netmask 255.0.0.0 $1&quot;
+  $A
+  echo &quot; $? $A&quot; &gt;&gt; $logfile
+  $B
+  echo &quot; $? $B&quot; &gt;&gt; $logfile
+  $C
+  echo &quot; $? $C&quot; &gt;&gt; $logfile
+  ;;
+  *)
+esac
+exit 0</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit44" id="etcpppip-down">/etc/ppp/ip-down</h3>
+<div class="level3">
+
+<p>
+<pre class="code">#!/bin/sh
+# parameters
+# $1 the interface name used by pppd (e.g. ppp3)
+# $2 the tty device name
+# $3 the tty device speed
+# $4 the local IP address for the interface
+# $5 the remote IP address
+# $6 the parameter specified by the &#039;ipparam&#039; option to pppd
+
+logfile=/var/log/ppp
+echo &quot;`date` $0 $1 $2 $3 $4 $5 $6&quot; &gt;&gt; $logfile
+
+case &quot;$6&quot; in
+ peer-name1)
+   A=&quot;/usr/sbin/iptables -t filter -D FORWARD -o $1 -j ACCEPT&quot;
+   B=&quot;/usr/sbin/iptables -t nat -D POSTROUTING -o $1 -j MASQUERADE&quot;
+   C=&quot;/sbin/route del -net 10.0.0.0 netmask 255.0.0.0 $1&quot;
+   $A
+   echo &quot; $? $A&quot; &gt;&gt; $logfile
+   $B
+   echo &quot; $? $B&quot; &gt;&gt; $logfile
+   $C
+   echo &quot; $? $C&quot; &gt;&gt; $logfile
+   ;;
+  *)
+esac
+exit 0</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit45" id="questions">Questions</h2>
+<div class="level2">
+
+<p>
+How can I route only certain ports through the tunnel, and use my regular WAN interface for the rest of my traffic? – BjörnLindström
+</p>
+<ul>
+<li class="level1"><div class="li"> use prerouting packet marking and policy routing, according to the <a href="http://lartc.org/howto/lartc.netfilter.html" class="urlextern" title="http://lartc.org/howto/lartc.netfilter.html"  rel="nofollow">Linux Advanced Routing &amp; Traffic Control HOWTO</a>, for example:</div>
+</li>
+</ul>
+
+<p>
+<strong>Note that this will not work on White Russian RC6</strong> (see <a href="http://forum.openwrt.org/viewtopic.php?pid=40355" class="urlextern" title="http://forum.openwrt.org/viewtopic.php?pid=40355"  rel="nofollow">http://forum.openwrt.org/viewtopic.php?pid=40355</a>)
+</p>
+<ul>
+<li class="level1"><div class="li"> create a new routing table and add a rule to use it for packets marked with a 1:</div>
+</li>
+</ul>
+
+<p>
+  <pre class="code"># mkdir /etc/iproute2
+# echo 201 table1 &gt;&gt; /etc/iproute2/rt_tables
+# ip rule add fwmark 1 table table1
+# ip rule ls
+0:  from all lookup local
+32764:  from all fwmark        1 lookup table1
+32766:  from all lookup main
+32767:  from all lookup default</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> set routes on the new table (here just a default route, probably should copy other entries from main routing table):</div>
+</li>
+</ul>
+
+<p>
+  <pre class="code"># ip route add default dev vlan1 table table1
+# ip route list table table1
+default via 192.168.0.1 dev vlan1</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Add netfilter rules to mark packets (here on TCP 80):</div>
+</li>
+</ul>
+
+<p>
+  <pre class="code"># iptables -t mangle -A PREROUTING -p tcp --dport 80 -j MARK --set-mark 1
+# iptables -t mangle -L PREROUTING -v
+Chain PREROUTING (policy ACCEPT 5543K packets, 3265M bytes)
+pkts bytes target     prot opt in     out     source               destination
+   20  3924 MARK       tcp  --  any    any     anywhere             anywhere            tcp dpt:80 MARK set 0x1</pre>
+
+</p>
+
+<p>
+ References:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://lartc.org/howto/lartc.netfilter.html" class="urlextern" title="http://lartc.org/howto/lartc.netfilter.html"  rel="nofollow">http://lartc.org/howto/lartc.netfilter.html</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://forum.openwrt.org/viewtopic.php?pid=40355" class="urlextern" title="http://forum.openwrt.org/viewtopic.php?pid=40355"  rel="nofollow">http://forum.openwrt.org/viewtopic.php?pid=40355</a></div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> the iptables ROUTE target extension can also do this, but it is not in the OpenWrt kernel. It isn&#039;t in any of the kmod-ipt-* packages.  The module would be called ipt_ROUTE.  Using this method, to redirect port 80 to exit via a PPTP tunnel interface:</div>
+</li>
+</ul>
+
+<p>
+ <pre class="code">iptables --append POSTROUTING --table mangle --protocol tcp --dport 80 --jump ROUTE --oif ppp0 --continue</pre>
+
+</p>
+
+<p>
+ References:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://www.netfilter.org/projects/patch-o-matic/pom-extra.html" class="urlextern" title="http://www.netfilter.org/projects/patch-o-matic/pom-extra.html"  rel="nofollow">http://www.netfilter.org/projects/patch-o-matic/pom-extra.html</a></div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/vpn.client.pptp.txt</bdi> · Last modified: 2013/10/28 08:31 by <bdi>lorema</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="vpn.client.pptp?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="vpn.client.pptp?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="vpn.client.pptp?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="vpn.client.pptp#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Avpn.client.pptp&amp;1432267252" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

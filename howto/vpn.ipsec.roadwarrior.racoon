@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>IPSec Road Warrior Configuration [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,vpn.ipsec.roadwarrior.racoon"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="vpn.ipsec.roadwarrior.racoon?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/vpn.ipsec.roadwarrior.racoon"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/vpn.ipsec.roadwarrior.racoon"/>
+<link rel="canonical" href="vpn.ipsec.roadwarrior.racoon"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:vpn.ipsec.roadwarrior.racoon","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432273848 166.182.3.179';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="vpn.ipsec.roadwarrior.racoon#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="vpn.ipsec.roadwarrior.racoon?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="vpn.ipsec.roadwarrior.racoon?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:vpn.ipsec.roadwarrior.racoon" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="vpn.ipsec.roadwarrior.racoon?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="vpn.ipsec.roadwarrior.racoon?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="vpn.ipsec.roadwarrior.racoon?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="vpn.ipsec.roadwarrior.racoon" class="wikilink1" title="doc:howto:vpn.ipsec.roadwarrior.racoon">IPSec Road Warrior Configuration</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/vpn.ipsec.roadwarrior.racoon" class="media" title="cz:doc:howto:vpn.ipsec.roadwarrior.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/vpn.ipsec.roadwarrior.racoon" class="media" title="de:doc:howto:vpn.ipsec.roadwarrior.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="vpn.ipsec.roadwarrior.racoon" class="media" title="doc:howto:vpn.ipsec.roadwarrior.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/vpn.ipsec.roadwarrior.racoon" class="media" title="es:doc:howto:vpn.ipsec.roadwarrior.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/vpn.ipsec.roadwarrior.racoon" class="media" title="fr:doc:howto:vpn.ipsec.roadwarrior.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/vpn.ipsec.roadwarrior.racoon" class="media" title="hu:doc:howto:vpn.ipsec.roadwarrior.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/vpn.ipsec.roadwarrior.racoon" class="media" title="jp:doc:howto:vpn.ipsec.roadwarrior.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/vpn.ipsec.roadwarrior.racoon" class="media" title="pl:doc:howto:vpn.ipsec.roadwarrior.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/vpn.ipsec.roadwarrior.racoon" class="media" title="pt-br:doc:howto:vpn.ipsec.roadwarrior.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/vpn.ipsec.roadwarrior.racoon" class="media" title="ru:doc:howto:vpn.ipsec.roadwarrior.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/vpn.ipsec.roadwarrior.racoon" class="media" title="tr:doc:howto:vpn.ipsec.roadwarrior.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/vpn.ipsec.roadwarrior.racoon" class="media" title="zh-cn:doc:howto:vpn.ipsec.roadwarrior.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/vpn.ipsec.roadwarrior.racoon" class="media" title="zh-tw:doc:howto:vpn.ipsec.roadwarrior.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:vpn.ipsec.roadwarrior.racoon</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="vpn.ipsec.roadwarrior.racoon#ipsec_road_warrior_configuration1">IPSec Road Warrior Configuration</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.roadwarrior.racoon#authentication">Authentication</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.roadwarrior.racoon#security_policies">Security policies</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.roadwarrior.racoon#split_tunnel">Split Tunnel</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.roadwarrior.racoon#naming_services">Naming Services</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.roadwarrior.racoon#openwrt_configuration">OpenWrt Configuration</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.roadwarrior.racoon#firewall_rules">Firewall rules</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.roadwarrior.racoon#client_configuration">Client Configuration</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.roadwarrior.racoon#connection">Connection</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.roadwarrior.racoon#what_s_next">What&#039;s next</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="ipsec_road_warrior_configuration">IPSec Road Warrior Configuration</h1>
+<div class="level1">
+<div class="table sectionedit2"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> For an overview over all existing Virtual private network (VPN)-related articles in the OpenWrt wiki, please visit <a href="vpn.overview" class="wikilink1" title="doc:howto:vpn.overview">vpn.overview</a> </td>
+	</tr>
+</table></div>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> This page is about racoon. The new strongwang documentation can be found <a href="vpn.ipsec.roadwarrior" class="wikilink1" title="doc:howto:vpn.ipsec.roadwarrior">here</a>.
+</p>
+
+<p>
+In the last years SSL VPN Networks made a good job in replacing classic IPsec road warrior clients. Although having some drawbacks a combination of the free <a href="http://www.shrew.net" class="urlextern" title="http://www.shrew.net"  rel="nofollow">ShrewSoft VPN client</a> with an IPsec central site getway still does a good job. As a matter of form this article expands the possible VPN setups to a new scope. Once again you should have some know how of the <a href="vpn.ipsec.basics.racoon" class="wikilink1" title="doc:howto:vpn.ipsec.basics.racoon">basic</a> and <a href="vpn.ipsec.firewall.racoon" class="wikilink1" title="doc:howto:vpn.ipsec.firewall.racoon">firewall</a> setup.
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="ipsec_road_warrior_configuration1">IPSec Road Warrior Configuration</h2>
+<div class="level2">
+
+<p>
+Contrary to the previous articles about <a href="vpn.ipsec.site2site.racoon" class="wikilink1" title="doc:howto:vpn.ipsec.site2site.racoon">site to site</a> neworks we want to allow different computers with a locally installed IPsec client access to the network behind the OpenWrt router. A picture will give a helpful overview.
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/ipsec_roadwarrior.png?id=doc%253Ahowto%253Avpn.ipsec.roadwarrior.racoon" class="media" title="doc:howto:ipsec_roadwarrior.png"><img src="../../_media/doc/howto/ipsec_roadwarrior.png" class="media" alt="" /></a>
+</p>
+
+<p>
+The most important facts are:
+</p>
+<ul>
+<li class="level1"><div class="li"> To make it not too easy we once again want to provide access to two different company networks. ACME <abbr title="Local Area Network">LAN</abbr> with addresses 10.1.2.0/24 and ACME DMZ with 66.77.88.192/26. </div>
+</li>
+<li class="level1"><div class="li"> A laptop that connects to a VPN network is assigned a &quot;secondary VPN inside IP&quot; on a virtual VPN adapter. Our roadwarriors should get IP addresses from the range 192.0.2.0/24. This way they can reach the normal outside network when using the primary network adapter and the company network through their virtual address 192.0.2.X. (*NOTE* that this is inherently INSECURE, because it opens up the possibility of using the laptop as a bridge from the wild to your internal network. A more secure practice is to pass ALL traffic through the VPN when connected, thus giving the laptop the benefit of any firewall/proxy support on the other side.) In case you are not familiar with private IP address ranges you should have look in <a href="http://en.wikipedia.org/wiki/IPv4" class="urlextern" title="http://en.wikipedia.org/wiki/IPv4"  rel="nofollow">Wikipedia</a>. If you are in the wild your laptop very often gets DHCP addresses from the most common private networks (10.0.0.0/8, 172.16.0.0/12 or 192.168.0.0/16). To avoid routing conflicts between the locally connected and the VPN network this special test network has proven to be the best choice for VPN configurations.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit4" id="authentication">Authentication</h2>
+<div class="level2">
+
+<p>
+We already learned that site to site IPsec tunnels use authentication based on preshared keys or certificates. Both of them share a small imperfection when used for roadwarriors - they have no user related secret. When the administrator installs the VPN client he stores the preshared key or the certificate on the road warrior laptop. So any user that has access to the laptop and the stored data can connect to the company network. This encourages a two way authentication process. After phase 1 has completed the user should be asked for a password. The hybrid IPsec authentication process (also called Xauth) provides what we need. 
+</p>
+
+<p>
+Let us start with the user road warrior database that is stored in UCI file <a href="../uci/users" class="wikilink1" title="doc:uci:users">/etc/config/users</a>. Have look over there for further details. As an example we create user otto and enable him for IPsec.
+</p>
+
+<p>
+<pre class="code">config &#039;user&#039;
+  option &#039;enabled&#039; &#039;1&#039;
+  option &#039;name&#039; &#039;otto&#039;
+  option &#039;password&#039; &#039;this_is_ottos_password&#039;
+  option &#039;xauth&#039; &#039;1&#039;</pre>
+
+</p>
+
+<p>
+<strong>Attention</strong>: This user database combined with preshared key authentication depends on three prerequisites:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://patchwork.openwrt.org/patch/1561/" class="urlextern" title="http://patchwork.openwrt.org/patch/1561/"  rel="nofollow">racoon user database patch</a> <strong>not yet in trunk</strong>. It allows racoon to read users and their passwords from a plain file.</div>
+</li>
+<li class="level1"><div class="li"> <a href="vpn.ipsec.basics.racoon#ikedaemon" class="wikilink1" title="doc:howto:vpn.ipsec.basics.racoon">racoon start script</a> of at least version 13. Generates a user/password file from /etc/config/users.</div>
+</li>
+<li class="level1"><div class="li"> <a href="https://dev.openwrt.org/browser/packages/net/ipsec-tools/patches/001-ipsec-tools-def-psk.patch?rev=28102" class="urlextern" title="https://dev.openwrt.org/browser/packages/net/ipsec-tools/patches/001-ipsec-tools-def-psk.patch?rev=28102"  rel="nofollow">racoon patch</a> that allows racoon to accept road warrior connections with one single preshared key.</div>
+</li>
+</ul>
+
+<p>
+If you cannot compile racoon with those patches yourself you have to wait until both of them are in trunk. A workaround could be users stored in /etc/passwd but this is something that we normally do not want. Other ways are LDAP or Radius.
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="security_policies">Security policies</h2>
+<div class="level2">
+
+<p>
+Until now we always had defined tunnel endpoints for site to site IPsec connections. So we could generate security policies in advance. With a road warrior setup this is no longer possible. But that is no problem at all. Pre loaded security policies in the kernel are only important to open VPN tunnels from the OpenWrt router to a remote VPN router. If they are not available the device will simply send packets into the internet without encryption. In our case the tunnel will be established by a remote laptop. After the tunnel is active racoon can generate the required policies. 
+</p>
+
+<p>
+Or to explain it the other way round. All laptops will be assigned IP addresses of a predefined range. If we would create a security policy that routes all of the traffic of this range into one tunnel we cannot have more than one connected machine. Instead each tunnel will only route traffic for a single IP address. This is the simple difference between a site to site and a road warrior configuration.
+</p>
+
+<p>
+What is important for us? Nothing - just a little background information. Our racoon start script will take care of the different variants.
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="split_tunnel">Split Tunnel</h2>
+<div class="level2">
+
+<p>
+Split tunnel describes the fact, that a connected laptop will only send VPN related traffic through the tunnel. All other request will go directly to the internet. This may be a potential security risk and very often VPN laptop clients will route all traffic into the tunnel. At the current development state only a split tunnel setup is possible. The two main reasons are:
+</p>
+<ul>
+<li class="level1"><div class="li"> Split tunnel will save bandwidth of the central side OpenWrt gateway. Otherwise each packet from the laptop to the internet has to pass the tunnel before the gateway will sent it to the outside world.</div>
+</li>
+<li class="level1"><div class="li"> It requires less routing and firewall policies on the gateway. </div>
+</li>
+</ul>
+
+<p>
+But we just have started. Maybe someone has time to implement and document it.
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="naming_services">Naming Services</h2>
+<div class="level2">
+
+<p>
+Being connected to the company network it is helpful to have a working name resolution for internal hostnames. We want to use a central configuration and free the road warriors from manual <abbr title="Domain Name System">DNS</abbr> setup. Racoon allows to push the <abbr title="Domain Name System">DNS</abbr> configuration to the IPsec client after connection has been established. Our <a href="vpn.ipsec.basics.racoon#ikedaemon" class="wikilink1" title="doc:howto:vpn.ipsec.basics.racoon">/etc/init.d/racoon</a> start script takes care of that if we make a proper configuration. Therefore insert the <strong>dns</strong> and <strong>domain</strong> options into the racoon secion of <a href="../uci/racoon" class="wikilink1" title="doc:uci:racoon">/etc/config/racoon</a>.
+</p>
+
+<p>
+<pre class="code">config &#039;racoon&#039;
+  option &#039;dns&#039; &#039;10.1.2.99&#039;
+  option &#039;domain&#039; &#039;acme.inc&#039;</pre>
+
+</p>
+
+<p>
+With these parameters the virtual Shrew VPN network interface will be assigned domain <strong>acme.inc</strong> and the <abbr title="Domain Name System">DNS</abbr> server <strong>10.1.2.99</strong>. If you use OpenWrt <abbr title="Domain Name System">DNS</abbr> and set this option to the internal router IP address do not forget to create a rule VPN→Device UDP 53 and <strong>place it on top</strong> to the other VPN rules.
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/ipsec_fw_rwdns.png?id=doc%253Ahowto%253Avpn.ipsec.roadwarrior.racoon" class="media" title="doc:howto:ipsec_fw_rwdns.png"><img src="../../_media/doc/howto/ipsec_fw_rwdns.png" class="media" alt="" /></a>
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="openwrt_configuration">OpenWrt Configuration</h2>
+<div class="level2">
+
+<p>
+If you are already familiar with UCI racoon configuration you will not see many differences for our setup. No rocket science at all. Here the required information for our ACME infrastructure.
+</p>
+
+<p>
+<pre class="code">...
+config &#039;tunnel&#039; &#039;roadwarrior&#039;
+  option &#039;enabled&#039; &#039;1&#039;
+  option &#039;remote&#039; &#039;anonymous&#039;
+  option &#039;exchange_mode&#039; &#039;aggressive&#039;
+  option &#039;pre_shared_key&#039; &#039;a_very_secret_key&#039;
+  option &#039;dpd_delay&#039; &#039;300&#039;
+  list   &#039;p1_proposal&#039; &#039;pre_g2_3des_sha1_xauth&#039;
+  list   &#039;sainfo&#039; &#039;acme_dmz&#039;
+  list   &#039;sainfo&#039; &#039;acme_lan&#039;
+
+config &#039;sainfo&#039; &#039;acme_lan&#039;
+  option &#039;remote_subnet&#039; &#039;192.0.2.0/24&#039;
+  option &#039;local_subnet&#039; &#039;10.1.2.0/24&#039;
+  option &#039;p2_proposal&#039; &#039;g2_aes_sha1&#039;
+
+config &#039;sainfo&#039; &#039;acme_dmz&#039;
+  option &#039;remote_subnet&#039; &#039;192.0.2.0/24&#039;
+  option &#039;local_subnet&#039; &#039;66.77.88.192/26&#039;
+  option &#039;p2_proposal&#039; &#039;g2_aes_sha1&#039;
+
+config &#039;p1_proposal&#039; &#039;pre_g2_3des_sha1_xauth&#039;
+  option &#039;lifetime&#039; &#039;28800&#039;
+  option &#039;encryption_algorithm&#039; &#039;3des&#039;
+  option &#039;hash_algorithm&#039; &#039;sha1&#039;
+  option &#039;authentication_method&#039; &#039;xauth_psk_server&#039;
+  option &#039;dh_group&#039; &#039;2&#039;
+
+config &#039;p2_proposal&#039; &#039;g2_aes_sha1&#039;
+  option &#039;pfs_group&#039; &#039;2&#039;
+  option &#039;lifetime&#039; &#039;3600&#039;
+  option &#039;encryption_algorithm&#039; &#039;aes&#039;
+  option &#039;authentication_algorithm&#039; &#039;hmac_sha1&#039;
+...</pre>
+
+</p>
+
+<p>
+A little explanation of the key facts.
+</p>
+<ul>
+<li class="level1"><div class="li"> We define a new tunnel, give it the name &#039;roadwarrior&#039; and enable it. The name is just for readability and has no special meaning.</div>
+</li>
+<li class="level1"><div class="li"> With <strong>remote=anonymous</strong> we tell the start script that this tunnel is for roadwarriors. This declaration can only be used for one enabled tunnel definition in the whole config file. </div>
+</li>
+<li class="level1"><div class="li"> As usual the exchange mode, the preshared key, a phase one proposal and at least one sainfo block must be referenced.</div>
+</li>
+<li class="level1"><div class="li"> The phase one proposal has to be defined with <a href="../uci/racoon#p1_proposal" class="wikilink1" title="doc:uci:racoon">xauth_psk_server</a>. This activates hybrid preshared key and xauth authentication. The other settings are more or less up to your favourites.</div>
+</li>
+<li class="level1"><div class="li"> For each network the road warriors want to reach we define a sainfo block. In our case one for <abbr title="Local Area Network">LAN</abbr> and one for DMZ. The <strong>remote_subnet</strong> section of the sainfo block defines the laptop IP range. It must be the same for all road warrior sainfo blocks. The racoon <a href="vpn.ipsec.basics.racoon#ikedaemon" class="wikilink1" title="doc:howto:vpn.ipsec.basics.racoon">start</a> and <a href="vpn.ipsec.firewall.racoon#vpnfirewallscript" class="wikilink1" title="doc:howto:vpn.ipsec.firewall.racoon">firewall</a> scripts will evaluate this parameter and will do everything that is required. The <strong>local_subnet</strong> section defines the network that the remote users can reach through the tunnel.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit9" id="firewall_rules">Firewall rules</h2>
+<div class="level2">
+
+<p>
+Like in all previous chapters the firewall configuration is very simple. Our central firewall setup script will make all required settings to add the remote laptops into the <a href="vpn.ipsec.firewall.racoon#zones" class="wikilink1" title="doc:howto:vpn.ipsec.firewall.racoon">VPN zone</a>. So we only need rules to allow VPN traffic from remote laptops into the intranet and the DMZ. As an example we create two rules. One &quot;allow all&quot; for the internal network and one rule for the ACME mailserver that has IP address 66.77.88.195 in the DMZ.
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/ipsec_roadwarrior_firewall.png?id=doc%253Ahowto%253Avpn.ipsec.roadwarrior.racoon" class="media" title="doc:howto:ipsec_roadwarrior_firewall.png"><img src="../../_media/doc/howto/ipsec_roadwarrior_firewall.png" class="media" alt="" /></a>
+</p>
+
+<p>
+<strong>Remark!</strong> If you want to use any services on your OpenWrt router through the IPsec tunnel you have to address its interfaces on the local networks. Only those IP addresses can be routed into the VPN due to the auto generated policies. As an example let us assume OpenWrt runs a time service (NTP) and has the internal IP 10.1.2.1. So we need a firewall rule vpn:192.0.2.0/24 → device port 123 UDP. On the road warrior clients we have to set NTP to IP 10.1.2.1.
+</p>
+
+</div>
+
+<h2 class="sectionedit10" id="client_configuration">Client Configuration</h2>
+<div class="level2">
+
+<p>
+On the Shrew client side we have to build exactly the same IPsec setup. Add a new connection called &quot;ACME Inc.&quot; and follow the screenshots below. A small explanation for each of the dialogues for the Shrew newbies.
+</p>
+<ol>
+<li class="level1"><div class="li"> The general settings gives the IP address of the central site OpenWrt router. The pull option tells the client to obtain the setup from racoon. The network device will be configured automatically too.</div>
+</li>
+<li class="level1"><div class="li"> The client tab was left with default options.</div>
+</li>
+<li class="level1"><div class="li"> Name resolution will be taken from racoon setup.</div>
+</li>
+<li class="level1"><div class="li"> Authentication is set to PSK + XAuth. Local identifier is not relevant as racoon will accept any client</div>
+</li>
+<li class="level1"><div class="li"> Remote Identity is not checked as we are working with a static VPN gateway IP address.</div>
+</li>
+<li class="level1"><div class="li"> On the credentials page the preshared key is entered</div>
+</li>
+<li class="level1"><div class="li"> Phase 1 is set correspondingly to racoon</div>
+</li>
+<li class="level1"><div class="li"> Phase 2 also matches racoon setup</div>
+</li>
+<li class="level1"><div class="li"> IPsec policies will be pulled from racoon. This gives an automatic split tunnel setup.</div>
+</li>
+</ol>
+
+<p>
+<a href="../../_detail/doc/howto/ipsec_shrew2.png?id=doc%253Ahowto%253Avpn.ipsec.roadwarrior.racoon" class="media" title="doc:howto:ipsec_shrew2.png"><img src="../../_media/doc/howto/ipsec_shrew2.png" class="media" alt="" /></a>
+</p>
+
+</div>
+
+<h2 class="sectionedit11" id="connection">Connection</h2>
+<div class="level2">
+
+<p>
+A double click on our new ACME Inc. connection will open the connection dialogue. There you have to provide your Xauth user and password and afterwards click on &quot;Connect&quot;. The rest should work automatically. To verify that everything is fine you can have a look at ipconfig /all. It should provide some output like this.
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/ipsec_ipconfig.png?id=doc%253Ahowto%253Avpn.ipsec.roadwarrior.racoon" class="media" title="doc:howto:ipsec_ipconfig.png"><img src="../../_media/doc/howto/ipsec_ipconfig.png" class="media" alt="" /></a>
+</p>
+
+</div>
+
+<h2 class="sectionedit12" id="what_s_next">What&#039;s next</h2>
+<div class="level2">
+
+<p>
+Only one thing left. A road <a href="vpn.ipsec.roadwarriorcertificates.racoon" class="wikilink1" title="doc:howto:vpn.ipsec.roadwarriorcertificates.racoon">warrior configuration with certificates</a>.
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/vpn.ipsec.roadwarrior.racoon.txt</bdi> · Last modified: 2014/03/27 03:15 by <bdi>jaf323</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="vpn.ipsec.roadwarrior.racoon?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="vpn.ipsec.roadwarrior.racoon?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="vpn.ipsec.roadwarrior.racoon?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="vpn.ipsec.roadwarrior.racoon#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Avpn.ipsec.roadwarrior.racoon&amp;1432273848" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

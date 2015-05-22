@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Broadcom BCM47xx [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="bcm47xx,bcm4702,bcm4704,bcm4705,bcm4706,bcm4708,bcm4716,bcm4717,bcm4718,bcm47162,bcm47186,bcm53xx,bcm5352,bcm5354,bcm5357,bcm5358,bcm5836"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../../index.html"/>
+<link rel="contents" href="soc.broadcom.bcm47xx?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../../feed.php?mode=list&amp;ns=doc:hardware:soc"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../../_export/xhtml/doc/hardware/soc/soc.broadcom.bcm47xx.1"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../../_export/raw/doc/hardware/soc/soc.broadcom.bcm47xx.1"/>
+<link rel="canonical" href="soc.broadcom.bcm47xx.1"/>
+<link rel="stylesheet" type="text/css" href="../../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:hardware:soc';var JSINFO = {"id":"doc:hardware:soc:soc.broadcom.bcm47xx","namespace":"doc:hardware:soc"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267864 166.182.3.19';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="soc.broadcom.bcm47xx.1#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../../start"  accesskey="h" title="[H]"><img src="../../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="soc.broadcom.bcm47xx?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="soc.broadcom.bcm47xx?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:hardware:soc:soc.broadcom.bcm47xx" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="soc.broadcom.bcm47xx?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="soc.broadcom.bcm47xx?do=media&amp;ns=doc%253Ahardware%253Asoc"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="soc.broadcom.bcm47xx?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../start" class="wikilink1" title="doc:hardware:start">Hardware</a></bdi> » <bdi><a href="../soc.1" class="wikilink1" title="doc:hardware:soc">SoC (System on a Chip)</a></bdi> » <bdi><span class="curid"><a href="soc.broadcom.bcm47xx.1" class="wikilink1" title="doc:hardware:soc:soc.broadcom.bcm47xx">Broadcom BCM47xx</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/hardware/soc/soc.broadcom.bcm47xx" class="media" title="cz:doc:hardware:soc:soc.broadcom.bcm47xx"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/hardware/soc/soc.broadcom.bcm47xx" class="media" title="de:doc:hardware:soc:soc.broadcom.bcm47xx"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="soc.broadcom.bcm47xx.1" class="media" title="doc:hardware:soc:soc.broadcom.bcm47xx"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/hardware/soc/soc.broadcom.bcm47xx" class="media" title="es:doc:hardware:soc:soc.broadcom.bcm47xx"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/hardware/soc/soc.broadcom.bcm47xx" class="media" title="fr:doc:hardware:soc:soc.broadcom.bcm47xx"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/hardware/soc/soc.broadcom.bcm47xx" class="media" title="hu:doc:hardware:soc:soc.broadcom.bcm47xx"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/hardware/soc/soc.broadcom.bcm47xx" class="media" title="jp:doc:hardware:soc:soc.broadcom.bcm47xx"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/hardware/soc/soc.broadcom.bcm47xx" class="media" title="pl:doc:hardware:soc:soc.broadcom.bcm47xx"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/hardware/soc/soc.broadcom.bcm47xx" class="media" title="pt-br:doc:hardware:soc:soc.broadcom.bcm47xx"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../../ru/doc/hardware/soc/soc.broadcom.bcm47xx" class="media" title="ru:doc:hardware:soc:soc.broadcom.bcm47xx"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/hardware/soc/soc.broadcom.bcm47xx" class="media" title="tr:doc:hardware:soc:soc.broadcom.bcm47xx"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/hardware/soc/soc.broadcom.bcm47xx" class="media" title="zh-cn:doc:hardware:soc:soc.broadcom.bcm47xx"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/hardware/soc/soc.broadcom.bcm47xx" class="media" title="zh-tw:doc:hardware:soc:soc.broadcom.bcm47xx"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:hardware:soc:soc.broadcom.bcm47xx</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="soc.broadcom.bcm47xx.1#subtargets_in_barrier_breaker">Subtargets in Barrier Breaker</a></div></li>
+<li class="level1"><div class="li"><a href="soc.broadcom.bcm47xx.1#images">Images</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="soc.broadcom.bcm47xx.1#attitude_adjustment">Attitude Adjustment</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="soc.broadcom.bcm47xx.1#bcm4785bcm4705">BCM4785/BCM4705</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="soc.broadcom.bcm47xx.1#barrier_breaker_current_trunk">Barrier Breaker (current trunk)</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="soc.broadcom.bcm47xx.1#ethernet">Ethernet</a></div></li>
+<li class="level1"><div class="li"><a href="soc.broadcom.bcm47xx.1#wifi_drivers">WiFi drivers</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="soc.broadcom.bcm47xx.1#b43">b43</a></div></li>
+<li class="level2"><div class="li"><a href="soc.broadcom.bcm47xx.1#b43legacy">b43legacy</a></div></li>
+<li class="level2"><div class="li"><a href="soc.broadcom.bcm47xx.1#brcm80211">brcm80211</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="soc.broadcom.bcm47xx.1#brcmsmac">brcmsmac</a></div></li>
+<li class="level3"><div class="li"><a href="soc.broadcom.bcm47xx.1#brcmfmac">brcmfmac</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="soc.broadcom.bcm47xx.1#broadcom-wl">broadcom-wl</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="soc.broadcom.bcm47xx.1#sysupgrade">Sysupgrade</a></div></li>
+<li class="level1"><div class="li"><a href="soc.broadcom.bcm47xx.1#cfe">CFE</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="soc.broadcom.bcm47xx.1#network_boot">Network boot</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="soc.broadcom.bcm47xx.1#bcm4704_jtag_pinout">BCM4704 JTAG pinout</a></div></li>
+<li class="level1"><div class="li"><a href="soc.broadcom.bcm47xx.1#links">Links</a></div></li>
+<li class="level1"><div class="li"><a href="soc.broadcom.bcm47xx.1#tags">Tags</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="broadcom_bcm47xx">Broadcom BCM47xx</h1>
+<div class="level1">
+
+<p>
+This page covers the BCM47xx and BCM53xx Wireless Router/AP SoC running MIPS CPUs.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="subtargets_in_barrier_breaker">Subtargets in Barrier Breaker</h2>
+<div class="level2">
+
+<p>
+Beginning with <a href="https://dev.openwrt.org/changeset/41024" class="urlextern" title="https://dev.openwrt.org/changeset/41024"  rel="nofollow">r41024</a> this arch was split into 3 subtargets:
+</p>
+<ul>
+<li class="level1"><div class="li"> legacy: old devices based on SSB bus</div>
+</li>
+<li class="level1"><div class="li"> generic: devices based on BCM4705 and two Linksys exceptions: WRT610N V2 and E3000 V1</div>
+</li>
+<li class="level1"><div class="li"> mips74k: newer devices with BCMA SoC and bgmac ethernet</div>
+</li>
+</ul>
+
+<p>
+See <a href="http://wireless.kernel.org/en/users/Drivers/b43/soc" class="urlextern" title="http://wireless.kernel.org/en/users/Drivers/b43/soc"  rel="nofollow">list of Broadcom SoCs</a> to see if your BCM* chipset is SSB or BCMA.
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="images">Images</h2>
+<div class="level2">
+
+<p>
+The current goal is to boot one image on all the different devices using SoC of the bcm47xx family.
+The main image is openwrt-brcm47xx-squashfs.trx which is in the generic image format used by the Broadcom SDK for these devices.
+Many vendors like Netgear and Linksys currently are using some own image formats to prevent a wrong image from being flashed to their devices, these images are containing the same code as the generic image, but do have some special header just for this device, mostly containing the internal device name and the version of this firmware.
+</p>
+
+<p>
+If you want to flash OpenWrt from the default firmware use the image for your device if there is one, otherwise use openwrt-brcm47xx-squashfs.trx image.
+For sysupgrade always use the generic image openwrt-brcm47xx-squashfs.trx independently from what image you initially flashed to your device.
+</p>
+
+<p>
+If that does not work you could download the image builder our check out OpenWrt from the svn and edit target/linux/brcm47xx/image/Makefile to fit your needs.
+If you have to do some modifications to generate a valid image and it boots on your device please send a patch to the mailing list for inclusion into OpenWrt.
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="attitude_adjustment">Attitude Adjustment</h3>
+<div class="level3">
+
+<p>
+Version 12.09-rc1: <a href="http://downloads.openwrt.org/attitude_adjustment/12.09-rc1/brcm47xx/" class="urlextern" title="http://downloads.openwrt.org/attitude_adjustment/12.09-rc1/brcm47xx/"  rel="nofollow">http://downloads.openwrt.org/attitude_adjustment/12.09-rc1/brcm47xx/</a>
+</p>
+
+<p>
+This image has support for all BCM47xx SoCs using SSB. These are all devices with a ieee802.11b or ieee802.11g WiFi support and the BCM4785/BCM4705 with an additional ieee80211n PCI devices connected to the SoC.
+This also includes some devices without any WiFi functionality using this SOC.
+</p>
+
+</div>
+
+<h4 id="bcm4785bcm4705">BCM4785/BCM4705</h4>
+<div class="level4">
+
+<p>
+This SoC has a different Ethernet core and does not use b44 as the Ethernet driver but is needs tg3 for that.
+The default images for Attitude Adjustment do not include the tg3 Ethernet driver.
+Use the image builder (OpenWrt-ImageBuilder-brcm47xx-for-linux-i486.tar.bz2) to generate a image with Ethernet support.
+The profile with b43 as the WiFi driver is name Bcm4705-b43.
+<pre class="code">make image PROFILE=&quot;Bcm4705-b43&quot;</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="barrier_breaker_current_trunk">Barrier Breaker (current trunk)</h3>
+<div class="level3">
+
+<p>
+Snapshot images download: <a href="http://downloads.openwrt.org/snapshots/trunk/brcm47xx/" class="urlextern" title="http://downloads.openwrt.org/snapshots/trunk/brcm47xx/"  rel="nofollow">http://downloads.openwrt.org/snapshots/trunk/brcm47xx/</a>
+</p>
+
+<p>
+This is the current version where development takes place.
+It contains support for all the SoC also supported by Attitude Adjustment and in addition also some most of the recent bcm47xx SoCs. It should at least boot of all the know MIPS based BCM47xx and BCM53xx based SoCs.
+</p>
+
+<p>
+The default Barrier Breaker images are containing the b44, tg3 and bgmac Ethernet driver so Ethernet should work on all supported services without using the image builder. If you want to save some space you could use the image builder to generate an image better suiting your device.
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="ethernet">Ethernet</h2>
+<div class="level2">
+
+<p>
+New Broadcom devices have gigabit Ethernet that is supported by bgmac kernel driver. Unfortunately CPUs on most of SoCs are too slow to provide 1000 Mb/s routing or NAT. It results in NAT being limited to something around 130Mb/s on BCM4706 and even less on slower units (like ~50Mb/s on BCM4718A1).
+</p>
+
+<p>
+To solve this problem Broadcom developed proprietary ctf.ko module that watches in-system routing rules and implements NAT on it&#039;s own. It results in much better performance (even up to 850Mb/s on BCM4706) while breaking things like QoS and advanced firewall rules.
+</p>
+
+<p>
+Unfortunately ctf.ko is closed source and there is no open source alternative. For more details see:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="https://lists.openwrt.org/pipermail/openwrt-devel/2013-August/020962.html" class="urlextern" title="https://lists.openwrt.org/pipermail/openwrt-devel/2013-August/020962.html"  rel="nofollow">Ethernet performance for transfers between VLANs (bcm47xx)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="https://lists.openwrt.org/pipermail/openwrt-devel/2013-August/021112.html" class="urlextern" title="https://lists.openwrt.org/pipermail/openwrt-devel/2013-August/021112.html"  rel="nofollow">Understanding/reimplementing forwarding acceleration used by Broadcom (ctf)</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit7" id="wifi_drivers">WiFi drivers</h2>
+<div class="level2">
+
+<p>
+There are different WiFi drivers for the Broadcom WiFi cores found in the BCM47xx SoCs or the PCI(e) or USB connected WiFi chips on the boards. There is no driver supporting all chips and all have their pros and cons. Some chips are supported by three of these drivers and others are supported by none of these drivers.
+</p>
+
+<p>
+<img src="../../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Do not activate multiple drivers at once. The first that is loaded takes precedence in that case so it is not easily controlled which one. Normally using other Linux distributions you would blacklist the other two drivers. In OpenWrt you can just make sure they are not installed using opkg, which automatically removes them from the <code>/etc/modules.d/</code> directory.
+</p>
+
+<p>
+See also:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://en.wikipedia.org/wiki/Comparison_of_open_source_wireless_drivers" class="urlextern" title="http://en.wikipedia.org/wiki/Comparison_of_open_source_wireless_drivers"  rel="nofollow">http://en.wikipedia.org/wiki/Comparison_of_open_source_wireless_drivers</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="https://wiki.archlinux.org/index.php/Broadcom_wireless" class="urlextern" title="https://wiki.archlinux.org/index.php/Broadcom_wireless"  rel="nofollow">https://wiki.archlinux.org/index.php/Broadcom_wireless</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit8" id="b43">b43</h3>
+<div class="level3">
+
+<p>
+This is the open source driver built by the community based on reverse engineered specifications of the proprietary Broadcom driver. This is the driver that is included in the current OpenWrt builds. It is also in the mainline Linux kernel. This driver supports most of the current available Broadcom WiFi cores. It has support for station (STA), AP, AdHoc, Mesh and other modes and it supports 5 <abbr title="Gigahertz">GHz</abbr> band on N-PHY devices. It supports 802.11g rates only and can&#039;t handle multiple SSIDs.
+</p>
+
+<p>
+Website: <a href="http://wireless.kernel.org/en/users/Drivers/b43" class="urlextern" title="http://wireless.kernel.org/en/users/Drivers/b43"  rel="nofollow">http://wireless.kernel.org/en/users/Drivers/b43</a>
+</p>
+
+<p>
+The OpenWrt package is named: <strong>kmod-b43</strong>
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="b43legacy">b43legacy</h3>
+<div class="level3">
+
+<p>
+
+This is for some very old ieee802.11b and first generation Broadcom ieee802.11g compatible devices.
+This driver has a similar feature set to b43 and is only supported by the community based on reverse engineered specifications.
+</p>
+
+<p>
+Website: <a href="http://wireless.kernel.org/en/users/Drivers/b43" class="urlextern" title="http://wireless.kernel.org/en/users/Drivers/b43"  rel="nofollow">http://wireless.kernel.org/en/users/Drivers/b43</a>
+</p>
+
+<p>
+The OpenWrt package is named: <strong>kmod-b43legacy</strong>
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="brcm80211">brcm80211</h3>
+<div class="level3">
+
+<p>
+This is the open source driver supported and released by Broadcom in 2010. It is mainlined in the Linux kernel, but only since version 3.2. It is still missing some functionality, as of 2013: dual width 40MHz channels, advanced power saving features, LED support, HW-based encryption, among others. The driver has been renamed to its two constituents, the soft MAC driver (brcmsmac) and the full MAC driver (brcmfmac).
+</p>
+
+<p>
+Website: <a href="http://wireless.kernel.org/en/users/Drivers/brcm80211" class="urlextern" title="http://wireless.kernel.org/en/users/Drivers/brcm80211"  rel="nofollow">http://wireless.kernel.org/en/users/Drivers/brcm80211</a>
+</p>
+
+</div>
+
+<h4 id="brcmsmac">brcmsmac</h4>
+<div class="level4">
+
+<p>
+brcmsmac supports some recent soft mac ieee802.11n Broadcom WiFi cores found on PCIe cards and in SoCs, for details see the website.
+This driver is developed and supported by Broadcom.
+The current version only supports station mode, but there are patches in current OpenWrt trunk which are adding <a href="http://www.acalculator.com/" class="urlextern" title="http://www.acalculator.com/"  rel="nofollow"> support</a> for AP and Ad Hoc mode.
+brcmsmac is capable of operation devices with ieee80211n rates and running the in the 5GHz band, but AP mode currently does not work in the 5GHz band.
+</p>
+
+<p>
+The OpenWrt package is named: <strong>kmod-brcmsmac</strong>
+</p>
+
+</div>
+
+<h4 id="brcmfmac">brcmfmac</h4>
+<div class="level4">
+
+<p>
+brcmfmac supports some recent full mac ieee802.11n Broadcom WiFi cores found on USB, SDIO and SPI interfaces, for details see the website.
+</p>
+
+<p>
+The OpenWrt package is named: <strong>kmod-brcmfmac</strong>
+</p>
+
+<p>
+broadcom-wl is the proprietary closed source Broadcom STA (STAtion, for access point use) driver, prepared especially for OpenWrt. It contains closed source binaries with few trivial open source files that allow it to be compiled against any kernel version.
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="broadcom-wl">broadcom-wl</h3>
+<div class="level3">
+
+<p>
+broadcom-wl contains the proprietary closed source Broadcom driver. It contains closed source MIPS binaries with few trivial open source files that allow it to be compiled against any kernel version.
+It&#039;s based on old Broadcom&#039;s sources (version 5.10.56.27.3) and supports many old 802.11g devices but very few 802.11n devices (BCM4716, BCM4717, BCM4718). It does not support new chipsets (BCM5356, BCM5357, BCM5358, BCM47186, BCM4331) or 802.11ac devices (BCM4352, BCM4360).
+For old devices it often has more functionality than the brcm80211 drivers. For example, it supports 40 <abbr title="Megahertz">MHz</abbr> channels and power saving features, which have been removed before releasing brcm80211. It is capable of operating in AP mode and also supports the 5 <abbr title="Gigahertz">GHz</abbr> band.
+</p>
+
+<p>
+In 2008 Broadcom released Linux STA driver and continued updating it. Just like in case of OpenWrt driver, it contains some open source files, however binaries were pre-compiled for x86 and x86_64 only. So despite providing support for more hardware it can&#039;t be integrated into OpenWrt because of lacking support for MIPS/ARM and important features like AP mode.
+</p>
+
+<p>
+Note that broadcom-wl doesn&#039;t use a standard cfg80211 <abbr title="Application Programming Interface">API</abbr>, so it can&#039;t be configured using standard nl80211 tools. This is why OpenWrt has an extra package providing <code>wlc</code> (user space tool that uses Broadcom&#039;s proprietary <abbr title="Application Programming Interface">API</abbr>) and <code>broadcom.sh</code> (that translates UCI config into <code>wlc</code> calls). You can also install <code>wl</code> binary that is closed source version of <code>wlc</code> written by Broadcom that may be helpful for some debugging. Remember that <code>broadcom.sh</code> may not handle all UCI options, please see <a href="../../uci/wireless" class="wikilink1" title="doc:uci:wireless">the UCI wireless configuration page</a> for the details. Some advanced functionality can by configured with the <code>wl</code> utility only. Beware that running <code>wifi</code> (to activate your UCI WiFi configuration file) will however restart the driver and you will lose your settings made by the utility.
+</p>
+
+<p>
+The OpenWrt package for the driver is named: <strong>kmod-brcm-wl</strong><br/>
+
+The OpenWrt package for the configuration utility is named: <strong>wl</strong><br/>
+
+The OpenWrt package for the open source variant of the configuration utility is named: <strong>wlc</strong>
+</p>
+
+</div>
+
+<h5 id="setting_up_the_broadcom-wl_driver">Setting up the broadcom-wl driver</h5>
+<div class="level5">
+
+<p>
+After installing any wireless driver made for opkg and OpenWrt, new <a href="../../uci/wireless" class="wikilink1" title="doc:uci:wireless">WiFi configuration entries</a> in the <code>/etc/config/wireless</code> UCI file are available upon reboot. These are set by the OPKG driver maintainer. If they are not available, you can run <code>wifi detect</code> to acquire a sample configuration. For broadcom-wl (the kmod-brcm-wl package) the wireless interface is named <code>wl0</code>. By far not everything can be set using UCI. Use the <code>wl</code> utility to set advanced settings. For example, to set the channel to 4, on the 2.4Ghz band, and with a bandwidth of 40Mhz using the lower band, use:
+<pre class="code">root@OpenWrt:~# wl -i wl0 chanspec -c 4 -b 2 -w 40 -s -1
+Chanspec set to 0x2b04</pre>
+
+</p>
+
+<p>
+Now reload the wifi configuration by:
+</p>
+
+<p>
+<pre class="code">root@OpenWrt:~# wl -i wl0 down
+root@OpenWrt:~# wl -i wl0 up</pre>
+
+</p>
+
+<p>
+You configure to run these settings at boot to make them stick. Please note that this method of WiFi configuration is rather low level and—going partly past the normal OpenWrt WiFi interface—there isn&#039;t any mechanism available to automatically choose the right channel for example. So you have to manually select the channel specification. If the above channel is too crowded in your area, set it for example to channel 9 using the upper sideband:
+<pre class="code">root@OpenWrt:~# wl -i wl0 chanspec -c 9 -b 2 -w 40 -s 1
+Chanspec set to 0x2e09</pre>
+
+</p>
+
+<p>
+In the future maybe the community will further integrate the proprietary Broadcom driver into the OpenWrt framework. What is more likely though is that the open source drivers (brcm80211) will obtain more functionality.
+</p>
+
+<p>
+If you want to use <a href="../../luci" class="wikilink1" title="doc:howto:luci.essentials">LuCI</a> to configure UCI configuration, note that not all functionality and features are currently well supported and do not correspond well to the driver functionality in the graphical interface. It may therefore sometimes call the driver configuration utility with unsupported arguments. 
+</p>
+
+<p>
+For providing authentication and encryption with Wi-Fi and the broadcom-wl driver, you need the proprietary application from Broadcom, <strong>nas</strong> (Network Authentication Service). The tool is automatically started by the wireless infrastructure to accomodate the broadcom-wl driver. There is no configuration necessary, just install the package <strong>nas</strong>. See also <a href="../../uci/wireless/encryption" class="wikilink1" title="doc:uci:wireless:encryption">encryption</a>.
+</p>
+
+<p>
+An exmaple UCI configuration is as follows. Note that the hwmode option does not have to be given in which case the driver&#039;s default is used.
+</p>
+
+<p>
+<pre class="code">config wifi-device &#039;wl0&#039;
+	option type &#039;broadcom&#039;
+	option disabled &#039;0&#039;
+	option channel &#039;4&#039;
+	option txpower &#039;16&#039;
+
+config wifi-iface
+	option device &#039;wl0&#039;
+	option network &#039;lan&#039;
+	option ssid &#039;OpenWrt&#039;
+	option key &#039;passphrase&#039;
+	option mode &#039;ap&#039;
+	option encryption &#039;psk2&#039;
+</pre>
+
+</p>
+<div class="table sectionedit12"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><img src="../../../_media/meta/icons/tango/48px-dialog-warning.svg.png?w=24&amp;tok=0fc4e5" class="media" alt="" width="24" /> </td><td class="col1"> Broadcom devices may use two different buses for its wireless drivers: <br/>
+- SSB (Sonic Silicon Backplane), bus used by older devices <br/>
+- BCMA (<a href="http://en.wikipedia.org/wiki/Advanced Micro-controller Bus Architecture" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Advanced Micro-controller Bus Architecture">AMBA</a>), bus developed by Broadcom; shall replace SSB (see also <a href="https://github.com/hanshuebner/linux-xlnx/tree/master/drivers/bcma" class="urlextern" title="https://github.com/hanshuebner/linux-xlnx/tree/master/drivers/bcma"  rel="nofollow">here</a>) <br/>
+The <strong>b43</strong> driver supports both SSB and BCMA-chips. However, <strong>brcm80211</strong> (brcmSmac &amp; brcmFmac) does not and will not support any chips which contain the SSB. Therefore, older devices may be unsupported by the newer open source drivers. See also this patch <a href="http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=314878d246955e0c6fff95d8ae64285fe828c785" class="urlextern" title="http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=314878d246955e0c6fff95d8ae64285fe828c785"  rel="nofollow">Patch for 3.11</a></td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit13" id="sysupgrade">Sysupgrade</h2>
+<div class="level2">
+
+<p>
+When using sysupgrade always use openwrt-brcm47xx-squashfs.trx and not any device specific file.
+</p>
+
+<p>
+See also <a href="soc.broadcom.bcm47xx/image.conversion" class="wikilink1" title="doc:hardware:soc:soc.broadcom.bcm47xx:image.conversion">&#039;.bin&#039; to &#039;.trx&#039; image conversion</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit14" id="cfe">CFE</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit15" id="network_boot">Network boot</h3>
+<div class="level3">
+
+<p>
+Most of the recent devices have a <a href="../../techref/bootloader/cfe" class="wikilink1" title="doc:techref:bootloader:cfe">CFE</a> bootloader able to boot images over the network.
+</p>
+
+<p>
+To build an image bootable over the network select the following:
+&quot;Target Images&quot; —&gt; [x] &quot;ramdisk&quot; —&gt; Compression —&gt; [xz]
+This will generate a file in bin/brcm47xx/openwrt-brcm47xx-vmlinux.elf
+</p>
+
+<p>
+The following example boots an elf image from the tftp server at 192.168.1.2 under the path /brcm47xx/openwrt-brcm47xx-vmlinux.elf:
+<pre class="code bash">boot <span class="re5">-tftp</span> <span class="re5">-elf</span> 192.168.1.2:<span class="sy0">/</span>brcm47xx<span class="sy0">/</span>openwrt-brcm47xx-vmlinux.elf</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit16" id="bcm4704_jtag_pinout">BCM4704 JTAG pinout</h2>
+<div class="level2">
+
+<p>
+<a href="../../../_detail/media/doc/hardware/bcm4704_jtag_pinout.png?id=doc%253Ahardware%253Asoc%253Asoc.broadcom.bcm47xx" class="media" title="media:doc:hardware:bcm4704_jtag_pinout.png"><img src="../../../_media/media/doc/hardware/bcm4704_jtag_pinout.png?w=400&amp;tok=2f46f9" class="media" alt="" width="400" /></a>
+</p>
+
+</div>
+
+<h2 class="sectionedit17" id="links">Links</h2>
+<div class="level2">
+
+<p>
+List with some detailed informations about bcm47xx SoCs:
+<a href="http://wireless.kernel.org/en/users/Drivers/b43/soc" class="urlextern" title="http://wireless.kernel.org/en/users/Drivers/b43/soc"  rel="nofollow">http://wireless.kernel.org/en/users/Drivers/b43/soc</a>
+<a href="../../techref/header" class="wikilink1" title="doc:techref:header">header</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit18" id="tags">Tags</h2>
+<div class="level2">
+<div class="tags"><span>
+	<a href="../../../tag/bcm47xx?do=showtag&amp;tag=bcm47xx" class="wikilink1" title="tag:bcm47xx" rel="tag">bcm47xx</a>,
+	<a href="../../../tag/bcm4702?do=showtag&amp;tag=bcm4702" class="wikilink1" title="tag:bcm4702" rel="tag">bcm4702</a>,
+	<a href="../../../tag/bcm4704?do=showtag&amp;tag=bcm4704" class="wikilink1" title="tag:bcm4704" rel="tag">bcm4704</a>,
+	<a href="../../../tag/bcm4705?do=showtag&amp;tag=bcm4705" class="wikilink1" title="tag:bcm4705" rel="tag">bcm4705</a>,
+	<a href="../../../tag/bcm4706?do=showtag&amp;tag=bcm4706" class="wikilink1" title="tag:bcm4706" rel="tag">bcm4706</a>,
+	<a href="../../../tag/bcm4708?do=showtag&amp;tag=bcm4708" class="wikilink1" title="tag:bcm4708" rel="tag">bcm4708</a>,
+	<a href="../../../tag/bcm4716?do=showtag&amp;tag=bcm4716" class="wikilink1" title="tag:bcm4716" rel="tag">bcm4716</a>,
+	<a href="../../../tag/bcm4717?do=showtag&amp;tag=bcm4717" class="wikilink1" title="tag:bcm4717" rel="tag">bcm4717</a>,
+	<a href="../../../tag/bcm4718?do=showtag&amp;tag=bcm4718" class="wikilink1" title="tag:bcm4718" rel="tag">bcm4718</a>,
+	<a href="../../../tag/bcm47162?do=showtag&amp;tag=bcm47162" class="wikilink1" title="tag:bcm47162" rel="tag">bcm47162</a>,
+	<a href="../../../tag/bcm47186?do=showtag&amp;tag=bcm47186" class="wikilink1" title="tag:bcm47186" rel="tag">bcm47186</a>
+</span></div>
+<div class="tags"><span>
+	<a href="../../../tag/bcm53xx?do=showtag&amp;tag=bcm53xx" class="wikilink1" title="tag:bcm53xx" rel="tag">bcm53xx</a>,
+	<a href="../../../tag/bcm5352?do=showtag&amp;tag=bcm5352" class="wikilink1" title="tag:bcm5352" rel="tag">bcm5352</a>,
+	<a href="../../../tag/bcm5354?do=showtag&amp;tag=bcm5354" class="wikilink1" title="tag:bcm5354" rel="tag">bcm5354</a>,
+	<a href="../../../tag/bcm5357?do=showtag&amp;tag=bcm5357" class="wikilink1" title="tag:bcm5357" rel="tag">bcm5357</a>,
+	<a href="../../../tag/bcm5358?do=showtag&amp;tag=bcm5358" class="wikilink1" title="tag:bcm5358" rel="tag">bcm5358</a>,
+	<a href="../../../tag/bcm5836?do=showtag&amp;tag=bcm5836" class="wikilink1" title="tag:bcm5836" rel="tag">bcm5836</a>
+</span></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/hardware/soc/soc.broadcom.bcm47xx.txt</bdi> · Last modified: 2015/04/08 13:29 by <bdi>Kathrincolyn</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="soc.broadcom.bcm47xx?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="soc.broadcom.bcm47xx?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="soc.broadcom.bcm47xx?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="soc.broadcom.bcm47xx.1#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../../lib/exe/indexer.php?id=doc%253Ahardware%253Asoc%253Asoc.broadcom.bcm47xx&amp;1432267864" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

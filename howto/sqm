@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Smart Queue Management (SQM) - Minimizing Bufferbloat [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,sqm"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="sqm?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/sqm"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/sqm"/>
+<link rel="canonical" href="sqm"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:sqm","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267151 166.182.3.14';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="sqm#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="sqm?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="sqm?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:sqm" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="sqm?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="sqm?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="sqm?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="sqm" class="wikilink1" title="doc:howto:sqm">Smart Queue Management (SQM) - Minimizing Bufferbloat</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/sqm" class="media" title="cz:doc:howto:sqm"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/sqm" class="media" title="de:doc:howto:sqm"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="sqm" class="media" title="doc:howto:sqm"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/sqm" class="media" title="es:doc:howto:sqm"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/sqm" class="media" title="fr:doc:howto:sqm"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/sqm" class="media" title="hu:doc:howto:sqm"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/sqm" class="media" title="jp:doc:howto:sqm"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/sqm" class="media" title="pl:doc:howto:sqm"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/sqm" class="media" title="pt-br:doc:howto:sqm"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/sqm" class="media" title="ru:doc:howto:sqm"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/sqm" class="media" title="tr:doc:howto:sqm"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/sqm" class="media" title="zh-cn:doc:howto:sqm"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/sqm" class="media" title="zh-tw:doc:howto:sqm"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:sqm</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="sqm#preparationmeasure_your_current_speed_and_latency">Preparation: Measure Your Current Speed and Latency</a></div></li>
+<li class="level1"><div class="li"><a href="sqm#installing_the_sqm_bufferbloat_packages_in_openwrt">Installing the SQM Bufferbloat Packages in OpenWrt</a></div></li>
+<li class="level1"><div class="li"><a href="sqm#configuring_the_sqm_bufferbloat_packages_in_openwrt">Configuring the SQM Bufferbloat Packages in OpenWrt</a></div></li>
+<li class="level1"><div class="li"><a href="sqm#a_little_about_tuning_sqm">A little about tuning SQM</a></div></li>
+<li class="level1"><div class="li"><a href="sqm#sqmthe_longer_description">SQM: The Longer Description</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="sqm#sqmbasic_settings_tab">SQM: Basic Settings Tab</a></div></li>
+<li class="level2"><div class="li"><a href="sqm#sqmqueue_discipline_tab">SQM: Queue Discipline Tab</a></div></li>
+<li class="level2"><div class="li"><a href="sqm#sqmlink_layer_adaptation_tab">SQM: Link Layer Adaptation Tab</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="smart_queue_management_sqm_-_minimizing_bufferbloat">Smart Queue Management (SQM) - Minimizing Bufferbloat</h1>
+<div class="level1">
+
+<p>
+OpenWrt Barrier Breaker and Chaos Calmer (BB &amp; CC) have pre-built packages for controlling Bufferbloat - the undesirable latency that comes from the router buffering too much data.  
+</p>
+
+<p>
+Bufferbloat is most evident when the link is heavily loaded. It causes bad performance for voice and video conversations, causes gamers to lag out, and generally makes people say, &quot;The Internet is slow today.&quot;
+</p>
+
+<p>
+The &quot;sqm-scripts&quot; and &quot;luci-app-sqm&quot; packages of modern OpenWrt solve the problem of Bufferbloat. In a three-minute installation and configuration, you&#039;ll have a much more lively network connection. Here&#039;s how:
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="preparationmeasure_your_current_speed_and_latency">Preparation: Measure Your Current Speed and Latency</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> Before you can optimize your network, you need to know its current state. Run a speed test to find your down/upload link speeds. You will use this information below. To do this, use one of these test sites, or make your own measurements:</div>
+<ul>
+<li class="level2"><div class="li"> <a href="http://www.dslreports.com/speedtest" class="urlextern" title="http://www.dslreports.com/speedtest"  rel="nofollow">http://www.dslreports.com/speedtest</a> [*]</div>
+</li>
+<li class="level2"><div class="li"> <a href="http://speedtest.net" class="urlextern" title="http://speedtest.net"  rel="nofollow">http://speedtest.net</a></div>
+</li>
+<li class="level2"><div class="li"> <a href="http://testmy.net" class="urlextern" title="http://testmy.net"  rel="nofollow">http://testmy.net</a></div>
+</li>
+<li class="level2"><div class="li"> <a href="http://speedof.me" class="urlextern" title="http://speedof.me"  rel="nofollow">http://speedof.me</a></div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Be sure to run the speed test when the network is quiet, and others in your home aren’t generating traffic.</div>
+</li>
+<li class="level1"><div class="li"> (Optional, but illuminating) Verify the magnitude of bufferbloat. To do this, start a ping test to google.com, then run the speed test again. If the ping times go up, your router is bloated, and is adding unnecessary latency to your data. </div>
+</li>
+<li class="level1"><div class="li"> This is probably a good time to <a href="generic.backup" class="wikilink1" title="doc:howto:generic.backup">Backup your Configuration</a>.</div>
+</li>
+</ol>
+
+<p>
+[*] <em>Note:</em> The <a href="http://www.dslreports.com/speedtest" class="urlextern" title="http://www.dslreports.com/speedtest"  rel="nofollow">DSLReports Speed Test</a> already measures latency under load, so Step 3 above is not necessary.
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="installing_the_sqm_bufferbloat_packages_in_openwrt">Installing the SQM Bufferbloat Packages in OpenWrt</h2>
+<div class="level2">
+
+<p>
+Install the <em>luci-app-sqm</em> package in OpenWrt BB or CC. To do this:
+</p>
+<ol>
+<li class="level1"><div class="li"> Uninstall <em>qos-scripts</em> and <em>luci-app-qos</em> if they are installed. Choose <strong>System → Software</strong>, then scroll down the list in the Installed Packages tab. Click <strong>Remove</strong> if either of these scripts is installed.</div>
+</li>
+<li class="level1"><div class="li"> Install the <em>luci-app-sqm</em> package. It will automatically install other required packages. To do this:</div>
+<ul>
+<li class="level2"><div class="li"> From the LuCI web <abbr title="Graphical User Interface">GUI</abbr>, go to <strong>System → Software</strong>, then click <strong>Update Lists</strong></div>
+</li>
+<li class="level2"><div class="li"> Click the <strong>Available packages</strong> tab, and find <em>luci-app-sqm</em>. Click <strong>Install</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Start and Enable the SQM scripts. To do this, choose <strong>System → Startup</strong></div>
+<ul>
+<li class="level2"><div class="li"> Click Start to start the SQM process</div>
+</li>
+<li class="level2"><div class="li"> Click Enable to start the SQM process when the route reboots</div>
+</li>
+</ul>
+</li>
+</ol>
+
+</div>
+
+<h2 class="sectionedit4" id="configuring_the_sqm_bufferbloat_packages_in_openwrt">Configuring the SQM Bufferbloat Packages in OpenWrt</h2>
+<div class="level2">
+
+<p>
+The default values described below work quite well for most situations. You may be able to improve performance by experimenting with settings, see <a href="sqm#a_little_about_tuning_sqm" title="doc:howto:sqm ↵" class="wikilink1">A little about tuning SQM</a> below.
+</p>
+
+<p>
+To configure SQM, choose <strong>Network → SQM QoS</strong> to see the Smart Queue Management (SQM) <abbr title="Graphical User Interface">GUI</abbr>.
+</p>
+<ol>
+<li class="level1"><div class="li"> In the <strong>Basic Settings</strong> tab:</div>
+<ul>
+<li class="level2"><div class="li"> Check the <strong>Enable</strong> box</div>
+</li>
+<li class="level2"><div class="li"> Set the <strong>Interface name:</strong> to your wide area link (usually <em>eth0</em> for OpenWrt, but check <strong>Network → Interfaces → Advanced</strong> to find the name for the WAN port.)</div>
+</li>
+<li class="level2"><div class="li"> Set the <strong>Download</strong> and <strong>Upload</strong> speeds to 95% of the speed you measured above in the Preparation.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> In the <strong>Queue Discipline</strong> tab, you can leave the settings at their default.</div>
+<ul>
+<li class="level2"><div class="li"> Choose <em>fq_codel</em> (the default)</div>
+</li>
+<li class="level2"><div class="li"> Choose <em>simple.qos</em> (the default)</div>
+</li>
+<li class="level2"><div class="li"> The Advanced Configuration defaults are designed to work well out of the box.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> In the <strong>Link Layer Adaptation</strong> tab, choose the kind of link you have:</div>
+<ul>
+<li class="level2"><div class="li"> <em>For VDSL</em> - Choose <strong>Ethernet</strong>, and set per packet overhead to 8 </div>
+</li>
+<li class="level2"><div class="li"> <em>For DSL of any other type</em> - Choose <strong>ATM</strong>, and set per packet overhead to 44</div>
+</li>
+<li class="level2"><div class="li"> <em>For Cable or other kinds of connections</em> - Choose <strong>none (default)</strong></div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Click <strong>Save &amp; Apply</strong>. That&#039;s it!</div>
+</li>
+</ol>
+
+<p>
+Measure your latency again with the speed test. You should notice that the measured ping times should only be slightly larger during the downloads and uploads. Try using VoIP, Skype, Facetime, gaming, <abbr title="Domain Name System">DNS</abbr>, and general web browsing. They should be much more pleasant, even if someone&#039;s uploading or downloading a lot of data. 
+</p>
+
+<p>
+You&#039;ve eliminated Bufferbloat! 
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="a_little_about_tuning_sqm">A little about tuning SQM</h2>
+<div class="level2">
+
+<p>
+The steps above will control latency well without additional effort. The 95% figures mentioned above are good first-cut estimates, but you can often gain more speed (while controlling latency) by making a couple experiments to adjust the settings.
+</p>
+
+<p>
+The most important settings are the Download and Upload speeds. Adjust them upwards until the latency begins to increase, then enter a slightly lower final value. To do this, add 10% to the Download speed, and run the speed test/latency test. (We recommend the <a href="http://dslreports.com/speedtest" class="urlextern" title="http://dslreports.com/speedtest"  rel="nofollow">DSLReports Speed Test</a> because it automatically measures latency as well as speed.) Keep increasing the Download entry by 10% until you see latency increasing, then go back to the lower number. Then use the same &quot;10% increase&quot; procedure for the Upload entry.
+</p>
+
+<p>
+<strong>Note:</strong> If you have a DSL link, the experiments above may produce Download and Upload values that are actually <em>higher</em> than the original speed test results. This is OK: the ATM framing bytes of a DSL link add an average of 9% overhead, and these settings simply tell SQM how to make up for that overhead.
+</p>
+
+<p>
+<strong>Note:</strong> If you use a cable modem, you should use a speed test that runs for a longer time. Cable modem makers have gamed speed tests thoroughly by using &quot;Speedboost&quot;, which usually gives you an extra 10 mbits or so for the first 10 seconds (so the speed test will look good(!)). 
+</p>
+
+<p>
+You can also experiment with the other settings (read the &quot;the details&quot; sections below for more information), but they will not make nearly as large a difference as ensuring that the Download and Upload speeds are maximized. 
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="sqmthe_longer_description">SQM: The Longer Description</h2>
+<div class="level2">
+
+<p>
+Smart Queue Management (SQM) is our name for an intelligent combination of better packet scheduling (flow queueing) techniques along with with active queue length management (AQM).
+</p>
+
+<p>
+OpenWrt has full capability of tuning the network traffic control parameters. If you want to do the work, you can read the full description at the <a href="traffic.control" class="wikilink1" title="doc:howto:traffic.control">Traffic Control HOWTO.</a> You may still find it useful to get into all the details of classifying and prioritizing certain kinds of traffic, but the SQM algorithms and scripts (fq_codel and sqm-scripts) require a few minutes to set up, and work as well or better than most hand-tuned classification schemes.
+</p>
+
+<p>
+Current versions of OpenWrt have SQM and fq_codel built in. These algorithms were developed as part of the <a href="http://www.bufferbloat.net/projects/cerowrt/wiki" class="urlextern" title="http://www.bufferbloat.net/projects/cerowrt/wiki"  rel="nofollow">CeroWrt</a> project. They have been tested and refined over the last three years, and have been accepted back into the OpenWrt mainline (BB &amp; CC), as well as the Linux Kernel, and in dozens of commercial offerings. 
+</p>
+
+<p>
+To use SQM in your OpenWrt router, use the <strong>SQM QoS</strong> tab in the web interface. This will optimize the performance of the WAN interface (generally eth0) that connects your router to the ISP/the Internet. There are three sub-tabs in the <strong>SQM QoS</strong> page that you may configure:
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>Basic Settings</strong> sets the download and upload speeds of the uplink. Be sure to read about the adjustment you should make when entering speeds.</div>
+</li>
+<li class="level1"><div class="li"> <strong>Queue Discipline</strong> selects which queueing discipline to use on the WAN link. The default settings are good in almost every case.</div>
+</li>
+<li class="level1"><div class="li"> <strong>Link Layer Adaptation</strong> lets OpenWrt calculate the proper overheads for WAN links such as DSL and ADSL. If you use any kind of DSL link, you should review this section.</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit7" id="sqmbasic_settings_tab">SQM: Basic Settings Tab</h3>
+<div class="level3">
+
+<p>
+Set the <strong>Download</strong> and <strong>Upload</strong> speeds in the web <abbr title="Graphical User Interface">GUI</abbr> for the speed of your Internet connection. To do this
+</p>
+<ol>
+<li class="level1"><div class="li"> Get a speed measurement. See <a href="sqm#preparationmeasure_your_current_speed_and_latency" title="doc:howto:sqm ↵" class="wikilink1">Preparations</a> above.</div>
+</li>
+<li class="level1"><div class="li"> Set Download and Upload according to those link speeds. See examples below.</div>
+</li>
+<li class="level1"><div class="li"> Be sure to check the <strong>Enable</strong> box and set the Interface for your WAN interface.</div>
+</li>
+<li class="level1"><div class="li"> (Optional) Read <a href="sqm#a_little_bit_about_tuning_sqm" title="doc:howto:sqm ↵" class="wikilink1">A little bit about tuning SQM</a> above.</div>
+</li>
+</ol>
+
+<p>
+<strong>Example 1:</strong> If your your provider boasts &quot;7 megabit download/768 kbps upload&quot;, set <strong>Download</strong> to 5950 kbit/s and <strong>Upload</strong> to 653 kbit/s. Those numbers are 85% of the advertised speeds.
+</p>
+
+<p>
+<strong>Example 2:</strong> If you have measured your bandwidth with a speed test (be sure to disable SQM first), set the <strong>Download</strong> and <strong>Upload</strong> speeds to 95% of those numbers. For example, if you have measured 6.2 megabits down and 0.67 megabits up (6200 kbps and 670 kbps, respectively), set your <strong>Download</strong> and <strong>Upload</strong> speeds to 95% of those numbers (5890 and 637 kbps, respectively)
+</p>
+
+<p>
+<strong>Basic Settings - the details…</strong>
+</p>
+
+<p>
+SQM is designed to manage the queues of packets waiting to be sent across the slowest (bottleneck) link, which is usually your connection to the Internet. OpenWrt cannot automatically adapt to network conditions on DSL, cable modems or GPON without any settings. Since the majority of ISP provided configurations for buffering are broken today, you need take control of the bottleneck link away from the ISP and move it into OpenWrt so it can be fixed. You do this by entering link speeds that are a few percent below the actual speeds.
+</p>
+
+<p>
+Use a speed test program or web site like the <a href="http://dslreports/speedtest" class="urlextern" title="http://dslreports/speedtest"  rel="nofollow">DSL Reports Speed Test</a> to get an estimate of the actual download and upload values. After setting the initial Download and Upload entries, you should feel free to try the suggestions at <a href="sqm#a_little_about_tuning_sqm" title="doc:howto:sqm ↵" class="wikilink1">A little about tuning SQM</a> above to see if you can further increase the speeds.
+</p>
+
+</div>
+
+<h3 class="sectionedit8" id="sqmqueue_discipline_tab">SQM: Queue Discipline Tab</h3>
+<div class="level3">
+
+<p>
+The <strong>Queue Discipline</strong> tab controls how packets are prioritized for sending and receipt. The default settings shown here work very well for nearly all circumstances. Those defaults are:
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>fq_codel</em> queueing discipline</div>
+</li>
+<li class="level1"><div class="li"> <em>simple.qos</em> queue setup script</div>
+</li>
+<li class="level1"><div class="li"> <em>ECN</em> for inbound packets</div>
+</li>
+<li class="level1"><div class="li"> <em>NOECN</em> for outbound packets</div>
+</li>
+<li class="level1"><div class="li"> The default values of the <strong>Advanced Configuration</strong> work fine</div>
+</li>
+</ul>
+
+<p>
+<strong>Queueing Discipline - the details…</strong>
+</p>
+
+<p>
+The default <em>fq_codel</em> queueing discipline works well in virtually all situations. Feel free to try out other algorithms to see if they work better in your environment.
+</p>
+
+<p>
+The default <em>simple.qos</em> script has a traffic shaper (the Queueing Discipline you select) and three classes with different priorities for traffic. This provides good defaults.
+</p>
+
+<p>
+Explicit Congestion Notification (ECN) is a mechanism for notifying a sender that its packets are encountering congestion and that the sender should slow its packet delivery rate. Instead of dropping a packet, fq_codel marks the packet with a congestion notification and passes it along to the receiver. That receiver sends the congestion notification back to the sender, which can adjust its rate. This provides faster feedback than having the router drop the received packet. <em>Note:</em> this technique requires that the TCP stack on both sides enable ECN.
+</p>
+
+<p>
+At low bandwidth, we recommend that you turn ECN off for the Upload (outbound, egress) direction, because fq_codel handles and drops packets before they reach the bottleneck, leaving room for more important packets to get out. For the Download (inbound, ingress) link, we recommend you turn ECN on so that fq_codel can inform the local receiver (that will in turn notify the remote sender) that it has detected congestion without loss of a packet.
+</p>
+
+<p>
+The &quot;Dangerous Configuration&quot; options allow you to change other parameters. They are not heavily error checked, so be careful that they are exactly as shown when you enter them. As with other options in this tab, it is safe to leave them at their default. They include:
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>Hard limit on ingress queues:</strong> This is a limit the ingress (inbound) queues, measured in packets. Leave it empty for default.</div>
+</li>
+<li class="level1"><div class="li"> <strong>Hard limit on egress queues:</strong> This is a limit on the egress (outbound) queues. Similar to the ingress hard limit.</div>
+</li>
+<li class="level1"><div class="li"> <strong>Latency target for ingress:</strong> The codel algorithm specifies a target, expressed in msec. Use &quot;auto&quot; for a calculated compensation for slow links (less than 4 mbps). Leave it empty for the default.</div>
+</li>
+<li class="level1"><div class="li"> <strong>Latency target for egress:</strong> The target setting for the egress queues. Similar to the ingress latency target.</div>
+</li>
+<li class="level1"><div class="li"> <strong>Advanced option string for ingress:</strong> This string passes additional parameters to the ingress queueing discipline. There is no error checking, so enter carefully. Empty is the default.</div>
+</li>
+<li class="level1"><div class="li"> <strong>Advanced option string for egress:</strong> Similar to the ingress advanced option string.</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit9" id="sqmlink_layer_adaptation_tab">SQM: Link Layer Adaptation Tab</h3>
+<div class="level3">
+
+<p>
+Set the Link Layer Adaptation options based on your connection to the Internet. The general rule for selecting the Link Layer Adaption is:
+</p>
+<ul>
+<li class="level1"><div class="li"> Choose <strong>ATM: select for e.g. ADSL1, ADSL2, ADSL2+</strong> and set the Per-packet Overhead to 44 bytes if you use any kind of DSL/ADSL connection to the Internet (that is, if you get your internet service through a telephone line).</div>
+</li>
+<li class="level1"><div class="li"> Choose <strong>Ethernet with overhead: select for e.g. VDSL2</strong> and set the Per-packet Overhead to 8 if you know you have a VDSL2 connection.</div>
+</li>
+<li class="level1"><div class="li"> Choose <strong>none (default)</strong> if you use Cable modem, Fiber, direct Ethernet, or another kind of connection to the Internet. All the other parameters will be ignored.</div>
+</li>
+</ul>
+
+<p>
+If you are not sure what kind of link you have, first try using &quot;None&quot;, then run the Quick Test for Bufferbloat. If the results are good, you’re done. Next, try the ATM choice, then the Ethernet choice to see which performs best. Read the Details (below) to learn more about tuning the parameters for your link.
+</p>
+
+<p>
+<strong>Link Layer Adaptation - the details…</strong>
+</p>
+
+<p>
+It is especially important to set the Link Layer Adaptation on links that use ATM framing (almost all DSL/ADSL links do), because ATM adds five additional bytes of overhead to a 48-byte frame. Unless the SQM algorithm can account correctly for the ATM framing bytes, short packets will appear to take longer to send than expected, and will be penalized.
+</p>
+
+<p>
+SQM can also account for the overhead imposed by &quot;Ethernet with overhead&quot; (mostly VDSL) links. Cable Modem, Fiber, and direct Ethernet connections generally do not need any kind of link layer adaptation.
+</p>
+
+<p>
+The &quot;Advanced Link Layer&quot; choices are relevant if you are sending packets larger than 1500 bytes. This would be unusual for most home setups, since ISPs generally limit traffic to 1500 byte packets.
+</p>
+
+<p>
+Unless you are experimenting, you should use the tc_stab (not the htb_private) choice for the link layer adaptation mechanism.
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/sqm.txt</bdi> · Last modified: 2015/05/12 15:41 by <bdi>richbhanover</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="sqm?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="sqm?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="sqm?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="sqm#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Asqm&amp;1432267151" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

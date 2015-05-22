@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>NTP client/ NTP server [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,ntp.client"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="ntp.client?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/ntp.client"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/ntp.client"/>
+<link rel="canonical" href="ntp.server"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:ntp.client","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267998 166.182.3.228';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="ntp.server#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="ntp.client?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="ntp.client?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:ntp.client" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="ntp.client?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="ntp.client?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="ntp.client?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="ntp.server" class="wikilink1" title="doc:howto:ntp.client">NTP client/ NTP server</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/ntp.client" class="media" title="cz:doc:howto:ntp.client"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/ntp.client" class="media" title="de:doc:howto:ntp.client"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="ntp.server" class="media" title="doc:howto:ntp.client"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/ntp.client" class="media" title="es:doc:howto:ntp.client"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/ntp.client" class="media" title="fr:doc:howto:ntp.client"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/ntp.client" class="media" title="hu:doc:howto:ntp.client"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/ntp.client" class="media" title="jp:doc:howto:ntp.client"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/ntp.client" class="media" title="pl:doc:howto:ntp.client"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/ntp.client" class="media" title="pt-br:doc:howto:ntp.client"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/ntp.client" class="media" title="ru:doc:howto:ntp.client"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/ntp.client" class="media" title="tr:doc:howto:ntp.client"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/ntp.client" class="media" title="zh-cn:doc:howto:ntp.client"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/ntp.client" class="media" title="zh-tw:doc:howto:ntp.client"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:ntp.client</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    
+
+
+<h1 class="sectionedit1" id="ntp_clientntp_server">NTP client/ NTP server</h1>
+<div class="level1">
+
+<p>
+ <strong><code>Note:</code></strong> most devices supported by OpenWrt do not have a hardware clock.
+</p>
+
+<p>
+You can set the system date and time using one of the following methods:
+</p>
+<ul>
+<li class="level1"><div class="li">  <em><em class="u">Manually</em></em> by utilizing <strong><code>busybox-date</code></strong>, e.g.<pre class="code">date -s  hh:mm[:ss] or [YYYY.]MM.DD-hh:mm[:ss] or YYYY-MM-DD hh:mm[:ss] or [[[[[YY]YY]MM]DD]hh]mm[.ss]</pre>
+</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li">  <em><em class="u"><a href="http://en.wikipedia.org/wiki/Network Time Protocol" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Network Time Protocol">Network Time Protocol</a></em></em> by invoking <strong><code>busybox-ntpd</code></strong> once, e.g.: <pre class="code bash">ntpd <span class="re5">-q</span> <span class="re5">-p</span> ptbtime1.ptb.de</pre>
+, or configure <code><a href="../uci/system" class="wikilink1" title="doc:uci:system">/etc/config/system</a></code> accordingly to have nptd run as NTP client (and optionally additionally as NTP server) daemon. By default busybox-ntpd runs as a client and does not serve time. A server can be enabled by adding the flag &quot;-l&quot; to &quot;local args&quot; in <code>/etc/init.d/sysntpd</code> (line 23). This will most likely become configurable in a release post Backfire 10.3.1.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li">  <em><em class="u"><a href="http://en.wikipedia.org/wiki/Time Protocol" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Time Protocol">Time Protocol</a></em></em> <img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong>Obsolete</strong>  Use rdate (<strong><code>busybox-rdate</code></strong>) to set the time: <pre class="code">rdate -s time.protocol.server.org</pre>
+  Use with <code><a href="notuci.config#etccrontabsroot" class="wikilink1" title="doc:howto:notuci.config">/etc/crontabs/root</a></code></div>
+</li>
+</ul>
+<ol>
+<li class="level1"><div class="li"> <em><em class="u">Other NTP packages</em></em>  If the default busybox-ntpd isn&#039;t sufficient, one of the following alternate ntpd packages can be installed:</div>
+</li>
+</ol>
+<div class="table sectionedit2"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign"> Name       </th><th class="col1 leftalign"> Version  </th><th class="col2 centeralign">  Size  </th><th class="col3 leftalign"> Description  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> ntpclient  </td><td class="col1 centeralign">  2007_365-4  </td><td class="col2 rightalign">   12.970 </td><td class="col3 leftalign"> NTP client for setting system time from NTP servers.  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> ntpd       </td><td class="col1 centeralign">  4.2.6p4-1   </td><td class="col2 rightalign">  168.021 </td><td class="col3 leftalign"> The ISC ntp suite is a collection of tools used to synchronize the system clock with remote NTP time servers and run/montior local NTP servers. This package contains the <a href="http://en.wikipedia.org/wiki/ntpd" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/ntpd">ntpd</a> server. See <a href="http://man.cx/ntpd" class="interwiki iw_man" title="http://man.cx/ntpd">ntpd</a>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> ntpd-ssl   </td><td class="col1 centeralign">  4.2.6p4-1   </td><td class="col2 rightalign">  179.511 </td><td class="col3 leftalign"> The ISC ntp … . This package contains the ntpd server with OpenSSL support.  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> ntpdate    </td><td class="col1 centeralign">  4.2.6p4-1   </td><td class="col2 rightalign">   36.642 </td><td class="col3"> The ISC ntp … . This package contains <a href="http://en.wikipedia.org/wiki/ntpdate" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/ntpdate">ntpdate</a>. See <a href="http://man.cx/ntpdate" class="interwiki iw_man" title="http://man.cx/ntpdate">ntpdate</a> </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> ntp-utils  </td><td class="col1 centeralign">  4.2.6p4-1   </td><td class="col2 rightalign">  158.035 </td><td class="col3 leftalign"> The ISC ntp … . This package contains <code>ntpdc</code> and <code>ntpq</code>.  </td>
+	</tr>
+</table></div>
+
+<p>
+NTP (Network Time Protocol) is used to keep computer clocks accurate by synchronizing them over the Internet or a local network, or by following an accurate hardware receiver that interprets GPS, DCF-77, NIST or similar time signals.
+</p>
+
+<p>
+This package contains the NTP daemon and utility programs. An NTP daemon needs to be running on each host that is to have its clock accuracy controlled by NTP. The same NTP daemon is also used to provide NTP service to other hosts.
+</p>
+<div class="table sectionedit3"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/48px-outdated.svg.png" class="media" alt="" /> </td><td class="col1 leftalign"> In <a href="https://dev.openwrt.org/changeset/28612" class="urlextern" title="https://dev.openwrt.org/changeset/28612"  rel="nofollow">R28612</a> and <a href="https://dev.openwrt.org/changeset/28613" class="urlextern" title="https://dev.openwrt.org/changeset/28613"  rel="nofollow">R28613</a> <code>busybox-rdate</code> has been replaced with <code>busybox-ntpd</code> by default.<br/>
+If you check the entire file <a href="https://dev.openwrt.org/browser/trunk/package/busybox/config/networking/Config.in?rev=28613" class="urlextern" title="https://dev.openwrt.org/browser/trunk/package/busybox/config/networking/Config.in?rev=28613"  rel="nofollow">Config.in</a> not only the diffs above, you will learn that busybox-ntpd <em>is</em> employable as server as well by default.  </td>
+	</tr>
+</table></div>
+
+<p>
+The <code>busybox-ntpd</code> will auto-tune its sync rate depending on clock drift and other factors, it varies between 1-60min, and yes its a daemon which keeps syncing the time. When invoking it with <code>-q</code> it would act like ntpdate, means do a burst poll/sync cycle and exit.
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="installation">Installation</h2>
+<div class="level2">
+
+<p>
+See <a href="../techref/opkg" class="wikilink1" title="doc:techref:opkg">opkg</a> for more details on using the OpenWrt package manager.
+</p>
+
+<p>
+By default, <strong>busybox-ntpd</strong>, can supply both a client for setting time, and a server for supplying time to the local net. This is installed out of the box and should take care of most time syncing needs. It doesnt support advanced features like query, so the server cannot be monitored from other systems like Nagios.
+</p>
+
+<p>
+Example (install the real ntpd package (=not busybox-ntpd):
+<pre class="code bash">opkg update
+opkg <span class="kw2">install</span> ntpd
+<span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>sysntpd disable
+<span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>ntpd <span class="kw3">enable</span>
+<span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>ntpd start
+<span class="kw2">netstat</span> <span class="re5">-l</span> <span class="sy0">|</span> <span class="kw2">grep</span> ntp</pre>
+
+</p>
+
+<p>
+When you use ntpd, make sure you disable sysntpd daemon.
+A ntpd server should be listening on the default NTP port (UDP 123).
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="configuration">Configuration</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> The busybox-ntpd is configured in <code><a href="../uci/system" class="wikilink1" title="doc:uci:system">/etc/config/system</a></code>.</div>
+</li>
+</ul>
+
+<p>
+By default, it runs as a client and does not serve time to other peers.   A server can be enabled by adding the flag &quot;-l&quot; to &quot;local args&quot; in /etc/init.d/sysntpd (line 23). Starting with Backfire 10.3.1 this is not anymore needed and can be also changed in /etc/config/system.
+</p>
+<ul>
+<li class="level1"><div class="li"> The package <code>ntpclient</code> is configured in <code><a href="../uci/ntpclient" class="wikilink1" title="doc:uci:ntpclient">/etc/config/ntpclient</a></code>.</div>
+</li>
+</ul>
+
+<p>
+<code>ntpdate</code> is a command line tool that usually is used for one time synchronizations with remote ntp peers:
+<pre class="code">ntpdate pool.ntp.org</pre>
+
+and also in conjuction with <code><a href="notuci.config#etccrontabsroot" class="wikilink1" title="doc:howto:notuci.config">/etc/crontabs/root</a></code>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>ntpd</code> is a daemon that runs all the time in the background for permanent synchronization.</div>
+</li>
+</ul>
+
+<p>
+According to <a href="http://packages.debian.org/squeeze/ntp" class="urlextern" title="http://packages.debian.org/squeeze/ntp"  rel="nofollow">Debian</a> the same NTP daemon is also used to provide NTP service to other hosts.
+</p>
+
+<p>
+To use ntpd as NTP client daemon, no change to the firewall is required, to run as NTP server daemon, open port 123 UDP for your NTP clients (which is by default open in <abbr title="Local Area Network">LAN</abbr>). An example to run <code>ntpd</code> as a server:
+</p>
+
+<p>
+<pre class="code">driftfile  /var/lib/ntp/ntp.drift
+
+server 0.openwrt.pool.ntp.org iburst
+server 1.openwrt.pool.ntp.org iburst
+server 2.openwrt.pool.ntp.org iburst
+server 3.openwrt.pool.ntp.org iburst
+
+#exchange time with everybody but dont allow configuration (noquery to forbid query)
+restrict -4 default kod notrap nomodify nopeer
+restrict -6 default kod notrap nomodify nopeer
+
+#local users may interrogate the ntp server more closely
+restrict 127.0.0.1
+restrict ::1</pre>
+
+Depending on your configuration ntpd won&#039;t start properly when
+<pre class="code">restrict 127.0.0.1
+restrict ::1</pre>
+
+is not set. When ntpd is started and it tries to connect to a server for which only a hostname is known, e.g. 0.openwrt.pool.ntp.org, and for some reason <abbr title="Domain Name System">DNS</abbr> service is not available yet (e.g. you are on a dial-up connection and it takes some time to set everything up), then without the above snippet you&#039;ll find two processes of ntpd running (one as user &#039;root&#039;, the other as user &#039;ntp&#039;) and you will have errors like this in the log:
+<pre class="code">ntp_intres.request: permission denied</pre>
+
+The explanation I found at <a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=571469" class="urlextern" title="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=571469"  rel="nofollow">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=571469</a>. The default configuration above sets &quot;nomodify&quot;. That configuration on localhost &quot;will prevent the resolver process from adding the peers.&quot; […] &quot;The nomodify will only be a problem in case the resolver process needs to be started, which it does when it can&#039;t resolve the hostsnames when ntpd starts.  So this is mostly when the network isn&#039;t up yet.&quot; (explanation by Kurt, from Debian bug report mentioned above) (sic)
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="rdate_server">rdate server</h2>
+<div class="level2">
+
+<p>
+First of all: rdate is old, very simple and does not give you highly reliable time.
+If you still want to run a server for rdate clients for some reason you can use the xinetd package.
+</p>
+
+<p>
+After installing xinetd and running &quot;/etc/init.d/xinetd enable&quot;, create a file &quot;/etc/xinetd.d/time-stream&quot; with the following content:
+<pre class="code">service time
+{
+	disable = no
+	id		= time-stream
+	type		= INTERNAL
+	wait		= no
+	socket_type	= stream
+	flags		= IPv4
+}</pre>
+
+Finally run &quot;/etc/init.d/xinetd restart&quot; and your rdate-timeserver should be up and running.
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="troubleshooting">Troubleshooting</h2>
+<div class="level2">
+
+</div>
+
+<h2 class="sectionedit8" id="notes">Notes</h2>
+<div class="level2">
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/ntp.client.txt</bdi> · Last modified: 2015/04/04 09:24 by <bdi>micmac</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="ntp.client?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="ntp.client?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="ntp.client?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="ntp.server#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Antp.client&amp;1432267998" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Routed Client with relayd (Pseudobridge) [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,recipes,relayclient"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="relayclient?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:recipes"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/recipes/relayclient"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/recipes/relayclient"/>
+<link rel="canonical" href="relayclient"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:recipes';var JSINFO = {"id":"doc:recipes:relayclient","namespace":"doc:recipes"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267148 166.182.3.14';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="relayclient#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="relayclient?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="relayclient?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:recipes:relayclient" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="relayclient?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="relayclient?do=media&amp;ns=doc%253Arecipes"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="relayclient?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:recipes:start">Recipes</a></bdi> » <bdi><span class="curid"><a href="relayclient" class="wikilink1" title="doc:recipes:relayclient">Routed Client with relayd (Pseudobridge)</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/recipes/relayclient" class="media" title="cz:doc:recipes:relayclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/recipes/relayclient" class="media" title="de:doc:recipes:relayclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="relayclient" class="media" title="doc:recipes:relayclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/recipes/relayclient" class="media" title="es:doc:recipes:relayclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/recipes/relayclient" class="media" title="fr:doc:recipes:relayclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/recipes/relayclient" class="media" title="hu:doc:recipes:relayclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/recipes/relayclient" class="media" title="jp:doc:recipes:relayclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/recipes/relayclient" class="media" title="pl:doc:recipes:relayclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/recipes/relayclient" class="media" title="pt-br:doc:recipes:relayclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/recipes/relayclient" class="media" title="ru:doc:recipes:relayclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/recipes/relayclient" class="media" title="tr:doc:recipes:relayclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/recipes/relayclient" class="media" title="zh-cn:doc:recipes:relayclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/recipes/relayclient" class="media" title="zh-tw:doc:recipes:relayclient"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:recipes:relayclient</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="relayclient#configuration">Configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="relayclient#iwlist_scan_output_example">&#039;iwlist scan&#039; output example</a></div></li>
+<li class="level2"><div class="li"><a href="relayclient#iw_dev_wlan0_scan_output_example">&#039;iw dev wlan0 scan&#039; output example</a></div></li>
+<li class="level2"><div class="li"><a href="relayclient#step_1create_an_interface_for_the_wireless_station">Step 1: Create an interface for the wireless station</a></div></li>
+<li class="level2"><div class="li"><a href="relayclient#step_2change_the_existing_wireless_network">Step 2: Change the existing wireless network</a></div></li>
+<li class="level2"><div class="li"><a href="relayclient#step_3install_relayd">Step 3: Install relayd</a></div></li>
+<li class="level2"><div class="li"><a href="relayclient#step_4declare_a_relay_interface">Step 4: Declare a relay interface</a></div></li>
+<li class="level2"><div class="li"><a href="relayclient#step_5add_gateway_and_dns_to_the_lan_interface">Step 5: Add gateway and dns to the lan interface</a></div></li>
+<li class="level2"><div class="li"><a href="relayclient#step_6disable_the_local_dhcp_server">Step 6: Disable the local DHCP server</a></div></li>
+<li class="level2"><div class="li"><a href="relayclient#step_7adjust_the_firewall">Step 7: Adjust the firewall</a></div></li>
+<li class="level2"><div class="li"><a href="relayclient#step_8create_a_wireless_network_for_repeating_optional">Step 8: Create a wireless network for repeating (optional)</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="relayclient#apply_changes">Apply changes</a></div></li>
+<li class="level1"><div class="li"><a href="relayclient#enable_access_from_client_network">Enable access from client network</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="routed_client_with_relayd_pseudobridge">Routed Client with relayd (Pseudobridge)</h1>
+<div class="level1">
+
+<p>
+In the default configuration, OpenWrt bridges the wireless network to the <abbr title="Local Area Network">LAN</abbr> of the device.
+Most wireless drivers do not support bridging in client mode (see <a href="../howto/clientmode#bridgedclientmodeissues" class="wikilink1" title="doc:howto:clientmode">Bridged Client Mode Issues</a>), 
+therfore the traffic between <abbr title="Local Area Network">LAN</abbr> and the wireless client must be routed. The <em>relayd</em> package helps to implement a bridge-like behaviour with
+DHCP and Broadcast relaying comparable to the proprietary Broadcom <em>WET</em> mode.
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/802.11-routed-relay.png?id=doc%253Arecipes%253Arelayclient" class="media" title="doc:howto:802.11-routed-relay.png"><img src="../../_media/doc/howto/802.11-routed-relay.png" class="media" title="Relayd Topology" alt="Relayd Topology" /></a>
+</p>
+
+<p>
+The steps outlined below cover the process of putting the radio into client mode and linking it with the <abbr title="Local Area Network">LAN</abbr> interface with the help of <em>relayd</em>. It is important to notice that the 192.168.2.0 network in the above picture is not going to be used by any clients, but <em>relayd</em> requires the lan interface be in a different subnet to work.
+</p>
+
+<p>
+<a href="http://trac.gateworks.com/wiki/relayd" class="urlextern" title="http://trac.gateworks.com/wiki/relayd"  rel="nofollow">Configuration with Luci</a> <img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> When using Luci you also need to install the <code>luci-proto-relay</code> package.<br/>
+
+<a href="https://forum.openwrt.org/viewtopic.php?pid=173467#p173467" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?pid=173467#p173467"  rel="nofollow">OpenWrt PseudoBridge HowTo</a> for TL-WR703n or any other device based on package <code>relayd</code> and <code>luci-proto-relay</code>.<br/>
+
+<a href="https://forum.openwrt.org/viewtopic.php?id=39077" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=39077"  rel="nofollow">Repeater configurations here! Both ways, bridged and simple repeater</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="configuration">Configuration</h2>
+<div class="level2">
+
+<p>
+The changes below assume an OpenWrt default configuration, the relevant files are:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="../uci/network" class="wikilink1" title="doc:uci:network">/etc/config/network</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../uci/wireless" class="wikilink1" title="doc:uci:wireless">/etc/config/wireless</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../uci/firewall" class="wikilink1" title="doc:uci:firewall">/etc/config/firewall</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../uci/dhcp" class="wikilink1" title="doc:uci:dhcp">/etc/config/dhcp</a></div>
+</li>
+</ul>
+
+<p>
+Before doing any actual configuration, the wifi interface must be enabled in order to be able to scan for networks in the vincinity:
+</p>
+
+<p>
+<pre class="code">uci set wireless.@wifi-device[0].disabled=0
+uci commit wireless
+wifi</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Set the disabled option to 0 (to enable wireless)</div>
+</li>
+<li class="level1"><div class="li"> Save changed configuration file</div>
+</li>
+<li class="level1"><div class="li"> Start wireless using the <em>wifi</em> command</div>
+</li>
+</ul>
+
+<p>
+Now we can list networks in range using:
+</p>
+<ul>
+<li class="level1"><div class="li"> in OpenWrt 10.03 and previous, use: <code>iwlist scan</code></div>
+</li>
+<li class="level1"><div class="li"> in 12.09, substituting your actual wireless interface for <em>wlan0</em> if different: <code>iw dev wlan0 scan</code></div>
+<ul>
+<li class="level2"><div class="li"> <code>ifconfig</code> lists all available interfaces if <em>wlan0</em> is not correct</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit3" id="iwlist_scan_output_example">&#039;iwlist scan&#039; output example</h3>
+<div class="level3">
+<div class="table sectionedit4"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>root@OpenWrt:~# iwlist scan
+wlan0     Scan completed :
+          Cell 01 - Address: 00:16:01:0A:B2:8F
+                    Channel:11
+                    Frequency:2.462 <abbr title="Gigahertz">GHz</abbr> (Channel 11)
+                    Quality=70/70  Signal level=-33 dBm  
+                    Encryption key:on
+                    ESSID:&quot;xmff-relay&quot;
+                    Bit Rates:1 Mb/s; 2 Mb/s; 5.5 Mb/s; 11 Mb/s; 18 Mb/s
+                              24 Mb/s; 36 Mb/s; 54 Mb/s
+                    Bit Rates:6 Mb/s; 9 Mb/s; 12 Mb/s; 48 Mb/s
+                    Mode:Master
+                    Extra:tsf=000000173feaf1b7
+                    Extra: Last beacon: 100ms ago
+                    <abbr title="Internet Explorer">IE</abbr>: Unknown: 000A786D66662D72656C6179
+                    <abbr title="Internet Explorer">IE</abbr>: Unknown: 010882848B962430486C
+                    <abbr title="Internet Explorer">IE</abbr>: Unknown: 03010B
+                    <abbr title="Internet Explorer">IE</abbr>: Unknown: 2A0100
+                    <abbr title="Internet Explorer">IE</abbr>: Unknown: 2F0100
+                    <abbr title="Internet Explorer">IE</abbr>: Unknown: 32040C121860
+                    <abbr title="Internet Explorer">IE</abbr>: Unknown: DD090010180201F0000000
+                    <abbr title="Internet Explorer">IE</abbr>: WPA Version 1
+                        Group Cipher : TKIP
+                        Pairwise Ciphers (1) : TKIP
+                        Authentication Suites (1) : PSK
+          Cell 02 - Address: 00:14:BF:16:D4:DF
+                    Channel:1
+                    Frequency:2.412 <abbr title="Gigahertz">GHz</abbr> (Channel 1)
+                    Quality=23/70  Signal level=-87 dBm  
+                    Encryption key:on
+                    ESSID:&quot;Morpheus&quot;
+                    Bit Rates:1 Mb/s; 2 Mb/s; 5.5 Mb/s; 11 Mb/s; 18 Mb/s
+                              24 Mb/s; 36 Mb/s; 54 Mb/s
+                    Bit Rates:6 Mb/s; 9 Mb/s; 12 Mb/s; 48 Mb/s
+                    Mode:Master
+                    Extra:tsf=0000019e5b85538f
+                    Extra: Last beacon: 11580ms ago
+                    <abbr title="Internet Explorer">IE</abbr>: Unknown: 00084D6F727068657573
+                    <abbr title="Internet Explorer">IE</abbr>: Unknown: 010882848B962430486C
+                    <abbr title="Internet Explorer">IE</abbr>: Unknown: 030101
+                    <abbr title="Internet Explorer">IE</abbr>: Unknown: 2A0100
+                    <abbr title="Internet Explorer">IE</abbr>: Unknown: 2F0100
+                    <abbr title="Internet Explorer">IE</abbr>: Unknown: 32040C121860
+                    <abbr title="Internet Explorer">IE</abbr>: Unknown: DD06001018020004
+                    <abbr title="Internet Explorer">IE</abbr>: WPA Version 1
+                        Group Cipher : TKIP
+                        Pairwise Ciphers (1) : TKIP
+                        Authentication Suites (1) : PSK
+          Cell 03 - Address: 00:1A:4F:8F:48:50
+                    Channel:4
+                    Frequency:2.427 <abbr title="Gigahertz">GHz</abbr> (Channel 4)
+                    Quality=26/70  Signal level=-84 dBm  
+                    Encryption key:on
+                    ESSID:&quot;FRITZ!Box Fon WLAN 7141&quot;
+                    Bit Rates:1 Mb/s; 2 Mb/s; 5.5 Mb/s; 11 Mb/s
+                    Bit Rates:6 Mb/s; 9 Mb/s; 12 Mb/s; 18 Mb/s; 24 Mb/s
+                              36 Mb/s; 48 Mb/s; 54 Mb/s
+                    Mode:Master
+                    Extra:tsf=00000044688c8235
+                    Extra: Last beacon: 500ms ago
+                    <abbr title="Internet Explorer">IE</abbr>: Unknown: 0017465249545A21426F7820466F6E20574C414E2037313431
+                    <abbr title="Internet Explorer">IE</abbr>: Unknown: 010482848B96
+                    <abbr title="Internet Explorer">IE</abbr>: Unknown: 030104
+                    <abbr title="Internet Explorer">IE</abbr>: Unknown: 2A0107
+                    <abbr title="Internet Explorer">IE</abbr>: IEEE 802.11i/WPA2 Version 1
+                        Group Cipher : TKIP
+                        Pairwise Ciphers (1) : CCMP
+                        Authentication Suites (1) : PSK
+                    <abbr title="Internet Explorer">IE</abbr>: Unknown: 32080C1218243048606C
+                    <abbr title="Internet Explorer">IE</abbr>: WPA Version 1
+                        Group Cipher : TKIP
+                        Pairwise Ciphers (1) : TKIP
+                        Authentication Suites (1) : PSK
+                    <abbr title="Internet Explorer">IE</abbr>: Unknown: DD0A0800280101000200FF0F
+                    <abbr title="Internet Explorer">IE</abbr>: Unknown: DD180050F2020101800003A4000027A4000042435E0062322F00</code> </td>
+	</tr>
+</table></div>
+<ul>
+<li class="level1"><div class="li"> <em>ESSID</em> is the name of the network</div>
+</li>
+<li class="level1"><div class="li"> <em>Channel</em> specifies at which frequency the corresponding network is operating on</div>
+</li>
+<li class="level1"><div class="li"> The lines starting with <em><abbr title="Internet Explorer">IE</abbr>:</em> report which encryption capabilities are supported by the access point:</div>
+<ul>
+<li class="level2"><div class="li"> <em>IEEE 802.11i/WPA2 Version 1</em> indicates WPA2</div>
+</li>
+<li class="level2"><div class="li"> <em>WPA Version 1</em> indicates WPA</div>
+</li>
+<li class="level2"><div class="li"> If both WPA and WPA2 are present, the network is most likely operating in WPA/WPA2 mixed mode</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit5" id="iw_dev_wlan0_scan_output_example">&#039;iw dev wlan0 scan&#039; output example</h3>
+<div class="level3">
+<pre class="code">      root@OpenWrt:~# iw dev wlan0 scan
+      BSS c1:9e:db:ff:af:ad(on wlan0)
+              TSF: 71481395591 usec (0d, 19:51:21)
+              freq: 2412
+              beacon interval: 100 TUs
+              capability: ESS Privacy ShortPreamble ShortSlotTime (0x0431)
+              signal: -56.00 dBm
+              last seen: 660 ms ago
+              Information elements from Probe Response frame:
+              SSID: HogardeDolly
+              Supported rates: 1.0* 2.0* 5.5* 11.0* 6.0* 9.0 12.0* 18.0
+              DS Parameter set: channel 1
+              ERP: &lt;no flags&gt;
+              ERP D4.0: &lt;no flags&gt;
+              RSN:     * Version: 1
+                       * Group cipher: TKIP
+                       * Pairwise ciphers: CCMP TKIP
+                       * Authentication suites: PSK
+                       * Capabilities: 1-PTKSA-RC 1-GTKSA-RC (0x0000)
+              Extended supported rates: 24.0* 36.0 48.0 54.0
+              HT capabilities:
+                      Capabilities: 0x11ce
+                              HT20/HT40
+                              SM Power Save disabled
+                              RX HT40 SGI
+                              TX STBC
+                              RX STBC 1-stream
+                              Max AMSDU length: 3839 bytes
+                              DSSS/CCK HT40
+                      Maximum RX AMPDU length 65535 bytes (exponent: 0x003)
+                      Minimum RX AMPDU time spacing: 8 usec (0x06)
+                      HT RX MCS rate indexes supported: 0-15
+                      HT TX MCS rate indexes are undefined
+              HT operation:
+                       * primary channel: 1
+                       * secondary channel offset: above
+                       * STA channel width: any
+                       * RIFS: 1
+                       * HT protection: no
+                       * non-GF present: 1
+                       * OBSS non-GF present: 0
+                       * dual beacon: 0
+                       * dual CTS protection: 0
+                       * STBC beacon: 0
+                       * L-SIG TXOP Prot: 0
+                       * PCO active: 0
+                       * PCO phase: 0
+              WPA:     * Version: 1
+                       * Group cipher: TKIP
+                       * Pairwise ciphers: CCMP TKIP
+                       * Authentication suites: PSK
+              WMM:     * Parameter version 1
+                       * BE: CW 15-63, AIFSN 3
+                       * BK: CW 15-1023, AIFSN 7
+                       * VI: CW 7-15, AIFSN 1, TXOP 3008 usec
+                       * VO: CW 3-7, AIFSN 1, TXOP 1504 usec
+      BSS 31:ff:1e:36:ed:21(on wlan0)
+              TSF: 36618930211 usec (0d, 10:10:18)
+              freq: 2437
+              beacon interval: 100 TUs
+              capability: ESS Privacy ShortPreamble ShortSlotTime (0x0431)
+              signal: -70.00 dBm
+              last seen: 380 ms ago
+              Information elements from Probe Response frame:
+              SSID: uFi_06ED61
+              Supported rates: 1.0* 2.0* 5.5* 6.0 9.0 11.0* 12.0 18.0
+              DS Parameter set: channel 6
+              Country: HK     Environment: bogus
+                      Channels [1 - 13] @ 20 dBm
+              ERP: &lt;no flags&gt;
+              Extended supported rates: 24.0 36.0 48.0 54.0
+              HT capabilities:
+                      Capabilities: 0x0c
+                              HT20
+                              SM Power Save disabled
+                              No RX STBC
+                              Max AMSDU length: 3839 bytes
+                              No DSSS/CCK HT40
+                      Maximum RX AMPDU length 8191 bytes (exponent: 0x000)
+                      Minimum RX AMPDU time spacing: No restriction (0x00)
+                      HT RX MCS rate indexes supported: 0-7
+                      HT TX MCS rate indexes are undefined
+              HT operation:
+                       * primary channel: 6
+                       * secondary channel offset: no secondary
+                       * STA channel width: 20 MHz
+                       * RIFS: 0
+                       * HT protection: nonmember
+                       * non-GF present: 0
+                       * OBSS non-GF present: 0
+                       * dual beacon: 0
+                       * dual CTS protection: 0
+                       * STBC beacon: 0
+                       * L-SIG TXOP Prot: 0
+                       * PCO active: 0
+                       * PCO phase: 0
+              WPA:     * Version: 1
+                       * Group cipher: TKIP
+                       * Pairwise ciphers: CCMP TKIP
+                       * Authentication suites: PSK
+              RSN:     * Version: 1
+                       * Group cipher: TKIP
+                       * Pairwise ciphers: CCMP TKIP
+                       * Authentication suites: PSK
+                       * Capabilities: 1-PTKSA-RC 1-GTKSA-RC (0x0000)
+              WMM:     * Parameter version 1
+                       * BE: CW 15-1023, AIFSN 3
+                       * BK: CW 15-1023, AIFSN 7
+                       * VI: CW 7-15, AIFSN 2, TXOP 3008 usec
+                       * VO: CW 3-7, AIFSN 2, TXOP 1504 usec
+              WPS:     * Version: 1.0
+                       * Wi-Fi Protected Setup State: 2 (Configured)
+                       * Response Type: 3 (AP)
+                       * UUID: f23a0b52-48fc-5f20-9a5b-3cd27cf64566
+                       * Manufacturer: ZTE
+                       * Model: AR6003
+                       * Model Number:
+                       * Serial Number:
+                       * Primary Device Type: 6-0050f204-1
+                       * Device name: ZTE-AP
+                       * Config methods: Label, Display, PBC, Keypad
+                       * RF Bands: 0x1
+      root@OpenWrt:~#</pre>
+
+</div>
+
+<h3 class="sectionedit6" id="step_1create_an_interface_for_the_wireless_station">Step 1: Create an interface for the wireless station</h3>
+<div class="level3">
+
+<p>
+Edit <code>/etc/config/network</code> and add a new interface, for example <code>wwan</code>, with proto set to <code>dhcp</code>:
+</p>
+<div class="table sectionedit7"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;interface&#039; <strong>&#039;wwan&#039;</strong>
+        option &#039;proto&#039; &#039;dhcp&#039; </code> </td>
+	</tr>
+</table></div>
+
+<p>
+Note that no <code>ifname</code> is required here since the wireless network will reference this section later.
+</p>
+
+<p>
+UCI CLI commands:
+<pre class="code">uci set network.wwan=interface
+uci set network.wwan.proto=dhcp
+uci commit network</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit8" id="step_2change_the_existing_wireless_network">Step 2: Change the existing wireless network</h3>
+<div class="level3">
+
+<p>
+Supposed we want to connect to the network called &quot;xmff-relay&quot;, the previous scan result revealed the following information:
+</p>
+<ul>
+<li class="level1"><div class="li"> ESSID is <code>xmff-relay</code></div>
+</li>
+<li class="level1"><div class="li"> Channel is <code>11</code></div>
+</li>
+<li class="level1"><div class="li"> The network uses WPA(1) mode<br/>
+</div>
+</li>
+</ul>
+
+<p>
+<br/>
+
+In <code>/etc/config/wireless</code>, locate the existing <code><a href="../uci/wireless#wifinetworks" class="wikilink1" title="doc:uci:wireless">wifi-iface</a></code> section and change its network option to point to the newly created interface.
+Change the <code>mode</code> option to <code>sta</code> (Station) and alter the <a href="../uci/wireless#wpaencryption" class="wikilink1" title="doc:uci:wireless">encryption options</a> to match those of the target network.
+</p>
+<div class="table sectionedit9"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;wifi-device&#039; &#039;radio0&#039;
+        option &#039;type&#039;       &#039;mac80211&#039;
+        …
+        option &#039;channel&#039;    <strong>&#039;11&#039;</strong>
+
+config &#039;wifi-iface&#039;
+        option &#039;device&#039;     &#039;radio0&#039;
+        option &#039;network&#039;    <strong>&#039;wwan&#039;</strong>
+        option &#039;mode&#039;       <strong>&#039;sta&#039;</strong>
+        option &#039;ssid&#039;       <strong>&#039;xmff-relay&#039;</strong>
+        option &#039;encryption&#039; <strong>&#039;psk&#039;</strong>
+        <strong>option &#039;key&#039;        &#039;secret-key&#039;</strong> </code> </td>
+	</tr>
+</table></div>
+
+<p>
+UCI CLI commands:
+<pre class="code">uci set wireless.radio0.channel=11
+uci set wireless.@wifi-iface[0].network=wwan
+uci set wireless.@wifi-iface[0].mode=sta
+uci set wireless.@wifi-iface[0].ssid=xmff-relay
+uci set wireless.@wifi-iface[0].encryption=psk
+uci set wireless.@wifi-iface[0].key=secret-key
+uci commit wireless</pre>
+
+</p>
+
+<p>
+Finally restart wifi using:
+<pre class="code">wifi down; wifi</pre>
+
+Note that if you receive <code>device or resource busy</code> or <code>command not found</code> errors, you may need to issue a <code>reboot</code> command and reconnect before continuing.  If you have connected successfully to the existing network, <code>ifconfig</code> should reveal that <em>wlan0</em> (or whatever your wireless interface is called) has an IP address on the existing wireless network.
+</p>
+
+<p>
+You should now be connected to the internet (you will need such connection for step 3).
+</p>
+<div class="wrap_center wrap_round wrap_tip plugin_wrap" style="width: 80%;">
+<p>
+Note that the <em>router</em> is connected to the internet via the wireless link (as a client of the AP), but the computer you are using to communicate with the router <em>is not</em>. Try to <code>ping</code> a web site from the router. If it is successful, the wireless link is functioning and that is sufficient to proceed to the next step. Do not worry that your computer cannot access the internet yet.
+</p>
+</div>
+</div>
+
+<h3 class="sectionedit12" id="step_3install_relayd">Step 3: Install relayd</h3>
+<div class="level3">
+
+<p>
+If the <code>relayd</code> package is not present on the system yet, install it using:
+<pre class="code">opkg update
+opkg install relayd</pre>
+
+</p>
+
+<p>
+In 12.09 and trunk versions it is also required to enable the relayd init script to function properly:
+<pre class="code">/etc/init.d/relayd enable</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit13" id="step_4declare_a_relay_interface">Step 4: Declare a relay interface</h3>
+<div class="level3">
+
+<p>
+Back to <code>/etc/config/network</code> add another new interface, this time with the special protocol <code>relay</code>:
+</p>
+<div class="table sectionedit14"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;interface&#039; &#039;stabridge&#039;
+        option &#039;proto&#039;      &#039;relay&#039;
+        option &#039;network&#039;    &#039;lan <strong>wwan</strong>&#039; </code> </td>
+	</tr>
+</table></div>
+
+<p>
+The existing <code>lan</code> network and the newly created <code>wwan</code> network are grouped together here.
+</p>
+
+<p>
+UCI CLI commands:
+<pre class="code">uci set network.stabridge=interface
+uci set network.stabridge.proto=relay
+uci set network.stabridge.network=&quot;lan wwan&quot;
+uci commit network</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit15" id="step_5add_gateway_and_dns_to_the_lan_interface">Step 5: Add gateway and dns to the lan interface</h3>
+<div class="level3">
+
+<p>
+Find the IP address of default gateway for the network you will be repeating. You should be connected to it since step 3, thus you can use the route command to find out:
+<pre class="code">route -n | grep UG</pre>
+
+</p>
+
+<p>
+Then, still in the network configuration, add the following options under your lan interface, substituting gateway with the IP you just found:
+</p>
+<div class="table sectionedit16"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;interface&#039; &#039;lan&#039;
+        option gateway &#039;192.168.1.1&#039;
+        option dns     &#039;192.168.1.1&#039; </code> </td>
+	</tr>
+</table></div>
+
+<p>
+UCI CLI commands:
+<pre class="code">uci set network.lan.gateway=192.168.1.1
+uci set network.lan.dns=192.168.1.1
+uci commit network</pre>
+
+</p>
+
+<p>
+Please note, the ip address of this router (and only this!) must be in a different subnet than your existing main network, otherwise relayd will not work. This will be changed later (see below in chapter &quot;apply changes&quot;). This safes us an additional change on administration PC to match subnet. Note also: On final configuration, any clients on OpenWrt will use the same ip range of your main network.
+</p>
+
+</div>
+
+<h3 class="sectionedit17" id="step_6disable_the_local_dhcp_server">Step 6: Disable the local DHCP server</h3>
+<div class="level3">
+
+<p>
+Since DHCP requests from <abbr title="Local Area Network">LAN</abbr> will be answered by the wireless AP the router is connecting to,
+the local DHCP server must be disabled in order to avoid collisions later on.
+</p>
+
+<p>
+Edit <code>/etc/config/dhcp</code> and locate the existing DHCP pool for <abbr title="Local Area Network">LAN</abbr> and mark it as ignored:
+</p>
+<div class="table sectionedit18"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;dhcp&#039; <strong>&#039;lan&#039;</strong>
+        option &#039;interface&#039;     <strong>&#039;lan&#039;</strong>
+        option &#039;start&#039;         &#039;100&#039;
+        option &#039;limit&#039;         &#039;150&#039;
+        option &#039;leasetime&#039;     &#039;12h&#039;
+        <strong>option &#039;ignore&#039;        &#039;1&#039;</strong></code> </td>
+	</tr>
+</table></div>
+
+<p>
+It also possible to simply remove or comment the whole section.
+</p>
+
+<p>
+UCI CLI commands:
+<pre class="code">uci set dhcp.lan.ignore=1
+uci commit dhcp</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit19" id="step_7adjust_the_firewall">Step 7: Adjust the firewall</h3>
+<div class="level3">
+
+<p>
+In contrast to true bridging, packets forwarded by <em>relayd</em> are handled by the normal routing
+system internally, this means they&#039;re also affected by firewall policies set on <abbr title="Local Area Network">LAN</abbr>.
+</p>
+
+<p>
+Edit <code>/etc/config/firewall</code> and locate the existing <abbr title="Local Area Network">LAN</abbr> zone definition, add the new <code>wwan</code>
+to it in order to apply the same policies on <abbr title="Local Area Network">LAN</abbr> and the wireless client.
+</p>
+<div class="table sectionedit20"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;zone&#039;
+	option &#039;name&#039; &#039;lan&#039;
+	option &#039;input&#039; &#039;ACCEPT&#039;
+	option &#039;output&#039; &#039;ACCEPT&#039;
+	option &#039;forward&#039; <strong>&#039;ACCEPT&#039;</strong>
+	<strong>option &#039;network&#039; &#039;lan wwan&#039;</strong></code> </td>
+	</tr>
+</table></div>
+
+<p>
+OpenWrt, by default, ships a firewall configuration which disallows <em>forwarded</em> traffic within
+the <abbr title="Local Area Network">LAN</abbr> zone, means packets are not allowed to travel between multiple interfaces within it.
+</p>
+
+<p>
+As outlined above, the forward policy was set to <em>ACCEPT</em> and both the <code>lan</code> and the <code>wwan</code>
+networks are configured as members of the <abbr title="Local Area Network">LAN</abbr> zone.
+</p>
+
+<p>
+UCI CLI commands:
+<pre class="code">uci set firewall.@zone[0].forward=ACCEPT
+uci set firewall.@zone[0].network=&quot;lan wwan&quot;
+uci commit firewall</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit21" id="step_8create_a_wireless_network_for_repeating_optional">Step 8: Create a wireless network for repeating (optional)</h3>
+<div class="level3">
+
+<p>
+If your equipment is multi-SSID capable, besides the wired interface, you can also bridge the network into a new wireless network. Just create a new network in access point (AP) mode under <code>/etc/config/wireless</code>:
+</p>
+<div class="table sectionedit22"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>config wifi-iface
+    option device &#039;radio0&#039;
+    option mode &#039;ap&#039;
+    option ssid &#039;RepeaterWirelessNetwork&#039;
+    option encryption &#039;psk2&#039;
+    option key &#039;RepeaterWirelessPassword&#039;
+    option network &#039;lan&#039; </code></td>
+	</tr>
+</table></div>
+
+<p>
+UCI CLI commands:
+<pre class="code">uci set wireless.@wifi-iface[1].device=radio0
+uci set wireless.@wifi-iface[1].network=lan
+uci set wireless.@wifi-iface[1].mode=ap
+uci set wireless.@wifi-iface[1].ssid=RepeaterWirelessNetwork
+uci set wireless.@wifi-iface[1].encryption=psk2
+uci set wireless.@wifi-iface[1].key=RepeaterWirelessPassword
+uci commit wireless</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit23" id="apply_changes">Apply changes</h2>
+<div class="level2">
+
+<p>
+Reload the DHCP service.
+</p>
+
+<p>
+<pre class="code">/etc/init.d/dnsmasq restart</pre>
+
+</p>
+
+<p>
+Reload the firewall.
+</p>
+
+<p>
+<pre class="code">/etc/init.d/firewall restart</pre>
+
+</p>
+
+<p>
+Reconfigure the wireless network.
+</p>
+
+<p>
+<pre class="code">wifi down; wifi</pre>
+
+</p>
+
+<p>
+Finally we will need to change our ip on the lan interface.
+</p>
+<div class="table sectionedit24"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/48px-dialog-warning.svg.png" class="media" alt="" /> </td><td class="col1"> It is required that the lan interface on this router is in another subnet than your main network .<br/>
+If the target network uses the 192.168.1.0/24 subnet, you <strong>must</strong> change the <abbr title="Local Area Network">LAN</abbr> IP address (not the gateway) to a different subnet, e.g. 192.168.<strong>2</strong>.1 .<br/>
+You can determine the assigned wifi address with the following command: <pre class="code">uci -P/var/state get network.wwan.ipaddr</pre>
+ <pre class="code bash">. <span class="sy0">/</span>lib<span class="sy0">/</span>functions<span class="sy0">/</span>network.sh; network_get_ipaddr ip_wwan wwan; <span class="kw3">echo</span> <span class="re1">$ip_wwan</span></pre>
+ UCI CLI commands to change the default <abbr title="Local Area Network">LAN</abbr> IP address to a different subnet is: <pre class="code">uci set network.lan.ipaddr=192.168.2.1
+uci commit network
+reboot</pre>
+ </td>
+	</tr>
+</table></div>
+
+<p>
+At this point, the relayed client configuration should be finished.
+</p>
+
+</div>
+
+<h2 class="sectionedit25" id="enable_access_from_client_network">Enable access from client network</h2>
+<div class="level2">
+
+<p>
+After this the relay should work, however you will have trouble reaching the router from the client network if the client ip is not changed. To get to it you&#039;ll need to manually set the IP address on your computer to an IP address on the same subnet (like 192.168.2.201 if you set the router lan ip to 192.168.2.1).
+</p>
+
+<p>
+This is kind of tedious, but you can set things up so you can get it from the client network.
+</p>
+
+<p>
+Run <code>ifconfig</code> and take note of the IP address assigned to wlan0. Then tell the relayd that this is the routers IP address with the following config in /etc/config/network:
+</p>
+<div class="table sectionedit26"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>config interface &#039;stabridge&#039;
+    option ipaddr &#039;192.168.1.35&#039; </code></td>
+	</tr>
+</table></div>
+
+<p>
+UCI CLI commands:
+<pre class="code">uci set network.stabridge.ipaddr=192.168.1.35
+uci commit network</pre>
+
+</p>
+
+<p>
+You should make sure the main router is statically assigning the relay router the same IP address all the time.
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/recipes/relayclient.txt</bdi> · Last modified: 2014/12/28 22:01 by <bdi>jamdat</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="relayclient?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="relayclient?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="relayclient?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="relayclient#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Arecipes%253Arelayclient&amp;1432267148" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>BusyBox HTTP Daemon (httpd) [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,http.httpd"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="http.httpd?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/http.httpd"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/http.httpd"/>
+<link rel="canonical" href="http.httpd"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:http.httpd","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267424 166.182.3.110';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="http.httpd#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="http.httpd?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="http.httpd?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:http.httpd" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="http.httpd?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="http.httpd?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="http.httpd?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="http.httpd" class="wikilink1" title="doc:howto:http.httpd">BusyBox HTTP Daemon (httpd)</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/http.httpd" class="media" title="cz:doc:howto:http.httpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/http.httpd" class="media" title="de:doc:howto:http.httpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="http.httpd" class="media" title="doc:howto:http.httpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/http.httpd" class="media" title="es:doc:howto:http.httpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/http.httpd" class="media" title="fr:doc:howto:http.httpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/http.httpd" class="media" title="hu:doc:howto:http.httpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/http.httpd" class="media" title="jp:doc:howto:http.httpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/http.httpd" class="media" title="pl:doc:howto:http.httpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/http.httpd" class="media" title="pt-br:doc:howto:http.httpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/http.httpd" class="media" title="ru:doc:howto:http.httpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/http.httpd" class="media" title="tr:doc:howto:http.httpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/http.httpd" class="media" title="zh-cn:doc:howto:http.httpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/http.httpd" class="media" title="zh-tw:doc:howto:http.httpd"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:http.httpd</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="http.httpd#configuration">Configuration</a></div></li>
+<li class="level1"><div class="li"><a href="http.httpd#cgi_scripts">CGI scripts</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="http.httpd#cgi">CGI</a></div></li>
+<li class="level2"><div class="li"><a href="http.httpd#html_forms">HTML Forms</a></div></li>
+<li class="level2"><div class="li"><a href="http.httpd#post">POST</a></div></li>
+<li class="level2"><div class="li"><a href="http.httpd#get">GET</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="busybox_http_daemon_httpd">BusyBox HTTP Daemon (httpd)</h1>
+<div class="level1">
+
+<p>
+There is no package called <code>httpd</code>! <code>httpd</code> is part of busybox functionality. You could either compile busybox with this functionality included, or you could install a second busybox binary with this functionality included.
+</p>
+
+<p>
+From <a href="http://www.busybox.net/downloads/BusyBox.html" class="urlextern" title="http://www.busybox.net/downloads/BusyBox.html"  rel="nofollow">http://www.busybox.net/downloads/BusyBox.html</a>:
+<pre class="code">httpd
+
+    httpd [-ifv[v]] [-c CONFFILE] [-p [IP:]PORT] [-u USER[:GRP]] [-r REALM] [-h HOME] or httpd -d/-e/-m STRING
+
+    Listen for incoming HTTP requests
+
+    Options:
+
+            -i              Inetd mode
+            -f              Do not daemonize
+            -v[v]           Verbose
+            -c FILE         Configuration file (default httpd.conf)
+            -p [IP:]PORT    Bind to ip:port (default *:80)
+            -u USER[:GRP]   Set uid/gid after binding to port
+            -r REALM        Authentication Realm for Basic Authentication
+            -h HOME         Home directory (default .)
+            -m STRING       MD5 crypt STRING
+            -e STRING       HTML encode STRING
+            -d STRING       URL decode STRING
+</pre>
+
+</p>
+
+<p>
+Note that multiple instances of httpd can be run, which would have different <code>.conf</code> files:
+</p>
+
+<p>
+<pre class="code bash"><span class="co4">root@OpenWrt:~# </span><span class="sy0">/</span>usr<span class="sy0">/</span>sbin<span class="sy0">/</span>httpd <span class="re5">-p</span> <span class="nu0">80</span> <span class="re5">-h</span> <span class="sy0">/</span>www
+<span class="co4">root@OpenWrt:~# </span><span class="sy0">/</span>usr<span class="sy0">/</span>sbin<span class="sy0">/</span>httpd <span class="re5">-p</span> <span class="nu0">8080</span> <span class="re5">-h</span> <span class="sy0">/</span>www2 <span class="re5">-c</span> <span class="sy0">/</span>etc<span class="sy0">/</span>httpd2.conf</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="configuration">Configuration</h2>
+<div class="level2">
+
+<p>
+<code>httpd</code> works without a configuration file. Default is <code>/etc/httpd.conf</code> (there is also some brief uci support for this: <a href="../uci/httpd" class="wikilink1" title="doc:uci:httpd">httpd</a>):
+</p>
+
+<p>
+<pre class="code">#
+# httpd.conf - BusyBox v1.00 (2005.04.23-22:18+0000) multi-call binary
+# Contribute by Dubravko Penezic, dpenezic@gmail.com , 2005-05-15
+#
+
+#
+# Allow/Deny part
+#
+# [aA]:from    ip address allow, * for wildcard, network subnet allow
+# [dD]:from    ip address deny, * for wildcard, network subnet allow
+#
+# network subnet definition
+#  172.20.                    address from 172.20.0.0/16
+#  10.0.0.0/25                address from 10.0.0.0-10.0.0.127
+#  10.0.0.0/255.255.255.128   address that previous set
+#
+#  The Deny/Allow IP logic:
+#
+#  - Default is to allow all.  No addresses are denied unless
+#         denied with a D: rule.
+#  - Order of Deny/Allow rules is significant
+#  - Deny rules take precedence over allow rules.
+#  - If a deny all rule (D:*) is used it acts as a catch-all for unmatched
+#       addresses.
+#  - Specification of Allow all (A:*) is a no-op
+#
+# Example:
+#   1. Allow only specified addresses
+#     A:172.20          # Allow any address that begins with 172.20.
+#     A:10.10.          # Allow any address that begins with 10.10.
+#     A:127.0.0.1       # Allow local loopback connections
+#     D:*               # Deny from other IP connections
+#
+#   2. Only deny specified addresses
+#     D:1.2.3.        # deny from 1.2.3.0 - 1.2.3.255
+#     D:2.3.4.        # deny from 2.3.4.0 - 2.3.4.255
+#     A:*             # (optional line added for clarity)
+#
+# Note:
+# A:*
+# D:*
+# Mean deny ALL !!!!
+#
+
+A:*
+
+#
+# Authentication part
+#
+# /path:user:pass     username/password
+#
+# password may be clear text or MD5 cript
+#
+# Example :
+# /cgi-bin:admin:FOO
+#
+# MD5 crypt password :
+# httpd -m &quot;_password_&quot;
+# Example :
+# httpd -m &quot;astro&quot;  =&gt;  $1$$e6xMPuPW0w8dESCuffefU.
+# /work:toor:$1$$e6xMPuPW0w8dESCuffefU.
+#
+
+#
+# MIME type part
+#
+# .ext:mime/type   new mime type not compiled into httpd
+#
+# Example :
+# .ipk:application/octet-stream
+#
+# MIME type compiled into httpd
+#
+# .htm:text/html
+# .html:text/html
+# .jpg:image/jpeg
+# .jpeg:image/jpeg
+# .gif:image/gif
+# .png:image/png
+# .txt:text/plain
+# .h:text/plain
+# .c:text/plain
+# .cc:text/plain
+# .cpp:text/plain
+# .css:text/css
+# .wav:audio/wav
+# .avi:video/x-msvideo
+# .qt:video/quicktime
+# .mov:video/quicktime
+# .mpe:video/mpeg
+# .mpeg:video/mpeg
+# .mid:audio/midi
+# .midi:audio/midi
+# .mp3:audio/mpeg
+#
+# Default MIME type is application/octet-stream if extension isnt set
+#</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="cgi_scripts">CGI scripts</h2>
+<div class="level2">
+
+<p>
+See <a href="http://en.wikipedia.org/wiki/Common Gateway Interface" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Common Gateway Interface">Common Gateway Interface</a>. <code>httpd</code> expects it&#039;s CGI script files to be in the subdirectory <code>cgi-bin</code> under main web directory set by options <code>-h</code> (default is <code>/www</code>, so <code>/www/cgi-bin</code>). The CGI script files must also have permission to be executed (min mode 700).
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="cgi">CGI</h3>
+<div class="level3">
+
+<p>
+Standard set of Comon Gateway Interface environment variable are :
+<pre class="code">CONTENT_TYPE=application/x-www-form-urlencoded
+GATEWAY_INTERFACE=CGI/1.1
+REMOTE_ADDR=192.168.1.180
+QUERY_STRING=Zbr=1234567&amp;SrceMB=&amp;ime=jhkjhlkh+klhlkjhlk+%A9%D0%C6%AE%C6%AE&amp;prezime=&amp;sektor=OP
+REMOTE_PORT=2292
+CONTENT_LENGTH=128
+REQUEST_URI=/cgi-bin/test
+SERVER_SOFTWARE=busybox httpd/1.35 6-Oct-2004
+PATH=/bin:/sbin:/usr/bin:/usr/sbin
+HTTP_REFERER=http://192.168.1.1/index1.html
+SERVER_PROTOCOL=HTTP/1.0
+PATH_INFO=
+REQUEST_METHOD=POST
+PWD=/www/cgi-bin
+SERVER_PORT=80
+SCRIPT_NAME=/cgi-bin/test
+REMOTE_USER=[http basic auth username]</pre>
+
+</p>
+
+<p>
+/cgi-bin/test
+</p>
+
+<p>
+<pre class="code">#!/bin/sh
+echo &quot;Content-type: text/html&quot;
+echo &quot;&quot;
+echo &quot;Sample CGI Output&quot;
+echo &quot;&quot;
+echo &quot;&quot;
+env
+echo &quot;&quot;
+echo &quot;&quot;</pre>
+
+</p>
+
+<p>
+Environment variables are set up and the script is invoked with pipes for stdin/stdout.
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="html_forms">HTML Forms</h3>
+<div class="level3">
+
+<p>
+If a post is being done the script is fed the POST data in addition to setting the QUERY_STRING variable (for GETs or POSTs).
+</p>
+
+<p>
+The preferred way to do forms in CGI is POST.
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="post">POST</h3>
+<div class="level3">
+
+<p>
+Example how to use POST in form:
+</p>
+
+<p>
+<code>/www/form-post.html</code>
+</p>
+
+<p>
+<pre class="code">CGI Test
+  Text field
+ 
+  Radio button  
+  
+     1
+  
+  
+     2
+  
+  
+     3
+  
+  Some text 
+ 
+  &amp;nbsp;
+  &amp;nbsp;
+  &amp;nbsp;
+</pre>
+
+</p>
+
+<p>
+<code>/www/cgi-bin/test-post</code>:
+</p>
+
+<p>
+<pre class="code">#!/bin/sh
+echo &quot;Content-type: text/html&quot;
+echo &quot;&quot;
+echo &quot;Sample CGI Output&quot;
+echo &quot;&quot;
+echo &quot;&quot;
+echo &quot;Environment variables&quot;
+echo &quot;&quot;
+env
+echo &quot;&quot;
+echo &quot;=========================================================&quot;
+echo &quot;&quot;
+echo &quot;Form variables :&quot;
+echo &quot;&quot;
+read QUERY_STRING
+eval $(echo &quot;$QUERY_STRING&quot;|awk -F&#039;&amp;&#039; &#039;{for(i=1;i&lt;=NF;i++){print $i}}&#039;)
+tmp=`httpd -d $Text_Field`
+echo &quot;Text_Field=$tmp&quot;
+tmp=`httpd -d $Radio_Button`
+echo &quot;Radio_Button=$tmp&quot;
+tmp=`httpd -d $Text_Area`
+echo &quot;Text_Area=$tmp&quot;
+echo &quot;&quot;
+echo &quot;&quot;</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit7" id="get">GET</h3>
+<div class="level3">
+
+<p>
+Text area fields (and any other field that may contain \n are very hard to menage). Example how to use GET in form:
+</p>
+
+<p>
+<code>/www/form-get.html</code>:
+<pre class="code">
+
+CGI Test
+
+
+
+
+  Text field
+    
+  
+  Radio button  
+  
+     1
+  
+  
+     2
+  
+  
+     3
+  
+  &amp;nbsp;
+  
+    
+    
+  
+  &amp;nbsp;
+  &amp;nbsp;
+
+
+</pre>
+
+</p>
+
+<p>
+<code>/www/cgi-bin/test-get</code>:
+<pre class="code">#!/bin/sh
+echo &quot;Content-type: text/html&quot;
+echo &quot;&quot;
+echo &quot;Sample CGI Output&quot;
+echo &quot;&quot;
+echo &quot;&quot;
+echo &quot;Environment variables&quot;
+echo &quot;&quot;
+env
+echo &quot;&quot;
+echo &quot;=========================================================&quot;
+echo &quot;&quot;
+echo &quot;Form variables :&quot;
+echo &quot;&quot;
+eval $(echo &quot;$QUERY_STRING&quot;|awk -F&#039;&amp;&#039; &#039;{for(i=1;i&lt;=NF;i++){print $i}}&#039;)
+tmp=`httpd -d $Text_Field`
+echo &quot;Text_Field=$tmp&quot;
+tmp=`httpd -d $Radio_Button`
+echo &quot;Radio_Button=$tmp&quot;
+echo &quot;&quot;
+echo &quot;&quot;</pre>
+
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/http.httpd.txt</bdi> · Last modified: 2011/02/24 21:05 by <bdi>jow</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="http.httpd?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="http.httpd?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="http.httpd?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="http.httpd#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Ahttp.httpd&amp;1432267424" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>FHEM on OpenWRT [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,fhem"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="fhem?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/fhem"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/fhem"/>
+<link rel="canonical" href="fhem"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:fhem","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432273791 166.182.3.179';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="fhem#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="fhem?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="fhem?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:fhem" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="fhem?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="fhem?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="fhem?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="fhem" class="wikilink1" title="doc:howto:fhem">FHEM on OpenWRT</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/fhem" class="media" title="cz:doc:howto:fhem"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/fhem" class="media" title="de:doc:howto:fhem"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="fhem" class="media" title="doc:howto:fhem"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/fhem" class="media" title="es:doc:howto:fhem"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/fhem" class="media" title="fr:doc:howto:fhem"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/fhem" class="media" title="hu:doc:howto:fhem"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/fhem" class="media" title="jp:doc:howto:fhem"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/fhem" class="media" title="pl:doc:howto:fhem"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/fhem" class="media" title="pt-br:doc:howto:fhem"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/fhem" class="media" title="ru:doc:howto:fhem"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/fhem" class="media" title="tr:doc:howto:fhem"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/fhem" class="media" title="zh-cn:doc:howto:fhem"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/fhem" class="media" title="zh-tw:doc:howto:fhem"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:fhem</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="fhem#introduction">Introduction</a></div></li>
+<li class="level1"><div class="li"><a href="fhem#installation">Installation</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="fhem#basic_packages">Basic Packages</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="fhem#update_packages_list">Update Packages List</a></div></li>
+<li class="level3"><div class="li"><a href="fhem#required_packages">Required Packages</a></div></li>
+<li class="level3"><div class="li"><a href="fhem#install_fhem">Install FHEM</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="fhem#edit_the_fhem_configuration">Edit the fhem configuration</a></div></li>
+<li class="level2"><div class="li"><a href="fhem#autostart_scripts">Autostart Scripts</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="fhem#fhem_autostart_script">FHEM autostart script</a></div></li>
+<li class="level3"><div class="li"><a href="fhem#ser2net_autostart_script">ser2net autostart script</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="fhem#webinterface">Webinterface</a></div></li>
+<li class="level2"><div class="li"><a href="fhem#troubleshooting">Troubleshooting</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="fhem#resources">Resources</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="fhem_on_openwrt">FHEM on OpenWRT</h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit2" id="introduction">Introduction</h2>
+<div class="level2">
+
+<p>
+FHEM is a software, written in perl, which enables you to manage (eg. EVL) home automation devices over a Webinterface, with the Help of a radio transmitting USB Stick (CUL/CUN). As an alternative to USB Transmitters/Receivers <abbr title="Local Area Network">LAN</abbr>-devices can be used (CUNO/HM-CFG-<abbr title="Local Area Network">LAN</abbr>).
+I installed it on a Buffalo WZR-HP-AG300H, which has plenty of memory and storage. You might have to install it on an <a href="usb.storage" class="wikilink1" title="doc:howto:usb.storage">external usb storage</a> or make a swapfile on the usb drive.
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="installation">Installation</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit4" id="basic_packages">Basic Packages</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="update_packages_list">Update Packages List</h4>
+<div class="level4">
+
+<p>
+First update your Sources.
+<pre class="code bash">opkg update</pre>
+
+</p>
+
+</div>
+
+<h4 id="required_packages">Required Packages</h4>
+<div class="level4">
+
+<p>
+Get some required Packages to use the USB Port, the Serial to USB Tool (ser2net) and perl.
+<pre class="code bash">opkg <span class="kw2">install</span> <span class="kw2">tar</span> <span class="kw2">perl</span> perlbase-autoloader perlbase-config perlbase-dynaloader perlbase-errno perlbase-essential perlbase-fcntl perlbase-file perlbase-io perlbase-math perlbase-posix perlbase-selectsaver perlbase-socket perlbase-symbol perlbase-tie perlbase-time perlbase-xsloader perlbase-mime perlbase-digest perlbase-scalar ser2net kmod-usb-serial kmod-usb-serial-ftdi kmod-usb-acm</pre>
+
+</p>
+
+</div>
+
+<h4 id="install_fhem">Install FHEM</h4>
+<div class="level4">
+
+<p>
+Load and install fhem.
+Replace the Version in the wget command, if you want to try another <a href="http://fhem.de/fhem.html#Download" class="urlextern" title="http://fhem.de/fhem.html#Download"  rel="nofollow">fhem Version</a>.
+Unzip the archive.
+Copy the fhem.pl to /usr/sbin and the Rest to /usr/lib/fhem.
+The default config file that comes with the archive is best placed in /etc/config/fhem/fhem.cfg.
+At last we create a log directory for fhem in /var/log/fhem. Please bear in mind that /var/log is reset upon every reboot. Thus fhem will complain about missing log-files. This can be resolved by changing the log-path to something else for example external storage /mnt/sda1.
+</p>
+
+<p>
+<pre class="code bash"><span class="kw3">cd</span> <span class="sy0">/</span>tmp
+<span class="kw2">wget</span> http:<span class="sy0">//</span>fhem.de<span class="sy0">/</span>fhem-<span class="nu0">5.5</span>.tar.gz
+<span class="kw2">tar</span> xvfz fhem-<span class="nu0">5.5</span>.tar.gz
+<span class="kw3">cd</span> fhem-<span class="nu0">5.5</span>
+<span class="kw2">cp</span> fhem.pl <span class="sy0">/</span>usr<span class="sy0">/</span>sbin
+<span class="kw2">mkdir</span> <span class="re5">-p</span> <span class="sy0">/</span>usr<span class="sy0">/</span>lib<span class="sy0">/</span>fhem
+<span class="kw2">cp</span> <span class="re5">-R</span> <span class="sy0">*</span> <span class="sy0">/</span>usr<span class="sy0">/</span>lib<span class="sy0">/</span>fhem
+<span class="kw2">mkdir</span> <span class="re5">-p</span> <span class="sy0">/</span>etc<span class="sy0">/</span>config<span class="sy0">/</span>fhem
+<span class="kw2">cp</span> fhem.cfg <span class="sy0">/</span>etc<span class="sy0">/</span>config<span class="sy0">/</span>fhem
+<span class="kw2">mkdir</span> <span class="re5">-p</span> <span class="sy0">/</span>var<span class="sy0">/</span>log<span class="sy0">/</span>fhem</pre>
+
+</p>
+
+<p>
+Configure the virtual serial Port in /etc/ser2net.conf
+</p>
+<ul>
+<li class="level1"><div class="li"> You should find the device via lsusb and the Port in /dev (try eg. /dev/ttyUSB0)</div>
+</li>
+</ul>
+
+<p>
+Comment out all ports you don&#039;t need. Portnumber is the first one.
+<pre class="code bash /etc/ser2net.conf">27073:raw:300:/dev/ttyACM0:115200 NONE 1STOPBIT 7DATABITS</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="edit_the_fhem_configuration">Edit the fhem configuration</h3>
+<div class="level3">
+
+<p>
+Here an example file with my devices.
+You need to change the definition of the cul device according to your ser2net port.
+Please change the housecode from 1234 to something else :)
+</p>
+
+<p>
+<pre class="code bash /etc/config/fhem">attr global modpath /usr/lib/fhem
+attr global pidfilename /var/run/fhem.pid
+attr global statefile /var/log/fhem/fhem.save
+attr global logfile /var/log/fhem/fhem-%Y-%m.log
+#attr global port 7072
+define telnetPort telnet 7072
+&nbsp;
+#The USB stick
+#to try it without ser2net =&gt; define CUL CUL /dev/ttyUSB0@directio 1234
+define CUL CUL 127.0.0.1:27073 4321
+&nbsp;
+#Die Webinterfaces
+define WEB FHEMWEB 8083 global # 8083 is the port for the default WebInterface
+attr WEB room hidden
+attr WEB stylesheetPrefix dark
+&nbsp;
+define WEBS FHEMWEB 8084 global # 8084 is the port for the mobile WebInterface
+attr WEBS room hidden
+attr WEBS smallscreen 1
+&nbsp;
+#Die Geraete
+define ledlamp FS20 1234 56 # 1234 is the housecode which is set holding the button while plugging it in
+attr ledlamp model fs20st
+attr ledlamp room Wohnzimmer
+&nbsp;
+# define &lt;free device name&gt; &lt;predefineddevicename&gt; &lt;freedecimalhousecode&gt; &lt;devicenumber&gt;
+define lamp FS20 1234 57
+# &lt;attr&gt; &lt;name from define&gt; &lt;model&gt; &lt;modelidfix&gt;
+attr lamp model fs20di
+attr lamp room Dorm
+&nbsp;
+define heating FHT 2d22 # Is shown in decimal numbers on the device and must be given in hex eg. (1. 45 = 2d and 2nd: 34 = 22 )
+#attr heating model fht80b
+attr heating room Livingroom</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="autostart_scripts">Autostart Scripts</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="fhem_autostart_script">FHEM autostart script</h4>
+<div class="level4">
+
+<p>
+Create an autostart Script in /etc/init.d for fhem
+<pre class="code bash"><span class="co0">#!/bin/sh /etc/rc.common</span>
+<span class="co0"># FHEM Init Script</span>
+&nbsp;
+<span class="re2">START</span>=<span class="nu0">11</span>
+<span class="re2">STOP</span>=<span class="nu0">15</span>
+&nbsp;
+start<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+  <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re5">-f</span> <span class="sy0">/</span>var<span class="sy0">/</span>log<span class="sy0">/</span>fhem <span class="br0">&#93;</span>; <span class="kw1">then</span> 
+  <span class="kw2">mkdir</span> <span class="re5">-p</span> <span class="sy0">/</span>var<span class="sy0">/</span>log<span class="sy0">/</span>fhem
+  <span class="kw1">fi</span>
+&nbsp;
+  <span class="sy0">/</span>usr<span class="sy0">/</span>sbin<span class="sy0">/</span>fhem.pl <span class="sy0">/</span>etc<span class="sy0">/</span>config<span class="sy0">/</span>fhem<span class="sy0">/</span>fhem.cfg
+<span class="br0">&#125;</span>
+stop<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;stopping fhem&quot;</span>
+  <span class="kw2">kill</span> <span class="re5">-TERM</span> $<span class="br0">&#40;</span><span class="kw2">cat</span> <span class="sy0">/</span>var<span class="sy0">/</span>run<span class="sy0">/</span>fhem.pid<span class="br0">&#41;</span>
+<span class="br0">&#125;</span>
+restart<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;restarting&quot;</span>
+  <span class="kw2">kill</span> <span class="re5">-TERM</span> $<span class="br0">&#40;</span><span class="kw2">cat</span> <span class="sy0">/</span>var<span class="sy0">/</span>run<span class="sy0">/</span>fhem.pid<span class="br0">&#41;</span>
+  <span class="sy0">/</span>usr<span class="sy0">/</span>sbin<span class="sy0">/</span>fhem.pl <span class="sy0">/</span>etc<span class="sy0">/</span>config<span class="sy0">/</span>fhem<span class="sy0">/</span>fhem.cfg
+<span class="br0">&#125;</span></pre>
+
+</p>
+
+<p>
+Make the Script executeable:
+<pre class="code bash"><span class="kw2">chmod</span> <span class="nu0">755</span> <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>fhem</pre>
+
+</p>
+
+<p>
+Enable the autostart script via
+<pre class="code bash"><span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>fhem <span class="kw3">enable</span></pre>
+
+</p>
+
+</div>
+
+<h4 id="ser2net_autostart_script">ser2net autostart script</h4>
+<div class="level4">
+
+<p>
+quite rudimentary…
+<pre class="code bash /etc/init.d/ser2net">#!/bin/sh /etc/rc.common
+# Ser2Net Init Script
+&nbsp;
+START=10
+STOP=15
+&nbsp;
+start() {
+   ser2net
+}
+&nbsp;
+stop(){
+   killall ser2net
+}</pre>
+
+</p>
+
+<p>
+Make the Script executeable:
+<pre class="code bash"><span class="kw2">chmod</span> <span class="nu0">755</span> <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>ser2net</pre>
+
+</p>
+
+<p>
+Enable the autostart script via
+<pre class="code bash"><span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>ser2net <span class="kw3">enable</span></pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit7" id="webinterface">Webinterface</h3>
+<div class="level3">
+
+<p>
+Now you can use the commandline, but you&#039;ve got no Webinterface. As perl brings it&#039;s own webserver you just have to
+place your preferred Webinterface in the folder <code>/usr/lib/fhem/FHEM</code>
+I got my 01_FHEMWEB.pm via ubuntu repositories (apt-get install fhem) from where it installs to /usr/share/fhem/FHEM&#039;&#039;) 
+</p>
+
+<p>
+Since version 5.3 there is a new Webserver included.
+You can define it according to the <a href="http://fhem.de/commandref.html#HTTPSRV" class="urlextern" title="http://fhem.de/commandref.html#HTTPSRV"  rel="nofollow">fhem commandref</a> in your fhem.cfg
+<pre class="code bash /etc/config/fhem">define &lt;name&gt; &lt;infix&gt; &lt;directory&gt; &lt;friendlyname&gt;</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit8" id="troubleshooting">Troubleshooting</h3>
+<div class="level3">
+
+<p>
+<img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" />
+If autostart doesn&#039;t work, link the startup scripts to the appropriate runlevel
+<pre class="code bash"><span class="kw2">chmod</span> <span class="nu0">755</span> <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>fhem
+<span class="kw2">ln</span> <span class="re5">-s</span> <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>fhem <span class="sy0">/</span>etc<span class="sy0">/</span>rc.d<span class="sy0">/</span>S99fhem
+<span class="kw2">ln</span> <span class="re5">-s</span> <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>fhem <span class="sy0">/</span>etc<span class="sy0">/</span>rc.d<span class="sy0">/</span>K1fhem</pre>
+
+and give the appropriate access rights to the startup script files:
+<pre class="code bash"><span class="kw2">chmod</span> <span class="nu0">755</span> <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>fhem <span class="sy0">&amp;&amp;</span> <span class="kw2">chmod</span> <span class="nu0">755</span> <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>ser2net</pre>
+
+##master-page:HomepageTemplate
+<a href="http://www.enjz.net/%D8%AE%D8%AF%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D9%86%D8%B8%D9%8A%D9%81/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D9%88%D8%A7%D8%AC%D9%87%D8%A7%D8%AA-%D8%B2%D8%AC%D8%A7%D8%AC-%D9%88%D8%AD%D8%AC%D8%B1-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/" class="urlextern" title="http://www.enjz.net/%D8%AE%D8%AF%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D9%86%D8%B8%D9%8A%D9%81/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D9%88%D8%A7%D8%AC%D9%87%D8%A7%D8%AA-%D8%B2%D8%AC%D8%A7%D8%AC-%D9%88%D8%AD%D8%AC%D8%B1-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/"  rel="nofollow">شركة تنظيف واجهات حجر بالرياض</a>
+<a href="http://elenjaz.com/" class="urlextern" title="http://elenjaz.com/"  rel="nofollow">شركة نقل اثاث بالرياض</a>
+<a href="http://www.enjz.net/%D9%83%D8%B4%D9%81-%D8%AA%D8%B3%D8%B1%D8%A8%D8%A7%D8%AA/%D9%83%D8%B4%D9%81-%D8%AA%D8%B3%D8%B1%D8%A8%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D9%8A%D8%A7%D9%87-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/" class="urlextern" title="http://www.enjz.net/%D9%83%D8%B4%D9%81-%D8%AA%D8%B3%D8%B1%D8%A8%D8%A7%D8%AA/%D9%83%D8%B4%D9%81-%D8%AA%D8%B3%D8%B1%D8%A8%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D9%8A%D8%A7%D9%87-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/"  rel="nofollow">كشف تسربات المياه</a>
+<a href="http://www.enjz.net/%D9%86%D9%82%D9%84-%D8%A7%D9%84%D8%A7%D8%AB%D8%A7%D8%AB/%D8%AA%D8%AE%D8%B2%D9%8A%D9%86-%D8%A7%D8%AB%D8%A7%D8%AB/" class="urlextern" title="http://www.enjz.net/%D9%86%D9%82%D9%84-%D8%A7%D9%84%D8%A7%D8%AB%D8%A7%D8%AB/%D8%AA%D8%AE%D8%B2%D9%8A%D9%86-%D8%A7%D8%AB%D8%A7%D8%AB/"  rel="nofollow">شركة تخزين اثاث بالرياض</a>
+<a href="http://www.enjz.net/%D9%86%D9%82%D9%84-%D8%A7%D9%84%D8%A7%D8%AB%D8%A7%D8%AB/%D9%86%D9%82%D9%84-%D8%A7%D8%AB%D8%A7%D8%AB-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/" class="urlextern" title="http://www.enjz.net/%D9%86%D9%82%D9%84-%D8%A7%D9%84%D8%A7%D8%AB%D8%A7%D8%AB/%D9%86%D9%82%D9%84-%D8%A7%D8%AB%D8%A7%D8%AB-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/"  rel="nofollow">شركة نقل اثاث بالرياض</a>
+<a href="http://www.enjz.net/%D9%85%D9%83%D8%A7%D9%81%D8%AD%D8%A9-%D8%A7%D9%84%D8%AD%D8%B4%D8%B1%D8%A7%D8%AA/" class="urlextern" title="http://www.enjz.net/%D9%85%D9%83%D8%A7%D9%81%D8%AD%D8%A9-%D8%A7%D9%84%D8%AD%D8%B4%D8%B1%D8%A7%D8%AA/"  rel="nofollow">شركة مكافحة الصراصير بالرياض</a>
+<a href="http://www.enjz.net/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D9%81%D9%84%D9%84/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D9%81%D9%84%D9%84-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/" class="urlextern" title="http://www.enjz.net/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D9%81%D9%84%D9%84/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D9%81%D9%84%D9%84-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/"  rel="nofollow">شركة تنظيف فلل بالرياض</a>
+<a href="http://www.youtube.com/watch?v=Jek9W0Ft5a8" class="urlextern" title="http://www.youtube.com/watch?v=Jek9W0Ft5a8"  rel="nofollow">شركة تنظيف خزانات بالرياض</a>
+<a href="http://www.enjz.net/%D9%85%D9%83%D8%A7%D9%81%D8%AD%D8%A9-%D8%A7%D9%84%D8%AD%D8%B4%D8%B1%D8%A7%D8%AA/%D9%85%D9%83%D8%A7%D9%81%D8%AD%D8%A9-%D8%AD%D8%B4%D8%B1%D8%A7%D8%AA-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/" class="urlextern" title="http://www.enjz.net/%D9%85%D9%83%D8%A7%D9%81%D8%AD%D8%A9-%D8%A7%D9%84%D8%AD%D8%B4%D8%B1%D8%A7%D8%AA/%D9%85%D9%83%D8%A7%D9%81%D8%AD%D8%A9-%D8%AD%D8%B4%D8%B1%D8%A7%D8%AA-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/"  rel="nofollow">شركة مكافحة الفئران بالرياض</a>
+<a href="http://www.enjz.net/%D9%86%D9%82%D9%84-%D8%A7%D9%84%D8%A7%D8%AB%D8%A7%D8%AB/%D8%AA%D8%AE%D8%B2%D9%8A%D9%86-%D8%B9%D9%81%D8%B4-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/" class="urlextern" title="http://www.enjz.net/%D9%86%D9%82%D9%84-%D8%A7%D9%84%D8%A7%D8%AB%D8%A7%D8%AB/%D8%AA%D8%AE%D8%B2%D9%8A%D9%86-%D8%B9%D9%81%D8%B4-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/"  rel="nofollow">شركة تخزين عفش بالرياض</a>
+</p>
+
+<p>
+<a href="http://www.enjz.net/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%B4%D9%82%D9%82/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%B4%D9%82%D9%82-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/" class="urlextern" title="http://www.enjz.net/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%B4%D9%82%D9%82/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%B4%D9%82%D9%82-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/"  rel="nofollow">شركة تنظيف الاثاث بالرياض</a>
+<a href="http://www.enjz.net/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%B4%D9%82%D9%82/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%A8%D9%8A%D9%88%D8%AA-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/" class="urlextern" title="http://www.enjz.net/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%B4%D9%82%D9%82/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%A8%D9%8A%D9%88%D8%AA-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/"  rel="nofollow">شركة تنظيف ستائر بالرياض</a>
+<a href="http://www.enjz.net/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D9%81%D9%84%D9%84/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D9%85%D9%86%D8%A7%D8%B2%D9%84/" class="urlextern" title="http://www.enjz.net/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D9%81%D9%84%D9%84/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D9%85%D9%86%D8%A7%D8%B2%D9%84/"  rel="nofollow">شركة جلي بلاط بالرياض</a>
+<a href="http://www.enjz.net/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%B4%D9%82%D9%82/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%B4%D9%82%D9%82-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/" class="urlextern" title="http://www.enjz.net/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%B4%D9%82%D9%82/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%B4%D9%82%D9%82-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/"  rel="nofollow">شركة تنظيف شقق بالرياض</a>
+<a href="http://www.enjz.net/%D9%86%D9%82%D9%84-%D8%A7%D9%84%D8%A7%D8%AB%D8%A7%D8%AB/%D8%B4%D8%B1%D9%83%D8%A9-%D9%86%D9%82%D9%84-%D8%A7%D8%AB%D8%A7%D8%AB-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/" class="urlextern" title="http://www.enjz.net/%D9%86%D9%82%D9%84-%D8%A7%D9%84%D8%A7%D8%AB%D8%A7%D8%AB/%D8%B4%D8%B1%D9%83%D8%A9-%D9%86%D9%82%D9%84-%D8%A7%D8%AB%D8%A7%D8%AB-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/"  rel="nofollow">شركة نقل عفش بالرياض</a>
+<a href="http://www.enjz.net/%D8%AE%D8%AF%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D9%86%D8%B8%D9%8A%D9%81/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D9%85%D9%88%D9%83%D9%8A%D8%AA-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/" class="urlextern" title="http://www.enjz.net/%D8%AE%D8%AF%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D9%86%D8%B8%D9%8A%D9%81/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D9%85%D9%88%D9%83%D9%8A%D8%AA-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/"  rel="nofollow">شركة تنظيف موكيت بالرياض</a>
+<a href="http://www.enjz.net/%D8%AE%D8%AF%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D9%86%D8%B8%D9%8A%D9%81/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D9%85%D8%AC%D8%A7%D9%84%D8%B3-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/" class="urlextern" title="http://www.enjz.net/%D8%AE%D8%AF%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D9%86%D8%B8%D9%8A%D9%81/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D9%85%D8%AC%D8%A7%D9%84%D8%B3-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/"  rel="nofollow">شركة تنظيف مجالس بالرياض</a>
+<a href="http://www.enjz.net/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%B4%D9%82%D9%82/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%B4%D9%82%D9%82-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/" class="urlextern" title="http://www.enjz.net/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%B4%D9%82%D9%82/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%B4%D9%82%D9%82-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/"  rel="nofollow">شركة تنظيف مسابح بالرياض</a>
+<a href="http://www.enjz.net/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%B4%D9%82%D9%82/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%A8%D9%8A%D9%88%D8%AA-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/" class="urlextern" title="http://www.enjz.net/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%B4%D9%82%D9%82/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%A8%D9%8A%D9%88%D8%AA-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/"  rel="nofollow">شركة تنظيف منازل بالرياض</a>
+<a href="http://www.enjz.net/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D9%81%D9%84%D9%84/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/" class="urlextern" title="http://www.enjz.net/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D9%81%D9%84%D9%84/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/"  rel="nofollow">شركة تنظيف مساجد بالرياض</a>
+<a href="http://www.enjz.net/%D8%AE%D8%AF%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D9%86%D8%B8%D9%8A%D9%81/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%A8%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/" class="urlextern" title="http://www.enjz.net/%D8%AE%D8%AF%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D9%86%D8%B8%D9%8A%D9%81/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%A8%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/"  rel="nofollow">شركة شفط بيارات بالرياض</a>
+</p>
+
+<p>
+<a href="http://www.enjz.net/%D9%85%D9%83%D8%A7%D9%81%D8%AD%D8%A9-%D8%A7%D9%84%D8%AD%D8%B4%D8%B1%D8%A7%D8%AA/%D8%B1%D8%B4-%D9%85%D8%A8%D9%8A%D8%AF%D8%A7%D8%AA-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/" class="urlextern" title="http://www.enjz.net/%D9%85%D9%83%D8%A7%D9%81%D8%AD%D8%A9-%D8%A7%D9%84%D8%AD%D8%B4%D8%B1%D8%A7%D8%AA/%D8%B1%D8%B4-%D9%85%D8%A8%D9%8A%D8%AF%D8%A7%D8%AA-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/"  rel="nofollow">شركة رش مبيدات بالرياض</a>
+<a href="http://www.enjz.net/%D9%85%D9%83%D8%A7%D9%81%D8%AD%D8%A9-%D8%A7%D9%84%D8%AD%D8%B4%D8%B1%D8%A7%D8%AA/" class="urlextern" title="http://www.enjz.net/%D9%85%D9%83%D8%A7%D9%81%D8%AD%D8%A9-%D8%A7%D9%84%D8%AD%D8%B4%D8%B1%D8%A7%D8%AA/"  rel="nofollow">شركة مكافحة حشرات بالرياض</a>
+<a href="http://www.youtube.com/watch?v=-A3Z0MMaHqo&amp;feature=youtu.be" class="urlextern" title="http://www.youtube.com/watch?v=-A3Z0MMaHqo&amp;feature=youtu.be"  rel="nofollow">شركة رش مبيدات بالرياض</a>
+<a href="http://www.enjz.net/%D8%B9%D8%B2%D9%84-%D8%AE%D8%B2%D8%A7%D9%86%D8%A7%D8%AA-%D9%88%D8%A7%D8%B3%D8%B7%D8%AD/" class="urlextern" title="http://www.enjz.net/%D8%B9%D8%B2%D9%84-%D8%AE%D8%B2%D8%A7%D9%86%D8%A7%D8%AA-%D9%88%D8%A7%D8%B3%D8%B7%D8%AD/"  rel="nofollow">شركة عزل اسطح بالرياض</a>
+<a href="http://www.youtube.com/watch?v=Miv6AHE8yr0&amp;feature=youtu.be" class="urlextern" title="http://www.youtube.com/watch?v=Miv6AHE8yr0&amp;feature=youtu.be"  rel="nofollow">شركة تنظيف فلل بالرياض</a>
+<a href="https://www.facebook.com/pages/%D8%B4%D8%B1%D9%83%D8%A9-%D8%B1%D8%B4-%D9%85%D8%A8%D9%8A%D8%AF%D8%A7%D8%AA-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0566724802-%D8%A7%D9%84%D8%B9%D8%A7%D8%AF%D9%84-%D8%AC%D8%B1%D9%88%D8%A8/172233422971104" class="urlextern" title="https://www.facebook.com/pages/%D8%B4%D8%B1%D9%83%D8%A9-%D8%B1%D8%B4-%D9%85%D8%A8%D9%8A%D8%AF%D8%A7%D8%AA-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0566724802-%D8%A7%D9%84%D8%B9%D8%A7%D8%AF%D9%84-%D8%AC%D8%B1%D9%88%D8%A8/172233422971104"  rel="nofollow">شركة رش مبيدات بالرياض</a>
+<a href="http://www.youtube.com/watch?v=H240s9RGoiA&amp;feature=youtu.be" class="urlextern" title="http://www.youtube.com/watch?v=H240s9RGoiA&amp;feature=youtu.be"  rel="nofollow">شركة تنظيف مسابح بالرياض</a>
+<a href="http://www.youtube.com/watch?v=qtrgUlrmmF0&amp;feature=youtu.be" class="urlextern" title="http://www.youtube.com/watch?v=qtrgUlrmmF0&amp;feature=youtu.be"  rel="nofollow">شركة نقل اثاث بالرياض</a>
+<a href="http://www.enjz.net/%D8%AE%D8%AF%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D9%86%D8%B8%D9%8A%D9%81/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D8%B3%D9%84%D9%8A%D9%83-%D9%85%D8%AC%D8%A7%D8%B1%D9%89-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/" class="urlextern" title="http://www.enjz.net/%D8%AE%D8%AF%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D9%86%D8%B8%D9%8A%D9%81/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D8%B3%D9%84%D9%8A%D9%83-%D9%85%D8%AC%D8%A7%D8%B1%D9%89-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/"  rel="nofollow">شركة تسليك مجارى بالرياض</a>
+<a href="http://www.enjz.net/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%AE%D8%B2%D8%A7%D9%86%D8%A7%D8%AA/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%AE%D8%B2%D8%A7%D9%86%D8%A7%D8%AA-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/" class="urlextern" title="http://www.enjz.net/%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%AE%D8%B2%D8%A7%D9%86%D8%A7%D8%AA/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%AE%D8%B2%D8%A7%D9%86%D8%A7%D8%AA-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/"  rel="nofollow">شركة تنظيف خزانات بالرياض</a>
+<a href="https://twitter.com/sunsun_1980" class="urlextern" title="https://twitter.com/sunsun_1980"  rel="nofollow">شركة نقل اثاث بالمدينة المنورة</a>
+<a href="https://www.facebook.com/pages/%D9%86%D9%82%D9%84-%D8%A7%D8%AB%D8%A7%D8%AB-%D9%88%D8%B9%D9%81%D8%B4-%D8%A8%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D9%86%D9%87-%D8%A7%D9%84%D9%85%D9%86%D9%88%D8%B1%D9%87-%D9%85%D8%B1%D9%83%D8%B2-%D8%A7%D9%81%D9%86%D8%A7%D9%86-0532829528/170661643121414" class="urlextern" title="https://www.facebook.com/pages/%D9%86%D9%82%D9%84-%D8%A7%D8%AB%D8%A7%D8%AB-%D9%88%D8%B9%D9%81%D8%B4-%D8%A8%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D9%86%D9%87-%D8%A7%D9%84%D9%85%D9%86%D9%88%D8%B1%D9%87-%D9%85%D8%B1%D9%83%D8%B2-%D8%A7%D9%81%D9%86%D8%A7%D9%86-0532829528/170661643121414"  rel="nofollow">شركة نقل اثاث بالمدينة المنورة</a>
+<a href="http://wiki.openwrt.org/http/www.el3dl2.com/d8_b4_d8_b1_d9_83_d8_a9-_d8_aa_d8_b9_d9_82_d9_8a_d9_85-_d8_ae_d8_b2_d8_a7_d9_86_d8_a7_d8_aa-_d8_a8_d8_a7_d9_84_d8_b1_d9_8a_d8_a7_d8_b6-0532336548/start" class="wikilink2" title="http:www.el3dl2.com:d8_b4_d8_b1_d9_83_d8_a9-_d8_aa_d8_b9_d9_82_d9_8a_d9_85-_d8_ae_d8_b2_d8_a7_d9_86_d8_a7_d8_aa-_d8_a8_d8_a7_d9_84_d8_b1_d9_8a_d8_a7_d8_b6-0532336548:start" rel="nofollow"> شركة الصفرات لتعقيم الخزانات بالرياض</a>
+<a href="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D9%85%D9%88%D9%83%D9%8A%D8%AA-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0532336548/" class="urlextern" title="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D9%85%D9%88%D9%83%D9%8A%D8%AA-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0532336548/"  rel="nofollow">شركة الصفرات لتنظيف الموكيت بالرياض</a>
+<a href="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D8%B3%D9%84%D9%8A%D9%83-%D9%85%D8%AC%D8%A7%D8%B1%D9%89-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0532336548/" class="urlextern" title="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D8%B3%D9%84%D9%8A%D9%83-%D9%85%D8%AC%D8%A7%D8%B1%D9%89-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0532336548/"  rel="nofollow">شركة الصفرات لتسليك المجارى</a>
+<a href="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D9%83%D8%B4%D9%81-%D8%AA%D8%B3%D8%B1%D8%A8%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D9%8A%D8%A7%D9%87-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0532336548/" class="urlextern" title="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D9%83%D8%B4%D9%81-%D8%AA%D8%B3%D8%B1%D8%A8%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D9%8A%D8%A7%D9%87-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0532336548/"  rel="nofollow">شركة الصفرات لكشف التسربات</a>
+<a href="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D9%86%D9%82%D9%84-%D8%A7%D8%AB%D8%A7%D8%AB-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0532336548/" class="urlextern" title="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D9%86%D9%82%D9%84-%D8%A7%D8%AB%D8%A7%D8%AB-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0532336548/"  rel="nofollow">شركة الصفرات لنقل الاثاث بالرياض</a>
+<a href="http://www.el3dl2.com/" class="urlextern" title="http://www.el3dl2.com/"  rel="nofollow">شركة الصفرات لتنظيف المنازل</a>
+<a href="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%AE%D8%B2%D8%A7%D9%86%D8%A7%D8%AA-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0532336548/" class="urlextern" title="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%AE%D8%B2%D8%A7%D9%86%D8%A7%D8%AA-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0532336548/"  rel="nofollow">شركة الصفرات لتنظيف الخزانات بالرياض</a>
+<a href="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%B3%D8%AC%D8%A7%D8%AF-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0532336548/" class="urlextern" title="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%B3%D8%AC%D8%A7%D8%AF-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0532336548/"  rel="nofollow">شركة الصفرات لتنظيف السجاد بالرياض</a>
+<a href="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D9%82%D8%B5%D9%88%D8%B1-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0532336548/" class="urlextern" title="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D9%82%D8%B5%D9%88%D8%B1-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0532336548/"  rel="nofollow">شركة الصفرات لتنظيف القصور بالرياض</a>
+<a href="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D8%B1%D8%B4-%D9%85%D8%A8%D9%8A%D8%AF%D8%A7%D8%AA-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0532336548/" class="urlextern" title="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D8%B1%D8%B4-%D9%85%D8%A8%D9%8A%D8%AF%D8%A7%D8%AA-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0532336548/"  rel="nofollow">شركة الصفرات لرش المبيدات بالرياض</a>
+<a href="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0561471079/" class="urlextern" title="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0561471079/"  rel="nofollow">شركة الصفرات للتنظيف</a>
+<a href="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D9%85%D9%83%D8%A7%D9%81%D8%AD%D8%A9-%D8%A7%D9%84%D9%86%D9%85%D9%84-%D8%A7%D9%84%D8%A7%D8%A8%D9%8A%D8%B6-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0532336548/" class="urlextern" title="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D9%85%D9%83%D8%A7%D9%81%D8%AD%D8%A9-%D8%A7%D9%84%D9%86%D9%85%D9%84-%D8%A7%D9%84%D8%A7%D8%A8%D9%8A%D8%B6-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0532336548/"  rel="nofollow">شركة الصفرات لمكافحة النمل الابيض بالرياض</a>
+<a href="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D9%85%D9%83%D8%A7%D9%81%D8%AD%D8%A9-%D8%AD%D8%B4%D8%B1%D8%A7%D8%AA-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0532336548/" class="urlextern" title="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D9%85%D9%83%D8%A7%D9%81%D8%AD%D8%A9-%D8%AD%D8%B4%D8%B1%D8%A7%D8%AA-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0532336548/"  rel="nofollow">شركة الصفرات لمكافحة الحشرات</a>
+<a href="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D9%86%D9%82%D9%84-%D8%B9%D9%81%D8%B4-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0532336548/" class="urlextern" title="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D9%86%D9%82%D9%84-%D8%B9%D9%81%D8%B4-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0532336548/"  rel="nofollow">رقم شركة الصفرات لنقل العفش</a>
+<a href="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D9%85%D8%AC%D8%A7%D9%84%D8%B3-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/" class="urlextern" title="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D9%85%D8%AC%D8%A7%D9%84%D8%B3-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/"  rel="nofollow">شركة الصفرات لتنظيف المجالس بالرياض</a>
+<a href="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D9%85%D8%B3%D8%A7%D8%A8%D8%AD-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/" class="urlextern" title="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D9%85%D8%B3%D8%A7%D8%A8%D8%AD-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/"  rel="nofollow">شركة الصفرات لتنظيف المسابح بالرياض</a>
+<a href="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%A8%D9%8A%D9%88%D8%AA-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0532336548/" class="urlextern" title="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%A8%D9%8A%D9%88%D8%AA-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0532336548/"  rel="nofollow">شركة الصفرات لتنظيف البيوت</a>
+<a href="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D8%AE%D8%B2%D9%8A%D9%86-%D8%A7%D8%AB%D8%A7%D8%AB-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/" class="urlextern" title="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D8%AE%D8%B2%D9%8A%D9%86-%D8%A7%D8%AB%D8%A7%D8%AB-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/"  rel="nofollow">شركة الصفرات لتخزين الاثاث بالرياض</a>
+<a href="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D9%81%D9%84%D9%84-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/" class="urlextern" title="http://www.el3dl2.com/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D9%81%D9%84%D9%84-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/"  rel="nofollow">شركة الصفرات لتنظيف الفلل</a>
+<a href="http://www.el3dl2.com/%D8%A7%D9%81%D8%B6%D9%84-%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%B4%D9%82%D9%82-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0532336548/" class="urlextern" title="http://www.el3dl2.com/%D8%A7%D9%81%D8%B6%D9%84-%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%B4%D9%82%D9%82-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-0532336548/"  rel="nofollow">شركة الصفرات لتنظيف الشقق</a>
+<a href="https://www.youtube.com/watch?v=TUFhw64Kxuc&amp;feature=youtu.be" class="urlextern" title="https://www.youtube.com/watch?v=TUFhw64Kxuc&amp;feature=youtu.be"  rel="nofollow">شركة تنظيف فلل بالمدينة المنورة</a>
+<a href="https://www.youtube.com/watch?v=0N2aZJ5rkUY&amp;feature=youtu.be" class="urlextern" title="https://www.youtube.com/watch?v=0N2aZJ5rkUY&amp;feature=youtu.be"  rel="nofollow">شركة تنظيف خزانات بالمدينة المنورة</a>
+<a href="https://www.youtube.com/watch?v=ezOOf1KAGSQ&amp;feature=youtu.be" class="urlextern" title="https://www.youtube.com/watch?v=ezOOf1KAGSQ&amp;feature=youtu.be"  rel="nofollow">شركة تنظيف منازل بالمدينة المنورة</a>
+<a href="https://www.youtube.com/watch?v=4IDjrL8uE3o&amp;feature=youtu.be" class="urlextern" title="https://www.youtube.com/watch?v=4IDjrL8uE3o&amp;feature=youtu.be"  rel="nofollow">شركة مكافحة حشرات بالمدينة المنورة</a>
+<a href="https://www.youtube.com/watch?v=6u2iZuBh0DQ&amp;feature=youtu.be" class="urlextern" title="https://www.youtube.com/watch?v=6u2iZuBh0DQ&amp;feature=youtu.be"  rel="nofollow">شركة تنظيف شقق بالمدينة المنورة</a>
+<a href="https://www.youtube.com/watch?v=GpYB9JCRFtQ&amp;feature=youtu.be" class="urlextern" title="https://www.youtube.com/watch?v=GpYB9JCRFtQ&amp;feature=youtu.be"  rel="nofollow">شركة تنظيف بالمدينة المنورة</a>
+<a href="https://www.youtube.com/watch?v=5ALPzzZz3Tw&amp;feature=youtu.be" class="urlextern" title="https://www.youtube.com/watch?v=5ALPzzZz3Tw&amp;feature=youtu.be"  rel="nofollow">شركة رش مبيدات بالمدينة المنورة</a>
+<a href="https://www.youtube.com/watch?v=LKDL23GzyfQ&amp;feature=youtu.be" class="urlextern" title="https://www.youtube.com/watch?v=LKDL23GzyfQ&amp;feature=youtu.be"  rel="nofollow">شركة نقل اثاث بالمدينة المنورة</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit9" id="resources">Resources</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> [0] <a href="https://groups.google.com/forum/#!msg/fhem-users/5hhg43UHlDs/ihV-6s0GCdoJ" class="urlextern" title="https://groups.google.com/forum/#!msg/fhem-users/5hhg43UHlDs/ihV-6s0GCdoJ"  rel="nofollow">Google Groups - fhem-users (Gerhard Pfeffer)</a></div>
+</li>
+<li class="level1"><div class="li"> [1] <a href="http://www.fhemwiki.de/wiki/OpenWRT" class="urlextern" title="http://www.fhemwiki.de/wiki/OpenWRT"  rel="nofollow">http://www.fhemwiki.de/wiki/OpenWRT</a></div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/fhem.txt</bdi> · Last modified: 2014/12/15 21:35 by <bdi>haytham1451980</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="fhem?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="fhem?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="fhem?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="fhem#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Afhem&amp;1432273791" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

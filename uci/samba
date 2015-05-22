@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Samba (smb) [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,uci,samba"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="samba?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:uci"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/uci/samba"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/uci/samba"/>
+<link rel="canonical" href="samba"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:uci';var JSINFO = {"id":"doc:uci:samba","namespace":"doc:uci"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266642 166.182.3.153';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="samba#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="samba?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="samba?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:uci:samba" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="samba?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="samba?do=media&amp;ns=doc%253Auci"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="samba?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../uci.1" class="wikilink1" title="doc:uci">The UCI System</a></bdi> » <bdi><span class="curid"><a href="samba" class="wikilink1" title="doc:uci:samba">Samba (smb)</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/uci/samba" class="media" title="cz:doc:uci:samba"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/uci/samba" class="media" title="de:doc:uci:samba"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="samba" class="media" title="doc:uci:samba"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/uci/samba" class="media" title="es:doc:uci:samba"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/uci/samba" class="media" title="fr:doc:uci:samba"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/uci/samba" class="media" title="hu:doc:uci:samba"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/uci/samba" class="media" title="jp:doc:uci:samba"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/uci/samba" class="media" title="pl:doc:uci:samba"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/uci/samba" class="media" title="pt-br:doc:uci:samba"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/uci/samba" class="media" title="ru:doc:uci:samba"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/uci/samba" class="media" title="tr:doc:uci:samba"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/uci/samba" class="media" title="zh-cn:doc:uci:samba"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/uci/samba" class="media" title="zh-tw:doc:uci:samba"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:uci:samba</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="samba#uci_configuration_options">UCI configuration options</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="samba#common_options">Common Options</a></div></li>
+<li class="level2"><div class="li"><a href="samba#sambashare">Sambashare</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="samba#additional_configuration_options">Additional Configuration Options</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="samba#common_options1">Common Options</a></div></li>
+<li class="level2"><div class="li"><a href="samba#sambashare1">Sambashare</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="samba#configuration_examples">Configuration examples</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="samba#share_level_access">Share level access</a></div></li>
+<li class="level2"><div class="li"><a href="samba#user_level_access">User level access</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="samba#add_user_to_system">1. Add user to system</a></div></li>
+<li class="level3"><div class="li"><a href="samba#add_samba_password_to_user">2. Add samba password to user</a></div></li>
+<li class="level3"><div class="li"><a href="samba#change_samba_config_to_accept_users_with_null_passwords">3. Change samba config to accept users with null passwords</a></div></li>
+<li class="level3"><div class="li"><a href="samba#add_a_share">4. Add a share</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="samba#notes">Notes</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="samba_smb">Samba (smb)</h1>
+<div class="level1">
+
+<p>
+For installation instructions see <a href="../howto/cifs.server" class="wikilink1" title="doc:howto:cifs.server">Samba How To</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="uci_configuration_options">UCI configuration options</h2>
+<div class="level2">
+
+<p>
+The UCI configuration file is located at /etc/config/samba. Be extremely careful editing this file by hand - the samba shell interface (/etc/init.d/samba restart) will ignore invalid options, but LuCI Services/Network Shares will bring up an error like this:
+<pre class="code">/usr/lib/lua/luci/dispatcher.lua:449: Failed to execute cbi dispatcher target for entry &#039;/admin/services/samba&#039;.</pre>
+
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> It is hence<strong> strongly recommended</strong> that you use LuCI to establish the initial configuration and then edit the template file (/etc/samba/smb.conf.template) via LuCI Edit Template tab or from the shell as needed.
+</p>
+
+<p>
+If luci-app-samba not working or can&#039;t find in web gui - &gt; type &quot;rm /tmp/luci-indexcache&quot; or restart router.
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="common_options">Common Options</h3>
+<div class="level3">
+
+<p>
+The config section type <code>samba</code> determines values and options relevant to the overall operation of samba. The following table lists all available options, their default value and respectively a short characterization. See <a href="http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#idp58030944" class="urlextern" title="http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#idp58030944"  rel="nofollow">smb.conf man page</a> for further details.
+</p>
+
+<p>
+These are the default settings for the common options:
+</p>
+
+<p>
+<pre class="code">config &#039;samba&#039;
+        option &#039;name&#039; &#039;OpenWrt&#039;
+        option &#039;workgroup&#039; &#039;OpenWrt&#039;
+        option &#039;description&#039; &#039;Samba on OpenWrt&#039;
+        option &#039;charset&#039; &#039;UTF-8&#039;
+        option &#039;homes&#039; &#039;0&#039;</pre>
+
+</p>
+<div class="sortable"><div class="table sectionedit4"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Option </th><th class="col5"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>name</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> hostname or OpenWrt </td><td class="col4 leftalign">  </td><td class="col5 leftalign"> Name of the Server  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>workgroup</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> hostname or OpenWrt </td><td class="col4 leftalign">  </td><td class="col5"> Name of the Workgroup </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>description</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> Samba on hostname or OpenWrt </td><td class="col4 leftalign">  </td><td class="col5"> Description of the Server </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>charset</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> UTF-8 </td><td class="col4 leftalign">  </td><td class="col5"> Display charset &amp; unix charset </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>homes</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> 0 </td><td class="col4"> 0, 1 </td><td class="col5"> Share the user directory </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>interface</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> loopback lan </td><td class="col4 leftalign">  </td><td class="col5"> Interfaces samba should listen on. Syntax: &quot;&lt;uci-interface-name&gt; &lt;uci-interface-name&gt; …&quot;. Note, that it is <em class="u">not</em> of type list. </td>
+	</tr>
+</table></div>
+</div>
+</div>
+
+<h3 class="sectionedit5" id="sambashare">Sambashare</h3>
+<div class="level3">
+
+<p>
+The daemons are up and running and recheable via NetBIOS. Now you only need to configure the directories you intend to make accesible to users in your <abbr title="Local Area Network">LAN</abbr>. This example assumes you attached a USB harddisk to the USB-Port and <em>correctly</em> mounted a partition. You can now choose to share the partition as a whole, or just individual directories on it. Fo each entry you need to create an individual config &#039;sambashare&#039; section.
+</p>
+
+<p>
+<pre class="code">config &#039;sambashare&#039;
+        option &#039;name&#039; &#039;Shares&#039;
+        option &#039;path&#039; &#039;/mnt/sda3&#039;
+#       option &#039;users&#039; &#039;sandra&#039;
+        option &#039;guest_ok&#039; &#039;yes&#039;
+        option &#039;create_mask&#039; &#039;0700&#039;
+        option &#039;dir_mask&#039; &#039;0700&#039;
+        option &#039;read_only&#039; &#039;yes&#039;</pre>
+
+</p>
+<div class="sortable"><div class="table sectionedit6"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Option </th><th class="col5"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>name</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4 leftalign">  </td><td class="col5"> Name of the entry. Will be shown in the filebrowser. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>path</code> </td><td class="col1"> file path </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> </td><td class="col5"> The complete path of the directory. <a href="http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#PATH" class="urlextern" title="http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#PATH"  rel="nofollow">path</a> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>users</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> guest account or from global template </td><td class="col4"> </td><td class="col5"> the samba-users allowed access to this entry; use <code>smbpasswd</code> to create a user-pwd combination! Several users can be specified, separated by a coma (ex : option &#039;users&#039; &#039;root,nobody&#039; ). Translated to <a href="http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#VALIDUSERS" class="urlextern" title="http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#VALIDUSERS"  rel="nofollow">valid users</a>. </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>read_only</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> yes or from global template </td><td class="col4"> no, yes </td><td class="col5"> no allows for read/write, else only read access is granted; (for rw, you also need to mount fs rw!). <a href="http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#READONLY" class="urlextern" title="http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#READONLY"  rel="nofollow">read only</a>. </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>guest_ok</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> no or from global template </td><td class="col4"> no, yes </td><td class="col5"> Specifies if you need to login via samba-username and password to access this share. <a href="http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#GUESTOK" class="urlextern" title="http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#GUESTOK"  rel="nofollow">guest ok</a>. </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>create_mask</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> 0744 or from global template </td><td class="col4"> </td><td class="col5"> chmod mask for files created (need write access). <a href="http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#CREATEMASK" class="urlextern" title="http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#CREATEMASK"  rel="nofollow">create mask</a> </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <code>dir_mask</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> 0755 or from global template </td><td class="col4"> </td><td class="col5"> chmod mask for directories created (need write access). <a href="http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#DIRECTORYMASK" class="urlextern" title="http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#DIRECTORYMASK"  rel="nofollow">directory mask</a>. </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign">  </td><td class="col1"> </td><td class="col2"> </td><td class="col3"> </td><td class="col4"> </td><td class="col5 leftalign">  </td>
+	</tr>
+</table></div>
+</div>
+</div>
+
+<h2 class="sectionedit7" id="additional_configuration_options">Additional Configuration Options</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit8" id="common_options1">Common Options</h3>
+<div class="level3">
+
+<p>
+In addition to the UCI file (<code>/etc/config/samba</code>), modifications can be made to the <code>/etc/samba/smb.conf.template</code> file.
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="sambashare1">Sambashare</h3>
+<div class="level3">
+
+<p>
+Modifications can be made to the <code>/etc/samba/smb.conf.template</code> file, based on <code>/var/etc/smb.conf</code> file, created by <code>/etc/init.d/samba</code>.
+</p>
+
+<p>
+The full section from <code>/var/etc/smb.conf</code> should be added to <code>/etc/samba/smb.conf.template</code> and removed from UCI.
+</p>
+
+<p>
+For example:<pre class="code bash">uci show samba <span class="sy0">|</span> <span class="kw2">grep</span> name
+samba.<span class="sy0">@</span>sambashare<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.name=over9000
+<span class="kw2">sed</span> <span class="re5">-e</span> <span class="st_h">'/\[over9000\]/,/^$/ !d'</span> <span class="sy0">/</span>var<span class="sy0">/</span>etc<span class="sy0">/</span>smb.conf <span class="sy0">&gt;&gt;</span> <span class="sy0">/</span>etc<span class="sy0">/</span>samba<span class="sy0">/</span>smb.conf.template
+uci delete samba.<span class="sy0">@</span>sambashare<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>
+uci commit samba
+<span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>samba restart</pre>
+
+</p>
+
+<p>
+In a second approach <code>/etc/init.d/samba</code> could also be edited for spit whatever to <code>/var/etc/smb.conf</code> associated with UCI.
+</p>
+
+<p>
+For example, hack once:<pre class="code bash"><span class="kw2">sed</span> <span class="re5">-i</span> <span class="re5">-e</span> <span class="st_h">'/dir_mask/p;s/dir_mask\|directory mask/browsable/g'</span> <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>samba</pre>
+
+Then, anytime:<pre class="code bash">uci show samba <span class="sy0">|</span> <span class="kw2">grep</span> name
+samba.<span class="sy0">@</span>sambashare<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.name=over9000
+uci <span class="kw1">set</span> samba.<span class="sy0">@</span>sambashare<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.browsable=no
+uci commit samba
+<span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>samba restart
+<span class="kw2">cat</span> <span class="sy0">/</span>var<span class="sy0">/</span>etc<span class="sy0">/</span>smb.conf</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit10" id="configuration_examples">Configuration examples</h2>
+<div class="level2">
+
+<p>
+Samba can be configured at either share level access or user level access.  At share level access all users on the network can access the share, and all files are shared with all users.  At user level access a username and password are needed to access the share.  By default Samba is configured for user level access.
+</p>
+
+<p>
+These configurations have proven to work for some:
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="share_level_access">Share level access</h3>
+<div class="level3">
+
+<p>
+At share level access all users on the network can access the share, and all files are shared with all users. To set share level access change <code>security = user</code> to <code>security = share</code> in <code>/etc/samba/smb.conf.template</code>:
+</p>
+
+<p>
+<pre class="code">[global]
+	netbios name = |NAME| 
+	workgroup = |WORKGROUP|
+	server string = |DESCRIPTION|
+	syslog = 10
+	encrypt passwords = true
+	passdb backend = smbpasswd
+	obey pam restrictions = yes
+	socket options = TCP_NODELAY
+	unix charset = ISO-8859-1
+        local master = yes
+	preferred master = yes
+	os level = 20
+	security = share
+	guest account = nobody
+	invalid users = root
+	smb passwd file = /etc/samba/smbpasswd</pre>
+
+</p>
+
+<p>
+Then add a share to <code>/etc/config/samba</code>. Make sure that <code>guest ok</code> is set to <code>yes</code>
+<pre class="code">config &#039;samba&#039;
+	option &#039;name&#039; &#039;openwrt&#039;
+	option &#039;workgroup&#039; &#039;WORKGROUP&#039;
+	option &#039;description&#039; &#039;openwrt&#039;
+	option &#039;homes&#039; &#039;1&#039;
+
+config &#039;sambashare&#039;
+	option &#039;read_only&#039; &#039;no&#039;
+	option &#039;create_mask&#039; &#039;0700&#039;
+	option &#039;dir_mask&#039; &#039;0700&#039;
+	option &#039;name&#039; &#039;name-of-share&#039;
+	option &#039;path&#039; &#039;/path/of/share&#039;
+	option &#039;guest_ok&#039; &#039;yes&#039;</pre>
+
+</p>
+
+<p>
+This share should now be accessible by <code>\\ip-adress-openwrt\name-of-share</code> (windows, username and password can be anything).
+</p>
+
+</div>
+
+<h3 class="sectionedit12" id="user_level_access">User level access</h3>
+<div class="level3">
+
+<p>
+At user level access a username and password are needed to access the share.
+</p>
+
+<p>
+Steps:
+</p>
+
+</div>
+
+<h4 id="add_user_to_system">1. Add user to system</h4>
+<div class="level4">
+
+<p>
+To access a samba share with user level access there must be a user added to the system. Edit <code>/etc/passwd</code> and add a line for the new user. Choose a user id (the first number in the line) of 1000 or higher that does not exist yet. Set the group identification number (the second number) to the same number as the user nobody. Copy the rest.
+<pre class="code">root:!:0:0:root:/root:/bin/ash
+nobody:*:65534:65534:nobody:/var:/bin/false
+daemon:*:65534:65534:daemon:/var:/bin/false
+newuser:*:1000:65534:newuser:/var:/bin/false</pre>
+
+</p>
+
+<p>
+<strong>Note:</strong> keep in mind that the user(s) and group(s) utilized by Samba need to have the proper permissions for their shares, i.e. they need write access in order to write via smb.
+</p>
+
+</div>
+
+<h4 id="add_samba_password_to_user">2. Add samba password to user</h4>
+<div class="level4">
+
+<p>
+<code>smbpasswd -a newuser</code>
+</p>
+
+</div>
+
+<h4 id="change_samba_config_to_accept_users_with_null_passwords">3. Change samba config to accept users with null passwords</h4>
+<div class="level4">
+
+<p>
+Edit <code>/etc/samba/smb.conf.template</code> and add <code>null passwords = yes</code>:
+</p>
+
+<p>
+<pre class="code">[global]
+	netbios name = |NAME| 
+	workgroup = |WORKGROUP|
+	server string = |DESCRIPTION|
+	syslog = 10
+	encrypt passwords = true
+	passdb backend = smbpasswd
+	obey pam restrictions = yes
+	socket options = TCP_NODELAY
+	unix charset = ISO-8859-1
+        local master = yes
+	preferred master = yes
+	os level = 20
+	security = user
+	null passwords = yes
+	guest account = nobody
+	invalid users = root
+	smb passwd file = /etc/samba/smbpasswd</pre>
+
+</p>
+
+</div>
+
+<h4 id="add_a_share">4. Add a share</h4>
+<div class="level4">
+
+<p>
+Then add a share to <code>/etc/config/samba</code>. Make shure that <code>guest ok</code> is set to <code>no</code>
+<pre class="code">config &#039;samba&#039;
+	option &#039;name&#039; &#039;openwrt&#039;
+	option &#039;workgroup&#039; &#039;WORKGROUP&#039;
+	option &#039;description&#039; &#039;openwrt&#039;
+	option &#039;homes&#039; &#039;1&#039;
+
+config &#039;sambashare&#039;
+	option &#039;read_only&#039; &#039;no&#039;
+	option &#039;create_mask&#039; &#039;0700&#039;
+	option &#039;dir_mask&#039; &#039;0700&#039;
+	option &#039;name&#039; &#039;name-of-share&#039;
+	option &#039;path&#039; &#039;/path/of/share&#039;
+	option &#039;guest_ok&#039; &#039;no&#039;</pre>
+
+</p>
+
+<p>
+This share should now be accessible by <code>\\ip-adress-openwrt\name-of-share</code> (windows, correct username and password are needed).
+</p>
+
+</div>
+
+<h2 class="sectionedit13" id="notes">Notes</h2>
+<div class="level2">
+
+<p>
+If you use a trunk version and experience connection aborts take a look at this file <code>/etc/samba/samba.conf.template</code> and search for <code>reset on zero vc = yes</code>
+Remove this line or set it to <code>no</code>.
+</p>
+
+<p>
+More information about this issue here: <a href="https://dev.openwrt.org/ticket/9992" class="urlextern" title="https://dev.openwrt.org/ticket/9992"  rel="nofollow">https://dev.openwrt.org/ticket/9992</a>
+</p>
+
+<p>
+If your CPU is your samba bottleneck, disabling sendfile might help.
+See <a href="http://www.linksysinfo.org/index.php?threads/speeding-up-the-samba-by-30.52240/" class="urlextern" title="http://www.linksysinfo.org/index.php?threads/speeding-up-the-samba-by-30.52240/"  rel="nofollow">http://www.linksysinfo.org/index.php?threads/speeding-up-the-samba-by-30.52240/</a>
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/uci/samba.txt</bdi> · Last modified: 2014/05/05 00:14 by <bdi>westhouse</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="samba?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="samba?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="samba?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="samba#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Auci%253Asamba&amp;1432266642" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

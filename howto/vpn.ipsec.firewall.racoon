@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>IPsec Firewall [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,vpn.ipsec.firewall.racoon"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="vpn.ipsec.firewall.racoon?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/vpn.ipsec.firewall.racoon"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/vpn.ipsec.firewall.racoon"/>
+<link rel="canonical" href="vpn.ipsec.firewall.racoon"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:vpn.ipsec.firewall.racoon","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432273844 166.182.3.179';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="vpn.ipsec.firewall.racoon#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="vpn.ipsec.firewall.racoon?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="vpn.ipsec.firewall.racoon?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:vpn.ipsec.firewall.racoon" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="vpn.ipsec.firewall.racoon?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="vpn.ipsec.firewall.racoon?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="vpn.ipsec.firewall.racoon?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="vpn.ipsec.firewall.racoon" class="wikilink1" title="doc:howto:vpn.ipsec.firewall.racoon">IPsec Firewall</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/vpn.ipsec.firewall.racoon" class="media" title="cz:doc:howto:vpn.ipsec.firewall.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/vpn.ipsec.firewall.racoon" class="media" title="de:doc:howto:vpn.ipsec.firewall.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="vpn.ipsec.firewall.racoon" class="media" title="doc:howto:vpn.ipsec.firewall.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/vpn.ipsec.firewall.racoon" class="media" title="es:doc:howto:vpn.ipsec.firewall.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/vpn.ipsec.firewall.racoon" class="media" title="fr:doc:howto:vpn.ipsec.firewall.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/vpn.ipsec.firewall.racoon" class="media" title="hu:doc:howto:vpn.ipsec.firewall.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/vpn.ipsec.firewall.racoon" class="media" title="jp:doc:howto:vpn.ipsec.firewall.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/vpn.ipsec.firewall.racoon" class="media" title="pl:doc:howto:vpn.ipsec.firewall.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/vpn.ipsec.firewall.racoon" class="media" title="pt-br:doc:howto:vpn.ipsec.firewall.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/vpn.ipsec.firewall.racoon" class="media" title="ru:doc:howto:vpn.ipsec.firewall.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/vpn.ipsec.firewall.racoon" class="media" title="tr:doc:howto:vpn.ipsec.firewall.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/vpn.ipsec.firewall.racoon" class="media" title="zh-cn:doc:howto:vpn.ipsec.firewall.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/vpn.ipsec.firewall.racoon" class="media" title="zh-tw:doc:howto:vpn.ipsec.firewall.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:vpn.ipsec.firewall.racoon</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="vpn.ipsec.firewall.racoon#preface">Preface</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.firewall.racoon#zones">Zones</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.firewall.racoon#default_rules">Default Rules</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.firewall.racoon#tunnel_endpoints">Tunnel Endpoints</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.firewall.racoon#vpn_rule_orders">VPN Rule Orders</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.firewall.racoon#outgoing_vpn_packets">Outgoing VPN Packets</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.firewall.racoon#incoming_vpn_packets">Incoming VPN Packets</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.firewall.racoon#packets_to_the_device">Packets To The Device</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.firewall.racoon#nat_translation">NAT Translation</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.firewall.racoon#vpn_firewall_script">VPN Firewall Script</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.firewall.racoon#what_s_next">What&#039;s next</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="ipsec_firewall">IPsec Firewall</h1>
+<div class="level1">
+<div class="table sectionedit2"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> For an overview over all existing Virtual private network (VPN)-related articles in the OpenWrt wiki, please visit <a href="vpn.overview" class="wikilink1" title="doc:howto:vpn.overview">vpn.overview</a> </td>
+	</tr>
+</table></div>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> This page is about racoon. The new strongwang documentation can be found <a href="vpn.ipsec.firewall" class="wikilink1" title="doc:howto:vpn.ipsec.firewall">here</a>.
+</p>
+
+<p>
+When configuring firewalls, tunnels and zones we always have to keep security in mind. First rule should be: Everything that is not allowed explicitly should be denied automatically. This article provides an easy but quite powerful security concept for your IPsec VPN setup. If you missed the <a href="vpn.ipsec.basics.racoon" class="wikilink1" title="doc:howto:vpn.ipsec.basics.racoon">basics</a> please have look over there first.
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="preface">Preface</h2>
+<div class="level2">
+
+<p>
+In the following chapters you will find a detailed description of how to setup firewall rules for IPsec VPN connections. The experienced reader may notice that nowhere iptables IPsec policy rules are used (-m policy –pol ipsec). The reason for that is a special VPN scenario where both tunnel ends use <a href="vpn.ipsec.overlappingsubnets.racoon" class="wikilink1" title="doc:howto:vpn.ipsec.overlappingsubnets.racoon">overlapping IP addresses</a>. In this case we have do use source NAT (network address translation) rules. <strong>SNAT is only available in the POSTROUTING nat table</strong>. At this late firewall stage the system will discover for the first time that the packet has to pass the IPsec tunnel. Any ipsec policy based filter before will ignore the packet. 
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="zones">Zones</h2>
+<div class="level2">
+
+<p>
+As in many commercial firewall solutions OpenWrt works with zones. A zone is more or less a bunch of computers that reside in the same network. Common examples are WAN, <abbr title="Local Area Network">LAN</abbr>, WLAN, … Why not introduce a new zone for computers behind tunnels. Here are two facts that should encourage the use of a new zone named VPN.
+</p>
+<ul>
+<li class="level1"><div class="li"> When routing packets to a remote VPN side (e.g. 192.168.10.0/24) the packet will normally go through the firewall chain of the outside interface. </div>
+</li>
+<li class="level1"><div class="li"> Computers in a remote VPN are mostly in a secure zone. You should not mix them up with less secure machines (like servers in the internet)</div>
+</li>
+<li class="level1"><div class="li"> VPN and WAN in the same zone needs fine granular rules to ensure that packets won&#039;t reach an unallowed target.</div>
+</li>
+</ul>
+
+<p>
+<strong>Conclusion: Create a new zone and call it vpn.</strong> It is not required to assign an interface to it. If you want to rename the zone to something else you have to adapt parameter <strong>zone</strong> in <a href="../uci/racoon" class="wikilink1" title="doc:uci:racoon">/etc/config/racoon</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="default_rules">Default Rules</h2>
+<div class="level2">
+
+<p>
+We could build our own VPN firewall ruleset with iptables but why not go with LuCI. The interface should be flexible enough to build rules for our new OpenWrt IPsec enhanced router. The basic &quot;Deny All&quot; configuration can be achieved in the upper two panels. You should start with something like that:
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/ipsec_firewall.png?id=doc%253Ahowto%253Avpn.ipsec.firewall.racoon" class="media" title="doc:howto:ipsec_firewall.png"><img src="../../_media/doc/howto/ipsec_firewall.png" class="media" alt="" /></a>
+</p>
+
+<p>
+Idea behind that is:
+</p>
+<ul>
+<li class="level1"><div class="li"> The standard rule is to deny all (first panel)</div>
+</li>
+<li class="level1"><div class="li"> Depending on the zone we allow access to the device (INPUT). For our dual band router these are <abbr title="Local Area Network">LAN</abbr>, WLAN2 (2.5 <abbr title="Gigahertz">GHz</abbr>) and WLAN5 (5 <abbr title="Gigahertz">GHz</abbr>)</div>
+</li>
+<li class="level1"><div class="li"> The router is allowed to send data into all zones (OUTPUT).</div>
+</li>
+<li class="level1"><div class="li"> Sending data between zones is disabled (FORWARD). This will be achieved through firewall rules afterwards.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit6" id="tunnel_endpoints">Tunnel Endpoints</h2>
+<div class="level2">
+
+<p>
+To allow IPsec communications from a remote VPN Gateway the router must be able to terminate incoming connections. Three rules are required.
+</p>
+<ul>
+<li class="level1"><div class="li"> ESP payload: the encrypted data packets</div>
+</li>
+<li class="level1"><div class="li"> ISAKMP: Handling of security associations (SA)</div>
+</li>
+<li class="level1"><div class="li"> NAT-T: Handling of IPsec between natted devices</div>
+</li>
+</ul>
+
+<p>
+The easiest will be to allow all traffic to the Endpoint ports. Although being security paranoid we have to think about <a href="vpn.ipsec.roadwarrior.racoon" class="wikilink1" title="doc:howto:vpn.ipsec.roadwarrior.racoon">road warriors</a> that want to connect from random internet addresses. The input_rule queue is a a good place to activate those rules manually with the following commands.
+</p>
+
+<p>
+<pre class="code">iptables -A input_rule -p esp -j ACCEPT 
+iptables -A input_rule -p udp --dport 500 -j ACCEPT 
+iptables -A input_rule -p udp --dport 4500 -j ACCEPT </pre>
+
+</p>
+
+<p>
+But we are not interested in manual setup. The solution should automatically integrate itself into the OpenWrt environment. So nothing to do now. We will discuss all different security aspects in detail and at the end of the page you will find a all-in-one script that will take care of everything.
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="vpn_rule_orders">VPN Rule Orders</h2>
+<div class="level2">
+
+<p>
+Rules for the VPN zone require special considerations especially if you want to edit them with LuCI. Think of the IP address/interface overlap. Your routers default outgoing interface is normally the WAN connection. Every packet that does not match your internal network will leave there. But with active security profiles in the kernel packets e.g. to the remote VPN subnet 192.168.10.0/24 will go out through the WAN interface too. Of course they will be encrypted in advance. A simple rule &quot;Allow all <abbr title="Local Area Network">LAN</abbr> Zone to WAN Zone&quot; matches any packet to one of the remote VPN networks. Placed at the wrong position on top of the list it may conflict with other VPN specific rules that follow. 
+</p>
+
+<p>
+<strong>Conclusion: The firewall script of at least version 10 will take care about that. You do not have to bother. </strong>
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/ipsec_vpn_rules.png?id=doc%253Ahowto%253Avpn.ipsec.firewall.racoon" class="media" title="doc:howto:ipsec_vpn_rules.png"><img src="../../_media/doc/howto/ipsec_vpn_rules.png" class="media" alt="" /></a>
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="outgoing_vpn_packets">Outgoing VPN Packets</h2>
+<div class="level2">
+
+<p>
+Up to here it was easy. Now it is time for a deeper firewall inspection. A packet from zone SRC to any other zone will sometime pass the <strong>zone_SRC_forward</strong> chain. At this point the firewall checks the packets destination address and forwards or drops it. For each rule we created from SRC to somwhere else an entry has been placed into this chain. The chain sequence is analogous to the order of rules. A comparison of the following picture with the above ruleset should make it clear.
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/ipsec_forward_chain.png?id=doc%253Ahowto%253Avpn.ipsec.firewall.racoon" class="media" title="doc:howto:ipsec_forward_chain.png"><img src="../../_media/doc/howto/ipsec_forward_chain.png" class="media" alt="" /></a>
+</p>
+
+<p>
+First of all two rules to zone VPN afterwards one to WAN and one to <abbr title="Local Area Network">LAN</abbr>. But with a sharp eye there are still two faults in our chain. 
+</p>
+<ul>
+<li class="level1"><div class="li"> The packets to zone VPN are not only accepted but forwarded two another still empty chain called zone_vpn_ACCEPT. The explanation lies in the rulset generator of LuCI. A zone is normally bound to an interface. A chain with name zone_xxx_ACCEPT will check if a source or target of a packet matches the zone XXX. With no interface assigned to zone VPN this chain is left empty. So the packet will not be accepted.</div>
+</li>
+<li class="level1"><div class="li"> Not only are we loosing packets but also it would be possible that a packet is allowed to pass because a following rule to a completely different zone has a match. E.g. a packet from zone WLAN2 to IP address 192.168.10.2. Both VPN rules will have no match. But as the packet will leave the router on the WAN interface it will match the third rule (WLAN2→WAN ANY). But that is not our intention. A packet to zone VPN should never be accepted by a rule to another zone.</div>
+</li>
+</ul>
+
+<p>
+Two problems two solutions. 
+</p>
+<ul>
+<li class="level1"><div class="li"> Populating the zone_vpn_ACCEPT chain is easy. For each remote VPN network put an ACCEPT entry into that chain. So even a misconfiguration in LuCI will not mess anything up.</div>
+</li>
+<li class="level1"><div class="li"> The second one was quite trickier. Sort the VPN rules to the top of the list and put a blocking rule behind the last VPN rule in the chain. This new blocking rule must of course once again check against all networks behind VPN tunnels.</div>
+</li>
+</ul>
+
+<p>
+And that what it has to look like afterwards. The zone_VPN_ACCEPT and zone_VPN_REJECT are populated and zone_VPN_REJECT chain inserted at the right position. The VPN networks defined in our /etc/config/racoon are 192.168.10.0/24 and 62.40.12.192/26. 
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/ipsec_chain_mod.png?id=doc%253Ahowto%253Avpn.ipsec.firewall.racoon" class="media" title="doc:howto:ipsec_chain_mod.png"><img src="../../_media/doc/howto/ipsec_chain_mod.png" class="media" alt="" /></a>
+</p>
+
+<p>
+The naming convention follows the LuCI standard so you won&#039;t get confused. Once again no action has to be taken because we will use a script.
+</p>
+
+</div>
+
+<h2 class="sectionedit9" id="incoming_vpn_packets">Incoming VPN Packets</h2>
+<div class="level2">
+
+<p>
+Now that outgoing packets are covered by new policies we take care about the other direction. This is much easyier than before. The forward chain misses the jump into zone_vpn_forward chain as LuCI once again left it out due to missing associated interfaces. Without an interface we cannot insert the link directly but have to do subnet checkings in a new layer in between. As the picture shows we jump along the chains forward → zone_VPN_forward (new) → zone_vpn_forward (existing).
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/ipsec_chain_mod2.png?id=doc%253Ahowto%253Avpn.ipsec.firewall.racoon" class="media" title="doc:howto:ipsec_chain_mod2.png"><img src="../../_media/doc/howto/ipsec_chain_mod2.png" class="media" alt="" /></a>
+</p>
+
+<p>
+In this case a single rule from remote machine 192.168.10.1 to local machine 192.168.213.66 was defined. With the new chain links it will be evaluated by the firewall. This modification will also be accomplished by our script.
+</p>
+
+</div>
+
+<h2 class="sectionedit10" id="packets_to_the_device">Packets To The Device</h2>
+<div class="level2">
+
+<p>
+If we want to reach the device through a VPN tunnel we have to check the correctness of the INPUT chain. It branches into the input (lowercase!) chain where the system checks it for the different zones. The jump over to the vpn_zone  is missing by default although the chain itself already exists and is populated. So just put this entry at the beginning.
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/ipsec_chain_in.png?id=doc%253Ahowto%253Avpn.ipsec.firewall.racoon" class="media" title="doc:howto:ipsec_chain_in.png"><img src="../../_media/doc/howto/ipsec_chain_in.png" class="media" alt="" /></a>
+</p>
+
+<p>
+This feature has been introduced in version 9 of our firewall script.
+</p>
+
+<p>
+Pour la sécurisation des données et valeurs, un coffre-fort classe 1 ignifuge <a href="http://infosafe.fr" class="urlextern" title="http://infosafe.fr"  rel="nofollow">http://infosafe.fr</a> est une solution indispensable à mettre en oeuvre
+Les documents administratifs seront plus à l&#039;abri dans une <a href="http://www.infosafe.fr/Armoirefortedin/Armoirefortedin.htm" class="urlextern" title="http://www.infosafe.fr/Armoirefortedin/Armoirefortedin.htm"  rel="nofollow">armoire forte ignifuge blindée</a> .
+</p>
+
+</div>
+
+<h2 class="sectionedit11" id="nat_translation">NAT Translation</h2>
+<div class="level2">
+
+<p>
+Some of our interfaces will run in masquerade mode. The source address of packets that will leave through these interfaces will be translated to the interface address itself. This is an unwanted contrast to VPN networks where IP addresses are usually untouched. Maybe sometime later we will have look at overlapping VPN subnets. This time our challenge lies in the NAT POSTROUTING chain. For each interface that you flagged with masquerading in LuCI a rule is inserted there. When taking no action something like this will happen.
+</p>
+<ul>
+<li class="level1"><div class="li"> Our <abbr title="Local Area Network">LAN</abbr> is connected via IPsec to the remote subnet 192.168.10.0/24</div>
+</li>
+<li class="level1"><div class="li"> We send a packet to the remote subnet.</div>
+</li>
+<li class="level1"><div class="li"> After all filter rules have been applied the packet enters the NAT table</div>
+</li>
+<li class="level1"><div class="li"> Our tunnel is terminated on the WAN interface (PPPOE-WAN) with activated masquerading</div>
+</li>
+<li class="level1"><div class="li"> The NAT ruleset chooses the WAN zone for the packet </div>
+</li>
+<li class="level1"><div class="li"> Therefore the packet source address is translated to our offical WAN IP</div>
+</li>
+<li class="level1"><div class="li"> Afterwards it is put into the tunnel</div>
+</li>
+<li class="level1"><div class="li"> Ouch!</div>
+</li>
+</ul>
+
+<p>
+So once again we have to fix the queue. Therefore we will put a rule at the first position in the chain. This will ensure that packets to foreign VPN subnets will remain untouched. 
+</p>
+
+</div>
+
+<h2 class="sectionedit12" id="vpn_firewall_script">VPN Firewall Script</h2>
+<div class="level2">
+
+<p>
+Finally we have a look at the script. It injects all the additionally required settings according to 
+<a href="../uci/racoon" class="wikilink1" title="doc:uci:racoon">/etc/config/racoon</a> into the OpenWrt firewall. Save it as <strong>/etc/racoon/firewall.sh</strong> and put a calling line into <strong>/etc/firewall.user</strong> so it gets loaded automatically. <strong>REMARK: This script only enables VPN firewall rules that have been set in the LUCI web interface. There is no guarantee that manually implemented rules in /etc/config/firewall will work!</strong>
+</p>
+
+<p>
+<pre class="code bash"><span class="co0">#!/bin/sh</span>
+<span class="co0">#/etc/racoon/firewall.sh - version 14</span>
+&nbsp;
+. <span class="sy0">/</span>etc<span class="sy0">/</span>functions.sh
+&nbsp;
+GetZone<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+  config_get zone <span class="st0">&quot;$1&quot;</span> zone vpn
+<span class="br0">&#125;</span>
+&nbsp;
+GetSA<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+  <span class="kw3">local</span> remote_subnet
+  <span class="kw3">local</span> local_subnet
+  <span class="kw3">local</span> local_nat
+&nbsp;
+  config_get remote_subnet <span class="st0">&quot;$1&quot;</span> remote_subnet
+  config_get local_subnet  <span class="st0">&quot;$1&quot;</span> local_subnet
+  config_get local_nat     <span class="st0">&quot;$1&quot;</span> local_nat <span class="st0">&quot;&quot;</span>
+  iptables <span class="re5">-A</span> zone_<span class="co1">${zone}</span>_ACCEPT <span class="re5">-d</span> <span class="re1">$remote_subnet</span> <span class="re5">-j</span> ACCEPT
+  iptables <span class="re5">-A</span> zone_<span class="co1">${zone}</span>_ACCEPT <span class="re5">-s</span> <span class="re1">$remote_subnet</span> <span class="re5">-j</span> ACCEPT
+  iptables <span class="re5">-A</span> zone_<span class="co1">${zone}</span>_REJECT <span class="re5">-d</span> <span class="re1">$remote_subnet</span> <span class="re5">-j</span> reject
+  iptables <span class="re5">-A</span> zone_<span class="co1">${zone}</span>_REJECT <span class="re5">-s</span> <span class="re1">$remote_subnet</span> <span class="re5">-j</span> reject
+  iptables <span class="re5">-A</span> zone_<span class="co1">${zone}</span>_INPUT <span class="re5">-s</span> <span class="re1">$remote_subnet</span> <span class="re5">-j</span> zone_<span class="co1">${zone}</span>
+  iptables <span class="re5">-A</span> zone_<span class="co1">${zone}</span>_FORWARD <span class="re5">-s</span> <span class="re1">$remote_subnet</span> <span class="re5">-j</span> zone_<span class="co1">${zone}</span>_forward
+&nbsp;
+  <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$local_nat</span>&quot;</span> == <span class="st0">&quot;&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+    iptables <span class="re5">-t</span> nat <span class="re5">-A</span> zone_<span class="co1">${zone}</span>_nat <span class="re5">-d</span> <span class="re1">$remote_subnet</span> <span class="re5">-j</span> ACCEPT
+  <span class="kw1">else</span>
+    iptables <span class="re5">-t</span> nat <span class="re5">-A</span> zone_<span class="co1">${zone}</span>_nat <span class="re5">-d</span> <span class="re1">$remote_subnet</span> \
+             <span class="re5">-s</span> <span class="re1">$local_subnet</span> <span class="re5">-j</span> NETMAP <span class="re5">--to</span> <span class="re1">$local_nat</span>
+    iptables <span class="re5">-t</span> nat <span class="re5">-A</span> prerouting_<span class="co1">${zone}</span> <span class="re5">-s</span> <span class="re1">$remote_subnet</span> \
+             <span class="re5">-d</span> <span class="re1">$local_nat</span> <span class="re5">-j</span> NETMAP <span class="re5">--to</span> <span class="re1">$local_subnet</span>
+  <span class="kw1">fi</span>
+<span class="br0">&#125;</span>
+&nbsp;
+GetTunnel<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+  <span class="kw3">local</span> enabled
+  <span class="kw3">local</span> remote
+&nbsp;
+  config_get_bool enabled <span class="st0">&quot;$1&quot;</span> enabled <span class="nu0">0</span>
+  config_get      remote  <span class="st0">&quot;$1&quot;</span> remote
+  <span class="br0">&#91;</span><span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$enabled</span>&quot;</span> == <span class="st0">&quot;0&quot;</span> <span class="br0">&#93;</span><span class="br0">&#93;</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">return</span>
+&nbsp;
+  config_list_foreach <span class="st0">&quot;$1&quot;</span> sainfo GetSA
+<span class="br0">&#125;</span>
+&nbsp;
+GetDevice<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+  . <span class="sy0">/</span>lib<span class="sy0">/</span>functions<span class="sy0">/</span>network.sh
+  <span class="kw3">local</span> <span class="re2">interface</span>=<span class="st0">&quot;$1&quot;</span>
+  network_get_device listen <span class="st0">&quot;<span class="es2">$interface</span>&quot;</span>
+  <span class="co0"># open IPsec endpoint</span>
+  <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$listen</span>&quot;</span> == <span class="st0">&quot;&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+    iptables <span class="re5">-A</span> zone_<span class="co1">${zone}</span>_gateway <span class="re5">-p</span> esp <span class="re5">-j</span> ACCEPT
+    iptables <span class="re5">-A</span> zone_<span class="co1">${zone}</span>_gateway <span class="re5">-p</span> udp <span class="re5">--dport</span> <span class="nu0">500</span> <span class="re5">-j</span> ACCEPT
+    iptables <span class="re5">-A</span> zone_<span class="co1">${zone}</span>_gateway <span class="re5">-p</span> udp <span class="re5">--dport</span> <span class="nu0">4500</span> <span class="re5">-j</span> ACCEPT
+    <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re1">$has_ip6tables</span> <span class="re5">-eq</span> <span class="nu0">1</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+      ip6tables <span class="re5">-A</span> zone_<span class="co1">${zone}</span>_gateway <span class="re5">-p</span> esp <span class="re5">-j</span> ACCEPT
+      ip6tables <span class="re5">-A</span> zone_<span class="co1">${zone}</span>_gateway <span class="re5">-p</span> udp <span class="re5">--dport</span> <span class="nu0">500</span> <span class="re5">-j</span> ACCEPT
+      ip6tables <span class="re5">-A</span> zone_<span class="co1">${zone}</span>_gateway <span class="re5">-p</span> udp <span class="re5">--dport</span> <span class="nu0">4500</span> <span class="re5">-j</span> ACCEPT
+    <span class="kw1">fi</span>
+  <span class="kw1">else</span>
+    iptables <span class="re5">-A</span> zone_<span class="co1">${zone}</span>_gateway <span class="re5">-i</span> <span class="re1">$listen</span> <span class="re5">-p</span> esp <span class="re5">-j</span> ACCEPT
+    iptables <span class="re5">-A</span> zone_<span class="co1">${zone}</span>_gateway <span class="re5">-i</span> <span class="re1">$listen</span> <span class="re5">-p</span> udp <span class="re5">--dport</span> <span class="nu0">500</span> <span class="re5">-j</span> ACCEPT
+    iptables <span class="re5">-A</span> zone_<span class="co1">${zone}</span>_gateway <span class="re5">-i</span> <span class="re1">$listen</span> <span class="re5">-p</span> udp <span class="re5">--dport</span> <span class="nu0">4500</span> <span class="re5">-j</span> ACCEPT
+    <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re1">$has_ip6tables</span> <span class="re5">-eq</span> <span class="nu0">1</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+      ip6tables <span class="re5">-A</span> zone_<span class="co1">${zone}</span>_gateway <span class="re5">-i</span> <span class="re1">$listen</span> <span class="re5">-p</span> esp <span class="re5">-j</span> ACCEPT
+      ip6tables <span class="re5">-A</span> zone_<span class="co1">${zone}</span>_gateway <span class="re5">-i</span> <span class="re1">$listen</span> <span class="re5">-p</span> udp <span class="re5">--dport</span> <span class="nu0">500</span> <span class="re5">-j</span> ACCEPT
+      ip6tables <span class="re5">-A</span> zone_<span class="co1">${zone}</span>_gateway <span class="re5">-i</span> <span class="re1">$listen</span> <span class="re5">-p</span> udp <span class="re5">--dport</span> <span class="nu0">4500</span> <span class="re5">-j</span> ACCEPT
+    <span class="kw1">fi</span>
+  <span class="kw1">fi</span>
+&nbsp;
+<span class="br0">&#125;</span>
+&nbsp;
+GetInterface<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+  config_list_foreach <span class="st0">&quot;$1&quot;</span> listen GetDevice
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="re2">zone</span>=vpn
+config_load racoon
+config_foreach GetZone racoon
+&nbsp;
+<span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re5">-x</span> <span class="sy0">/</span>usr<span class="sy0">/</span>sbin<span class="sy0">/</span>ip6tables <span class="br0">&#93;</span>; <span class="kw1">then</span>
+  <span class="re2">has_ip6tables</span>=<span class="nu0">1</span>
+<span class="kw1">else</span>
+  <span class="re2">has_ip6tables</span>=<span class="nu0">0</span>
+<span class="kw1">fi</span>
+&nbsp;
+iptables <span class="re5">-F</span> zone_<span class="co1">${zone}</span>_ACCEPT
+<span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re1">$has_ip6tables</span> <span class="re5">-eq</span> <span class="nu0">1</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+  ip6tables <span class="re5">-F</span> zone_<span class="co1">${zone}</span>_ACCEPT
+<span class="kw1">fi</span>
+&nbsp;
+iptables <span class="re5">-N</span> zone_<span class="co1">${zone}</span>_gateway
+iptables <span class="re5">-I</span> input <span class="re5">-j</span> zone_<span class="co1">${zone}</span>_gateway
+<span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re1">$has_ip6tables</span> <span class="re5">-eq</span> <span class="nu0">1</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+  ip6tables <span class="re5">-N</span> zone_<span class="co1">${zone}</span>_gateway
+  ip6tables <span class="re5">-I</span> input <span class="re5">-j</span> zone_<span class="co1">${zone}</span>_gateway
+<span class="kw1">fi</span>
+config_foreach GetInterface racoon
+&nbsp;
+iptables <span class="re5">-t</span> nat <span class="re5">-F</span> zone_<span class="co1">${zone}</span>_nat
+iptables <span class="re5">-t</span> nat <span class="re5">-I</span> POSTROUTING <span class="nu0">2</span> <span class="re5">-j</span> zone_<span class="co1">${zone}</span>_nat
+iptables <span class="re5">-t</span> nat <span class="re5">-I</span> PREROUTING <span class="nu0">2</span> <span class="re5">-j</span> zone_<span class="co1">${zone}</span>_prerouting
+&nbsp;
+<span class="co0"># sort VPN rules to top of forward zones and insert VPN reject marker afterwards</span>
+<span class="re2">ForwardZones</span>=<span class="sy0">`</span>iptables <span class="re5">-S</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'/.N.*zone.*_forward/{print $2}'</span> <span class="sy0">|</span> <span class="kw2">grep</span> <span class="re5">-v</span> <span class="co1">${zone}</span><span class="sy0">`</span>
+<span class="kw1">for</span> ForwardZone <span class="kw1">in</span> <span class="re1">$ForwardZones</span> ; <span class="kw1">do</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;iptables -F <span class="es2">$ForwardZone</span>&quot;</span> <span class="sy0">&gt;</span> <span class="sy0">/</span>tmp<span class="sy0">/</span>fwrebuild
+  iptables <span class="re5">-S</span> <span class="re1">$ForwardZone</span> <span class="sy0">|</span> <span class="kw2">grep</span> zone_<span class="co1">${zone}</span>_ACCEPT <span class="sy0">|</span> \
+    <span class="kw2">grep</span> <span class="re5">-v</span> <span class="st0">&quot;^-N&quot;</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'{ print &quot;iptables &quot; $0}'</span> <span class="sy0">&gt;&gt;</span> <span class="sy0">/</span>tmp<span class="sy0">/</span>fwrebuild
+  <span class="kw3">echo</span> <span class="st0">&quot;iptables -A <span class="es2">$ForwardZone</span> -j zone_<span class="es3">${zone}</span>_REJECT&quot;</span> <span class="sy0">&gt;&gt;</span> <span class="sy0">/</span>tmp<span class="sy0">/</span>fwrebuild
+  iptables <span class="re5">-S</span> <span class="re1">$ForwardZone</span> <span class="sy0">|</span> <span class="kw2">grep</span> <span class="re5">-v</span> zone_<span class="co1">${zone}</span>_ACCEPT <span class="sy0">|</span> \
+    <span class="kw2">grep</span> <span class="re5">-v</span> <span class="st0">&quot;^-N&quot;</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'{ print &quot;iptables &quot; $0}'</span> <span class="sy0">&gt;&gt;</span> <span class="sy0">/</span>tmp<span class="sy0">/</span>fwrebuild
+&nbsp;
+  <span class="kw2">chmod</span> +x <span class="sy0">/</span>tmp<span class="sy0">/</span>fwrebuild
+  <span class="sy0">/</span>tmp<span class="sy0">/</span>fwrebuild
+  <span class="kw2">rm</span> <span class="sy0">/</span>tmp<span class="sy0">/</span>fwrebuild
+<span class="kw1">done</span>
+&nbsp;
+<span class="co0"># link zone_vpn via zone_vpn_INPUT</span>
+iptables <span class="re5">-N</span> zone_<span class="co1">${zone}</span>_INPUT
+iptables <span class="re5">-I</span> input <span class="re5">-j</span> zone_<span class="co1">${zone}</span>_INPUT
+&nbsp;
+<span class="co0"># link zone_vpn_forward via zone_vpn_FORWARD</span>
+iptables <span class="re5">-N</span> zone_<span class="co1">${zone}</span>_FORWARD
+iptables <span class="re5">-I</span> forward <span class="re5">-j</span> zone_<span class="co1">${zone}</span>_FORWARD
+&nbsp;
+config_foreach GetTunnel tunnel</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit13" id="what_s_next">What&#039;s next</h2>
+<div class="level2">
+
+<p>
+With the firewall ready we can start our first IPSec VPN scenario. A <a href="vpn.ipsec.site2site.racoon" class="wikilink1" title="doc:howto:vpn.ipsec.site2site.racoon">site to site</a> connection.
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/vpn.ipsec.firewall.racoon.txt</bdi> · Last modified: 2014/03/14 12:48 by <bdi>erictenne</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="vpn.ipsec.firewall.racoon?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="vpn.ipsec.firewall.racoon?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="vpn.ipsec.firewall.racoon?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="vpn.ipsec.firewall.racoon#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Avpn.ipsec.firewall.racoon&amp;1432273844" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

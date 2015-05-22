@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Pseudowire [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,pseudowire"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="pseudowire?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/pseudowire"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/pseudowire"/>
+<link rel="canonical" href="pseudowire"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:pseudowire","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432273816 166.182.3.179';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="pseudowire#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="pseudowire?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="pseudowire?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:pseudowire" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="pseudowire?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="pseudowire?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="pseudowire?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="pseudowire" class="wikilink1" title="doc:howto:pseudowire">Pseudowire</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/pseudowire" class="media" title="cz:doc:howto:pseudowire"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/pseudowire" class="media" title="de:doc:howto:pseudowire"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="pseudowire" class="media" title="doc:howto:pseudowire"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/pseudowire" class="media" title="es:doc:howto:pseudowire"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/pseudowire" class="media" title="fr:doc:howto:pseudowire"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/pseudowire" class="media" title="hu:doc:howto:pseudowire"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/pseudowire" class="media" title="jp:doc:howto:pseudowire"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/pseudowire" class="media" title="pl:doc:howto:pseudowire"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/pseudowire" class="media" title="pt-br:doc:howto:pseudowire"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/pseudowire" class="media" title="ru:doc:howto:pseudowire"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/pseudowire" class="media" title="tr:doc:howto:pseudowire"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/pseudowire" class="media" title="zh-cn:doc:howto:pseudowire"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/pseudowire" class="media" title="zh-tw:doc:howto:pseudowire"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:pseudowire</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="pseudowire#l2tpv3_with_openwrt">L2TPv3 with OpenWrt</a></div></li>
+<li class="level1"><div class="li"><a href="pseudowire#implementation">Implementation</a></div></li>
+<li class="level1"><div class="li"><a href="pseudowire#implementation_using_openwrt">Implementation using OpenWrt</a></div></li>
+<li class="level1"><div class="li"><a href="pseudowire#explanations">Explanations</a></div></li>
+<li class="level1"><div class="li"><a href="pseudowire#bridging_of_devices_with_varying_mt">Bridging of devices with varying MT</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="pseudowire">Pseudowire</h1>
+<div class="level1">
+<div class="table sectionedit2"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> For an overview over all existing Virtual private network (VPN)-related articles in the OpenWrt wiki, please visit <a href="vpn.overview" class="wikilink1" title="doc:howto:vpn.overview">vpn.overview</a> </td>
+	</tr>
+</table></div>
+
+<p>
+<a href="http://en.wikipedia.org/wiki/Pseudo-wire" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Pseudo-wire">Pseudo-wire</a>
+In today&#039;s data center an important question is: How to react on server outages? One of the
+possible answer to this question is a second data center in another location with a symmetric
+internet connection. This second data center can be run on cheap servers.
+With this setup, data from the primary data center can continuously be transmitted to the secondary
+one. If one or more server in the primary data center fail (e.g. because of hardware defect) the
+second data center can be used as fallback. This would be possible, if both of the data centers
+could be connected on layer 2 so they both share the same address range simultaneously.
+With expensive, proprietary hardware (e.g. Cisco) this is easily possible. For exactly this problem
+pseudowire switching can be used as seen in the following picture.
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/l2tpv3_1.png?id=doc%253Ahowto%253Apseudowire" class="media" title="doc:howto:l2tpv3_1.png"><img src="../../_media/doc/howto/l2tpv3_1.png" class="media" title="http://isc.sans.edu/diary.html?storyid=8704" alt="http://isc.sans.edu/diary.html?storyid=8704" /></a> <br/>
+
+proprietary setup: <a href="http://isc.sans.edu/diary.html?storyid=8704" class="media" title="http://isc.sans.edu/diary.html?storyid=8704"  rel="nofollow"><img src="http://wiki.openwrt.org/_media/wiki/doc/howto/l2tpv3_1.png" class="media" alt="" /></a>
+</p>
+
+<p>
+Linux also supports Layer 2 coupling with VPN1 or unencrypted via the Internet. Examples therefor
+are:
+</p>
+<ol>
+<li class="level1"><div class="li"> OpenVPN - in bridged to bridged mode</div>
+</li>
+</ol>
+
+<p>
+    To achieve this the following options are used on the server side:
+<pre class="code">      server-bridge ....
+      up &quot;/etc/openvpn/bridge-start&quot;
+      dev tap0</pre>
+
+In the remote data center one client is provided with two VLANs. The first is used to connect
+to the vpn server. The second one is used later on when routing the layer 2 traffic of the first
+data center. In this example this is VLAN 111, which is available on the client as bridge.
+<pre class="code">up &quot;/etc/openvpn/bridge-start&quot;
+client
+#
+/etc/openvpn/bridge-start
+#!/bin/bash
+#################################
+# Set up Ethernet bridge on Linux
+# Requires: bridge-utils
+#################################
+# Define Bridge Interface
+br=&quot;vlan111&quot;
+# Define list of TAP interfaces to be bridged,
+# for example tap=&quot;tap0 tap1 tap2&quot;.
+tap=&quot;$1&quot;
+for t in $tap; do
+/usr/sbin/openvpn --mktun --dev $t
+done
+for t in $tap; do
+/usr/sbin/brctl addif $br $t
+done
+for t in $tap; do
+/sbin/ifconfig $t 0.0.0.0 promisc up
+done</pre>
+
+</p>
+<pre class="code">   The advantage of routing the layer 2 traffic in the unused VLAN 111 has the advantage that
+   local traffic does not mix with the traffic of the remote data center.
+   A disadvantage hereby is the somewhat smaller throughput due to the architecture of openv-
+   pn, as to many interrupts are required to copy the data vom kernel space to user space and
+   back. This has a significant role when working with embedded hardware.</pre>
+<ul>
+<li class="level1"><div class="li"> <strong>rbridge</strong> - <a href="http://www.inlab.de/rbridge/index.html" class="urlextern" title="http://www.inlab.de/rbridge/index.html"  rel="nofollow">http://www.inlab.de/rbridge/index.html</a></div>
+</li>
+<li class="level1"><div class="li">  <a href="../../_detail/doc/howto/rbridge.jpg?id=doc%253Ahowto%253Apseudowire" class="media" title="doc:howto:rbridge.jpg"><img src="../../_media/doc/howto/rbridge.jpg" class="media" title="http://isc.sans.edu/diary.html?storyid=8704" alt="http://isc.sans.edu/diary.html?storyid=8704" /></a> <br/>
+</div>
+</li>
+</ul>
+
+<p>
+      <a href="http://wiki.openwrt.org/quelle/www.inlab.de" class="media" title="quelle:www.inlab.de"><img src="../../_media/doc/howto/rbridge.jpg" class="media" title="{{:doc:howto:rbridge.jpg|" alt="{{:doc:howto:rbridge.jpg|" /></a>
+</p>
+<pre class="code">    Here an UDP tunnel in both directions is created to connect two ehternet segments. An
+    encryption of this tunnel can be implemented by using IPSEC on top of this tunnel. This
+    program, however, is not available as source code and therefor its usage is limited.</pre>
+<ul>
+<li class="level1"><div class="li"> Similar solutions</div>
+<ul>
+<li class="level3"><div class="li"> etherip <a href="http://lwn.net/Articles/119535/" class="urlextern" title="http://lwn.net/Articles/119535/"  rel="nofollow">http://lwn.net/Articles/119535/</a></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit3" id="l2tpv3_with_openwrt">L2TPv3 with OpenWrt</h2>
+<div class="level2">
+
+<p>
+So, is L2TPv3 available for Linux? Since Kernel 2.6.35 L2TPv3 is rudimentary available. Further
+infos in <a href="http://kerneltrap.org/mailarchive/linux-netdev/2010/4/2/6273948" class="urlextern" title="http://kerneltrap.org/mailarchive/linux-netdev/2010/4/2/6273948"  rel="nofollow">http://kerneltrap.org/mailarchive/linux-netdev/2010/4/2/6273948</a>.
+So L2TPv3 is available for Linux. So what else is to be done to get this working:
+</p>
+<ul>
+<li class="level1"><div class="li"> install Linux</div>
+</li>
+<li class="level1"><div class="li"> confgiure the firewall</div>
+</li>
+<li class="level1"><div class="li"> set up the IPSEC Tunnel</div>
+</li>
+<li class="level1"><div class="li"> monitor the IPSEC Tunnel</div>
+</li>
+<li class="level1"><div class="li"> start the L2TPv3 Tunnel and bridge it on both ends</div>
+</li>
+</ul>
+
+<p>
+No Linux distribution has included L2TPv3 in their network setup - but OpenWrt. With OpenWrt it
+can be configured in the network configuration in <code>/etc/config/network</code>
+</p>
+
+<p>
+Have s look at <a href="../uci/network#protocol.l2tp.l2tp.pseudowire.tunnel" class="urlextern" title="http://wiki.openwrt.org/doc/uci/network#protocol.l2tp.l2tp.pseudowire.tunnel"  rel="nofollow">http://wiki.openwrt.org/doc/uci/network#protocol.l2tp.l2tp.pseudowire.tunnel</a>
+</p>
+
+<p>
+Openwrt can be used on many other hardware besides routers from Linksys. Even para virtual
+network devices are available to achieve performant network operations in virtualised environ-
+ments:
+</p>
+<ul>
+<li class="level1"><div class="li"> KVM - Kernel Based Virtual Machine</div>
+</li>
+<li class="level1"><div class="li"> XEN - <a href="http://de.wikipedia.org/wiki/Xen" class="urlextern" title="http://de.wikipedia.org/wiki/Xen"  rel="nofollow">http://de.wikipedia.org/wiki/Xen</a></div>
+</li>
+<li class="level1"><div class="li"> ESX/ESXI - VMware</div>
+</li>
+<li class="level1"><div class="li"> Virtual Box - Oracle</div>
+</li>
+</ul>
+
+<p>
+Openwrt is small, can be easily adopted and has an excellent buildchain. With this buildchain
+personal modifications are simple to include.
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="implementation">Implementation</h2>
+<div class="level2">
+
+<p>
+After the theoretical depiction follows a practical implementation using an example network environment. The used network ranges are:
+</p>
+<ul>
+<li class="level1"><div class="li"> external IP address in the primary data center (141.64.161.74), gateway (141.64.161.1), netmask (Class C)</div>
+</li>
+<li class="level1"><div class="li"> internal IP range 10.1.0.0/24</div>
+</li>
+<li class="level1"><div class="li"> external IP address in the secondary data center (192.166.120.139), gateway (192.166.120.1), netmask (Class C)</div>
+</li>
+<li class="level1"><div class="li"> unused VLAN 111 in the secondary data center</div>
+</li>
+</ul>
+
+<p>
+   <a href="../../_detail/doc/howto/pseudowire-practical.jpeg?id=doc%253Ahowto%253Apseudowire" class="media" title="doc:howto:pseudowire-practical.jpeg"><img src="../../_media/doc/howto/pseudowire-practical.jpeg" class="media" alt="" /></a>
+</p>
+
+<p>
+This shows the implementation of the Layer 2 coupling. First, the IPSEC tunnel between 141.64.161.75 to 192.166.120.139 is established. After succeeding, the IPs 192.168.202.5/32 and 192.168.202.9/32 are assigned to the tunnel endpoints. On top of this tunnel the L2TPv3 tunnel can be initialized. The IPSEC tunnel is needed as the connection between the data centers has to be cryptographically secure. This encryption is implemented in the kernel and can be implemented in hardware so latencies should be small and throughput should be huge.
+L2TPv3 is kernel based, too, which is one of the features that make it appealing in using to achieve the aspired goals.
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="implementation_using_openwrt">Implementation using OpenWrt</h2>
+<div class="level2">
+
+<p>
+To implement this setup with OpenWrt in both data centers an instance (l-01 in the primary, l-02 in the secondary) has to be configured as follows.
+</p>
+<ul>
+<li class="level1"><div class="li">  l-01 </div>
+</li>
+</ul>
+
+<p>
+     <code>/etc/config/network</code>
+</p>
+<pre class="code">config interface wan
+	option ifname eth0
+	option type bridge
+	option proto static
+	option ipaddr 141.64.161.74
+	option netmask 255.255.255.0
+	option gateway 141.64.161.1
+config interface lan
+	option ifname eth1
+	option type bridge
+	option proto l2tp
+	option ipaddr 10.1.0.1
+	option netmask 255.255.255.0
+	option encap udp
+	option sport 1701
+	option dport 1702
+	option localaddr 172.30.201.5
+	option peeraddr
+	172.30.201.9</pre>
+<pre class="code">  &#039;&#039;/etc/config/firewall&#039;&#039;
+ config rule
+	option src    wan
+	option proto    gre
+	option target ACCEPT</pre>
+<pre class="code">config rule
+	option src    wan
+	option proto    esp
+	option target ACCEPT</pre>
+<pre class="code">config rule
+	option src    wan
+	option proto    ah
+	option target ACCEPT</pre>
+<pre class="code">config rule
+	option src    wan
+	option dest_port        500
+	option proto    udp
+	option target ACCEPT</pre>
+<pre class="code">config rule
+	option src    wan
+	option dest_port        4500
+	option proto    udp
+	option target ACCEPT
+  
+    &#039;&#039;/etc/ipsec.conf&#039;&#039;
+#OpenSwan is being used
+conn to-secondary
+	type=tunnel
+	left=141.64.161.74
+	leftnexthop=141.64.161.1
+	leftsourceip=192.168.201.5
+	leftsubnet=172.30.201.5/32
+	leftid=&quot;primary@rz&quot;
+	right=192.166.120.139
+	rightnexthop=192.166.120.1
+	rightsourceip=192.168.201.9
+	rightsubnet=192.168.201.9/32
+	authby=secret
+	auto=start
+	ike=aes128-sha-modp1024
+	esp=aes128-sha1 </pre>
+<pre class="code">    &#039;&#039;/etc/monitrc&#039;&#039;
+check process pluto with pidfile /var/run/pluto/pluto.pid
+start program = &quot;/etc/init.d/ipsec restart&quot;
+stop program = &quot;/etc/init.d/ipsec restart&quot;
+#
+check host secondary with address 10.1.0.2
+if failed icmp type echo count 5 with timeout 30 seconds 
+then exec &quot;/sbin/ifup lan&quot;</pre>
+<ul>
+<li class="level1"><div class="li">  l-02 </div>
+</li>
+</ul>
+
+<p>
+     <code>/etc/config/network</code>
+</p>
+<pre class="code"> config interface wan
+	option ifname   eth0
+	option type     bridge
+	option proto    static
+	option ipaddr   192.166.120.139
+	option netmask  255.255.255.0
+	option gateway  192.166.120.1</pre>
+<pre class="code">config interface lan
+	option ifname   eth1
+	option type     bridge
+	option proto    l2tp
+	option ipaddr   10.1.0.2
+	option netmask  255.255.255.0
+	option encap     udp
+	option sport     1702
+	option dport     1701
+	option localaddr 172.30.201.9
+	option peeraddr  172.30.201.5
+   
+&#039;&#039;/etc/config/firewall&#039;&#039;
+same as l-01</pre>
+<pre class="code">&#039;&#039;/etc/ipsec.conf&#039;&#039;
+#OpenSwan is being used
+ conn to-primary
+	type=tunnel
+	left=141.64.161.74
+	leftnexthop=141.64.161.1
+	leftsourceip=192.168.201.5
+	leftsubnet=172.30.201.5/32
+	rightid=&quot;secondary@rz&quot;
+	right=192.166.120.139
+	rightnexthop=192.166.120.1
+	rightsourceip=192.168.201.9
+	rightsubnet=192.168.201.9/32
+	authby=secret
+	auto=start
+	ike=aes128-sha-modp1024
+	esp=aes128-sha1 </pre>
+<pre class="code">    &#039;&#039;/etc/monitrc&#039;&#039;
+check process pluto with pidfile /var/run/pluto/pluto.pid
+start program = &quot;/etc/init.d/ipsec restart&quot;
+stop program = &quot;/etc/init.d/ipsec restart&quot;
+#
+check host secondary with address 10.1.0.1
+if failed icmp type echo count 5 with timeout 30 seconds 
+then exec &quot;/sbin/ifup lan&quot;</pre>
+
+</div>
+
+<h2 class="sectionedit6" id="explanations">Explanations</h2>
+<div class="level2">
+
+<p>
+The functionality of both the IPSEC and the L2TPv3 tunnel are assured by the use of the daemon
+monit on both ends. If one of the tunnels is destroyed an ifup lan is triggered to restart the
+connection.
+In the secondary data center eth1 has to be in VLAN 111. Because of this, the internal network
+of the primary data center can be used without the interference of layer 2 noise. This means the
+internal network of the primary data center is bridged in the VLAN 111 in the secondary data
+center.
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="bridging_of_devices_with_varying_mt">Bridging of devices with varying MT</h2>
+<div class="level2">
+
+<p>
+For now the setup works so both sides can ping each other. An ssh connection, however, is not
+either possible or freezes after a few seconds.
+The reason: The bridge for the L2TPv3 contains devices with different MTU3 . Furthermore, as the
+connection is bridged no routing happens and the MTU is not automatically adjusted by the router.
+All devices in the <abbr title="Local Area Network">LAN</abbr> usually use a MTU of 1500. The MTU of the L2TPv3 devices is about
+1400. As the tunnel itself can not fragment packets all packets bigger than the MTU are lost. This
+happens at longer HTTP request, too.
+To solve the problem bridge firewalling and TCP MSS Clamping is used. Bridge firewalling means
+the iptables rules are used when a packet passes a bridge. Normally this should not work, as
+a bridge only works in Layer 2. However, if bridge firewalling is enabled in the kernel a bridge can
+work in Layer 2 as well as Layer 3.
+The following sysctl keys are used for this:
+</p>
+<ul>
+<li class="level1"><div class="li"> net.bridge.bridge-nf-call-iptables</div>
+<ul>
+<li class="level2"><div class="li"> 0 - do not send IPv4 traffic through iptables</div>
+</li>
+<li class="level2"><div class="li"> 1 - do send IPv4 traffic through iptables</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> net.bridge.bridge-nf-filter-vlan-tagged</div>
+<ul>
+<li class="level2"><div class="li"> 0 -  do not send vlan tagged  Ipv4 traffic through iptables</div>
+</li>
+<li class="level2"><div class="li"> 1 -  send vlan tagged  Ipv4 traffic through iptables</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+IPv6 have to be configured separately.
+</p>
+
+<p>
+For the example setup the rules should be like this:
+<pre class="code">iptables -I FORWARD -s 10.1.0.0/24 -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1400
+iptables -I FORWARD -d 10.1.0.0/24 -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1400
+iptables -I FORWARD -s 10.1.0.0/24 -p tcp --tcp-flags SYN,RST SYN  -j TCPMSS --clamp-mss-to-pmtu
+iptables -I FORWARD -d 10.1.0.0/24 -p tcp --tcp-flags SYN,RST SYN  -j TCPMSS --clamp-mss-to-pmtu</pre>
+
+These rules should be narrowed as good as possible to avoid unpleasent side affects.
+</p>
+
+<p>
+ — <em>Have fun: Thomas 2011/02/20 18:41</em>
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/pseudowire.txt</bdi> · Last modified: 2013/10/28 08:32 by <bdi>lorema</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="pseudowire?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="pseudowire?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="pseudowire?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="pseudowire#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Apseudowire&amp;1432273816" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

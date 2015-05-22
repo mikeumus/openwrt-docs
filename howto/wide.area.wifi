@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Wide area Wi-Fi coverage [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,wide.area.wifi"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="wide.area.wifi?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/wide.area.wifi"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/wide.area.wifi"/>
+<link rel="canonical" href="wide.area.wifi"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:wide.area.wifi","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267156 166.182.3.14';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="wide.area.wifi#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="wide.area.wifi?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="wide.area.wifi?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:wide.area.wifi" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="wide.area.wifi?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="wide.area.wifi?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="wide.area.wifi?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="wide.area.wifi" class="wikilink1" title="doc:howto:wide.area.wifi">Wide area Wi-Fi coverage</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/wide.area.wifi" class="media" title="cz:doc:howto:wide.area.wifi"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/wide.area.wifi" class="media" title="de:doc:howto:wide.area.wifi"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="wide.area.wifi" class="media" title="doc:howto:wide.area.wifi"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/wide.area.wifi" class="media" title="es:doc:howto:wide.area.wifi"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/wide.area.wifi" class="media" title="fr:doc:howto:wide.area.wifi"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/wide.area.wifi" class="media" title="hu:doc:howto:wide.area.wifi"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/wide.area.wifi" class="media" title="jp:doc:howto:wide.area.wifi"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/wide.area.wifi" class="media" title="pl:doc:howto:wide.area.wifi"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/wide.area.wifi" class="media" title="pt-br:doc:howto:wide.area.wifi"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/wide.area.wifi" class="media" title="ru:doc:howto:wide.area.wifi"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/wide.area.wifi" class="media" title="tr:doc:howto:wide.area.wifi"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/wide.area.wifi" class="media" title="zh-cn:doc:howto:wide.area.wifi"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/wide.area.wifi" class="media" title="zh-tw:doc:howto:wide.area.wifi"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:wide.area.wifi</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="wide.area.wifi#introduction">Introduction</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="wide.area.wifi#acess_point_configuration">Acess Point Configuration</a></div></li>
+<li class="level2"><div class="li"><a href="wide.area.wifi#linux_box_configuration">Linux Box Configuration</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="wide.area.wifi#networking">Networking</a></div></li>
+<li class="level3"><div class="li"><a href="wide.area.wifi#openvpn_server_configuration">OpenVPN Server Configuration</a></div></li>
+<li class="level3"><div class="li"><a href="wide.area.wifi#shorewall_configuration">Shorewall Configuration</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="wide_area_wi-fi_coverage">Wide area Wi-Fi coverage</h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit2" id="introduction">Introduction</h2>
+<div class="level2">
+
+<p>
+This HOWTO requires proficienciy in an <a href="http://en.wikipedia.org/wiki/OpenVPN" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/OpenVPN">OpenVPN</a>-based <a href="http://en.wikipedia.org/wiki/Virtual private network" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Virtual private network">Virtual private network</a> (cf. <a href="vpn.server.openvpn.tap" class="wikilink1" title="doc:howto:vpn.server.openvpn.tap">vpn.server.openvpn.tap</a>/<a href="vpn.client.openvpn.tun" class="wikilink1" title="doc:howto:vpn.client.openvpn.tun">vpn.client.openvpn.tun</a> and <a href="vpn.server.openvpn.tap" class="wikilink1" title="doc:howto:vpn.server.openvpn.tap">vpn.server.openvpn.tap</a>/<a href="vpn.client.openvpn.tap" class="wikilink1" title="doc:howto:vpn.client.openvpn.tap">vpn.client.openvpn.tap</a>), Networking configuration on <a href="http://en.wikipedia.org/wiki/Red Hat Enterprise Linux" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Red Hat Enterprise Linux">RHEL</a>/<a href="http://en.wikipedia.org/wiki/CentOS" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/CentOS">CentOS</a>, <a href="http://en.wikipedia.org/wiki/Shorewall" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Shorewall">Shorewall</a> (cf. <a href="../recipes/shorewall-on-openwrt" class="wikilink1" title="doc:recipes:shorewall-on-openwrt">shorewall-on-openwrt</a>).
+</p>
+
+<p>
+In the proposed scenario a big area must be covered with Wi-Fi access and no Access Point alone can provide that kind of reachability. Three different Wi-Fi networks are configured for different access levels. Traffic from these networks will be isolated and controlled by a central Linux box running Shorewall. A wired Ethernet backbone will carry traffic from the Access Points (three in our example). The encapsulation protocol for different network traffic will be OpenVPN with no cypher(encryption can be enabled  with one liner &#039;cypher&#039; statement if required). The author has successfully done a similar setup using 802.1q (VLAN) encapsulation. L2tp is a another reasonable alternative for traffic encapsulation (cf. <a href="../networking/network.interfaces" class="wikilink1" title="doc:networking:network.interfaces">network.interfaces</a>).
+</p>
+
+<p>
+The following is a simplified scheme of the network structure of the solution described here:
+</p>
+
+<p>
+<a href="../../_detail/media/wide_area_wifi_howto.png?id=doc%253Ahowto%253Awide.area.wifi" class="media" title="media:wide_area_wifi_howto.png"><img src="../../_media/media/wide_area_wifi_howto.png" class="media" alt="" /></a>
+</p>
+
+<p>
+Configuration files are provided, but nothing prohibits the much more easy configuration with the LuCi web interface.
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="acess_point_configuration">Acess Point Configuration</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Flash OpenWrt Attitude Adjustment on your router (i&#039;ve used the venerable tp-link 1043nd)</div>
+</li>
+<li class="level1"><div class="li"> Connect it to internet and do &quot;opkg install openvpn&quot; from console</div>
+</li>
+<li class="level1"><div class="li"> Setup hostname, date, timezone and password as you wish</div>
+</li>
+<li class="level1"><div class="li"> Configure Networks (/etc/config/network) (Plan your addressing based on the previous diagram) <pre class="code">
+config interface &#039;loopback&#039;                                                     
+        option ifname &#039;lo&#039;                                                      
+        option proto &#039;static&#039;                                                   
+        option ipaddr &#039;127.0.0.1&#039;                                               
+        option netmask &#039;255.0.0.0&#039;                                              
+                                                                                
+config interface &#039;lan&#039;                                                          
+        option ifname &#039;eth0.1&#039;                                                  
+        option type &#039;bridge&#039;                                                    
+        option proto &#039;static&#039;                                                   
+        option netmask &#039;255.255.255.0&#039;                                          
+        option ipaddr &#039;192.168.1.3&#039;                                             
+        option dns &#039;192.168.1.2&#039;                                                
+        option gateway &#039;192.168.1.2&#039;                                            
+                                                                                
+config switch                                                                   
+        option name &#039;rtl8366rb&#039;                                                 
+        option reset &#039;1&#039;                                                        
+        option enable_vlan &#039;1&#039;                                                  
+        option enable_vlan4k &#039;1&#039;                                                
+                                                                                
+config switch_vlan                                                              
+        option device &#039;rtl8366rb&#039;                                               
+        option vlan &#039;1&#039;                                                         
+        option ports &#039;0 1 2 3 4 5t&#039;                                             
+                                                                                
+config interface &#039;workers&#039;                                                      
+        option type &#039;bridge&#039;                                                    
+        option ifname &#039;tapWorkers&#039;                                              
+        option _orig_ifname &#039;tapWorkers wlan0-1&#039;                                
+        option _orig_bridge &#039;true&#039;                                              
+        option proto &#039;static&#039;                                                   
+        option ipaddr &#039;192.168.2.2&#039;                                             
+        option netmask &#039;255.255.255.0&#039; 
+
+config interface &#039;guests&#039;             
+        option type &#039;bridge&#039;
+        option proto &#039;static&#039;
+        option ifname &#039;tapGuests&#039;
+        option ipaddr &#039;192.168.3.2&#039;
+        option netmask &#039;255.255.255.0&#039;                                         
+                   </pre>
+</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Configure wireless (/etc/config/wireless). &#039;Access&#039; network is not tunneled and goes to raw ethernet, &#039;guests&#039; goes to the unsecure network and &#039;workers&#039; to the secure network. <strong>Put your own SSID, MAC Address and PSK </strong><pre class="code">.
+config wifi-device &#039;radio0&#039;
+        option type &#039;mac80211&#039;
+        option macaddr &#039;54:e6:fc:fb:a7:10&#039;
+        option hwmode &#039;11ng&#039;
+        option htmode &#039;HT20&#039;
+        list ht_capab &#039;SHORT-GI-40&#039;
+        list ht_capab &#039;DSSS_CCK-40&#039;
+        option channel &#039;6&#039;
+        option txpower &#039;27&#039;
+        option country &#039;US&#039;
+        option distance &#039;15&#039;
+
+config wifi-iface
+        option device &#039;radio0&#039;
+        option network &#039;lan&#039;
+        option mode &#039;ap&#039;
+        option encryption &#039;psk2&#039;
+        option key &#039;secretisssimo&#039;
+        option ssid &#039;SuperCompany (Access)&#039;
+
+config wifi-iface
+        option device &#039;radio0&#039;
+        option mode &#039;ap&#039;
+        option encryption &#039;psk2&#039;
+        option network &#039;workers&#039;
+        option key &#039;123supersecret&#039;
+        option ssid &#039;SuperCompany (Workers)&#039;
+
+config wifi-iface
+        option device &#039;radio0&#039;
+        option mode &#039;ap&#039;
+        option encryption &#039;psk2&#039;
+        option ssid &#039;SuperCompany (Guests)&#039;
+        option network &#039;guests&#039;
+        option key &#039;welcomeguests&#039;
+
+</pre>
+</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Disable DHCP (/etc/config/dhcp). The linux box is the global DHCP server here.<pre class="code">config dnsmasq
+        option domainneeded &#039;1&#039;
+        option boguspriv &#039;1&#039;
+        option filterwin2k &#039;0&#039;
+        option localise_queries &#039;1&#039;
+        option rebind_protection &#039;1&#039;
+        option rebind_localhost &#039;1&#039;
+        option local &#039;/lan/&#039;
+        option domain &#039;lan&#039;
+        option expandhosts &#039;1&#039;
+        option nonegcache &#039;0&#039;
+        option authoritative &#039;1&#039;
+        option readethers &#039;1&#039;
+        option leasefile &#039;/tmp/dhcp.leases&#039;
+        option resolvfile &#039;/tmp/resolv.conf.auto&#039;
+
+config dhcp &#039;lan&#039;
+        option interface &#039;lan&#039;
+        option ignore &#039;1&#039;</pre>
+</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Disable Firewall (config/firewall). There isn&#039;t any reason to filter traffic in the Access Point <pre class="code">config defaults
+        option input &#039;ACCEPT&#039;
+        option output &#039;ACCEPT&#039;
+        option forward &#039;ACCEPT&#039;
+
+config include
+        option path &#039;/etc/firewall.user&#039;</pre>
+</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Configure OpenVPN (config/openvpn). Upload your keys (you need to generate them in the Linux box using easy-rsa scripts) <pre class="code">package openvpn
+
+config openvpn confWorkers
+
+        option enabled 1
+        option client 1
+
+        option dev tapWorkers
+        list remote &quot;192.168.1.2 1194&quot;
+        option lport 1194
+        option proto udp
+        option resolv_retry infinite
+
+        option ca /etc/openvpn/ca.crt
+        option cert /etc/openvpn/ap01.supercompany.tld.crt
+        option key /etc/openvpn/ap01.supercompany.tld.key
+        option cipher none
+
+        option verb 3
+        option mute 20
+
+config openvpn confGuests
+
+        option enabled 1
+        option client 1
+
+        option dev tapGuests
+        list remote &quot;192.168.1.2 1195&quot;
+        option lport 1195
+        option proto udp
+        option resolv_retry infinite
+
+        option ca /etc/openvpn/ca.crt
+        option cert /etc/openvpn/ap01.supercompany.tld.crt
+        option key /etc/openvpn/ap01.supercompany.tld.key
+        option cipher none
+
+        option verb 3
+        option mute 20</pre>
+</div>
+</li>
+</ul>
+
+<p>
+Repeat all these steps for ap02 and ap03. <strong> Rembember to change IP and MAC address and openvpnc keys for each Access Point!. Set each AP in different channels to prevent interference!!!!</strong>
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="linux_box_configuration">Linux Box Configuration</h3>
+<div class="level3">
+
+<p>
+The linux box is used as the OpenVPN concentrator for the traffic coming from the Access points. Shorewall is used to the traffic policing. OpenVPN keys are administered with &quot;easy-rsa&quot; scripts. CentOS 6.4 is used in this example.
+</p>
+
+</div>
+
+<h4 id="networking">Networking</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Configure the tunnel interfaces /etc/sysconfig/network-scripts/ifcfg-(tapGuests|tapWorkers).  <pre class="code">DEVICE=tapWorkers
+TYPE=Ethernet
+ONBOOT=yes
+BOOTPROTO=none
+NM_CONTROLLED=no
+IPADDR=192.168.2.1
+NETMASK=255.255.255.0
+TYPE=Tap</pre>
+</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">DEVICE=tapGuests
+TYPE=Ethernet
+ONBOOT=yes
+BOOTPROTO=none
+NM_CONTROLLED=no
+IPADDR=192.168.3.1
+NETMASK=255.255.255.0
+TYPE=Tap</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Configure your wan and lan interface as you wish. Here eth0 is <abbr title="Local Area Network">LAN</abbr> and eth1 is WAN <pre class="code">. 
+DEVICE=eth0
+HWADDR=E8:40:F2:3D:7F:48
+TYPE=Ethernet
+UUID=07a338a7-6753-4b4c-90fa-3a2866a10493
+ONBOOT=yes
+NM_CONTROLLED=no
+BOOTPROTO=static
+IPADDR0=192.168.1.1
+NETMASK0=255.255.255.0
+IPADDR1=192.168.1.2
+NETMASK1=255.255.255.0</pre>
+</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">DEVICE=eth1
+HWADDR=C8:3A:35:DA:B6:80
+TYPE=Ethernet
+UUID=3cbafbed-181a-4025-b31e-9ab7c08eebca
+ONBOOT=yes
+NM_CONTROLLED=no
+BOOTPROTO=static
+IPADDR0=201.n.n.n
+NETMASK0=255.255.255.248
+IPADDR1=201.n.n.n
+NETMASK1=255.255.255.248
+GATEWAY=201.n.n.n</pre>
+
+</p>
+
+</div>
+
+<h4 id="openvpn_server_configuration">OpenVPN Server Configuration</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Configure OpenVPN (/etc/openvpn/(guests|workers).conf) <pre class="code">mode server
+tls-server
+dev tapGuests
+port 1195
+proto udp
+keepalive 10 60
+client-to-client
+
+syslog openvpn(Guests)
+verb 3
+
+ca easy-rsa/keys/ca.crt
+cert easy-rsa/keys/net01.supercompany.tld.crt
+key easy-rsa/keys/net01.supercompany.tld.key
+dh easy-rsa/keys/dh1024.pem
+cipher none</pre>
+</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">mode server
+tls-server
+dev tapWorkers
+port 1194
+proto udp
+keepalive 10 60
+client-to-client
+
+syslog openvpn(Workers)
+verb 3
+
+ca easy-rsa/keys/ca.crt
+cert easy-rsa/keys/net01.supercompany.tld.crt
+key easy-rsa/keys/net01.supercompany.tld.key
+dh easy-rsa/keys/dh1024.pem
+cipher none</pre>
+
+</p>
+
+</div>
+
+<h4 id="shorewall_configuration">Shorewall Configuration</h4>
+<div class="level4">
+
+<p>
+Shorewall was installed from rpms (provided at their homepage).
+</p>
+<ul>
+<li class="level1"><div class="li"> Define zones (/etc/shorewall/zones) <pre class="code">#
+# Shorewall version 4 - Zones File
+#
+# For information about this file, type &quot;man shorewall-zones&quot;
+#
+# The manpage is also online at
+# http://www.shorewall.net/manpages/shorewall-zones.html
+#
+###############################################################################
+#ZONE   TYPE            OPTIONS         IN                      OUT
+#                                       OPTIONS                 OPTIONS
+fw      firewall
+wan     ipv4
+lan     ipv4
+guest   ipv4</pre>
+</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Define interfaces shorewall/interfaces <pre class="code">#
+# Shorewall version 4 - Interfaces File
+#
+# For information about entries in this file, type &quot;man shorewall-interfaces&quot;
+#
+# The manpage is also online at
+# http://www.shorewall.net/manpages/shorewall-interfaces.html
+#
+###############################################################################
+?FORMAT 2
+###############################################################################
+#ZONE           INTERFACE               OPTIONS
+wan             eth1
+lan             eth0                    
+lan             tapWorkers
+guest           tapGuests</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> The policy and rules are up to you</div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/wide.area.wifi.txt</bdi> · Last modified: 2013/10/28 08:22 by <bdi>lorema</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="wide.area.wifi?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="wide.area.wifi?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="wide.area.wifi?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="wide.area.wifi#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Awide.area.wifi&amp;1432267156" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

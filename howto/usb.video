@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>USB Video Support [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,usb.video"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="usb.video?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/usb.video"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/usb.video"/>
+<link rel="canonical" href="usb.video"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:usb.video","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267157 166.182.3.14';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="usb.video#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="usb.video?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="usb.video?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:usb.video" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="usb.video?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="usb.video?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="usb.video?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="usb.video" class="wikilink1" title="doc:howto:usb.video">USB Video Support</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/usb.video" class="media" title="cz:doc:howto:usb.video"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/usb.video" class="media" title="de:doc:howto:usb.video"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="usb.video" class="media" title="doc:howto:usb.video"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/usb.video" class="media" title="es:doc:howto:usb.video"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/usb.video" class="media" title="fr:doc:howto:usb.video"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/usb.video" class="media" title="hu:doc:howto:usb.video"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/usb.video" class="media" title="jp:doc:howto:usb.video"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/usb.video" class="media" title="pl:doc:howto:usb.video"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/usb.video" class="media" title="pt-br:doc:howto:usb.video"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/usb.video" class="media" title="ru:doc:howto:usb.video"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/usb.video" class="media" title="tr:doc:howto:usb.video"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/usb.video" class="media" title="zh-cn:doc:howto:usb.video"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/usb.video" class="media" title="zh-tw:doc:howto:usb.video"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:usb.video</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="usb.video#preparation">Preparation</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="usb.video#prerequisites">Prerequisites</a></div></li>
+<li class="level2"><div class="li"><a href="usb.video#required_packages">Required Packages</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="usb.video#installation">Installation</a></div></li>
+<li class="level1"><div class="li"><a href="usb.video#configuration">Configuration</a></div></li>
+<li class="level1"><div class="li"><a href="usb.video#applications">Applications</a></div></li>
+<li class="level1"><div class="li"><a href="usb.video#troubleshooting">Troubleshooting</a></div></li>
+<li class="level1"><div class="li"><a href="usb.video#notes">Notes</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="usb_video_support">USB Video Support</h1>
+<div class="level1">
+
+<p>
+The word &quot;video&quot; can refer to
+</p>
+<ol>
+<li class="level1"><div class="li"> a video card aka graphics card = graphic adapter</div>
+</li>
+<li class="level1"><div class="li"> a video accelerator card = DE-/CODEC accelerator</div>
+</li>
+<li class="level1"><div class="li"> a <strong>video camera</strong>. This page is all about OpenWrt support for <strong>web cams</strong> and <strong>similar devices</strong> (i.e. something with a video stream, e.g. a <strong>TV card</strong>)!</div>
+</li>
+</ol>
+
+</div>
+
+<h2 class="sectionedit2" id="preparation">Preparation</h2>
+<div class="level2">
+
+<p>
+Please inform yourself upstream:
+</p>
+<ol>
+<li class="level1"><div class="li"> <a href="http://linuxtv.org/wiki/index.php/Webcam_Devices" class="urlextern" title="http://linuxtv.org/wiki/index.php/Webcam_Devices"  rel="nofollow">http://linuxtv.org/wiki/index.php/Webcam_Devices</a> teaches us, that there are four types of web cams:</div>
+<ol>
+<li class="level2"><div class="li"> those that have <em>UVC support</em>  →<a href="http://www.ideasonboard.org/uvc/" class="urlextern" title="http://www.ideasonboard.org/uvc/"  rel="nofollow">Linux UVC driver and tools</a></div>
+</li>
+<li class="level2"><div class="li"> those that have <em>GSPCA support</em> →<a href="http://linuxtv.org/wiki/index.php/Gspca" class="urlextern" title="http://linuxtv.org/wiki/index.php/Gspca"  rel="nofollow">http://linuxtv.org/wiki/index.php/Gspca</a></div>
+</li>
+<li class="level2"><div class="li"> those that have <em>out-of-tree support</em></div>
+</li>
+<li class="level2"><div class="li"> those that have <em>no Linux support</em></div>
+</li>
+</ol>
+</li>
+<li class="level1"><div class="li"> Then there is the framework <a href="http://en.wikipedia.org/wiki/Video4Linux" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Video4Linux">Video4Linux</a> and a whole load of applications that work with V4L version 1 and/or version 2.</div>
+<ol>
+<li class="level2"><div class="li"> <a href="http://lwn.net/Articles/203924/" class="urlextern" title="http://lwn.net/Articles/203924/"  rel="nofollow">The Video4Linux2 API: an introduction</a></div>
+</li>
+<li class="level2"><div class="li"> <a href="http://linuxtv.org/wiki/index.php/Main_Page" class="urlextern" title="http://linuxtv.org/wiki/index.php/Main_Page"  rel="nofollow">http://linuxtv.org/wiki/index.php/Main_Page</a></div>
+</li>
+<li class="level2"><div class="li"> <a href="http://v4l2spec.bytesex.org/spec/" class="urlextern" title="http://v4l2spec.bytesex.org/spec/"  rel="nofollow">V4L2 API Specification</a></div>
+</li>
+</ol>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit3" id="prerequisites">Prerequisites</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> follow <a href="usb.essentials" class="wikilink1" title="doc:howto:usb.essentials">usb.essentials</a> to obtain basic USB support</div>
+</li>
+<li class="level1"><div class="li"> plug the USB webcam of your choice into the USB port of your OpenWrt router</div>
+</li>
+<li class="level1"><div class="li"> now install <code>kmod-video-uvc</code> or <code>kmod-video-gspca-core</code> + matching driver.</div>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit4" id="required_packages">Required Packages</h3>
+<div class="level3">
+<div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1 leftalign"> Depends  </th><th class="col2 centeralign">  Size  </th><th class="col3 leftalign"> Description  </th>
+	</tr>
+	<tr class="row1">
+		<th class="col0 leftalign" colspan="4"> Basic stuff  </th>
+	</tr>
+	</thead>
+	<tr class="row2">
+		<td class="col0 leftalign"> kmod-video-core     </td><td class="col1 leftalign"> kmod-i2c-core                     </td><td class="col2 rightalign">  40159 </td><td class="col3 leftalign"> Kernel modules for Video4Linux support  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> kmod-video-pwc      </td><td class="col1 leftalign"> kmod-usb-core,<br/>
+kmod-video-core  </td><td class="col2 rightalign">  30274 </td><td class="col3 leftalign"> Kernel modules for supporting Philips USB based cameras.  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> kmod-video-uvc      </td><td class="col1 leftalign"> kmod-usb-core,<br/>
+kmod-video-core,<br/>
+kmod-input-core  </td><td class="col2 rightalign">  35971 </td><td class="col3 leftalign"> Kernel modules for supporting <a href="http://en.wikipedia.org/wiki/USB video device class" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/USB video device class">USB Video Class (UVC)</a> devices. →<strong><a href="http://www.ideasonboard.org/uvc/" class="urlextern" title="http://www.ideasonboard.org/uvc/"  rel="nofollow">Linux UVC driver and tools</a></strong>  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> kmod-video-sn9c102  </td><td class="col1 leftalign"> kmod-usb-core,<br/>
+kmod-video-core  </td><td class="col2 rightalign">  32973 </td><td class="col3 leftalign"> Kernel modules for supporting SN9C102 camera chips.  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> kmod-video-cpia2    </td><td class="col1 leftalign"> kmod-usb-core,<br/>
+kmod-video-core  </td><td class="col2 rightalign">  20077 </td><td class="col3"> Kernel modules for supporting CPIA2 USB based cameras. <a href="http://www.mjmwired.net/kernel/Documentation/video4linux/cpia2_overview.txt" class="urlextern" title="http://www.mjmwired.net/kernel/Documentation/video4linux/cpia2_overview.txt"  rel="nofollow">cpia2_overview.txt</a> </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> kmod-i2c-core       </td><td class="col1 leftalign"> –                                </td><td class="col2 rightalign">    5076 </td><td class="col3 leftalign"> Kernel modules for <a href="http://en.wikipedia.org/wiki/I²C" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/I²C">I²C</a> support  </td>
+	</tr>
+	<tr class="row8">
+		<th class="col0 leftalign" colspan="4"> GSPCA stuff  </th>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> kmod-video-gspca-core     </td><td class="col1 leftalign"> kmod-usb-core, kmod-video-core  </td><td class="col2 rightalign">  14450 </td><td class="col3 leftalign"> Kernel modules for supporting <a href="http://www.linuxjournal.com/video/get-your-webcam-working-gspca" class="urlextern" title="http://www.linuxjournal.com/video/get-your-webcam-working-gspca"  rel="nofollow">GSPCA</a> based webcam devices. Note this is just the core of the driver, please additionally select the submodule that supports your webcam. <a href="http://www.mjmwired.net/kernel/Documentation/video4linux/gspca.txt" class="urlextern" title="http://www.mjmwired.net/kernel/Documentation/video4linux/gspca.txt"  rel="nofollow">gspca.txt</a>  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> kmod-video-gspca-ov519    </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">  19858 </td><td class="col3 leftalign"> The OV519 USB Camera Driver (ov519) kernel module.  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> kmod-video-gspca-t613     </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">   7556 </td><td class="col3 leftalign"> The T613 (JPEG Compliance) USB Camera Driver (t613) kernel module.  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> kmod-video-gspca-ov534    </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">   6753 </td><td class="col3 leftalign"> The OV534 USB Camera Driver (ov534) kernel module.  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> kmod-video-gspca-tv8532   </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">   3053 </td><td class="col3 leftalign"> The TV8532 USB Camera Driver (tv8532) kernel module.  </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 leftalign"> kmod-video-gspca-conex    </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">   6425 </td><td class="col3 leftalign"> The Conexant Camera Driver (conex) kernel module.  </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 leftalign"> kmod-video-gspca-stk014   </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">   4680 </td><td class="col3 leftalign"> The Syntek DV4000 (STK014) USB Camera Driver (stk014) kernel module.  </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 leftalign"> kmod-video-gspca-etoms    </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">   5203 </td><td class="col3 leftalign"> The Etoms USB Camera Driver (etoms) kernel module.  </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0 leftalign"> kmod-video-gspca-mars     </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">   4104 </td><td class="col3 leftalign"> The Mars USB Camera Driver (mars) kernel module.  </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0 leftalign"> kmod-video-gspca-sq905    </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">   3939 </td><td class="col3 leftalign"> The SQ Technologies SQ905 based USB Camera Driver (sq905) kernel module.  </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0 leftalign"> kmod-video-gspca-vc032x   </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">  12230 </td><td class="col3 leftalign"> The VC032X USB Camera Driver (vc032x) kernel module.  </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0 leftalign"> kmod-video-gspca-sq905c   </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">   3887 </td><td class="col3 leftalign"> The SQ Technologies SQ905C based USB Camera Driver (sq905c) kernel module.  </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0 leftalign"> kmod-video-gspca-stv06xx  </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">  12879 </td><td class="col3 leftalign"> The STV06XX USB Camera Driver (stv06xx) kernel module.  </td>
+	</tr>
+	<tr class="row22">
+		<td class="col0 leftalign"> kmod-video-gspca-finepix  </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">   3473 </td><td class="col3 leftalign"> The Fujifilm FinePix USB V4L2 driver (finepix) kernel module.  </td>
+	</tr>
+	<tr class="row23">
+		<td class="col0 leftalign"> kmod-video-gspca-mr97310a  </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">   6477 </td><td class="col3 leftalign"> The Mars-Semi MR97310A USB Camera Driver (mr97310a) kernel module.  </td>
+	</tr>
+	<tr class="row24">
+		<td class="col0 leftalign"> kmod-video-gspca-spca500  </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">   7110 </td><td class="col3 leftalign"> The SPCA500 USB Camera Driver (spca500) kernel module.  </td>
+	</tr>
+	<tr class="row25">
+		<td class="col0 leftalign"> kmod-video-gspca-spca501  </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">   5085 </td><td class="col3 leftalign"> The SPCA501 USB Camera Driver (spca501) kernel module.  </td>
+	</tr>
+	<tr class="row26">
+		<td class="col0 leftalign"> kmod-video-gspca-pac7311  </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">   4984 </td><td class="col3 leftalign"> The Pixart PAC7311 USB Camera Driver (pac7311) kernel module.  </td>
+	</tr>
+	<tr class="row27">
+		<td class="col0 leftalign"> kmod-video-gspca-spca505  </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">   3924 </td><td class="col3 leftalign"> The SPCA505 USB Camera Driver (spca505) kernel module.  </td>
+	</tr>
+	<tr class="row28">
+		<td class="col0 leftalign"> kmod-video-gspca-spca506  </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">   4604 </td><td class="col3 leftalign"> The SPCA506 USB Camera Driver (spca506) kernel module.  </td>
+	</tr>
+	<tr class="row29">
+		<td class="col0 leftalign"> kmod-video-gspca-spca508  </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">   4752 </td><td class="col3 leftalign"> The SPCA508 USB Camera Driver (spca508) kernel module.  </td>
+	</tr>
+	<tr class="row30">
+		<td class="col0 leftalign"> kmod-video-gspca-m5602    </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">  18579 </td><td class="col3 leftalign"> The ALi USB m5602 Camera Driver (m5602) kernel module.  </td>
+	</tr>
+	<tr class="row31">
+		<td class="col0 leftalign"> kmod-video-gspca-zc3xx    </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">  16235 </td><td class="col3 leftalign"> The ZC3XX USB Camera Driver (zc3xx) kernel module.  </td>
+	</tr>
+	<tr class="row32">
+		<td class="col0 leftalign"> kmod-video-gspca-sonixb   </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">   8014 </td><td class="col3 leftalign"> The SONIX Bayer USB Camera Driver (sonixb) kernel module.  </td>
+	</tr>
+	<tr class="row33">
+		<td class="col0 leftalign"> kmod-video-gspca-sonixj   </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">  13898 </td><td class="col3 leftalign"> The SONIX JPEG USB Camera Driver (sonixj) kernel module.  </td>
+	</tr>
+	<tr class="row34">
+		<td class="col0 leftalign"> kmod-video-gspca-spca561  </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">   5648 </td><td class="col3 leftalign"> The SPCA561 USB Camera Driver (spca561) kernel module.  </td>
+	</tr>
+	<tr class="row35">
+		<td class="col0 leftalign"> kmod-video-gspca-pac207   </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">   4490 </td><td class="col3 leftalign"> The Pixart PAC207 USB Camera Driver (pac207) kernel module.  </td>
+	</tr>
+	<tr class="row36">
+		<td class="col0 leftalign"> kmod-video-gspca-sunplus  </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">   8020 </td><td class="col3 leftalign"> The SUNPLUS USB Camera Driver (sunplus) kernel module.  </td>
+	</tr>
+	<tr class="row37">
+		<td class="col0 leftalign"> kmod-video-gspca-sn9c20x  </td><td class="col1 leftalign"> kmod-video-gspca-core  </td><td class="col2 rightalign">  12491 </td><td class="col3 leftalign"> The SN9C20X USB Camera Driver (sn9c20x) kernel module.  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit6" id="installation">Installation</h2>
+<div class="level2">
+
+<p>
+<a href="../techref/opkg" class="wikilink1" title="doc:techref:opkg">opkg</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="configuration">Configuration</h2>
+<div class="level2">
+
+<p>
+<img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> is there something to configure? <img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" />
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="applications">Applications</h2>
+<div class="level2">
+
+<p>
+Application can work directly with the driver, or with V4L1/V4L2.
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="iptv.mumudvb" class="wikilink1" title="doc:howto:iptv.mumudvb">iptv.mumudvb</a></div>
+</li>
+</ul>
+<div class="table sectionedit9"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0" colspan="4"> Stuff </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> fswebcam        </td><td class="col1 leftalign"> libgd  </td><td class="col2 rightalign">  32649 </td><td class="col3 leftalign"> fswebcam is a neat and simple webcam app. It captures images from a V4L1/V4L2 compatible device or file, averages them to reduce noise and draws a caption using the GD Graphics Library which also handles compressing the image to PNG or JPEG. The resulting image is saved to a file or sent to stdio where it can be piped to something like ncftpput or scp.  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> mjpg-streamer   </td><td class="col1"> libpthread, libjpeg </td><td class="col2 rightalign">  33738 </td><td class="col3 leftalign"> Streaming application for Linux-UVC compatible webcams  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> motion          </td><td class="col1 leftalign"> –                  </td><td class="col2 centeralign">  –    </td><td class="col3 leftalign"> <a href="http://man.cx/motion" class="interwiki iw_man" title="http://man.cx/motion">motion</a>, <a href="http://sourceforge.net/projects/motion/" class="urlextern" title="http://sourceforge.net/projects/motion/"  rel="nofollow">http://sourceforge.net/projects/motion/</a>, <a href="http://www.lavrsen.dk/foswiki/bin/view/Motion/MotionGuide" class="urlextern" title="http://www.lavrsen.dk/foswiki/bin/view/Motion/MotionGuide"  rel="nofollow">http://www.lavrsen.dk/foswiki/bin/view/Motion/MotionGuide</a>  </td>
+	</tr>
+	<tr class="row4">
+		<th class="col0 leftalign" colspan="4"> GStreamer stuff  </th>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> libgstreamer             </td><td class="col1"> glib2, libpthread, libxml2 </td><td class="col2 rightalign">  320927 </td><td class="col3 leftalign"> GStreamer open source multimedia framework  This package contains the GStreamer core library.  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> gst-mod-videomeasure     </td><td class="col1 leftalign"> libgstreamer  </td><td class="col2 rightalign">  15779 </td><td class="col3 leftalign"> This package contains the GStreamer videomeasure support plugin.  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> gst-mod-videosignal      </td><td class="col1 leftalign"> libgstreamer  </td><td class="col2 rightalign">   8156 </td><td class="col3 leftalign"> This package contains the GStreamer videosignal support plugin.  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> gst-mod-videotestsrc     </td><td class="col1 leftalign"> libgstreamer, liboil  </td><td class="col2 rightalign">  17585 </td><td class="col3 leftalign"> This package contains the GStreamer video test plugin.  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> gst-mod-mpeg4videoparse  </td><td class="col1 leftalign"> libgstreamer  </td><td class="col2 rightalign">   7536 </td><td class="col3 leftalign"> This package contains the GStreamer mpeg4videoparse support plugin.  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> gst-mod-mpegvideoparse   </td><td class="col1 leftalign"> libgstreamer  </td><td class="col2 rightalign">   9305 </td><td class="col3 leftalign"> This package contains the GStreamer mpegvideoparse support plugin.  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> libgstvideo              </td><td class="col1 leftalign"> libgstreamer  </td><td class="col2 rightalign">  10410 </td><td class="col3 leftalign"> This package contains the GStreamer video library.  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit10" id="troubleshooting">Troubleshooting</h2>
+<div class="level2">
+
+</div>
+
+<h2 class="sectionedit11" id="notes">Notes</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> See also: <a href="http://en.gentoo-wiki.com/wiki/Webcam" class="urlextern" title="http://en.gentoo-wiki.com/wiki/Webcam"  rel="nofollow">Gentoo-Wiki: Linux WebCam Support</a></div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/usb.video.txt</bdi> · Last modified: 2012/09/01 22:53 by <bdi>written_direcon</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="usb.video?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="usb.video?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="usb.video?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="usb.video#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Ausb.video&amp;1432267157" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

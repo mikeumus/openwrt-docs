@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>OpenVPN Setup Guide for Beginners [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,vpn.openvpn"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="vpn.openvpn?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/vpn.openvpn"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/vpn.openvpn"/>
+<link rel="canonical" href="vpn.openvpn"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:vpn.openvpn","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432273853 166.182.3.179';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="vpn.openvpn#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="vpn.openvpn?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="vpn.openvpn?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:vpn.openvpn" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="vpn.openvpn?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="vpn.openvpn?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="vpn.openvpn?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="vpn.openvpn" class="wikilink1" title="doc:howto:vpn.openvpn">OpenVPN Setup Guide for Beginners</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/vpn.openvpn" class="media" title="cz:doc:howto:vpn.openvpn"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/vpn.openvpn" class="media" title="de:doc:howto:vpn.openvpn"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="vpn.openvpn" class="media" title="doc:howto:vpn.openvpn"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/vpn.openvpn" class="media" title="es:doc:howto:vpn.openvpn"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/vpn.openvpn" class="media" title="fr:doc:howto:vpn.openvpn"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/vpn.openvpn" class="media" title="hu:doc:howto:vpn.openvpn"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/vpn.openvpn" class="media" title="jp:doc:howto:vpn.openvpn"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/vpn.openvpn" class="media" title="pl:doc:howto:vpn.openvpn"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/vpn.openvpn" class="media" title="pt-br:doc:howto:vpn.openvpn"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/vpn.openvpn" class="media" title="ru:doc:howto:vpn.openvpn"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/vpn.openvpn" class="media" title="tr:doc:howto:vpn.openvpn"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/vpn.openvpn" class="media" title="zh-cn:doc:howto:vpn.openvpn"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/vpn.openvpn" class="media" title="zh-tw:doc:howto:vpn.openvpn"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:vpn.openvpn</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="vpn.openvpn#use_case_the_beginner_s_configuration">Use Case (the beginner&#039;s configuration)</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.openvpn#prerequisites">Prerequisites</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.openvpn#install_the_required_software">Install the required software</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.openvpn#create_the_certificates">Create the certificates</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.openvpn#distribute_the_certificates">Distribute the certificates</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.openvpn#configure_the_network_on_the_openwrt_server">Configure the network on the OpenWrt server</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.openvpn#configure_the_network_on_the_openwrt_client">Configure the network on the OpenWrt client</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.openvpn#configure_the_openvpn_server">Configure the OpenVPN server</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.openvpn#configure_the_openwrt_client">Configure the OpenWrt client</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.openvpn#configure_other_clients">Configure other clients</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.openvpn#test_the_tunnel">Test the tunnel</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.openvpn#route_only_local_lan_client_traffic_through_the_tunnel">Route Only Local LAN Client Traffic Through the Tunnel</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.openvpn#route_all_client_traffic_through_the_tunnel">Route All Client Traffic Through the Tunnel</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.openvpn#troubleshooting">Troubleshooting</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.openvpn#asking_for_help">Asking for help</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.openvpn#references_and_examples">References and examples</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="openvpn_setup_guide_for_beginners">OpenVPN Setup Guide for Beginners</h1>
+<div class="level1">
+
+<p>
+This is a beginner&#039;s guide to setting up OpenVPN on a server and a client where, in this instance, both are running OpenWrt (although the OpenVPN client could easily be running on another <abbr title="Operating System">OS</abbr>, such as Windows or Linux).
+</p>
+
+<p>
+For non-beginners or real-world tunnels, <a href="vpn.server.openvpn.tun" class="wikilink1" title="doc:howto:vpn.server.openvpn.tun">vpn.server.openvpn.tun</a> may be a better place to start.
+</p>
+
+<p>
+The primary goal of this HOWTO is to get a working OpenVPN tunnel; the strategy used by this HOWTO is to keep it simple.  Because of that, this is a very basic OpenVPN tunnel configuration that will not suit most people&#039;s needs without further configuration. However, once the basic tunnel is working, additional recipes for other use-cases can be found at <a href="vpn.server.openvpn.tun" class="wikilink1" title="doc:howto:vpn.server.openvpn.tun">vpn.server.openvpn.tun</a>.
+</p>
+
+<p>
+For an overview of all VPN-related articles (including other VPN technologies), see <a href="vpn.overview" class="wikilink1" title="doc:howto:vpn.overview">vpn.overview</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="use_case_the_beginner_s_configuration">Use Case (the beginner&#039;s configuration)</h2>
+<div class="level2">
+
+<p>
+The user wants a client to access their OpenWrt router without the possibility of being snooped. That is, the user can already access the router, but over a public network, such as the Internet.  
+</p>
+
+<p>
+The end result will be a private connection directly between the OpenVPN client and server. Mostly, it is as if the two end-points are on the same subnet (but not on the same subnet as your router&#039;s <abbr title="Local Area Network">LAN</abbr>).
+</p>
+
+<p>
+To facilitate configuration/testing, this HOWTO permits two distinct scenarios for this use-case:
+</p>
+<ul>
+<li class="level1"><div class="li"> Scenario 0: the OpenVPN client can ping the OpenWrt router via the router&#039;s <abbr title="Local Area Network">LAN</abbr> interface. Specifically, they are on the same subnet (e.g. the client is a DHCP client of the OpenWrt router).</div>
+</li>
+<li class="level1"><div class="li"> Scenario 1: the OpenVPN client can ping the OpenWrt router via the router&#039;s WAN interface. Specifically, they are <strong>not</strong> on the same subnet (e.g. they are separated by the Internet).</div>
+</li>
+</ul>
+
+<p>
+Scenario 0 takes out much of the complexity of real-world configurations, such as the vagaries of the Internet, or your OpenWrt firewall configuration. Scenario 0 allows you to easily implement an OpenVPN tunnel, which can then be switched to Scenario 1, which itself is the basis for most real-world OpenVPN configurations. You can either start with Scenario 0, and switch to Scenario 1 when you&#039;ve got it working, or start directly with Scenario 1 and switch back to Scenario 0 for troubleshooting.
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="prerequisites">Prerequisites</h2>
+<div class="level2">
+
+<p>
+This HOWTO requires that the OpenVPN server is an OpenWrt router running OpenWrt 14.07 Barrier Breaker.
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="install_the_required_software">Install the required software</h2>
+<div class="level2">
+
+<p>
+<pre class="code">opkg update
+opkg install openvpn-openssl openvpn-easy-rsa</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="create_the_certificates">Create the certificates</h2>
+<div class="level2">
+
+<p>
+<pre class="code">build-ca
+build-dh
+build-key-server my-server
+build-key-pkcs12 my-client</pre>
+
+</p>
+
+<p>
+The above creates a server certificate named <em>my-server</em> and a client certificate named <em>my-client</em>. You can create multiple client certificates by running <code>build-key-pkcs12</code> multiple times and specifying different names.
+</p>
+
+<p>
+You can create a new set of certificates by running <code>clean-all</code> and then the above commands again.
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="distribute_the_certificates">Distribute the certificates</h2>
+<div class="level2">
+
+<p>
+<pre class="code">cp /etc/easy-rsa/keys/ca.crt /etc/easy-rsa/keys/my-server.* /etc/easy-rsa/keys/dh2048.pem /etc/openvpn
+scp /etc/easy-rsa/keys/ca.crt /etc/easy-rsa/keys/my-client.* root@CLIENT_IP_ADDRESS:/etc/openvpn</pre>
+
+</p>
+
+<p>
+The above assumes that you can connect to the client from the server, that the client has a SSH server and that you can login as root. If you can&#039;t, transfer the client certificate some other way, such as using an USB stick.
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="configure_the_network_on_the_openwrt_server">Configure the network on the OpenWrt server</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> Create the VPN interface:<pre class="code bash">uci <span class="kw1">set</span> network.vpn0=interface
+uci <span class="kw1">set</span> network.vpn0.ifname=tun0
+uci <span class="kw1">set</span> network.vpn0.proto=none</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> Allow inbound VPN traffic:<pre class="code bash">uci add firewall rule
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>rule<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.name=Allow-OpenVPN-Inbound
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>rule<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.target=ACCEPT
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>rule<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.src=<span class="sy0">*</span>
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>rule<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.proto=udp
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>rule<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.dest_port=<span class="nu0">1194</span></pre>
+</div>
+</li>
+<li class="level1"><div class="li"> Allow OpenVPN tunnel utilization:<pre class="code bash">uci add firewall zone
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>zone<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.name=vpn
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>zone<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.input=ACCEPT
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>zone<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.forward=ACCEPT
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>zone<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.output=ACCEPT
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>zone<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.network=vpn0
+uci add firewall forwarding
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>forwarding<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.src=<span class="st_h">'vpn'</span>
+uci <span class="kw1">set</span> firewall.<span class="sy0">@</span>forwarding<span class="br0">&#91;</span>-<span class="nu0">1</span><span class="br0">&#93;</span>.dest=<span class="st_h">'wan'</span></pre>
+</div>
+</li>
+<li class="level1"><div class="li"> Commit the changes:<pre class="code bash">uci commit network
+<span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>network reload
+uci commit firewall
+<span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>firewall reload</pre>
+</div>
+</li>
+</ol>
+
+</div>
+
+<h2 class="sectionedit8" id="configure_the_network_on_the_openwrt_client">Configure the network on the OpenWrt client</h2>
+<div class="level2">
+
+<p>
+Do the same as on the OpenWrt server above except skip step 2.
+</p>
+
+</div>
+
+<h2 class="sectionedit9" id="configure_the_openvpn_server">Configure the OpenVPN server</h2>
+<div class="level2">
+
+<p>
+<pre class="code">echo &gt; /etc/config/openvpn
+uci set openvpn.myvpn=openvpn
+uci set openvpn.myvpn.enabled=1
+uci set openvpn.myvpn.dev=tun
+uci set openvpn.myvpn.port=1194
+uci set openvpn.myvpn.proto=udp
+uci set openvpn.myvpn.log=/tmp/openvpn.log
+uci set openvpn.myvpn.verb=3
+uci set openvpn.myvpn.ca=/etc/openvpn/ca.crt
+uci set openvpn.myvpn.cert=/etc/openvpn/my-server.crt
+uci set openvpn.myvpn.key=/etc/openvpn/my-server.key
+uci set openvpn.myvpn.server=&#039;10.8.0.0 255.255.255.0&#039;
+uci set openvpn.myvpn.dh=/etc/openvpn/dh2048.pem
+uci commit openvpn
+/etc/init.d/openvpn enable
+/etc/init.d/openvpn start</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit10" id="configure_the_openwrt_client">Configure the OpenWrt client</h2>
+<div class="level2">
+
+<p>
+<pre class="code">echo &gt; /etc/config/openvpn
+uci set openvpn.myvpn=openvpn
+uci set openvpn.myvpn.enabled=1
+uci set openvpn.myvpn.dev=tun
+uci set openvpn.myvpn.proto=udp
+uci set openvpn.myvpn.log=/tmp/openvpn.log                
+uci set openvpn.myvpn.verb=3
+uci set openvpn.myvpn.ca=/etc/openvpn/ca.crt
+uci set openvpn.myvpn.cert=/etc/openvpn/my-client.crt
+uci set openvpn.myvpn.key=/etc/openvpn/my-client.key
+uci set openvpn.myvpn.client=1
+uci set openvpn.myvpn.remote_cert_tls=server
+uci set openvpn.myvpn.remote=&quot;SERVER_IP_ADDRESS 1194&quot;
+uci commit openvpn
+/etc/init.d/openvpn start</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit11" id="configure_other_clients">Configure other clients</h2>
+<div class="level2">
+
+<p>
+Create the following OpenVPN client configuration file, save it with an <code>.ovpn</code> extension and give it to your client:
+</p>
+
+<p>
+<pre class="code">dev tun
+proto udp
+
+log openvpn.log
+verb 3
+
+ca /etc/openvpn/ca.crt
+cert /etc/openvpn/my-client.crt
+key /etc/openvpn/my-client.key
+
+client
+remote-cert-tls server
+remote SERVER_IP_ADDRESS 1194</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit12" id="test_the_tunnel">Test the tunnel</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> The tunnel should have made a change to the client&#039;s route table (so you can access the tunnel end-point, should be 10.8.0.1):<pre class="code bash">  <span class="kw2">cat</span> <span class="sy0">/</span>tmp<span class="sy0">/</span>openvpn.log <span class="sy0">|</span> <span class="kw2">grep</span> <span class="st0">&quot;route add&quot;</span>
+     ...
+  route</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> You should be able to ping the tunnel end-point (i.e. the OpenVPN server):<pre class="code bash">  traceroute 10.8.0.1</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> You should still be able to ping hosts on the Internet via your default gateway:<pre class="code bash">  traceroute 8.8.8.8</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> You should be able to ping hosts on the Internet via the tunnel:<pre class="code bash">  route add <span class="re5">-net</span> 8.8.8.8 netmask 255.255.255.255 gateway 10.8.0.5
+  route
+     ...
+  traceroute 8.8.8.8</pre>
+</div>
+</li>
+</ol>
+
+<p>
+In particular, look at hops 1 and 2 of the <strong>traceroute</strong>; hop 1 should be one of the gateways from your route table.  If hop 2 of <strong>traceroute 8.8.8.8</strong> is the IP address of VPN_SERVER_ID, then the tunnel is working. 
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_biggrin.gif" class="icon" alt=":-D" /> Congratulations! Now look to &#039;tune&#039; the OpenVPN tunnel for a specific use-case.
+</p>
+
+</div>
+
+<h2 class="sectionedit13" id="route_only_local_lan_client_traffic_through_the_tunnel">Route Only Local LAN Client Traffic Through the Tunnel</h2>
+<div class="level2">
+
+<p>
+If all that is needed is to allow clients access to the local subnet (e.g., to access a server at home from work), and to leave Internet access as-is, all one needs to do is advertise the local subnet and configure the firewall to allow traffic through. First, to advertise the route:
+</p>
+
+<p>
+<pre class="code bash">uci <span class="kw1">set</span> openvpn.myvpn.push=<span class="st_h">'route 192.168.1.0 255.255.255.0'</span>
+uci commit openvpn
+<span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>openvpn restart</pre>
+
+</p>
+
+<p>
+In this example the subnet is 192.168.1.0/24. Adjust your configuration accordingly for your <abbr title="Local Area Network">LAN</abbr>. Now, the firewall has to be enabled to allow traffic from the VPN clients to the local <abbr title="Local Area Network">LAN</abbr>. To allow it, edit <strong>/etc/config/firewall</strong>:
+</p>
+
+<p>
+<pre class="code">## NB: this zone should have already been created in the previous setup step; just add the masq option as noted below
+config zone
+	option name &#039;vpn&#039;
+	option masq &#039;1&#039; ## NB: this option was added to enable forwarding out of the VPN zone
+	option input &#039;ACCEPT&#039;
+	option forward &#039;ACCEPT&#039;
+	option output &#039;ACCEPT&#039;
+	option network &#039;vpn0&#039;
+
+## NB : this section was added
+config forwarding
+	option src &#039;vpn&#039;
+	option dest &#039;lan&#039;</pre>
+
+</p>
+
+<p>
+After editing the firewall changes, enable them by executing:
+<pre class="code bash"><span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>firewall reload</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit14" id="route_all_client_traffic_through_the_tunnel">Route All Client Traffic Through the Tunnel</h2>
+<div class="level2">
+
+<p>
+If the OpenVPN server can access the Internet, then the client has the <em>option</em> of routing <em>all</em> its IP traffic via the tunnel rather than through it&#039;s local gateway.  If the tunnel is merely provide access to other subnets (e.g. to access a server at home from work), but Internet access is to remain as-is, then this is not your answer.  Instead, see <span class="curid"><a href="vpn.openvpn#routing_only_local_lan_client_traffic_through_the_tunnel" class="wikilink1" title="doc:howto:vpn.openvpn">Routing Only Local LAN Client Traffic Through the Tunnel</a></span>.
+</p>
+
+<p>
+Before you do this, you should know whether your network is <strong>Scenario 1</strong> (client and server in different subnets), or <strong>Scenario 2</strong> (client and server in the same subnet).  
+</p>
+
+<p>
+In <strong>Scenario 1</strong>, the client and server are in different subnets:
+</p>
+<ol>
+<li class="level1"><div class="li"> On the OpenVPN server, execute the following<pre class="code bash">  uci <span class="kw1">set</span> openvpn.myvpn.push=<span class="st_h">'redirect-gateway def1'</span>        <span class="co0">## NB: these are single quotes</span>
+  uci commit openvpn
+  <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>openvpn restart</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> On the OpenVPN client, execute the following:<pre class="code bash">  <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>openvpn restart
+  traceroute 8.8.8.8</pre>
+</div>
+</li>
+</ol>
+
+<p>
+Alternatively, in <strong>Scenario 2</strong>, the client and server are in the same subnet (useful for creating/testing an OpenVPN tunnel at home):
+</p>
+<ol>
+<li class="level1"><div class="li"> On the OpenVPN server, execute the following:<pre class="code bash">  uci <span class="kw1">set</span> openvpn.myvpn.push=<span class="st_h">'redirect-gateway def1 local'</span>  <span class="co0">## NB: these are single quotes</span>
+  uci commit openvpn; <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>openvpn restart</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> On the OpenVPN client, execute the following:<pre class="code bash">  <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>openvpn restart
+  traceroute 8.8.8.8  </pre>
+</div>
+</li>
+</ol>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> If your OpenVPN client is not to route all it&#039;s traffic via the server (and therefore continue to use it&#039;s existing default gateway), then you should not push the <strong>redirect-gateway</strong> option at all.
+</p>
+
+<p>
+You might need to make OpenWrt route traffic from vpn to wan. Add to /etc/config/firewall:
+<pre class="code">config forwarding
+	option src &#039;vpn&#039;
+	option dest &#039;wan&#039;</pre>
+
+This worked for BB RC2 (uci commands would be better).
+</p>
+
+<p>
+Once this is working, head to <a href="vpn.server.openvpn.tun" class="wikilink1" title="doc:howto:vpn.server.openvpn.tun">vpn.server.openvpn.tun</a> for more OpenVPN &#039;recipes&#039;.
+</p>
+
+</div>
+
+<h2 class="sectionedit15" id="troubleshooting">Troubleshooting</h2>
+<div class="level2">
+
+<p>
+If something doesn&#039;t work as expected while following this HOWTO:
+</p>
+<ul>
+<li class="level1"><div class="li"> Check that the client can ping the server:<pre class="code bash"><span class="kw2">ping</span> SERVER_IP_ADDRESS</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> Check that the OpenVPN daemon is running:<pre class="code bash"><span class="kw2">ps</span> <span class="sy0">|</span> <span class="kw2">grep</span> <span class="st0">&quot;openvpn&quot;</span></pre>
+</div>
+</li>
+<li class="level1"><div class="li"> Check that there is a TUN interface:<pre class="code bash"><span class="kw2">ifconfig</span> <span class="sy0">|</span> <span class="kw2">grep</span> <span class="st0">&quot;tun&quot;</span></pre>
+</div>
+</li>
+<li class="level1"><div class="li"> Check the log:<pre class="code bash"><span class="kw2">cat</span> <span class="sy0">/</span>tmp<span class="sy0">/</span>openvpn.log</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> You can try temporarily disabling the firewall on the OpenVPN server:<pre class="code bash"><span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>firewall stop</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> You can clear the OpenVPN configuration and start again from scratch:<pre class="code bash"><span class="kw3">echo</span> <span class="sy0">&gt;</span> <span class="sy0">/</span>etc<span class="sy0">/</span>config<span class="sy0">/</span>openvpn</pre>
+</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit16" id="asking_for_help">Asking for help</h2>
+<div class="level2">
+
+<p>
+You can ask for help on the OpenWrt forum: <a href="https://forum.openwrt.org/" class="urlextern" title="https://forum.openwrt.org/"  rel="nofollow">https://forum.openwrt.org/</a>.  
+</p>
+
+<p>
+When asking for help, you should at a minimum include the contents of the following files:
+<pre class="code bash"><span class="kw2">cat</span> <span class="sy0">/</span>tmp<span class="sy0">/</span>openvpn.log
+<span class="kw2">cat</span> <span class="sy0">/</span>etc<span class="sy0">/</span>config<span class="sy0">/</span>network
+<span class="kw2">cat</span> <span class="sy0">/</span>etc<span class="sy0">/</span>config<span class="sy0">/</span>firewall
+<span class="kw2">cat</span> <span class="sy0">/</span>etc<span class="sy0">/</span>config<span class="sy0">/</span>openvpn</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit17" id="references_and_examples">References and examples</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="https://community.openvpn.net/openvpn/wiki/Openvpn23ManPage" class="urlextern" title="https://community.openvpn.net/openvpn/wiki/Openvpn23ManPage"  rel="nofollow">OpenVPN 2.3 man-page</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="https://www.youtube.com/watch?v=3lqP1P-OqYA" class="urlextern" title="https://www.youtube.com/watch?v=3lqP1P-OqYA"  rel="nofollow">Configuring OpenWrt 14.07 as an OpenVPN client (Youtube video)</a></div>
+</li>
+</ul>
+<div class="table sectionedit18"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" />: Integrate any useful information from <a href="../../inbox/vpn.howto" class="wikilink1" title="inbox:vpn.howto">vpn.howto</a>. </td>
+	</tr>
+</table></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/vpn.openvpn.txt</bdi> · Last modified: 2015/05/16 21:26 by <bdi>filipe.matias</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="vpn.openvpn?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="vpn.openvpn?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="vpn.openvpn?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="vpn.openvpn#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Avpn.openvpn&amp;1432273854" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

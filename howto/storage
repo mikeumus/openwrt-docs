@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Partitioning, Formatting and Mounting Storage Devices [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,storage"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="storage?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/storage"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/storage"/>
+<link rel="canonical" href="storage"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:storage","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267079 166.182.3.17';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="storage#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="storage?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="storage?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:storage" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="storage?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="storage?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="storage?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="storage" class="wikilink1" title="doc:howto:storage">Partitioning, Formatting and Mounting Storage Devices</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/storage" class="media" title="cz:doc:howto:storage"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/storage" class="media" title="de:doc:howto:storage"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="storage" class="media" title="doc:howto:storage"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/storage" class="media" title="es:doc:howto:storage"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/storage" class="media" title="fr:doc:howto:storage"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/storage" class="media" title="hu:doc:howto:storage"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/storage" class="media" title="jp:doc:howto:storage"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/storage" class="media" title="pl:doc:howto:storage"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/storage" class="media" title="pt-br:doc:howto:storage"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/storage" class="media" title="ru:doc:howto:storage"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/storage" class="media" title="tr:doc:howto:storage"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/storage" class="media" title="zh-cn:doc:howto:storage"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/storage" class="media" title="zh-tw:doc:howto:storage"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:storage</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="storage#partitioning">Partitioning</a></div></li>
+<li class="level1"><div class="li"><a href="storage#formatting_filesystems">Formatting Filesystems</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="storage#available_nls_files">Available NLS files</a></div></li>
+<li class="level2"><div class="li"><a href="storage#formatting_and_file_system_checking_from_within_openwrt">Formatting and File System Checking from within OpenWrt</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="storage#example">Example</a></div></li>
+<li class="level3"><div class="li"><a href="storage#file_system_checking">File System Checking</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="storage#automatic_mount_on_boot">Automatic Mount on Boot</a></div></li>
+<li class="level1"><div class="li"><a href="storage#mounting">Mounting</a></div></li>
+<li class="level1"><div class="li"><a href="storage#advanced_topics">Advanced Topics</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="storage#automatic_spin_down_an_attached_hard_disk">Automatic spin down an attached hard disk</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="storage#virtual_disk">Virtual Disk</a></div></li>
+<li class="level1"><div class="li"><a href="storage#troubleshooting">Troubleshooting</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="storage#i_have_problems_with_fat_or_ntfs_file_systems">I have problems with FAT or NTFS file systems</a></div></li>
+<li class="level2"><div class="li"><a href="storage#kmod-fs-ext4_won_t_mount_ext2_or_ext3_partition">kmod-fs-ext4 won&#039;t mount ext2 or ext3 partition</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="storage#other_useful_packages">Other Useful Packages</a></div></li>
+<li class="level1"><div class="li"><a href="storage#filesystems_not_in_openwrt">Filesystems not in OpenWrt</a></div></li>
+<li class="level1"><div class="li"><a href="storage#notes">Notes</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="partitioning_formatting_and_mounting_storage_devices">Partitioning, Formatting and Mounting Storage Devices</h1>
+<div class="level1">
+
+<p>
+Please see the <a href="../techref/flash.layout" class="wikilink1" title="doc:techref:flash.layout">flash.layout</a>.
+</p>
+
+<p>
+Being able to add storage to an OpenWrt system can be a very valuable option, because of the usually limited amount of flash on embedded devices. Having ample storage for applications and other data can therefore greatly expand OpenWrt functionality. For example you can turn your device into a full <a href="http://en.wikipedia.org/wiki/NAS" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/NAS">NAS</a> by adding a hard drive for storing media files. You can also add storage to increase the available storage for the root file system in an overlay configuration by employing <a href="extroot" class="wikilink1" title="doc:howto:extroot">extroot</a>. 
+</p>
+
+<p>
+Before the system can find your device it has to be properly recognised, which is done by installing the correct drivers for the device. For most devices the connection will be through USB, so you first have to install <a href="usb.essentials" class="wikilink1" title="doc:howto:usb.essentials">USB support</a> and then provide <a href="usb.storage" class="wikilink1" title="doc:howto:usb.storage">storage support over USB</a>. Other devices are possible too, like SATA, IDE and flash memory cards, see <a href="http://wiki.openwrt.org/doc/howto/sata.essentials" class="wikilink2" title="doc:howto:sata.essentials" rel="nofollow">sata.essentials</a>, <a href="http://wiki.openwrt.org/doc/howto/ide.essentials" class="wikilink2" title="doc:howto:ide.essentials" rel="nofollow">ide.essentials</a> and <a href="http://wiki.openwrt.org/doc/howto/cf.essentials" class="wikilink2" title="doc:howto:cf.essentials" rel="nofollow">cf.essentials</a>, respectively. This article will assume that your storage device is already installed correctly with the correct drivers and ready for use.
+</p>
+
+<p>
+After installing the drivers for a device it can be <a href="disk.encryption" class="wikilink1" title="doc:howto:disk.encryption">encrypted</a> (optional) then has to be <a href="http://en.wikipedia.org/wiki/Disk partitioning" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Disk partitioning">partitioned</a> and <a href="http://en.wikipedia.org/wiki/Disk formatting" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Disk formatting">formatted</a> with a <a href="http://en.wikipedia.org/wiki/File system" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/File system">File system</a> (e.g. <a href="http://en.wikipedia.org/wiki/ext4" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/ext4">ext4</a>, <a href="http://en.wikipedia.org/wiki/File Allocation Table" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/File Allocation Table">FAT</a>) before data can be addressed as <a href="http://en.wikipedia.org/wiki/Computer file" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Computer file">files</a> and <a href="http://en.wikipedia.org/wiki/mount (computer)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/mount (computer)">mounted</a> by the <abbr title="Operating System">OS</abbr>. The usual Linux tools can be used to achieve these tasks from within OpenWrt. Certain packages are necessary for specific file system support and other packages facilitate more advanced functionality. This article explains the specifics and caveats of working with storage devices in OpenWrt and provides examples.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="partitioning">Partitioning</h2>
+<div class="level2">
+
+<p>
+Partitioning means to write a partition table to the device, which defines which parts of the available space on the device belongs to which partition, each of which can have its own file system. Most commonly used partition tables are the <a href="http://en.wikipedia.org/wiki/Master Boot Record" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Master Boot Record">Master Boot Record</a> (MBR) and the <a href="http://en.wikipedia.org/wiki/GUID Partition Table" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/GUID Partition Table">GUID Partition Table</a> (GPT). The latter is more modern and supports larger disks and more partitions. A device can also be used without a partition table, in which case there is only one file system on the device.
+</p>
+
+<p>
+You can partition your device before connecting it to your OpenWrt powered device (e.g. on a PC), which may provide a wider range of options, like GPT support. You can then also format any partitions before attaching your device. However, there are packages in the OpenWrt repositories with which you can partition your devices:
+</p>
+<ul>
+<li class="level1"><div class="li"><strong><code>fdisk</code></strong>  is the standard tool to partition drives in Linux. <em>for help with <strong>partitioning</strong> see <a href="http://www.tldp.org/HOWTO/Partition/fdisk_partitioning.html" class="urlextern" title="http://www.tldp.org/HOWTO/Partition/fdisk_partitioning.html"  rel="nofollow">TLDP</a></em>)</div>
+</li>
+<li class="level1"><div class="li"><strong><code>cfdisk</code></strong> is a curses-based program for partitioning drives. Similar to fdisk, but provides a convenient menu based interface.</div>
+</li>
+<li class="level1"><div class="li"><strong><code>sfdisk</code></strong> is an alternative to list the size of a partition, list the partitions on a device, check the partitions on a device and repartition a device.</div>
+</li>
+</ul>
+<div class="table sectionedit3"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/48px-emblem-important.svg.png" class="media" alt="" /> </td><td class="col1"> All these utilities support MBR based partition tables only. Currently there are no tools in the default OPKG repository to create and partition GPT based devices. The Linux tools <code>parted</code> and <code>gdisk</code> have not yet been included. Note that while it cannot create GPT tables, there is full support for GPT disks in the OpenWrt kernel, so prepartitioned drives with GPT will work. Also note that if you want to erase a GPT partition table and clear the device to start over with a MBR partition table you have to delete the backup copies of the table that GPT defines, usually also at the end of the device. Since there is no true GPT tool for this in the repository yet, you can erase the tables with the <code>dd</code> tool. This is a <a href="https://github.com/tobiaswaldvogel/openwrt-addpack/blob/master/parted/Makefile" class="urlextern" title="https://github.com/tobiaswaldvogel/openwrt-addpack/blob/master/parted/Makefile"  rel="nofollow"> parted makefile</a> for OpenWrt that someone provides. After adding dependencies for libblkid and libuuid the package builds fine. Maybe someone should send a patch to the devel-mailinglist.</td>
+	</tr>
+</table></div>
+
+<p>
+Upon having your device partitioned, its partitions should be available as &#039;<a href="http://en.wikipedia.org/wiki/Device file" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Device file">Device file</a>s&#039; under <code>/dev/</code>. For example <code>/dev/sda</code> as the device, with <code>/dev/sda1</code>, <code>/dev/sda2</code>, … , the partitions. Or, in case it is not partitioned with a partition table and it has a single file system, it may be directly accessible under e.g. <code>/dev/sda</code>. Subsequent devices you add will be <code>/dev/sdb</code>, <code>/dev/sdc</code> and so on. These &#039;device files&#039; can now be formatted (see below).
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Windows can only detect *one* partition on removable drives.
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="formatting_filesystems">Formatting Filesystems</h2>
+<div class="level2">
+
+<p>
+Available file systems and their packages can be listed with <code>opkg update; opkg list &quot;kmod-fs*&quot;</code>. These are kernel packages that provide necessary kernel support for reading and writing these file systems. The following table lists these file system kernel packages.
+</p>
+<div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign"> Name                </th><th class="col1 leftalign"> Description                                                </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> kmod-fs-autofs4     </td><td class="col1 leftalign"> Kernel module for AutoFS4 support                          </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> kmod-fs-btrfs       </td><td class="col1 leftalign"> Kernel module for <a href="http://en.wikipedia.org/wiki/Btrfs" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Btrfs">Btrfs</a> support                     </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> kmod-fs-cifs        </td><td class="col1 leftalign"> Kernel module for CIFS support                             </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> kmod-fs-exportfs    </td><td class="col1"> Kernel module for exportfs. Needed for some other modules. </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> kmod-fs-ext4        </td><td class="col1 leftalign"> Kernel module for <a href="http://en.wikipedia.org/wiki/ext2" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/ext2">ext2</a>, <a href="http://en.wikipedia.org/wiki/ext3" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/ext3">ext3</a> and <a href="http://en.wikipedia.org/wiki/ext4" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/ext4">ext4</a> filesystem support<sup><a href="storage#fn__1" id="fnt__1" class="fn_top">1)</a></sup>   </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> kmod-fs-hfs         </td><td class="col1 leftalign"> Kernel module for HFS filesystem support                   </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> kmod-fs-hfsplus     </td><td class="col1 leftalign"> Kernel module for HFS+ filesystem support                  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> kmod-fs-isofs       </td><td class="col1 leftalign"> Kernel module for ISO9660 filesystem support               </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> kmod-fs-minix       </td><td class="col1 leftalign"> Kernel module for <a href="http://en.wikipedia.org/wiki/MINIX file system" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/MINIX file system">MINIX file system</a> support         </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> kmod-fs-msdos       </td><td class="col1 leftalign"> Kernel module for MSDOS filesystem support                 </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> kmod-fs-nfs         </td><td class="col1 leftalign"> Kernel module for NFS support                              </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> kmod-fs-nfs-common  </td><td class="col1 leftalign"> Common NFS filesystem modules                              </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> kmod-fs-nfsd        </td><td class="col1 leftalign"> Kernel module for NFS kernel server support                </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 leftalign"> kmod-fs-ntfs        </td><td class="col1 leftalign"> Kernel module for NTFS <em class="u">read only</em> filesystem support    </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 leftalign"> kmod-fs-reiserfs    </td><td class="col1 leftalign"> Kernel module for <a href="http://en.wikipedia.org/wiki/ReiserFS" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/ReiserFS">ReiserFS</a> support                  </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 leftalign"> kmod-fs-udf         </td><td class="col1 leftalign"> Kernel module for <a href="http://en.wikipedia.org/wiki/Universal Disk Format" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Universal Disk Format">UDF</a> filesystem support                   </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0 leftalign"> kmod-fs-vfat        </td><td class="col1 leftalign"> Kernel module for VFAT filesystem support                  </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0 leftalign"> kmod-fs-xfs         </td><td class="col1 leftalign"> Kernel module for <a href="http://en.wikipedia.org/wiki/XFS" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/XFS">XFS</a> support                       </td>
+	</tr>
+</table></div>
+
+<p>
+The choice of file system is dependent on several factors: performance, compatibility with other systems, functionality such as compression and journaling, security, etc. The remarks below are important to keep in mind when choosing your file system.
+</p>
+
+<p>
+<a href="https://forum.openwrt.org/viewtopic.php?id=27750" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=27750"  rel="nofollow">OpenWrt-Forum: Benchmarks with different filesystems</a>
+</p>
+<div class="table sectionedit6"><table class="inline">
+	<tr class="row0">
+		<td class="col0 centeralign">  <font size="6"; color="green">✔</font> </td><td class="col1"> We recommend the file systems <strong><a href="http://en.wikipedia.org/wiki/ext2" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/ext2">ext2</a></strong>, <strong><a href="http://en.wikipedia.org/wiki/ext3" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/ext3">ext3</a></strong>, or <strong><a href="http://en.wikipedia.org/wiki/ext4" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/ext4">ext4</a></strong> (all supported by <strong>kmod-fs-ext4</strong>) [sometimes kmod-fs-ext4 handle only with ext4!] </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/48px-outdated.svg.png" class="media" alt="" /> </td><td class="col1 leftalign"> As of <a href="https://dev.openwrt.org/changeset/26645" class="urlextern" title="https://dev.openwrt.org/changeset/26645"  rel="nofollow">r26645</a> the <em>modules</em> for ext2 and ext3 (kmod-fs-ext2 and kmod-fs-ext3) are no longer available. You can use the module for ext4 <strong>kmod-fs-ext4</strong> to mount ext2/ext3 as well, but then you have to mount your ext2 or ext3 partition like ext4 partition: <code>mount -t ext4 /dev/sda1 /mnt/share -o rw,sync</code>  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/dialog-information.png" class="media" alt="" /> </td><td class="col1"> If you are planning on sharing your USB storage with Samba, and/or using it to share large multimedia content over UPnP, e.g. with ushare, you should use ext3 or ext4 rather than ext2.  Default Ext2 partitions will be limited to files of no more than 4 Gb, but this restriction is eliminated with the newer filesystems.  To retain good performance with the newer filesystems, particularly on flash USB storage, you should also consider disabling journaling with the &quot;<code>-O ^has_journal</code>&quot; when using <code>mkfs.ext4</code> to format the filesystem.  Also for ext4, the &quot;extent&quot; formatting option (e.g. &quot;<code>-O ^has_journal,extent</code>&quot;) will make filesystem access to large files more performant. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/dialog-information.png" class="media" alt="" /> </td><td class="col1"> With <a href="http://en.wikipedia.org/wiki/Ext2Fsd" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Ext2Fsd">Ext2Fsd</a> you obtain read/write access to ext2 ext3 and ext4 filesystems in Microsoft Windows. Native Linux file systems like ext2 or ext3 are the first choice when working with Linux. Don&#039;t bother with NTFS, VFAT and the like. They all have some quirks we could do without. </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  <font size="6"; color="red">✘</font> </td><td class="col1"> We do <strong>NOT</strong> recommend using <a href="http://en.wikipedia.org/wiki/NTFS" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/NTFS">NTFS</a>.  While it is possible, it has serious performance issues under Linux.<br/>
+If, for whatever reasons, you insist to utilize NTFS as file system, you may find <a href="writable_ntfs" class="wikilink1" title="doc:howto:writable_ntfs">Writable NTFS</a> helpful. </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit7" id="available_nls_files">Available NLS files</h3>
+<div class="level3">
+
+<p>
+For some filesystems, like for VFAT, you need to additionally install language packages (codepages / charsets) to handle the filenames.  If your mount fails, look in dmesg - a message like
+</p>
+
+<p>
+<code>FAT: codepage cp437 not found</code>
+</p>
+
+<p>
+means that you need NLS codepage 437, and a message like
+</p>
+
+<p>
+<code>FAT: IO charset iso8859-1 not found</code>
+</p>
+
+<p>
+means that you need NLS ISO 8859-1.
+</p>
+<pre class="code">***&#039;&#039;kmod-nls-base&#039;&#039;** Kernel module for NLS (Native Language Support)</pre>
+
+<p>
+Available NLS files and their packages can be listed with <code>opkg update; opkg list &quot;kmod-nls*&quot;</code>.
+</p>
+<div class="table sectionedit8"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign"> Name                </th><th class="col1 leftalign"> Description  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> kmod-nls-cp1250     </td><td class="col1 leftalign"> Kernel module for NLS Codepage 1250 (Eastern Europe)       </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> kmod-nls-cp1251     </td><td class="col1 leftalign"> Kernel module for NLS Codepage 1251 (Russian)              </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> kmod-nls-cp437      </td><td class="col1"> Kernel module for NLS Codepage 437 (United States, Canada) </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> kmod-nls-cp775      </td><td class="col1 leftalign"> Kernel module for NLS Codepage 775 (Baltic Rim)            </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> kmod-nls-cp850      </td><td class="col1 leftalign"> Kernel module for NLS Codepage 850 (Europe)                </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> kmod-nls-cp852      </td><td class="col1 leftalign"> Kernel module for NLS Codepage 852 (Europe)                </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> kmod-nls-cp866      </td><td class="col1 leftalign"> Kernel module for NLS Codepage 866 (Cyrillic)              </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> kmod-nls-iso8859-1  </td><td class="col1 leftalign"> Kernel module for NLS ISO 8859-1 (Latin 1)                 </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> kmod-nls-iso8859-13 </td><td class="col1 leftalign"> Kernel module for NLS ISO 8859-13 (Latin 7; Baltic)        </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> kmod-nls-iso8859-15 </td><td class="col1 leftalign"> Kernel module for NLS ISO 8859-15 (Latin 9)                </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> kmod-nls-iso8859-2  </td><td class="col1 leftalign"> Kernel module for NLS ISO 8859-2 (Latin 2)                 </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> kmod-nls-koi8r      </td><td class="col1 leftalign"> Kernel module for NLS KOI8-R (Russian)                     </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> kmod-nls-utf8       </td><td class="col1 leftalign"> Kernel module for NLS UTF-8                                </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit9" id="formatting_and_file_system_checking_from_within_openwrt">Formatting and File System Checking from within OpenWrt</h3>
+<div class="level3">
+
+<p>
+The package <a href="http://en.wikipedia.org/wiki/E2fsprogs" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/E2fsprogs">e2fsprogs</a> contains the essential ext2/3/4 filesystem utilities <code>e2fsck</code>, <code>mke2fs</code>, <code>debugfs</code>, <code>dumpe2fs</code> and <code>tune2fs</code>, and also most of the other core ext2/3/4 filesystem utilities available. For help with <strong>formatting</strong> see <a href="http://www.tldp.org/HOWTO/Partition/formatting.html" class="urlextern" title="http://www.tldp.org/HOWTO/Partition/formatting.html"  rel="nofollow">TLDP</a>. Also see <a href="http://www.linuxfromscratch.org/lfs/view/6.4/chapter06/e2fsprogs.html" class="urlextern" title="http://www.linuxfromscratch.org/lfs/view/6.4/chapter06/e2fsprogs.html"  rel="nofollow">this page</a> and <a href="http://e2fsprogs.sourceforge.net/" class="urlextern" title="http://e2fsprogs.sourceforge.net/"  rel="nofollow">the official page</a> for more information on e2fsprogs.
+</p>
+
+</div>
+
+<h4 id="example">Example</h4>
+<div class="level4">
+
+<p>
+As an example, for a device situated at <code>/dev/sda</code>, to format its second partition <code>/dev/sda2</code> with the ext4 file system you can run
+</p>
+<pre class="code">  mkfs.ext4 /dev/sda2</pre>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong>Note:</strong> When doing this, there will be no warning before execution and a new empty ext4 file system will be written to <code>/dev/sda2</code> immediately, using a quick format. Any data on the partition cannot be easily retrieved or is lost. Make sure that you enter the correct device file and partition as an argument for the formatting tool.
+</p>
+
+</div>
+
+<h4 id="file_system_checking">File System Checking</h4>
+<div class="level4">
+
+<p>
+The file system checking utilities can be used in case the file system requires checking for errors.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong>Note:</strong> In order to perform a <code>e2fsck</code> on 1 GiB partition, you will need at least 1 MiB of RAM.<sup><a href="storage#fn__2" id="fnt__2" class="fn_top">2)</a></sup> The same is true for <code>mke2fs</code>. You can solve this by mounting a SWAP partition (or by using a device with enough RAM).
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong>Note:</strong> In order to do <code>fsck</code> (aka CHKDSK) of FAT32/VFAT partitions before mounting (i.e. during the boot process), you should read the following tickets:
+<a href="https://dev.openwrt.org/ticket/10714" class="urlextern" title="https://dev.openwrt.org/ticket/10714"  rel="nofollow">Incorrect log output for mount point file systems without a fsck</a>, and
+<a href="https://dev.openwrt.org/ticket/10697" class="urlextern" title="https://dev.openwrt.org/ticket/10697"  rel="nofollow">Missing fsck function for block-mount/-hotplug of dos/vfat filesystems</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit10" id="automatic_mount_on_boot">Automatic Mount on Boot</h2>
+<div class="level2">
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> see <a href="../techref/block_mount" class="wikilink1" title="doc:techref:block_mount">block_mount</a>
+</p>
+
+<p>
+It is convenient to be able to mount your file systems on boot. The package <code>block-mount</code> will take care of this and also enable automatic mount when device is plugged in through use of <a href="../techref/ubox" class="wikilink1" title="doc:techref:ubox">ubox</a>. As is typical in Linux, this is handled with <a href="../uci/fstab" class="wikilink1" title="doc:uci:fstab">Fstab Configuration</a>. OpenWrt provides <a href="../uci.1" class="wikilink1" title="doc:uci">UCI</a> configuration of Fstab. The configuration file is <code><a href="../uci/fstab" class="wikilink1" title="doc:uci:fstab">/etc/config/fstab</a></code>.
+</p>
+
+<p>
+For a technical background in which Fstab works, see <a href="../techref/block_mount" class="wikilink1" title="doc:techref:block_mount">block_mount</a>. Note the information box below mentioning the new block-mount packages which works in conjunction with ubox.
+</p>
+
+<p>
+Example settings in <code>fstab</code> for mounting to <code>/mnt/share</code> with automatic detection of the file system:
+</p>
+<div class="table sectionedit11"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>
+config &#039;mount&#039;
+	option &#039;device&#039; &#039;/dev/sda1&#039;
+	option &#039;options&#039; &#039;rw,sync&#039;
+	option &#039;enabled_fsck&#039; &#039;0&#039;
+	option &#039;enabled&#039; &#039;1&#039;
+	option &#039;target&#039; &#039;/mnt/share&#039;
+</code> </td>
+	</tr>
+</table></div>
+
+<p>
+And to make the fstab settings effective in current session run:
+<pre class="code">/etc/init.d/fstab start</pre>
+
+</p>
+
+<p>
+To make the fstab settings effective after every reboot run:
+<pre class="code">/etc/init.d/fstab enable</pre>
+
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong>Note:</strong> If you are having trouble with fstab, see <a href="../uci/fstab#troubleshooting" class="wikilink1" title="doc:uci:fstab">fstab troubleshooting</a>.
+</p>
+
+<p>
+UCI CLI commands:
+<pre class="code">/etc/init.d/fstab stop
+uci add fstab mount
+uci set fstab.@mount[-1].device=/dev/sda1
+uci set fstab.@mount[-1].options=rw,sync
+uci set fstab.@mount[-1].enabled_fsck=0
+uci set fstab.@mount[-1].enabled=1
+uci set fstab.@mount[-1].target=/mnt/share
+uci commit fstab
+/etc/init.d/fstab start</pre>
+
+</p>
+
+<p>
+Delete with UCI CLI commands:
+<pre class="code">/etc/init.d/fstab stop
+uci delete fstab.@mount[0]
+uci commit fstab
+/etc/init.d/fstab start</pre>
+
+</p>
+<div class="table sectionedit12"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/48px-outdated.svg.png" class="media" alt="" /> </td><td class="col1"> In <a href="https://dev.openwrt.org/changeset/26314/trunk" class="urlextern" title="https://dev.openwrt.org/changeset/26314/trunk"  rel="nofollow">r26314</a> the three opkg packages <code>block-mount</code>, <code>block-extroot</code> and <code>block-hotplug</code> have been merged into <strong><code>block-mount</code></strong>. </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/48px-outdated.svg.png" class="media" alt="" /> </td><td class="col1"> In <a href="https://dev.openwrt.org/changeset/36988" class="urlextern" title="https://dev.openwrt.org/changeset/36988"  rel="nofollow">r36988</a> <strong><code><a href="../techref/ubox" class="wikilink1" title="doc:techref:ubox">ubox</a></code></strong> is a dependency of the opkg package <code>block-mount</code>. block-mount now contains the executable <code>block</code>. <code>block &lt;info|mount|umount|detect&gt;</code> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/48px-emblem-important.svg.png" class="media" alt="" /> </td><td class="col1 leftalign"> <strong><a href="https://lists.openwrt.org/pipermail/openwrt-devel/2013-July/020591.html" class="urlextern" title="https://lists.openwrt.org/pipermail/openwrt-devel/2013-July/020591.html"  rel="nofollow">2013-07-04: new block mount howto</a></strong>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit13" id="mounting">Mounting</h2>
+<div class="level2">
+
+<p>
+There is no additional configuration needed for mounting your file system when the device is properly configured. Mounting works as is typical in Linux. Read the manual page for <a href="http://linux.die.net/man/8/mount" class="urlextern" title="http://linux.die.net/man/8/mount"  rel="nofollow">mount</a>. Pay special attention to the options.
+</p>
+
+<p>
+You can only mount a partition to an existing directory. You can create it with <a href="http://linux.die.net/man/1/mkdir" class="urlextern" title="http://linux.die.net/man/1/mkdir"  rel="nofollow">mkdir</a>, for example:
+<pre class="code">mkdir -p /mnt/shares</pre>
+
+</p>
+
+<p>
+To manually mount a partition, assuming that the second partition  <code>/dev/sda2</code> on the device <code>/dev/sda</code> is formatted with an ext4 file system, use:
+<pre class="code">mount -t ext4 /dev/sda2 /mnt/shares </pre>
+
+</p>
+
+<p>
+The device can now be accessed at <code>/mnt/shares</code>. Note that the <code>-t ext4</code> option is not strictly necessary as the file system is usually automatically detected.
+</p>
+
+<p>
+To check if mounting was successful use <code>df</code>:
+<pre class="code">root@OpenWrt:~# df -h
+Filesystem                Size      Used Available Use% Mounted on
+rootfs                   28.8M      4.5M     24.3M  16% /
+/dev/root                 2.0M      2.0M         0 100% /rom
+tmpfs                    61.8M    400.0K     61.4M   1% /tmp
+/dev/mtdblock5           28.8M      4.5M     24.3M  16% /overlay
+overlayfs:/overlay       28.8M      4.5M     24.3M  16% /
+tmpfs                   512.0K         0    512.0K   0% /dev
+/dev/sda2                18.7G     67.6M     13.9G   0% /mnt/shares</pre>
+
+The device is listed here with its mount point in the last line. You can also run <code>mount</code> without arguments to list all mount points.
+</p>
+
+<p>
+To unmount:
+</p>
+<pre class="code">umount /mnt/shares</pre>
+
+<p>
+To mount a <a href="http://en.wikipedia.org/wiki/Paging" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Paging">swap</a> partition, assuming that the first partition on the <code>/dev/sda</code> device is linux swap space:
+</p>
+<pre class="code">swapon /dev/sda1</pre>
+
+<p>
+In case <code>/dev/sda1</code> is not swap space yet, you can run
+</p>
+<pre class="code">mkswap /dev/sda1</pre>
+
+<p>
+You can check swap functionality and status with the <code>free</code> command. You can also check its status using <code>top</code> or <code>htop</code> (installable package). 
+</p>
+
+<p>
+To unmount a swap partition:
+</p>
+<pre class="code">swapoff /dev/sda1</pre>
+
+<p>
+Usually the devices that you use are <a href="http://en.wikipedia.org/wiki/Device_file#Block_devices" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Device_file#Block_devices">block devices</a>. In OpenWrt, extra utilities for block devices such as automatic mounting are provided with a collection of tools for <a href="../techref/block_mount" class="wikilink1" title="doc:techref:block_mount">block devices</a>, see also below. 
+</p>
+
+</div>
+
+<h2 class="sectionedit14" id="advanced_topics">Advanced Topics</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Use <a href="extroot" class="wikilink1" title="doc:howto:extroot">extroot</a>. This will allow you to use your device as a root, by using it in an overlay configuration over the original root. </div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Once you successfully mounted your partition, you may want to install packages onto it. Please see <a href="../techref/opkg#installationdestination" class="wikilink1" title="doc:techref:opkg">Installation.Destination</a> for that.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> <img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Do not install kernel modules on USB, see <a href="https://dev.openwrt.org/ticket/10739" class="urlextern" title="https://dev.openwrt.org/ticket/10739"  rel="nofollow">https://dev.openwrt.org/ticket/10739</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit15" id="automatic_spin_down_an_attached_hard_disk">Automatic spin down an attached hard disk</h3>
+<div class="level3">
+
+<p>
+If you have attached an external hard disk (e.g. through the USB port) and you don&#039;t use the disk all the time, you may want to spin down the disk after some time. One possible reason for this is to reduce the noise. A second reason is that some fanless external racks can get very hot and this is not healthy for the disk.
+</p>
+
+<p>
+Unfortunately there is no solution that works always for everybody. The first option to try is provided by the package <a href="http://hd-idle.sourceforge.net/" class="urlextern" title="http://hd-idle.sourceforge.net/"  rel="nofollow">&#039;&#039;hd-idle&#039;&#039;</a>, which will spin down any disk accessible via the SCSI layer. Install it and test if it can spindown the hard disk (let us assume that your disk is <code>/dev/sda</code>):
+<pre class="code">opkg install hd-idle
+hd-idle -t sda</pre>
+
+If you can hear the disk spins down, then you can configure the package, the configuration is in <code>/etc/config/hd-idle</code>.
+</p>
+
+<p>
+If <code>hd-idle</code> doesn&#039;t work, then the next option to try is hdparm:
+</p>
+
+<p>
+<pre class="code">opkg install hdparm
+hdparm -y /dev/sda</pre>
+
+</p>
+
+<p>
+If you hear the disk spins down, then create a script <code>/etc/spindown</code> with the following contents:
+<pre class="code">#!/bin/sh
+
+oldstate=&#039;&#039;
+n=&quot;$2&quot;
+while :; do
+	sleep 60
+	newstate=$(grep &quot;$1&quot; /proc/diskstats) 
+	if [ &quot;$newstate&quot; = &quot;$oldstate&quot; ]; then
+		n=$(($n - 1))
+		[ &quot;$n&quot; != 0 ] || hdparm -y /dev/&quot;$1&quot;
+	else
+		n=&quot;$2&quot;
+		oldstate=$newstate
+	fi
+done &amp;</pre>
+
+Then add to <code>/etc/rc.local</code> the following command (assuming your disk is <code>/dev/sda</code> and you want to spin it down after 20 minutes of inactivity):
+<pre class="code">/etc/spindown sda 20</pre>
+
+A much easier way is this: if the above command <code>hdparm -y /dev/sda</code> works, insert the following command to <code>/etc/rc.local</code>:
+<pre class="code">hdparm -S 240 /dev/hda</pre>
+
+The setting <code>240</code> equals 20 mins, the time coding can be checked on the <a href="http://unixhelp.ed.ac.uk/CGI/man-cgi?hdparm" class="urlextern" title="http://unixhelp.ed.ac.uk/CGI/man-cgi?hdparm"  rel="nofollow">&#039;&#039;hdparm man page&#039;&#039;</a>.
+</p>
+
+<p>
+The third option to try is the package <code>sdparm</code>:
+<pre class="code">opkg install sdparm
+sdparm -f -C stop /dev/sda</pre>
+
+If you hear the disk spins down, use the script <code>/etc/spindown</code> as in the case of hdparm, however replace the line
+<pre class="code">[ &quot;$n&quot; != 0 ] || hdparm -y /dev/&quot;$1&quot;</pre>
+
+with the line
+<pre class="code">[ &quot;$n&quot; != 0 ] || sdparm -f -C stop /dev/&quot;$1&quot;</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit16" id="virtual_disk">Virtual Disk</h2>
+<div class="level2">
+
+<p>
+Now let&#039;s do a virtual disk. You need an additional package.
+</p>
+
+<p>
+<pre class="code"> 
+opkg update
+opkg install kmod-fs-ext3 kmod-loop e2fsprogs
+insmod ext3
+insmod loop</pre>
+
+</p>
+
+<p>
+Then, create, and format the disk:<br/>
+
+</p>
+
+<p>
+<pre class="code">dd if=/dev/zero of=/mnt/hdd/owrt_loop bs=1M count=128
+mke2fs -j -F -b 1024 /mnt/hdd/owrt_loop</pre>
+
+</p>
+
+<p>
+To be able to use, plug-in for OpenWrt:<br/>
+
+</p>
+
+<p>
+<pre class="code">mkdir /mnt/loopdisk
+mount -o loop /mnt/hdd/owrt_loop /mnt/loopdisk</pre>
+
+</p>
+
+<p>
+Now our system is not only the OpenWrt xMB, but x+128 <abbr title="Megabyte">MB</abbr><br/>
+
+</p>
+
+<p>
+If you want to install packages into this virtual disk, see:
+<a href="../techref/opkg#installation_destinations" class="wikilink1" title="doc:techref:opkg">opkg installation destinations</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit17" id="troubleshooting">Troubleshooting</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit18" id="i_have_problems_with_fat_or_ntfs_file_systems">I have problems with FAT or NTFS file systems</h3>
+<div class="level3">
+
+<p>
+There are numerous things that go wrong with file systems not made for Linux. ext2, ext3 or ext4 file systems are therefore preferred.
+</p>
+
+</div>
+
+<h3 class="sectionedit19" id="kmod-fs-ext4_won_t_mount_ext2_or_ext3_partition">kmod-fs-ext4 won&#039;t mount ext2 or ext3 partition</h3>
+<div class="level3">
+
+<p>
+<strong>Symptoms</strong>: You are trying to mount <strong>ext2</strong> or <strong>ext3</strong> partition and you have installed only <strong>kmod-fs-ext4</strong>. Neither <code>mount</code> command nor <code>fstab</code> works. The kmod-fs-ext4 issue definitely applies to Backfire, but is not an issue for Attitude Adjustment (tested on Attitude Adjustment RC1).
+</p>
+
+<p>
+<strong>Solution a)</strong>: you have to make sure that you are trying to mount the ext2 or ext3 partition like it was ext4 partition. Example <a href="../uci/fstab" class="wikilink1" title="doc:uci:fstab">/etc/config/fstab</a> config and mount command follows:
+</p>
+<div class="table sectionedit20"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>config mount
+        option target   /mnt
+        option device   /dev/sda1   # sda1 is ext3 partition
+        option fstype   <strong>ext4</strong>        # but is mounted as ext4, since we have installed kmod-fs-ext4 only
+        option options  rw,sync
+        option enabled  1
+        option enabled_fsck 1
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+<pre class="code">mount -t ext4 /dev/sda1 /mnt -o rw,sync</pre>
+
+</p>
+
+<p>
+<strong>Solution b)</strong>: install <code>kmod-fs-ext3</code> or <code>kmod-fs-ext2</code> filesystem.
+</p>
+
+<p>
+<pre class="code">opkg update
+opkg install kmod-fs-ext3</pre>
+
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> This only applies to Backfire
+</p>
+
+<p>
+<strong>Solution c)</strong>: just set ext4 on usb/drive etc.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> This problem occured for me in ATTITUDE ADJUSTMENT (12.09, r36088) when I had problem with mount ext3 with kmod-fs-ext4 (in addition I had also problem with install kmod-fs-ext3).
+</p>
+
+</div>
+
+<h2 class="sectionedit21" id="other_useful_packages">Other Useful Packages</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"><strong><code>swap-utils</code></strong> This package contains a collection of tools for managing swap space: <code>mkswap</code>, <code>swapon</code> and <code>swapoff</code>. <img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> This package exists, but swapon and swapoff seem to be just built into Busybox. Can someone explain this here?</div>
+</li>
+<li class="level1"><div class="li"><strong><code>blkid</code></strong> Command-line utility to locate/print block device attributes.</div>
+</li>
+<li class="level1"><div class="li"><strong><code>dd</code></strong> A bit-stream duplicator to write directly to block devices.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit22" id="filesystems_not_in_openwrt">Filesystems not in OpenWrt</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> exFAT: <a href="https://forum.openwrt.org/viewtopic.php?id=45293" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=45293"  rel="nofollow">forum thread</a></div>
+</li>
+<li class="level1"><div class="li"> f2fs: <a href="https://forum.openwrt.org/viewtopic.php?id=48805" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=48805"  rel="nofollow">https://forum.openwrt.org/viewtopic.php?id=48805</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit23" id="notes">Notes</h2>
+<div class="level2">
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong>Note:</strong> If you are having trouble using storage on a Huawei 3G dongle, you should read the following ticket:<a href="https://dev.openwrt.org/ticket/10716" class="urlextern" title="https://dev.openwrt.org/ticket/10716"  rel="nofollow">Mass storage missing from 3G dongle</a>
+</p>
+
+</div>
+<div class="footnotes">
+<div class="fn"><sup><a href="storage#fnt__1" id="fn__1" class="fn_bot">1)</a></sup> 
+But then on Backfire ext2 or ext3 partition has to be mounted as ext4 partition, see Troubleshooting.</div>
+<div class="fn"><sup><a href="storage#fnt__2" id="fn__2" class="fn_bot">2)</a></sup> 
+<a href="http://www.openbsd.org/faq/faq14.html#LargeDrive" class="urlextern" title="http://www.openbsd.org/faq/faq14.html#LargeDrive"  rel="nofollow">Source</a>.</div>
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/storage.txt</bdi> · Last modified: 2015/04/22 19:30 by <bdi>micsu</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="storage?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="storage?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="storage?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="storage#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Astorage&amp;1432267079" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

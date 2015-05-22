@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>IPSec Road Warrior Configuration: Android, Windows 7, BB10, PlayBook Clients [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,vpn.ipsec.roadwarrior"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="vpn.ipsec.roadwarrior?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/vpn.ipsec.roadwarrior"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/vpn.ipsec.roadwarrior"/>
+<link rel="canonical" href="vpn.ipsec.roadwarrior"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:vpn.ipsec.roadwarrior","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432273849 166.182.3.179';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="vpn.ipsec.roadwarrior#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="vpn.ipsec.roadwarrior?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="vpn.ipsec.roadwarrior?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:vpn.ipsec.roadwarrior" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="vpn.ipsec.roadwarrior?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="vpn.ipsec.roadwarrior?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="vpn.ipsec.roadwarrior?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="vpn.ipsec.roadwarrior" class="wikilink1" title="doc:howto:vpn.ipsec.roadwarrior">IPSec Road Warrior Configuration: Android, Windows 7, BB10, PlayBook Clients</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/vpn.ipsec.roadwarrior" class="media" title="cz:doc:howto:vpn.ipsec.roadwarrior"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/vpn.ipsec.roadwarrior" class="media" title="de:doc:howto:vpn.ipsec.roadwarrior"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="vpn.ipsec.roadwarrior" class="media" title="doc:howto:vpn.ipsec.roadwarrior"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/vpn.ipsec.roadwarrior" class="media" title="es:doc:howto:vpn.ipsec.roadwarrior"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/vpn.ipsec.roadwarrior" class="media" title="fr:doc:howto:vpn.ipsec.roadwarrior"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/vpn.ipsec.roadwarrior" class="media" title="hu:doc:howto:vpn.ipsec.roadwarrior"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/vpn.ipsec.roadwarrior" class="media" title="jp:doc:howto:vpn.ipsec.roadwarrior"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/vpn.ipsec.roadwarrior" class="media" title="pl:doc:howto:vpn.ipsec.roadwarrior"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/vpn.ipsec.roadwarrior" class="media" title="pt-br:doc:howto:vpn.ipsec.roadwarrior"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/vpn.ipsec.roadwarrior" class="media" title="ru:doc:howto:vpn.ipsec.roadwarrior"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/vpn.ipsec.roadwarrior" class="media" title="tr:doc:howto:vpn.ipsec.roadwarrior"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/vpn.ipsec.roadwarrior" class="media" title="zh-cn:doc:howto:vpn.ipsec.roadwarrior"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/vpn.ipsec.roadwarrior" class="media" title="zh-tw:doc:howto:vpn.ipsec.roadwarrior"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:vpn.ipsec.roadwarrior</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="vpn.ipsec.roadwarrior#prerequisites">Prerequisites</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.roadwarrior#strongswanconf">strongswan.conf</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.roadwarrior#ipsecconf">ipsec.conf</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.roadwarrior#ipsecsecrets">ipsec.secrets</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.roadwarrior#making_keys">Making Keys</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.roadwarrior#etcconfigfirewall">/etc/config/firewall</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.roadwarrior#testing">Testing</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="vpn.ipsec.roadwarrior#for_blackberry_clients">For BlackBerry Clients</a></div></li>
+<li class="level2"><div class="li"><a href="vpn.ipsec.roadwarrior#for_windows_7_clients">For Windows 7 Clients</a></div></li>
+<li class="level2"><div class="li"><a href="vpn.ipsec.roadwarrior#for_android_clients">For Android Clients</a></div></li>
+<li class="level2"><div class="li"><a href="vpn.ipsec.roadwarrior#for_iphonesios_clients">For iPhones/iOS Clients</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="ipsec_road_warrior_configurationandroid_windows_7_bb10_playbook_clients">IPSec Road Warrior Configuration: Android, Windows 7, BB10, PlayBook Clients</h1>
+<div class="level1">
+<div class="table sectionedit2"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> For an overview over all existing Virtual private network (VPN)-related articles in the OpenWrt wiki, please visit <a href="vpn.overview" class="wikilink1" title="doc:howto:vpn.overview">vpn.overview</a> </td>
+	</tr>
+</table></div>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> This page is about strongswan. The old racoon documentation can be found <a href="vpn.ipsec.roadwarrior.racoon" class="wikilink1" title="doc:howto:vpn.ipsec.roadwarrior.racoon">here</a>.
+</p>
+
+<p>
+Most of the racoon information is relevant (sort-of). 
+</p>
+
+<p>
+The basic context of the &quot;road warrior&quot; configuration:
+</p>
+<ol>
+<li class="level1"><div class="li"> Your OpenWrt router is the HOST or gateway that receives requests to connect from mobile users, or clients.</div>
+</li>
+<li class="level1"><div class="li"> The clients have a dynamically assigned (private) IP outside your private net which changes.</div>
+</li>
+<li class="level1"><div class="li"> The clients frequently move around.</div>
+</li>
+<li class="level1"><div class="li"> The clients require access to both internal and external resources (full tunnel support) through a &quot;gateway&quot;.</div>
+</li>
+</ol>
+
+<p>
+Examples would be a phone or laptop that wants to VPN into a home network.
+Note that Strongswan&#039;s IKEv2 with MOBIKE lets you leave VPN up ALL the time on a phone with near zero battery drain or perceptible performance hit. The benefits of this cannot be understated for the roadwarrior.
+</p>
+
+<p>
+<a href="../../_detail/media/ipsecnet.gif?id=doc%253Ahowto%253Avpn.ipsec.roadwarrior" class="media" title="media:ipsecnet.gif"><img src="../../_media/media/ipsecnet.gif" class="media" alt="" /></a>
+</p>
+
+<p>
+This configuration uses TWO authentication mechanisms: certificates and a username/password challenge (EAP) for an added layer of security. This is an IKEv2 setup. Everything else in my opinion is obsolete and should not be used. IKEv2 is built-in to Windows 7 and Blackberry. It&#039;s added to Android using the Strongswan client. 
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="prerequisites">Prerequisites</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Supported version of OpenWrt (opkg will complain about kernel version if not).</div>
+</li>
+<li class="level1"><div class="li"> Strongswan-Full 5.x.x (tested to 5.0.4-1 as explained, and to 5.1.1-1 with some slight config modifications)</div>
+</li>
+<li class="level1"><div class="li"> OpenSSL (to make the .p12 or PKCS#12 package you distribute to clients)</div>
+</li>
+</ul>
+
+<p>
+Tested on OpenWrt Barrier Breaker r37092-r39879 on WNDR3700v2.  (Strongswan did not install on 34054 for me).
+</p>
+
+<p>
+To make sure Strongswan runs, you can type 
+<code>/etc/init.d/ipsec start</code>
+</p>
+
+<p>
+For testing, you will want to run logread in a scrolling window as follows:
+</p>
+
+<p>
+<code>logread &amp;&amp; logread -f</code>
+</p>
+
+<p>
+We&#039;re going to edit the following:
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>/etc/strongswan.conf</strong>: Strongswan configuration file </div>
+</li>
+<li class="level1"><div class="li"> <strong>/etc/ipsec.conf</strong>: Tunnel definitions</div>
+</li>
+<li class="level1"><div class="li"> <strong>/etc/ipsec.secrets</strong>: List of secrets and keys</div>
+</li>
+<li class="level1"><div class="li"> <strong>/etc/ipsec.d</strong>: Folder for certificates</div>
+</li>
+<li class="level1"><div class="li"> <strong>/etc/config/firewall</strong>: Firewall changes to allow VPN traffic</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit4" id="strongswanconf">strongswan.conf</h2>
+<div class="level2">
+
+<p>
+<pre class="code">charon {
+        threads = 16
+        dns1 = 10.0.0.1
+        nbns1 = 10.0.0.1
+}
+pluto {
+
+}
+libstrongswan {
+        crypto_test {
+                on_add = yes
+        }
+}</pre>
+
+Starting with StrongSwan 5.1.1 (or perhaps earlier), you may find that charon plugins are not loading dynamically. If you find this to be true (or its just not working, which you can spot by changing charondebug in ipsec.conf), try explicitly telling charon which plugins you want by adding &quot;load = …&quot; to charon like this:
+</p>
+
+<p>
+<pre class="code">charon {
+load = aes des sha1 sha2 md5 pem pkcs1 gmp random nonce x509 revocation hmac stroke kernel-netlink socket-default updown attr farp dhcp
+.....</pre>
+
+The above issue seems to have been resolved in 5.1.2 according to the 
+<a href="https://wiki.strongswan.org/projects/strongswan/wiki/PluginLoad" class="urlextern" title="https://wiki.strongswan.org/projects/strongswan/wiki/PluginLoad"  rel="nofollow">Wiki here.</a>
+<code>charon</code> is the IKEv2 daemon. <code>pluto</code> is the IKEv1 daemon which we won&#039;t use. Replace the IP addresses with the appropriate values for your INTERNAL network. In this and other examples, I expect your private internal network to be 10.0.0.0/24.
+&quot;dns1&quot; entry tells <code>charon</code> (the IKEv2 service) where to go for dns - typically the openwrt host.
+&quot;nbns1&quot; entry tells <code>charon</code> where to go for netbios name services if you want to use windows file sharing.
+</p>
+
+<p>
+Note that the <code>crypto_test</code> option for <code>libstrongswan</code> is added to tell Strongswan to test its crypto algorithms on initialization. You can read more here: <a href="http://wiki.strongswan.org/projects/strongswan/wiki/CryptoTest" class="urlextern" title="http://wiki.strongswan.org/projects/strongswan/wiki/CryptoTest"  rel="nofollow">http://wiki.strongswan.org/projects/strongswan/wiki/CryptoTest</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="ipsecconf">ipsec.conf</h2>
+<div class="level2">
+
+<p>
+Note that this is a certificate-based configuration with an additional username/password challenge. It REQUIRES you to put certificates on the server and clients, as well as have clients supply username and password. 
+</p>
+
+<p>
+<pre class="code">config setup
+
+conn %default
+ keyexchange=ikev2
+
+conn roadwarrior
+ left=%any
+ leftauth=pubkey
+ leftcert=serverCert.pem
+ leftid=yourdomain.dyndns.org
+ leftsubnet=0.0.0.0/0,::/0
+ leftfirewall=yes
+ right=%any
+ rightsourceip=10.0.1.0/24
+ rightauth=pubkey
+ rightcert=clientCert.pem
+ rightauth2=eap-mschapv2
+ auto=add
+ esp=aes-aes256-sha-modp1024,aes256-sha512-modp4096
+ ike=aes-aes256-sha-modp1024,aes256-sha512-modp4096
+</pre>
+
+Explanation:
+The notion of &quot;left&quot; and &quot;right&quot; is explained in the strongswan documentation, but briefly, &quot;left&quot; here is the &quot;Local&quot; (Left = Local) or private net you want access to, and &quot;right&quot; is the &quot;Remote&quot; (Right = Remote) or client side.
+</p>
+<ul>
+<li class="level1"><div class="li"> The <code>config setup</code> block is needed but can be empty</div>
+</li>
+<li class="level1"><div class="li"> The <code>conn %default</code> block provides default settings if you plan on adding more profiles.</div>
+</li>
+<li class="level1"><div class="li"> <code>conn roadwarrior</code> is our roadwarrior configuration.</div>
+</li>
+<li class="level1"><div class="li"> <code>leftauth = pubkey</code> tells the host to use certificates.</div>
+</li>
+<li class="level1"><div class="li"> <code>leftid =</code> the FQDN you put in the cert as subjectAltName (see &quot;–san&quot; option when you make your certs below). Note that it could be anything as long as it matches. Use of dyndns (in example) is advised if your gateway is also assigned a dynamic address.</div>
+</li>
+<li class="level1"><div class="li"> <code>leftsubnet =</code> the scope of VPN. 0.0.0.0/0 is a full tunnel, meaning ALL traffic will go through the VPN. You can put 10.0.0.0/24 if you want your client to use the VPN to reach ONLY those addresses and your private net is 10.0.0.0/24. The full tunnel option is more secure because it prevents a client from acting as a bridge.</div>
+</li>
+<li class="level1"><div class="li"> <code>right = %any</code> - lets any peer IP connect. (remote user)</div>
+</li>
+<li class="level1"><div class="li"> <code>rightsourceIP</code> = The pool of internal addresses to use for the VPN clients. Note that if you have only ONE client connecting, you could use 10.0.1.100/32 as an example, which means that only 1 host can connect and it will be given the address 10.0.1.100. You may want to assign IPs from a subnet which doesn&#039;t overlap neither your home nor your guest&#039;s <abbr title="Local Area Network">LAN</abbr>.</div>
+</li>
+<li class="level1"><div class="li"> <code>rightcert = </code> the cert the client needs</div>
+</li>
+<li class="level1"><div class="li"> <code>rightauth = pubkey</code> Tells the client to use certificates.</div>
+</li>
+<li class="level1"><div class="li"> <code>rightauth2 = eap-mschapv2</code> tells the client to use a second challenge: username and password.</div>
+</li>
+<li class="level1"><div class="li"> <code>esp</code> and <code>ike</code> specify the cipher suites, and the dh group which is required for PFS. Note that the PFS directive has been deprecated. Google &quot;Perfect Forward Secrecy&quot; for details - you want this.[&quot;Deprecated&quot; -That means you shouldn&#039;t be using it typically because it is dangerous, outdated, or because a better alternative exists. If anyone else can edit this to spellout precisely why we should google and what we&#039;re looking for, would be appreciated]</div>
+</li>
+</ul>
+
+<p>
+If you want to issue personal certificates to your clients then you should verify the signing CA&#039;s identity instead of the client certificates itself. To achieve this, use the <code>rightca</code> directive instead of <code>rightcert</code>. More information on this: <a href="http://wiki.strongswan.org/projects/strongswan/wiki/ConnSection" class="urlextern" title="http://wiki.strongswan.org/projects/strongswan/wiki/ConnSection"  rel="nofollow">strongSwan documentation</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="ipsecsecrets">ipsec.secrets</h2>
+<div class="level2">
+
+<p>
+<pre class="code">: RSA serverKey.pem
+remoteusername : EAP &quot;secretpassword&quot;</pre>
+
+The first line defines the key to use and the second line is for the username/password challenge (EAP).
+Replace <code>remoteusername</code> and <code>secretpassword</code> with the values you want.
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="making_keys">Making Keys</h2>
+<div class="level2">
+
+<p>
+To make keys, run this script:
+<pre class="code">#!/bin/sh
+ipsec pki --gen --outform pem &gt; caKey.pem
+ipsec pki --self --in caKey.pem --dn &quot;C=US, O=xxx, CN=xxxx&quot; --ca --outform pem &gt; caCert.pem
+ipsec pki --gen --outform pem &gt; serverKey.pem
+ipsec pki --pub --in serverKey.pem | ipsec pki --issue --cacert caCert.pem --cakey caKey.pem --dn &quot;C=US, O=xxx, CN=yourdomain.dyndns.org&quot; --san=&quot;yourdomain.dyndns.org&quot; --flag serverAuth --flag ikeIntermediate --outform pem &gt; serverCert.pem
+ipsec pki --gen --outform pem &gt; clientKey.pem
+ipsec pki --pub --in clientKey.pem | ipsec pki --issue --cacert caCert.pem --cakey caKey.pem --dn &quot;C=US, O=xxx, CN=client&quot; --outform pem &gt; clientCert.pem
+openssl pkcs12 -export -inkey clientKey.pem -in clientCert.pem -name &quot;client&quot; -certfile caCert.pem -caname &quot;xxxx&quot; -out clientCert.p12
+
+# where to put them...
+mv caCert.pem /etc/ipsec.d/cacerts/
+mv serverCert.pem /etc/ipsec.d/certs/
+mv serverKey.pem /etc/ipsec.d/private/
+mv clientCert.pem /etc/ipsec.d/certs/
+mv clientKey.pem /etc/ipsec.d/private/
+mv caKey.pem /etc/ipsec.d/private/</pre>
+
+</p>
+
+<p>
+Now install clientCert.p12 on the clients.
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="etcconfigfirewall">/etc/config/firewall</h2>
+<div class="level2">
+
+<p>
+Add the following to your firewall configuration. You can use Luci for this.
+<pre class="code">config rule
+        option src &#039;wan&#039;
+        option name &#039;IPSec ESP&#039;
+        option proto &#039;esp&#039;
+        option target &#039;ACCEPT&#039;
+
+config rule
+        option src &#039;wan&#039;
+        option name &#039;IPSec IKE&#039;
+        option proto &#039;udp&#039;
+        option dest_port &#039;500&#039;
+        option target &#039;ACCEPT&#039;
+
+config rule
+        option src &#039;wan&#039;
+        option name &#039;IPSec NAT-T&#039;
+        option proto &#039;udp&#039;
+        option dest_port &#039;4500&#039;
+        option target &#039;ACCEPT&#039;
+
+config rule
+        option src &#039;wan&#039;
+        option name &#039;Auth Header&#039;
+        option proto &#039;ah&#039;
+        option target &#039;ACCEPT&#039;</pre>
+
+Explanation:
+Basically you&#039;re opening up the ports/protocols on the WAN zone that strongswan needs to accept traffic from a client. You can also create a custom zone called &quot;VPN&quot; if you want to get fancy. 
+</p>
+
+<p>
+Note that some guides have you adding additional forwarding rules using <code>firewall.user</code>. This is NOT necessary due to the fact that strongswan does this dynamically, as long as you have the <code>leftfirewall=yes</code> line in ipsec.conf. 
+</p>
+
+<p>
+HOWEVER: some builds of Strongswan (eg. v5.0.0 which is included in the 12.09 Attitude Adjustment package repository) seem to require the custom forwarding rules (perhaps because the <code>leftfirewall=yes</code> does not behave as it should??), so if you connect but don&#039;t get a default gateway and/or can&#039;t pass traffic, add these to firewall.user:
+</p>
+
+<p>
+<pre class="code">iptables -I INPUT  -m policy --dir in --pol ipsec --proto esp -j ACCEPT
+iptables -I FORWARD  -m policy --dir in --pol ipsec --proto esp -j ACCEPT
+iptables -I FORWARD  -m policy --dir out --pol ipsec --proto esp -j ACCEPT
+iptables -I OUTPUT   -m policy --dir out --pol ipsec --proto esp -j ACCEPT</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit9" id="testing">Testing</h2>
+<div class="level2">
+
+<p>
+For testing, I used a Blackberry Z10 with NATIVE Ikev2 support (LOVE your Blackberry), an android phone with the StrongSwan Client and a Windows 7 machine using native IKEv2.
+</p>
+
+<p>
+You can email clientCert.p12 to the mobile clients. 
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="for_blackberry_clients">For BlackBerry Clients</h3>
+<div class="level3">
+
+<p>
+BlackBerry allows you to specify Perfect Forward Secrecy. You will want/need this. This should be standard. To make this work, however, you need to add the following lines to the ipsec.conf file in the <code>conn roadwarrior</code> section, assuming this is the connection you want for your berry:
+</p>
+
+<p>
+<pre class="code"> esp=aes-aes256-sha-modp1024,aes256-sha512-modp4096
+ ike=aes-aes256-sha-modp1024,aes256-sha512-modp4096</pre>
+
+</p>
+
+<p>
+What this does is specify what cipher suites to use, including the Diffie Hellman Groups; you can read about these settings in the <a href="https://wiki.strongswan.org/projects/strongswan/wiki/IKEv2CipherSuites" class="urlextern" title="https://wiki.strongswan.org/projects/strongswan/wiki/IKEv2CipherSuites"  rel="nofollow">strongswan IKEv2 cipher suite documentation</a>. Previously (before Strongswan 5.xxx), you&#039;d use the <code>pfs=yes</code> statement. This has been deprecated.
+</p>
+
+<p>
+Import your certificates into the Berry first, then add a VPN profile with the following settings:
+</p>
+<ul>
+<li class="level1"><div class="li"> Your gateway type will be &quot;Generic IKEv2 VPN Server&quot;,</div>
+</li>
+<li class="level1"><div class="li"> Authentication Type = PKI,</div>
+</li>
+<li class="level1"><div class="li"> Authentication ID Type= Identity Certificate Distinguished Name</div>
+</li>
+<li class="level1"><div class="li"> Client Certificate = The name of your client cert (&quot;clent&quot; in the above example)</div>
+</li>
+<li class="level1"><div class="li"> Gateway Auth Type = PKI</div>
+</li>
+<li class="level1"><div class="li"> Gateway Auth ID Type = Identify Certificate Distinguished Name</div>
+</li>
+<li class="level1"><div class="li"> Gateway CA Certificate = your server Certificate name (&quot;xxxx&quot; in the above example)</div>
+</li>
+<li class="level1"><div class="li"> Perfect Forward Secrecy = On (VERY IMPORTANT)</div>
+</li>
+<li class="level1"><div class="li"> Automatically determine IP = ON</div>
+</li>
+<li class="level1"><div class="li"> Automatically determine <abbr title="Domain Name System">DNS</abbr> = ON</div>
+</li>
+<li class="level1"><div class="li"> Automatically determine algorithm = ON</div>
+</li>
+</ul>
+
+<p>
+The rest can be left to defaults.
+</p>
+
+<p>
+If you receive Authentication Error you can try to use distuingished name (DN) of your server&#039;s certificate instead of the FQDN for the <code>leftid</code> property. It is <code>&quot;C=US, O=xxx, CN=yourdomain.dyndns.org&quot;</code> in the example above, but you can find out yours using the command below and looking for the &quot;Subject&quot; field
+</p>
+
+<p>
+<pre class="code">openssl x509 -in /etc/ipsec.d/certs/serverCert.pem -text -noout</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="for_windows_7_clients">For Windows 7 Clients</h3>
+<div class="level3">
+
+<p>
+In windows, run certmgr.msc to import your client certificate. Do NOT simply click on the cert - this won&#039;t work.
+Follow these instructions to setup the Windows VPN connection: <a href="https://supportforums.cisco.com/docs/DOC-24022" class="urlextern" title="https://supportforums.cisco.com/docs/DOC-24022"  rel="nofollow">https://supportforums.cisco.com/docs/DOC-24022</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit12" id="for_android_clients">For Android Clients</h3>
+<div class="level3">
+
+<p>
+In Android, go to &quot;Settings &gt; Security&quot; to import.
+</p>
+
+<p>
+In the Strongswan client, specify &quot;IKEv2 Certificate + EAP&quot; as the type of VPN, pick &quot;client&quot; for your certificate you just imported, and specify the username/password combo you added to <code>/etc/ipsec.secrets</code>. Keep an eye on the logfile (see above) during initial login to spot any issues. If all goes well, you can use your router as a VPN gateway for any mobile device, tablet, or laptop.
+</p>
+
+<p>
+Blackberry supports IKEv2 natively.
+</p>
+
+</div>
+
+<h3 class="sectionedit13" id="for_iphonesios_clients">For iPhones/iOS Clients</h3>
+<div class="level3">
+
+<p>
+iOS, like Android, only supports IKEv1. I do not recommend this. You need to use an app to use IKEv2. I believe Cisco&#039;s Anyconnect will work but has not been tested. 
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/vpn.ipsec.roadwarrior.txt</bdi> · Last modified: 2014/07/05 13:32 by <bdi>bobcov</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="vpn.ipsec.roadwarrior?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="vpn.ipsec.roadwarrior?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="vpn.ipsec.roadwarrior?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="vpn.ipsec.roadwarrior#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Avpn.ipsec.roadwarrior&amp;1432273849" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

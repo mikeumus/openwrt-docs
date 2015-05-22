@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Debugging [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,devel,debugging"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="debugging?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:devel"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/devel/debugging"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/devel/debugging"/>
+<link rel="canonical" href="debugging"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:devel';var JSINFO = {"id":"doc:devel:debugging","namespace":"doc:devel"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265702 166.182.3.62';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="debugging#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="debugging?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="debugging?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:devel:debugging" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="debugging?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="debugging?do=media&amp;ns=doc%253Adevel"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="debugging?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:devel:start">Developing</a></bdi> » <bdi><span class="curid"><a href="debugging" class="wikilink1" title="doc:devel:debugging">Debugging</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/devel/debugging" class="media" title="cz:doc:devel:debugging"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/devel/debugging" class="media" title="de:doc:devel:debugging"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="debugging" class="media" title="doc:devel:debugging"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/devel/debugging" class="media" title="es:doc:devel:debugging"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/devel/debugging" class="media" title="fr:doc:devel:debugging"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/devel/debugging" class="media" title="hu:doc:devel:debugging"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/devel/debugging" class="media" title="jp:doc:devel:debugging"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/devel/debugging" class="media" title="pl:doc:devel:debugging"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/devel/debugging" class="media" title="pt-br:doc:devel:debugging"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/devel/debugging" class="media" title="ru:doc:devel:debugging"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/devel/debugging" class="media" title="tr:doc:devel:debugging"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/devel/debugging" class="media" title="zh-cn:doc:devel:debugging"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/devel/debugging" class="media" title="zh-tw:doc:devel:debugging"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:devel:debugging</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="debugging#serial_port">Serial Port</a></div></li>
+<li class="level1"><div class="li"><a href="debugging#jtag">JTAG</a></div></li>
+<li class="level1"><div class="li"><a href="debugging#gdb">GDB</a></div></li>
+<li class="level1"><div class="li"><a href="debugging#perfoprofile_cpu_profiling">perf/oprofile cpu profiling</a></div></li>
+<li class="level1"><div class="li"><a href="debugging#wireless">Wireless</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="debugging#capture_management_traffic">Capture Management Traffic</a></div></li>
+<li class="level2"><div class="li"><a href="debugging#logging_hostapd_behaviour">Logging hostapd behaviour</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="debugging#add_and_modify_compiler_debug_flags">Add and modify compiler debug flags</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="debugging">Debugging</h1>
+<div class="level1">
+
+<p>
+Debugging hardware can be tricky especially when doing kernel and drivers development. It might become handy for you to add serial console to your device as well as using JTAG to debug your code.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="serial_port">Serial Port</h2>
+<div class="level2">
+
+<p>
+→ <a href="../../OpenWrtDocs/Customizing/Hardware/Serial_Console" class="wikilink1" title="doc:hardware:port.serial">port.serial</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="jtag">JTAG</h2>
+<div class="level2">
+
+<p>
+→ <a href="../hardware/port.jtag" class="wikilink1" title="doc:hardware:port.jtag">port.jtag</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="gdb">GDB</h2>
+<div class="level2">
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> → <a href="gdb" class="wikilink1" title="doc:devel:gdb">gdb</a> a very short introduction on the GNU Debugger
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="perfoprofile_cpu_profiling">perf/oprofile cpu profiling</h2>
+<div class="level2">
+
+<p>
+→ <a href="http://false.ekta.is/2012/11/cpu-profiling-applications-on-openwrt-with-perf-or-oprofile/" class="urlextern" title="http://false.ekta.is/2012/11/cpu-profiling-applications-on-openwrt-with-perf-or-oprofile/"  rel="nofollow">http://false.ekta.is/2012/11/cpu-profiling-applications-on-openwrt-with-perf-or-oprofile/</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="wireless">Wireless</h2>
+<div class="level2">
+
+<p>
+When encountering wireless bugs, such as connection drop or wpa rekeying issues, it is possible to remotely run <code>tcpdump</code> in order to capture wireless management traffic for later analysis of the communication leading to the problem.
+</p>
+
+</div>
+
+<h3 class="sectionedit7" id="capture_management_traffic">Capture Management Traffic</h3>
+<div class="level3">
+
+<p>
+The command below will spawn a monitor interface with a mac80211 based driver, start <code>tcpdump</code> and save the captured data locally into <code>/tmp</code>:
+</p>
+
+<p>
+<pre class="code bash"><span class="kw2">ssh</span> root<span class="sy0">@</span>192.168.1.1 <span class="st_h">'grep -q mon0 /proc/net/dev || /usr/sbin/iw phy phy0 interface add mon0 type monitor;
+    /sbin/ifconfig mon0 up; /usr/sbin/tcpdump -s 0 -i mon0 -y IEEE802_11_RADIO -w -'</span> <span class="sy0">&gt;</span> <span class="sy0">/</span>tmp<span class="sy0">/</span>wifi.pcap</pre>
+
+</p>
+
+<p>
+A smaller alternative to <code>tcpdump</code> is the <code>iwcap</code> utility. Its MIPS binary only ~5KB large and it does not require <code>libpcap</code> to function.
+It also supports the filtering of data frames through the <code>-D</code> switch to cut down the amount of captured traffic;
+</p>
+
+<p>
+<pre class="code bash"><span class="kw2">ssh</span> root<span class="sy0">@</span>192.168.1.1 <span class="st_h">'grep -q mon0 /proc/net/dev || /usr/sbin/iw phy phy0 interface add mon0 type monitor;
+    /sbin/ifconfig mon0 up; /usr/sbin/iwcap -i mon0 -s'</span> <span class="sy0">&gt;</span> <span class="sy0">/</span>tmp<span class="sy0">/</span>wifi.pcap</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit8" id="logging_hostapd_behaviour">Logging hostapd behaviour</h3>
+<div class="level3">
+
+<p>
+Note that recent versions of openwrt ship with a version of hostapd which has verbose debug messages disabled in order to save on space (see <a href="https://dev.openwrt.org/ticket/15658" class="urlextern" title="https://dev.openwrt.org/ticket/15658"  rel="nofollow">https://dev.openwrt.org/ticket/15658</a> ).
+</p>
+
+<p>
+<del>To enable debug you need to install the debug build of hostapd from the packages for your router (package name hostapd), having first removed the cut-down version:
+
+&lt;code bash&gt;
+opkg remove wpad-mini
+[download the wpad-debug package for your router to /tmp]
+opkg install /tmp/wpad-debug*.ipk
+&lt;/code&gt;
+</del>
+</p>
+
+<p>
+Increase the log level for hostapd:
+</p>
+
+<p>
+<pre class="code"># Levels (minimum value for logged events):
+#  0 = verbose debugging
+#  1 = debugging
+#  2 = informational messages
+#  3 = notification
+#  4 = warning&quot;</pre>
+
+</p>
+
+<p>
+… the default is &quot;informational messages&quot;.  The example below shows you how to change this to &quot;debugging&quot;.
+</p>
+
+<p>
+Check the log level currently being used:
+</p>
+
+<p>
+<pre class="code bash"><span class="co4">root@OpenWrt:~# </span><span class="kw2">ps</span> <span class="sy0">|</span> <span class="kw2">grep</span> hostapd
+ <span class="nu0">6948</span> root      <span class="nu0">1784</span> S    <span class="sy0">/</span>usr<span class="sy0">/</span>sbin<span class="sy0">/</span>hostapd <span class="re5">-P</span> <span class="sy0">/</span>var<span class="sy0">/</span>run<span class="sy0">/</span>wifi-phy1.pid <span class="re5">-B</span> <span class="sy0">/</span>var<span class="sy0">/</span>run<span class="sy0">/</span>hostapd-phy1.conf
+ <span class="nu0">6987</span> root      <span class="nu0">1784</span> S    <span class="sy0">/</span>usr<span class="sy0">/</span>sbin<span class="sy0">/</span>hostapd <span class="re5">-P</span> <span class="sy0">/</span>var<span class="sy0">/</span>run<span class="sy0">/</span>wifi-phy0.pid <span class="re5">-B</span> <span class="sy0">/</span>var<span class="sy0">/</span>run<span class="sy0">/</span>hostapd-phy0.conf
+ <span class="nu0">7019</span> root      <span class="nu0">1448</span> S    <span class="kw2">grep</span> hostapd</pre>
+
+</p>
+
+<p>
+let say for the sake of argument you&#039;re only interested in addressing a problem with the phy0 hostapd.  First check the current level for this hostapd:
+</p>
+
+<p>
+<pre class="code bash"><span class="co4">root@OpenWrt:~# </span><span class="kw2">grep</span> _level <span class="sy0">/</span>var<span class="sy0">/</span>run<span class="sy0">/</span>hostapd-phy0.conf 
+<span class="re2">logger_syslog_level</span>=<span class="nu0">2</span>
+<span class="re2">logger_stdout_level</span>=<span class="nu0">2</span></pre>
+
+</p>
+
+<p>
+… log level 2 is selected.  Let&#039;s change this:
+</p>
+
+<p>
+<pre class="code bash"><span class="co4">root@OpenWrt:~# </span>uci <span class="kw1">set</span> wireless.radio0.log_level=<span class="nu0">1</span>
+<span class="co4">root@OpenWrt:~# </span>uci commit wireless
+<span class="co4">root@OpenWrt:~# </span>wifi up
+<span class="co4">root@OpenWrt:~# </span><span class="kw2">grep</span> _level <span class="sy0">/</span>var<span class="sy0">/</span>run<span class="sy0">/</span>hostapd-phy0.conf 
+<span class="re2">logger_syslog_level</span>=<span class="nu0">1</span>
+<span class="re2">logger_stdout_level</span>=<span class="nu0">1</span></pre>
+
+</p>
+
+<p>
+… and we can see that the level has been changed.  The logread command will now show brief debug messages like those below:
+</p>
+
+<p>
+<pre class="code bash">Tue Apr <span class="nu0">22</span> <span class="nu0">11</span>:<span class="nu0">35</span>:<span class="nu0">41</span> <span class="nu0">2014</span> daemon.debug hostapd: wlan0: STA <span class="nu0">20</span>:<span class="nu0">16</span>:d8:db:aa:<span class="nu0">56</span> MLME: MLME-REASSOCIATE.indication<span class="br0">&#40;</span><span class="nu0">20</span>:<span class="nu0">16</span>:d8:db:aa:<span class="nu0">56</span><span class="br0">&#41;</span>
+Tue Apr <span class="nu0">22</span> <span class="nu0">11</span>:<span class="nu0">35</span>:<span class="nu0">41</span> <span class="nu0">2014</span> daemon.debug hostapd: wlan0: STA <span class="nu0">20</span>:<span class="nu0">16</span>:d8:db:aa:<span class="nu0">56</span> MLME: MLME-DELETEKEYS.request<span class="br0">&#40;</span><span class="nu0">20</span>:<span class="nu0">16</span>:d8:db:aa:<span class="nu0">56</span><span class="br0">&#41;</span>
+Tue Apr <span class="nu0">22</span> <span class="nu0">11</span>:<span class="nu0">35</span>:<span class="nu0">41</span> <span class="nu0">2014</span> daemon.debug hostapd: wlan0: STA <span class="nu0">20</span>:<span class="nu0">16</span>:d8:db:aa:<span class="nu0">56</span> WPA: event <span class="nu0">1</span> notification
+Tue Apr <span class="nu0">22</span> <span class="nu0">11</span>:<span class="nu0">35</span>:<span class="nu0">41</span> <span class="nu0">2014</span> daemon.debug hostapd: wlan0: STA <span class="nu0">20</span>:<span class="nu0">16</span>:d8:db:aa:<span class="nu0">56</span> WPA: start authentication
+Tue Apr <span class="nu0">22</span> <span class="nu0">11</span>:<span class="nu0">35</span>:<span class="nu0">41</span> <span class="nu0">2014</span> daemon.debug hostapd: wlan0: STA <span class="nu0">20</span>:<span class="nu0">16</span>:d8:db:aa:<span class="nu0">56</span> IEEE 802.1X: unauthorizing port
+Tue Apr <span class="nu0">22</span> <span class="nu0">11</span>:<span class="nu0">35</span>:<span class="nu0">41</span> <span class="nu0">2014</span> daemon.debug hostapd: wlan0: STA <span class="nu0">20</span>:<span class="nu0">16</span>:d8:db:aa:<span class="nu0">56</span> WPA: sending <span class="nu0">1</span><span class="sy0">/</span><span class="nu0">4</span> msg of <span class="nu0">4</span>-Way Handshake
+Tue Apr <span class="nu0">22</span> <span class="nu0">11</span>:<span class="nu0">35</span>:<span class="nu0">41</span> <span class="nu0">2014</span> daemon.debug hostapd: wlan0: STA <span class="nu0">20</span>:<span class="nu0">16</span>:d8:db:aa:<span class="nu0">56</span> WPA: received EAPOL-Key frame <span class="br0">&#40;</span><span class="nu0">2</span><span class="sy0">/</span><span class="nu0">4</span> Pairwise<span class="br0">&#41;</span>
+Tue Apr <span class="nu0">22</span> <span class="nu0">11</span>:<span class="nu0">35</span>:<span class="nu0">41</span> <span class="nu0">2014</span> daemon.debug hostapd: wlan0: STA <span class="nu0">20</span>:<span class="nu0">16</span>:d8:db:aa:<span class="nu0">56</span> WPA: sending <span class="nu0">3</span><span class="sy0">/</span><span class="nu0">4</span> msg of <span class="nu0">4</span>-Way Handshake
+Tue Apr <span class="nu0">22</span> <span class="nu0">11</span>:<span class="nu0">35</span>:<span class="nu0">41</span> <span class="nu0">2014</span> daemon.debug hostapd: wlan0: STA <span class="nu0">20</span>:<span class="nu0">16</span>:d8:db:aa:<span class="nu0">56</span> WPA: received EAPOL-Key frame <span class="br0">&#40;</span><span class="nu0">4</span><span class="sy0">/</span><span class="nu0">4</span> Pairwise<span class="br0">&#41;</span></pre>
+
+</p>
+
+<p>
+… you may want to then setup remote logging via syslog to another computer by setting a logfile (warning - this won&#039;t be auto-rotated, so make sure it doesn&#039;t fill up a vital filesystem).
+</p>
+
+<p>
+<pre class="code bash">uci <span class="kw1">set</span> system.<span class="sy0">@</span>system<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.log_file=<span class="br0">&#91;</span>path-to-my-logfile<span class="br0">&#93;</span>
+uci commit
+<span class="br0">&#91;</span>reboot required<span class="br0">&#93;</span></pre>
+
+</p>
+
+<p>
+or alternatively, if you&#039;re able to, it might be better to use system.@system[0].log_ip to log to a remote machine (which must be running an appropriate listener e.g. rsyslogd - see <a href="https://forum.openwrt.org/viewtopic.php?id=11912" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=11912"  rel="nofollow">https://forum.openwrt.org/viewtopic.php?id=11912</a>).
+</p>
+
+<p>
+If you wish to debug on the command line instead, you may be able to do-so using a command like this:
+</p>
+
+<p>
+<pre class="code bash"><span class="kw2">kill</span> <span class="sy0">`</span><span class="kw2">cat</span> <span class="sy0">/</span>var<span class="sy0">/</span>run<span class="sy0">/</span>wifi-phy0.pid<span class="sy0">`</span> ; <span class="sy0">/</span>usr<span class="sy0">/</span>sbin<span class="sy0">/</span>hostapd <span class="re5">-dd</span> <span class="re5">-P</span> <span class="sy0">/</span>var<span class="sy0">/</span>run<span class="sy0">/</span>wifi-phy0.pid  <span class="sy0">/</span>var<span class="sy0">/</span>run<span class="sy0">/</span>hostapd-phy0.conf</pre>
+
+</p>
+
+<p>
+… use the output of ps above to create the necessary commandline - remove the &#039;-B&#039; argument to stop hostapd forking into the background, and add &#039;-dd&#039; to verbose debug to stdout.
+</p>
+
+<p>
+depending on your hardware and interface state, it may be necessary to create or re-create the relevant wlan device before starting hostapd e.g.
+</p>
+
+<p>
+<pre class="code bash">iw dev wlan0 del
+iw phy phy0 interface add wlan0 <span class="kw3">type</span> managed</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit9" id="add_and_modify_compiler_debug_flags">Add and modify compiler debug flags</h2>
+<div class="level2">
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> The &quot;Compile with debug&quot; entry in advanced developer menu enables &quot;-g3&quot; compile option.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> You have to disable _sstrip_ to keep debug information.
+</p>
+
+<p>
+Note, if you just want to build a single package unstripped, try, &quot;make package/foo/compile STRIP=true&quot;
+Also, unstripped binaries are placed in &quot;staging_dir/target-*/root-*/&quot; where your host side tools can use them.  (Remember, gdbserver can attach to the stripped binary, while gdb loads the unstripped binary)
+see <a href="gdb" class="wikilink1" title="doc:devel:gdb">gdb</a>
+</p>
+
+<p>
+Alternatively: You can add or modify &quot;Custom Target Options&quot; like add &quot;-g3 -ggdb3&quot;
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Be aware there are default compiler options defined in include/target.mk for example (&quot;-Os -pipe&quot;)
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Some packets might overwrite or not use the flags. Check your compile log.
+</p>
+
+<p>
+Additional tips:
+</p>
+<ul>
+<li class="level1"><div class="li"> check with different gcc versions</div>
+</li>
+<li class="level1"><div class="li"> There is &quot;-O0&quot; to disable compiler optimizations.</div>
+</li>
+<li class="level1"><div class="li"> &quot;-Wall -Wextra&quot; might provide useful warnings</div>
+</li>
+<li class="level1"><div class="li"> see <a href="https://gcc.gnu.org/bugs/" class="urlextern" title="https://gcc.gnu.org/bugs/"  rel="nofollow">https://gcc.gnu.org/bugs/</a></div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/devel/debugging.txt</bdi> · Last modified: 2015/05/12 22:51 by <bdi>theoradicus</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="debugging?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="debugging?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="debugging?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="debugging#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Adevel%253Adebugging&amp;1432265702" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

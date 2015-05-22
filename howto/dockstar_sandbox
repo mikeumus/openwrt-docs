@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Installation [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,dockstar sandbox"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="dockstar_sandbox?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/dockstar_sandbox"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/dockstar_sandbox"/>
+<link rel="canonical" href="dockstar_sandbox"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:dockstar_sandbox","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432273787 166.182.3.179';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="dockstar_sandbox#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="dockstar_sandbox?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="dockstar_sandbox?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:dockstar_sandbox" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="dockstar_sandbox?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="dockstar_sandbox?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="dockstar_sandbox?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="dockstar_sandbox" class="wikilink1" title="doc:howto:dockstar_sandbox">Installation</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/dockstar_sandbox" class="media" title="cz:doc:howto:dockstar_sandbox"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/dockstar_sandbox" class="media" title="de:doc:howto:dockstar_sandbox"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="dockstar_sandbox" class="media" title="doc:howto:dockstar_sandbox"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/dockstar_sandbox" class="media" title="es:doc:howto:dockstar_sandbox"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/dockstar_sandbox" class="media" title="fr:doc:howto:dockstar_sandbox"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/dockstar_sandbox" class="media" title="hu:doc:howto:dockstar_sandbox"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/dockstar_sandbox" class="media" title="jp:doc:howto:dockstar_sandbox"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/dockstar_sandbox" class="media" title="pl:doc:howto:dockstar_sandbox"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/dockstar_sandbox" class="media" title="pt-br:doc:howto:dockstar_sandbox"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/dockstar_sandbox" class="media" title="ru:doc:howto:dockstar_sandbox"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/dockstar_sandbox" class="media" title="tr:doc:howto:dockstar_sandbox"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/dockstar_sandbox" class="media" title="zh-cn:doc:howto:dockstar_sandbox"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/dockstar_sandbox" class="media" title="zh-tw:doc:howto:dockstar_sandbox"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:dockstar_sandbox</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level3"><div class="li"><a href="dockstar_sandbox#installation">Installation</a></div></li>
+<li class="level3"><div class="li"><a href="dockstar_sandbox#additional_resources">Additional resources</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h4 id="installation">Installation</h4>
+<div class="level4">
+
+</div>
+
+<h5 id="prerequisites">Prerequisites</h5>
+<div class="level5">
+<ul>
+<li class="level1"><div class="li"> A Seagate Dockstar</div>
+</li>
+<li class="level1"><div class="li"> A computer running Windows or Linux on the same network as the Dockstar</div>
+</li>
+<li class="level1"><div class="li"> Access to the serial port (<a href="dockstar_sandbox#serial" title="doc:howto:dockstar_sandbox ↵" class="wikilink1">serial connection</a>), or Netconsole (see <a href="http://forum.doozan.com/read.php?3,14,14" class="urlextern" title="http://forum.doozan.com/read.php?3,14,14"  rel="nofollow">http://forum.doozan.com/read.php?3,14,14</a>)</div>
+</li>
+<li class="level1"><div class="li"> A tftp server</div>
+</li>
+<li class="level1"><div class="li"> The ability to provide DHCP to the Dockstar without internet access (only applicable for initial install on a new unit)</div>
+</li>
+</ul>
+
+<p>
+When I refer to sending commands over netconsole, you will do the same if you are using the serial port. Obviously, any references to setting up or starting netconsole do not apply
+</p>
+
+</div>
+
+<h5 id="for_users_with_brand_new_dockstars_or_one_running_the_original_firmware">For users with brand new Dockstars, or one running the original firmware</h5>
+<div class="level5">
+
+<p>
+Connect the Dockstar to a network with DHCP, but disconnected from the internet. (Note that if you&#039;ve been using the Dockstar as intended, it will have updated itself and SSH will no longer be available. You&#039;ll need to open it up and follow this guide using the serial header. See generic.serial)
+</p>
+
+<p>
+SSH in. <code>root</code> is the username and <code>stxadmin</code> is the password. Run <code>killall hwbd</code> then reconnect to the internet.
+</p>
+
+</div>
+
+<h5 id="bootloader_update_required">Bootloader update (required)</h5>
+<div class="level5">
+
+<p>
+Install updated uBoot (from <a href="http://projects.doozan.com/uboot/" class="urlextern" title="http://projects.doozan.com/uboot/"  rel="nofollow">http://projects.doozan.com/uboot/</a>)
+</p>
+
+<p>
+This will also install and set up fw_envtools in order to modify bootloader parameters from within the operating system, and allow booting from USB drives (see additional resources). This script should work on most distros, but was designed to be run from the original firmware.
+<pre class="code">cd /tmp
+wget http://projects.doozan.com/uboot/install_uboot_mtd0.sh
+chmod +x install_uboot_mtd0.sh
+./install_uboot_mtd0.sh</pre>
+
+</p>
+
+</div>
+
+<h5 id="netconsole_configuration_optional">Netconsole configuration (optional)</h5>
+<div class="level5">
+
+<p>
+<em>You may skip this step if you are connected to the Dockstar via the serial headers on the board – this simply tunnels the physical serial port over the network and is necessary if you&#039;d rather not open up your Dockstar. It might come in handy later, so it doesn&#039;t hurt to do this.</em>
+</p>
+
+<p>
+<strong>Please note</strong> that netconsole will not work once the system has booted, as the operating system will take over control. It is not a complete replacement for access to the serial port. The main purpose is to identify errors during boot and gain access to the uboot console.
+</p>
+
+<p>
+Configure netconsole (server IP is your machine)
+<pre class="code">fw_setenv serverip &lt;your IP address&gt;
+fw_setenv ipaddr &lt;dockstar’s IP address&gt;
+fw_setenv if_netconsole &#039;ping $serverip&#039;
+fw_setenv start_netconsole &#039;setenv ncip $serverip; setenv bootdelay 3; setenv stdin nc; setenv stdout nc; setenv stderr nc; version;&#039;
+fw_setenv preboot &#039;run if_netconsole start_netconsole&#039;</pre>
+
+</p>
+
+</div>
+
+<h5 id="repartition_nand_highly_recommended_if_you_don_t_know_that_you_don_t_want_this_then_you_want_this">Repartition NAND (highly recommended. If you don&#039;t know that you don&#039;t want this, then you want this)</h5>
+<div class="level5">
+
+<p>
+This will essentially combine what used to be mtd2 (32MB) and mtd3 (219MB) into a single rootfs partition.
+<pre class="code">fw_setenv mtdparts ‘mtdparts=orion_nand:1M(u-boot),4M(uImage),-(rootfs)’</pre>
+
+</p>
+
+<p>
+Flash layout now looks like this:
+</p>
+<div class="table sectionedit1"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0" colspan="4"> New Flash Layout </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<th class="col0 leftalign"> mtd#        </th><td class="col1 leftalign">mtd0       </td><td class="col2 leftalign">mtd1       </td><td class="col3 leftalign">mtd2      </td>
+	</tr>
+	<tr class="row2">
+		<th class="col0 leftalign"> size        </th><td class="col1 leftalign">0x0100000  </td><td class="col2 leftalign">0x0400000  </td><td class="col3">0xfb00000 </td>
+	</tr>
+	<tr class="row3">
+		<th class="col0 leftalign"> in MiB      </th><td class="col1 leftalign">1          </td><td class="col2 leftalign">4          </td><td class="col3 leftalign">251       </td>
+	</tr>
+	<tr class="row4">
+		<th class="col0 leftalign"> name        </th><td class="col1 leftalign">u-boot     </td><td class="col2 leftalign">uImage     </td><td class="col3 leftalign">rootfs    </td>
+	</tr>
+	<tr class="row5">
+		<th class="col0"> file system </th><td class="col1 leftalign"><em>none</em>       </td><td class="col2 leftalign"><em>none</em>       </td><td class="col3 leftalign">jffs2     </td>
+	</tr>
+</table></div>
+
+<p>
+(see <a href="../techref/flash.layout" class="wikilink1" title="doc:techref:flash.layout">flash.layout</a> for more info)
+</p>
+
+</div>
+
+<h5 id="set_up_necessary_bootcmd_variables">Set up necessary bootcmd variables</h5>
+<div class="level5">
+
+<p>
+<pre class="code">fw_setenv rescue_bootcmd &#039;if test $rescue_installed -eq 1; then run rescue_set_bootargs; nand read.e 0x800000 0x100000 0x400000; bootm 0x800000; else run pogo_bootcmd; fi&#039;
+fw_setenv rescue_set_bootargs &#039;setenv bootargs console=$console ubi.mtd=2 root=/dev/mtdblock2 ro rootfstype=jffs2 $mtdparts $rescue_custom_params&#039;
+fw_setenv rescue_installed 1</pre>
+
+</p>
+
+<p>
+Start a TFTP server on your machine, bound to all interfaces or the one as specified in serverip and host these files:
+</p>
+<ul>
+<li class="level1"><div class="li"> openwrt-kirkwood–jffs2-128k.img (openwrt-kirkwood-jffs2-nand-2048-128k.img in Barrier Breaker)</div>
+</li>
+<li class="level1"><div class="li"> openwrt-kirkwood-uImage</div>
+</li>
+</ul>
+
+<p>
+If using the netconsole method, run <pre class="code">nc -l -u -p 6666</pre>
+ to monitor boot console. Ensure that any firewalls are off. Remember that you will need to run 2 simultaneous instances of nc. Refer to the link in the netconsole section for more details.
+</p>
+
+<p>
+<strong>Reboot the Dockstar</strong>, press “any key” when prompted to enter the console (alphanumeric key, enter doesn’t seem to work)
+</p>
+
+<p>
+Run the following commands at the bootloader prompt:
+<pre class="code">mw 0x6400000 0xffff 0x300000
+tftpboot 0x6400000 openwrt-kirkwood-uImage
+nand erase 0x100000 0x400000
+nand write.e 0x6400000 0x100000 0x400000
+mw 0x6400000 0xffff 0x200000
+tftpboot 0x6400000 openwrt-kirkwood--jffs2-128k.img
+nand erase 0x500000 0xfb00000
+nand write.e 0x6400000 0x500000 0x200000</pre>
+
+</p>
+
+<p>
+And that&#039;s it! Your Dockstar has had its bootloader updated, flash repartitioned and OpenWRT installed.
+</p>
+
+<p>
+To run any other programs, or to preserve flash life, you can also run the <abbr title="Operating System">OS</abbr> off a USB drive. The Dockstar will automatically boot off any connected USB storage device provided the necessary files are on the first partition. See the next section for details
+</p>
+
+<p>
+I have OpenWRT installed on flash as a backup / recovery setup. My primary install is on the first partition of an external HDD so as to not wear out the flash.
+</p>
+
+</div>
+
+<h4 id="additional_resources">Additional resources</h4>
+<div class="level4">
+
+</div>
+
+<h5 id="installing_openwrt_onto_a_usb_stick_or_hdd">Installing OpenWRT onto a USB stick or HDD</h5>
+<div class="level5">
+
+<p>
+To install OpenWRT onto a USB drive of any sort, you need to do the following:
+</p>
+<ul>
+<li class="level1"><div class="li"> Format the first partition as ext2 and resize it if necessary, as this will be the system partition</div>
+</li>
+<li class="level1"><div class="li"> Extract <code>openwrt-kirkwood-rootfs.tar.gz</code> onto this partition</div>
+</li>
+<li class="level1"><div class="li"> Copy <code>openwrt-kirkwood-uImage</code> onto the root of the same partition and rename as <code>uImage</code></div>
+</li>
+</ul>
+
+<p>
+If the device is plugged in at boot, then the Dockstar should start with a clean installation. If there&#039;s a problem, it will be in the boot log. If it fails to start, double check that <code>uImage</code> is named as such and that the partition is ext2 formatted.
+</p>
+
+<p>
+If using external storage, it is recommended that you create a <code>swap</code> partition of around 256MB. (OpenWRT does not seem to use much swap on this device)
+</p>
+
+</div>
+
+<h5 id="installing_and_configuring_uboot-envtools">Installing and configuring uboot-envtools</h5>
+<div class="level5">
+
+<p>
+This is required if you&#039;d like to modify your uboot environment variables from within OpenWRT.
+</p>
+
+<p>
+Run
+<pre class="code">opkg update
+opkg install uboot-envtools</pre>
+
+</p>
+
+<p>
+Put this into a new file at <code>/etc/fw_env.config</code>
+<pre class="code"># MTD device name	Device offset	Env. size	Flash sector size	Number of sectors
+/dev/mtd0		0xc0000		0x20000		0x20000</pre>
+
+</p>
+
+<p>
+(This might also be possible to achieve by simply running the uboot install script again, as it will skip installation of u-boot if a valid version is found, but should still install fw_envtools)
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/dockstar_sandbox.txt</bdi> · Last modified: 2015/02/03 11:13 by <bdi>nubi3</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="dockstar_sandbox?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="dockstar_sandbox?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="dockstar_sandbox?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="dockstar_sandbox#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Adockstar_sandbox&amp;1432273787" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

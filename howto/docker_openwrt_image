@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Docker OpenWRT Image [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,docker openwrt image"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="docker_openwrt_image?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/docker_openwrt_image"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/docker_openwrt_image"/>
+<link rel="canonical" href="docker_openwrt_image"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:docker_openwrt_image","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432273786 166.182.3.179';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="docker_openwrt_image#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="docker_openwrt_image?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="docker_openwrt_image?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:docker_openwrt_image" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="docker_openwrt_image?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="docker_openwrt_image?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="docker_openwrt_image?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="docker_openwrt_image" class="wikilink1" title="doc:howto:docker_openwrt_image">Docker OpenWRT Image</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/docker_openwrt_image" class="media" title="cz:doc:howto:docker_openwrt_image"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/docker_openwrt_image" class="media" title="de:doc:howto:docker_openwrt_image"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="docker_openwrt_image" class="media" title="doc:howto:docker_openwrt_image"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/docker_openwrt_image" class="media" title="es:doc:howto:docker_openwrt_image"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/docker_openwrt_image" class="media" title="fr:doc:howto:docker_openwrt_image"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/docker_openwrt_image" class="media" title="hu:doc:howto:docker_openwrt_image"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/docker_openwrt_image" class="media" title="jp:doc:howto:docker_openwrt_image"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/docker_openwrt_image" class="media" title="pl:doc:howto:docker_openwrt_image"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/docker_openwrt_image" class="media" title="pt-br:doc:howto:docker_openwrt_image"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/docker_openwrt_image" class="media" title="ru:doc:howto:docker_openwrt_image"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/docker_openwrt_image" class="media" title="tr:doc:howto:docker_openwrt_image"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/docker_openwrt_image" class="media" title="zh-cn:doc:howto:docker_openwrt_image"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/docker_openwrt_image" class="media" title="zh-tw:doc:howto:docker_openwrt_image"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:docker_openwrt_image</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    
+<h1 class="sectionedit1" id="docker_openwrt_image">Docker OpenWRT Image</h1>
+<div class="level1">
+
+<p>
+The goal of this document is to run openwrt images on <a href="http://www.docker.io" class="urlextern" title="http://www.docker.io"  rel="nofollow">docker</a>, a container system based on LXC.
+</p>
+
+<p>
+<a href="../../_detail/media/homepage-docker-logo.png?id=doc%253Ahowto%253Adocker_openwrt_image" class="media" title="media:homepage-docker-logo.png"><img src="../../_media/media/homepage-docker-logo.png" class="media" alt="" /></a>
+</p>
+
+<p>
+Import the base image:
+</p>
+
+<p>
+<pre class="code">$ docker import http://downloads.openwrt.org/attitude_adjustment/12.09/x86/generic/openwrt-x86-generic-rootfs.tar.gz openwrt-x86-generic-rootfs
+$ docker images
+REPOSITORY                           TAG                   IMAGE ID            CREATED             VIRTUAL SIZE
+openwrt-x86-generic-rootfs           latest                2cebd16f086c        6 minutes ago       5.283 MB</pre>
+
+</p>
+
+<p>
+Run a simple cat inside the docker image:
+</p>
+
+<p>
+<pre class="code">root@turmes /home/zoobab/docker [14]# docker run -i openwrt-x86-generic-rootfs cat /etc/banner
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+ ATTITUDE ADJUSTMENT (12.09, r36088)
+ -----------------------------------------------------
+  * 1/4 oz Vodka      Pour all ingredients into mixing
+  * 1/4 oz Gin        tin with ice, strain into glass.
+  * 1/4 oz Amaretto
+  * 1/4 oz Triple sec
+  * 1/4 oz Peach schnapps
+  * 1/4 oz Sour mix
+  * 1 splash Cranberry juice
+ -----------------------------------------------------
+root@turmes /home/zoobab/docker [15]# </pre>
+
+</p>
+
+<p>
+Let&#039;s run a basic command:
+</p>
+
+<p>
+<pre class="code">root@turmes /home/zoobab [17]# docker run -i openwrt-x86-generic-rootfs ifconfig
+eth0      Link encap:Ethernet  HWaddr F2:06:70:1D:D0:65  
+          inet addr:172.17.0.30  Bcast:172.17.255.255  Mask:255.255.0.0
+          inet6 addr: fe80::f006:70ff:fe1d:d065/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+root@turmes /home/zoobab [18]# docker run -i openwrt-x86-generic-rootfs /sbin/init
+init started: BusyBox v1.19.4 (2013-03-06 20:07:44 UTC)
+sysinit: date: can&#039;t set kernel time zone: Operation not permitted
+
+sysinit: Loading defaults
+
+sysinit: Loading synflood protection
+
+sysinit: Adding custom chains
+
+sysinit: Loading zones
+
+sysinit: Loading forwardings
+
+sysinit: Loading rules
+
+sysinit: Loading redirects
+
+sysinit: Loading includes
+
+sysinit: Optimizing conntrack
+
+sysinit: Loading interfaces
+
+</pre>
+
+</p>
+
+<p>
+You can also run an interactive shell:
+</p>
+
+<p>
+<pre class="code">root@turmes /home/zoobab [20]# docker run -i -t openwrt-x86-generic-rootfs /bin/ash
+
+
+BusyBox v1.19.4 (2013-03-06 20:07:44 UTC) built-in shell (ash)
+Enter &#039;help&#039; for a list of built-in commands.
+
+/ # ps
+  PID USER       VSZ STAT COMMAND
+    1 root      1248 S    /bin/ash
+    6 root      1248 R    ps
+/ # </pre>
+
+</p>
+
+<p>
+There seems to be an issue with /var subdirs not created:
+</p>
+
+<p>
+<pre class="code">/ # ifconfig
+eth0      Link encap:Ethernet  HWaddr 02:51:6F:E7:12:0A  
+          inet addr:172.17.0.44  Bcast:172.17.255.255  Mask:255.255.0.0
+          inet6 addr: fe80::51:6fff:fee7:120a/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:25 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:8 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:15551 (15.1 KiB)  TX bytes:648 (648.0 B)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+/ # opkg update
+Collected errors:
+ * opkg_conf_load: Could not create lock file /var/lock/opkg.lock: No such file or directory.
+/ # mkdir -p /var/lock
+/ # ls
+bin      dev      etc      lib      mnt      overlay  proc     rom      root     sbin     sys      tmp      usr      var      www
+/ # opkg update
+Downloading http://downloads.openwrt.org/attitude_adjustment/12.09/x86/generic/packages/Packages.gz.
+Updated list of available packages in /var/opkg-lists/attitude_adjustment.
+/ # </pre>
+
+</p>
+
+<p>
+Let&#039;s change the root password and try to setup dropbear to connect over ssh:
+</p>
+
+<p>
+<pre class="code">/ # passwd
+Changing password for root
+New password: 
+Bad password: too weak
+Retype password: 
+Password for root changed by root
+/ # ps
+  PID USER       VSZ STAT COMMAND
+    1 root      1252 S    /bin/ash
+   21 root      1248 R    ps
+/ # /etc/init.d/dropbear restart
+/ # ps
+  PID USER       VSZ STAT COMMAND
+    1 root      1260 S    /bin/ash
+   44 root       960 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 22
+   45 root      1248 R    ps
+/ #</pre>
+
+</p>
+
+<p>
+Leave the console OPENED, and in another terminal, try to SSH to the IP address:
+</p>
+
+<p>
+<pre class="code">zoobab@turmes /home/zoobab [2]$ ssh root@172.17.0.45
+root@172.17.0.45&#039;s password: 
+
+
+BusyBox v1.19.4 (2013-03-06 20:07:44 UTC) built-in shell (ash)
+Enter &#039;help&#039; for a list of built-in commands.
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+ ATTITUDE ADJUSTMENT (12.09, r36088)
+ -----------------------------------------------------
+  * 1/4 oz Vodka      Pour all ingredients into mixing
+  * 1/4 oz Gin        tin with ice, strain into glass.
+  * 1/4 oz Amaretto
+  * 1/4 oz Triple sec
+  * 1/4 oz Peach schnapps
+  * 1/4 oz Sour mix
+  * 1 splash Cranberry juice
+ -----------------------------------------------------
+root@17691dbb9d9a:~# 
+&lt;/code&lt;
+
+Now let&#039;s install one package:
+
+&lt;code&gt;
+root@17691dbb9d9a:~# opkg update
+Collected errors:
+ * opkg_conf_load: Could not create lock file /var/lock/opkg.lock: No such file or directory.
+root@17691dbb9d9a:~# mkdir /var/lock
+root@17691dbb9d9a:~# opkg update
+Downloading http://downloads.openwrt.org/attitude_adjustment/12.09/x86/generic/packages/Packages.gz.
+Updated list of available packages in /var/opkg-lists/attitude_adjustment.
+root@17691dbb9d9a:~# opkg install 
+root@17691dbb9d9a:~# ps
+  PID USER       VSZ STAT COMMAND
+    1 root      1260 S    /bin/ash
+   30 root       960 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 22
+   38 root      1032 S    /usr/sbin/dropbear -P /var/run/dropbear.1.pid -p 22
+   39 root      1256 S    -ash
+   48 root      1248 R    ps
+root@17691dbb9d9a:~# opkg install lighttpd
+Installing lighttpd (1.4.30-2) to root...
+Downloading http://downloads.openwrt.org/attitude_adjustment/12.09/x86/generic/packages/lighttpd_1.4.30-2_x86.ipk.
+Installing libopenssl (1.0.1e-1) to root...
+Downloading http://downloads.openwrt.org/attitude_adjustment/12.09/x86/generic/packages/libopenssl_1.0.1e-1_x86.ipk.
+Installing zlib (1.2.7-1) to root...
+Downloading http://downloads.openwrt.org/attitude_adjustment/12.09/x86/generic/packages/zlib_1.2.7-1_x86.ipk.
+Installing libpcre (8.11-2) to root...
+Downloading http://downloads.openwrt.org/attitude_adjustment/12.09/x86/generic/packages/libpcre_8.11-2_x86.ipk.
+Installing libpthread (0.9.33.2-1) to root...
+Downloading http://downloads.openwrt.org/attitude_adjustment/12.09/x86/generic/packages/libpthread_0.9.33.2-1_x86.ipk.
+Configuring libpthread.
+Configuring libpcre.
+Configuring zlib.
+Configuring libopenssl.
+Configuring lighttpd.
+root@17691dbb9d9a:~#</pre>
+
+</p>
+
+<p>
+I published a docker image:
+<pre class="code">docker pull  zoobab/openwrt-x86-attitude</pre>
+
+</p>
+
+<p>
+Example to get a shell:
+<pre class="code">root@turmes /home/zoobab [4]# docker run -i -t zoobab/openwrt-x86-attitude /bin/ash
+
+
+BusyBox v1.19.4 (2013-03-06 20:07:44 UTC) built-in shell (ash)
+Enter &#039;help&#039; for a list of built-in commands.
+
+/ # ls
+bin      dev      etc      lib      mnt      overlay  proc     rom      root     sbin     sys      tmp      usr      var      www
+/ # ifconfig
+eth0      Link encap:Ethernet  HWaddr E6:7A:80:85:59:68  
+          inet addr:172.17.0.46  Bcast:172.17.255.255  Mask:255.255.0.0
+          inet6 addr: fe80::e47a:80ff:fe85:5968/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:12 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:4 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:7069 (6.9 KiB)  TX bytes:328 (328.0 B)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+/ # </pre>
+
+</p>
+
+</div>
+
+<h1 class="sectionedit2" id="todolist">Todolist</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> Fix /sbin/init to get the openwrt banner and shell at the end?</div>
+</li>
+<li class="level1"><div class="li"> Fix the /var entries</div>
+</li>
+<li class="level1"><div class="li"> Change the build to generate some images with dev entries</div>
+</li>
+<li class="level1"><div class="li"> Gte the LUCI web interface to work</div>
+</li>
+<li class="level1"><div class="li"> publish more images with x64 and/or x32 arch</div>
+</li>
+<li class="level1"><div class="li"> publish images with a different arch via qemu (<a href="http://dktrkranz.wordpress.com/2013/11/19/cross-architecture-linux-containers-in-debian/" class="urlextern" title="http://dktrkranz.wordpress.com/2013/11/19/cross-architecture-linux-containers-in-debian/"  rel="nofollow">http://dktrkranz.wordpress.com/2013/11/19/cross-architecture-linux-containers-in-debian/</a>)</div>
+</li>
+<li class="level1"><div class="li"> publish images with interesting profiles (lighttpd dirlist server, ftpd server, ircd server, tor server, etc…)</div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/docker_openwrt_image.txt</bdi> · Last modified: 2014/05/06 18:18 by <bdi>nodeguy</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="docker_openwrt_image?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="docker_openwrt_image?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="docker_openwrt_image?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="docker_openwrt_image#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Adocker_openwrt_image&amp;1432273787" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Building OpenWrt for Netgear WNDR3700 [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howtobuild,build.wndr3700"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="build.wndr3700?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howtobuild"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howtobuild/build.wndr3700"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howtobuild/build.wndr3700"/>
+<link rel="canonical" href="build.wndr3700"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howtobuild';var JSINFO = {"id":"doc:howtobuild:build.wndr3700","namespace":"doc:howtobuild"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265696 166.182.3.62';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="build.wndr3700#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="build.wndr3700?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="build.wndr3700?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howtobuild:build.wndr3700" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="build.wndr3700?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="build.wndr3700?do=media&amp;ns=doc%253Ahowtobuild"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="build.wndr3700?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howtobuild:start">如何编译法</a></bdi> » <bdi><span class="curid"><a href="build.wndr3700" class="wikilink1" title="doc:howtobuild:build.wndr3700">Building OpenWrt for Netgear WNDR3700</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howtobuild/build.wndr3700" class="media" title="cz:doc:howtobuild:build.wndr3700"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howtobuild/build.wndr3700" class="media" title="de:doc:howtobuild:build.wndr3700"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="build.wndr3700" class="media" title="doc:howtobuild:build.wndr3700"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howtobuild/build.wndr3700" class="media" title="es:doc:howtobuild:build.wndr3700"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howtobuild/build.wndr3700" class="media" title="fr:doc:howtobuild:build.wndr3700"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howtobuild/build.wndr3700" class="media" title="hu:doc:howtobuild:build.wndr3700"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howtobuild/build.wndr3700" class="media" title="jp:doc:howtobuild:build.wndr3700"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howtobuild/build.wndr3700" class="media" title="pl:doc:howtobuild:build.wndr3700"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howtobuild/build.wndr3700" class="media" title="pt-br:doc:howtobuild:build.wndr3700"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howtobuild/build.wndr3700" class="media" title="ru:doc:howtobuild:build.wndr3700"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howtobuild/build.wndr3700" class="media" title="tr:doc:howtobuild:build.wndr3700"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howtobuild/build.wndr3700" class="media" title="zh-cn:doc:howtobuild:build.wndr3700"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howtobuild/build.wndr3700" class="media" title="zh-tw:doc:howtobuild:build.wndr3700"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howtobuild:build.wndr3700</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="build.wndr3700#prerequisites">Prerequisites</a></div></li>
+<li class="level1"><div class="li"><a href="build.wndr3700#configuration">Configuration</a></div></li>
+<li class="level1"><div class="li"><a href="build.wndr3700#installation">Installation</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="building_openwrt_for_netgear_wndr3700">Building OpenWrt for Netgear WNDR3700</h1>
+<div class="level1">
+
+<p>
+<strong>WNDR3700 Developers&#039; Overview</strong>
+</p>
+
+<p>
+This page contains, thus far, one user&#039;s complete notes on how to build a working OpenWrt WNDR3700 image from scratch, including working wireless on 2.4 <abbr title="Gigahertz">GHz</abbr> and 5 <abbr title="Gigahertz">GHz</abbr> bands. This page assumes that you are comfortable with building software and using kernel-style makefile systems, but otherwise, the page describes how to build the system from the ground up (including getting your base <abbr title="Operating System">OS</abbr> ready to build OpenWrt in the first place).
+</p>
+
+<p>
+This page also describes the method used to unbrick a WNDR3700 (which does NOT require a serial cable), as well as optional instructions for manufacturing a serial cable (should you wish to use it for running ramdisk images).
+</p>
+
+<p>
+These instructions are working fine as of the relatively-recent trunk revision 19064.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="prerequisites">Prerequisites</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="../howto/buildroot.exigence" class="wikilink1" title="doc:howto:buildroot.exigence">OpenWrt Buildroot – Installation</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../howto/obtain.firmware.compile" class="wikilink1" title="doc:howto:build">OpenWrt Buildroot – Usage</a></div>
+</li>
+</ul>
+
+<p>
+Until WNDR3700 support is integrated into a release, you&#039;ll need to execute the following commands to pull down the latest bleeding-edge code:
+</p>
+
+<p>
+<pre class="code bash"><span class="kw3">cd</span> ~
+<span class="kw2">mkdir</span> openwrt
+<span class="kw3">cd</span> openwrt
+<span class="kw2">svn co</span> svn:<span class="sy0">//</span>svn.openwrt.org<span class="sy0">/</span>openwrt<span class="sy0">/</span>trunk<span class="sy0">/</span></pre>
+
+</p>
+
+<p>
+If you also want to check out the extra packages that can be installed on your system (including the helpful <code>ntpclient</code> and the <em>WebUI LuCI</em>), you can also run this:
+</p>
+
+<p>
+<pre class="code bash"><span class="kw3">cd</span> ~<span class="sy0">/</span>openwrt<span class="sy0">/</span>trunk
+.<span class="sy0">/</span>scripts<span class="sy0">/</span>feeds update packages luci
+.<span class="sy0">/</span>scripts<span class="sy0">/</span>feeds <span class="kw2">install</span> <span class="re5">-a</span> <span class="re5">-p</span> luci
+.<span class="sy0">/</span>scripts<span class="sy0">/</span>feeds <span class="kw2">install</span> <span class="sy0">&lt;</span>package_name<span class="sy0">&gt;</span></pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="configuration">Configuration</h2>
+<div class="level2">
+
+<p>
+Run the OpenWrt&#039;s BuildRoot menu configuration system to get started:
+</p>
+
+<p>
+<pre class="code bash"><span class="kw3">cd</span> ~<span class="sy0">/</span>openwrt<span class="sy0">/</span>trunk
+<span class="kw2">make</span> menuconfig</pre>
+
+</p>
+
+<p>
+Make the following selections beyond the defaults. You might be able to get away with building things as kernel modules instead of built-in, but the author has not tried.
+</p>
+<ol>
+<li class="level1"><div class="li"> Target System: Atheros AR71xx/AR7240/AR913x</div>
+</li>
+<li class="level1"><div class="li"> Target Profile: NETGEAR WNDR3700</div>
+</li>
+<li class="level1"><div class="li"> Target Images: if you want to build a ramdisk image, select &quot;ramdisk&quot; and ensure that LZMA compression is listed. Otherwise, leave the defaults alone (should be jffs2, squashfs and tgz). You seemingly need to rebuild everything except the toolchain if you want to switch from the ramdisk to a firmware image or vice versa.</div>
+</li>
+<li class="level1"><div class="li"> Image Configuration: Use this section to set up the defaults for the <abbr title="Local Area Network">LAN</abbr> ports on your router. If you don&#039;t have a serial cable connected to the router, you&#039;ll need to do this so that you can access the router once your newly-flashed code boots up. I recommend entering values for <abbr title="Domain Name System">DNS</abbr> server (on your ISP&#039;s network), <abbr title="Local Area Network">LAN</abbr> network mask (for the addresses to be doled out via DHCP), and <abbr title="Local Area Network">LAN</abbr> IP address (private IP address on your router&#039;s side). </div>
+<ul>
+<li class="level2"><div class="li"> eg. <abbr title="Local Area Network">LAN</abbr> <abbr title="Domain Name System">DNS</abbr> = (whatever your ISP tells you to use), <abbr title="Local Area Network">LAN</abbr> network mask=255.255.255.0, <abbr title="Local Area Network">LAN</abbr> IP address=192.168.0.1</div>
+</li>
+<li class="level2"><div class="li"> NOTE: <strong>pfk3</strong> didn&#039;t do this step and by default OpenWrt was built with 192.168.1.1 &amp; 255.255.255.0 for it&#039;s <abbr title="Local Area Network">LAN</abbr> IP/subnet.</div>
+</li>
+<li class="level2"><div class="li"> NOTE: You still have to &quot;*&quot; this option in order for the router to be on the network. You don&#039;t have to change the settings though</div>
+</li>
+<li class="level2"><div class="li"> NOTE: It is not possible to set this feature in the latest <a href="https://dev.openwrt.org/changeset/31258/" class="urlextern" title="https://dev.openwrt.org/changeset/31258/"  rel="nofollow">attitude adjustment</a> release.  See this <a href="http://www.mail-archive.com/openwrt-devel@lists.openwrt.org/msg15992.html" class="urlextern" title="http://www.mail-archive.com/openwrt-devel@lists.openwrt.org/msg15992.html"  rel="nofollow">mailing list post</a> for more information.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Network → CRDA = YES (compile as built-in package with &quot;*&quot;, not as a module with &quot;M&quot;)</div>
+</li>
+<li class="level1"><div class="li"> Kernel Modules → LED Modules → kmod-leds-wndr3700-usb = YES (compile as built-in driver as &quot;*&quot;, not as a module with &quot;M&quot;)</div>
+</li>
+<li class="level1"><div class="li"> Kernel Modules → Wireless Drivers → kmod-ath → Configuration → Force Atheros drivers to respect the user&#039;s regdomain settings = YES</div>
+</li>
+</ol>
+
+<p>
+If you want to slap a USB memory stick in the back of your router to allow you to install many more packages read the pages <a href="../howto/usb.essentials" class="wikilink1" title="doc:howto:usb.essentials">USB Basic Support</a> and <a href="../howto/usb.storage" class="wikilink1" title="doc:howto:usb.storage">USB Storage</a>.
+</p>
+
+<p>
+A sample .config file is linked to below. If you use this, at the very least, you will need to edit the <abbr title="Domain Name System">DNS</abbr> server address listed in the &quot;image configuration&quot; step (see #4 above).
+</p>
+
+<p>
+Type 
+<pre class="code">make</pre>
+
+and it should merrily build away for at least a good half hour (or more). When you&#039;re done, you should have the resulting binaries stored in <code>~/openwrt/trunk/bin/ar71xx</code>. As of trunk revision 25119, separate binaries will be created for the WNDR3700v1 and WNDR3700v2.
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="installation">Installation</h2>
+<div class="level2">
+
+<p>
+Please see <a href="../../toh/netgear/wndr37av#installation" class="wikilink1" title="toh:netgear:wndr3700">WNDR3700 - Installation</a> or <a href="../howto/installing" class="wikilink1" title="doc:howto:generic.flashing">OpenWrt - Installation</a>
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howtobuild/build.wndr3700.txt</bdi> · Last modified: 2013/01/01 22:43 by <bdi>deezer</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="build.wndr3700?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="build.wndr3700?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="build.wndr3700?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="build.wndr3700#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowtobuild%253Abuild.wndr3700&amp;1432265696" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

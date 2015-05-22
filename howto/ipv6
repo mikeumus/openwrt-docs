@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>IPv6 HowTo for Backfire and Attitude Adjustment until 12.09 [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,ipv6"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="ipv6?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/ipv6"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/ipv6"/>
+<link rel="canonical" href="ipv6"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:ipv6","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267354 166.182.3.89';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="ipv6#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="ipv6?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="ipv6?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:ipv6" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="ipv6?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="ipv6?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="ipv6?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="ipv6" class="wikilink1" title="doc:howto:ipv6">IPv6 HowTo for Backfire and Attitude Adjustment until 12.09</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/ipv6" class="media" title="cz:doc:howto:ipv6"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/ipv6" class="media" title="de:doc:howto:ipv6"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="ipv6" class="media" title="doc:howto:ipv6"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/ipv6" class="media" title="es:doc:howto:ipv6"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/ipv6" class="media" title="fr:doc:howto:ipv6"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/ipv6" class="media" title="hu:doc:howto:ipv6"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/ipv6" class="media" title="jp:doc:howto:ipv6"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/ipv6" class="media" title="pl:doc:howto:ipv6"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/ipv6" class="media" title="pt-br:doc:howto:ipv6"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/ipv6" class="media" title="ru:doc:howto:ipv6"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/ipv6" class="media" title="tr:doc:howto:ipv6"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../zh-cn/doc/howto/ipv6" class="media" title="zh-cn:doc:howto:ipv6"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/ipv6" class="media" title="zh-tw:doc:howto:ipv6"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:ipv6</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level2"><div class="li"><a href="ipv6#native_ipv6_access">Native IPv6 access</a></div></li>
+<li class="level2"><div class="li"><a href="ipv6#in4_tunneling">6in4 tunneling</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="ipv6#requirements">Requirements</a></div></li>
+<li class="level3"><div class="li"><a href="ipv6#static_6in4_tunneling">Static 6in4 tunneling</a></div></li>
+<li class="level3"><div class="li"><a href="ipv6#dynamic_6in4_tunneling">Dynamic 6in4 tunneling</a></div></li>
+<li class="level3"><div class="li"><a href="ipv6#firewalling">Firewalling</a></div></li>
+<li class="level3"><div class="li"><a href="ipv6#routing">Routing</a></div></li>
+<li class="level3"><div class="li"><a href="ipv6#troubleshooting">Troubleshooting</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="ipv6#to4_6rd">6to4, 6rd</a></div></li>
+<li class="level2"><div class="li"><a href="ipv6#tsp_tunneling">TSP Tunneling</a></div></li>
+<li class="level2"><div class="li"><a href="ipv6#nat64_tunneling">NAT64 tunneling</a></div></li>
+<li class="level2"><div class="li"><a href="ipv6#ipv6_on_softwire">IPv6 on softwire</a></div></li>
+<li class="level1"><div class="li"><a href="ipv6#propagate_ipv6_subnet_to_lan">Propagate IPv6 subnet to LAN</a></div></li>
+<li class="level2"><div class="li"><a href="ipv6#radvd">RADVD</a></div></li>
+<li class="level2"><div class="li"><a href="ipv6#wide-dhcpv6-server">wide-dhcpv6-server</a></div></li>
+<li class="level2"><div class="li"><a href="ipv6#dnsmasq-dhcpv6">dnsmasq-dhcpv6</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="ipv6#troubleshooting2">Troubleshooting</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="ipv6#directly_forward_isp_s_ndp_proxy_address_to_lan">Directly forward ISP&#039;s NDP proxy address to LAN</a></div></li>
+<li class="level2"><div class="li"><a href="ipv6#dns_check_and_configuration">DNS check and configuration</a></div></li>
+<li class="level2"><div class="li"><a href="ipv6#ipv6_only_access">IPv6 only access</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="ipv6#nat64">NAT64</a></div></li>
+<li class="level3"><div class="li"><a href="ipv6#dns64">DNS64</a></div></li>
+<li class="level3"><div class="li"><a href="ipv6#nat-pt">NAT-PT</a></div></li>
+<li class="level3"><div class="li"><a href="ipv6#dstm">DSTM</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="ipv6#privacy_extensions">Privacy Extensions</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="ipv6#microsoft_windows">Microsoft Windows</a></div></li>
+<li class="level3"><div class="li"><a href="ipv6#notes">Notes</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="ipv6#packet_filter">Packet filter</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="ipv6_howto_for_backfire_and_attitude_adjustment_until_1209">IPv6 HowTo for Backfire and Attitude Adjustment until 12.09</h1>
+<div class="level1">
+<div class="table sectionedit2"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/48px-construction.svg.png" class="media" alt="" /> </td><td class="col1"> This guide DOES not apply to Attitude Adjustment AFTER 12.09, Barrier Breaker or any other upcoming releases. See <a href="../uci/network6" class="wikilink1" title="doc:uci:network6">OpenWrt native IPv6-stack</a> for new documentation. </td>
+	</tr>
+</table></div>
+<div class="table sectionedit3"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/dialog-warning.png" class="media" alt="" /> </td><td class="col1"> Please make sure that ip6tables is installed and enabled before setting up ipv6 interfaces! <pre class="code"> opkg update &amp;&amp; opkg install ip6tables kmod-ip6tables &amp;&amp; fw restart </pre>
+ </td>
+	</tr>
+</table></div>
+
+<p>
+Please also see →<a href="ipv6.theory" class="wikilink1" title="doc:howto:ipv6.theory">ipv6.theory</a> for a load of links to IPv6 related documentation.
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="native_ipv6_access">Native IPv6 access</h3>
+<div class="level3">
+
+<p>
+For this, you need to obtain an IPv6 address from your ISP. Technically this could be a /128 prefix (exactly one IPv6 address), but according to <a href="http://tools.ietf.org/html/rfc6177" class="urlextern" title="http://tools.ietf.org/html/rfc6177"  rel="nofollow">rfc6177</a> this should be a /64 prefix. You may also get bigger range, like /56 or /48. Within this range you may use all the IPv6 addresses to your liking without any NAT-induced headaches.
+</p>
+
+<p>
+Some of the ISPs currently known to support IPv6 to the customer are listed here: <a href="ipv6.isp" class="wikilink1" title="doc:howto:ipv6.isp">ipv6.isp</a>.
+</p>
+
+<p>
+In the following example, the assigned prefix is <strong>2001:123:456::/48</strong>. Within this prefix, I choose to affect the network <strong>2001:123:456:789::/64</strong> to the internal <abbr title="Local Area Network">LAN</abbr>. The router has the fixed IP <strong>2001:123:456:789::1</strong>
+</p>
+
+<p>
+<code><a href="../uci/network" class="wikilink1" title="doc:uci:network">/etc/config/network</a></code>:
+</p>
+<div class="table sectionedit5"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config interface lan
+	option ifname	eth1
+	option type	bridge
+	option proto	static
+	option ipaddr	192.168.1.1
+	option netmask	255.255.255.0
+	<strong>option ip6addr &#039;2001:123:456:789::1/64&#039;</strong>
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+When using <em class="u">PPPoEv6</em>, enable ipv6. You may also further reduce the MTU from 1492 to 1452: Experience shows that it prevents many problems. You can try to increase this size, not bigger than 1492.
+</p>
+<div class="table sectionedit6"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>config interface wan
+	option ifname	eth0
+	option proto	pppoe
+	option username &#039;&lt;username&gt;&#039;
+	option password &#039;&lt;password&gt;&#039;
+	option keepalive 5
+	option defaultroute 1
+	option peerdns 1
+	<strong>option ipv6 1</strong>
+	<strong>option mtu 1452</strong>
+</code></td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit7" id="in4_tunneling">6in4 tunneling</h3>
+<div class="level3">
+
+<p>
+<a href="http://en.wikipedia.org/wiki/6in4" class="urlextern" title="http://en.wikipedia.org/wiki/6in4"  rel="nofollow">6in4</a> is a method to encapsulate IPv6 traffic into an IPv4 tunnel. It is mostly used by tunnel brokers and requires manual configuration.
+</p>
+
+<p>
+A very excellent forum topic on the topic of a static 6in4 tunnels is at <a href="https://forum.openwrt.org/viewtopic.php?pid=126285" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?pid=126285"  rel="nofollow">https://forum.openwrt.org/viewtopic.php?pid=126285</a>
+</p>
+
+<p>
+Both resources assume a static prefix, and thus a manual configuration.
+</p>
+
+<p>
+The ISP known to use this are:
+</p>
+<ol>
+<li class="level1"><div class="li"> <a href="http://en.gentoo-wiki.com/wiki/IPV6_And_Freebox" class="urlextern" title="http://en.gentoo-wiki.com/wiki/IPV6_And_Freebox"  rel="nofollow"> Free.fr </a> (France)</div>
+</li>
+</ol>
+
+</div>
+
+<h4 id="requirements">Requirements</h4>
+<div class="level4">
+
+<p>
+The package <strong>6in4</strong> must be installed to use this protocol. This package is available in Backfire 10.3.1-rc4 and later.
+<pre class="code">opkg update &amp;&amp; opkg install 6in4</pre>
+
+</p>
+
+<p>
+Notes:
+</p>
+<ul>
+<li class="level1"><div class="li"> Examples of 6in4 tunneling are also on the <a href="../uci/network#protocol.6in4.ipv6-in-ipv4.tunnel" class="urlextern" title="http://wiki.openwrt.org/doc/uci/network#protocol.6in4.ipv6-in-ipv4.tunnel"  rel="nofollow"> config/network </a> page.</div>
+</li>
+<li class="level1"><div class="li"> For this connectivity mechanism, a third &quot;interface&quot; is created which will become the default outgoing interface for IPv6 packets.</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="static_6in4_tunneling">Static 6in4 tunneling</h4>
+<div class="level4">
+
+<p>
+<a href="../uci/network" class="wikilink1" title="doc:uci:network">/etc/config/network</a> for static tunneling:
+</p>
+<div class="table sectionedit8"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>config interface henet
+	option proto    6in4
+	option ipaddr   &#039;178.24.115.19&#039; 
+	option peeraddr &#039;216.66.80.30&#039; 
+	option ip6addr  &#039;2001:0db8:1f0a:1359::2/64&#039;
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+<strong>Note:</strong> you may want to check that your public IP is matching the IP address on your WAN interface. Details in <a href="../uci/network#setupbehindone-to-onenat" class="wikilink1" title="doc:uci:network">Static IPv6-in-IPv4 tunnel behind one-to-one NAT</a>.
+</p>
+
+</div>
+
+<h4 id="dynamic_6in4_tunneling">Dynamic 6in4 tunneling</h4>
+<div class="level4">
+
+<p>
+The example below illustrates a dynamic tunnel configuration for the <a href="http://he.net/" class="urlextern" title="http://he.net/"  rel="nofollow"> Hurricane Electric </a> broker with dynamic IP update enabled. The local IPv4 address is automatically determined and tunnelid, username and password are provided for IP update.
+</p>
+
+<p>
+<a href="../uci/network" class="wikilink1" title="doc:uci:network">/etc/config/network</a> for dynamic tunneling:
+</p>
+<div class="table sectionedit9"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>config interface henet
+	option proto 6in4
+	option peeraddr  &#039;216.66.80.30&#039;
+	option ip6addr   &#039;2001:0db8:1f0<strong><em class="u">a</em></strong>:1359::2/64&#039;
+        # see notes below for why ip6prefix is required
+	option ip6prefix &#039;2001:0db8:1f0<strong><em class="u">b</em></strong>:1359::2/64&#039;
+	option tunnelid  &#039;12345&#039;
+	option username  &#039;username&#039;
+        # you no longer need to use your portal password (see notes below)
+	# option password  &#039;password&#039;
+	# use updatekey for security
+        option updatekey &#039;updatekey&#039;
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+In this example configuration:
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>178.24.115.10</strong> is the local IPv4 address (assigned by ISP)</div>
+</li>
+<li class="level1"><div class="li"> <strong>216.66.80.30</strong>  is the remote IPv4 address (the other side of the tunnel)</div>
+</li>
+<li class="level1"><div class="li"> <strong>2001:0db8:1f0a:1359::2/64</strong> is the local IPv6 tunnel endpoint (labeled &quot;Client IPv6 Address&quot; on the Tunnel Details page in your HE account).</div>
+</li>
+</ul>
+
+<p>
+as of change set 41358
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>tunnelid</strong> is provided by the tunnel broker. </div>
+</li>
+<li class="level1"><div class="li"> <strong>username</strong>, <strong>password</strong> and <strong>updatekey</strong> are the <strong><em>plain text</em></strong>  entries from your HE Tunnel Broker account.</div>
+</li>
+</ul>
+
+<p>
+and the following no longer applies
+</p>
+
+<p>
+<del><img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> For Hurricane Electric tunnels, the username is NOT the username for tunnelbroker.net. The username is the user id listed on the main page of your tunnelbroker.net account (called the &quot;<abbr title="Application Programming Interface">API</abbr> Key&quot; elsewhere). The password is the md5 hash of the tunnelbroker.net password. For details, see <a href="http://ipv4.tunnelbroker.net/ipv4_end.php" class="urlextern" title="http://ipv4.tunnelbroker.net/ipv4_end.php"  rel="nofollow">http://ipv4.tunnelbroker.net/ipv4_end.php</a></del>
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> (from notes here <a href="../uci/network#protocoldhcpv6" class="wikilink1" title="doc:uci:network">protocol.dhcpv6</a>) HE.net has introduced updatekey as default for new tunnels in February 2014.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> (from notes here <a href="../uci/network#protocoldhcpv6" class="wikilink1" title="doc:uci:network">protocol.dhcpv6</a>) although ip6prefix isn&#039;t required, sourcerouting, enabled by default, will prevent forwarding of packets unless ip6prefix is specified.
+</p>
+
+<p>
+With Attitude Adjustment, once you have added the above interface definition you have to run /etc/init.d/network restart in order to have it effected.
+</p>
+
+<p>
+This tunnel, like a VPN, creates a third network interface, called <strong>henet</strong> in this example. A default IPv6 route using this interface is automatically created when this interface connects successfully.
+</p>
+
+</div>
+
+<h4 id="firewalling">Firewalling</h4>
+<div class="level4">
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> To apply IPv6 firewall rules to the tunnel interface, add it to the &quot;wan&quot; zone in <code><a href="../uci/firewall" class="wikilink1" title="doc:uci:firewall">/etc/config/firewall</a></code>:
+</p>
+<div class="table sectionedit10"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>config &#039;zone&#039;
+	option &#039;name&#039; &#039;wan&#039;
+	<strong>option &#039;network&#039; &#039;wan henet&#039;</strong>
+	option &#039;input&#039; &#039;REJECT&#039;
+	option &#039;forward&#039; &#039;REJECT&#039;
+	option &#039;output&#039; &#039;ACCEPT&#039;
+	option &#039;masq&#039; &#039;1&#039; 
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> To allow 6in4 traffic to always reach your tunnel endpoint, it may be necessary to pass IPv4 protocol 41 traffic with the following firewall configuration stanza:
+</p>
+<div class="table sectionedit11"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>config rule
+        option src      wan
+        option proto    41
+        option target   ACCEPT
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+You will need the ip6tables package for these firewall rules to work. You can run the following command to install this package:
+</p>
+
+<p>
+<pre class="code">opkg update &amp;&amp; opkg install ip6tables kmod-ip6tables</pre>
+
+</p>
+
+</div>
+
+<h4 id="routing">Routing</h4>
+<div class="level4">
+
+</div>
+
+<h5 id="routed_addresses">Routed Addresses</h5>
+<div class="level5">
+
+<p>
+To enable routing of IPv6 traffic through the tunnel, add a static IPv6 address <strong>in a valid routed subnet</strong> to the local-facing interface. 
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> For Hurricane Electric tunnels, the prefix for the routed subnet is specified in tunnel details page on tunnelbroker.net in the Routed IPv6 Prefixes section, and is formed by incrementing the last digit of the third quad in the tunneling prefix. For example, if the IP address <code>2001:0db8:<strong>1f0a</strong>:1359::2/64</code> is the local IPv6 tunnel endpoint, the local interface would be assigned an address in <code>2001:0db8:<strong>1f0b</strong>:1359::/64</code> subnet, typically <code>2001:0db8:1f0b:1359::1/64</code>
+</p>
+<div class="table sectionedit12"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>config interface lan
+        option ifname   eth0
+        option type     bridge
+        option proto    static
+        option ipaddr   192.168.1.1
+        option netmask  255.255.255.0
+        <strong>option ip6addr  &#039;2001:0db8:<em class="u">1f0b</em>:1359::1/64&#039;</strong>
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+Clients that auto-configure using <a href="http://en.wikipedia.org/wiki/SLAAC#Stateless_address_autoconfiguration_.28SLAAC.29" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/SLAAC#Stateless_address_autoconfiguration_.28SLAAC.29">SLAAC (stateless address auto-configuration)</a> will need to know this routed prefix. To broadcast the prefix to clients on the local network, use <a href="../uci/radvd" class="wikilink1" title="doc:uci:radvd">radvd</a>.
+</p>
+
+</div>
+
+<h5 id="packet_forwarding">Packet Forwarding</h5>
+<div class="level5">
+
+<p>
+The router must be configured forward packets between the remote and local interfaces. See the <a href="ipv6.essentials#enablerouting" class="wikilink1" title="doc:howto:ipv6.essentials">Enable Routing</a> section. The forwarding is enabled by default in trunk, but must be manually enabled in Backfire.
+</p>
+
+</div>
+
+<h5 id="enable_routing_in_backfire">Enable Routing in Backfire</h5>
+<div class="level5">
+
+<p>
+To forward packets between interfaces, a kernel-level setting must be enabled. To enable packet forwarding, edit /etc/sysctl.conf
+</p>
+
+<p>
+And uncomment the following line in /etc/sysctl.conf:	 
+<pre class="code"># net.ipv6.conf.all.forwarding=1</pre>
+
+</p>
+
+<p>
+The line should look like this:	 
+<pre class="code">net.ipv6.conf.all.forwarding=1</pre>
+
+</p>
+
+<p>
+Now restart sysctl to apply the new setting.	 
+<pre class="code">/etc/init.d/sysctl restart</pre>
+
+To verify the setting has been applied, issue the following command:	 
+<pre class="code">cat /proc/sys/net/ipv6/conf/all/forwarding</pre>
+
+should return <code>1</code>
+</p>
+
+</div>
+
+<h4 id="troubleshooting">Troubleshooting</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Enable firewall logging</div>
+</li>
+<li class="level1"><div class="li"> On the router, ping ipv6.google.com</div>
+</li>
+<li class="level1"><div class="li"> On a local host, ping the public IP address of the router&#039;s local interface (<code>2001:0db8:1f0b:1359::1</code> in the example configuration).</div>
+</li>
+<li class="level1"><div class="li"> On a local host, ping ipv6.google.com </div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit13" id="to4_6rd">6to4, 6rd</h3>
+<div class="level3">
+
+<p>
+(Note: This section lack the 6rd example, so this is for 6to4)
+</p>
+
+<p>
+<a href="http://en.wikipedia.org/wiki/6to4" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/6to4">6to4</a> is a translation mechanism to transform ipv6 packets into IPv4, and back, using specific relay servers.<br/>
+
+</p>
+
+<p>
+<a href="http://en.wikipedia.org/wiki/IPv6_rapid_deployment" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/IPv6_rapid_deployment">6rd (rapid deployment)</a> is similar to 6to4 with some restrictions for large ISP routing.
+However it is only supported in kernel superior or equal to 2.6.33 due to specific routing scheme.
+</p>
+
+<p>
+In order for 6to4 to work, you need to install the package 6to4 and kmod-sit available from 10.03.1-rc4.
+</p>
+
+<p>
+<pre class="code">opkg install 6to4 kmod-sit</pre>
+
+</p>
+
+<p>
+If, like me, you are working with 10.03, you can still install by downloading the package from the newer source.
+</p>
+
+<p>
+<code>opkg install <a href="http://downloads.openwrt.org/backfire/10.03.1-rc4/brcm47xx/packages/6to4_2-1_all.ipk" class="urlextern" title="http://downloads.openwrt.org/backfire/10.03.1-rc4/brcm47xx/packages/6to4_2-1_all.ipk"  rel="nofollow">http://downloads.openwrt.org/backfire/10.03.1-rc4/brcm47xx/packages/6to4_2-1_all.ipk</a></code>
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Replace brcm47xx with the architecture you are working with.
+</p>
+
+<p>
+For this connectivity mechanism, a third &quot;interface&quot; is created which will become the default outgoing interface for IPv6 packets.
+</p>
+
+<p>
+An example of <a href="../uci/network" class="wikilink1" title="doc:uci:network">/etc/config/network</a> for the ISP &quot;Qfast.nl&quot;, or any ISP for that matter, may be:
+</p>
+<div class="table sectionedit14"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>config interface 6rd
+	option proto    6to4
+        option adv_subnet    1 # Selects the advertised /64 prefix, default 1 if not specified
+        option adv_interface lan
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+Although there are many more options, most of those (like ipaddress and the advertising interface) are configured automatically by default.
+Just check out <a href="../uci/network" class="wikilink1" title="doc:uci:network">/etc/config/network</a> and search for the paragraph 6to4.
+</p>
+
+<p>
+Even <code>radvd</code> and your lan interface is configured automatically by default by taking the lan interface and a /64 prefix of the external IP-range to be routed on.
+All you need to do is change the <code>ignore 1</code> on the interface to <code>ignore 0</code>. Also remember to enable radvd (<code>/etc/init.d/radvd enable</code>) before doing <code>ifup</code> on the 6to4 interface. Otherwise the auto configuration of radvd will fail.
+</p>
+
+<p>
+My <a href="../uci/radvd" class="wikilink1" title="doc:uci:radvd">/etc/config/radvd</a> looks as follows:
+</p>
+<div class="table sectionedit15"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>config interface
+        option interface        &#039;lan&#039;
+        option AdvSendAdvert    1
+        option AdvManagedFlag   0
+        option AdvOtherConfigFlag 0
+        <strong>option ignore           0</strong>
+
+config prefix
+        option interface        &#039;lan&#039;
+        # If not specified, a non-link-local prefix of the interface is used
+        option prefix           \&#039;\&#039; #These are supposed to be 2 single-quotes
+        option AdvOnLink        1
+        option AdvAutonomous    1
+        option AdvRouterAddr    0
+        option ignore           1</code></td>
+	</tr>
+</table></div>
+
+<p>
+To apply IPv6 firewall rules to the tunnel interface, add it to the &quot;wan&quot; zone in <a href="../uci/firewall" class="wikilink1" title="doc:uci:firewall">/etc/config/firewall</a>:
+</p>
+<div class="table sectionedit16"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>config zone
+	option name &#039;wan&#039;
+	<strong>option network &#039;wan 6rd&#039;</strong>
+	option input   REJECT
+	option forward REJECT
+	option output  ACCEPT
+	option masq    1
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+Add the following rules to your <a href="../uci/firewall" class="wikilink1" title="doc:uci:firewall">/etc/config/firewall</a> to allow incoming encapsulated IPv6 packets:
+</p>
+<div class="table sectionedit17"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>config &#039;rule&#039;
+        option &#039;target&#039; &#039;ACCEPT&#039;
+        option &#039;name&#039; &#039;6to4&#039;
+        option &#039;src&#039; &#039;wan&#039;
+        option &#039;proto&#039; &#039;41&#039;
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+This can also be done via the <a href="../luci" class="wikilink1" title="doc:howto:luci.essentials">LuCI webinterface</a>.
+</p>
+
+<p>
+(note: option &#039;target&#039; &#039;DROP&#039;  stealthed the tunnel; did this along along with dropping UDP and ICMP on the UCI firewall configuration)
+</p>
+
+<p>
+<em>rem: In my configuration, lan interface did not obtain global ipv6 address automatically, while computers in lan did. Because of this ipv6 sites were available when accessing from router, but were inaccessible from lan. Manually adding global ipv6 address to lan interface solved this issue. For example: </em>
+<pre class="code"> ifconfig lan-br 2002:a5a6:2131:1::1/64 </pre>
+ <em> for 2002:a5a6:2131::1/16 6rd address </em>
+</p>
+
+<p>
+<em>hejnm1am: You need to install package &#039;ip&#039; to fix this. See <a href="https://dev.openwrt.org/ticket/14420" class="urlextern" title="https://dev.openwrt.org/ticket/14420"  rel="nofollow">https://dev.openwrt.org/ticket/14420</a>.
+Either install &#039;ip&#039; package or change line 163 in /lib/netifd/proto/6to4.sh to use ifconfig.
+</em>
+</p>
+
+</div>
+
+<h3 class="sectionedit18" id="tsp_tunneling">TSP Tunneling</h3>
+<div class="level3">
+
+<p>
+The <a href="http://en.wikipedia.org/wiki/Tunnel_Setup_Protocol" class="urlextern" title="http://en.wikipedia.org/wiki/Tunnel_Setup_Protocol"  rel="nofollow"> Tunnel Setup Protocol </a> is used by some tunnel brokers.
+<a href="http://www.go6.net/" class="urlextern" title="http://www.go6.net/"  rel="nofollow"> Gogo6</a> (ex Freenet6) is one of the most popular and offers free service for individuals.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> The packages <strong>gw6c and kmod-sit</strong> must be installed to use this protocol (e.g.: <code>opkg update &amp;&amp; opkg install gw6c kmod-sit</code>).
+</p>
+
+<p>
+<strong>gw6c</strong> is configured through a specific config file: <a href="http://wiki.openwrt.org/doc/uci/gw6c" class="wikilink2" title="doc:uci:gw6c" rel="nofollow">/etc/config/gw6c</a>.
+</p>
+
+<p>
+First create a free account on freenet6 <a href="http://gogonet.gogo6.com/page/freenet6-registration" class="urlextern" title="http://gogonet.gogo6.com/page/freenet6-registration"  rel="nofollow"> here</a> then procede to fill gw6c configuration file on your router.
+</p>
+
+<p>
+The example below assumes the user have an account, required to redistribute a prefix on a <abbr title="Local Area Network">LAN</abbr>.
+The userid/passwd fields must be filled with the above registration credentials.
+</p>
+<div class="table sectionedit19"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>config gw6c basic
+	#Comment out next line to enable gw6c
+	<strong>option disabled		0</strong>
+
+	#Leave empty if connecting anonymously	
+	<strong>option userid &lt;YOURFREENET6USERID&gt;</strong>
+	<strong>option passwd &lt;YOURFREENET6PASSWD&gt;</strong>
+	
+	#For anonymous use anon.frenet6.net and
+	#account holders should use broker.freenet6.net
+	<strong>option server		authenticated.freenet6.net</strong>
+	
+	#auth_method &lt;anonymous|any|passds-3des-1|digest-md5|plain&gt;
+	#Use anonymous with anonymous access and
+	#any if you are account holder
+	<strong>option auth_method	any</strong>
+
+config gw6c routing
+	#host_type &lt;host|router&gt;
+	<strong>option host_type	router</strong>
+	<strong>option prefixlen	64</strong>
+	option ifprefix		br-lan
+
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> prefixlen 64 did not work for me; prefixlen 56 works !
+	
+	#<abbr title="Domain Name System">DNS</abbr> server list to which the reverse prefix
+	#will be delegated. Separate servers with :
+	option dns_server
+	
+config gw6c advanced
+	#Location where to store configuration file
+	option gw6c_conf	/tmp/gw6c.conf
+	option gw6c_dir		/usr/share/gw6c
+	option auto_retry	yes
+	option retry_delay	30
+	option keepalive	yes
+	#keepalive interval
+	option interval		30
+	#tunnel_mode &lt;v6v4|v6udpv4|v6anyv4|v4v6&gt;
+	option if_tunnel_mode	v6anyv4
+	option if_v6v4		sit1
+	option if_v6udpv4	tun
+	option if_v4v6		sit0
+	option client_v4	auto
+	option client_v6	auto
+	option template		openwrt
+	option proxy_client	no
+
+config gw6c broker
+	<strong>option broker_list	/etc/config/gw6c-broker-list.txt</strong>
+	<strong>option last_server	/etc/config/gw6c-last-server.txt</strong>
+	# Always use last known working server? &lt;yes|no&gt;
+	option always_same_serv	no
+
+config gw6c logging
+	option log_console	0
+	option log_stderr	1
+	<strong>option log_file		1</strong> #optional, good for debugging
+	option log_syslog	0
+	
+	option log_filename	/var/log/gw6c.log
+	option log_rotation	yes
+	#Max size when using log file rotation
+	#possible values: 16|32|128|1024
+	option log_maxsize	32
+	
+	#&lt;USER|LOCAL[0-7]&gt;
+	option syslog_facility	USER
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> When installed the program <strong>gw6c</strong> takes care of a lot of details itself, including radvd configuration : In this case, manual radvd configuration is <strong>not</strong> requiered: The <a href="../uci/radvd" class="wikilink1" title="doc:uci:radvd">/etc/config/radvd</a> <strong>must</strong> be kept disabled.
+</p>
+
+<p>
+Start Gateway6 client with the following command: <code>/etc/init.d/gw6c start</code><br/>
+
+Auto-start after Openwrt booted up: <code>/etc/init.d/gw6c enable</code><br/>
+
+Use <code>/etc/init.d/gw6c</code> with <code>reload</code> or <code>restart</code> to load the latest config file.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Untested - Please correct as needed
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> In newest ATTITUDE ADJUSTMENT dependencies might be broken. You might have to check manually if the Packet kmod-sit gets instaleld. If it is missing radvd startscript will fail: INTERFACE_SETUP_FAILED.
+</p>
+
+</div>
+
+<h3 class="sectionedit20" id="nat64_tunneling">NAT64 tunneling</h3>
+<div class="level3">
+
+<p>
+The <a href="http://www.networkworld.com/community/blog/testing-nat64-and-dns64" class="urlextern" title="http://www.networkworld.com/community/blog/testing-nat64-and-dns64"  rel="nofollow">NAT64</a> is one technique to provide to the user a routable ipv6 while using a NAT technique to keep access top IPv4 websites (The client may NOT have a routable IPv4 anymore).<br/>
+
+</p>
+
+<p>
+Some ISP are experimenting this:
+<a href="http://aaisp.net.uk/kb-broadband-ipv6-nat64.html" class="urlextern" title="http://aaisp.net.uk/kb-broadband-ipv6-nat64.html"  rel="nofollow">AAISP</a> (UK)
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> to be completed - please help ?
+</p>
+
+</div>
+
+<h3 class="sectionedit21" id="ipv6_on_softwire">IPv6 on softwire</h3>
+<div class="level3">
+
+<p>
+Some ISPs use so-called <code>&#039;softwires</code>&#039; to provide IPv6 connectivity (e.g. SFR in France). It&#039;s basically L2TP + PPP on top of IPv4, see <a href="ipv6.softwire" class="wikilink1" title="doc:howto:ipv6.softwire">ipv6.softwire</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit22" id="propagate_ipv6_subnet_to_lan">Propagate IPv6 subnet to LAN</h2>
+<div class="level2">
+
+<p>
+Once IPv6 works on the router, it is necessary to spread it on the internal network. Multiple methods are possible, from static routing to auto-configuration. For the latter, two options described below exist. Note that when using static WAN connection, you need to add lines
+</p>
+<pre class="code">option accept_ra 1
+option send_rs	0</pre>
+
+<p>
+to <code>config interface wan</code> section of your <a href="../uci/network" class="wikilink1" title="doc:uci:network">/etc/config/network</a>.
+</p>
+
+</div>
+
+<h3 class="sectionedit23" id="radvd">RADVD</h3>
+<div class="level3">
+
+<p>
+The <a href="http://www.litech.org/radvd/" class="urlextern" title="http://www.litech.org/radvd/"  rel="nofollow">router advertisement daemon (radvd)</a> is fully supported by OpenWRT. Please consult the <a href="../uci/radvd" class="wikilink1" title="doc:uci:radvd">radvd UCI page</a>, for a full complement of configuration options. 
+</p>
+
+<p>
+To begin with, install RADVD with:
+<pre class="code bash">opkg update <span class="sy0">&amp;&amp;</span> opkg <span class="kw2">install</span> radvd</pre>
+
+</p>
+
+<p>
+The simplest case is static IPv6 affectation:
+</p>
+
+<p>
+<a href="../uci/radvd" class="wikilink1" title="doc:uci:radvd">/etc/config/radvd</a>:
+</p>
+<div class="table sectionedit24"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>config interface
+	option interface	&#039;lan&#039;
+	option AdvSendAdvert	1
+	<strong>option AdvLinkMTU     1452</strong> # Optional - only provide if it is also provided in /etc/config/network
+	<strong>option ignore		0</strong> # Or delete the line altogether
+
+config prefix
+	option interface	&#039;lan&#039;
+	# Optional: only necessary if the lan interface has multiple
+	# global IP addresses assigned to it; or the subnet is larger than /64
+	<strong>option prefix		&#039;2001:123:456:789::/64&#039;</strong> # Optional
+	<strong>option ignore		0</strong> # Or delete the line altogether
+        
+config &#039;rdnss&#039;
+        option &#039;interface&#039; &#039;lan&#039;
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+This configuration is sufficient to enable radvd on the router, and broadcast auto-configuration announces (default routes and dns servers) to the clients on <abbr title="Local Area Network">LAN</abbr>.
+</p>
+
+<p>
+The MTU specified MUST be identical to the one set in the <code><a href="../uci/network" class="wikilink1" title="doc:uci:network">/etc/config/network</a></code> section, if provided. If you&#039;re connecting through a tunnel, ensure that your MTU matches that of your tunnel. Otherwise, do not provide it.
+</p>
+
+<p>
+Don&#039;t forget to enable radvd at boot. You can do this in the LuCI web interface at Administration → Services → Initscripts. Look for radvd and check whether it is enabled. To enable radvd at boot and to start radvd right now without rebooting, do
+</p>
+
+<p>
+<pre class="code">/etc/init.d/radvd enable
+/etc/init.d/radvd start</pre>
+
+</p>
+
+<p>
+use logread to check for start up messages
+</p>
+
+</div>
+
+<h3 class="sectionedit25" id="wide-dhcpv6-server">wide-dhcpv6-server</h3>
+<div class="level3">
+
+<p>
+This shows you how to set up DHCPv6 so that <abbr title="Local Area Network">LAN</abbr> clients have their IPv6 addresses from a pool, instead of concatenating random numbers, or some function of their MAC address, with your prefix.
+</p>
+
+<p>
+First, you need to install a DHCPv6 server
+</p>
+
+<p>
+<pre class="code">opkg update &amp;&amp; opkg install wide-dhcpv6-server</pre>
+
+</p>
+
+<p>
+Now enable the server in <a href="http://wiki.openwrt.org/doc/uci/dhcp6s" class="wikilink2" title="doc:uci:dhcp6s" rel="nofollow">/etc/config/dhcp6s</a>
+</p>
+<div class="table sectionedit26"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>config &#039;dhcp6s&#039; &#039;basic&#039;
+        <strong>option &#039;enabled&#039; &#039;1&#039;</strong>
+        option &#039;interface&#039; &#039;br-lan&#039;
+        option &#039;config_file&#039; &#039;/etc/dhcp6s.conf&#039;
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+Then create a config file <code>/etc/dhcp6s.conf</code> with something like:
+</p>
+<div class="table sectionedit27"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>interface br-lan {
+        address-pool pool1 86400;
+};
+
+pool pool1 {
+        range 2001:123:456:789::1000 to 2001:123:456:789::2000 ;
+};
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+This allocates addresses from a pool of 4096 with a lease time of 24 hours. 
+</p>
+
+<p>
+If you will need static IPv6 (::3000) assigned to host you can specify this with something like:
+</p>
+<div class="table sectionedit28"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>host somehostname {
+   duid 00:01:02:03:04:05:06:07:08:09:10:11:12:13;
+   address 2001:123:456:789::3000 infinity;
+};
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+Where duid is DHCPv6 Client DUID (can be found in Windows at &quot;ipconfig /all&quot; for example).
+</p>
+
+<p>
+Finally, you need to change some radvd settings so that it tells clients to use DHCPv6 to get the rest of their settings:
+</p>
+<div class="table sectionedit29"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>config interface
+        option interface        &#039;lan&#039;
+        option AdvSendAdvert    1
+        <strong>option AdvManagedFlag   1</strong>
+        <strong>option AdvOtherConfigFlag 1</strong>
+        option ignore           0
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+Then restart the services and you&#039;re away (hopefully!)
+</p>
+
+</div>
+
+<h5 id="troubleshooting1">troubleshooting</h5>
+<div class="level5">
+
+<p>
+If ps does not show dhcp6s running then you can run it interactively:
+</p>
+<div class="table sectionedit30"><table class="inline">
+	<tr class="row0">
+		<td class="col0">dhcp6s -s /etc/dhcp6s.conf -d -f -D br-lan</td>
+	</tr>
+</table></div>
+
+<p>
+(where br-lan is your local lan interface).  Things to check include:
+</p>
+<ol>
+<li class="level1"><div class="li"> the network interface (br-lan in the above) does not match</div>
+</li>
+<li class="level1"><div class="li"> typos in /etc/dhcp6s.conf</div>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit31" id="dnsmasq-dhcpv6">dnsmasq-dhcpv6</h3>
+<div class="level3">
+<div class="table sectionedit32"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/dialog-information.png" class="media" alt="" /> This feature is new and not yet supported by UCI. You will need Attitude Adjustment to make this work. </td>
+	</tr>
+</table></div>
+
+<p>
+We can use DHCPv6 enabled version of <code>dnsmasq</code> for:
+</p>
+<ol>
+<li class="level1"><div class="li"> Router advertisement</div>
+</li>
+<li class="level1"><div class="li"> Configuration of clients</div>
+<ul>
+<li class="level2"><div class="li"> SLAAC</div>
+</li>
+<li class="level2"><div class="li"> DHCPv6</div>
+</li>
+</ul>
+</li>
+</ol>
+
+<p>
+With <code>dnsmasq-dhcpv6</code> you will replace <code>dnsmasq</code>, <code>radvd</code> or <code>wide-dhcpv6-server</code>, depending on your current configuration. 
+</p>
+<pre class="code">opkg remove dnsmasq
+opkg update &amp;&amp; opkg install dnsmasq-dhcpv6</pre>
+
+<p>
+Once we have <code>dnsmasq-dhcpv6</code> installed we need to enable router advertisement and choose in what mode we want to configure clients. For details on modes, see <a href="http://www.google.com/search?q=dnsmasq%20man%20page&amp;btnI=lucky" class="interwiki iw_go" title="http://www.google.com/search?q=dnsmasq%20man%20page&amp;btnI=lucky">dnsmasq man page</a>. The modes are:
+</p>
+<ul>
+<li class="level1"><div class="li"> ra-only</div>
+</li>
+<li class="level1"><div class="li"> slaac</div>
+</li>
+<li class="level1"><div class="li"> ra-names</div>
+</li>
+<li class="level1"><div class="li"> ra-stateless</div>
+</li>
+</ul>
+
+<p>
+Since there is not UCI support yet, we have to add the configuration manually to <code>/etc/dnsmasq.conf</code> file. Configuration in this file is merged with the UCI generated config. 
+</p>
+<pre class="code">dhcp-range=2001:0db8:1f0b:1359::,ra-names
+enable-ra</pre>
+
+<p>
+The <code>dhcp-range</code> option defines IPv6 prefix used by clients and configuration mode, here <code>ra-names</code> (SLAAC). Last line enables router advertisement.
+</p>
+
+</div>
+
+<h4 id="troubleshooting2">Troubleshooting</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Your client&#039;s global unique IPv6 address has to be generated in SLAAC mode using <a href="http://en.wikipedia.org/wiki/IPv6_address#Modified_EUI-64" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/IPv6_address#Modified_EUI-64">modified EUI-64 method</a>. Correct address look like this:</div>
+<ul>
+<li class="level2"><div class="li"> <pre class="code">2001:0db8:1f0b:1359:021d:baff:fe06:3764</pre>
+ in case your client&#039;s MAC address is <code>00:1D:BA:06:37:64</code>.</div>
+</li>
+<li class="level2"><div class="li"> If your address isn&#039;t EUI-64 based, you should <span class="curid"><a href="ipv6#privacyextensions" class="wikilink1" title="doc:howto:ipv6">disable privacy extensions for your global unique IPv6 address</a></span>.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> The global unique IPv6 address has to be pingable from your router. SSH into your router and run:</div>
+<ul>
+<li class="level2"><div class="li"> <pre class="code">ping 2001:0db8:1f0b:1359:021d:baff:fe06:3764</pre>
+</div>
+</li>
+<li class="level2"><div class="li"> In case you can&#039;t ping it, its probably your client&#039;s firewall blocking ICMPv6 Echo Requests from <code>2001:0db8:1f0b:1359::/64</code> network. You need to make accept rule in the firewall. <em>Note that despite you have no problem to <code>ping fe80::021d:baff:fe06:3764%br-lan</code>, you still have to create the accept rule for the mentioned network.</em></div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+To see if it works, follow these steps:
+</p>
+<ol>
+<li class="level1"><div class="li"> Add <code>log-dhcp</code> entry to <code>/etc/dnsmasq.conf</code> config file.</div>
+</li>
+<li class="level1"><div class="li"> Restart <code>dnsmasq</code> with <code>/etc/init.d/dnsmasq restart</code>.</div>
+</li>
+<li class="level1"><div class="li"> See if <code>dnsmasq</code> obtained the ping confirmation, and thus was able to add AAAA record to its <abbr title="Domain Name System">DNS</abbr> cache.</div>
+<ul>
+<li class="level2"><div class="li"> <pre class="code">logread | grep &quot;SLAAC-CONFIRM&quot;</pre>
+</div>
+</li>
+<li class="level2"><div class="li"> This may return something like this if everything is working fine: <pre class="code">Jul 1 12:00:00 openwrt daemon.info dnsmasq-dhcp[1957]: SLAAC-CONFIRM(br-lan) 2001:0db8:1f0b:1359:021d:baff:fe06:3764 pc</pre>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit33" id="directly_forward_isp_s_ndp_proxy_address_to_lan">Directly forward ISP&#039;s NDP proxy address to LAN</h3>
+<div class="level3">
+
+<p>
+It can help you, if your ISP give you /64 IPv6 address and radvd,dhcpv6 useless for you.
+Original idea by user (<a href="https://forum.openwrt.org/viewtopic.php?pid=144797#p144797" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?pid=144797#p144797"  rel="nofollow">diway</a>) from openwrt forum
+This method idea is:
+ bridge wan and lan with filter ipv6 packets options, for direct resolve your adress from provider(ISP).
+</p>
+<ul>
+<li class="level1"><div class="li">    Remove (radvd,dhcpv6,dnsmasqv6)or others that you install early when tryed methods above. And remove that options that you do at configuration files /etc/config/network or otherone (repair &quot;before ipv6 state&quot; of your deivce).</div>
+</li>
+<li class="level1"><div class="li">    Install ipv6 support and <em class="u">ebtables</em>(if you haven&#039;t it at your repository, try beta or svn):</div>
+</li>
+</ul>
+<div class="table sectionedit34"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>opkg update &amp;&amp; opkg install kmod-ipv6 ebtables
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+<strong> 1.</strong> At first determine your WAN interface device name, and correct comands below(change <strong>eth0.1</strong> to your WAN device name). Edit <em class="u">/etc/init.d/network</em>, at end of <strong>start()</strong> section add thoose lines:
+</p>
+<div class="table sectionedit35"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>ebtables -t broute -A BROUTING -i <strong>eth0.1</strong> -p ! ipv6 -j DROP
+brctl addif br-lan <strong>eth0.1</strong>
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+<strong> 2.</strong> At <em class="u">/etc/config/network</em>, make thoose:
+</p>
+
+<p>
+Add this on the &quot;config interface lan&quot; section
+</p>
+<div class="table sectionedit36"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>    option accept_ra    1
+    option send_rs    1
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+Add this on the &quot;config interface wan&quot; section
+</p>
+<div class="table sectionedit37"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>  option accept_ra  0
+  option send_rs  0
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+<strong> 3.</strong> At <em class="u">/etc/config/firewall</em>, make thoose:
+</p>
+
+<p>
+Add this to the &quot;config defaults&quot; section
+</p>
+<div class="table sectionedit38"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>  option disable_ipv6     0
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+<strong>4.</strong> At <em class="u">/etc/sysctl.conf</em>, make thoose:
+</p>
+
+<p>
+Add this at the end to enable firewalling on ipv6 even for bridged interfaces
+</p>
+<div class="table sectionedit39"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>  net.bridge.bridge-nf-call-ip6tables=1
+  net.bridge.bridge-nf-call-iptables=0
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+<strong>5.</strong> If you need IPv6 firewalling ONLY! First install: 
+</p>
+<div class="table sectionedit40"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>opkg update &amp;&amp; opkg install kmod-ip6tables ip6tables
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+Then correct comands below(change <strong>eth0.1</strong> to your WAN device name). At <em class="u">/etc/firewall.user</em>, add thoose lines:
+</p>
+<div class="table sectionedit41"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code> 
+# First, delete all:
+ip6tables -F
+ip6tables -X
+
+# Allow anything on the local link
+ip6tables -A INPUT  -i lo -j ACCEPT
+ip6tables -A OUTPUT -o lo -j ACCEPT
+
+# Allow anything out on the internet
+ip6tables -A OUTPUT -o <strong>eth0.1</strong> -j ACCEPT
+
+# Allow Link-Local addresses
+ip6tables -A INPUT -s fe80::/10 -j ACCEPT
+ip6tables -A OUTPUT -s fe80::/10 -j ACCEPT
+
+# Allow multicast
+ip6tables -A INPUT -s ff00::/8 -j ACCEPT
+ip6tables -A OUTPUT -s ff00::/8 -j ACCEPT
+
+# Allow ICMPv6
+ip6tables -A INPUT -p icmpv6 –icmpv6-type echo-request -j ACCEPT –match limit –limit 30/minute
+ip6tables -A INPUT  -p icmpv6 -j ACCEPT
+ip6tables -A OUTPUT -p icmpv6 -j ACCEPT
+ip6tables -A FORWARD -p icmpv6 -m physdev ! –physdev-in <strong>eth0.1</strong> -j ACCEPT
+ip6tables -A FORWARD -p icmpv6 –icmpv6-type echo-request -m physdev –physdev-in <strong>eth0.1</strong> -j ACCEPT
+ip6tables -A FORWARD -p icmpv6 –icmpv6-type echo-reply -m physdev –physdev-in <strong>eth0.1</strong> -j ACCEPT
+ip6tables -A FORWARD -p icmpv6 –icmpv6-type neighbor-solicitation -m physdev –physdev-in <strong>eth0.1</strong> -j ACCEPT
+ip6tables -A FORWARD -p icmpv6 –icmpv6-type neighbor-advertisement -m physdev –physdev-in <strong>eth0.1</strong> -j ACCEPT
+ip6tables -A FORWARD -p icmpv6 –icmpv6-type router-advertisement -m physdev –physdev-in <strong>eth0.1</strong> -j ACCEPT
+
+# Allow forwarding
+ip6tables -A FORWARD -m state –state NEW -m physdev ! –physdev-in <strong>eth0.1</strong> -j ACCEPT
+ip6tables -A FORWARD -m state –state NEW -p tcp –dport 22 -m physdev –physdev-in <strong>eth0.1</strong> -j ACCEPT
+ip6tables -A FORWARD -m state –state ESTABLISHED,RELATED -j ACCEPT
+ip6tables -N DROP
+ip6tables -A DROP -j REJECT –reject-with icmp6-port-unreachable
+
+# Set the default policy
+ip6tables -A INPUT -j DROP
+ip6tables -A FORWARD -j DROP
+ip6tables -A OUTPUT -j DROP
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+That&#039;s all, reboot your router. After check your <abbr title="Local Area Network">LAN</abbr> PCs and roters WAN ipv6 address.
+</p>
+
+</div>
+
+<h3 class="sectionedit42" id="dns_check_and_configuration">DNS check and configuration</h3>
+<div class="level3">
+
+<p>
+If you can do a succesful <code>ping6 ipv6.google.com</code> from the router, then obviously your DNSmasq succesfully queries the IPv6 address, and you have IPv6 connectivity.
+</p>
+
+<p>
+Congratulations!!!
+</p>
+
+<p>
+Though, if you can&#039;t do the <code>ping6</code> above, though you can do a <code>ping6 [2a00:1450:8002::93]</code>, then your DNSmasq (or the server from which it queries) does not succesfully query the IPv6 addresses, and you need to fix this problem.
+</p>
+
+<p>
+(TBD)
+</p>
+
+</div>
+
+<h3 class="sectionedit43" id="ipv6_only_access">IPv6 only access</h3>
+<div class="level3">
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> (Using an intermediate machine to contact IPv4-only servers)
+</p>
+
+<p>
+(TBD)
+</p>
+
+</div>
+
+<h4 id="nat64">NAT64</h4>
+<div class="level4">
+
+<p>
+<a href="http://www.litech.org/tayga/" class="urlextern" title="http://www.litech.org/tayga/"  rel="nofollow">TAYGA</a> is an out-of-kernel stateless NAT64 implementation for Linux that uses the TUN driver to exchange IPv4 and IPv6 packets with the kernel.
+</p>
+
+<p>
+First, install tayga:
+</p>
+
+<p>
+<pre class="code bash">opkg update <span class="sy0">&amp;&amp;</span> opkg <span class="kw2">install</span> tayga</pre>
+
+</p>
+
+<p>
+Now, create NAT64 interface:
+</p>
+<div class="table sectionedit44"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>config interface nat64
+	option proto tayga
+	option ipv4_addr 192.0.2.1
+	option ipv6_addr 2001:db8:1::7f00:1
+	option prefix 64:ff9b::/96
+	option dynamic_pool 192.0.2.0/24
+	option accept_ra 0
+	option send_rs 0</code></td>
+	</tr>
+</table></div>
+
+<p>
+where 192.0.2.0/24 is your dynamic pool, 64:ff9b::/96 is &quot;unused /96 prefix&quot; and 2001:db8:1::/64 is your IPv6 prefix used in <abbr title="Local Area Network">LAN</abbr>.
+</p>
+
+<p>
+Don&#039;t forget to add this interface to <strong><abbr title="Local Area Network">LAN</abbr></strong> firewall zone.
+</p>
+
+<p>
+<pre class="code bash"><span class="kw2">ifup</span> tayga <span class="sy0">&amp;&amp;</span> ping6 <span class="nu0">64</span>:ff9b::8.8.8.8</pre>
+
+</p>
+
+</div>
+
+<h4 id="dns64">DNS64</h4>
+<div class="level4">
+
+<p>
+<strong>DNS64</strong> is a special mechanism, that returns AAAA records for hosts that only have A records.  <strong>ATTENTION!</strong>  This breaks DNSSEC!
+</p>
+
+<p>
+ISC bind supports <strong>DNS64</strong> since version 9.8.0.
+</p>
+
+<p>
+<pre class="code bash">opkg update <span class="sy0">&amp;&amp;</span> opkg <span class="kw2">install</span> bind-server bind-host</pre>
+
+</p>
+
+<p>
+Modify default configuration (/etc/bind/named.conf):
+</p>
+<div class="table sectionedit45"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>acl rfc1918 { 10/8; 192.168/16; 172.16/12; };
+
+options {
+	directory &quot;/tmp&quot;;
+
+	auth-nxdomain no;    # conform to RFC1035
+
+	allow-query { localnets; localhost; };
+
+	listen-on { any; };
+
+	listen-on-v6 { any; };
+
+	dns64 64:ff9b::/96 {
+		clients { any; };
+		mapped { !rfc1918; any; };
+		exclude { 64:ff9b::/96; ::ffff:0000:0000/96; };
+		suffix ::;
+	};
+
+	edns-udp-size 512;
+	max-udp-size 512;
+};</code></td>
+	</tr>
+</table></div>
+
+<p>
+<pre class="code bash"><span class="co4"># </span><span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span><span class="kw3">bind</span> restart</pre>
+
+</p>
+
+<p>
+Point your resolver to 127.0.0.1 (or ::1) and try it:
+</p>
+<div class="table sectionedit46"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code># host www.ru
+www.ru has address 194.87.0.50
+www.ru has IPv6 address 64:ff9b::c257:32
+www.ru mail is handled by 5 hq.demos.ru.
+# host <a href="http://www.kame.net" class="urlextern" title="http://www.kame.net"  rel="nofollow">www.kame.net</a>
+<a href="http://www.kame.net" class="urlextern" title="http://www.kame.net"  rel="nofollow">www.kame.net</a> is an alias for orange.kame.net.
+orange.kame.net has address 203.178.141.194
+orange.kame.net has IPv6 address 2001:200:dff:fff1:216:3eff:feb1:44d7
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+Normal AAAA records are returned for hosts that have it and translated ones for those who don&#039;t.
+</p>
+
+</div>
+
+<h4 id="nat-pt">NAT-PT</h4>
+<div class="level4">
+
+</div>
+
+<h4 id="dstm">DSTM</h4>
+<div class="level4">
+
+</div>
+
+<h3 class="sectionedit47" id="privacy_extensions">Privacy Extensions</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="microsoft_windows">Microsoft Windows</h4>
+<div class="level4">
+
+<p>
+Privacy extensions are enabled by default. Correct working of some services sometimes require disabling part or all privacy extensions.
+</p>
+
+</div>
+
+<h5 id="disabling_privacy_extensions_for_global_ipv6_addresses">Disabling privacy extensions for global IPv6 addresses</h5>
+<div class="level5">
+
+<p>
+With this settings the Windows client will obtain modified EUI-64 global unique address, while it will also generate global temporary IPv6 address. This is recommended setup, because you only make public your MAC address, but your privacy is retained (you won&#039;t be easily traceable by your IP).
+</p>
+<ul>
+<li class="level1"><div class="li"> One time settings (reseted with reboot):</div>
+<ul>
+<li class="level2"><div class="li"> <pre class="code">netsh interface ipv6 set global randomizeidentifiers=disabled store=active</pre>
+</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Permanent settings:</div>
+<ul>
+<li class="level2"><div class="li"> <pre class="code">netsh interface ipv6 set global randomizeidentifiers=disabled store=persistent</pre>
+</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Current settings can be viewed with:</div>
+<ul>
+<li class="level2"><div class="li"> <pre class="code">netsh interface ipv6 show global store=active
+netsh interface ipv6 show global store=persistent</pre>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h5 id="disabling_privacy_extensions_for_all_ipv6_addresses">Disabling privacy extensions for all IPv6 addresses</h5>
+<div class="level5">
+
+<p>
+This settings disables all privacy extensions. Your global unique IPv6 address will be generated using modified EUI-64 method and your global temporary IPv6 address will be disabled. Your MAC address is made public and <img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> you will be easily traceable.
+</p>
+<ul>
+<li class="level1"><div class="li"> One time settings (reseted with reboot):</div>
+<ul>
+<li class="level2"><div class="li"> <pre class="code">netsh interface ipv6 set privacy state=disabled store=active</pre>
+</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Permanent settings:</div>
+<ul>
+<li class="level2"><div class="li"> <pre class="code">netsh interface ipv6 set privacy state=disabled store=persistent</pre>
+</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Current settings can be viewed with:</div>
+<ul>
+<li class="level2"><div class="li"> <pre class="code">netsh interface ipv6 show privacy store=active
+netsh interface ipv6 show privacy store=persistent</pre>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="notes">Notes</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> <a href="http://www.heise.de/netze/artikel/OpenWRT-wuerfelt-IPv6-Praefixe-1445607.html" class="urlextern" title="http://www.heise.de/netze/artikel/OpenWRT-wuerfelt-IPv6-Praefixe-1445607.html"  rel="nofollow">http://www.heise.de/netze/artikel/OpenWRT-wuerfelt-IPv6-Praefixe-1445607.html</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://andatche.com/blog/2012/02/disabling-rfc4941-ipv6-privacy-extensions-in-windows/" class="urlextern" title="http://andatche.com/blog/2012/02/disabling-rfc4941-ipv6-privacy-extensions-in-windows/"  rel="nofollow">http://andatche.com/blog/2012/02/disabling-rfc4941-ipv6-privacy-extensions-in-windows/</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit48" id="packet_filter">Packet filter</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> → to configure the <a href="../uci.1" class="wikilink1" title="doc:uci">UCI</a> config file <code><a href="../uci/firewall" class="wikilink1" title="doc:uci:firewall">/etc/config/firewall</a></code> see there. IPv6 rules can be set up with this alone.</div>
+</li>
+<li class="level1"><div class="li"> → to set up a firewall without UCI please read <a href="netfilter" class="wikilink1" title="doc:howto:netfilter">netfilter</a>, especially <a href="netfilter#ip6tables" class="wikilink1" title="doc:howto:netfilter">ip6tables</a> and <a href="netfilter#ipv6" class="wikilink1" title="doc:howto:netfilter">ipv6</a><br/>
+</div>
+</li>
+</ul>
+<div class="table sectionedit49"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/dialog-warning.png" class="media" alt="" /> </td><td class="col1 leftalign"> <strong>Warning No1:</strong> There is no NAT in IPv6. While NAT was never intended as a security feature, it did nonetheless serve as one, because unless you specified <em>portforwardings</em> the ports were unavailable. However, the same level of security can be achieved by setting the policies to DROP and inserting <code>-j ACCEPT -m conntrack –ctstate ESTABLISHED,RELATED</code> at the beginning of the chains.  </td>
+	</tr>
+</table></div>
+<div class="table sectionedit50"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/dialog-warning.png" class="media" alt="" /> </td><td class="col1"> <strong>Warning No2:</strong> IPv6 specs demand, that <a href="http://en.wikipedia.org/wiki/Path MTU Discovery" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Path MTU Discovery">Path MTU Discovery</a> is working correctly because a <a href="http://en.wikipedia.org/wiki/IP fragmentation" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/IP fragmentation">packet fragmentation</a> is not being performed! So if you configure your packet filter like an imbecile and drop <em>all</em> ICMPv6 packets without distinguishing, you will break this functionality and funny things will occur! Cf. → <a href="https://tools.ietf.org/html/rfc4890" class="urlextern" title="https://tools.ietf.org/html/rfc4890"  rel="nofollow">RFC4890 – ICMPv6 Filtering Recommendations</a> </td>
+	</tr>
+</table></div>
+<div class="table sectionedit51"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/48px-outdated.svg.png" class="media" alt="" /> </td><td class="col1"> <strong>Note:</strong> <code>firewall v1</code> (e.g. still in Backfire 10.03.1-rc4 and up to r25353) has no default rules at all and ip6tables configuration needs to be done from scratch. Insert the rules below to make the packet filter function properly. <br/>
+<pre class="code">ip6tables -A FORWARD -i br-lan -j ACCEPT
+ip6tables -A FORWARD -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+ip6tables -A FORWARD -j REJECT</pre>
+ </td>
+	</tr>
+</table></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/ipv6.txt</bdi> · Last modified: 2014/09/18 23:53 by <bdi>glphvgacs</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="ipv6?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="ipv6?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="ipv6?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="ipv6#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Aipv6&amp;1432267354" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

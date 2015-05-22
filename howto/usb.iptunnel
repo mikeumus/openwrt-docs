@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>USB over IP tunnel [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,usb.iptunnel"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="usb.iptunnel?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/usb.iptunnel"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/usb.iptunnel"/>
+<link rel="canonical" href="usb.iptunnel"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:usb.iptunnel","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432273837 166.182.3.179';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="usb.iptunnel#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="usb.iptunnel?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="usb.iptunnel?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:usb.iptunnel" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="usb.iptunnel?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="usb.iptunnel?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="usb.iptunnel?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="usb.iptunnel" class="wikilink1" title="doc:howto:usb.iptunnel">USB over IP tunnel</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/usb.iptunnel" class="media" title="cz:doc:howto:usb.iptunnel"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/usb.iptunnel" class="media" title="de:doc:howto:usb.iptunnel"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="usb.iptunnel" class="media" title="doc:howto:usb.iptunnel"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/usb.iptunnel" class="media" title="es:doc:howto:usb.iptunnel"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/usb.iptunnel" class="media" title="fr:doc:howto:usb.iptunnel"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/usb.iptunnel" class="media" title="hu:doc:howto:usb.iptunnel"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/usb.iptunnel" class="media" title="jp:doc:howto:usb.iptunnel"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/usb.iptunnel" class="media" title="pl:doc:howto:usb.iptunnel"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/usb.iptunnel" class="media" title="pt-br:doc:howto:usb.iptunnel"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/usb.iptunnel" class="media" title="ru:doc:howto:usb.iptunnel"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/usb.iptunnel" class="media" title="tr:doc:howto:usb.iptunnel"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/usb.iptunnel" class="media" title="zh-cn:doc:howto:usb.iptunnel"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/usb.iptunnel" class="media" title="zh-tw:doc:howto:usb.iptunnel"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:usb.iptunnel</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="usb.iptunnel#server_on_openwrt">Server on OpenWrt</a></div></li>
+<li class="level1"><div class="li"><a href="usb.iptunnel#client_side_arch-linux_pc">Client side (Arch-linux PC)</a></div></li>
+<li class="level1"><div class="li"><a href="usb.iptunnel#client_side_windows_pc_incl_w7_x64">Client side (Windows PC (incl. W7 x64)</a></div></li>
+<li class="level1"><div class="li"><a href="usb.iptunnel#notes">Notes</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="usb_over_ip_tunnel">USB over IP tunnel</h1>
+<div class="level1">
+
+<p>
+USB/IP Project aims to develop a general USB device sharing system over IP network. To share USB devices between computers with their full functionality, USB/IP encapsulates &quot;USB I/O messages&quot; into TCP/IP payloads and transmits them between computers.
+</p>
+<div class="table sectionedit2"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> This is reported to be working, but we lack a HowTo yet! </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit3" id="server_on_openwrt">Server on OpenWrt</h2>
+<div class="level2">
+
+<p>
+<strong>Since Barrier Breaker release USBIP packets are missing - there&#039;s difference in installation procedure</strong>
+</p>
+
+<p>
+First install the usb kernel module and usbip server and client packages:
+</p>
+
+<p>
+<em>Attitude Adjustment:</em>
+<pre class="code">opkg install kmod-usb-ohci usbip-server usbip-client</pre>
+
+</p>
+
+<p>
+<em>Barrier Breaker:</em>
+<pre class="code">opkg install kmod-usb-ohci
+opkg install http://downloads.openwrt.org/attitude_adjustment/12.09/ar71xx/generic/packages/usbip_1.1.1-2_ar71xx.ipk
+opkg install http://downloads.openwrt.org/attitude_adjustment/12.09/ar71xx/generic/packages/usbip-client_1.1.1-2_ar71xx.ipk
+opkg install http://downloads.openwrt.org/attitude_adjustment/12.09/ar71xx/generic/packages/usbip-server_1.1.1-2_ar71xx.ipk</pre>
+
+(The packages are installed from AA, but kernel modules would be installed from BB automatically to match kernel ver)
+</p>
+
+<p>
+Now use <code>usbip list -l</code> to list the local usb devices available that can be exported. In the following example a hub, usb printer, and an optical mouse are shown:
+<pre class="code">root@OpenWrt:~# usbip list -l
+Local USB devices
+=================
+ - busid 2-1 (05e3:0608)
+         2-1:1.0 -&gt; hub
+
+ - busid 2-1.4 (04e8:344f)
+         2-1.4:1.0 -&gt; unknown
+         2-1.4:1.1 -&gt; unknown
+
+ - busid 2-2 (093a:2510)
+         2-2:1.0 -&gt; unknown</pre>
+
+</p>
+
+<p>
+The information that you are looking for is <strong>2-2</strong>, which is the BUSID for the target device (an optical mouse).<br/>
+
+Edit <code>/etc/rc.local</code> and before the <code>exit 0</code> add the following lines:
+<pre class="code">usbipd -D &amp;
+sleep 1
+usbip bind -b 2-2</pre>
+
+</p>
+
+<p>
+Use <code>netstat</code> to see if everything works:
+<pre class="code">root@OpenWrt:~# netstat -alpt
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 0.0.0.0:3240            0.0.0.0:*               LISTEN      927/usbipd</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="client_side_arch-linux_pc">Client side (Arch-linux PC)</h2>
+<div class="level2">
+
+<p>
+Install <strong>usbip</strong> in your PC
+<pre class="code">[root@tool dani]# pacman -S usbip</pre>
+
+</p>
+
+<p>
+Load the module for the client
+<pre class="code">[root@tool dani]# modprobe vhci_hcd</pre>
+
+</p>
+
+<p>
+List the available remote devices at OpenWrt (server side). 
+<pre class="code">[root@tool dani]# usbip list -r 192.168.1.1
+Exportable USB devices
+======================
+ - 192.168.1.1
+        2-2: Pixart Imaging, Inc. : Optical Mouse (093a:2510)
+           : /sys/devices/platform/bcm63xx_ohci.0/usb2/2-2
+           : (Defined at Interface level) (00/00/00)
+           :  0 - Human Interface Device / Boot Interface Subclass / Mouse (03/01/02)</pre>
+
+</p>
+
+<p>
+Attach the remote device
+<pre class="code">[root@tool dani]# usbip attach -r 192.168.1.1 -b 2-2</pre>
+
+</p>
+
+<p>
+If all went fine now you can move the mouse on your pc, but attached to the router with OpenWrt.
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="client_side_windows_pc_incl_w7_x64">Client side (Windows PC (incl. W7 x64)</h2>
+<div class="level2">
+
+<p>
+Solution consists of 2 parts:
+</p>
+
+<p>
+1. Install Driver
+</p>
+
+<p>
+2. Start usbip tool
+</p>
+
+<p>
+1. Installing a driver could be a challenge - there is a signed drivers, included in 0.200 version of tool. Unfortunately the don&#039;t work anymore. at least for Win7 x64. Look through USBIP forum to find the latest compiled driver and tool. Unfortunately the Driver is not signed and in order to install it, you have to switch off Windows drivers signature check.
+a)Download the working Driver and usbip tool here: <a href="http://sourceforge.net/p/usbip/discussion/418507/thread/86c5e473/" class="urlextern" title="http://sourceforge.net/p/usbip/discussion/418507/thread/86c5e473/"  rel="nofollow">http://sourceforge.net/p/usbip/discussion/418507/thread/86c5e473/</a>
+</p>
+
+<p>
+b)Disable Windows Drivers check:
+<pre class="code">    Open a command prompt as an admin and type:
+    bcdedit -set loadoptions DISABLE_INTEGRITY_CHECKS
+    bcdedit -set TESTSIGNING ON
+    NOTE: Turning off driver signing is a security risk.
+    If it doesn&#039;t work, for whatever reason, you can just remove loadoptions with bcedit and &gt;switch testsigning off, though this is not recommended:
+    bcdedit /deletevalue loadoptions
+    bcdedit -set TESTSIGNING OFF
+    For Windows 8.1, use the details on this page:
+    [[http://www.howtogeek.com/167723/how-to-disable-driver-signature-verification-on-64-bit-windows-8.1-so-that-you-can-install-unsigned-drivers/]]
+    And then restart Windows.</pre>
+
+2. Use the tool usbip.exe, downloaded with the working driver.
+<pre class="code">a) usbip -l &lt;HOST IP address&gt;                to show all USB devices binded on the HOST
+b) usbip -a &lt;HOST IP address&gt; &lt;BUSID&gt;        to connect to particular Device.</pre>
+
+<img src="../../lib/images/smileys/icon_biggrin.gif" class="icon" alt=":-D" /> Tested on BB release. Working at least with USB Drives and Kvaser Leaf Lite CAN gateway.
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="notes">Notes</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="http://www.howtoforge.com/how-to-set-up-a-usb-over-ip-server-and-client-with-ubuntu-10.04" class="urlextern" title="http://www.howtoforge.com/how-to-set-up-a-usb-over-ip-server-and-client-with-ubuntu-10.04"  rel="nofollow">http://www.howtoforge.com/how-to-set-up-a-usb-over-ip-server-and-client-with-ubuntu-10.04</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="https://dev.openwrt.org/ticket/5590" class="urlextern" title="https://dev.openwrt.org/ticket/5590"  rel="nofollow">#5590</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://usbip.sourceforge.net/" class="urlextern" title="http://usbip.sourceforge.net/"  rel="nofollow">http://usbip.sourceforge.net/</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="https://dev.openwrt.org/ticket/9953" class="urlextern" title="https://dev.openwrt.org/ticket/9953"  rel="nofollow">#9953</a> (usbip server on OpenWRT fails after client tries to attach device) also features a small how to.</div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/usb.iptunnel.txt</bdi> · Last modified: 2015/01/24 01:18 by <bdi>tmomas</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="usb.iptunnel?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="usb.iptunnel?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="usb.iptunnel?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="usb.iptunnel#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Ausb.iptunnel&amp;1432273837" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

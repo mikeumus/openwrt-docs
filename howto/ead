@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>EAD (Emergency Access Daemon) [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,ead"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="ead?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/ead"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/ead"/>
+<link rel="canonical" href="ead"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:ead","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266350 166.182.3.117';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="ead#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="ead?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="ead?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:ead" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="ead?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="ead?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="ead?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="ead" class="wikilink1" title="doc:howto:ead">EAD (Emergency Access Daemon)</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/ead" class="media" title="cz:doc:howto:ead"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/ead" class="media" title="de:doc:howto:ead"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="ead" class="media" title="doc:howto:ead"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/ead" class="media" title="es:doc:howto:ead"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/ead" class="media" title="fr:doc:howto:ead"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/ead" class="media" title="hu:doc:howto:ead"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/ead" class="media" title="jp:doc:howto:ead"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/ead" class="media" title="pl:doc:howto:ead"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/ead" class="media" title="pt-br:doc:howto:ead"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/ead" class="media" title="ru:doc:howto:ead"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/ead" class="media" title="tr:doc:howto:ead"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/ead" class="media" title="zh-cn:doc:howto:ead"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/ead" class="media" title="zh-tw:doc:howto:ead"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:ead</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level2"><div class="li"><a href="ead#introduction">Introduction</a></div></li>
+<li class="level2"><div class="li"><a href="ead#installation_on_router">Installation on Router</a></div></li>
+<li class="level2"><div class="li"><a href="ead#building_the_ead-client_package">Building the ead-client package</a></div></li>
+<li class="level2"><div class="li"><a href="ead#configuration">Configuration</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="ead#create_a_user_for_ead_to_use_on_your_router">Create a user for ead to use on your router.</a></div></li>
+<li class="level3"><div class="li"><a href="ead#change_the_users_password">Change the users password</a></div></li>
+<li class="level3"><div class="li"><a href="ead#test_ead_on_router">Test ead on router</a></div></li>
+<li class="level3"><div class="li"><a href="ead#run_ead-client_on_machine_plugged_into_a_switch_port">Run ead-client on machine plugged into a switch port</a></div></li>
+<li class="level3"><div class="li"><a href="ead#create_an_ead_init_script_and_configuration">Create an ead init script and configuration</a></div></li>
+<li class="level3"><div class="li"><a href="ead#enable_init_script_to_start_by_default">Enable init script to start by default</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="ead#utility_script">Utility Script</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="ead_emergency_access_daemon">EAD (Emergency Access Daemon)</h1>
+<div class="level1">
+
+<p>
+Try to use <a href="../../meta/template_howto" class="wikilink1" title="meta:template_howto">template_howto</a> or <a href="../../meta/template_howtobuild" class="wikilink1" title="meta:template_howtobuild">template_howtobuild</a>, it may help you.  — <em>orca 2011/02/07 00:43</em>
+</p>
+
+</div>
+
+<h3 class="sectionedit2" id="introduction">Introduction</h3>
+<div class="level3">
+
+<p>
+The Emergency Access Daemon allows you to run arbitrary commands on your router in the chance that you don&#039;t have console access to it.  This is, in fact, as powerful and dangerous as it sounds.  <strong>Most users will not want to enable this in their router</strong>.  This is primarily useful for people hacking on their router. 
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="installation_on_router">Installation on Router</h3>
+<div class="level3">
+
+<p>
+Installation of ead is  as easy as:
+</p>
+
+<p>
+<code>root@OpenWrt:/# opkg install ead</code>
+</p>
+
+<p>
+This installs just the package, and makes no provision for it to autostart or even accept connections
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="building_the_ead-client_package">Building the ead-client package</h3>
+<div class="level3">
+
+<p>
+To build the client, you have to download the ead-tree from trunk, and compile it on the target system.
+(the one which will be used as the client).
+</p>
+
+<p>
+<pre class="code">$ mkdir /usr/src/ead
+$ cd /usr/src/ead
+$ svn co svn://svn.openwrt.org/openwrt/trunk/package/ead/src/ . # you may also copy the files from a local checkout of the openwrt-trunk
+$ make ead-client </pre>
+
+</p>
+
+<p>
+If the compile succeeds, you may copy the ead-client binary to a better location.
+<pre class="code">$ cp ead-client /usr/local/bin/</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="configuration">Configuration</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="create_a_user_for_ead_to_use_on_your_router">Create a user for ead to use on your router.</h4>
+<div class="level4">
+
+<p>
+You do this by adding a line to /etc/passwd.
+</p>
+
+<p>
+<pre class="code">root@OpenWrt:/# cat /etc/passwd
+root:!:0:0:root:/root:/bin/ash
+nobody:*:65534:65534:nobody:/var:/bin/false
+daemon:*:65534:65534:daemon:/var:/bin/false
+ead:*:0:0:root:/root:/bin/ash</pre>
+
+</p>
+
+<p>
+As you can see, I&#039;ve added the ead user, with a password set to * for now. 
+</p>
+
+</div>
+
+<h4 id="change_the_users_password">Change the users password</h4>
+<div class="level4">
+
+<p>
+<pre class="code">root@OpenWrt:/# passwd ead</pre>
+
+</p>
+
+<p>
+For this document, we&#039;re assuming that the ead password has been set to ead.
+</p>
+
+</div>
+
+<h4 id="test_ead_on_router">Test ead on router</h4>
+<div class="level4">
+
+<p>
+<pre class="code">root@OpenWrt:/# /sbin/ead -d eth1 -D OpenWrtEth1 -p /etc/passwd -B</pre>
+
+</p>
+
+<p>
+In this case eth1 is the Switch-Interface. You may have to try other interfaces in your case.
+</p>
+
+</div>
+
+<h4 id="run_ead-client_on_machine_plugged_into_a_switch_port">Run ead-client on machine plugged into a switch port</h4>
+<div class="level4">
+
+<p>
+<code>boatanchor ead $ ./ead-client<br/>
+
+732e: OpenWrtEth1</code>
+</p>
+
+<p>
+The 732e is the &#039;node&#039; address, and the OpenWrtEth1 is the friendly name.  Due to the way that ead works, you may have to try this multiple times.  If the command outputs &#039;No devices found&#039; then it was not able to find the ead daemon on your router.
+</p>
+
+<p>
+Once you have the node address, try running a command 
+</p>
+
+<p>
+<code>boatanchor ead $ ./ead-client 732e ead:ead &quot;echo foo &gt; /tmp/ead-foo&quot;</code>
+</p>
+
+<p>
+and verify that it worked on the router
+</p>
+
+<p>
+<code>root@OpenWrt:/# cat /tmp/ead-foo <br/>
+
+foo</code>
+</p>
+
+</div>
+
+<h4 id="create_an_ead_init_script_and_configuration">Create an ead init script and configuration</h4>
+<div class="level4">
+
+<p>
+here is my example ead init.d script and it&#039;s corresponding configuration:
+</p>
+
+<p>
+/etc/init.d/ead
+</p>
+
+<p>
+<pre class="code">#!/bin/sh /etc/rc.common
+# Copyright (C) 2006 OpenWrt.org
+
+START=98
+
+ead_config() {
+        local cfg=&quot;$1&quot;
+        local publiciface publicname 
+
+        config_get publiciface &quot;$cfg&quot; publiciface
+        config_get publicname &quot;$cfg&quot; publicname
+        /sbin/ead -d &quot;$publiciface&quot; -D &quot;$publicname&quot; -p /etc/passwd -B
+}
+
+start() {
+        config_load ead
+        [ &quot;$?&quot; != &quot;0&quot; ] &amp;&amp; {
+                uci_set_default ead &lt;&lt;EOF
+config ead 
+        option publiciface eth1
+        option publicname OpenWrtRecovery
+EOF
+                config_load ead
+        }
+        config_foreach ead_config 
+}
+
+stop() {
+        killall ead
+}</pre>
+
+</p>
+
+<p>
+/etc/config/ead
+</p>
+
+<p>
+<pre class="code">config &#039;ead&#039;
+        option &#039;publiciface&#039; &#039;eth1&#039;
+        option &#039;publicname&#039; &#039;OpenWrtEadEth1&#039;
+
+config &#039;ead&#039;
+        option &#039;publiciface&#039; &#039;eth0&#039;
+        option &#039;publicname&#039; &#039;OpenWrtEadEth0&#039; </pre>
+
+</p>
+
+</div>
+
+<h4 id="enable_init_script_to_start_by_default">Enable init script to start by default</h4>
+<div class="level4">
+
+<p>
+<code>root@OpenWrt:/# /etc/init.d/ead enable</code>
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="utility_script">Utility Script</h3>
+<div class="level3">
+
+<p>
+Now, if you&#039;re like me, you want to actually SEE the output of commands.  I use the following utility script to run the command on my router, dump the output onto the internal webserver, then wget the output and dump it to my local terminal
+</p>
+
+<p>
+<pre class="code">#!/bin/bash
+eadString=`./ead-client`
+HostName=`echo ${eadString#*:}`
+HostString=`echo ${eadString%%:*}`
+echo &quot;$HostName found at $HostString&quot;
+Username=$1
+Password=$2
+IP=$3
+Command=$4
+sleep 3
+echo &quot;Running $Command&quot;
+eadTemp=`./ead-client $HostString $Username:$Password &quot;$Command &gt; /www/ead-out.txt&quot;`
+wget $IP/ead-out.txt -q -O - </pre>
+
+</p>
+
+<p>
+And I invoke it with: 
+</p>
+
+<p>
+<pre class="code">boatanchor ead # bash ./ead-runner.sh ead ead 192.168.1.1 &quot;echo foo&quot;
+OpenWrtEadEth1 found at 732e
+Running echo foo
+foo</pre>
+
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/ead.txt</bdi> · Last modified: 2012/06/15 18:16 by <bdi>testpil0t</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="ead?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="ead?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="ead?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="ead#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Aead&amp;1432266350" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

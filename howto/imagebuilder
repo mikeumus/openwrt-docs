@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Image Generator (Image Builder) [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,obtain.firmware.generate"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="obtain.firmware.generate?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/obtain.firmware.generate"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/obtain.firmware.generate"/>
+<link rel="canonical" href="imagegenerator"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:obtain.firmware.generate","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266674 166.182.3.103';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="imagegenerator#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="obtain.firmware.generate?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="obtain.firmware.generate?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:obtain.firmware.generate" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="obtain.firmware.generate?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="obtain.firmware.generate?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="obtain.firmware.generate?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="imagegenerator" class="wikilink1" title="doc:howto:obtain.firmware.generate">Image Generator (Image Builder)</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/obtain.firmware.generate" class="media" title="cz:doc:howto:obtain.firmware.generate"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/obtain.firmware.generate" class="media" title="de:doc:howto:obtain.firmware.generate"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="imagegenerator" class="media" title="doc:howto:obtain.firmware.generate"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../es/doc/howto/obtain.firmware.generate" class="media" title="es:doc:howto:obtain.firmware.generate"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/obtain.firmware.generate" class="media" title="fr:doc:howto:obtain.firmware.generate"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/obtain.firmware.generate" class="media" title="hu:doc:howto:obtain.firmware.generate"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/obtain.firmware.generate" class="media" title="jp:doc:howto:obtain.firmware.generate"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/obtain.firmware.generate" class="media" title="pl:doc:howto:obtain.firmware.generate"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/obtain.firmware.generate" class="media" title="pt-br:doc:howto:obtain.firmware.generate"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/obtain.firmware.generate" class="media" title="ru:doc:howto:obtain.firmware.generate"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/obtain.firmware.generate" class="media" title="tr:doc:howto:obtain.firmware.generate"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../zh-cn/doc/howto/obtain.firmware.generate" class="media" title="zh-cn:doc:howto:obtain.firmware.generate"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/obtain.firmware.generate" class="media" title="zh-tw:doc:howto:obtain.firmware.generate"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:obtain.firmware.generate</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="imagegenerator#download_openwrt_barrier_breaker_1407">Download OpenWrt Barrier Breaker 14.07</a></div></li>
+<li class="level1"><div class="li"><a href="imagegenerator#configure_package_repositories">Configure Package Repositories</a></div></li>
+<li class="level1"><div class="li"><a href="imagegenerator#usage">Usage</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="imagegenerator#profile_variable">PROFILE Variable</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="imagegenerator#pre-defined_profiles">Pre-defined Profiles</a></div></li>
+<li class="level3"><div class="li"><a href="imagegenerator#addingmodifying_profiles">Adding/Modifying Profiles</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="imagegenerator#packages_variable">PACKAGES Variable</a></div></li>
+<li class="level2"><div class="li"><a href="imagegenerator#files_variable">FILES Variable</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="imagegenerator#cleanup">Cleanup</a></div></li>
+<li class="level1"><div class="li"><a href="imagegenerator#remove_useless_files_from_firmware">Remove useless files from firmware</a></div></li>
+<li class="level1"><div class="li"><a href="imagegenerator#building_the_image_generator">Building the Image Generator</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="image_generator_image_builder">Image Generator (Image Builder)</h1>
+<div class="level1">
+<div class="table sectionedit2"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> → go back to <a href="obtain.firmware" class="wikilink1" title="doc:howto:obtain.firmware">obtain.firmware</a> </td>
+	</tr>
+</table></div>
+
+<p>
+If you do not want to <a href="obtain.firmware.download" class="wikilink1" title="doc:howto:obtain.firmware.download">download</a> a prebuilt image or go through the entire <a href="obtain.firmware.compile" class="wikilink1" title="doc:howto:build">compilation</a> process, the alternative is to use <strong>Image Generator</strong> (formerly called <strong>Image Builder</strong>). This is a pre-compiled OpenWrt build environment suitable for creating custom images without the need for compiling.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Image Generator will not run on 32bit platform such as i686. You need 64bit linux such as amd64, see <a href="https://dev.openwrt.org/ticket/17117" class="urlextern" title="https://dev.openwrt.org/ticket/17117"  rel="nofollow">ticket</a>. You can however run amd64 in VM (i.e. virtualbox) even from 32bit windows.
+</p>
+
+<p>
+Reasons for using <strong>Image Generator</strong> are:
+</p>
+<ul>
+<li class="level1"><div class="li"> Embedding packages directly into the SquashFS to reduce space requirements on the target</div>
+</li>
+<li class="level1"><div class="li"> Preconfigure images by embedding packages and configuration files directly into SquashFS, and save manpower when flashing many devices</div>
+</li>
+<li class="level1"><div class="li"> Building minimal images. for example without the web interface</div>
+</li>
+<li class="level1"><div class="li"> Learning</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<strong>Image Generator</strong> is the program that creates the OpenWrt firmware image file. In the process of <a href="obtain.firmware.compile" class="wikilink1" title="doc:howto:build">compiling OpenWrt</a>, <strong>Image Generator</strong> is coercively created (compiled), because it is needed to eventually create the image file. It is located in <code>/openwrt/trunk/xxx</code> and you can use it, to create more image-files from the packages you obtained during compilation.
+</p>
+
+<p>
+But you can also simply download an archive which contains <strong>Image Generator</strong> and a whole load of packages from OpenWrt. This archive containes binaries running on amd64 linux.
+</p>
+<hr />
+
+</div>
+
+<h2 class="sectionedit3" id="download_openwrt_barrier_breaker_1407">Download OpenWrt Barrier Breaker 14.07</h2>
+<div class="level2">
+
+<p>
+<a href="http://downloads.openwrt.org/barrier_breaker/14.07/" class="urlextern" title="http://downloads.openwrt.org/barrier_breaker/14.07/"  rel="nofollow">http://downloads.openwrt.org/barrier_breaker/14.07/</a>
+</p>
+<ul>
+<li class="level1"><div class="li"> Click on your architecture, for example <em>ar71xx</em></div>
+</li>
+<li class="level1"><div class="li"> Download the ImageBuilder archive.</div>
+</li>
+<li class="level1"><div class="li"> Extract the archive and change into the ImageBuilder directory</div>
+</li>
+</ul>
+
+<p>
+Example: Barrier Breaker for ar71xx architecture
+</p>
+<div class="plugin_wrap">
+<p>
+<pre class="code">cd ~
+mkdir openwrt &amp;&amp; cd openwrt
+wget http://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/generic/OpenWrt-ImageBuilder-ar71xx_generic-for-linux-x86_64.tar.bz2
+tar -xvjf OpenWrt-ImageBuilder-ar71xx_generic-for-linux-x86_64.tar.bz2
+cd OpenWrt-ImageBuilder-ar71xx_generic-for-linux-x86_64</pre>
+
+</p>
+</div>
+<p>
+Example: Chaos Calmer / trunk for ar71xx architecture
+</p>
+<div class="plugin_wrap">
+<p>
+<pre class="code">cd ~
+mkdir openwrt &amp;&amp; cd openwrt
+wget http://downloads.openwrt.org/snapshots/trunk/ar71xx/generic/OpenWrt-ImageBuilder-ar71xx-generic.Linux-x86_64.tar.bz2
+tar -xvjf OpenWrt-ImageBuilder-ar71xx-generic.Linux-x86_64.tar.bz2
+cd OpenWrt-ImageBuilder-ar71xx-generic.Linux-x86_64</pre>
+
+</p>
+</div>
+</div>
+
+<h2 class="sectionedit8" id="configure_package_repositories">Configure Package Repositories</h2>
+<div class="level2">
+
+<p>
+The <strong>Image Generator</strong> has to be configured for downloading missing packages from official or custom repositories. Otherwise the image generation fails with an error of a missing package. The package sources are configured in the <code>repositories.conf</code> file in the toplevel directory. Sources are specified in <em>opkg</em> native config format. This can be either the official package repositories or custom generated repositories.
+</p>
+
+<p>
+<strong>EXAMPLE:</strong> To use all official package repositories for ar71xx the repositories.conf should look like:
+</p>
+<div class="plugin_wrap">
+<p>
+<pre class="code">src/gz barrier_breaker_base http://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/generic/packages/base
+src/gz barrier_breaker_luci http://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/generic/packages/luci
+src/gz barrier_breaker_management http://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/generic/packages/management
+src/gz barrier_breaker_oldpackages http://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/generic/packages/oldpackages
+src/gz barrier_breaker_packages http://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/generic/packages/packages
+src/gz barrier_breaker_routing http://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/generic/packages/routing
+src/gz barrier_breaker_telephony http://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/generic/packages/telephony
+## This is the local package repository, do not remove!
+src imagebuilder file:packages</pre>
+
+</p>
+</div>
+<p>
+<strong>EXAMPLE:</strong> the following repositories.conf works for ar71xx <strong>trunk</strong>/chaos calmer (uncommenting second line will not work):
+</p>
+<div class="plugin_wrap">
+<p>
+<pre class="code">## Place your custom repositories here, they must match the architecture and version.
+#src/gz chaos_calmer http://downloads.openwrt.org/snapshots/trunk/ar71xx/generic/packages
+# src custom file:///usr/src/openwrt/bin/ar71xx/packages
+src/gz chaos_calmer_base http://downloads.openwrt.org/snapshots/trunk/ar71xx/generic/packages/base
+src/gz chaos_calmer_luci http://downloads.openwrt.org/snapshots/trunk/ar71xx/generic/packages/luci
+src/gz chaos_calmer_management http://downloads.openwrt.org/snapshots/trunk/ar71xx/generic/packages/management
+src/gz chaos_calmer_packages http://downloads.openwrt.org/snapshots/trunk/ar71xx/generic/packages/packages
+src/gz chaos_calmer_routing http://downloads.openwrt.org/snapshots/trunk/ar71xx/generic/packages/routing
+src/gz chaos_calmer_telephony http://downloads.openwrt.org/snapshots/trunk/ar71xx/generic/packages/telephony
+## This is the local package repository, do not remove!
+src imagebuilder file:packages</pre>
+
+</p>
+</div>
+</div>
+
+<h2 class="sectionedit13" id="usage">Usage</h2>
+<div class="level2">
+
+<p>
+The <code>make image</code> command will create a minimal image with just essential packages included, the behavior can be controlled with three variables passed as arguments:
+</p>
+<ul>
+<li class="level1"><div class="li"> <em><code>PROFILE</code></em> - specifies the target image to build</div>
+</li>
+<li class="level1"><div class="li"> <em><code>PACKAGES</code></em> - a list of packages to embed into the image</div>
+</li>
+<li class="level1"><div class="li"> <em><code>FILES</code></em> - directory with custom files to include</div>
+</li>
+</ul>
+
+<p>
+Dependencies for &quot;make&quot;
+</p>
+<div class="plugin_wrap">
+<p>
+<pre class="code">apt-get install subversion build-essential libncurses5-dev zlib1g-dev gawk git ccache gettext libssl-dev xsltproc</pre>
+
+</p>
+</div>
+<p>
+Syntax:
+</p>
+<div class="plugin_wrap">
+<p>
+<pre class="code">$ make image PROFILE=XXX PACKAGES=&quot;pkg1 pkg2 pkg3 -pkg4 -pkg5 -pkg6&quot; FILES=files/</pre>
+
+</p>
+</div>
+<p>
+See the sections below for an explanation. After the make command is finished, the generated images are stored in the bin<em>/architecture</em> directory.
+</p>
+<div class="table sectionedit18"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><img src="../../_media/meta/icons/tango/dialog-information.png?w=24&amp;tok=a9916c" class="media" alt="" width="24" /></td><td class="col1">The example below shows the contents of <code>bin/</code> directory after successfully generating an OpenWrt Barrier Breaker image for WNDR3700. The architecture for WNDR3700 is ar71xx, so the exact location of the image is <code>bin/ar71xx</code></td>
+	</tr>
+</table></div>
+<div class="plugin_wrap">
+<p>
+<pre class="code">user@linux:~/openwrt/OpenWrt-ImageBuilder-ar71xx_generic-for-linux-x86_64$ ls -aR bin
+bin:
+.  ..  ar71xx
+
+bin/ar71xx:
+.                                         openwrt-ar71xx-generic-vmlinux-lzma.elf
+..                                        openwrt-ar71xx-generic-wndr3700-squashfs-factory.img
+md5sums                                   openwrt-ar71xx-generic-wndr3700-squashfs-factory-NA.img
+openwrt-ar71xx-generic-rootfs.tar.gz      openwrt-ar71xx-generic-wndr3700-squashfs-sysupgrade.bin
+openwrt-ar71xx-generic-root.squashfs      openwrt-ar71xx-generic-wndr3700v2-squashfs-factory.img
+openwrt-ar71xx-generic-root.squashfs-64k  openwrt-ar71xx-generic-wndr3700v2-squashfs-sysupgrade.bin
+openwrt-ar71xx-generic-uImage-gzip.bin    openwrt-ar71xx-generic-wndr3800-squashfs-factory.img
+openwrt-ar71xx-generic-uImage-lzma.bin    openwrt-ar71xx-generic-wndr3800-squashfs-sysupgrade.bin
+openwrt-ar71xx-generic-vmlinux.bin        openwrt-ar71xx-generic-wndrmac-squashfs-factory.img
+openwrt-ar71xx-generic-vmlinux.elf        openwrt-ar71xx-generic-wndrmac-squashfs-sysupgrade.bin
+openwrt-ar71xx-generic-vmlinux.gz         openwrt-ar71xx-generic-wndrmacv2-squashfs-factory.img
+openwrt-ar71xx-generic-vmlinux.lzma       openwrt-ar71xx-generic-wndrmacv2-squashfs-sysupgrade.bin</pre>
+
+</p>
+</div>
+</div>
+
+<h3 class="sectionedit21" id="profile_variable">PROFILE Variable</h3>
+<div class="level3">
+
+<p>
+Syntax:
+</p>
+<div class="plugin_wrap">
+<p>
+<pre class="code">$ make image PROFILE=NAMEOFPROFILE</pre>
+
+</p>
+</div>
+</div>
+
+<h4 id="pre-defined_profiles">Pre-defined Profiles</h4>
+<div class="level4">
+
+<p>
+Run <code>make info</code> to obtain a list of defined profiles.
+Example output from <code>make info</code> is listed below.
+</p>
+
+</div>
+
+<h5 id="brcm47xx_profiles">brcm47xx Profiles</h5>
+<div class="level5">
+
+<p>
+<a href="http://pastebin.com/5L7Pzq7N" class="urlextern" title="http://pastebin.com/5L7Pzq7N"  rel="nofollow">brcm47xx Image Generator Profiles</a>
+</p>
+
+</div>
+
+<h5 id="ar71xx_profiles">ar71xx Profiles</h5>
+<div class="level5">
+
+<p>
+<a href="http://pastebin.com/WbudpBDJ" class="urlextern" title="http://pastebin.com/WbudpBDJ"  rel="nofollow">ar71xx Image Generator Profiles</a>
+</p>
+
+<p>
+After you find the appropriate profile pass it to the <code>make image</code> command:
+</p>
+
+<p>
+<strong>EXAMPLE:</strong> for WNDR3700 (Atheros ar71xx architecture).
+</p>
+<div class="table sectionedit24"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><img src="../../_media/meta/icons/tango/dialog-information.png?w=24&amp;tok=a9916c" class="media" alt="" width="24" /></td><td class="col1">This will build OpenWrt for WNDR3700 with a bare-minumum feature set due to <code>PACKAGES</code> variable not being defined. For information on how to include or exclude packages, see <span class="curid"><a href="imagegenerator#packages_variable" class="wikilink1" title="doc:howto:obtain.firmware.generate">PACKAGES Variable</a></span> </td>
+	</tr>
+</table></div>
+<div class="plugin_wrap">
+<p>
+<pre class="code">$ make image PROFILE=WNDR3700</pre>
+
+</p>
+</div>
+<p>
+Then you would look for the image in the <code>OpenWrt-ImageBuilder-ar71xx_generic-for-linux-i486/bin/</code> directory.
+</p>
+
+</div>
+
+<h4 id="addingmodifying_profiles">Adding/Modifying Profiles</h4>
+<div class="level4">
+<div class="table sectionedit27"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><img src="../../_media/meta/icons/tango/48px-emblem-important.svg.png?w=24&amp;tok=9f1dda" class="media" alt="" width="24" /></td><td class="col1">Note that at least for the ar71xx architecture the image generation is tied to the profile names. If you add a new profile without also adding an appropriate macro to the image Makefile, no suitable firmware file will get generated when using the custom profile. </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"><img src="../../_media/meta/icons/tango/48px-emblem-important.svg.png?w=24&amp;tok=9f1dda" class="media" alt="" width="24" /></td><td class="col1">Make sure to remove the /tmp directory to get modified package selection from profiles to work. </td>
+	</tr>
+</table></div>
+
+<p>
+The location of the profiles for the pre-compiled package for <em>brcm47xx-for-Linux-i686</em> was <em>target/linux/brcm47xx/profiles</em>/
+</p>
+
+<p>
+Remarkably, all that needs to be done to add a new profile, is to add a new file to the <em>profiles</em> directory.
+</p>
+
+<p>
+Here is what the <em>profiles/100-Broadcom-b43.mk</em> profile file looks like:  
+</p>
+<div class="plugin_wrap">
+<p>
+<pre class="code">define Profile/Broadcom-b43
+  NAME:=Broadcom BCM43xx WiFi (default)
+  PACKAGES:=kmod-b43 kmod-b43legacy
+endef
+
+define Profile/Broadcom-b43/Description
+	Package set compatible with hardware using Broadcom BCM43xx cards
+endef
+$(eval $(call Profile,Broadcom-b43))</pre>
+
+</p>
+</div>
+</div>
+
+<h3 class="sectionedit30" id="packages_variable">PACKAGES Variable</h3>
+<div class="level3">
+
+<p>
+The <code>PACKAGES</code> variable specifies a list of packages to include and/or exclude when building an image with Image Generator.
+</p>
+
+<p>
+Syntax:
+</p>
+
+<p>
+<strong>NOTE:</strong> If the package name is prefixed with <code>-</code> then the corresponding package will be excluded from being built during <code>make image</code>.
+</p>
+
+<p>
+The example below will include pkg1, pkg2, pkg3, and exclude pkg4, pkg5, pkg6.
+</p>
+<div class="plugin_wrap">
+<p>
+<pre class="code">$ make image PROFILE=XXX PACKAGES=&quot;pkg1 pkg2 pkg3 -pkg4 -pkg5 -pkg6&quot;</pre>
+
+</p>
+</div><div class="table sectionedit33"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><img src="../../_media/meta/icons/tango/48px-emblem-important.svg.png?w=24&amp;tok=9f1dda" class="media" alt="" width="24" /></td><td class="col1"><strong>Backfire 10.03.1-rc5 or later</strong>: Image Generator now uses <code>opkg</code> on the host to determine packages to install and to resolve their dependencies (which is especially useful if you use <a href="imagegenerator#external_repositories" title="doc:howto:obtain.firmware.generate ↵" class="wikilink1">External Repositories</a>), so the following warning does not apply! </td>
+	</tr>
+</table></div>
+<div class="table sectionedit34"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><img src="../../_media/meta/icons/tango/48px-dialog-warning.svg.png?w=24&amp;tok=0fc4e5" class="media" alt="" width="24" /></td><td class="col1"><strong>Backfire 10.03 to 10.03.1-rc4</strong>: Using <code>PACKAGES=</code> will not install any of the default packages in your PROFILE.  Be sure you include <strong>libuci</strong>.  Without it uci won&#039;t work.  Your router will boot but none of the interfaces will be configured <strong>effectively bricking your router</strong> (setting <code>boot_wait</code> first will let you recover via tftp). </td>
+	</tr>
+</table></div>
+
+<p>
+<strong>Tip:</strong> The list of currently installed packages on your router running OpenWrt can be obtained with the command below:
+</p>
+<div class="plugin_wrap">
+<p>
+<pre class="code">echo $(opkg list_installed | awk &#039;{ print $1 }&#039;)</pre>
+
+</p>
+</div>
+<p>
+<strong>Tip:</strong> The list of packages present in the current release of OpenWrt, Barrier Breaker 14.07, can be obtained with this Linux command:
+</p>
+
+<p>
+<strong>NOTE:</strong> Example is for ar71xx. Change the architecture and name of the config file as necessary.
+</p>
+<div class="plugin_wrap">
+<p>
+<pre class="code">echo $(wget -qO - http://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/generic/config.ar71xx_generic | sed -ne &#039;s/^CONFIG_PACKAGE_\([a-z0-9-]*\)=y/\1/ip&#039;)</pre>
+
+</p>
+</div>
+<p>
+<strong>Tip:</strong> If you want to remove some of the default packages (for e.g. you do not need pppoe related packages), consult with the DEFAULT_PACKAGES and DEFAULT_PACKAGES.router section in the include/target.mk file.
+</p>
+
+<p>
+<strong>Tip:</strong> External packages compatible with a given build (if you cannot use images from <a href="http://downloads.openwrt.org/" class="urlextern" title="http://downloads.openwrt.org/"  rel="nofollow">http://downloads.openwrt.org/</a> because you have compiled from trunk and trunk has changed since you compiled your image) can be found in <code>packages</code> directory.
+</p>
+
+</div>
+
+<h3 class="sectionedit39" id="files_variable">FILES Variable</h3>
+<div class="level3">
+
+<p>
+The <code>FILES</code> variable allows custom configuration files to be included in images built with Image Generator. This is especially useful if you need to change the network configuration from default before flashing.
+</p>
+
+<p>
+Syntax:
+</p>
+<div class="plugin_wrap">
+<p>
+<pre class="code">$ make image PROFILE=XXX PACKAGES=&quot;XXX&quot; FILES=files/</pre>
+
+</p>
+</div>
+<p>
+The following example shows:
+</p>
+<ol>
+<li class="level1"><div class="li">Creating the directory for the configuration files</div>
+</li>
+<li class="level1"><div class="li">Using <code>scp</code> to transfer <code>uci</code> configuration files from an OpenWrt router to the <code>files/etc/config</code> directory</div>
+</li>
+<li class="level1"><div class="li">Generating an image for WL500GP with custom packages and <code>uci</code> configuration files</div>
+</li>
+</ol>
+<div class="plugin_wrap">
+<p>
+<pre class="code">mkdir -p files/etc/config
+scp root@192.168.1.1:/etc/config/network files/etc/config/
+scp root@192.168.1.1:/etc/config/wireless files/etc/config/
+scp root@192.168.1.1:/etc/config/firewall files/etc/config/
+make image PROFILE=WL500GP PACKAGES=&quot;nano openvpn -ppp -ppp-mod-pppoe&quot; FILES=files/</pre>
+
+</p>
+</div>
+<p>
+<strong>Note:</strong> The <code>files/</code> folder must be in the same folder where you issue the make command.
+</p>
+
+</div>
+
+<h2 class="sectionedit44" id="cleanup">Cleanup</h2>
+<div class="level2">
+
+<p>
+To clean up temporary build files and generated images, use the <code>make clean</code> command.
+</p>
+
+</div>
+
+<h2 class="sectionedit45" id="remove_useless_files_from_firmware">Remove useless files from firmware</h2>
+<div class="level2">
+
+<p>
+1. Create file &#039;files_remove&#039; with full filenames:
+<pre class="code">/lib/modules/3.10.49/ts_bm.ko
+/lib/modules/3.10.49/nf_nat_ftp.ko
+/lib/modules/3.10.49/nf_nat_irc.ko
+/lib/modules/3.10.49/nf_nat_tftp.ko</pre>
+
+</p>
+
+<p>
+2. Patch Makefile
+<pre class="code bash"> ifneq <span class="br0">&#40;</span>$<span class="br0">&#40;</span>USER_FILES<span class="br0">&#41;</span>,<span class="br0">&#41;</span>
+ 	$<span class="br0">&#40;</span>MAKE<span class="br0">&#41;</span> copy_files
+ endif
++
++ifneq <span class="br0">&#40;</span>$<span class="br0">&#40;</span>FILES_REMOVE<span class="br0">&#41;</span>,<span class="br0">&#41;</span>
++	<span class="sy0">@</span><span class="kw3">echo</span>
++	<span class="sy0">@</span><span class="kw3">echo</span> Remove useless files
++
++	<span class="kw1">while</span> <span class="kw2">read</span> filename; <span class="kw1">do</span>				\
++	    <span class="kw2">rm</span> <span class="re5">-rfv</span> <span class="st0">&quot;<span class="es4">$(TARGET_DIR)</span>$<span class="es2">$filename</span>&quot;</span>;	\
++	<span class="kw1">done</span> <span class="sy0">&lt;</span> $<span class="br0">&#40;</span>FILES_REMOVE<span class="br0">&#41;</span>;
++endif
++
+ 	$<span class="br0">&#40;</span>MAKE<span class="br0">&#41;</span> package_postinst
+ 	$<span class="br0">&#40;</span>MAKE<span class="br0">&#41;</span> build_image</pre>
+
+</p>
+
+<p>
+3. Rebuild firmware
+<pre class="code"># make image \
+    PROFILE=TLWR841 \
+    PACKAGES=&quot;igmpproxy ip iptraf kmod-ipt-nathelper-extra openvpn-polarssl tcpdump-mini -firewall -ip6tables -kmod-ip6tables -kmod-ipv6 -odhcp6c -ppp -ppp-mod-pppoe&quot; \
+    FILES_REMOVE=&quot;files_remove&quot;</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit46" id="building_the_image_generator">Building the Image Generator</h2>
+<div class="level2">
+
+<p>
+It is possible to build the Image Generator from the sources from scratch:
+</p>
+<div class="plugin_wrap">
+<p>
+<pre class="code bash">:~<span class="sy0">/</span>openwrt<span class="sy0">/</span>trunk<span class="sy0">&gt;</span> <span class="kw2">svn up</span>
+:~<span class="sy0">/</span>openwrt<span class="sy0">/</span>trunk<span class="sy0">&gt;</span> <span class="kw2">rm</span> .config
+:~<span class="sy0">/</span>openwrt<span class="sy0">/</span>trunk<span class="sy0">&gt;</span> <span class="kw2">make</span> menuconfig</pre>
+
+</p>
+</div>
+<p>
+In the graphical configuration, select <code>Global Build Settings → Select all packages by default</code>, exit and save.
+Then build the image, including <code>IGNORE_ERRORS=1</code> as there might be unmaintained packages that fail to compile.
+</p>
+<div class="plugin_wrap">
+<p>
+<pre class="code">:~/openwrt/trunk&gt; make IGNORE_ERRORS=1</pre>
+
+</p>
+</div>
+<p>
+<strong>Note:</strong> Don&#039;t call <code>make defconfig</code> or leave an old <code>.config</code> file in the path as <code>Select all packages by default</code> will only set the package selection to <code>[m]</code> for packages that are not already configured otherwise!(<code>make defconfig</code> will set most packages to <code>[n]</code>, i.e. <em>do not build</em>.)
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/obtain.firmware.generate.txt</bdi> · Last modified: 2015/03/02 23:56 by <bdi>nozombian3</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="obtain.firmware.generate?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="obtain.firmware.generate?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="obtain.firmware.generate?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="imagegenerator#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="http://wiki.openwrt.org/lib/exe/indexer.php?id=doc%3Ahowto%3Aobtain.firmware.generate&amp;1432266674" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

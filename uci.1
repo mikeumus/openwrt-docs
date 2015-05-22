@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>The UCI System [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,uci"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../index.html"/>
+<link rel="contents" href="uci?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../feed.php?mode=list&amp;ns=doc"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../_export/xhtml/doc/uci"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../_export/raw/doc/uci"/>
+<link rel="canonical" href="uci.1"/>
+<link rel="stylesheet" type="text/css" href="../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc';var JSINFO = {"id":"doc:uci","namespace":"doc"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265391 166.182.3.125';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="uci.1#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../start"  accesskey="h" title="[H]"><img src="../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="uci?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="uci?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:uci" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="uci?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="uci?do=media&amp;ns=doc"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="uci?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><span class="curid"><a href="uci.1" class="wikilink1" title="doc:uci">The UCI System</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/uci" class="media" title="cz:doc:uci"><img src="../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../de/doc/uci" class="media" title="de:doc:uci"><img src="../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="uci.1" class="media" title="doc:uci"><img src="../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/uci" class="media" title="es:doc:uci"><img src="../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/uci" class="media" title="fr:doc:uci"><img src="../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../hu/doc/uci" class="media" title="hu:doc:uci"><img src="../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/uci" class="media" title="jp:doc:uci"><img src="../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/uci" class="media" title="pl:doc:uci"><img src="../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/uci" class="media" title="pt-br:doc:uci"><img src="../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../ru/doc/uci" class="media" title="ru:doc:uci"><img src="../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/uci" class="media" title="tr:doc:uci"><img src="../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../zh-cn/doc/uci.1" class="media" title="zh-cn:doc:uci"><img src="../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../zh-tw/doc/uci" class="media" title="zh-tw:doc:uci"><img src="../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:uci</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="uci.1#common_principles">Common Principles</a></div></li>
+<li class="level1"><div class="li"><a href="uci.1#configuration_files">Configuration Files</a></div></li>
+<li class="level1"><div class="li"><a href="uci.1#file_syntax">File Syntax</a></div></li>
+<li class="level1"><div class="li"><a href="uci.1#command_line_utility">Command Line Utility</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="uci.1#usage">Usage</a></div></li>
+<li class="level2"><div class="li"><a href="uci.1#examples">Examples:</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="uci.1#setting_a_value">Setting a value</a></div></li>
+<li class="level3"><div class="li"><a href="uci.1#export_an_entire_configuration">Export an entire configuration</a></div></li>
+<li class="level3"><div class="li"><a href="uci.1#show_the_configuration_tree_for_a_given_config">Show the configuration &quot;tree&quot; for a given config</a></div></li>
+<li class="level3"><div class="li"><a href="uci.1#display_just_the_value_of_an_option">Display just the value of an option</a></div></li>
+<li class="level3"><div class="li"><a href="uci.1#append_an_entry_to_a_list">append an entry to a list</a></div></li>
+<li class="level3"><div class="li"><a href="uci.1#replace_a_list_completely">replace a list completely</a></div></li>
+<li class="level3"><div class="li"><a href="uci.1#create_a_new_named_section_of_a_given_type">Create a new named section of a given type</a></div></li>
+<li class="level3"><div class="li"><a href="uci.1#uci_paths">UCI paths</a></div></li>
+<li class="level3"><div class="li"><a href="uci.1#query_interface_state">Query interface state</a></div></li>
+<li class="level3"><div class="li"><a href="uci.1#add_a_firewall_rule">Add a firewall rule</a></div></li>
+<li class="level3"><div class="li"><a href="uci.1#get_wan_ip_address">Get WAN IP address</a></div></li>
+<li class="level3"><div class="li"><a href="uci.1#get_wan_interface">Get WAN interface</a></div></li>
+<li class="level3"><div class="li"><a href="uci.1#get_ssid">Get SSID</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="uci.1#defaults">Defaults:</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="uci.1#porting_uci_to_a_different_linux_distribution">Porting UCI to a different Linux distribution</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="the_uci_system">The UCI System</h1>
+<div class="level1">
+
+<p>
+The abbreviation <a href="devel/uci-lua" class="wikilink1" title="doc:techref:uci">UCI</a>  stands for <em><strong><em class="u">U</em></strong>nified <strong><em class="u">C</em></strong>onfiguration <strong><em class="u">I</em></strong>nterface</em> and is intended to centralize the configuration of OpenWrt. 
+</p>
+
+<p>
+Configuration should be easy and straightforward, making life easier! UCI is all about that. It is the successor to the NVRAM-based configuration found in the White Russian series of OpenWrt. UCI can be seen as OpenWrt&#039;s main configuration user interface for the most important system settings. Typically, these are settings that are crucial for the functioning of the device, such as are typically found in the web interface of routers and embedded devices; that is, functionality that is integrated in the system builds. Examples are the main network interface configuration, wireless settings, logging functionality and remote access configuration.
+</p>
+
+<p>
+In addition, selected third party programs have been made compatible with the UCI system, so these can be managed more easily as well. Many programs have their own configuration files lying around somewhere, like <code>/etc/network/interfaces</code>, <code>/etc/exports</code>, <code>/etc/dnsmasq.conf</code> or <code>/etc/samba/smb.conf</code> and they often use different syntaxes. With OpenWrt, you don&#039;t have to bother with any of them and need to change only the UCI configuration file(s). Of course, most of the software that you would like to install will not have been prepared for UCI configuration, which is a good thing, because oftentimes you will want the full power of an application&#039;s own configuration interface, as it was intended by the developers. Therefore, only a few selected programs which benefit from availability of a centralised configuration have been made UCI-compatible by the OpenWrt package maintainers (see the UCI configuration file list below). 
+</p>
+
+<p>
+Most applications (save some that are made in-house) are made UCI-compatible by the package maintainer by simply writing the original configuration file (which is read by the program) according to the chosen settings in the corresponding UCI file. This is done upon running the initialization scripts in <code>/etc/init.d/</code>. See <a href="techref/initscripts" class="wikilink1" title="doc:techref:initscripts">Init scripts</a> for more information. Thus, when starting a daemon with such a UCI-compatible initialization script, you should be aware that the program&#039;s original configuration file gets overwritten. For example, in the case of <a href="howto/cifs.server" class="wikilink1" title="doc:howto:cifs.server">Samba/CIFS</a>, the file <code>/etc/samba/smb.conf</code> is overwritten with UCI settings from the UCI configuration file <code>/etc/config/samba</code> when running <code>/etc/init.d/samba start</code>. In addition, the application&#039;s configuration file is often stored in RAM instead of in flash, because it does not need to be stored in non-volatile memory and it is rewritten after every change, based on the UCI file. There are ways to disable UCI in case you want to adjust settings in the original configuration file not available through UCI. <img src="../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> add the recommended way please, or link to it.
+</p>
+
+<p>
+For those non-UCI compatible programs, there is a convenient <a href="howto/notuci.config" class="wikilink1" title="doc:howto:notuci.config">list of some non-UCI configuration files</a> you may want to tend to. Note that, for most third party programs, you should consult the program&#039;s own documentation.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="common_principles">Common Principles</h2>
+<div class="level2">
+
+<p>
+OpenWrt&#039;s central configuration is split into several files located in the <code>/etc/config/</code> directory. Each file relates roughly to the part of the system it configures. You can edit the configuration files with a text editor or modify them with the command line utility program <code>uci</code>. UCI configuration files are also modifiable through various programming APIs (like Shell, Lua and C), which is also how web interfaces like <a href="luci" class="wikilink1" title="doc:howto:luci.essentials">LuCI</a> make changes to the UCI files. 
+</p>
+
+<p>
+Upon changing a UCI configuration file, whether through a text editor or the command line, the services or executables that are affected must be (re)started (or, in some cases, simply reloaded) by an <a href="techref/initscripts" class="wikilink1" title="doc:techref:initscripts">init.d call</a>, such that the updated UCI configuration is applied to them. Many programs are made compatible with UCI in this way by making their init.d script write their standard software specific configuration files. The init.d script first properly writes such a configuration file to the software&#039;s expected location and it is read in again by restarting the executable. Note that just (re)starting the executable directly, without init.d calls, will not result in an UCI update to relegate UCI config to the program&#039;s expected <a href="http://en.wikipedia.org/wiki/Configuration_file" class="urlextern" title="http://en.wikipedia.org/wiki/Configuration_file"  rel="nofollow">configuration file</a>. Changes in files in <code>/etc/config/</code> then take no effect. 
+</p>
+
+<p>
+As an example of modifying the UCI configuration, suppose you want to change the device&#039;s IP address from the default <code>192.168.1.1</code> to <code>192.168.2.1</code>. To do this, using any text editor, such as vi, change the line
+</p>
+
+<p>
+<code>option ipaddr	192.168.1.1</code>
+</p>
+
+<p>
+in the file <code>/etc/config/network</code> to: 
+</p>
+
+<p>
+<code>option ipaddr	192.168.2.1</code>
+</p>
+
+<p>
+Next, commit the settings by running
+</p>
+
+<p>
+<code>/etc/init.d/network restart</code>
+</p>
+
+<p>
+In this case, remember that you have to login again using SSH as the device is now accessible at its new IP address!
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="configuration_files">Configuration Files</h2>
+<div class="level2">
+<div class="table sectionedit4"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> File </th><th class="col1"> Description </th>
+	</tr>
+	<tr class="row1">
+		<th class="col0" colspan="2"> Basic </th>
+	</tr>
+	</thead>
+	<tr class="row2">
+		<td class="col0"> <a href="uci/dhcp" class="wikilink1" title="doc:uci:dhcp">/etc/config/dhcp</a> </td><td class="col1"> Dnsmasq configuration and DHCP settings </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <a href="uci/dropbear" class="wikilink1" title="doc:uci:dropbear">/etc/config/dropbear</a> </td><td class="col1"> SSH server options </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <a href="uci/firewall" class="wikilink1" title="doc:uci:firewall">/etc/config/firewall</a> </td><td class="col1 leftalign"> NAT, packet filter, port forwarding, etc.  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <a href="uci/network" class="wikilink1" title="doc:uci:network">/etc/config/network</a> </td><td class="col1"> Switch, interface and route configuration </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <a href="uci/system" class="wikilink1" title="doc:uci:system">/etc/config/system</a> </td><td class="col1"> Misc. system settings </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <a href="uci/wireless" class="wikilink1" title="doc:uci:wireless">/etc/config/wireless</a> </td><td class="col1"> Wireless settings and wifi network definition </td>
+	</tr>
+	<tr class="row8">
+		<th class="col0" colspan="2"> IPv6 </th>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <a href="http://wiki.openwrt.org/doc/uci/ahcpd" class="wikilink2" title="doc:uci:ahcpd" rel="nofollow">/etc/config/ahcpd</a> </td><td class="col1"> Ad-Hoc Configuration Protocol (AHCP) server and forwarder configuration </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> <a href="uci/aiccu" class="wikilink1" title="doc:uci:aiccu">/etc/config/aiccu</a> </td><td class="col1"> AICCU client configuration </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> <a href="uci/dhcp6c" class="wikilink1" title="doc:uci:dhcp6c">/etc/config/dhcp6c</a> </td><td class="col1"> WIDE-DHCPv6 client </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0"> <a href="http://wiki.openwrt.org/doc/uci/dhcp6s" class="wikilink2" title="doc:uci:dhcp6s" rel="nofollow">/etc/config/dhcp6s</a> </td><td class="col1"> WIDE-DHCPv6 server </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0"> <a href="http://wiki.openwrt.org/doc/uci/gw6c" class="wikilink2" title="doc:uci:gw6c" rel="nofollow">/etc/config/gw6c</a> </td><td class="col1"> GW6c client configuration </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0"> <a href="uci/radvd" class="wikilink1" title="doc:uci:radvd">/etc/config/radvd</a> </td><td class="col1"> Router Advertisement (radvd) configuration </td>
+	</tr>
+	<tr class="row15">
+		<th class="col0" colspan="2"> Other </th>
+	</tr>
+	<tr class="row16">
+		<td class="col0"> <a href="uci/bbstored" class="wikilink1" title="doc:uci:bbstored">/etc/config/bbstored</a> </td><td class="col1"> BoxBackup server configuration </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0"> <a href="uci/ddns" class="wikilink1" title="doc:uci:ddns">/etc/config/ddns</a> </td><td class="col1"> Dynamic <abbr title="Domain Name System">DNS</abbr> configuration (ddns-scripts) </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0"> <a href="uci/etherwake" class="wikilink1" title="doc:uci:etherwake">/etc/config/etherwake</a> </td><td class="col1"> Wake-on-Lan: etherwake </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0"> <a href="uci/freifunk_p2pblock" class="wikilink1" title="doc:uci:freifunk_p2pblock">/etc/config/freifunk_p2pblock</a> </td><td class="col1"> Uses iptables layer7-, ipp2p- and recent-modules to block p2p/filesharing traffic </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0"> <a href="uci/fstab" class="wikilink1" title="doc:uci:fstab">/etc/config/fstab</a> </td><td class="col1"> Mount points and swap </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0"> <a href="uci/hd-idle" class="wikilink1" title="doc:uci:hd-idle">/etc/config/hd-idle</a> </td><td class="col1"> Another idle-daemon for attached hard drives </td>
+	</tr>
+	<tr class="row22">
+		<td class="col0"> <a href="uci/httpd" class="wikilink1" title="doc:uci:httpd">/etc/config/httpd</a> </td><td class="col1"> Web server options (Busybox httpd, deprecated) </td>
+	</tr>
+	<tr class="row23">
+		<td class="col0"> <a href="uci/ipset-dns" class="wikilink1" title="doc:uci:ipset-dns">/etc/config/ipset-dns</a> </td><td class="col1"> Configure <a href="http://git.zx2c4.com/ipset-dns/about/ ipset-dns" class="urlextern" title="http://git.zx2c4.com/ipset-dns/about/ ipset-dns"  rel="nofollow">http://git.zx2c4.com/ipset-dns/about/ ipset-dns</a> </td>
+	</tr>
+	<tr class="row24">
+		<td class="col0"> <a href="http://wiki.openwrt.org/doc/uci/luci" class="wikilink2" title="doc:uci:luci" rel="nofollow">/etc/config/luci</a> </td><td class="col1"> Base LuCI config </td>
+	</tr>
+	<tr class="row25">
+		<td class="col0"> <a href="http://wiki.openwrt.org/doc/uci/luci_statistics" class="wikilink2" title="doc:uci:luci_statistics" rel="nofollow">/etc/config/luci_statistics</a> </td><td class="col1"> Configuration of Statistics packet</td>
+	</tr>
+	<tr class="row26">
+		<td class="col0"> <a href="uci/mini_snmpd" class="wikilink1" title="doc:uci:mini_snmpd">/etc/config/mini_snmpd</a> </td><td class="col1"> mini_snmpd settings </td>
+	</tr>
+	<tr class="row27">
+		<td class="col0"> <a href="uci/minidlna" class="wikilink1" title="doc:uci:minidlna">/etc/config/minidlna</a> </td><td class="col1"> MiniDLNA  settings </td>
+	</tr>
+	<tr class="row28">
+		<td class="col0"> <a href="http://wiki.openwrt.org/doc/uci/mjpg-streamer" class="wikilink2" title="doc:uci:mjpg-streamer" rel="nofollow">/etc/config/mjpg-streamer</a> </td><td class="col1 leftalign"> Streaming application for Linux-UVC compatible webcams  </td>
+	</tr>
+	<tr class="row29">
+		<td class="col0"> <a href="uci/mountd" class="wikilink1" title="doc:uci:mountd">/etc/config/mountd</a> </td><td class="col1"> OpenWrt automount daemon </td>
+	</tr>
+	<tr class="row30">
+		<td class="col0"> <a href="http://wiki.openwrt.org/doc/uci/mroute" class="wikilink2" title="doc:uci:mroute" rel="nofollow">/etc/config/mroute</a> </td><td class="col1"> Configuration files for multiple WAN routes </td>
+	</tr>
+	<tr class="row31">
+		<td class="col0"> <a href="uci/multiwan" class="wikilink1" title="doc:uci:multiwan">/etc/config/multiwan</a> </td><td class="col1"> Simple multi WAN configuration </td>
+	</tr>
+	<tr class="row32">
+		<td class="col0"> <a href="http://wiki.openwrt.org/doc/uci/mwan3" class="wikilink2" title="doc:uci:mwan3" rel="nofollow">/etc/config/mwan3</a> </td><td class="col1"> Multi-WAN config with load balancing and failover </td>
+	</tr>
+	<tr class="row33">
+		<td class="col0"> <a href="uci/ntpclient" class="wikilink1" title="doc:uci:ntpclient">/etc/config/ntpclient</a> </td><td class="col1"> Getting the correct time </td>
+	</tr>
+	<tr class="row34">
+		<td class="col0"> <a href="uci/p910nd" class="wikilink1" title="doc:uci:p910nd">/etc/config/p910nd</a> </td><td class="col1"> config for non-spooling Printer daemon <a href="howto/p910nd.server" class="wikilink1" title="doc:howto:p910nd.server">p910nd.server</a> </td>
+	</tr>
+	<tr class="row35">
+		<td class="col0"> <a href="uci/pure-ftpd" class="wikilink1" title="doc:uci:pure-ftpd">/etc/config/pure-ftpd</a> </td><td class="col1"> Pure-FTPd server config </td>
+	</tr>
+	<tr class="row36">
+		<td class="col0"> <a href="uci/qos" class="wikilink1" title="doc:uci:qos">/etc/config/qos</a> </td><td class="col1"> Implementing Quality of Service for the <em>upload</em> </td>
+	</tr>
+	<tr class="row37">
+		<td class="col0"> <a href="uci/racoon" class="wikilink1" title="doc:uci:racoon">/etc/config/racoon</a> </td><td class="col1"> racoon IPsec daemon </td>
+	</tr>
+	<tr class="row38">
+		<td class="col0"> <a href="uci/samba" class="wikilink1" title="doc:uci:samba">/etc/config/samba</a> </td><td class="col1"> settings for the Microsoft file and print services daemon </td>
+	</tr>
+	<tr class="row39">
+		<td class="col0"> <a href="uci/snmpd" class="wikilink1" title="doc:uci:snmpd">/etc/config/snmpd</a> </td><td class="col1"> SNMPd settings </td>
+	</tr>
+	<tr class="row40">
+		<td class="col0"> <a href="uci/sshtunnel" class="wikilink1" title="doc:uci:sshtunnel">/etc/config/sshtunnel</a> </td><td class="col1"> Settings for the package <code>sshtunnel</code> </td>
+	</tr>
+	<tr class="row41">
+		<td class="col0"> <a href="uci/stund" class="wikilink1" title="doc:uci:stund">/etc/config/stund</a> </td><td class="col1"> STUN server configuration </td>
+	</tr>
+	<tr class="row42">
+		<td class="col0"> <a href="http://wiki.openwrt.org/doc/uci/tinc" class="wikilink2" title="doc:uci:tinc" rel="nofollow">/etc/config/tinc</a> </td><td class="col1"> <a href="howto/vpn.tinc" class="wikilink1" title="doc:howto:vpn.tinc">tinc</a> package configuration </td>
+	</tr>
+	<tr class="row43">
+		<td class="col0"> <a href="uci/transmission" class="wikilink1" title="doc:uci:transmission">/etc/config/transmission</a> </td><td class="col1"> BitTorrent configuration </td>
+	</tr>
+	<tr class="row44">
+		<td class="col0"> <a href="uci/uhttpd" class="wikilink1" title="doc:uci:uhttpd">/etc/config/uhttpd</a> </td><td class="col1"> Web server options (uHTTPd) </td>
+	</tr>
+	<tr class="row45">
+		<td class="col0"> <a href="uci/miniupnpd" class="wikilink1" title="doc:uci:miniupnpd">/etc/config/upnpd</a> </td><td class="col1"> miniupnpd UPnP server settings </td>
+	</tr>
+	<tr class="row46">
+		<td class="col0"> <a href="uci/users" class="wikilink1" title="doc:uci:users">/etc/config/users</a> </td><td class="col1"> user database for different services </td>
+	</tr>
+	<tr class="row47">
+		<td class="col0"> <a href="uci/ushare" class="wikilink1" title="doc:uci:ushare">/etc/config/ushare</a> </td><td class="col1"> uShare UPnP server settings </td>
+	</tr>
+	<tr class="row48">
+		<td class="col0"> <a href="uci/vblade" class="wikilink1" title="doc:uci:vblade">/etc/config/vblade</a> </td><td class="col1"> vblade userspace AOE target </td>
+	</tr>
+	<tr class="row49">
+		<td class="col0"> <a href="http://wiki.openwrt.org/doc/uci/vnstat" class="wikilink2" title="doc:uci:vnstat" rel="nofollow">/etc/config/vnstat</a> </td><td class="col1"> vnstat downloader settings </td>
+	</tr>
+	<tr class="row50">
+		<td class="col0"> <a href="uci/wifitoggle" class="wikilink1" title="doc:uci:wifitoggle">/etc/config/wifitoggle</a> </td><td class="col1"> Script to toogle WiFi with a button </td>
+	</tr>
+	<tr class="row51">
+		<td class="col0"> <a href="uci/wol" class="wikilink1" title="doc:uci:wol">/etc/config/wol</a> </td><td class="col1"> Wake-on-Lan: wol </td>
+	</tr>
+	<tr class="row52">
+		<td class="col0"> <a href="http://wiki.openwrt.org/doc/uci/wshaper" class="wikilink2" title="doc:uci:wshaper" rel="nofollow">/etc/config/wshaper</a> </td><td class="col1"> wondershaper qos script settings </td>
+	</tr>
+	<tr class="row53">
+		<td class="col0"> <a href="uci/znc" class="wikilink1" title="doc:uci:znc">/etc/config/znc</a> </td><td class="col1"> ZNC bouncer configuration </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit5" id="file_syntax">File Syntax</h2>
+<div class="level2">
+
+<p>
+The UCI configuration files usually consist of one or more <code>config</code> statements, so called sections with one or more option statements defining the actual values.
+</p>
+
+<p>
+Below is an example of a simple configuration file:
+</p>
+
+<p>
+<pre class="code">package &#039;example&#039;
+
+config &#039;example&#039; &#039;test&#039;
+        option   &#039;string&#039;      &#039;some value&#039;
+        option   &#039;boolean&#039;     &#039;1&#039;
+        list     &#039;collection&#039;  &#039;first item&#039;
+        list     &#039;collection&#039;  &#039;second item&#039;</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> The <code>config &#039;example&#039; &#039;test&#039; </code> statement defines the start of a section with the type <code>example</code> and the name <code>test</code>. There can also be so called anonymous sections with only a type, but no name identifier. The type is important for the processing programs to decide how to treat the enclosed options.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> The <code>option &#039;string&#039; &#039;some value&#039; </code> and <code> option &#039;boolean&#039; &#039;1&#039; </code> lines define simple values within the section. Note that there are no syntactical differences between text and boolean options. Per convention, boolean options may have one of the values &#039;0&#039;, &#039;no&#039;, &#039;off&#039;, &#039;false&#039; or &#039;disabled&#039; to specify a false value or &#039;1&#039; , &#039;yes&#039;, &#039;on&#039;, &#039;true&#039; or &#039;enabled&#039; to specify a true value.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> In the lines starting with a <code>list</code> keyword an option with multiple values is defined. All <code>list</code> statements that share the same name, <code>collection</code> in our example, will be combined into a single list of values with the same order as in the configuration file.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> The indentation of the <code>option</code> and <code>list</code> statements is a convention to improve the readability of the configuration file but it&#039;s not syntactically required.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> If an option is absent and not required, the default value is assumed. If it is absent and required, it may trigger an error in the application or other unwanted behaviour.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> A way to disable a config section, that does not have a <code>enabled</code> option to be disabled, is renaming the config section identifier (or type, in this case <code>example</code>) to a value not recognized by the processes that uses those values. Normally a <code>disabled_identifier</code> as config section type/identifier is sufficient.</div>
+</li>
+</ul>
+
+<p>
+Usually you do not need to enclose identifiers or values in quotes. Quotes are only required if the enclosed value contains spaces or tabs. Also it&#039;s legal to use double- instead of single-quotes when typing configuration options.
+</p>
+
+<p>
+All of the examples below are valid UCI syntax:
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>option example value</code></div>
+</li>
+<li class="level1"><div class="li"> <code>option &#039;example&#039; value</code></div>
+</li>
+<li class="level1"><div class="li"> <code>option example &quot;value&quot;</code></div>
+</li>
+<li class="level1"><div class="li"> <code>option &quot;example&quot;    &#039;value&#039; </code></div>
+</li>
+<li class="level1"><div class="li"> <code>option   &#039;example&#039; &quot;value&quot;</code></div>
+</li>
+</ul>
+
+<p>
+In contrast, the following examples are not valid UCI syntax:
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>option &#039;example&quot; &quot;value&#039; </code> (quotes are unbalanced)</div>
+</li>
+<li class="level1"><div class="li"> <code>option example some value with space </code> (note the missing quotes around the value)</div>
+</li>
+</ul>
+
+<p>
+It is important to know that UCI identifiers and config file names may contain only the characters <code>a-z</code>, <code>0-9</code> and <code>_</code>. E.g. no hyphens (-) are allowed. Option values may contain any character (as long they are properly quoted).
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="command_line_utility">Command Line Utility</h2>
+<div class="level2">
+
+<p>
+For adjusting settings, one normally changes the UCI config files directly. However, for scripting purposes, all of UCI configuration can also be read and changed using the <code>uci</code> command line utility. For developers requiring automatic parsing of the UCI configuration, it is therefore redundant, unwise, and inefficient to use <code>awk</code> and <code>grep</code> to parse OpenWrt&#039;s config files. The <code>uci</code> utility offers all functionality with respect to modifying and parsing UCI. 
+</p>
+
+<p>
+Below is the usage, as well as some useful examples of how to use this powerful utility. 
+</p>
+<div class="table sectionedit7"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><img src="../_media/meta/icons/tango/48px-dialog-warning.svg.png?w=24&amp;tok=0fc4e5" class="media" alt="" width="24" /> When using <code>uci</code> to write configuration files, the files are always rewritten in whole and non-recognised commands are omitted. This means that any extraneous lines in the file are deleted, such as comments. If you have UCI configuration files that you have edited yourself and you want to preserve your own comments and blank lines, you should not use the command line utility but edit the files normally. Note that some files, such as the uHTTPd configuration file, already contain many comments when the application is first installed. Also, note that some applications such as <a href="techref/luci" class="wikilink1" title="doc:techref:luci">LuCI</a> also use the <code>uci</code> utility and thus may rewrite UCI configuration files.</td>
+	</tr>
+</table></div>
+
+
+
+<p>
+When there are multiple rules next to each other, UCI supports array-like references for them.  If there are 8 NTP servers defined in <code>/etc/config/system</code>, UCI will let you reference their sections as <code>system.@timeserver[0]</code> for the first or <code>system.@timeserver[7]</code> for the last one.  You can also use negative indexes, such as <code>system.@timeserver[-1]</code>.  &quot;-1&quot; means the last one, &quot;-2&quot; means the second-to-last one, and so on.  This comes in very handy when appending new rules to the end of a list.  See the examples below.
+</p>
+
+</div>
+
+<h3 class="sectionedit8" id="usage">Usage</h3>
+<div class="level3">
+
+<p>
+<code>root@OpenWrt:/lib/config# <strong>uci</strong></code>
+</p>
+
+<p>
+<pre class="code">Usage: uci [&lt;options&gt;] &lt;command&gt; [&lt;arguments&gt;]
+
+Commands:
+	batch
+	export     [&lt;config&gt;]
+	import     [&lt;config&gt;]
+	changes    [&lt;config&gt;]
+	commit     [&lt;config&gt;]
+	add        &lt;config&gt; &lt;section-type&gt;
+	add_list   &lt;config&gt;.&lt;section&gt;.&lt;option&gt;=&lt;string&gt;
+	show       [&lt;config&gt;[.&lt;section&gt;[.&lt;option&gt;]]]
+	get        &lt;config&gt;.&lt;section&gt;[.&lt;option&gt;]
+	set        &lt;config&gt;.&lt;section&gt;[.&lt;option&gt;]=&lt;value&gt;
+	delete     &lt;config&gt;[.&lt;section[.&lt;option&gt;]]
+	rename     &lt;config&gt;.&lt;section&gt;[.&lt;option&gt;]=&lt;name&gt;
+	revert     &lt;config&gt;[.&lt;section&gt;[.&lt;option&gt;]]
+
+Options:
+	-c &lt;path&gt;  set the search path for config files (default: /etc/config)
+	-d &lt;str&gt;   set the delimiter for list values in uci show
+	-f &lt;file&gt;  use &lt;file&gt; as input instead of stdin
+	-m         when importing, merge data into an existing package
+	-n         name unnamed sections on export (default)
+	-N         don&#039;t name unnamed sections
+	-p &lt;path&gt;  add a search path for config change files
+	-P &lt;path&gt;  add a search path for config change files and use as default
+	-q         quiet mode (don&#039;t print error messages)
+	-s         force strict mode (stop on parser errors, default)
+	-S         disable strict mode
+	-X         do not use extended syntax on &#039;show&#039;</pre>
+
+</p>
+<div class="table sectionedit9"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> <code>Command</code> </th><th class="col1"> Target </th><th class="col2 leftalign"> Description  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> <code>commit</code>   </td><td class="col1"> <code>[&lt;config&gt;]</code> </td><td class="col2"> Writes changes of the given configuration file, or if none is given, all configuration files, to the filesystem. All &quot;uci set&quot;, &quot;uci add&quot;, &quot;uci rename&quot; and &quot;uci delete&quot; commands are staged into a temporary location and written to flash at once with &quot;uci commit&quot;. This is not needed after editing configuration files with a text editor, but for scripts, GUIs and other programs working directly with UCI files. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <code>batch</code>    </td><td class="col1"> - </td><td class="col2"> Executes a multi-line UCI script which is typically wrapped into a <em>here</em> document syntax. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> <code>export</code>   </td><td class="col1"> <code>[&lt;config&gt;]</code> </td><td class="col2"> Exports the configuration in a machine readable format. It is used internally to evaluate configuration files as shell scripts. </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> <code>import</code>   </td><td class="col1"> <code>[&lt;config&gt;]</code> </td><td class="col2"> Imports configuration files in UCI syntax. </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> <code>changes</code>  </td><td class="col1"> <code>[&lt;config&gt;]</code> </td><td class="col2"> List staged changes to the given configuration file or if none given, all configuration files. </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> <code>add</code>      </td><td class="col1"> <code>&lt;config&gt;  &lt;section-type&gt;</code> </td><td class="col2"> Add an anonymous section of type <code>section-type</code> to the given configuration. </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <code>add_list</code> </td><td class="col1"> <code>&lt;config&gt;.&lt;section&gt;.&lt;option&gt;=&lt;string&gt;</code> </td><td class="col2"> Add the given string to an existing list option. </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> <code>show</code>     </td><td class="col1"> <code>[&lt;config&gt;[.&lt;section&gt;[.&lt;option&gt;]]]</code> </td><td class="col2"> Show the given option, section or configuration in compressed notation. </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> <code>get</code>      </td><td class="col1"> <code>&lt;config&gt;.&lt;section&gt;[.&lt;option&gt;]</code> </td><td class="col2"> Get the value of the given option or the type of the given section. </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> <code>set</code>      </td><td class="col1"> <code>&lt;config&gt;.&lt;section&gt;[.&lt;option&gt;]=&lt;value&gt;</code> </td><td class="col2"> Set the value of the given option, or add a new section with the type set to the given value. </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> <code>delete</code>   </td><td class="col1 leftalign"> <code>&lt;config&gt;[.&lt;section[.&lt;option&gt;]]</code>  </td><td class="col2"> Delete the given section or option. </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> <code>rename</code>   </td><td class="col1"> <code>&lt;config&gt;.&lt;section&gt;[.&lt;option&gt;]=&lt;name&gt;</code> </td><td class="col2"> Rename the given option or section to the given name. </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> <code>revert</code>   </td><td class="col1"> <code>&lt;config&gt;[.&lt;section&gt;[.&lt;option&gt;]]</code> </td><td class="col2"> Revert the given option, section or configuration file. </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit10" id="examples">Examples:</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="setting_a_value">Setting a value</h4>
+<div class="level4">
+
+<p>
+If we want to change the listening port of the <a href="howto/http.uhttpd" class="wikilink1" title="doc:howto:http.uhttpd">uHTTPd Web Server</a> from 80 to 8080 we change the configuration in <code>/etc/config/uhttpd</code> :
+</p>
+<div class="table sectionedit11"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>root@OpenWrt:~# <strong>uci set uhttpd.main.listen_http=8080</strong>
+root@OpenWrt:~# <strong>uci commit uhttpd</strong>
+root@OpenWrt:~# <strong>/etc/init.d/uhttpd restart</strong>
+root@OpenWrt:~#</code> </td>
+	</tr>
+</table></div>
+
+<p>
+Done, now the configuration file is updated and uHTTPd listens on port 8080.
+</p>
+
+</div>
+
+<h4 id="export_an_entire_configuration">Export an entire configuration</h4>
+<div class="level4">
+<div class="table sectionedit12"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>root@OpenWrt:~# <strong>uci export httpd</strong>
+package &#039;httpd&#039;
+
+config &#039;httpd&#039;
+	option &#039;port&#039; &#039;80&#039;
+	option &#039;home&#039; &#039;/www&#039;
+
+root@OpenWrt:~#</code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h4 id="show_the_configuration_tree_for_a_given_config">Show the configuration &quot;tree&quot; for a given config</h4>
+<div class="level4">
+<div class="table sectionedit13"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>root@OpenWrt:~# <strong>uci show httpd</strong>
+httpd.@httpd[0]=httpd
+httpd.@httpd[0].port=80
+httpd.@httpd[0].home=/www
+root@OpenWrt:~#</code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h4 id="display_just_the_value_of_an_option">Display just the value of an option</h4>
+<div class="level4">
+<div class="table sectionedit14"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>root@OpenWrt:~# <strong>uci get httpd.@httpd[0].port</strong>
+80
+root@OpenWrt:~#</code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h4 id="append_an_entry_to_a_list">append an entry to a list</h4>
+<div class="level4">
+<div class="table sectionedit15"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>uci add_list system.ntp.server=&#039;0.de.pool.ntp.org</code>&#039; </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h4 id="replace_a_list_completely">replace a list completely</h4>
+<div class="level4">
+<div class="table sectionedit16"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>uci delete system.ntp.server
+uci add_list system.ntp.server=&#039;0.de.pool.ntp.org&#039;
+uci add_list system.ntp.server=&#039;1.de.pool.ntp.org&#039;
+uci add_list system.ntp.server=&#039;2.de.pool.ntp.org&#039;
+</code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h4 id="create_a_new_named_section_of_a_given_type">Create a new named section of a given type</h4>
+<div class="level4">
+
+<p>
+&quot;uci add blah&quot; will create a new _anonymous_ section of type blah. ie, 
+</p>
+<div class="table sectionedit17"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>#touch /etc/config/playapp
+#uci show playapp
+#uci add playapp blah
+cfg02a4fc
+#uci show playapp
+playapp.@blah[0]=blah
+# uci commit &amp;&amp; cat /etc/config/playapp 
+
+config blah
+
+#
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+If you actually want a named section of that type, for instance, 
+</p>
+<div class="table sectionedit18"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>config blah this_name
+    option xxx yyy
+config blah other_name
+    option xxx zzz
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+Then &quot;uci add&quot; cannot be used, instead, use this synt
+</p>
+<div class="table sectionedit19"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>#rm /etc/config/playapp &amp;&amp; touch /etc/config/playapp
+# uci set playapp.myname=mysectiontype
+# uci set playapp.othername=mysectiontype
+# uci commit &amp;&amp; uci show playapp
+playapp.myname=mysectiontype
+playapp.othername=mysectiontype
+# cat /etc/config/playapp 
+
+config mysectiontype &#039;myname&#039;
+
+config mysectiontype &#039;othername&#039;
+
+</code></td>
+	</tr>
+</table></div>
+
+</div>
+
+<h4 id="uci_paths">UCI paths</h4>
+<div class="level4">
+
+<p>
+Consider this example config file:
+</p>
+<div class="table sectionedit20"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code># /etc/config/foo
+config bar &#039;first&#039;
+	option name	&#039;Mr. First&#039;
+config bar
+	option name	&#039;Mr. Second&#039;
+config bar &#039;third&#039;
+	option name	&#039;Mr. Third&#039;
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+Then the paths below are equal in every group:
+</p>
+<div class="table sectionedit21"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code># Mr. First
+uci get foo.@bar[0].name
+uci get foo.@bar[-0].name
+uci get foo.@bar[-3].name
+uci get foo.first.name
+
+# Mr. Second
+uci get foo.@bar[1].name
+uci get foo.@bar[-2].name
+# uci get foo.second.name won&#039;t work; label &#039;second&#039; undefined.
+
+# Mr. Third
+uci get foo.@bar[2].name
+uci get foo.@bar[-1].name
+uci get foo.third.name
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+If you show it, you get :
+</p>
+<div class="table sectionedit22"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code># <strong>uci show foo</strong>
+foo.first=bar
+foo.first.name=Mr. First
+<em>foo.@bar[0]=bar</em>
+<em>foo.@bar[0].name=Mr. Second</em>
+foo.third=bar
+foo.third.name=Mr. Third
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+But if you used &quot;uci show foo.@bar[0]&quot;, you will see:
+</p>
+<div class="table sectionedit23"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code># <strong>uci show foo.@bar[0]</strong>
+<em>foo.first=bar</em>
+<em>foo.first.name=Mr. First</em> <img src="../lib/images/smileys/icon_sad.gif" class="icon" alt=":-(" />
+</code></td>
+	</tr>
+</table></div>
+
+</div>
+
+<h4 id="query_interface_state">Query interface state</h4>
+<div class="level4">
+<div class="table sectionedit24"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>root@OpenWrt:~# <strong>uci -P/var/state show network.wan</strong>
+network.wan=interface
+network.wan.ifname=eth0.1
+network.wan.proto=dhcp
+network.wan.defaultroute=0
+network.wan.peerdns=0
+network.wan.device=eth0.1
+network.wan.ipaddr=10.11.12.13
+network.wan.broadcast=255.255.255.255
+network.wan.netmask=255.255.255.0
+network.wan.gateway=10.11.12.1
+network.wan.dnsdomain=
+network.wan.dns=10.11.12.100 10.11.12.200
+network.wan.up=1
+network.wan.lease_gateway=10.11.12.1
+network.wan.lease_server=10.11.12.25
+network.wan.lease_acquired=1262482940
+network.wan.lease_lifetime=5400
+network.wan.lease_hostname=x-10-11-12-13
+root@OpenWrt:~#</code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h4 id="add_a_firewall_rule">Add a firewall rule</h4>
+<div class="level4">
+
+<p>
+This is a good example of both adding a firewall rule to forward the TCP SSH port, and of the negative (-1) syntax used with uci.
+</p>
+<div class="table sectionedit25"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>root@OpenWrt:~# uci add firewall rule
+root@OpenWrt:~# uci set firewall.@rule[-1].src=wan
+root@OpenWrt:~# uci set firewall.@rule[-1].target=ACCEPT
+root@OpenWrt:~# uci set firewall.@rule[-1].proto=tcp
+root@OpenWrt:~# uci set firewall.@rule[-1].dest_port=22
+root@OpenWrt:~# uci commit firewall
+root@OpenWrt:~# /etc/init.d/firewall restart</code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h4 id="get_wan_ip_address">Get WAN IP address</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Backfire <pre class="code bash">uci -P<span class="sy0">/</span>var<span class="sy0">/</span>state get network.wan.ipaddr</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> The uci state vars are deprecated and not used anymore for network related information. In Trunk (not really uci) do <pre class="code bash">. <span class="sy0">/</span>lib<span class="sy0">/</span>functions<span class="sy0">/</span>network.sh; network_get_ipaddr <span class="kw2">ip</span> wan; <span class="kw3">echo</span> <span class="re1">$ip</span></pre>
+</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="get_wan_interface">Get WAN interface</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Backfire <pre class="code bash">uci -P<span class="sy0">/</span>var<span class="sy0">/</span>state get network.wan.ifname</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> The uci state vars are deprecated and not used anymore for network related information. In Trunk (not really uci) do <pre class="code bash">. <span class="sy0">/</span>lib<span class="sy0">/</span>functions<span class="sy0">/</span>network.sh; network_get_device if_wan wan; <span class="kw3">echo</span> <span class="re1">$if_wan</span></pre>
+</div>
+</li>
+<li class="level1"><div class="li"> Or <pre class="code bash">. <span class="sy0">/</span>lib<span class="sy0">/</span>functions<span class="sy0">/</span>network.sh; network_get_physdev if_wan wan; <span class="kw3">echo</span> <span class="re1">$if_wan</span></pre>
+</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="get_ssid">Get SSID</h4>
+<div class="level4">
+
+<p>
+<pre class="code"> uci get wireless.@wifi-iface[-1].ssid</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit26" id="defaults">Defaults:</h3>
+<div class="level3">
+
+<p>
+To set some system defaults the first time the device boots, create a script in the folder <code>/etc/uci-defaults/</code>.
+</p>
+
+<p>
+All scripts in that folder are automatically executed by <code>/etc/init.d/boot</code> and if they exited with code 0 <em class="u">deleted afterwards</em> (scripts that did not exit with code 0 are not deleted and will be re-executed during the next boot until they also successfully exit).
+</p>
+
+<p>
+This is a simple example of changing the default ip at first boot.
+</p>
+
+<p>
+<pre class="code">#!/bin/sh
+uci set network.lan.ipaddr=192.168.178.1
+uci commit network
+exit 0</pre>
+
+</p>
+
+<p>
+This is a simple example of changing the default SSID and also turning WIFI on at first boot.
+</p>
+
+<p>
+<pre class="code">#!/bin/sh
+uci set wireless.@wifi-device[0].disabled=0
+uci set wireless.@wifi-iface[0].ssid=OpenWrt0815
+uci commit wireless
+exit 0</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit27" id="porting_uci_to_a_different_linux_distribution">Porting UCI to a different Linux distribution</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="https://forum.openwrt.org/viewtopic.php?id=15243" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?id=15243"  rel="nofollow">https://forum.openwrt.org/viewtopic.php?id=15243</a></div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/uci.txt</bdi> · Last modified: 2015/05/03 00:20 by <bdi>sholton</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="uci?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="uci?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="uci?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="uci.1#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../lib/exe/indexer.php?id=doc%253Auci&amp;1432265391" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Introduction to 802.1x [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,wireless.security.8021x"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="wireless.security.8021x?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/wireless.security.8021x"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/wireless.security.8021x"/>
+<link rel="canonical" href="wireless.security.8021x"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:wireless.security.8021x","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267098 166.182.3.17';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="wireless.security.8021x#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="wireless.security.8021x?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="wireless.security.8021x?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:wireless.security.8021x" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="wireless.security.8021x?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="wireless.security.8021x?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="wireless.security.8021x?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="wireless.security.8021x" class="wikilink1" title="doc:howto:wireless.security.8021x">Introduction to 802.1x</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/wireless.security.8021x" class="media" title="cz:doc:howto:wireless.security.8021x"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/wireless.security.8021x" class="media" title="de:doc:howto:wireless.security.8021x"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="wireless.security.8021x" class="media" title="doc:howto:wireless.security.8021x"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/wireless.security.8021x" class="media" title="es:doc:howto:wireless.security.8021x"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/wireless.security.8021x" class="media" title="fr:doc:howto:wireless.security.8021x"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/wireless.security.8021x" class="media" title="hu:doc:howto:wireless.security.8021x"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/wireless.security.8021x" class="media" title="jp:doc:howto:wireless.security.8021x"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/wireless.security.8021x" class="media" title="pl:doc:howto:wireless.security.8021x"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/wireless.security.8021x" class="media" title="pt-br:doc:howto:wireless.security.8021x"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/wireless.security.8021x" class="media" title="ru:doc:howto:wireless.security.8021x"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/wireless.security.8021x" class="media" title="tr:doc:howto:wireless.security.8021x"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/wireless.security.8021x" class="media" title="zh-cn:doc:howto:wireless.security.8021x"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/wireless.security.8021x" class="media" title="zh-tw:doc:howto:wireless.security.8021x"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:wireless.security.8021x</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="wireless.security.8021x#introduction_to_8021x">Introduction to 802.1x</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="wireless.security.8021x#prerequisites">Prerequisites</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="wireless.security.8021x#basic_8021x_wireless_user_authentication">Basic 802.1x Wireless User Authentication</a></div></li>
+<li class="level1"><div class="li"><a href="wireless.security.8021x#x_dynamic_vlans_on_an_openwrt_router">802.1x Dynamic VLANs on an OpenWRT Router</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="wireless.security.8021x#introduction">Introduction</a></div></li>
+<li class="level2"><div class="li"><a href="wireless.security.8021x#configuration">Configuration</a></div></li>
+<li class="level2"><div class="li"><a href="wireless.security.8021x#how_it_workstroubleshooting">How It Works/Troubleshooting</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="wireless.security.8021x#additional_resources">Additional Resources</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h2 class="sectionedit1" id="introduction_to_8021x">Introduction to 802.1x</h2>
+<div class="level2">
+
+<p>
+One of the lesser known features of 802.11 security, at least among home and small business users, is the ability to have individual usernames and passwords on a centralized authentication server which can be used by one or more wireless access point. A key advantage of this type of setup is that individual users can be added and removed from wireless access without disrupting other users or re-keying the network which is why it is popular with enterprise customers. If you have a more complex setup such as Active Directory for user logins it is possible to connect your wireless network back to your Active Directory server for authenticating these users.
+</p>
+
+<p>
+The wireless encryption mode used to support this type of setup is &quot;WPA Enterprise&quot; or &quot;WPA2 Enterprise&quot; on the access point. You may also see references to 802.1x which is the standard for authenticating users, either wired or wirelessly, through a RADIUS server and is the underlying protocol used by the WPA/2 Enterprise wireless encryption mode.
+</p>
+
+<p>
+Note that the individual usernames and passwords are stored in a RADIUS server which the access point will communicate with to authenticate users. In most cases this RADIUS server software is running elsewhere on the network (obviously the access point will need to be able to reach it) but it is possible to install and run a RADIUS server on OpenWRT as well. The installation and configuration of a RADIUS server is outside the scope of this document however a few hints will be provided. RADIUS is a standardized protocol which is supported by many server applications including the Microsoft Windows Network Policy Server (NPS) can authenticate Active Directory users. A commonly used open source RAIDUS server is FreeRADIUS.
+</p>
+
+</div>
+
+<h3 class="sectionedit2" id="prerequisites">Prerequisites</h3>
+<div class="level3">
+
+<p>
+Before beginning you will want to make sure you have completed the following steps:
+</p>
+<ul>
+<li class="level1"><div class="li"> Installed a RAIDUS server such as FreeRADIUS (on OpenWRT or on another server). Note that in 802.1x documentation the system holding the username/password database is referred to as the &quot;authentication server&quot; or sometimes just the &quot;server&quot;.</div>
+</li>
+<li class="level1"><div class="li"> Configured your router as a &quot;client&quot; on the RADIUS server. The IP address of your router/access point must be allowed to connect to the RADIUS server and have an associated key/password which it will use to authenticate to the RADIUS server. Note that in 802.1x documentation the router/access point is referred to as the &quot;client&quot; or sometimes as the &quot;authenticator&quot; to distinguish it from the end user device which is attempting to authenticate and which is called the &quot;supplicant&quot;.</div>
+</li>
+<li class="level1"><div class="li"> Configured one or more usernames and passwords on the RADIUS server. Note that the user passwords must be stored in a format which matches the format the supplicant is using to check the password. For Windows clients this means you need to store the password as an NT/LM Hash value, for other clients it would usually be Crypt/MD5/SHA. To simplify things you can store the password as cleartext and the RADIUS server will then be able to generate the needed hashes on the fly but this has obvious security downsides and should be considered carefully but may be of use for troubleshooting.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit3" id="basic_8021x_wireless_user_authentication">Basic 802.1x Wireless User Authentication</h2>
+<div class="level2">
+
+<p>
+Enterprise WPA is not supported by the wpad-mini access point software on OpenWRT so you will need to remove that and install the full version of hostapd:
+</p>
+
+<p>
+<code>opkg update
+opkg remove wpad-mini
+opkg install hostapd</code>
+</p>
+
+<p>
+Next, you can modify your <code>/etc/config/wireless</code> file to support WPA Enterprise authentication. Specifically you will need to create a <code>wifi-iface</code> with the encryption option set to wpa2, a server address, and a key. One example might be:
+</p>
+
+<p>
+<code>config wifi-iface
+        option device &#039;radio1&#039;
+        option mode &#039;ap&#039;
+        option ssid &#039;Test8021xNetwork&#039;
+        option network &#039;lan&#039;
+        option encryption &#039;wpa2&#039;
+        option server &#039;192.168.1.10&#039;
+        option key &#039;MyClientPassword&#039;
+</code>
+Where 192.168.1.10 is a previously configured RADIUS server which is expecting connections from this client (router/AP) using the password &quot;MyClientPassword&quot;.
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="x_dynamic_vlans_on_an_openwrt_router">802.1x Dynamic VLANs on an OpenWRT Router</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit5" id="introduction">Introduction</h3>
+<div class="level3">
+
+<p>
+In the following example we&#039;ll extend our previous 802.1x wireless network authentication to automatically assign users connecting to the SAME SSID to either the main &quot;lan&quot; network or a new &quot;guest&quot; network depending on their username. Note that some of the functionality needed to make this work was not included in OpenWRT until the &quot;Chaos Calmer&quot; release. It is technically possible to make dynamic VLANs work in prior releases but it requires modifying some system files, it is suggested that you run &quot;Chaos Calmer&quot; r43473 or newer releases if you want to use 802.1x dynamic VLANs on a router. If you really want the details on what needs to be changed see <a href="https://dev.openwrt.org/changeset/43473/" class="urlextern" title="https://dev.openwrt.org/changeset/43473/"  rel="nofollow">r43473</a>, <a href="https://dev.openwrt.org/changeset/42787" class="urlextern" title="https://dev.openwrt.org/changeset/42787"  rel="nofollow">r42787</a>, and <a href="https://dev.openwrt.org/changeset/41872" class="urlextern" title="https://dev.openwrt.org/changeset/41872"  rel="nofollow">r41872</a>.
+</p>
+
+<p>
+NOTE: You&#039;ll be working on changing the way your router&#039;s CPU connects to the switch as part of these configuration changes. If done improperly it&#039;s possible to lock yourself out of the router. If you do this you will need to be familiar with the recovery mechanism of your router so that you can get back in and reset or fix your configurations. It&#039;s a good idea to <strong>have a backup of your working configuration before starting</strong> and to be familiar with the way OpenWRT handles VLAN configuration (which can vary a bit from router to router). If you have physical access to your router you shouldn&#039;t be able to brick the router in such a way that it&#039;s impossible to recover but if you&#039;re working wirelessly or remotely it is possible. <em>It&#039;s best to setup a test network on a second router and work on that until you are familiar with the configuration as this is a tricky process to get right at first.</em>
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="configuration">Configuration</h3>
+<div class="level3">
+
+<p>
+Because we&#039;ll be working with multiple VLANs we need to create an additional VLAN for the guest network and enable VLAN tagging on the CPU port for the &quot;lan&quot; and &quot;guest&quot; VLANs so that the router can communicate with both VLANs. In this case we&#039;ll keep the &quot;lan&quot; network on VLAN 1 and create a new &quot;guest&quot; network on VLAN 3. We&#039;re skipping over VLAN 2 because the particular router used to create this demonstration uses VLAN 2 to connect the WAN port to the CPU, not all routers do this some wire the WAN port directly to the CPU more information on the switch port layout can be found on the OpenWRT wiki page for your particular router.
+</p>
+
+<p>
+First, modify the existing &quot;lan&quot; VLAN to tag traffic going to the CPU port. In this example the CPU is on port 0 and ports 2, 3, 4, and 5 are the existing <abbr title="Local Area Network">LAN</abbr> switch ports (which we want to keep on the &quot;lan&quot; VLAN as they were). Port 1 on this router is a secondary CPU port used for the WAN connection. <strong>Ports on your own router may vary, check the switch port details for your router on the OpenWRT wiki page for your router.</strong> On this router the existing VLAN 1 switch configuration in the <code>/etc/config/network</code> file looks like:
+</p>
+
+<p>
+<code>config switch_vlan
+        option device &#039;switch0&#039;
+        option vlan &#039;1&#039;
+        option ports &#039;0 2 3 4 5&#039;
+</code>
+</p>
+
+<p>
+To start tagging VLAN 1 traffic to the CPU change it to look like:
+</p>
+
+<p>
+<code>config switch_vlan
+        option device &#039;switch0&#039;
+        option vlan &#039;1&#039;
+        option ports &#039;0t 2 3 4 5&#039;
+</code>
+</p>
+
+<p>
+Now create the new VLAN for guests (we&#039;re using VLAN 3 on this router):
+</p>
+
+<p>
+<code>config switch_vlan
+        option device &#039;switch0&#039;
+        option vlan &#039;3&#039;
+        option ports &#039;0t&#039;
+</code>
+</p>
+
+<p>
+Note that the only port in this VLAN is a tagged connection to the CPU port right now but the router will automatically bridge guest wireless users onto this VLAN following the 802.1x server&#039;s instruction. You can create additional VLANs as needed for your network design but beware the limits of the switch chip in your router. Many switch chips in consumer routers are limited to 15 VLANs.
+</p>
+
+<p>
+Next we need to modify the interface configuration in the same file. Because we&#039;re now tagging VLAN traffic we need to modify the &quot;lan&quot; interface configuration slightly. On this router the <abbr title="Local Area Network">LAN</abbr> CPU port is eth1, <em>check the switch port details for your router on the OpenWRT wiki page for your router to determine the <abbr title="Local Area Network">LAN</abbr> CPU port on your own router</em>. Where we previously found a section like:
+</p>
+
+<p>
+<code>config interface &#039;lan&#039;
+        option ifname &#039;eth1&#039;
+	option type &#039;bridge&#039;
+	option proto &#039;static&#039;
+	option ipaddr &#039;192.168.1.1&#039;
+</code>
+</p>
+
+<p>
+We now need to make it:
+</p>
+
+<p>
+<code>config interface &#039;vlan1&#039;
+        option ifname &#039;eth1.1&#039;
+	option type &#039;bridge&#039;
+	option proto &#039;static&#039;
+	option ipaddr &#039;192.168.1.1&#039;	
+</code>
+</p>
+
+<p>
+There are TWO important changes to be made here. First, the interface MUST be named &quot;vlan1&quot; so that the hostapd program can find the correct interface to attach the user to. Second, the ifname MUST be changed to &quot;eth1.1&quot; because the traffic is now being tagged on VLAN 1 between the switch and CPU.
+</p>
+
+<p>
+We also need to add a new interface on VLAN 3 for our guest network.
+</p>
+
+<p>
+<code>config interface &#039;vlan3&#039;
+        option proto &#039;static&#039;
+        option ipaddr &#039;192.168.3.1&#039;
+        option netmask &#039;255.255.255.0&#039;
+        option type &#039;bridge&#039;
+        option ifname &#039;eth1.3&#039;
+</code>
+</p>
+
+<p>
+Note that the ifname is eth1.3 indicating this interface should interact with VLAN 3 on the switch CPU port and that the ipaddr is on a different network than VLAN 1. For simplicity&#039;s sake I have made the third octet of the IP address equal to the VLAN number but that is not a requirement, the connection to the VLAN is made by the interface name, the ifname option, and switch configuration only.
+</p>
+
+<p>
+<strong>Important Note:</strong> Because you changed the name of your primary interface from &quot;lan&quot; to &quot;vlan1&quot; you will need to update your <code>/etc/config/dhcp</code> (the interface option) and <code>/etc/config/firewall</code> (the network option in the zones) files to reflect that change. <em>Failure to do this will likely lock you out of the router!</em>
+</p>
+
+<p>
+Save the changes to your <code>/etc/config/network</code> file and issue a <code>/etc/init.d/network</code> reload command to apply them. If you&#039;ve done everything correctly you should be returned back to a prompt in a few seconds and you should still have access to the router. If you have a problem accessing the router you probably somehow disconnected your CPU port from the switch and you&#039;ll need to use the recovery mechanism of your router to get back in and fix your configurations.
+</p>
+
+<p>
+It&#039;s likely that you will want to setup a DHCP server for this guest interface as well as appropriate firewall rules to allow access to the Internet but prevent access to the <abbr title="Local Area Network">LAN</abbr> computers but doing those things is outside the scope of this document. We&#039;ll proceed assuming that you have addressing and firewall rules setup and working. Before proceeding you may want to temporarily setup a separate wireless SSID on the router which does NOT use 802.1x which is bridged to the guest network and verify it works, if it does not you&#039;ll want to figure that out before adding in the 802.1x dynamic VLAN complexity.
+</p>
+
+<p>
+Now that we have a guest network functioning on the router we can modify our wireless configuration to support 802.1x dynamic vlans. To do this modify the SSID setup in your <code>/etc/config/wireless</code> file and remove the <code>network</code> option and add the <code>dynamic_vlan</code> and <code>vlan_tagged_interface options</code>. An example based on the basic 802.1x setup found above would be:
+</p>
+
+<p>
+<code>config wifi-iface
+        option device &#039;radio1&#039;
+        option mode &#039;ap&#039;
+        option ssid &#039;Test8021xNetwork&#039;
+        option encryption &#039;wpa2&#039;
+        option server &#039;192.168.1.10&#039;
+        option key &#039;MyClientPassword&#039;
+        option dynamic_vlan     &#039;2&#039;
+        option &#039;vlan_tagged_interface&#039; &#039;eth1&#039;
+	option &#039;vlan_bridge&#039; &#039;br-vlan&#039;
+	option &#039;vlan_naming&#039; &#039;0&#039;
+</code>
+</p>
+
+<p>
+Finally, you need to ensure that your RADIUS server is sending VLAN information. On FreeRADIUS each username section should look like:
+</p>
+
+<p>
+<code>&quot;username&quot;      Cleartext-Password := &quot;password&quot;
+                Tunnel-Type = &quot;VLAN&quot;,
+                Tunnel-Medium-Type = &quot;IEEE-802&quot;,
+                Tunnel-Private-Group-ID = &quot;1&quot;
+</code>
+</p>
+
+<p>
+With the important part being the three &quot;Tunnel&quot; settings where <code>Tunnel-Private-Group-ID</code> is set to the VLAN that user should be placed on.
+</p>
+
+<p>
+If everything has been done correctly to this point you should be able to reboot your router and try testing with some different usernames with different VLANs associated.
+</p>
+
+</div>
+
+<h3 class="sectionedit7" id="how_it_workstroubleshooting">How It Works/Troubleshooting</h3>
+<div class="level3">
+
+<p>
+If you were able to make standard 802.1x work on your router and also can make VLANs work on your router but are having problems trying to do 802.1x with dynamic VLANs or you want to customize your configuration it is helpful to know how OpenWRT handles dynamic VLANs.
+</p>
+
+<p>
+When we set the interface names in the above example to &quot;vlan1&quot; and &quot;vlan3&quot; and set their type to &quot;bridge&quot; OpenWRT automatically created two bridges (software switches) on the router named &quot;br-vlan1&quot; and &quot;br-vlan3&quot;. You can see these bridges, and which ports they&#039;re connected to, by running the <code>brctl show</code> command which gives output like this:
+</p>
+
+<p>
+<code>root@OpenWrt:~# brctl show
+bridge name     bridge id               STP enabled     interfaces
+br-vlan1                7fff.e894f690dfb0       no              eth1.1
+br-vlan3                7fff.e894f690dfb0       no              eth1.3
+</code>
+</p>
+
+<p>
+In this example output you can see the two bridges and that eth1.1 (the CPU port for VLAN 1) and eth1.3 (the CPU port for VLAN 3) are the only members of each respective bridge. When an 802.1x dynamic VLAN wireless client joins VLAN 1 the output will change like this:
+</p>
+
+<p>
+<code>root@OpenWrt:~# brctl show
+bridge name     bridge id               STP enabled     interfaces
+br-vlan1                7fff.e894f690dfb0       no              eth1.1
+                                                        wlan0.1
+br-vlan3                7fff.e894f690dfb0       no              eth1.3
+</code>
+</p>
+
+<p>
+As you can see the wlan0.1 interface (the connection for VLAN 1 traffic to wireless users on wlan0) is now a member of br-vlan1. Because eth1.1 is a member of the same bridge wireless users on VLAN 1 can exchange traffic with the CPU VLAN 1 port.
+</p>
+
+<p>
+But how does wlan0.1 know to connect to eth1.1 on br-vlan1? The answer lies in the hostapd software and in the additional configuration we did in <code>/etc/config/wireless</code>.
+</p>
+
+<p>
+On a normal Linux based access point the idea is that you only need to set a <code>vlan_tagged_interface</code> option in your configuration which lets hostapd know what tagged CPU interface contains access to all VLANs. Hostapd would then automatically create subinterfaces like ethX.Y where ethX is the tagged interface and Y is the VLAN number. Unfortunately this simple configuration does not work with OpenWRT because most users are ALREADY using bridging on their CPU interface by setting the interface type to bridge in <code>/etc/config/network</code> which is part of the standard OpenWRT configuration as it is how non-802.1x wireless users connect to the CPU port. When you set things up that way OpenWRT automatically creates a bridge called &quot;br-lan&quot; or &quot;br-&quot; in front of whatever the interface name is and then adds the physical interface such as eth1.1 to the bridge. Run <code>brctl show</code> on an OpenWRT router which is not configured for 802.1x dynamic VLANs to see this setup.
+</p>
+
+<p>
+Because a physical interface can only be a member of ONE bridge hostapd is not then able to add eth1.1 to a new hostapd created bridge for wlan0.1 so you end up with no communication. If you ran <code>brctl show</code> on a misconfigured router like this you would see one or more bridge interfaces created by OpenWRT through the <code>/etc/config/network</code> file and one bridge interface created by hostapd for each VLAN a user had tried to connect to which ONLY had the wlan0.Y interface as a member. Obviously if the wlan interface is the only member of a bridge the traffic has nowhere to go so the user is unable to obtain an IP address or go anywhere.
+</p>
+
+<p>
+To work around this problem we make a few changes. First, we must name our interfaces in <code>/etc/config/network</code> based on their VLAN such as <code>vlan1</code> and <code>vlan3</code>. This causes OpenWRT to name the bridges it creates <code>br-vlan1</code> and <code>br-vlan3</code>. Second, we set the <code>vlan_bridge</code> option in <code>/etc/config/wireless</code> to &quot;br-vlan&quot; and the <code>vlan_naming</code> option to &quot;0&quot; what this does is tell hostapd to create bridges using the br-vlanY naming convention (where Y is the VLAN number). As you can see those bridges will already exist based on the OpenWRT configuration and because you can only have one bridge with the same name hostapd just adds the wlan0.Y interface to the existing bridge allowing it to communicate with the eth1.Y interface that OpenWRT placed there.
+</p>
+
+<p>
+Hopefully this section allowed you to understand how hostapd interacts with OpenWRT to allow for dynamic VLANs over 802.1x. As you can see it&#039;s a bit of a tricky configuration. When things don&#039;t seem to be working correctly with dynamic VLANs but work with fixed VLANs a good place to start is by checking the output of the <code>brctl show</code> command and seeing which interfaces are being connected to each other. Once you verify that is the problem it gives you a starting point to figure out what must be modified in the configuration to get the correct interfaces bridged together.
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="additional_resources">Additional Resources</h2>
+<div class="level2">
+
+<p>
+WPA Enterprise options can be found in the <a href="../uci/wireless#wpaenterpriseaccesspoint" class="wikilink1" title="doc:uci:wireless">UCI Wireless documentation</a>.
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/wireless.security.8021x.txt</bdi> · Last modified: 2015/04/13 07:10 by <bdi>BenFranske</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="wireless.security.8021x?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="wireless.security.8021x?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="wireless.security.8021x?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="wireless.security.8021x#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Awireless.security.8021x&amp;1432267098" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

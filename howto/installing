@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Installing OpenWrt [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,generic.flashing"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="generic.flashing?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/generic.flashing"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/generic.flashing"/>
+<link rel="canonical" href="installing"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:generic.flashing","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432287218 166.182.3.98';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="installing#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="generic.flashing?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="generic.flashing?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:generic.flashing" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="generic.flashing?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="generic.flashing?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="generic.flashing?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="installing" class="wikilink1" title="doc:howto:generic.flashing">Installing OpenWrt</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/generic.flashing" class="media" title="cz:doc:howto:generic.flashing"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../de/doc/howto/generic.flashing" class="media" title="de:doc:howto:generic.flashing"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="installing" class="media" title="doc:howto:generic.flashing"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../es/doc/howto/generic.flashing" class="media" title="es:doc:howto:generic.flashing"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../fr/doc/howto/generic.flashing" class="media" title="fr:doc:howto:generic.flashing"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../hu/doc/howto/generic.flashing" class="media" title="hu:doc:howto:generic.flashing"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../jp/doc/howto/generic.flashing" class="media" title="jp:doc:howto:generic.flashing"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/generic.flashing" class="media" title="pl:doc:howto:generic.flashing"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/generic.flashing" class="media" title="pt-br:doc:howto:generic.flashing"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../ru/doc/howto/generic.flashing" class="media" title="ru:doc:howto:generic.flashing"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/generic.flashing" class="media" title="tr:doc:howto:generic.flashing"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../zh-cn/doc/howto/generic.flashing" class="media" title="zh-cn:doc:howto:generic.flashing"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../zh-tw/doc/howto/generic.flashing" class="media" title="zh-tw:doc:howto:generic.flashing"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:generic.flashing</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="installing#four_installation_methods">Four Installation Methods</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="installing#method_1via_oem_firmware">Method 1: via OEM firmware</a></div></li>
+<li class="level2"><div class="li"><a href="installing#method_2via_bootloader_and_an_ethernet_port">Method 2: via Bootloader and an Ethernet port</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="installing#specific_howtos">Specific Howtos</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="installing#method_3via_bootloader_and_serial_port">Method 3: via Bootloader and Serial port</a></div></li>
+<li class="level2"><div class="li"><a href="installing#method_4via_jtag">Method 4: via JTAG</a></div></li>
+<li class="level2"><div class="li"><a href="installing#install_a_ramdisk-image_into_main_memory">Install a ramdisk-image into main memory</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="installing#installation_checklist">Installation Checklist</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="installing_openwrt">Installing OpenWrt</h1>
+<div class="level1">
+
+<p>
+The installation of OpenWrt is device specific.
+These device specific procedures should be found in the wiki. See <a href="../../toh/start" class="wikilink1" title="toh:start">Table of Hardware</a> for available procedures. If your device is not listed, information in this Howto may be helpful.
+</p>
+
+</div>
+<div class="plugin_include_content plugin_include__meta:infobox:dangerous" id="plugin_include__meta__infobox__dangerous">
+<div class="level1">
+
+<p>
+
+<table class="inline" style="width:70%; margin-left:15%">
+  <tr>
+    <td style="border-left:6px solid #cd0505; vertical-align:middle">
+      <img src="../../_media/meta/icons/tango/48px-dialog-warning.svg.png" alt="" style="float:left; margin-right:0.5em" />
+      <strong>Warning!</strong><br />
+      This section describes actions that might damage your device or firmware. Proceed with care!
+    </td>
+  </tr>
+</table>
+
+</p>
+
+</div>
+</div>
+<div class="level1">
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> If your attempt to install OpenWrt fails, please view <a href="generic.debrick" class="wikilink1" title="doc:howto:generic.debrick">generic.debrick</a> for fixes.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> This Howto is VERY generic. You cannot use it in most situations, as you have to adapt values and other parts for specific hardware. Please look at the <a href="../../toh/start" class="wikilink1" title="toh:start">supported hardware page</a> for device-specific documentation.
+</p>
+
+<p>
+In most circumstances; you have three options:
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong><code>Option_1:</code></strong> install OpenWrt onto the router&#039;s non-volatile memory: <em>this Howto</em></div>
+</li>
+<li class="level1"><div class="li"> <strong><code>Option_2:</code></strong> install OpenWrt onto the RAM:</div>
+</li>
+<li class="level1"><div class="li"> <strong><code>Option_3:</code></strong> boot OpenWrt over the network: <a href="../../inbox/netboot" class="wikilink1" title="inbox:netboot">Netbooting</a> is not supported by all <a href="../techref/bootloader.1" class="wikilink1" title="doc:techref:bootloader">bootloaders</a>.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit4" id="four_installation_methods">Four Installation Methods</h2>
+<div class="level2">
+
+<p>
+There are four ways to install OpenWrt on a device:
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="method_1via_oem_firmware">Method 1: via OEM firmware</h3>
+<div class="level3">
+
+<p>
+Open the WebUI of the <strong>OEM firmware</strong> with your web browser and install the OpenWrt <strong>factory</strong> firmware image file using the <em>&quot;Firmware Upgrade&quot;</em> option. Your device should reboot with OpenWrt installed.
+</p>
+
+<p>
+<strong><code>NOTE:</code></strong> Sometimes the OEM firmware will only allow you to flash your device with a specific firmware file. If that is the case, you will not be able to install OpenWrt using this method. However, for some devices the build bots prepare tagged builds such that they are compliant with the firmwares from the manufacturer. This should be documented on the device specific page for your model.
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="method_2via_bootloader_and_an_ethernet_port">Method 2: via Bootloader and an Ethernet port</h3>
+<div class="level3">
+
+<p>
+Most, if not all <a href="../techref/bootloader.1" class="wikilink1" title="doc:techref:bootloader">bootloaders</a> provide built-in functionality for this purpose. Some use a <a href="http://en.wikipedia.org/wiki/Trivial File Transfer Protocol" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Trivial File Transfer Protocol">TFTP</a>-client, others a TFTP-server, others a <a href="http://en.wikipedia.org/wiki/File Transfer Protocol" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/File Transfer Protocol">FTP</a>-client, some an <abbr title="File Transfer Protocol">FTP</abbr>-server, some a web server and some use the <a href="http://en.wikipedia.org/wiki/XMODEM" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/XMODEM">XMODEM</a>-protocol.
+</p>
+
+<p>
+Before proceeding you need to determine the following:
+</p>
+<ul>
+<li class="level1"><div class="li"> the preset IP address of the bootloader (not necessarily identical to the IP address the device has after it has booted the original firmware!)</div>
+</li>
+<li class="level1"><div class="li"> the protocol and whether the bootloader acts as client or as server</div>
+</li>
+<li class="level1"><div class="li"> the correct port number (if not <a href="http://en.wikipedia.org/wiki/List of TCP and UDP port numbers" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/List of TCP and UDP port numbers">default</a>)</div>
+</li>
+<li class="level1"><div class="li"> the interface you need to connect to</div>
+</li>
+<li class="level1"><div class="li"> a user name and login password (if necessary)</div>
+</li>
+<li class="level1"><div class="li"> the time window you have after starting the device to obtain a connection</div>
+</li>
+</ul>
+
+<p>
+Once you know all of the above parameters, you may proceed.
+</p>
+<ol>
+<li class="level1"><div class="li"> Install the appropriate software on your PC (i.e. if the bootloader uses an <abbr title="File Transfer Protocol">FTP</abbr>-server, you need a <abbr title="File Transfer Protocol">FTP</abbr>-client).</div>
+</li>
+<li class="level1"><div class="li"> Read the appropriate manual page ie: <code><a href="http://linux.die.net/man/1/tftp" class="urlextern" title="http://linux.die.net/man/1/tftp"  rel="nofollow">tftp</a></code>, <code><a href="http://linux.die.net/man/8/tftpd" class="urlextern" title="http://linux.die.net/man/8/tftpd"  rel="nofollow">tftpd</a></code>, <code><a href="http://linux.die.net/man/1/ftp" class="urlextern" title="http://linux.die.net/man/1/ftp"  rel="nofollow">ftp</a></code>, <code><a href="http://linux.die.net/man/1/ncftp" class="urlextern" title="http://linux.die.net/man/1/ncftp"  rel="nofollow">ncftp</a></code>, <code><a href="http://linux.die.net/man/8/ftpd" class="urlextern" title="http://linux.die.net/man/8/ftpd"  rel="nofollow">ftpd</a></code>, <code><a href="http://linux.die.net/man/8/pure-ftpd" class="urlextern" title="http://linux.die.net/man/8/pure-ftpd"  rel="nofollow">pure-ftpd</a></code>, etc …</div>
+</li>
+<li class="level1"><div class="li"> Configure a static IP address for your PC interface in the same IP address block as pre-configured in the bootloader.</div>
+</li>
+<li class="level1"><div class="li"> Connect your PC to the device.</div>
+</li>
+<li class="level1"><div class="li"> Power cycle the device.</div>
+</li>
+<li class="level1"><div class="li"> Connect to the bootloader using the software you chose</div>
+</li>
+<li class="level1"><div class="li"> Install the OpenWrt firmware file.</div>
+</li>
+<li class="level1"><div class="li"> <strong><span style='color:red; '>Do not overwrite or alter the bootloader</span></strong> until explicitly instructed to do so!</div>
+</li>
+</ol>
+
+<p>
+<strong><code>NOTES:</code></strong> Sometimes even the bootloader prevents you from flashing a non-OEM firmware.
+If you have a short time window, the connection between your computer and device needs to be established quickly. To make this as quick possible, you can disable auto-negotiation on your <a href="http://en.wikipedia.org/wiki/Network interface controller" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Network interface controller">NIC</a> and/or <a href="http://support.microsoft.com/kb/239924" class="urlextern" title="http://support.microsoft.com/kb/239924"  rel="nofollow">disable media sensing</a>.
+</p>
+
+</div>
+
+<h4 id="specific_howtos">Specific Howtos</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> <a href="tftp" class="wikilink1" title="doc:howto:generic.flashing.tftp">generic.flashing.tftp</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="generic.flashing.ftp" class="wikilink1" title="doc:howto:generic.flashing.ftp">generic.flashing.ftp</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="generic.flashing.xmodem" class="wikilink1" title="doc:howto:generic.flashing.xmodem">generic.flashing.xmodem</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit7" id="method_3via_bootloader_and_serial_port">Method 3: via Bootloader and Serial port</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <a href="generic.flashing.serial" class="wikilink1" title="doc:howto:generic.flashing.serial">generic.flashing.serial</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit8" id="method_4via_jtag">Method 4: via JTAG</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <a href="../hardware/port.jtag" class="wikilink1" title="doc:hardware:port.jtag">port.jtag</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit9" id="install_a_ramdisk-image_into_main_memory">Install a ramdisk-image into main memory</h3>
+<div class="level3">
+
+<p>
+This step shows you howto upload a new ramdisk image to the device. The existing firmware on the flash remains unchanged! You require a working serial cable to do the ramdisk upload.
+</p>
+<ol>
+<li class="level1"><div class="li"> specifically select the RAMDISK option to make OpenWrt Buildroot create a ramdisk-image for you to upload</div>
+</li>
+<li class="level1"><div class="li"> connect an ethernet cable between your computer and one of the <abbr title="Local Area Network">LAN</abbr> ports (doesn&#039;t matter which, just so long as it&#039;s not the WAN port) of the WNDR3700.</div>
+</li>
+<li class="level1"><div class="li"> connect your serial cable to the header on the WNDR3700 and set your local terminal program (eg. minicom) to</div>
+<ul>
+<li class="level2"><div class="li"> 115200 bps 8N1</div>
+</li>
+<li class="level2"><div class="li"> no software flow control</div>
+</li>
+<li class="level2"><div class="li"> no hardware flow control.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> set your computer&#039;s ethernet port to use the IP address <code>192.168.0.10/24</code></div>
+</li>
+<li class="level1"><div class="li"> set up a TFTP server on your local computer to respond to requests on the 192.168.0.10 interface. Make sure that the ramdisk image (openwrt-ar71xx-uImage-lzma.bin) is in the directory used by the TFTP server.</div>
+</li>
+<li class="level1"><div class="li"> Fix the header for the ramdisk image so that it&#039;s recognized by the u-Boot firmware. Use the wndr3700.c program that was posted by *aorlinsk* on the forums here <a href="http://aorlinsk2.free.fr/openwrt/wndr3700/" class="urlextern" title="http://aorlinsk2.free.fr/openwrt/wndr3700/"  rel="nofollow">http://aorlinsk2.free.fr/openwrt/wndr3700/</a> and run it from the TFTP server&#039;s data directory. I&#039;ve also reproduced the code here just in case:</div>
+<ul>
+<li class="level2"><div class="li"> <pre class="code bash">.<span class="sy0">/</span>wndr3700 openwrt-ar71xx-uImage-lzma.bin openwrt-fixed.out</pre>
+</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> power up the board. When it gets to the message asking you to press any key to interrupt the normal bootup sequence, press a key on the serial console (or just hold down the enter key from first bootup until you get to a prompt):</div>
+</li>
+<li class="level1"><div class="li"> enter the following into the serial console:<pre class="code bash">setenv ipaddr 192.168.0.1
+setenv serverip 192.168.0.10
+setenv bootargs <span class="st_h">'board=WNDR3700'</span>
+tftpboot <span class="nu0">80800000</span> openwrt-fixed.out
+bootm</pre>
+(if you forget the bootargs piece below, the board will boot and look normal, but it won&#039;t be able to bring up any of the network interfaces!)</div>
+</li>
+<li class="level1"><div class="li"> The system should boot!</div>
+</li>
+</ol>
+
+<p>
+Concrete examples: <a href="../../toh/netgear/wnr2000" class="wikilink1" title="toh:netgear:wnr2000">wnr2000</a>, …
+</p>
+
+<p>
+Don&#039;t forget to consult the other <a href="generic.overview" class="wikilink1" title="doc:howto:generic.overview">Generic Basic Howtos for OpenWrt</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit10" id="installation_checklist">Installation Checklist</h2>
+<div class="level2">
+
+<p>
+<em>This checklist cannot and does not completely cover all the ways you can install OpenWrt.</em>
+</p>
+
+<p>
+
+  <head>
+    <style type="text/css">
+      .checklist label { display: block; }
+      .lvl1 {margin-left:1em; font-weight:bold; margin-top:1em;}
+      .lvl2 {margin-left:2em;}
+      .lvl3 {margin-left:4em; font-style:italic;}
+    </style>
+  </head>
+  <body>
+    <form class="checklist">
+      <label class="lvl1"><input type="checkbox"> Pre-Installation</label>
+        <label class="lvl2"><input type="checkbox"> Say hello in <a href="http://webchat.freenode.net/?channels=#openwrt">#openwrt</a> channel at freenode.</label>
+        <label class="lvl2"><input type="checkbox"> Make sure that the router has currently stock/original firmware installed.</label>
+        <label class="lvl2"><input type="checkbox"> Configure your computer to use static IP address.</label>
+        <label class="lvl2"><input type="checkbox"> Connect to the router with wire, not WiFi.</label>
+        <label class="lvl2"><input type="checkbox"> Do your own research and read all the resources about installing OpenWRT on your router:</label>
+          <label class="lvl3"><input type="checkbox"> <a href="../faq/before.installation">FAQ before installation</a></label>
+          <label class="lvl3"><input type="checkbox"> <a href="../../toh/start">Table of Hardware</a></label>
+          <label class="lvl3"><input type="checkbox"> <a href="https://forum.openwrt.org/">OpenWRT forum</a></label>
+        <label class="lvl2"><input type="checkbox"> Print or save those pages for offline reading:</label>
+          <label class="lvl3"><input type="checkbox"> <a href="firstlogin">First login</a></label>
+          <label class="lvl3"><input type="checkbox"> <a href="generic.failsafe">Failsafe</a></label>
+        <label class="lvl2"><input type="checkbox"> (optional) <a href="generic.backup">Backup flash of your router.</a></label>
+      <label class="lvl1"><input type="checkbox"> <b>Installation</b></label>
+        <label class="lvl2"><input type="checkbox"> Reboot router.</label>
+        <label class="lvl2"><input type="checkbox"> Download OpenWRT image in proper location.</label>
+          <label class="lvl3"><input type="checkbox"> In case of <a href="generic.sysupgrade">upgrading</a> existing OpenWrt system, the proper location is RAM (usually /tmp).</label>
+        <label class="lvl2"><input type="checkbox"> Verify MD5 checksum of the OpenWRT image you downloaded.</label>
+        <label class="lvl2"><input type="checkbox"> Make sure that there is at least as much free RAM as the size of OpenWRT image you have downloaded.</label>
+      <label class="lvl1"><input type="checkbox"> <b>Post-Installation</b></label>
+        <label class="lvl2"><input type="checkbox"> Do <a href="firstlogin">First login</a> and set root password.</label>
+        <label class="lvl2"><input type="checkbox"> <a href="generic.backup">Backup flash of your router.</a></label>
+        <label class="lvl2"><input type="checkbox"> Make yourself comfortable with the <a href="generic.failsafe">Failsafe</a> mode.</label>
+        <label class="lvl2"><input type="checkbox"> <a href="configuration">Configure your device</a></label>
+    </form>
+  </body>
+
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/generic.flashing.txt</bdi> · Last modified: 2015/02/21 08:37 by <bdi>simplexion</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="generic.flashing?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="generic.flashing?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="generic.flashing?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="installing#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="http://wiki.openwrt.org/lib/exe/indexer.php?id=doc%3Ahowto%3Ageneric.flashing&amp;1432287218" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

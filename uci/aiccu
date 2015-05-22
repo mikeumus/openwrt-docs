@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>AICCU (Automatic IPv6 Connectivity Client Utility) configuration [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,uci,aiccu"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="aiccu?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:uci"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/uci/aiccu"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/uci/aiccu"/>
+<link rel="canonical" href="aiccu"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:uci';var JSINFO = {"id":"doc:uci:aiccu","namespace":"doc:uci"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266633 166.182.3.141';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="aiccu#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="aiccu?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="aiccu?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:uci:aiccu" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="aiccu?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="aiccu?do=media&amp;ns=doc%253Auci"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="aiccu?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../uci.1" class="wikilink1" title="doc:uci">The UCI System</a></bdi> » <bdi><span class="curid"><a href="aiccu" class="wikilink1" title="doc:uci:aiccu">AICCU (Automatic IPv6 Connectivity Client Utility) configuration</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/uci/aiccu" class="media" title="cz:doc:uci:aiccu"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../de/doc/uci/aiccu" class="media" title="de:doc:uci:aiccu"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="aiccu" class="media" title="doc:uci:aiccu"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/uci/aiccu" class="media" title="es:doc:uci:aiccu"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/uci/aiccu" class="media" title="fr:doc:uci:aiccu"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/uci/aiccu" class="media" title="hu:doc:uci:aiccu"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/uci/aiccu" class="media" title="jp:doc:uci:aiccu"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/uci/aiccu" class="media" title="pl:doc:uci:aiccu"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/uci/aiccu" class="media" title="pt-br:doc:uci:aiccu"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/uci/aiccu" class="media" title="ru:doc:uci:aiccu"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/uci/aiccu" class="media" title="tr:doc:uci:aiccu"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/uci/aiccu" class="media" title="zh-cn:doc:uci:aiccu"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/uci/aiccu" class="media" title="zh-tw:doc:uci:aiccu"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:uci:aiccu</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="aiccu#netifd_integration_since_barrier_breaker_rc1">Netifd integration since Barrier Breaker RC1</a></div></li>
+<li class="level1"><div class="li"><a href="aiccu#sections">Sections</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="aiccu#aiccu">AICCU</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="aiccu#tunnels">Tunnels</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="aiccu#ayiya">AYIYA</a></div></li>
+<li class="level2"><div class="li"><a href="aiccu#heartbeat">Heartbeat</a></div></li>
+<li class="level2"><div class="li"><a href="aiccu#static_6in4">Static 6in4</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="aiccu#interface_and_lan_configuration">Interface and LAN configuration</a></div></li>
+<li class="level1"><div class="li"><a href="aiccu#firewall">Firewall</a></div></li>
+<li class="level1"><div class="li"><a href="aiccu#radvd">radvd</a></div></li>
+<li class="level1"><div class="li"><a href="aiccu#final_check">Final Check</a></div></li>
+<li class="level1"><div class="li"><a href="aiccu#hotplug_script_for_120901_and_later">hotplug script for 12.09.01 and later</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="aiccu_automatic_ipv6_connectivity_client_utility_configuration">AICCU (Automatic IPv6 Connectivity Client Utility) configuration</h1>
+<div class="level1">
+
+<p>
+<strong> Prerequesite </strong>
+</p>
+
+<p>
+Signup for an SIXXS account and an SIXXS Handle 
+</p>
+
+<p>
+See for further details on <a href="http://www.sixxs.net/signup/create/" class="urlextern" title="http://www.sixxs.net/signup/create/"  rel="nofollow">http://www.sixxs.net/signup/create/</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="netifd_integration_since_barrier_breaker_rc1">Netifd integration since Barrier Breaker RC1</h2>
+<div class="level2">
+
+<p>
+The AICCU client is now integrated with <a href="../techref/netifd" class="wikilink1" title="doc:techref:netifd">netifd</a>. 
+To use it, install the package aiccu and set up wan6 as follows:
+</p>
+<div class="table sectionedit3"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>
+config interface &#039;wan6&#039;
+        option &#039;proto&#039;    &#039;aiccu&#039;
+        option &#039;username&#039; &#039;HANDLE-SIXXS/TID&#039;
+        option &#039;password&#039; &#039;Password&#039; #Use per-tunnel TIC password instead your account password
+        option &#039;ip6prefix&#039; &#039;2001:db8:aabb::/48&#039; #Delegated subnet
+        option &#039;ip6addr&#039; &#039;2001:db8:aaaa:aaa::2/64&#039; #Optional
+        option &#039;verbose&#039; &#039;true&#039;
+</code> </td>
+	</tr>
+</table></div>
+
+<p>
+<strong>Warning</strong>: Do not restart the network interface with AICCU too often. TIC system <a href="https://www.sixxs.net/faq/aiccu/?faq=tic" class="urlextern" title="https://www.sixxs.net/faq/aiccu/?faq=tic"  rel="nofollow">detect excessive connection attempts and block your IP address</a> if you try to connect more than 5 times per hour.
+</p>
+<hr />
+
+</div>
+<div class="plugin_include_content plugin_include__meta:infobox:historic" id="plugin_include__meta__infobox__historic">
+<div class="level2">
+
+<p>
+
+<table class="inline" style="width:70%; margin-left:15%">
+  <tr>
+    <td style="border-left:6px solid #f57900; vertical-align:middle">
+      <img src="../../_media/meta/icons/tango/48px-outdated.svg.png" alt="" style="float:left; margin-right:0.5em" />
+      <strong>Historic Information!</strong><br />
+      This page contains archived information that is only kept for research purposes. The contents are most likely outdated.
+    </td>
+  </tr>
+</table>
+
+</p>
+
+</div>
+</div>
+<div class="level2">
+
+<p>
+Check if your router is IPV6 ready. 
+</p>
+<div class="table sectionedit6"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>opkg list kmod-ipv6
+opkg list kmod-ip6tables
+opkg list ip6tables
+opkg list aiccu
+opkg list radvd </code> </td>
+	</tr>
+</table></div>
+
+<p>
+Save as test.txt and execute sh test.txt 
+</p>
+<div class="table sectionedit7"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>root@OpenWrt:~# sh test.txt
+kmod-ipv6 - 3.0.12-1
+kmod-ip6tables - 3.0.12-1
+ip6tables - 1.4.10-4
+aiccu - 20070115-9
+radvd - 1.8.3-2</code> </td>
+	</tr>
+</table></div>
+
+<p>
+or something similar. If a package is missing install and update accordingly.  
+</p>
+<hr />
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <a href="https://dev.openwrt.org/changeset/32666" class="urlextern" title="https://dev.openwrt.org/changeset/32666"  rel="nofollow">Changeset 32666</a> removed any OpenWrt changes to AICCU, so the information above does no longer apply. Still check if required packages are installed.
+</p>
+
+<p>
+This change affects the OpenWrt Attitude Adjustment (12.09) release. In order to maintain a working AICCU setup, it is necessary to start and configure AICCU manually. You can choose one of following two configuration methods, depending on how you are going to use AICCU.
+</p>
+
+<p>
+A. If you need on-demand AICCU connection, you can create an AICCU config file in <code>/etc/aiccu.conf</code>
+</p>
+<div class="table sectionedit8"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>username USER-SIXXS
+password password123
+server tic.sixxs.net
+protocol tic
+ipv6_interface sixxs
+tunnel_id T99999
+requiretls false
+defaultroute true
+behindnat true
+makebeats true
+daemonize true
+pidfile /var/run/aiccu.pid</code> </td>
+	</tr>
+</table></div>
+
+<p>
+Note: with method A, you have to start aiccu manually by excuting command <code>aiccu start</code>. 
+</p>
+
+<p>
+B. It allows more convenient way to manipulate AICCU service. With this method, you can start/stop enable/disable the service via luci web interface. It needs two steps.
+</p>
+
+<p>
+First, create aiccu configuration file at <code>/etc/config/aiccu</code>:
+</p>
+<div class="table sectionedit9"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config aiccu
+	option username  &#039;XXXX-SIXXS&#039;
+	option password  &#039;yourpassword&#039;
+	option protocol  &#039;tic&#039;
+	option server &#039;tic.sixxs.net&#039;
+	option interface &#039;sixxs0&#039;
+	option tunnel_id &#039;T123XX6&#039;
+	option requiretls &#039;0&#039;
+	option defaultroute     &#039;1&#039;
+	option nat &#039;1&#039;
+	option heartbeat &#039;1&#039; </code> </td>
+	</tr>
+</table></div>
+
+<p>
+Second, create the following script in <code>/etc/init.d/aiccu</code>:
+</p>
+<div class="table sectionedit10"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>#!/bin/sh /etc/rc.common
+# Copyright (C) 2006-2011 OpenWrt.org
+START=98
+
+add_config_bool() {
+        local section=&quot;$1&quot;
+        local option=&quot;$2&quot;
+        local value=&quot;$3&quot;
+        local default=&quot;$4&quot;
+        local _val
+
+        config_get_bool _val &quot;$section&quot; &quot;$option&quot; &quot;$default&quot;
+        [ &quot;$_val&quot; -gt 0 ] &amp;&amp; _val=&quot;true&quot; || _val=&quot;false&quot;
+        append args &quot;$3 $_val&quot; &quot;\n&quot;
+}
+
+add_config() {
+        local section=&quot;$1&quot;
+        local option=&quot;$2&quot;
+        local value=&quot;$3&quot;
+        local _val
+
+        config_get _val &quot;$section&quot; &quot;$option&quot;
+        [ -n &quot;$_val&quot; ] &amp;&amp; append args &quot;$3 $_val&quot; &quot;\n&quot;
+}
+
+start_instance() {
+        local cfg=&quot;$1&quot;
+        CFGFILE=&quot;/var/etc/aiccu-${cfg}.conf&quot;
+        PIDFILE=&quot;/var/run/aiccu-${cfg}.pid&quot;
+        args=&quot;&quot;
+
+        add_config &quot;$cfg&quot; username username
+        add_config &quot;$cfg&quot; password password
+        add_config &quot;$cfg&quot; server server
+        add_config &quot;$cfg&quot; protocol protocol
+        add_config &quot;$cfg&quot; interface ipv6_interface
+        add_config &quot;$cfg&quot; tunnel_id tunnel_id
+        add_config_bool &quot;$cfg&quot; requiretls requiretls 0
+        add_config_bool &quot;$cfg&quot; defaultroute defaultroute 1
+        add_config_bool &quot;$cfg&quot; nat behindnat 1
+        add_config_bool &quot;$cfg&quot; heartbeat makebeats 1
+        append args &quot;daemonize true&quot; &quot;\n&quot;
+        append args &quot;pidfile $PIDFILE&quot; &quot;\n&quot;
+
+        mkdir -p /var/run /var/etc
+        echo -e &quot;$args&quot; &gt; &quot;$CFGFILE&quot;
+
+        config_get_bool enabled &quot;$cfg&quot; enabled &#039;1&#039;
+        [ &quot;$enabled&quot; -gt 0 ] &amp;&amp; aiccu start &quot;$CFGFILE&quot; &amp;
+}
+
+stop_instance() {
+        local cfg=&quot;$1&quot;
+        aiccu stop &quot;/var/etc/aiccu-${cfg}.conf&quot;
+}
+
+restart_instance() {
+        local cfg=&quot;$1&quot;
+        config_get_bool restart &quot;$cfg&quot; restart 0
+        [ &quot;$restart&quot; -eq 1 ] &amp;&amp; stop_instance &quot;$cfg&quot;
+        start_instance &quot;$cfg&quot;
+}
+
+start() {
+        config_load aiccu
+        config_foreach start_instance aiccu
+}
+
+stop() {
+        config_load aiccu
+        config_foreach stop_instance aiccu
+}
+
+restart() {
+        config_load aiccu
+        config_foreach restart_instance aiccu
+}</code> </td>
+	</tr>
+</table></div>
+
+<p>
+then <code>chmod 755 /etc/init.d/aiccu</code> to assign the appropriate permission.
+</p>
+
+<p>
+Now you can use command <code>/etc/init.d/aiccu [start|stop|restart]</code> to enable, disable or restart AICCU.
+</p>
+
+<p>
+For further support regarding AICCU, see the <a href="http://www.sixxs.net/tools/aiccu/" class="urlextern" title="http://www.sixxs.net/tools/aiccu/"  rel="nofollow">SixXS website</a>.
+</p>
+<hr />
+
+<p>
+The <em>aiccu</em> package is configured through <code>/etc/config/aiccu</code>.
+</p>
+
+</div>
+
+<h2 class="sectionedit11" id="sections">Sections</h2>
+<div class="level2">
+
+<p>
+There is only a section of type <code>aiccu</code> defined which may only appear once.
+</p>
+
+</div>
+
+<h3 class="sectionedit12" id="aiccu">AICCU</h3>
+<div class="level3">
+
+<p>
+Below is a listing of defined options in the <code>aiccu</code> section.
+</p>
+<div class="table sectionedit13"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> <code>username</code>  </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Username to authenticate with the tunnel broker </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <code>password</code>  </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Password to authenticate with the tunnel broker </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> <code>protocol</code>  </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <code>tic</code> </td><td class="col4"> Authentication protocol, can be one of <code>tic</code>, <code>tsp</code> or <code>l2tp</code> </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> <code>server</code>    </td><td class="col1"> ipaddr </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Server to use </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>interface</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>aiccu</code> </td><td class="col4"> Name of the created tunnel interface </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>tunnel_id</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Tunnel ID to use if there are multiple tunnels registered with the broker </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <code>requiretls</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>0</code> </td><td class="col4"> Force the client to abort if the server does not support TLS </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <code>defaultroute</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>1</code> </td><td class="col4"> Whether to install an IPv6 default route over the established tunnel </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <code>nat</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>1</code> </td><td class="col4"> Notify if behind NAT </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> <code>heartbeat</code> </td><td class="col1"> boolean </td><td class="col2"> no </td><td class="col3"> <code>1</code> </td><td class="col4"> To enable <code>AYIYA</code> set heartbeat to 1, in case of an heartbeat tunnel 0 </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit14" id="tunnels">Tunnels</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit15" id="ayiya">AYIYA</h3>
+<div class="level3">
+
+<p>
+Example of an AYIYA tunnel configuration with the SixXS tunnel broker.
+</p>
+<div class="table sectionedit16"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;aiccu&#039;
+        option &#039;username&#039;  &#039;test&#039;
+        option &#039;password&#039;  &#039;test&#039;
+        option &#039;tunnelid&#039;  &#039;1234&#039;
+        option &#039;protocol&#039;  &#039;tic&#039;
+        option &#039;server&#039;    &#039;tic.sixxs.net&#039;
+        option &#039;interface&#039; &#039;sixxs0</code>&#039; </td>
+	</tr>
+</table></div>
+
+<p>
+In case you are behind a NAT firewall consult the SixX <abbr title="Frequently Asked Questions">FAQ</abbr> and check how to enable proto 41. 
+</p>
+
+</div>
+
+<h3 class="sectionedit17" id="heartbeat">Heartbeat</h3>
+<div class="level3">
+
+<p>
+Example of an SIXXS 6in4-heartbeat tunnel.
+</p>
+
+<p>
+We will configure /etc/config/aiccu, modify /etc/config/network and /etc/config/firewall. This is tested for firewall2 using the related trunks for DIR-600 B1/B2 and RT-N16. And finally on ALIX Board using ../backfire/10.03.1-rc5/x86_generic/.  
+</p>
+
+<p>
+You have to request an heartbeat tunnel from SIXXS before. Check and review their documentation.
+</p>
+
+<p>
+<strong>Prior to any change in your running configuration, create backups using your prefered back method.</strong>
+</p>
+
+<p>
+Change <code>/etc/config/aiccu</code> using your SIXXS username and Tunnel ID. 
+</p>
+<div class="table sectionedit18"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config aiccu
+       option username         &#039;ABCD-SIXXS/T1234&#039;
+       option password         &#039;yourpwasswort&#039;
+       option protocol         &#039;tic&#039;
+       option server           &#039;tic.sixxs.net&#039;
+       option interface        <strong>&#039;sixxs0&#039;</strong>
+       option tunnel_id        &#039;T1234&#039;
+       option requiretls       &#039;0&#039;
+       option defaultroute     &#039;1&#039;
+       option nat              &#039;1&#039;
+       option heartbeat        &#039;1</code>&#039; </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit19" id="static_6in4">Static 6in4</h3>
+<div class="level3">
+
+<p>
+tbd
+</p>
+
+</div>
+
+<h2 class="sectionedit20" id="interface_and_lan_configuration">Interface and LAN configuration</h2>
+<div class="level2">
+
+<p>
+Configure an ipv6 IP to your lan interface and create a wan6 interface in <code><a href="network" class="wikilink1" title="doc:uci:network">/etc/config/network</a></code>.  
+</p>
+<div class="table sectionedit21"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;interface&#039; &#039;lan&#039;
+        option &#039;type&#039; &#039;bridge&#039;
+        option &#039;ifname&#039; &#039;eth0.0&#039;
+        option &#039;proto&#039; &#039;static&#039;
+        option &#039;ipaddr&#039; &#039;192.168.1.1&#039;
+        option &#039;netmask&#039; &#039;255.255.255.0&#039;
+        option &#039;ip6addr&#039; <strong>&#039;2001:XXXX:YYYY:ZZZZ::1/64&#039;</strong>
+
+config &#039;interface&#039; &#039;wan6&#039;
+        option &#039;proto&#039; &#039;static&#039;
+        option &#039;ifname&#039; <strong>&#039;sixxs0&#039;</strong>
+        option &#039;auto&#039; &#039;1&#039;
+        option &#039;ip6addr&#039; <strong>&#039;2001:YOUR:END:POINT::2/64&#039;</strong>
+        option &#039;ip6gw&#039; <strong>&#039;2001:YOUR:END:POINT::1&#039;</strong>
+        option &#039;send_rs&#039; &#039;0</code>&#039; </td>
+	</tr>
+</table></div>
+
+<p>
+Replace <strong>&#039;2001:XXXX:YYYY:ZZZZ::1/64&#039;</strong> with a routed /64 assigned to your tunnel by SixXS (1 provided by default on most SixXS tunnel PoPs as of Feb. 2012, additional /48s can be requested if needed after enough time passed/credits earned).
+</p>
+
+<p>
+Replace <strong>&#039;2001:YOUR:END:POINT::2/64&#039;</strong> with your SixXS Tunnel individual <strong>endpoint</strong> address.
+</p>
+
+<p>
+Replace <strong>&#039;2001:YOUR:END:POINT::1&#039;</strong> with your SixXS Tunnel individual <strong>gateway</strong> address. 
+</p>
+
+</div>
+
+<h2 class="sectionedit22" id="firewall">Firewall</h2>
+<div class="level2">
+
+<p>
+Add an additional <strong>zone</strong>  <code>wan6</code> for IPv6 in 
+<code><a href="firewall" class="wikilink1" title="doc:uci:firewall">/etc/config/firewall</a></code>:
+</p>
+<div class="table sectionedit23"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;zone&#039;
+        option &#039;name&#039;    &#039;wan6&#039;
+        option &#039;network&#039; &#039;wan6&#039;
+        option &#039;family&#039;  &#039;ipv6&#039;
+        option &#039;input&#039;   &#039;REJECT&#039;
+        option &#039;output&#039;  &#039;ACCEPT&#039;
+        option &#039;forward&#039; &#039;REJECT&#039; 
+        option &#039;conntrack&#039; &#039;1</code>&#039;</td>
+	</tr>
+</table></div>
+
+<p>
+Add a corresponding <strong>forwarding</strong> rule for ipv6 in <code><a href="firewall" class="wikilink1" title="doc:uci:firewall">/etc/config/firewall</a></code>:
+</p>
+<div class="table sectionedit24"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;forwarding&#039;
+        option &#039;dest&#039; &#039;wan6&#039;
+        option &#039;src&#039; &#039;lan&#039;
+        option &#039;family&#039; &#039;ipv6</code>&#039; </td>
+	</tr>
+</table></div>
+
+<p>
+If necessary configure your individual ipv6 rules in <code><a href="firewall" class="wikilink1" title="doc:uci:firewall">/etc/config/firewall</a></code>:
+</p>
+<div class="table sectionedit25"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;rule&#039;
+        option &#039;name&#039; &#039;RHO&#039;
+        option &#039;family&#039; &#039;ipv6&#039;
+        option &#039;target&#039; &#039;DROP&#039;
+        option &#039;extra&#039; &#039;-m rt <em>-</em>-rt-type 0&#039;
+        option &#039;proto&#039; &#039;all&#039;
+        option &#039;src&#039; &#039;wan6&#039;
+
+config &#039;rule&#039;
+        option &#039;name&#039; &#039;RHO2&#039;
+        option &#039;family&#039; &#039;ipv6&#039;
+        option &#039;target&#039; &#039;DROP&#039;
+        option &#039;extra&#039; &#039;-m rt <em>-</em>-rt-type 0&#039;
+        option &#039;proto&#039; &#039;all&#039;
+        option &#039;src&#039; &#039;wan6&#039;
+        option &#039;dest&#039; &#039;lan&#039; 
+
+config &#039;rule&#039;
+        option &#039;target&#039; &#039;ACCEPT&#039;
+        option &#039;output&#039; &#039;ACCEPT&#039;
+        option &#039;forward&#039; &#039;REJECT&#039;
+        option &#039;name&#039; &#039;Allow-Ping ipv6&#039;
+        option &#039;family&#039; &#039;ipv6&#039;
+        option &#039;proto&#039; &#039;icmp&#039;
+        option &#039;src&#039; &#039;wan6&#039;
+        option &#039;limit&#039; &#039;1000/sec&#039;
+        list &#039;icmp_type&#039; &#039;echo-request&#039;
+        list &#039;icmp_type&#039; &#039;destination-unreachable&#039;
+        list &#039;icmp_type&#039; &#039;packet-too-big&#039;
+        list &#039;icmp_type&#039; &#039;time-exceeded&#039;
+        list &#039;icmp_type&#039; &#039;bad-header&#039;
+        list &#039;icmp_type&#039; &#039;unknown-header-type&#039;
+        list &#039;icmp_type&#039; &#039;router-solicitation&#039;
+        list &#039;icmp_type&#039; &#039;neighbour-solicitation&#039;
+        list &#039;icmp_type&#039; &#039;echo-reply</code>&#039; </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit26" id="radvd">radvd</h2>
+<div class="level2">
+
+<p>
+Populate your <abbr title="Local Area Network">LAN</abbr> with you local IPv6 ip range. 
+</p>
+
+<p>
+Therfore adopt <code><a href="radvd" class="wikilink1" title="doc:uci:radvd">/etc/config/radvd</a></code> using your ipv6 subnet prefix:
+</p>
+<div class="table sectionedit27"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;interface&#039;
+        option &#039;interface&#039; &#039;lan&#039;
+        option &#039;AdvSendAdvert&#039; &#039;1&#039;
+        option &#039;AdvManagedFlag&#039; &#039;0&#039;
+        option &#039;AdvOtherConfigFlag&#039; &#039;0&#039;
+        option &#039;AdvLinkMTU&#039; &#039;1480&#039;
+        option &#039;ignore&#039; &#039;0&#039;
+ 
+config &#039;prefix&#039;
+        option &#039;interface&#039; &#039;lan&#039;
+        option &#039;AdvOnLink&#039; &#039;1&#039;
+        option &#039;AdvAutonomous&#039; &#039;1&#039;
+        option &#039;AdvRouterAddr&#039; &#039;0&#039;
+        list &#039;prefix&#039; &#039;2001:XXXX:YYYY:ZZZZ::/64&#039;
+        option &#039;ignore&#039; &#039;0&#039;
+
+……..</code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit28" id="final_check">Final Check</h2>
+<div class="level2">
+
+<p>
+Prior to a reboot restart the network and  firewall 
+</p>
+<div class="table sectionedit29"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>/etc/init.d/network restart
+/etc/init.d/firewall restart</code> </td>
+	</tr>
+</table></div>
+
+<p>
+The zone <strong>wan6</strong> should appear as shown below.
+</p>
+<div class="table sectionedit30"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>root@OpenWrt:~# logread | grep firewall
+Feb 23 09:32:06 OpenWrt user.info firewall: adding lan (br-lan) to zone lan
+Feb 23 09:32:06 OpenWrt user.info firewall: adding wan (eth0) to zone wan
+Feb 23 09:32:10 OpenWrt user.info firewall: <strong>adding wan6 (sixxs0) to zone wan6</strong></code> </td>
+	</tr>
+</table></div>
+
+<p>
+Do a manual restart of aiccu and radvd.  
+</p>
+<div class="table sectionedit31"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>/etc/init.d/aiccu start
+/etc/init.d/radvd start</code> </td>
+	</tr>
+</table></div>
+
+<p>
+Inspect your logfile and check if you can ping ipv6 sites. 
+</p>
+<div class="table sectionedit32"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>root@OpenWrt:~# ping6 ipv6.google.com
+PING ipv6.google.com (2a00:1450:4001:c01::93): 56 data bytes
+64 bytes from 2a00:1450:4001:c01::93: seq=0 ttl=57 time=24.144 ms
+64 bytes from 2a00:1450:4001:c01::93: seq=1 ttl=57 time=23.581 ms
+64 bytes from 2a00:1450:4001:c01::93: seq=2 ttl=57 time=22.934 ms</code></td>
+	</tr>
+</table></div>
+
+<p>
+Do a test from a client in your <abbr title="Local Area Network">LAN</abbr> ipv6 enabled). 
+</p>
+<div class="table sectionedit33"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>C:\Dokumente und Einstellungen\Bilbo_Beutlin&gt;ping6 six.heise.de
+
+six.heise.de [2a02:2e0:3fe:100::6] wird angepingt
+von 2001:yyyy:xxxx:0:abcd:dead:beef:1234 mit 32 Bytes Daten:
+
+Antwort von 2a02:2e0:3fe:100::6: Bytes=32 Zeit=10ms
+Antwort von 2a02:2e0:3fe:100::6: Bytes=32 Zeit=13ms
+Antwort von 2a02:2e0:3fe:100::6: Bytes=32 Zeit=8ms
+Antwort von 2a02:2e0:3fe:100::6: Bytes=32 Zeit=8ms
+
+Ping-Statistik für 2a02:2e0:3fe:100::6
+    Pakete: Gesendet = 4, Empfangen = 4, Verloren = 0 (0% Verlust),
+Ungefähre Zeitangaben in Millisekunden:
+    Minimum = 8ms, Maximum = 13ms, Mittelwert = 9ms</code></td>
+	</tr>
+</table></div>
+
+<p>
+If everything works fine enable aiccu and radvd 
+</p>
+<div class="table sectionedit34"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>/etc/init.d/aiccu enable
+/etc/init.d/radvd enable</code> </td>
+	</tr>
+</table></div>
+
+<p>
+and reboot your router. 
+</p>
+
+</div>
+
+<h2 class="sectionedit35" id="hotplug_script_for_120901_and_later">hotplug script for 12.09.01 and later</h2>
+<div class="level2">
+
+<p>
+In recent versions of openwrt, aiccu does not include an init script anymore. I&#039;ve created an hotplug skript to run aiccu when my ipv4 wan interface comes up, and stops it when the wan interface goes down. Config is stored in /etc/aiccu.conf. Just copy that file to /etc/hotplug.d/iface/50-aiccu
+</p>
+<div class="table sectionedit36"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>#!/bin/sh
+
+if [ &quot;$ACTION&quot; = &quot;ifdown&quot; ]; then
+	if [ &quot;$INTERFACE&quot; = &quot;wan&quot; ]; then
+
+	# stop aiccu
+	/usr/sbin/aiccu stop
+	
+	fi
+fi
+
+if [ &quot;$ACTION&quot; = &quot;ifup&quot; ]; then
+	if [ &quot;$INTERFACE&quot; = &quot;wan&quot; ]; then
+
+	# start aiccu again
+	/usr/sbin/aiccu start
+	
+	fi
+fi
+</code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/uci/aiccu.txt</bdi> · Last modified: 2014/07/17 12:11 by <bdi>oskar</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="aiccu?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="aiccu?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="aiccu?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="aiccu#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Auci%253Aaiccu&amp;1432266633" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Multiwan [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,uci,multiwan"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="multiwan?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:uci"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/uci/multiwan"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/uci/multiwan"/>
+<link rel="canonical" href="multiwan"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:uci';var JSINFO = {"id":"doc:uci:multiwan","namespace":"doc:uci"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266640 166.182.3.153';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="multiwan#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="multiwan?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="multiwan?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:uci:multiwan" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="multiwan?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="multiwan?do=media&amp;ns=doc%253Auci"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="multiwan?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../uci.1" class="wikilink1" title="doc:uci">The UCI System</a></bdi> » <bdi><span class="curid"><a href="multiwan" class="wikilink1" title="doc:uci:multiwan">Multiwan</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/uci/multiwan" class="media" title="cz:doc:uci:multiwan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/uci/multiwan" class="media" title="de:doc:uci:multiwan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="multiwan" class="media" title="doc:uci:multiwan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/uci/multiwan" class="media" title="es:doc:uci:multiwan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/uci/multiwan" class="media" title="fr:doc:uci:multiwan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/uci/multiwan" class="media" title="hu:doc:uci:multiwan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/uci/multiwan" class="media" title="jp:doc:uci:multiwan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/uci/multiwan" class="media" title="pl:doc:uci:multiwan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/uci/multiwan" class="media" title="pt-br:doc:uci:multiwan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../ru/doc/uci/multiwan" class="media" title="ru:doc:uci:multiwan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/uci/multiwan" class="media" title="tr:doc:uci:multiwan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../zh-cn/doc/uci/multiwan" class="media" title="zh-cn:doc:uci:multiwan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/uci/multiwan" class="media" title="zh-tw:doc:uci:multiwan"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:uci:multiwan</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="multiwan#installation">Installation</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="multiwan#with_luci_interface">With LuCI interface</a></div></li>
+<li class="level2"><div class="li"><a href="multiwan#with_command_line_interface_cli">With Command Line Interface (CLI)</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="multiwan#configuration">Configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="multiwan#with_command_line_interface_cli1">With Command Line Interface (CLI)</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="multiwan#general_options">General options</a></div></li>
+<li class="level3"><div class="li"><a href="multiwan#wan_interfaces">WAN Interfaces</a></div></li>
+<li class="level3"><div class="li"><a href="multiwan#outbound_traffic_rules">Outbound Traffic Rules</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="multiwan#simple_multiwan_setup">Simple Multiwan Setup</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="multiwan#create_vlan_for_wan2">1. Create VLAN for WAN2</a></div></li>
+<li class="level2"><div class="li"><a href="multiwan#configure_vlans_and_network_interfaces">2. Configure VLANs and Network Interfaces</a></div></li>
+<li class="level2"><div class="li"><a href="multiwan#configure_wans_and_multiwan">3. Configure WANs and multiwan</a></div></li>
+<li class="level2"><div class="li"><a href="multiwan#test">3. Test.</a></div></li>
+<li class="level2"><div class="li"><a href="multiwan#troubleshooting">4. Troubleshooting</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="multiwan">Multiwan</h1>
+<div class="level1">
+
+<p>
+The <em>multiwan</em> package is an agent script that makes Multi-WAN configuration simple, easy to use and manageable. It comes complete with load balancing, failover and an easy to manage traffic ruleset. The uci configuration file <code>/etc/config/multiwan</code> is provided as part of the <em>multiwan</em> package.
+</p>
+
+<p>
+Unlike &quot;channel bonding&quot; or &quot;link aggregation&quot; which routes individual ethernet frames, multiwan routes individual sessions over the least busy WAN interface and that session continues to use the same WAN until terminated.
+</p>
+
+<p>
+Note: Multiwan will NOT work if the WAN connections are on the same subnet and share the same default gateway.
+</p>
+
+<p>
+Note2: Multiwan (at least on Barrier Breaker r39404) does not accept WAN interfaces with &quot;_&quot; or other special characters
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="installation">Installation</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit3" id="with_luci_interface">With LuCI interface</h3>
+<div class="level3">
+
+<p>
+Using the LuCI <abbr title="Graphical User Interface">GUI</abbr> navigate to:
+</p>
+<ul>
+<li class="level1"><div class="li"> System → Software → Update package lists</div>
+</li>
+<li class="level1"><div class="li"> System → Software → Scroll down to Available packages → Click the &quot;Install&quot; link for the <em>luci-app-multiwan</em> package.</div>
+</li>
+</ul>
+
+<p>
+You should now find the <em>multiwan</em> configuration page under Network → Multi-WAN
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="with_command_line_interface_cli">With Command Line Interface (CLI)</h3>
+<div class="level3">
+
+<p>
+<pre class="code">opkg update
+opkg install multiwan
+/etc/init.d/multiwan enable
+/etc/init.d/multiwan start
+/etc/init.d/multiwan single</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="configuration">Configuration</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit6" id="with_command_line_interface_cli1">With Command Line Interface (CLI)</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="general_options">General options</h4>
+<div class="level4">
+
+<p>
+<pre class="code">config &#039;multiwan&#039; &#039;config&#039;
+        option &#039;default_route&#039; &#039;balancer&#039;</pre>
+
+</p>
+<div class="sortable"><div class="table sectionedit7"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Default </th><th class="col2"> Options </th><th class="col3"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>default_route</code> </td><td class="col1"> <em>balancer</em> </td><td class="col2"> <em>balancer</em>/fastbalancer/&lt;interface&gt; </td><td class="col3"> Selects the default path for all unspecified traffic </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>health_monitor</code> </td><td class="col1"> <em>parallel</em> </td><td class="col2"> <em>parallel/serial</em> </td><td class="col3"> Memory footprint related </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>debug</code> </td><td class="col1"> <em>0</em> </td><td class="col2"> <em>0/1</em> </td><td class="col3"> Output debug to log </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>lan_if</code> </td><td class="col1"> <em>lan</em> </td><td class="col2"> <em>&lt;firewall lan zone&gt;</em> </td><td class="col3 leftalign">  </td>
+	</tr>
+</table></div>
+</div>
+<p>
+<pre class="code sh">uci set multiwan.config.health_monitor=serial
+uci commit multiwan
+/etc/init.d/multiwan restart</pre>
+
+</p>
+
+<p>
+* Load Balancing using <em>netfilter</em> is referred to as the &quot;Fast Balancer (Best Distribution)&quot;
+</p>
+
+<p>
+* Load Balancing using <em>iproute2</em> is referred to as &quot;Load Balancer (Best Compatibility)&quot;
+</p>
+
+<p>
+* wanrule for the &quot;Fast Balancer&quot; is now <code>fastbalancer</code>
+</p>
+
+<p>
+* wanrule for the &quot;Load Balancer&quot; is still just <code>balancer</code>
+</p>
+
+<p>
+It seems that <code>fastbalancer</code> is superior to <code>balancer</code> in terms of stability but you will need to try each setting to see which works best for you.
+</p>
+
+</div>
+
+<h4 id="wan_interfaces">WAN Interfaces</h4>
+<div class="level4">
+
+<p>
+<pre class="code">config &#039;interface&#039; &#039;wan&#039;
+        option &#039;weight&#039; &#039;10&#039;
+        option &#039;health_interval&#039; &#039;10&#039;
+        option &#039;icmp_hosts&#039; &#039;dns&#039;
+        option &#039;timeout&#039; &#039;3&#039;
+        option &#039;health_fail_retries&#039; &#039;3&#039;
+        option &#039;health_recovery_retries&#039; &#039;5&#039;
+        option &#039;failover_to&#039; &#039;wan2&#039;
+        option &#039;dns&#039; &#039;auto&#039;
+
+config &#039;interface&#039; &#039;wan2&#039;
+        option &#039;weight&#039; &#039;10&#039;
+        option &#039;health_interval&#039; &#039;10&#039;
+        option &#039;icmp_hosts&#039; &#039;dns&#039;
+        option &#039;timeout&#039; &#039;3&#039;
+        option &#039;health_fail_retries&#039; &#039;3&#039;
+        option &#039;health_recovery_retries&#039; &#039;5&#039;
+        option &#039;failover_to&#039; &#039;wan&#039;
+        option &#039;dns&#039; &#039;auto&#039;
+</pre>
+
+</p>
+<div class="sortable"><div class="table sectionedit8"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Default </th><th class="col2"> Options </th><th class="col3"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>weight</code> </td><td class="col1"> <em>10</em> </td><td class="col2"> <em>disable/1-10</em> </td><td class="col3"> Load Balancer Distribution </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>health_interval</code> </td><td class="col1"> <em>10</em> </td><td class="col2"> <em>disable/5/10/20/30/60/120</em> </td><td class="col3"> Health Monitor Interval in seconds </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>icmp_hosts</code> </td><td class="col1"> <em>?</em> </td><td class="col2"> <em>disable/dns/gateway/&lt;host&gt;</em> </td><td class="col3"> Health Monitor ICMP Host(s) </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>timeout</code> </td><td class="col1"> <em>?</em> </td><td class="col2"> <em>disable/1-5/10</em> </td><td class="col3"> Health Monitor ICMP Timeout </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>health_fail_retries</code> </td><td class="col1"> <em>?</em> </td><td class="col2"> <em>1/3/5/10/15/20</em> </td><td class="col3"> Attempts Before WAN Failover </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>health_recovery_retries</code> </td><td class="col1"> <em>?</em> </td><td class="col2"> <em>1/3/5/10/15/20</em> </td><td class="col3"> Attempts Before WAN Recovery </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <code>failover_to</code> </td><td class="col1"> <em>?</em> </td><td class="col2"> <em>disable/balancer/fastbalancer/&lt;interface&gt;</em> </td><td class="col3"> Failover Traffic Destination </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <code>dns</code> </td><td class="col1"> <em>auto</em> </td><td class="col2"> <em>auto/&lt;dns&gt;</em> </td><td class="col3"> <abbr title="Domain Name System">DNS</abbr> Server(s) </td>
+	</tr>
+</table></div>
+</div>
+<p>
+<pre class="code sh">uci delete multiwan.wan2
+uci set multiwan.wwan=interface
+uci set multiwan.wwan.weight=3
+uci set multiwan.wwan.health_interval=disable
+uci set multiwan.wwan.icmp_hosts=disable
+uci set multiwan.wwan.timeout=3
+uci set multiwan.wwan.health_fail_retries=3
+uci set multiwan.wwan.health_recovery_retries=5
+uci set multiwan.wwan.failover_to=fastbalancer
+uci set multiwan.wwan.dns=auto
+uci commit multiwan
+/etc/init.d/multiwan restart</pre>
+
+</p>
+
+<p>
+For PPP 3G WAN interfaces, manually set <abbr title="Domain Name System">DNS</abbr> servers for each WAN in multiwan configuration.
+In case of issues with multiple 3G dongles, add the following lines for each interface in the etc/config/network: 
+<pre class="code">option &#039;peerdns&#039; &#039;0&#039;
+option &#039;defaultroute&#039; &#039;0&#039;</pre>
+
+</p>
+
+</div>
+
+<h4 id="outbound_traffic_rules">Outbound Traffic Rules</h4>
+<div class="level4">
+
+<p>
+In the case of duplicate rule entries, the last rule will take precedent.
+<pre class="code">config &#039;mwanfw&#039;
+	option &#039;src&#039; &#039;192.168.1.0/24&#039;
+	option &#039;proto&#039; &#039;udp&#039;
+	option &#039;port_type&#039; &#039;source-ports&#039;
+	option &#039;ports&#039; &#039;5060,16384:16482&#039;
+	option &#039;wanrule&#039; &#039;wan&#039;</pre>
+
+</p>
+<div class="table sectionedit9"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Default </th><th class="col2"> Options </th><th class="col3"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> src </td><td class="col1"> <em>all</em> </td><td class="col2"> <em>all/&lt;IP&gt;/&lt;hostname&gt;</em> </td><td class="col3"> Source Address </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> dst </td><td class="col1"> <em>all</em> </td><td class="col2"> <em>all/&lt;IP&gt;/&lt;hostname&gt;</em> </td><td class="col3"> Destination Address </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> port_type </td><td class="col1"> <em>dports</em> </td><td class="col2"> <em>dports/source-ports</em> </td><td class="col3 leftalign">  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> ports </td><td class="col1"> <em>all</em> </td><td class="col2"> <em>all/&lt;port,port:range&gt;</em> </td><td class="col3"> Ports </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> proto </td><td class="col1"> <em>all</em> </td><td class="col2"> <em>all/tcp/udp/icmp/&lt;custom&gt;</em> </td><td class="col3"> Protocol </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> wanrule </td><td class="col1 leftalign">  </td><td class="col2"> <em>balancer/fastbalancer/&lt;interface&gt;</em> </td><td class="col3"> WAN Uplink </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> failover_to </td><td class="col1 leftalign">  </td><td class="col2"> <em>balancer/fastbalancer/&lt;interface&gt;</em> </td><td class="col3"> <a href="http://pio.longstair.com/misc/multiwan_per_mwanfw_failover.patch.txt" class="urlextern" title="http://pio.longstair.com/misc/multiwan_per_mwanfw_failover.patch.txt"  rel="nofollow">multiwan_per_mwanfw_failover.patch.txt</a> </td>
+	</tr>
+</table></div>
+
+<p>
+<pre class="code sh">uci add multiwan mwanfw
+uci set multiwan.@mwanfw[-1].src=192.168.2.0/24
+uci set multiwan.@mwanfw[-1].dst=www.whatismyip.com
+uci set multiwan.@mwanfw[-1].wanrule=fastbalancer
+uci commit multiwan
+/etc/init.d/multiwan restart</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit10" id="simple_multiwan_setup">Simple Multiwan Setup</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit11" id="create_vlan_for_wan2">1. Create VLAN for WAN2</h3>
+<div class="level3">
+
+<p>
+<pre class="code">vconfig add eth0 2</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit12" id="configure_vlans_and_network_interfaces">2. Configure VLANs and Network Interfaces</h3>
+<div class="level3">
+
+<p>
+Using  <code>/etc/config/network.</code>
+</p>
+<ul>
+<li class="level1"><div class="li"> Move <abbr title="Local Area Network">LAN</abbr> port &quot;0&quot; from default eth0_0 to eth0_2.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Configure WAN and WAN2 &#039;proto&#039; as &#039;dhcp&#039; initially and use the web interface to reconfigure to PPPOE or static IP later if needed.</div>
+</li>
+<li class="level1"><div class="li"> Use the <abbr title="Domain Name System">DNS</abbr> servers configured below if you&#039;re having <abbr title="Domain Name System">DNS</abbr> problems. Some ISPs only allow <abbr title="Domain Name System">DNS</abbr> connections from their own IP blocks.</div>
+</li>
+</ul>
+
+<p>
+<pre class="code"># The following assumes a six port switch, the default WAN port is switch port 0, 
+# the default LAN ports (1-4) are switch ports (1-4) and the internal switch port 
+# connection to the router mainboard is switch port 5.
+ 
+# Although a common configuration, some routers are configured with a 5 port switch,
+# a separate physical network interface for the WAN port and the numbering system 
+# may be different.
+
+config &#039;switch&#039; &#039;eth0&#039;
+        option &#039;enable&#039; &#039;1&#039;
+
+# Note: The internal switch port 5 is tagged &quot;5t&quot; in the following configuration
+# to allow it to be shared by multiple VLANs (eth0.0., eth0.1, eth0.2)
+
+# Configure 3 external LAN ports on VLAN0.
+config &#039;switch_vlan&#039; &#039;eth0_0&#039;
+        option &#039;device&#039; &#039;eth0&#039;
+        option &#039;vlan&#039; &#039;0&#039;
+        option &#039;ports&#039; &#039;2 3 4 5t&#039;
+
+# Configure default WAN port on VLAN1.
+config &#039;switch_vlan&#039; &#039;eth0_1&#039;
+        option &#039;device&#039; &#039;eth0&#039;
+        option &#039;vlan&#039; &#039;1&#039;
+        option &#039;ports&#039; &#039;1 5t&#039;
+
+# Configure WAN2 port on VLAN2.
+config &#039;switch_vlan&#039; &#039;eth0_2&#039;
+        option &#039;device&#039; &#039;eth0&#039;
+        option &#039;vlan&#039; &#039;2&#039;
+        option &#039;ports&#039; &#039;0 5t&#039;
+
+# Default loopback interface.
+config &#039;interface&#039; &#039;loopback&#039;
+        option &#039;ifname&#039; &#039;lo&#039;
+        option &#039;proto&#039; &#039;static&#039;
+        option &#039;ipaddr&#039; &#039;127.0.0.1&#039;
+        option &#039;netmask&#039; &#039;255.0.0.0&#039;
+
+# Default &#039;lan&#039; interface configured with Spanning Tree Protocol activated.
+config &#039;interface&#039; &#039;lan&#039;
+        option &#039;type&#039; &#039;bridge&#039;
+        # On some routers the default &#039;lan&#039; interface is configured directly
+        # to the physical network interface eth0. This has to be changed to 
+        # a VLAN, in this case eth0.0
+        option &#039;ifname&#039; &#039;eth0.0&#039;
+        option &#039;proto&#039; &#039;static&#039;
+        option &#039;stp&#039; &#039;1&#039;
+        option &#039;ipaddr&#039; &#039;192.168.1.1&#039;
+        option &#039;netmask&#039; &#039;255.255.255.0&#039;
+
+# wan interface
+config &#039;interface&#039; &#039;wan&#039;
+        option &#039;ifname&#039; &#039;eth0.1&#039;
+        option &#039;proto&#039; &#039;dhcp&#039;
+        option &#039;dns&#039; &#039;216.146.35.113 216.146.36.113 8.8.8.8 8.8.4.4&#039;
+
+# wan2 interface
+config &#039;interface&#039; &#039;wan2&#039;
+        option &#039;ifname&#039; &#039;eth0.2&#039;
+        option &#039;proto&#039; &#039;dhcp&#039;
+        option &#039;dns&#039; &#039;216.146.35.113 216.146.36.113 8.8.8.8 8.8.4.4&#039;</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit13" id="configure_wans_and_multiwan">3. Configure WANs and multiwan</h3>
+<div class="level3">
+
+</div>
+
+<h5 id="wans">WANs:</h5>
+<div class="level5">
+
+<p>
+Network &gt; Interfaces &gt; WAN/WAN2 - Add WAN2 to the WAN firewall zone.
+</p>
+
+</div>
+
+<h5 id="multiwan1">Multiwan:</h5>
+<div class="level5">
+
+<p>
+Network &gt; Multiwan
+checkout the bottom page to see samples of the settings.
+here&#039;s how i got mine setup:
+</p>
+<ul>
+<li class="level1"><div class="li"> a. I only have two internet connections so I always remove the last two wan interfaces. I also comment out MWAN3 and MWAN4 in /etc/iproute2/rt_tables (although it may not be necessary).</div>
+</li>
+<li class="level1"><div class="li"> b. Load Balancer Distribution = 1 for even connection distribution</div>
+</li>
+</ul>
+
+<p>
+Failover = LoadBalancer for both links
+</p>
+<ul>
+<li class="level1"><div class="li"> c.Traffic Rules</div>
+</li>
+</ul>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> checkout the examples
+ Source, Destination, protocol, Ports, WAN Uplink
+ all, all,all,all, Load Balancer
+ all, all, UDP, all, wan ←- this is so all vpn and voip connection goes through 1 gateway only
+that&#039;s it! 
+</p>
+
+</div>
+
+<h3 class="sectionedit14" id="test">3. Test.</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> Status &gt; Interfaces should show traffic going through both interfaces.</div>
+</li>
+<li class="level1"><div class="li"> route distribution</div>
+</li>
+</ol>
+
+<p>
+<pre class="code"> root@culiat-wg:~# ip route show table 123
+ 192.168.2.0/24 dev eth0.2  proto kernel  scope link  src 192.168.2.214
+ 192.168.1.0/24 dev br-lan  proto kernel  scope link  src 192.168.1.1
+ 114.108.201.0/24 dev eth0.1  proto kernel  scope link  src 114.108.201.49
+ default  proto static
+        nexthop via 114.108.201.1  dev eth0.1 weight 1
+        nexthop via 192.168.2.1  dev eth0.2 weight 1</pre>
+
+</p>
+<ol>
+<li class="level1"><div class="li"> The <code>route</code> command should display two default gateways.</div>
+</li>
+<li class="level1"><div class="li"> Try a torrent with lots of seeders. If <em>multiwan</em> is working properly you should see a download rate greater than your fastest WAN connection.</div>
+</li>
+<li class="level1"><div class="li"> Disconnecting one WAN port should NOT interrupt your connection. </div>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit15" id="troubleshooting">4. Troubleshooting</h3>
+<div class="level3">
+
+<p>
+There&#039;s a problem if:
+</p>
+<ol>
+<li class="level1"><div class="li"> you refresh the Interface status page and the transfer rates of one interface do not change.</div>
+</li>
+<li class="level1"><div class="li"> only one WAN interface appears on the &quot;Interface Status&quot; page.</div>
+</li>
+<li class="level1"><div class="li"> you enter the <code>route</code> command and it only displays one default gateway.</div>
+</li>
+<li class="level1"><div class="li"> the <code>ip route show table 123</code> command doesn&#039;t display <code>nexthops</code></div>
+</li>
+</ol>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/uci/multiwan.txt</bdi> · Last modified: 2014/01/28 11:36 by <bdi>rand</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="multiwan?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="multiwan?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="multiwan?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="multiwan#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Auci%253Amultiwan&amp;1432266640" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

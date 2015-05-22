@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Allwinner Sun4i/5i/6i/7i (sunxi) [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="fastethernet,no switch,0nic,1nic,0wnic,1wnic,serial,arm,devboard,cortex-a7,cortex-a8,armv7,sunxi"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../../index.html"/>
+<link rel="contents" href="soc.allwinner.sunxi?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../../feed.php?mode=list&amp;ns=doc:hardware:soc"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../../_export/xhtml/doc/hardware/soc/soc.allwinner.sunxi"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../../_export/raw/doc/hardware/soc/soc.allwinner.sunxi"/>
+<link rel="canonical" href="soc.allwinner.sunxi"/>
+<link rel="stylesheet" type="text/css" href="../../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:hardware:soc';var JSINFO = {"id":"doc:hardware:soc:soc.allwinner.sunxi","namespace":"doc:hardware:soc"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432269758 166.182.3.151';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="soc.allwinner.sunxi#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../../start"  accesskey="h" title="[H]"><img src="../../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="soc.allwinner.sunxi?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="soc.allwinner.sunxi?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:hardware:soc:soc.allwinner.sunxi" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="soc.allwinner.sunxi?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="soc.allwinner.sunxi?do=media&amp;ns=doc%253Ahardware%253Asoc"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="soc.allwinner.sunxi?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../start" class="wikilink1" title="doc:hardware:start">Hardware</a></bdi> » <bdi><a href="../soc.1" class="wikilink1" title="doc:hardware:soc">SoC (System on a Chip)</a></bdi> » <bdi><span class="curid"><a href="soc.allwinner.sunxi" class="wikilink1" title="doc:hardware:soc:soc.allwinner.sunxi">Allwinner Sun4i/5i/6i/7i (sunxi)</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/hardware/soc/soc.allwinner.sunxi" class="media" title="cz:doc:hardware:soc:soc.allwinner.sunxi"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/hardware/soc/soc.allwinner.sunxi" class="media" title="de:doc:hardware:soc:soc.allwinner.sunxi"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="soc.allwinner.sunxi" class="media" title="doc:hardware:soc:soc.allwinner.sunxi"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/hardware/soc/soc.allwinner.sunxi" class="media" title="es:doc:hardware:soc:soc.allwinner.sunxi"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/hardware/soc/soc.allwinner.sunxi" class="media" title="fr:doc:hardware:soc:soc.allwinner.sunxi"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/hardware/soc/soc.allwinner.sunxi" class="media" title="hu:doc:hardware:soc:soc.allwinner.sunxi"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/hardware/soc/soc.allwinner.sunxi" class="media" title="jp:doc:hardware:soc:soc.allwinner.sunxi"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/hardware/soc/soc.allwinner.sunxi" class="media" title="pl:doc:hardware:soc:soc.allwinner.sunxi"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/hardware/soc/soc.allwinner.sunxi" class="media" title="pt-br:doc:hardware:soc:soc.allwinner.sunxi"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/hardware/soc/soc.allwinner.sunxi" class="media" title="ru:doc:hardware:soc:soc.allwinner.sunxi"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/hardware/soc/soc.allwinner.sunxi" class="media" title="tr:doc:hardware:soc:soc.allwinner.sunxi"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/hardware/soc/soc.allwinner.sunxi" class="media" title="zh-cn:doc:hardware:soc:soc.allwinner.sunxi"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/hardware/soc/soc.allwinner.sunxi" class="media" title="zh-tw:doc:hardware:soc:soc.allwinner.sunxi"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:hardware:soc:soc.allwinner.sunxi</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="soc.allwinner.sunxi#installation">Installation</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="soc.allwinner.sunxi#status">Status</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="soc.allwinner.sunxi#working">Working</a></div></li>
+<li class="level3"><div class="li"><a href="soc.allwinner.sunxi#being_worked_on">Being worked on</a></div></li>
+<li class="level3"><div class="li"><a href="soc.allwinner.sunxi#not_being_worked_on">Not being worked on</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="soc.allwinner.sunxi#installation_process">Installation process</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="soc.allwinner.sunxi#pre-built_sd_card_images">Pre-built SD card images</a></div></li>
+<li class="level3"><div class="li"><a href="soc.allwinner.sunxi#assembling_the_sd_card_image_yourself">Assembling the SD card image yourself</a></div></li>
+<li class="level3"><div class="li"><a href="soc.allwinner.sunxi#sd_layout">SD layout</a></div></li>
+<li class="level3"><div class="li"><a href="soc.allwinner.sunxi#sd_preparation">SD preparation</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="soc.allwinner.sunxi#upgrading_openwrt">Upgrading OpenWrt</a></div></li>
+<li class="level2"><div class="li"><a href="soc.allwinner.sunxi#links">Links</a></div></li>
+<li class="level2"><div class="li"><a href="soc.allwinner.sunxi#how_can_you_help">How can you help</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="soc.allwinner.sunxi#tags">Tags</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="allwinner_sun4i5i6i7i_sunxi">Allwinner Sun4i/5i/6i/7i (sunxi)</h1>
+<div class="level1">
+
+<p>
+Various vendors are offering development boards / <a href="http://en.wikipedia.org/wiki/single-board computer" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/single-board computer">single-board computer</a> based on the <a href="http://en.wikipedia.org/wiki/Allwinner Technology" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Allwinner Technology">Allwinner</a> SoCs. These are running various flavors of the A1x/A20 SoCs, with different buildouts. The mach is called &quot;sunxi&quot;.
+</p>
+
+<p>
+For some specs rather see <a href="http://en.wikipedia.org/wiki/Allwinner_Technology#A-Series" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Allwinner_Technology#A-Series">Allwinner_Technology#A-Series</a>.
+</p>
+
+</div>
+
+<h1 class="sectionedit2" id="supported_versions">Supported Versions</h1>
+<div class="level1">
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Model Version </th><th class="col1"> Launch Date </th><th class="col2"> OpenWrt Version Supported </th><th class="col3"> Model Specific Notes </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> A10  </td><td class="col1"> - </td><td class="col2 centeralign">  trunk  </td><td class="col3"> Single Cortex-A8 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> A10s </td><td class="col1"> - </td><td class="col2 centeralign">  trunk  </td><td class="col3"> Single Cortex-A8 </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> A13  </td><td class="col1"> - </td><td class="col2 centeralign">  trunk  </td><td class="col3"> Single Cortex-A8 </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> A20  </td><td class="col1"> - </td><td class="col2 centeralign">  trunk  </td><td class="col3"> Dual Cortex-A7 </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> A23  </td><td class="col1"> - </td><td class="col2 centeralign">  na  </td><td class="col3"> Dual Cortex-A7 </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> A31  </td><td class="col1"> - </td><td class="col2 centeralign">  na  </td><td class="col3"> Quad Cortex-A7 </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> A33  </td><td class="col1"> - </td><td class="col2 centeralign">  na  </td><td class="col3"> Quad Cortex-A7 </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> A80  </td><td class="col1"> - </td><td class="col2 centeralign">  na  </td><td class="col3"> 8-core big.LITTLE (4x A15 + 4x A7) </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h1 class="sectionedit4" id="hardware_highlights">Hardware Highlights</h1>
+<div class="level1">
+<div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Model </th><th class="col1"> SoC </th><th class="col2"> RAM </th><th class="col3"> <a href="../../techref/flash.layout" class="wikilink1" title="doc:techref:flash.layout">Storage</a> </th><th class="col4"> Network </th><th class="col5"> USB </th><th class="col6"> <a href="../../../OpenWrtDocs/Customizing/Hardware/Serial_Console" class="wikilink1" title="doc:hardware:port.serial">Serial</a> </th><th class="col7"> <a href="../port.jtag" class="wikilink1" title="doc:hardware:port.jtag">JTAG</a> </th><th class="col8"> <a href="http://en.wikipedia.org/wiki/UEXT" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/UEXT">UEXT</a> </th><th class="col9"> Other </th><th class="col10"> linux-sunxi page </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <a href="../../../toh/lemaker/bananapi" class="wikilink1" title="toh:lemaker:bananapi">BananaPi</a> </td><td class="col1"> A20 </td><td class="col2"> 1024MiB </td><td class="col3"> μSD </td><td class="col4"> Gigabit Ethernet </td><td class="col5"> 2x USB2 </td><td class="col6"> yes </td><td class="col7"> n/a </td><td class="col8"> n/a </td><td class="col9"> HDMI, SATA, audio, IR, RCA video out, CSI </td><td class="col10"> <a href="http://linux-sunxi.org/LeMaker_Banana_Pi" class="urlextern" title="http://linux-sunxi.org/LeMaker_Banana_Pi"  rel="nofollow">Page</a> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <a href="../../../toh/cubietech/cubieboard" class="wikilink1" title="toh:cubietech:cubieboard">Cubieboard</a> </td><td class="col1"> A10 </td><td class="col2"> 1024MiB </td><td class="col3"> μSD, 4GB NAND </td><td class="col4"> Fast Ethernet </td><td class="col5"> 2x USB2 </td><td class="col6"> yes </td><td class="col7"> n/a </td><td class="col8"> yes </td><td class="col9"> HDMI, SATA, audio </td><td class="col10"> <a href="http://linux-sunxi.org/Cubieboard" class="urlextern" title="http://linux-sunxi.org/Cubieboard"  rel="nofollow">Page</a> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <a href="../../../toh/cubietech/cubieboard2" class="wikilink1" title="toh:cubietech:cubieboard2">Cubieboard2</a> </td><td class="col1"> A20 </td><td class="col2"> 1024MiB </td><td class="col3"> μSD, 4GB NAND </td><td class="col4"> Fast Ethernet </td><td class="col5"> 2x USB2 </td><td class="col6"> yes </td><td class="col7"> n/a </td><td class="col8"> yes </td><td class="col9"> HDMI, SATA, audio </td><td class="col10"> <a href="http://linux-sunxi.org/Cubieboard2" class="urlextern" title="http://linux-sunxi.org/Cubieboard2"  rel="nofollow">Page</a> </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <a href="../../../toh/cubietech/cubietruck" class="wikilink1" title="toh:cubietech:cubietruck">Cubietruck</a> </td><td class="col1"> A20 </td><td class="col2"> 2048MiB </td><td class="col3"> μSD, 8GB NAND </td><td class="col4"> BCM WiFi, Gigabit Ethernet </td><td class="col5"> 2x USB2 </td><td class="col6"> yes </td><td class="col7"> n/a </td><td class="col8"> n/a </td><td class="col9"> HDMI, VGA, SATA, audio, IR, TOSlink </td><td class="col10"> <a href="http://linux-sunxi.org/Cubietruck" class="urlextern" title="http://linux-sunxi.org/Cubietruck"  rel="nofollow">Page</a> </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <a href="../../../toh/lamobo/r1" class="wikilink1" title="toh:lamobo:r1">Lamobo R1</a> </td><td class="col1"> A20 </td><td class="col2"> 1024MiB </td><td class="col3"> μSD </td><td class="col4"> RTL8192CU 802.11bgn 2T2R WiFi <br/>
+BCM53125 Gigabit Ethernet switch with 5 ports </td><td class="col5"> 1x USB2 Host, 1x USB2 OTG </td><td class="col6"> yes </td><td class="col7"> n/a </td><td class="col8"> n/a </td><td class="col9"> HDMI, SATA, audio, IR, CSI </td><td class="col10"> <a href="http://linux-sunxi.org/Lamobo_R1" class="urlextern" title="http://linux-sunxi.org/Lamobo_R1"  rel="nofollow">Page</a> </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <a href="../../../toh/olimex/a10-olinuxino" class="wikilink1" title="toh:olimex:a10-olinuxino">Olimex A10-OLinuXino-LIME</a> </td><td class="col1"> A10 </td><td class="col2"> 512MiB </td><td class="col3"> μSD </td><td class="col4"> Fast Ethernet </td><td class="col5"> 2x USB2 </td><td class="col6"> yes </td><td class="col7"> n/a </td><td class="col8"> yes </td><td class="col9"> HDMI, SATA </td><td class="col10"> <a href="http://linux-sunxi.org/A10-OLinuXino-LIME" class="urlextern" title="http://linux-sunxi.org/A10-OLinuXino-LIME"  rel="nofollow">Page</a> </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <a href="../../../toh/olimex/a13-olinuxino" class="wikilink1" title="toh:olimex:a13-olinuxino">Olimex A13-OLinuXino-WIFI</a> </td><td class="col1"> A13 </td><td class="col2"> 512MiB </td><td class="col3"> μSD </td><td class="col4"> RTL WiFi </td><td class="col5"> 3x USB2 </td><td class="col6"> yes </td><td class="col7"> n/a </td><td class="col8"> yes </td><td class="col9"> VGA </td><td class="col10"> <a href="http://linux-sunxi.org/A13-OLinuXino" class="urlextern" title="http://linux-sunxi.org/A13-OLinuXino"  rel="nofollow">Page</a> </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <a href="../../../toh/olimex/a13-olinuxino-som" class="wikilink1" title="toh:olimex:a13-olinuxino-som">Olimex A13-SOM</a> </td><td class="col1"> A13 </td><td class="col2"> 256/512MiB </td><td class="col3"> μSD, 4GB NAND </td><td class="col4"> RTL WiFi </td><td class="col5"> n/a </td><td class="col6"> yes </td><td class="col7"> n/a </td><td class="col8"> n/a </td><td class="col9"> n/a </td><td class="col10"> </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <a href="../../../toh/olimex/a20-olinuxino" class="wikilink1" title="toh:olimex:a20-olinuxino">Olimex A20-OLinuXino-MICRO</a> </td><td class="col1"> A20 </td><td class="col2"> 1024GiB </td><td class="col3"> SD, μSD, 4GB NAND </td><td class="col4"> Fast Ethernet </td><td class="col5"> 2x USB2 </td><td class="col6"> yes </td><td class="col7"> n/a </td><td class="col8"> yes </td><td class="col9"> HDMI, SATA, audio </td><td class="col10"> <a href="http://linux-sunxi.org/A20-olinuxino-micro" class="urlextern" title="http://linux-sunxi.org/A20-olinuxino-micro"  rel="nofollow">Page</a> </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> <a href="../../../toh/pcduino/pcduino" class="wikilink1" title="toh:pcduino:pcduino">pcDuino/pcDuinoV2</a> </td><td class="col1"> A10 </td><td class="col2"> 1024MiB </td><td class="col3"> μSD, 2GB NAND </td><td class="col4"> Fast Ethernet </td><td class="col5"> 2x USB2 </td><td class="col6"> yes </td><td class="col7"> n/a </td><td class="col8"> n/a </td><td class="col9"> HDMI / Arduino headers</td><td class="col10"> <a href="http://linux-sunxi.org/LinkSprite_pcDuino_V2" class="urlextern" title="http://linux-sunxi.org/LinkSprite_pcDuino_V2"  rel="nofollow">Page</a> </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> <a href="../../../toh/pcduino/pcduino3" class="wikilink1" title="toh:pcduino:pcduino3">pcDuino3</a> </td><td class="col1"> A20 </td><td class="col2"> 1024MiB </td><td class="col3"> μSD, 4GB NAND </td><td class="col4"> Fast Ethernet, RTL8188EU WiFi </td><td class="col5"> 1x USB2 </td><td class="col6"> yes </td><td class="col7"> n/a </td><td class="col8"> n/a </td><td class="col9"> HDMI / Arduino headers, SATA, IR </td><td class="col10"> <a href="http://linux-sunxi.org/LinkSprite_pcDuino_V3" class="urlextern" title="http://linux-sunxi.org/LinkSprite_pcDuino_V3"  rel="nofollow">Page</a> </td>
+	</tr>
+</table></div>
+
+<p>
+<a href="http://en.wikipedia.org/wiki/UEXT" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/UEXT">UEXT</a> is an open standard port to provide serial, I²C and SPI expansion ports.
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="installation">Installation</h2>
+<div class="level2">
+
+<p>
+This section details what is required to install and upgrade OpenWrt. The generic procedure is described here: <a href="../../howto/installing" class="wikilink1" title="doc:howto:generic.flashing">generic.flashing</a>; this devices don&#039;t have a flash chip soldered to the PCB but an SD-Card slot.
+</p>
+
+</div>
+
+<h3 class="sectionedit7" id="status">Status</h3>
+<div class="level3">
+
+<p>
+Patches have been back-ported from the <a href="http://linux-sunxi.org/" class="urlextern" title="http://linux-sunxi.org/"  rel="nofollow">http://linux-sunxi.org/</a> community, including device trees, clocks, timers, PIO, ethernet, USB, and, MMC. 
+These patches are currently being mainlined - eta. Linux 3.14 and 3.15 - by the community. 
+</p>
+<ul>
+<li class="level1"><div class="li"> SPL: done</div>
+</li>
+<li class="level1"><div class="li"> u-boot: done</div>
+</li>
+<li class="level1"><div class="li"> kernel: done</div>
+</li>
+<li class="level1"><div class="li"> rootfs: done</div>
+</li>
+</ul>
+
+<p>
+You have the option to boot the board from initramfs, SD card (recommended), USB storage, or NFS. 
+</p>
+
+</div>
+
+<h4 id="working">Working</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> SD/MMC</div>
+</li>
+<li class="level1"><div class="li"> USB EHCI/OHCI</div>
+</li>
+<li class="level1"><div class="li"> EMAC (10/100 Mbps)</div>
+</li>
+<li class="level1"><div class="li"> A20 GMAC (10/100/1000 Mbps) </div>
+</li>
+<li class="level1"><div class="li"> SATA</div>
+</li>
+<li class="level1"><div class="li"> Clocks</div>
+</li>
+<li class="level1"><div class="li"> Timers</div>
+</li>
+<li class="level1"><div class="li"> SMP with HYP patches for 2014.04 u-boot</div>
+</li>
+<li class="level1"><div class="li"> Various devices, GPIO, IR</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="being_worked_on">Being worked on</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> NAND (have some snippets already)</div>
+</li>
+<li class="level1"><div class="li"> SPI (need integration)</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="not_being_worked_on">Not being worked on</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Sound - need bump to 3.18</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit8" id="installation_process">Installation process</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="pre-built_sd_card_images">Pre-built SD card images</h4>
+<div class="level4">
+
+<p>
+You can build an SD card image directly from buildroot for your device.
+</p>
+<ul>
+<li class="level1"><div class="li"> Check out trunk - <a href="https://dev.openwrt.org/wiki/GetSource" class="urlextern" title="https://dev.openwrt.org/wiki/GetSource"  rel="nofollow">https://dev.openwrt.org/wiki/GetSource</a></div>
+</li>
+<li class="level1"><div class="li"> Run make menuconfig</div>
+</li>
+<li class="level1"><div class="li"> Select device profile - f.e. BananaPi</div>
+</li>
+<li class="level1"><div class="li"> Start the build</div>
+</li>
+<li class="level1"><div class="li"> The built SD card images will be in bin/sunxi</div>
+</li>
+<li class="level1"><div class="li"> dd if=bin/sunxi/openwrt-sunxi-Bananapi-sdcard-vfat-ext4.img of=/dev/sdc</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="assembling_the_sd_card_image_yourself">Assembling the SD card image yourself</h4>
+<div class="level4">
+
+<p>
+OpenWrt trunk images are located in <a href="http://downloads.openwrt.org/snapshots/trunk/sunxi/" class="urlextern" title="http://downloads.openwrt.org/snapshots/trunk/sunxi/"  rel="nofollow">snapshots/trunk/sunxi/</a> folder. 
+</p>
+
+<p>
+For example if you have Cubieboard3/Cubietruck then download these files from the server:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://downloads.openwrt.org/snapshots/trunk/sunxi/generic/uboot-sunxi-Cubietruck/openwrt-sunxi-Cubietruck-u-boot-with-spl.bin" class="urlextern" title="http://downloads.openwrt.org/snapshots/trunk/sunxi/generic/uboot-sunxi-Cubietruck/openwrt-sunxi-Cubietruck-u-boot-with-spl.bin"  rel="nofollow">openwrt-sunxi-Cubietruck-u-boot-with-spl.bin</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://downloads.openwrt.org/snapshots/trunk/sunxi/generic/uboot-sunxi-Cubietruck/openwrt-sunxi-Cubietruck-uEnv.txt" class="urlextern" title="http://downloads.openwrt.org/snapshots/trunk/sunxi/generic/uboot-sunxi-Cubietruck/openwrt-sunxi-Cubietruck-uEnv.txt"  rel="nofollow">openwrt-sunxi-Cubietruck-uEnv.txt</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://downloads.openwrt.org/snapshots/trunk/sunxi/generic/sun7i-a20-cubietruck.dtb" class="urlextern" title="http://downloads.openwrt.org/snapshots/trunk/sunxi/generic/sun7i-a20-cubietruck.dtb"  rel="nofollow">sun7i-a20-cubietruck.dtb</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://downloads.openwrt.org/snapshots/trunk/sunxi/generic/openwrt-sunxi-uImage" class="urlextern" title="http://downloads.openwrt.org/snapshots/trunk/sunxi/generic/openwrt-sunxi-uImage"  rel="nofollow">openwrt-sunxi-uImage</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://downloads.openwrt.org/snapshots/trunk/sunxi/generic/openwrt-sunxi-root.ext4" class="urlextern" title="http://downloads.openwrt.org/snapshots/trunk/sunxi/generic/openwrt-sunxi-root.ext4"  rel="nofollow">openwrt-sunxi-root.ext4</a></div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="sd_layout">SD layout</h4>
+<div class="level4">
+
+<p>
+SD layout with 512 byte blocks:
+</p>
+<div class="table sectionedit9"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> NAME </td><td class="col1"> start block </td><td class="col2"> size </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> MBR </td><td class="col1"> 0 </td><td class="col2"> 1 block </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> u-boot-with-spl.bin	</td><td class="col1"> 16 (8 KB) </td><td class="col2"> ~250 KB </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> FAT </td><td class="col1"> 2048 (1 <abbr title="Megabyte">MB</abbr>) </td><td class="col2"> 15 <abbr title="Megabyte">MB</abbr> </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> EXT4 </td><td class="col1"> 32768 (16 <abbr title="Megabyte">MB</abbr>) </td><td class="col2"> rest </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h4 id="sd_preparation">SD preparation</h4>
+<div class="level4">
+
+<p>
+We assume <strong>/dev/mmcblk0</strong> is the SD card and <strong>Cubietruck</strong> is the board.
+</p>
+<ul>
+<li class="level1"><div class="li"> Partition the SD card. Two partitions are created. The first is the boot partition, <strong>/dev/mmcblk0p1</strong>. The second is the root partition, <strong>/dev/mmcblk0p2</strong>. </div>
+</li>
+</ul>
+
+<p>
+<pre class="code">
+# fdisk /dev/mmcblk0
+
+Command (m for help): n
+Partition type:
+   p   primary (0 primary, 0 extended, 4 free)
+   e   extended
+Select (default p): p
+Partition number (1-4, default 1): 1
+First sector (2048-15523839, default 2048): 2048
+Last sector, +sectors or +size{K,M,G} (2048-15523839, default 15523839): +15M 
+
+Command (m for help): n
+Partition type:
+   p   primary (1 primary, 0 extended, 3 free)
+   e   extended
+Select (default p): p    
+Partition number (1-4, default 2): 2
+First sector (32768-15523839, default 32768): 32768
+Last sector, +sectors or +size{K,M,G} (32768-15523839, default 15523839): +240M
+
+Command (m for help): p
+
+Disk /dev/mmcblk0: 7948 MB, 7948206080 bytes
+4 heads, 16 sectors/track, 242560 cylinders, total 15523840 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x17002d14
+
+        Device Boot      Start         End      Blocks   Id  System
+/dev/mmcblk0p1            2048       32767       15360   83  Linux
+/dev/mmcblk0p2           32768      524287      245760   83  Linux
+
+Command (m for help): w
+The partition table has been altered!
+
+Calling ioctl() to re-read partition table.
+</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Re-read the new partition table layout (e.g. by removing and re-inserting the SD card).</div>
+</li>
+<li class="level1"><div class="li"> Copy the SPL + U-boot image to the card</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">
+# dd if=bin/sunxi/uboot-sunxi-Cubietruck/openwrt-sunxi-Cubietruck-u-boot-with-spl.bin of=/dev/mmcblk0 bs=1024 seek=8
+</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Create a boot (FAT32) partition.</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">
+# mkfs.vfat /dev/mmcblk0p1
+</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Mount the boot partition.</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">
+# mount -t vfat /dev/mmcblk0p1 /mnt
+</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Copy the U-Boot environment file uEnv.txt to the boot partition.</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">
+# cp bin/sunxi/uboot-sunxi-Cubietruck/openwrt-sunxi-Cubietruck-uEnv.txt /mnt/uEnv.txt
+</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Copy the device tree data to the boot partition.</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">
+# cp bin/sunxi/sun7i-a20-cubietruck.dtb /mnt/dtb
+</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Copy the kernel image to the boot partition.</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">
+# cp bin/sunxi/openwrt-sunxi-uImage /mnt/uImage
+</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Resize the root filesystem image to match the partition size.</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">
+# resize2fs bin/sunxi/openwrt-sunxi-root.ext4 240M
+</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Create the root filesystem.</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">
+# dd if=bin/sunxi/openwrt-sunxi-root.ext4 of=/dev/mmcblk0p2 bs=128k
+</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Wrap up (flush buffers and unmount boot partition).</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">
+# sync
+# umount /mnt
+</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="upgrading_openwrt">Upgrading OpenWrt</h3>
+<div class="level3">
+
+<p>
+→<a href="../../howto/generic.sysupgrade" class="wikilink1" title="doc:howto:generic.sysupgrade">generic.sysupgrade</a>
+</p>
+
+<p>
+*WiP*
+</p>
+
+<p>
+If you have already installed OpenWrt and like to reflash for e.g. upgrading to a new OpenWrt version you can upgrade using the mtd command line tool. It is important that you put the firmware image into the ramdisk (/tmp) before you start flashing.
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="links">Links</h3>
+<div class="level3">
+
+<p>
+For further information about the SoCs, go to <a href="http://linux-sunxi.org/Main_Page" class="urlextern" title="http://linux-sunxi.org/Main_Page"  rel="nofollow">http://linux-sunxi.org/Main_Page</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit12" id="how_can_you_help">How can you help</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> We&#039;re looking for any A31 / A80 hardware at the moment</div>
+</li>
+<li class="level1"><div class="li"> Hardware donations - <a href="https://dev.openwrt.org/wiki/WantedHardware" class="urlextern" title="https://dev.openwrt.org/wiki/WantedHardware"  rel="nofollow">https://dev.openwrt.org/wiki/WantedHardware</a></div>
+</li>
+<li class="level1"><div class="li"> Test GPIOs and peripherals on A13/A20 and provide feedback</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit13" id="tags">Tags</h2>
+<div class="level2">
+<hr />
+<div class="tags"><span>
+	<a href="../../../tag/fastethernet?do=showtag&amp;tag=FastEthernet" class="wikilink1" title="tag:fastethernet" rel="tag">FastEthernet</a>,
+	<a href="../../../tag/no_switch?do=showtag&amp;tag=no_switch" class="wikilink1" title="tag:no_switch" rel="tag">no switch</a>,
+	<a href="../../../tag/0nic?do=showtag&amp;tag=0NIC" class="wikilink1" title="tag:0nic" rel="tag">0NIC</a>,
+	<a href="../../../tag/1nic?do=showtag&amp;tag=1NIC" class="wikilink1" title="tag:1nic" rel="tag">1NIC</a>,
+	<a href="../../../tag/0wnic?do=showtag&amp;tag=0WNIC" class="wikilink1" title="tag:0wnic" rel="tag">0WNIC</a>,
+	<a href="../../../tag/1wnic?do=showtag&amp;tag=1WNIC" class="wikilink1" title="tag:1wnic" rel="tag">1WNIC</a>,
+	<a href="../../../tag/serial?do=showtag&amp;tag=Serial" class="wikilink1" title="tag:serial" rel="tag">Serial</a>,
+	<a href="../../../tag/arm?do=showtag&amp;tag=ARM" class="wikilink1" title="tag:arm" rel="tag">ARM</a>,
+	<a href="../../../tag/devboard?do=showtag&amp;tag=devboard" class="wikilink1" title="tag:devboard" rel="tag">devboard</a>,
+	<a href="../../../tag/cortex-a7?do=showtag&amp;tag=Cortex-A7" class="wikilink1" title="tag:cortex-a7" rel="tag">Cortex-A7</a>,
+	<a href="../../../tag/cortex-a8?do=showtag&amp;tag=Cortex-A8" class="wikilink1" title="tag:cortex-a8" rel="tag">Cortex-A8</a>,
+	<a href="../../../tag/armv7?do=showtag&amp;tag=ARMv7" class="wikilink1" title="tag:armv7" rel="tag">ARMv7</a>,
+	<a href="../../../tag/sunxi?do=showtag&amp;tag=sunxi" class="wikilink1" title="tag:sunxi" rel="tag">sunxi</a>
+</span></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/hardware/soc/soc.allwinner.sunxi.txt</bdi> · Last modified: 2015/02/24 10:04 by <bdi>indexer</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="soc.allwinner.sunxi?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="soc.allwinner.sunxi?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="soc.allwinner.sunxi?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="soc.allwinner.sunxi#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../../lib/exe/indexer.php?id=doc%253Ahardware%253Asoc%253Asoc.allwinner.sunxi&amp;1432269758" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

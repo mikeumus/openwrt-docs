@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>netfilter ebtables example1 [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,netfilter,netfilter.ebtables.example1"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../../index.html"/>
+<link rel="contents" href="netfilter.ebtables.example1?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../../feed.php?mode=list&amp;ns=doc:howto:netfilter"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../../_export/xhtml/doc/howto/netfilter/netfilter.ebtables.example1"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../../_export/raw/doc/howto/netfilter/netfilter.ebtables.example1"/>
+<link rel="canonical" href="netfilter.ebtables.example1"/>
+<link rel="stylesheet" type="text/css" href="../../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto:netfilter';var JSINFO = {"id":"doc:howto:netfilter:netfilter.ebtables.example1","namespace":"doc:howto:netfilter"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432274168 166.182.3.68';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="netfilter.ebtables.example1#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../../start"  accesskey="h" title="[H]"><img src="../../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="netfilter.ebtables.example1?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="netfilter.ebtables.example1?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:netfilter:netfilter.ebtables.example1" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="netfilter.ebtables.example1?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="netfilter.ebtables.example1?do=media&amp;ns=doc%253Ahowto%253Anetfilter"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="netfilter.ebtables.example1?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><a href="../netfilter" class="wikilink1" title="doc:howto:netfilter">Netfilter/Nftables</a></bdi> » <bdi><span class="curid"><a href="netfilter.ebtables.example1" class="wikilink1" title="doc:howto:netfilter:netfilter.ebtables.example1">netfilter ebtables example1</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/netfilter/netfilter.ebtables.example1" class="media" title="cz:doc:howto:netfilter:netfilter.ebtables.example1"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/netfilter/netfilter.ebtables.example1" class="media" title="de:doc:howto:netfilter:netfilter.ebtables.example1"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="netfilter.ebtables.example1" class="media" title="doc:howto:netfilter:netfilter.ebtables.example1"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/netfilter/netfilter.ebtables.example1" class="media" title="es:doc:howto:netfilter:netfilter.ebtables.example1"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/netfilter/netfilter.ebtables.example1" class="media" title="fr:doc:howto:netfilter:netfilter.ebtables.example1"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/netfilter/netfilter.ebtables.example1" class="media" title="hu:doc:howto:netfilter:netfilter.ebtables.example1"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/netfilter/netfilter.ebtables.example1" class="media" title="jp:doc:howto:netfilter:netfilter.ebtables.example1"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/netfilter/netfilter.ebtables.example1" class="media" title="pl:doc:howto:netfilter:netfilter.ebtables.example1"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/netfilter/netfilter.ebtables.example1" class="media" title="pt-br:doc:howto:netfilter:netfilter.ebtables.example1"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/netfilter/netfilter.ebtables.example1" class="media" title="ru:doc:howto:netfilter:netfilter.ebtables.example1"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/netfilter/netfilter.ebtables.example1" class="media" title="tr:doc:howto:netfilter:netfilter.ebtables.example1"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/netfilter/netfilter.ebtables.example1" class="media" title="zh-cn:doc:howto:netfilter:netfilter.ebtables.example1"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/netfilter/netfilter.ebtables.example1" class="media" title="zh-tw:doc:howto:netfilter:netfilter.ebtables.example1"><img src="../../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:netfilter:netfilter.ebtables.example1</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="netfilter.ebtables.example1#background">Background</a></div></li>
+<li class="level1"><div class="li"><a href="netfilter.ebtables.example1#network_topology">Network Topology</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="netfilter.ebtables.example1#system_variables">System Variables</a></div></li>
+<li class="level2"><div class="li"><a href="netfilter.ebtables.example1#layer2_firewall">layer2 firewall</a></div></li>
+<li class="level2"><div class="li"><a href="netfilter.ebtables.example1#layer3_firewall">layer3 firewall</a></div></li>
+<li class="level2"><div class="li"><a href="netfilter.ebtables.example1#performance">Performance</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="netfilter_ebtables_example1">netfilter ebtables example1</h1>
+<div class="level1">
+
+<p>
+# Howto setup a transparent firewall with ebtables
+</p>
+
+<p>
+<strong> WARNING: You should be familiar with booting Failsafe mode on your router when using this document.  The firewall rules can be tricky, and you can easily lock yourself out.</strong>
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="background">Background</h2>
+<div class="level2">
+
+<p>
+I work at a university where every computer is connected to the internet with a public IP address.  This leaves all computers open to direct attack by hackers/worms on the internet.  I have used cheap NAT routers to protect most computers, but I need something a bit smarter to protect my servers.
+</p>
+
+<p>
+Why are the servers different?
+</p>
+<ul>
+<li class="level1"><div class="li"> The servers must use public IP addresses in order to be accessible to the clients.  If I were to use NAT with port forwarding, I would be restricted to one service per port.  This is simply not possible with the services we have running, because the cheap NAT routers block all incoming traffic that is not in the NAT table.</div>
+</li>
+<li class="level1"><div class="li"> The servers need to have certain ports open for file sharing, printing, etc.  But I only want those services available to our local subnet.  The cheap NAT routers do not have the ability to port forward packets from the local subnet only.</div>
+</li>
+<li class="level1"><div class="li"> The University&#039;s &#039;ISP&#039; restricts each ethernet port to a single MAC address, very much the same way a wireless AP restricts each associated client to a single MAC address.  This means that not only do I need a transparent firewall, but I need IP layer bridging and MAC layer NAT.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit3" id="network_topology">Network Topology</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit4" id="system_variables">System Variables</h3>
+<div class="level3">
+
+<p>
+Make sure you have the following two lines in your <code>/etc/sysctl.conf</code>
+</p>
+<div class="table sectionedit5"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><pre class="code">net.bridge.bridge-nf-call-iptables=1
+net.bridge.bridge-nf-filter-vlan-tagged=1</pre>
+</td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit6" id="layer2_firewall">layer2 firewall</h3>
+<div class="level3">
+
+<p>
+<pre class="code bash"><span class="co0">#!/bin/sh</span>
+&nbsp;
+<span class="re2">IFCONFIG</span>=<span class="sy0">/</span>sbin<span class="sy0">/</span><span class="kw2">ifconfig</span>
+<span class="re2">BRCTL</span>=<span class="sy0">/</span>usr<span class="sy0">/</span>sbin<span class="sy0">/</span>brctl
+<span class="re2">EBTABLES</span>=<span class="sy0">/</span>usr<span class="sy0">/</span>sbin<span class="sy0">/</span>ebtables
+&nbsp;
+<span class="re2">LAN_IF</span>=$<span class="br0">&#40;</span>nvram get lan_ifname<span class="br0">&#41;</span>
+<span class="re2">LAN_IP</span>=$<span class="br0">&#40;</span>nvram get lan_ipaddr<span class="br0">&#41;</span>
+<span class="re2">LAN_MASK</span>=$<span class="br0">&#40;</span>nvram get lan_netmask<span class="br0">&#41;</span>
+<span class="re2">LAN_MAC</span>=$<span class="br0">&#40;</span><span class="re1">$IFCONFIG</span> <span class="re1">$LAN_IF</span> <span class="sy0">|</span> \
+  <span class="sy0">/</span>bin<span class="sy0">/</span><span class="kw2">grep</span> <span class="st0">&quot;HWaddr&quot;</span> <span class="sy0">|</span> \
+  <span class="sy0">/</span>bin<span class="sy0">/</span><span class="kw2">sed</span> <span class="st_h">'s/.*HWaddr \(.*\)/\1/g'</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="re2">WAN_IF</span>=$<span class="br0">&#40;</span>nvram get wan_ifname<span class="br0">&#41;</span>
+<span class="re2">WAN_IP</span>=$<span class="br0">&#40;</span>nvram get wan_ipaddr<span class="br0">&#41;</span>
+<span class="re2">WAN_MAC</span>=$<span class="br0">&#40;</span><span class="re1">$IFCONFIG</span> <span class="re1">$WAN_IF</span> <span class="sy0">|</span> \
+  <span class="sy0">/</span>bin<span class="sy0">/</span><span class="kw2">grep</span> <span class="st0">&quot;HWaddr&quot;</span> <span class="sy0">|</span> \
+  <span class="sy0">/</span>bin<span class="sy0">/</span><span class="kw2">sed</span> <span class="st_h">'s/.*HWaddr \(.*\)/\1/g'</span><span class="br0">&#41;</span>
+<span class="re2">WAN_GW</span>=$<span class="br0">&#40;</span>nvram get wan_gateway<span class="br0">&#41;</span>
+&nbsp;
+<span class="re2">BR_IF</span>=br0
+<span class="re2">BR_STP</span>=off
+&nbsp;
+&nbsp;
+<span class="co0"># Required kernel modules</span>
+<span class="co0"># Choose relocatable ebtables-modules and</span>
+<span class="co0"># dont turn off possible error messages!</span>
+<span class="sy0">/</span>sbin<span class="sy0">/</span>insmod <span class="sy0">/</span>lib<span class="sy0">/</span>modules<span class="sy0">/</span>2.4.30<span class="sy0">/</span>ebtables
+<span class="sy0">/</span>sbin<span class="sy0">/</span>insmod <span class="sy0">/</span>lib<span class="sy0">/</span>modules<span class="sy0">/</span>2.4.30<span class="sy0">/</span>ebtable_broute
+<span class="sy0">/</span>sbin<span class="sy0">/</span>insmod <span class="sy0">/</span>lib<span class="sy0">/</span>modules<span class="sy0">/</span>2.4.30<span class="sy0">/</span>ebtable_filter
+<span class="sy0">/</span>sbin<span class="sy0">/</span>insmod <span class="sy0">/</span>lib<span class="sy0">/</span>modules<span class="sy0">/</span>2.4.30<span class="sy0">/</span>ebtable_nat
+<span class="sy0">/</span>sbin<span class="sy0">/</span>insmod <span class="sy0">/</span>lib<span class="sy0">/</span>modules<span class="sy0">/</span>2.4.30<span class="sy0">/</span>ebt_ip
+<span class="sy0">/</span>sbin<span class="sy0">/</span>insmod <span class="sy0">/</span>lib<span class="sy0">/</span>modules<span class="sy0">/</span>2.4.30<span class="sy0">/</span>ebt_snat
+&nbsp;
+&nbsp;
+<span class="co0"># ===================================================</span>
+<span class="co0"># ORDER IS CRITICAL IN BRIDGE SETUP, DONT MUCK IT UP!</span>
+<span class="co0"># ===================================================</span>
+&nbsp;
+<span class="re1">$IFCONFIG</span> <span class="re1">$BR_IF</span> <span class="sy0">&gt;</span> <span class="sy0">/</span>dev<span class="sy0">/</span>null <span class="nu0">2</span><span class="sy0">&gt;</span> <span class="sy0">/</span>dev<span class="sy0">/</span>null
+<span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re4">$?</span> <span class="sy0">!</span>= <span class="nu0">0</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;Creating bridge interface:&quot;</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;  Creating bridge...&quot;</span>
+  <span class="re1">$BRCTL</span> addbr <span class="re1">$BR_IF</span>
+  <span class="re1">$BRCTL</span> stp <span class="re1">$BR_IF</span> <span class="re1">$BR_STP</span>
+&nbsp;
+  <span class="kw3">echo</span> <span class="st0">&quot;  Adding WAN interface...&quot;</span>
+  <span class="re1">$IFCONFIG</span> <span class="re1">$WAN_IF</span> inet 0.0.0.0
+  <span class="re1">$BRCTL</span> addif <span class="re1">$BR_IF</span> <span class="re1">$WAN_IF</span>
+&nbsp;
+  <span class="kw3">echo</span> <span class="st0">&quot;  Adding LAN interface...&quot;</span>
+  <span class="re1">$IFCONFIG</span> <span class="re1">$LAN_IF</span> down hw ether <span class="re1">$WAN_MAC</span>
+  <span class="re1">$IFCONFIG</span> <span class="re1">$LAN_IF</span> inet 0.0.0.0
+  <span class="re1">$BRCTL</span> addif <span class="re1">$BR_IF</span> <span class="re1">$LAN_IF</span>
+&nbsp;
+  <span class="kw3">echo</span> <span class="st0">&quot;  Configuring Bridge interface...&quot;</span>
+  <span class="re1">$IFCONFIG</span> <span class="re1">$BR_IF</span> inet 0.0.0.0 up
+&nbsp;
+  <span class="kw3">echo</span> <span class="st0">&quot;  Configuring WAN outside interface...&quot;</span>
+  <span class="re1">$IFCONFIG</span> <span class="re1">$WAN_IF</span> inet <span class="re1">$WAN_IP</span> netmask <span class="re1">$WAN_MASK</span>
+&nbsp;
+  <span class="kw3">echo</span> <span class="st0">&quot;  Configuring WAN inside interface...&quot;</span>
+  <span class="re1">$IFCONFIG</span> <span class="re1">$LAN_IF</span> inet <span class="re1">$WAN_IP</span> netmask <span class="re1">$WAN_MASK</span>
+&nbsp;
+  <span class="kw3">echo</span> <span class="st0">&quot;    Configuring LAN interface...&quot;</span>
+  <span class="re1">$IFCONFIG</span> <span class="re1">$LAN_IF</span>:<span class="nu0">0</span> inet <span class="re1">$LAN_IP</span> netmask <span class="re1">$LAN_MASK</span>
+&nbsp;
+  <span class="kw3">echo</span> <span class="st0">&quot;  Adding default route...&quot;</span>
+  <span class="sy0">/</span>sbin<span class="sy0">/</span>route add default gw <span class="re1">$WAN_GW</span> dev <span class="re1">$WAN_IF</span>
+&nbsp;
+<span class="kw1">else</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;Bridge already configured.&quot;</span>
+<span class="kw1">fi</span>
+&nbsp;
+&nbsp;
+<span class="kw3">echo</span> <span class="st0">&quot;Configuring bridge firewall...&quot;</span>
+<span class="kw1">for</span> T <span class="kw1">in</span> filter nat broute; <span class="kw1">do</span>
+  <span class="re1">$EBTABLES</span> <span class="re5">-t</span> <span class="re1">$T</span> <span class="re5">-F</span>
+  <span class="re1">$EBTABLES</span> <span class="re5">-t</span> <span class="re1">$T</span> <span class="re5">-X</span>
+<span class="kw1">done</span>
+&nbsp;
+<span class="co0"># force ARP requests/replies and IP traffic to be routed on layer3</span>
+<span class="re1">$EBTABLES</span> <span class="re5">-t</span> broute <span class="re5">-A</span> BROUTING <span class="re5">-p</span> 0x0806 <span class="re5">-j</span> DROP
+&nbsp;
+<span class="co0"># Route LAN DHCP requests</span>
+<span class="re1">$EBTABLES</span> <span class="re5">-t</span> broute <span class="re5">-A</span> BROUTING <span class="re5">-p</span> 0x0800 <span class="re5">-i</span> <span class="re1">$LAN_IF</span> <span class="re5">--ip-protocol</span> <span class="nu0">17</span> \
+  <span class="re5">--ip-source-port</span> <span class="nu0">67</span>:<span class="nu0">68</span> <span class="re5">--ip-destination-port</span> <span class="nu0">67</span>:<span class="nu0">68</span> <span class="re5">-j</span> DROP
+&nbsp;
+<span class="co0"># Route LAN packets</span>
+<span class="re1">$EBTABLES</span> <span class="re5">-t</span> broute <span class="re5">-A</span> BROUTING <span class="re5">-p</span> 0x0800 <span class="re5">-i</span> <span class="re1">$LAN_IF</span> \
+  <span class="re5">--ip-source</span> <span class="re1">$LAN_IP</span><span class="sy0">/</span><span class="re1">$LAN_MASK</span> <span class="re5">-j</span> DROP
+&nbsp;
+<span class="co0"># Route IP traffic sourced outside the LAN subnet (blocked later)</span>
+<span class="re1">$EBTABLES</span> <span class="re5">-t</span> filter <span class="re5">-A</span> FORWARD <span class="re5">-i</span> <span class="re1">$WAN_IF</span> \
+  <span class="re5">-p</span> 0x0800 <span class="re5">--ip-src</span> <span class="sy0">!</span> <span class="re1">$WAN_IP</span><span class="sy0">/</span><span class="re1">$WAN_MASK</span> <span class="re5">-j</span> DROP
+&nbsp;
+<span class="co0"># Defined accept rule for accounting purposes</span>
+<span class="re1">$EBTABLES</span> <span class="re5">-t</span> filter <span class="re5">-A</span> FORWARD <span class="re5">-j</span> ACCEPT
+&nbsp;
+<span class="co0"># force all outgoing packets to have router's MAC address</span>
+<span class="re1">$EBTABLES</span> <span class="re5">-t</span> nat <span class="re5">-A</span> POSTROUTING <span class="re5">-o</span> <span class="re1">$WAN_IF</span> <span class="re5">-j</span> snat <span class="re5">--to-source</span> <span class="re1">$WAN_MAC</span></pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit7" id="layer3_firewall">layer3 firewall</h3>
+<div class="level3">
+
+<p>
+<pre class="code bash"><span class="co0">#!/bin/sh</span>
+&nbsp;
+<span class="kw3">echo</span> <span class="st0">&quot;Configuring layer3 firewall...&quot;</span>
+&nbsp;
+<span class="re2">IFCONFIG</span>=<span class="sy0">/</span>sbin<span class="sy0">/</span><span class="kw2">ifconfig</span>
+<span class="re2">BRCTL</span>=<span class="sy0">/</span>usr<span class="sy0">/</span>sbin<span class="sy0">/</span>brctl
+<span class="re2">IPTABLES</span>=<span class="sy0">/</span>usr<span class="sy0">/</span>sbin<span class="sy0">/</span>iptables
+&nbsp;
+<span class="re2">LAN_IF</span>=$<span class="br0">&#40;</span>nvram get lan_ifname<span class="br0">&#41;</span>
+<span class="re2">LAN_IP</span>=$<span class="br0">&#40;</span>nvram get lan_ipaddr<span class="br0">&#41;</span>
+<span class="re2">LAN_MASK</span>=$<span class="br0">&#40;</span>nvram get lan_netmask<span class="br0">&#41;</span>
+&nbsp;
+<span class="re2">WAN_IF</span>=$<span class="br0">&#40;</span>nvram get wan_ifname<span class="br0">&#41;</span>
+<span class="re2">WAN_IP</span>=$<span class="br0">&#40;</span>nvram get wan_ipaddr<span class="br0">&#41;</span>
+<span class="re2">WAN_MASK</span>=$<span class="br0">&#40;</span>nvram get wan_netmask<span class="br0">&#41;</span>
+&nbsp;
+<span class="re2">BR_IF</span>=br0
+<span class="re2">BR_STP</span>=off
+&nbsp;
+<span class="co0"># Required kernel modules</span>
+<span class="sy0">/</span>sbin<span class="sy0">/</span>insmod ipt_recent.o       <span class="nu0">2</span><span class="sy0">&gt;</span> <span class="sy0">/</span>dev<span class="sy0">/</span>null
+<span class="sy0">/</span>sbin<span class="sy0">/</span>insmod ipt_ttl.o          <span class="nu0">2</span><span class="sy0">&gt;</span> <span class="sy0">/</span>dev<span class="sy0">/</span>null
+<span class="sy0">/</span>sbin<span class="sy0">/</span>insmod ipt_TTL.o          <span class="nu0">2</span><span class="sy0">&gt;</span> <span class="sy0">/</span>dev<span class="sy0">/</span>null
+&nbsp;
+&nbsp;
+&nbsp;
+<span class="kw1">for</span> T <span class="kw1">in</span> filter nat mangle; <span class="kw1">do</span>
+  iptables <span class="re5">-t</span> <span class="re1">$T</span> <span class="re5">-F</span>
+  iptables <span class="re5">-t</span> <span class="re1">$T</span> <span class="re5">-X</span>
+<span class="kw1">done</span>
+&nbsp;
+&nbsp;
+  <span class="kw3">echo</span> <span class="st0">&quot;  Configuring INPUT chain...&quot;</span>
+&nbsp;
+  <span class="co0"># accept dhcp packets first, they dont have source IP yet</span>
+  iptables <span class="re5">-A</span> INPUT <span class="re5">-i</span> <span class="re1">$LAN_IF</span> <span class="re5">-p</span> UDP <span class="re5">--sport</span> <span class="nu0">68</span> <span class="re5">--dport</span> <span class="nu0">67</span> <span class="re5">-j</span> ACCEPT
+&nbsp;
+  <span class="co0"># stateful packets allowed</span>
+  iptables <span class="re5">-A</span> INPUT <span class="re5">-m</span> state <span class="re5">--state</span> INVALID <span class="re5">-j</span> DROP
+  iptables <span class="re5">-A</span> INPUT <span class="re5">-m</span> state <span class="re5">--state</span> RELATED,ESTABLISHED <span class="re5">-j</span> ACCEPT
+&nbsp;
+  <span class="co0"># allow packets from the private NAT LAN</span>
+  iptables <span class="re5">-A</span> INPUT <span class="re5">-i</span> ppp+ <span class="re5">-s</span> <span class="re1">$LAN_IP</span><span class="sy0">/</span><span class="re1">$LAN_MASK</span> <span class="re5">-j</span> ACCEPT
+  iptables <span class="re5">-A</span> INPUT <span class="re5">-i</span> <span class="re1">$LAN_IF</span> <span class="re5">-s</span> <span class="re1">$LAN_IP</span><span class="sy0">/</span><span class="re1">$LAN_MASK</span> <span class="re5">-j</span> ACCEPT
+&nbsp;
+  <span class="co0"># allow packets from loopback</span>
+  iptables <span class="re5">-A</span> INPUT <span class="re5">-i</span> lo <span class="re5">-s</span> 127.0.0.1 <span class="re5">-d</span> 127.0.0.1 <span class="re5">-j</span> ACCEPT
+&nbsp;
+  <span class="co0"># Connections allowed to firewall from WAN</span>
+  <span class="co0"># ICMP</span>
+  iptables <span class="re5">-A</span> INPUT <span class="re5">-p</span> ICMP <span class="re5">-j</span> ACCEPT
+&nbsp;
+  <span class="co0"># allow IP packets from the WAN</span>
+  iptables <span class="re5">-A</span> INPUT <span class="re5">-s</span> <span class="re1">$WAN_IP</span><span class="sy0">/</span><span class="re1">$WAN_MASK</span> <span class="re5">-j</span> ACCEPT
+&nbsp;
+  <span class="co0"># SSH</span>
+  iptables <span class="re5">-A</span> INPUT <span class="re5">-p</span> TCP <span class="re5">--dport</span> <span class="nu0">22</span> \
+    <span class="re5">-m</span> recent <span class="re5">--name</span> ROUTER-SSH <span class="re5">--update</span> <span class="re5">--hitcount</span> <span class="nu0">5</span> <span class="re5">--seconds</span> <span class="nu0">180</span> <span class="re5">-j</span> DROP
+  iptables <span class="re5">-A</span> INPUT <span class="re5">-p</span> TCP <span class="re5">--dport</span> <span class="nu0">22</span> \
+    <span class="re5">-m</span> recent <span class="re5">--name</span> ROUTER-SSH <span class="re5">--set</span> <span class="re5">-j</span> ACCEPT
+&nbsp;
+  <span class="co0"># PPTP</span>
+  iptables <span class="re5">-A</span> INPUT <span class="re5">-p</span> TCP <span class="re5">--dport</span> <span class="nu0">1723</span> \
+    <span class="re5">-m</span> recent <span class="re5">--name</span> ROUTER-PPTP <span class="re5">--update</span> <span class="re5">--hitcount</span> <span class="nu0">5</span> <span class="re5">--seconds</span> <span class="nu0">180</span> <span class="re5">-j</span> DROP
+  iptables <span class="re5">-A</span> INPUT <span class="re5">-p</span> TCP <span class="re5">--dport</span> <span class="nu0">1723</span> \
+    <span class="re5">-m</span> recent <span class="re5">--name</span> ROUTER-PPTP <span class="re5">--set</span> <span class="re5">-j</span> ACCEPT
+  iptables <span class="re5">-A</span> INPUT <span class="re5">-d</span> <span class="re1">$LAN_IP</span> <span class="re5">-p</span> <span class="nu0">47</span> <span class="re5">-j</span> ACCEPT
+&nbsp;
+  <span class="co0"># FTP</span>
+  iptables <span class="re5">-A</span> INPUT <span class="re5">-p</span> TCP <span class="re5">--dport</span> <span class="nu0">21</span> \
+    <span class="re5">-m</span> recent <span class="re5">--name</span> ROUTER-FTP <span class="re5">--update</span> <span class="re5">--hitcount</span> <span class="nu0">5</span> <span class="re5">--seconds</span> <span class="nu0">180</span> <span class="re5">-j</span> DROP
+  iptables <span class="re5">-A</span> INPUT <span class="re5">-p</span> TCP <span class="re5">--dport</span> <span class="nu0">21</span> \
+    <span class="re5">-m</span> recent <span class="re5">--name</span> ROUTER-FTP <span class="re5">--set</span> <span class="re5">-j</span> ACCEPT
+&nbsp;
+  <span class="co0"># Deny the rest</span>
+  iptables <span class="re5">-A</span> INPUT <span class="re5">-j</span> DROP
+&nbsp;
+&nbsp;
+&nbsp;
+  <span class="kw3">echo</span> <span class="st0">&quot;  Configuring OUTPUT table...&quot;</span>
+  iptables <span class="re5">-A</span> OUTPUT <span class="re5">-o</span> <span class="re1">$WAN_IF</span> <span class="re5">-p</span> ICMP <span class="re5">--icmp-type</span> <span class="nu0">0</span> <span class="re5">-j</span> ACCEPT
+  iptables <span class="re5">-A</span> OUTPUT <span class="re5">-o</span> <span class="re1">$WAN_IF</span> <span class="re5">-p</span> ICMP <span class="re5">--icmp-type</span> <span class="nu0">8</span> <span class="re5">-j</span> ACCEPT
+  iptables <span class="re5">-A</span> OUTPUT <span class="re5">-o</span> <span class="re1">$WAN_IF</span> <span class="re5">-p</span> ICMP <span class="re5">-j</span> DROP
+&nbsp;
+&nbsp;
+&nbsp;
+  <span class="kw3">echo</span> <span class="st0">&quot;  Configuring NAT table...&quot;</span>
+&nbsp;
+  <span class="co0"># apply NAT to local packets headed to the WAN</span>
+  iptables <span class="re5">-t</span> nat <span class="re5">-A</span> POSTROUTING <span class="re5">-o</span> <span class="re1">$WAN_IF</span> <span class="re5">-s</span> <span class="re1">$LAN_IP</span><span class="sy0">/</span><span class="re1">$LAN_MASK</span> <span class="re5">-j</span> MASQUERADE
+  iptables <span class="re5">-t</span> nat <span class="re5">-A</span> POSTROUTING <span class="re5">-o</span> <span class="re1">$LAN_IF</span> <span class="re5">-s</span> <span class="re1">$LAN_IP</span><span class="sy0">/</span><span class="re1">$LAN_MASK</span> <span class="re5">-j</span> MASQUERADE
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+  iptables <span class="re5">-A</span> PREROUTING <span class="re5">-t</span> mangle <span class="re5">-d</span> <span class="sy0">!</span> <span class="re1">$LAN_IP</span> <span class="re5">-j</span> TTL <span class="re5">--ttl-inc</span> <span class="nu0">1</span>
+&nbsp;
+&nbsp;
+  <span class="kw3">echo</span> <span class="st0">&quot;  Configuring FORWARD chain...&quot;</span>
+&nbsp;
+  <span class="co0"># statefull packets allowed</span>
+  iptables <span class="re5">-A</span> FORWARD <span class="re5">-m</span> state <span class="re5">--state</span> INVALID <span class="re5">-j</span> DROP
+  iptables <span class="re5">-A</span> FORWARD <span class="re5">-p</span> tcp <span class="re5">--tcp-flags</span> SYN,RST SYN <span class="re5">-j</span> TCPMSS <span class="re5">--clamp-mss-to-pmtu</span>
+  iptables <span class="re5">-A</span> FORWARD <span class="re5">-m</span> state <span class="re5">--state</span> RELATED,ESTABLISHED <span class="re5">-j</span> ACCEPT
+&nbsp;
+  <span class="co0"># allow IP packets from the LAN to the LAN</span>
+  iptables <span class="re5">-A</span> FORWARD <span class="re5">-s</span> <span class="re1">$WAN_IP</span><span class="sy0">/</span><span class="re1">$WAN_MASK</span> <span class="re5">-d</span> <span class="re1">$WAN_IP</span><span class="sy0">/</span><span class="re1">$WAN_MASK</span> <span class="re5">-j</span> ACCEPT
+&nbsp;
+  <span class="co0"># allow LAN and PPP connections to LAN</span>
+  iptables <span class="re5">-A</span> FORWARD <span class="re5">-i</span> ppp+ <span class="re5">-o</span> <span class="re1">$LAN_IF</span> <span class="re5">-j</span> ACCEPT
+  iptables <span class="re5">-A</span> FORWARD <span class="re5">-i</span> <span class="re1">$LAN_IF</span> <span class="re5">-o</span> <span class="re1">$LAN_IF</span> <span class="re5">-j</span> ACCEPT
+&nbsp;
+  <span class="co0"># allow outbound connections</span>
+  iptables <span class="re5">-A</span> FORWARD <span class="re5">-i</span> ppp+ <span class="re5">-o</span> <span class="re1">$WAN_IF</span> <span class="re5">-j</span> ACCEPT
+  iptables <span class="re5">-A</span> FORWARD <span class="re5">-i</span> <span class="re1">$LAN_IF</span> <span class="re5">-o</span> <span class="re1">$WAN_IF</span> <span class="re5">-j</span> ACCEPT
+  iptables <span class="re5">-A</span> FORWARD <span class="re5">-i</span> <span class="re1">$BR_IF</span> <span class="re5">-o</span> <span class="re1">$WAN_IF</span> <span class="re5">-s</span> <span class="re1">$LAN_IP</span><span class="sy0">/</span><span class="re1">$LAN_MASK</span> <span class="re5">-j</span> ACCEPT
+&nbsp;
+  <span class="co0"># Deny the rest</span>
+  iptables <span class="re5">-A</span> FORWARD <span class="re5">-j</span> DROP</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit8" id="performance">Performance</h3>
+<div class="level3">
+
+<p>
+Before implementing this your own, here are some performance results based on a WRT54GL using <strong>OpenWrt 0.9</strong>. Task was to transfer a file through the bridge. The server providing the file was right behind the bridge-device. The test ran in two variants with <code>netfilter-ebtables-modules</code> turned on/off (via <code>rmmod</code>).
+</p>
+<ul>
+<li class="level1"><div class="li"> Download-Speed without ebtables (just plain bridge): <strong>8,5 <abbr title="Megabyte">MB</abbr>/s</strong>.</div>
+</li>
+<li class="level1"><div class="li"> By turning ebtables on via &quot;insmod…&quot; rate drops down to <strong>3,45 <abbr title="Megabyte">MB</abbr>/s</strong>.</div>
+</li>
+</ul>
+
+<p>
+Although the maximum speed depends on hardware, it is expectable that the loss-rate of around 50% is scalable/proportional to the maximum speed.
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/netfilter/netfilter.ebtables.example1.txt</bdi> · Last modified: 2011/02/24 17:27 by <bdi>orca</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="netfilter.ebtables.example1?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="netfilter.ebtables.example1?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="netfilter.ebtables.example1?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="netfilter.ebtables.example1#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../../lib/exe/indexer.php?id=doc%253Ahowto%253Anetfilter%253Anetfilter.ebtables.example1&amp;1432274168" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

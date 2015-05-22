@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Installing OpenWrt via TFTP [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,generic.flashing.tftp"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="generic.flashing.tftp?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/generic.flashing.tftp"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/generic.flashing.tftp"/>
+<link rel="canonical" href="tftp"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:generic.flashing.tftp","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265456 166.182.3.25';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="tftp#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="generic.flashing.tftp?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="generic.flashing.tftp?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:generic.flashing.tftp" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="generic.flashing.tftp?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="generic.flashing.tftp?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="generic.flashing.tftp?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="tftp" class="wikilink1" title="doc:howto:generic.flashing.tftp">Installing OpenWrt via TFTP</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/generic.flashing.tftp" class="media" title="cz:doc:howto:generic.flashing.tftp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/generic.flashing.tftp" class="media" title="de:doc:howto:generic.flashing.tftp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="tftp" class="media" title="doc:howto:generic.flashing.tftp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/generic.flashing.tftp" class="media" title="es:doc:howto:generic.flashing.tftp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/generic.flashing.tftp" class="media" title="fr:doc:howto:generic.flashing.tftp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/generic.flashing.tftp" class="media" title="hu:doc:howto:generic.flashing.tftp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/generic.flashing.tftp" class="media" title="jp:doc:howto:generic.flashing.tftp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/generic.flashing.tftp" class="media" title="pl:doc:howto:generic.flashing.tftp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/generic.flashing.tftp" class="media" title="pt-br:doc:howto:generic.flashing.tftp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/generic.flashing.tftp" class="media" title="ru:doc:howto:generic.flashing.tftp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/generic.flashing.tftp" class="media" title="tr:doc:howto:generic.flashing.tftp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/generic.flashing.tftp" class="media" title="zh-cn:doc:howto:generic.flashing.tftp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/generic.flashing.tftp" class="media" title="zh-tw:doc:howto:generic.flashing.tftp"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:generic.flashing.tftp</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="tftp#bootloader_contains_tftp_client">Bootloader contains TFTP client</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="tftp#example1">Example1</a></div></li>
+<li class="level2"><div class="li"><a href="tftp#example2">Example2</a></div></li>
+<li class="level2"><div class="li"><a href="tftp#tftpd_server_on_mac_os_x_lion">tftpd server on Mac OS X Lion</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="tftp#bootloader_contains_tftp_server">Bootloader contains TFTP server</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="tftp#tips">Tips</a></div></li>
+<li class="level2"><div class="li"><a href="tftp#linuxbsd">Linux/BSD</a></div></li>
+<li class="level2"><div class="li"><a href="tftp#macos_x">MacOS X</a></div></li>
+<li class="level2"><div class="li"><a href="tftp#windows">Windows</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="tftp#troubleshooting">Troubleshooting</a></div>
+<ul class="toc">
+<li class="clear">
+<ul class="toc">
+<li class="level3"><div class="li"><a href="tftp#example">Example</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="tftp#what_tftp_client_should_i_use_to_flash_my_device">What TFTP client should I use to flash my device?</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="tftp#gnulinux">GNU/Linux</a></div></li>
+<li class="level2"><div class="li"><a href="tftp#windows1">Windows</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="tftp#tftp_command_line_client_short_instructions">TFTP command line client short Instructions</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="tftp#mac_os_x">MAC OS X</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="tftp#getting_tftp_to_work_in_macosx_lion">Getting tftp to work in MacOSX &quot;Lion&quot;</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="tftp#tftpd_on_macos_104_tiger">tftpd on MacOS 10.4 &quot;Tiger&quot;</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="installing_openwrt_via_tftp">Installing OpenWrt via TFTP</h1>
+<div class="level1">
+
+<p>
+Go back to <a href="installing" class="wikilink1" title="doc:howto:generic.flashing">generic.flashing</a>
+</p>
+
+<p>
+TFTP is a very simple protocol; simple enough to be implemented in small boot loaders. The basic idea is as follows:
+</p>
+<ol>
+<li class="level1"><div class="li"> Router is powered on</div>
+</li>
+<li class="level1"><div class="li"> Bootloader prepares startup of firmware code</div>
+</li>
+<li class="level1"><div class="li"> <strong>For a few seconds</strong> it initializes the wired lan ports</div>
+<ul>
+<li class="level2"><div class="li"> This doesn&#039;t happen instantly but a short time during startup/boot</div>
+</li>
+<li class="level2"><div class="li"> The network settings are not always the same as OpenWRT&#039;s defaults</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> It listens to TFTP requests for transferring a flash image</div>
+</li>
+<li class="level1"><div class="li"> Either</div>
+<ol>
+<li class="level2"><div class="li"> It receives an image to flash and flashes it</div>
+</li>
+<li class="level2"><div class="li"> or continues booting the device normally if the TFTP communication timed out</div>
+<ul>
+<li class="level3"><div class="li"> Provided the currently loaded firmware is valid</div>
+</li>
+<li class="level3"><div class="li"> If not valid behavior varies based on bootloader.  Some wait for a flash via tftp while others just show an error diag light and wait for a reboot.</div>
+</li>
+<li class="level3"><div class="li"> See <a href="../techref/bootloader.1#additionalfunctions" class="wikilink1" title="doc:techref:bootloader">Bootloader functionality</a> for more details about the bootloader</div>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+
+</div>
+<div class="plugin_include_content plugin_include__meta:infobox:dangerous" id="plugin_include__meta__infobox__dangerous">
+<div class="level1">
+
+<p>
+
+<table class="inline" style="width:70%; margin-left:15%">
+  <tr>
+    <td style="border-left:6px solid #cd0505; vertical-align:middle">
+      <img src="../../_media/meta/icons/tango/48px-dialog-warning.svg.png" alt="" style="float:left; margin-right:0.5em" />
+      <strong>Warning!</strong><br />
+      This section describes actions that might damage your device or firmware. Proceed with care!
+    </td>
+  </tr>
+</table>
+
+</p>
+
+</div>
+</div>
+<div class="level1">
+
+<p>
+You must determine whether your hardware&#039;s bootloader has a TFTP client or server.  Consult your specific model&#039;s OpenWRT Wiki page for details on necessary settings and the TFTP type offered if any.
+</p>
+
+<p>
+This documentation will use example IP addresses according to RFC5737.  Please consult your model&#039;s wiki documentation for actual IP addresses specific to your device.
+</p>
+<hr />
+
+<p>
+<img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> Cleanup IP addresses as 192.168.1.x is common, but not universal.  Use of RFC5737 might be more appropriate or just italic ipv4.x.y.z indicators.
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="bootloader_contains_tftp_client">Bootloader contains TFTP client</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit5" id="example1">Example1</h3>
+<div class="level3">
+
+<p>
+For example the <a href="../techref/bootloader.1" class="wikilink1" title="doc:techref:bootloader">bootloader</a> implementation of the <a href="../../toh/d-link/dir-300" class="wikilink1" title="toh:d-link:dir-300">DIR-300</a> <a href="../techref/bootloader/redboot" class="wikilink1" title="doc:techref:bootloader:redboot">redboot</a> contains a TFTP client. Two steps:
+</p>
+<ol>
+<li class="level1"><div class="li"> first you install and start a TFTP server (or daemon) on your host and place the image(s) to be flashed in the &lt;root directory&gt; of this software (you may be required to do this as root). Example:<pre class="code">sudo apt-get install tftpd-hpa tftp
+sudo cp ~/uboot/arch/arm/boot/uboot.img /var/lib/tftpboot</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> Test the server:<pre class="code">  tftp localhost
+tftp&gt; get uboot.img
+tftp&gt; quit
+  cmp /var/lib/tftpboot/uboot.img uboot.img
+  # no output other then a prompt means it worked correctly</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> connect to the bootloader, and tell it to get the images on your harddisk via its TFTP client (in case of the DIR-300 you obtain a connection via <a href="http://en.wikipedia.org/wiki/telnet" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/telnet">telnet</a> on the non-default port 9000). Example: <pre class="code">telnet 192.168.20.81 9000
+Redboot&gt; load uboot.img
+go</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> after successful installation of OpenWrt, do not forget to deactivate the TFTP server again!</div>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit6" id="example2">Example2</h3>
+<div class="level3">
+
+<p>
+In case of the xxx Step 3 from Example 1 above is not applicable. There is no console to login to, the bootloader will automatically try to get a firmware over TFTP from a pre-configured IP address at every boot.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> TODO
+</p>
+
+</div>
+
+<h3 class="sectionedit7" id="tftpd_server_on_mac_os_x_lion">tftpd server on Mac OS X Lion</h3>
+<div class="level3">
+
+<p>
+<abbr title="Operating System">OS</abbr> X Lion comes with a tftpd but its disabled by default. Like most services in <abbr title="Operating System">OS</abbr> X, tftpd is controlled by launchctl.
+The configuration with which the daemon is lauched is in <strong>/System/Library/LaunchDaemons/tftp.plist</strong> and the the identifier is <strong>com.apple.tftpd</strong>
+</p>
+
+<p>
+before you make changes to the config run:
+</p>
+<pre class="code">sudo launchctl unload -F /System/Library/LaunchDaemons/tftp.plist</pre>
+
+<p>
+then:
+</p>
+<pre class="code">sudo launchctl load -F /System/Library/LaunchDaemons/tftp.plist</pre>
+
+<p>
+to stop tftpd run:
+</p>
+<pre class="code">sudo launchctl stop com.apple.tftpd</pre>
+
+<p>
+to start tftpd run:
+</p>
+<pre class="code">sudo launchctl start com.apple.tftpd</pre>
+
+<p>
+Here is an example config file that will work:
+</p>
+<pre class="code">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple Computer//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+	&lt;key&gt;Label&lt;/key&gt;
+	&lt;string&gt;com.apple.tftpd&lt;/string&gt;
+	&lt;key&gt;ProgramArguments&lt;/key&gt;
+	&lt;array&gt;
+		&lt;string&gt;/usr/libexec/tftpd&lt;/string&gt;
+		&lt;string&gt;-l&lt;/string&gt;
+		&lt;string&gt;-s&lt;/string&gt;
+		&lt;string&gt;/private/tftpboot&lt;/string&gt;
+	&lt;/array&gt;
+	&lt;key&gt;inetdCompatibility&lt;/key&gt;
+	&lt;dict&gt;
+		&lt;key&gt;Wait&lt;/key&gt;
+		&lt;true/&gt;
+	&lt;/dict&gt;
+	&lt;key&gt;InitGroups&lt;/key&gt;
+	&lt;true/&gt;
+	&lt;key&gt;Sockets&lt;/key&gt;
+	&lt;dict&gt;
+		&lt;key&gt;Listeners&lt;/key&gt;
+		&lt;dict&gt;
+			&lt;key&gt;SockServiceName&lt;/key&gt;
+			&lt;string&gt;tftp&lt;/string&gt;
+			&lt;key&gt;SockType&lt;/key&gt;
+			&lt;string&gt;dgram&lt;/string&gt;
+		&lt;/dict&gt;
+	&lt;/dict&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;</pre>
+
+<p>
+Differences from the default include removing this, to enable the service:
+</p>
+<pre class="code">&lt;key&gt;Disabled&lt;/key&gt;
+&lt;true/&gt;</pre>
+
+<p>
+Add this to the ProgramArguments array to make it log to <strong>/var/log/syslog.log</strong>
+</p>
+<pre class="code">&lt;string&gt;-l&lt;/string&gt;</pre>
+
+<p>
+Place the openwrt image file you want to serve in:
+</p>
+<pre class="code">/private/tftpboot</pre>
+
+<p>
+Notice that even after running <strong>launchctl start com.apple.tftpd</strong> you will not see tftpd running when executing <strong>ps aux | grep tftpd</strong> because of the way launchctl works. tftpd is in fact <strong>not</strong> running but launchctl will launch it as soon as it is required.
+</p>
+
+<p>
+In some cases, when the output on the serial console is grabbled you can still act on faith and executer the following commands, which will work in most cases:
+</p>
+<pre class="code">setenv ipaddr 192.168.1.1</pre>
+
+<p>
+  setenv serverip 192.168.1.100
+</p>
+<pre class="code">tftpboot 0x80000000 openwrt-xxx-generic-xxx-squashfs-factory.bin</pre>
+<pre class="code">erase 0x9f020000 +0x332004</pre>
+<pre class="code">cp.b 0x80000000 0x9f020000 0x332004</pre>
+<pre class="code">boot.m 0x9f020000</pre>
+
+<p>
+—-  
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="bootloader_contains_tftp_server">Bootloader contains TFTP server</h2>
+<div class="level2">
+
+<p>
+The basic procedure of using a tftp client to upload a new firmware to your router:
+</p>
+<ol>
+<li class="level1"><div class="li"> Unplug the power to your router</div>
+</li>
+<li class="level1"><div class="li"> Plug the Ethernet connection from your computer (acting as tftp client) into a <abbr title="Local Area Network">LAN</abbr> port on your model.  See your model&#039;s OpenWRT wiki for details on which port to use</div>
+</li>
+<li class="level1"><div class="li"> Start your tftp client on your computer</div>
+</li>
+<li class="level1"><div class="li"> Give it the router&#039;s address (specific to model and bootloader, see your model&#039;s wiki page)</div>
+</li>
+<li class="level1"><div class="li"> Set mode to octet/binary</div>
+</li>
+<li class="level1"><div class="li"> Tell the client to resend the file until it succeeds</div>
+</li>
+<li class="level1"><div class="li"> &quot;put&quot; the file</div>
+</li>
+<li class="level1"><div class="li"> Plug-in your router while having the tftp client running and constantly probing for a connection</div>
+</li>
+<li class="level1"><div class="li"> The tftp client will receive an ack from the bootloader and starts sending the firmware</div>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit9" id="tips">Tips</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong>Please be patient</strong>, the reflashing occurs <em>after</em> the firmware has been transferred. In most cases the router will automatically reboot itself. Some models do not reboot so wait at least 15 minutes before power cycling them.</div>
+</li>
+<li class="level1"><div class="li"> <img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong>Note that the bootloader usually does not use the IP address or MAC address stored in nvram</strong>, it will revert to a bootloader default instead.  See your model&#039;s wiki documentation for specifics.</div>
+</li>
+<li class="level1"><div class="li"> <img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong>Put a hub or switch between the router and the computer</strong>, this will make sure that the local computer link is up before the <em>boot_wait</em> period is passed. This is a requirement to make TFTP work on computers where the local link is brought up too late and is usually simpler than trying to force the link to stay up instead.</div>
+</li>
+<li class="level1"><div class="li"> On routers with a DMZ LED, OpenWrt will light the DMZ LED while booting, after the bootup scripts are finished it will turn off the DMZ LED.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+The TFTP commands vary across different implementations. Here are some examples:
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="linuxbsd">Linux/BSD</h3>
+<div class="level3">
+
+<p>
+The network link must be up and established during power up.  One way to ensure this happens is to use a switch or hub inbetween your computer and the device you are flashing as this will leave the link established when you power off the device.
+</p>
+
+<p>
+Another option is to disable network manager in Linux (or use a distro/LiveCD that doesn&#039;t have it).  Some commands that may disable it (depends on the distribution of Linux used):
+</p>
+<ul>
+<li class="level1"><div class="li"> /etc/init.d/networking stop</div>
+</li>
+<li class="level1"><div class="li"> /etc/init.d/network stop</div>
+</li>
+<li class="level1"><div class="li"> /etc/init.d/NetworkManager stop</div>
+</li>
+<li class="level1"><div class="li"> service networking stop</div>
+</li>
+<li class="level1"><div class="li"> service network stop</div>
+</li>
+<li class="level1"><div class="li"> service NetworkManager stop</div>
+</li>
+</ul>
+
+</div>
+
+<h5 id="preparation_steps">Preparation Steps</h5>
+<div class="level5">
+<ol>
+<li class="level1"><div class="li"> Configure a static IP to match your *bootloaders* network</div>
+<ul>
+<li class="level2"><div class="li"> ifconfig <em>eth0</em> <em>ipv4.x.y.z</em> netmask 255.255.255.0</div>
+</li>
+<li class="level2"><div class="li"> See your device model&#039;s OpenWRT wiki page for specific settings</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Sometimes it helps to have a preconfigured arp entry to increase your changes of catching the tftp window</div>
+<ul>
+<li class="level2"><div class="li"> arp -s <em>ipv4.x.y.1</em> <em>20:aa:bb:cc:dd:00</em></div>
+<ul>
+<li class="level3"><div class="li"> Check your device model&#039;s OpenWRT wiki page for correct IP and MAC addresses</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+</div>
+
+<h5 id="using_atftp">Using atftp</h5>
+<div class="level5">
+
+<p>
+<a href="http://freecode.com/projects/atftp" class="urlextern" title="http://freecode.com/projects/atftp"  rel="nofollow">Advanced TFTP</a>
+</p>
+
+<p>
+<a href="http://downloads.openwrt.org/sources/atftp-0.7.tar.gz" class="urlextern" title="http://downloads.openwrt.org/sources/atftp-0.7.tar.gz"  rel="nofollow">Source Code care of OpenWRT</a>
+</p>
+
+<p>
+As a single command-line:
+<pre class="code">atftp --trace --option &quot;timeout 1&quot; --option &quot;mode octet&quot; --put --local-file openwrt-xxx-x.x-xxx.bin IPv4.x.y.z</pre>
+
+</p>
+
+<p>
+Step by step:
+<pre class="code">atftp
+connect IPv4.x.y.z
+mode octet
+trace
+timeout 1
+put openwrt-xxx-x.x-xxx.bin</pre>
+
+</p>
+
+</div>
+
+<h5 id="using_netkit_s_tftp">Using netkit&#039;s tftp</h5>
+<div class="level5">
+
+<p>
+As a single command-line:
+<pre class="code">echo -e &quot;binary\nrexmt 1\ntimeout 60\ntrace\nput openwrt-xxx-x.x-xxx.bin\n&quot; | tftp IPv4.x.y.z</pre>
+
+</p>
+
+<p>
+Step by step:
+<pre class="code">tftp IPv4.x.y.z
+binary
+rexmt 1
+timeout 60
+trace
+Packet tracing on.
+tftp&gt; put openwrt-xxx-x.x-xxx.bin</pre>
+
+</p>
+
+<p>
+Setting &quot;rexmt 1&quot; will cause the tftp client to constantly retry to send the file to the given address. As advised above, plug in your box after typing the commands, and as soon as the bootloader starts to listen, your client will successfully connect and send the firmware.
+</p>
+
+<p>
+Some devices will also respond to ping while others do not.
+</p>
+
+<p>
+Note: for some versions of the CFE bootloader, the last line may need to be &quot;put openwrt-xxx-x.x-xxx.bin code.bin&quot;. If this does not work try other variations instead of code.bin - e.g. openwrt-g-code.bin or openwrt-gs-code.bin.
+</p>
+
+<p>
+One CFE version only worked after renaming the &#039;….bin&#039; file to &#039;code.bin&#039;. From Linux Ubuntu I then used the command &#039;tftp -m binary 192.168.1.1 -c put code.bin&#039; and the transfer process came to life.
+</p>
+
+</div>
+
+<h5 id="using_curl">Using curl</h5>
+<div class="level5">
+
+<p>
+<pre class="code">curl -T openwrt-xxx-x.x-xxx.bin tftp://IPv4.x.y.z</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="macos_x">MacOS X</h3>
+<div class="level3">
+
+<p>
+On Mac <abbr title="Operating System">OS</abbr> X, you should be able to flash the router with the command line tftp client, which behaves identically to netkit&#039;s tftp above.
+</p>
+
+<p>
+Some people have had problems with the command line tftp client, however, and recommend using <a href="http://www.mactechnologies.com/index.php?page=downloads#mactftpclient" class="urlextern" title="http://www.mactechnologies.com/index.php?page=downloads#mactftpclient"  rel="nofollow">MacTFTP Client</a> instead:
+</p>
+<ul>
+<li class="level1"><div class="li"> Download, install, and open MacTFTP</div>
+</li>
+<li class="level1"><div class="li"> Choose Send</div>
+</li>
+<li class="level1"><div class="li"> Address: <em>Your bootloaders IP address</em></div>
+</li>
+<li class="level1"><div class="li"> Choose the openwrt-xxx-x.x-xxx.bin file</div>
+</li>
+<li class="level1"><div class="li"> Click on start while applying power to the WRT54G</div>
+</li>
+</ul>
+
+<p>
+Many Macs will disable the Ethernet card when the router is powered off and will take too long to re-enable the card, causing the TFTP transfer to fail with an &quot;Invalid Password&quot; error. Many people have had success if they manually configure their network card (in the &quot;Ethernet&quot; tab of &quot;Built-in Ethernet&quot; in System Preferences&#039; Network panel) to:
+</p>
+<ul>
+<li class="level1"><div class="li"> Configure: Manual (Advanced)</div>
+</li>
+<li class="level1"><div class="li"> Speed: 10 BaseT/UTP</div>
+</li>
+<li class="level1"><div class="li"> Duplex: full-duplex</div>
+</li>
+</ul>
+
+<p>
+Alternatively, you can connect the router to the Mac via a hub or switch; see below for more information.
+</p>
+
+</div>
+
+<h3 class="sectionedit12" id="windows">Windows</h3>
+<div class="level3">
+
+<p>
+There are multiple tftp clients that you can choose from.  See the <a href="tftp#what_tftp_client_should_i_use_to_flash_my_device" title="doc:howto:generic.flashing.tftp ↵" class="wikilink1">What TFTP client should I use to flash my device?</a> section for options.
+</p>
+<ol>
+<li class="level1"><div class="li"> Plug in your Windows network interface into the appropriate port on the device you will be flashing</div>
+</li>
+<li class="level1"><div class="li"> Static IP your wired Ethernet interface to an appropriate IP address on the same network as your <strong>bootloaders</strong> network</div>
+<ul>
+<li class="level2"><div class="li"> Example:  Your bootloader has an IP of 192.0.2.1 (netmask of 255.255.255.0) so your Windows network configuration would use 192.0.2.2/24</div>
+</li>
+<li class="level2"><div class="li"> See your device&#039;s OpenWRT wiki page for specific settings</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Open an elevated command prompt</div>
+<ul>
+<li class="level2"><div class="li"> Start, Run, &quot;cmd&quot; on Windows 2000,XP,2003</div>
+</li>
+<li class="level2"><div class="li"> Start, search on &quot;cmd&quot;, ctrl+shift+enter on Vista, 7, 2008, etc.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> arp -s <em>&lt;bootloaders ip address&gt;</em> <em>&lt;bootloaders mac address&gt;</em> <em>&lt;your Windows static IP address&gt;</em></div>
+<ul>
+<li class="level2"><div class="li"> Assists in avoiding delay in reaching tftp server on device</div>
+</li>
+<li class="level2"><div class="li"> Windows MAC addresses use dashes instead of colons (ex: 00-00-00-00-00-00)</div>
+</li>
+<li class="level2"><div class="li"> Windows 7 and other similar versions may require</div>
+<ul>
+<li class="level3"><div class="li"> netsh interface ipv4 add neighbors &quot;Local Area Connection&quot; <em>&lt;bootloaders ip address&gt;</em> <em>&lt;bootloaders mac address&gt;</em></div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Disable Windows media sensing (shouldn&#039;t be necessary if you have a switch in the middle)</div>
+<ul>
+<li class="level2"><div class="li"> netsh interface ipv4 set global dhcpmediasense=disabled</div>
+</li>
+<li class="level2"><div class="li"> netsh interface ipv6 set global dhcpmediasense=disabled</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Disable Windows firewall and any other firewalls on your client machine</div>
+</li>
+<li class="level1"><div class="li"> Unplug your router</div>
+</li>
+<li class="level1"><div class="li"> Run your tftp program</div>
+<ul>
+<li class="level2"><div class="li"> See <a href="tftp#what_tftp_client_should_i_use_to_flash_my_device" title="doc:howto:generic.flashing.tftp ↵" class="wikilink1">What TFTP client should I use to flash my device?</a> section for general usage instructions</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Plug in router immediately after tftp program begins put attempts</div>
+</li>
+<li class="level1"><div class="li"> Flash usually takes a few minutes.  See your device&#039;s OpenWRT wiki page for specifics</div>
+</li>
+<li class="level1"><div class="li"> You will probably want to re-enable Windows media sensing and revert your other network changes</div>
+</li>
+</ol>
+
+</div>
+
+<h2 class="sectionedit13" id="troubleshooting">Troubleshooting</h2>
+<div class="level2">
+
+<p>
+Don&#039;t forget about your firewall settings, if you use one. It is best to run the &quot;put&quot; command and then immediately apply power to the router, since the upload window is extremely short and very early in boot.
+</p>
+<div class="table sectionedit14"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> TFTP Error </th><th class="col1"> Reason </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> Code pattern is incorrect </td><td class="col1"> The firmware image you&#039;re uploading was intended for a different model. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> Invalid Password </td><td class="col1"> The firmware has booted and you&#039;re connected to a password protected tftp server contained in the firmware, not the bootloader&#039;s tftp server. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> Timeout </td><td class="col1"> Ping to verify the router is online<br/>
+Try a different tftp client (some are known not to work properly) </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> Timeout </td><td class="col1"> Ping to the router works<br/>
+NetworkManager (Linux) may still be running causing autosense. Try again with manual configuration. </td>
+	</tr>
+</table></div>
+
+<p>
+Some machines will disable the ethernet when the router is powered off and not enable it until after the router has been powered on for a few seconds. If you&#039;re consistantly getting &quot;Invalid Password&quot; failures try connecting your computer and the router to a hub or switch. Doing so will keep the link up and prevent the computer from disabling its interface while the router is off.
+</p>
+
+<p>
+Before you go searching for a hub to keep your link live, try setting your TCP/IP setting to a static IP (192.168.1.10; 255.255.255.0; 192.168.1.1 [gateway]) method instead of DHCP.
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> <strong>If you can flash your router and after that it says &quot;Boot program checksum is invalid&quot; or &quot;Invalid boot block on disk&quot; on serial console try a different tftp client - <em>atftp</em> works well. This occurs with some <em>netkit</em> tftp packages and big firmwares.</strong>
+</p>
+
+</div>
+
+<h4 id="example">Example</h4>
+<div class="level4">
+
+<p>
+<img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> would this be better to just exist in specific model&#039;s wiki pages?
+</p>
+
+<p>
+<img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> should we create a page to list models with tftp support, noting which ones need the reset button trick?
+</p>
+
+<p>
+On many routers, including the Asus WL-500g Premium v1 that I use, you flash an image by disconnecting power, press and hold down the reset button, and connect the power again. Wait a few seconds and the PWR LED will start to blink. Release the reset button. The device will now have a TFTP server running on <code>192.168.1.1</code>.
+</p>
+
+<p>
+<strong>Note that many TP-Link models</strong> are reported to support the same trick, including the TL-WR740Nv4, TL-WDR4300v1, TL-WDR3600v1, TL-WR842NDv1, TL-WR841NDv8, TL-MR3020v1, TL-MR3220v2, TL-MR3420v2, TL-WR940Nv2, TL-WR941NDv5, TL-WR1042NDv1 and possibly any other TP-Link model that has a recent firmware upgrade from the manufacturer. For a summary and ongoing experiments, see: <a href="http://bkil.blogspot.com/2014/12/hidden-tftp-of-tp-link-routers.html" class="urlextern" title="http://bkil.blogspot.com/2014/12/hidden-tftp-of-tp-link-routers.html"  rel="nofollow">http://bkil.blogspot.com/2014/12/hidden-tftp-of-tp-link-routers.html</a>
+</p>
+
+<p>
+You’ll have to use a Ethernet cable at this point. Connect it to LAN1-LAN4, <em class="u">not</em> WAN. Configure your local machine on the <code>192.168.1.x/24</code> network, for example as <code>192.168.1.42</code>. The router will use <code>192.168.1.1</code>.
+</p>
+
+<p>
+<pre class="code">$ tftp 192.168.1.1
+tftp&gt; trace
+Packet tracing on.
+tftp&gt; binary
+tftp&gt; put openwrt-brcm-2.4-squashfs.trx
+sent WRQ &lt;file=openwrt-brcm-2.4-squashfs.trx, mode=octet&gt;
+received ACK &lt;block=0&gt;
+sent DATA &lt;block=1, 512 bytes&gt;
+received ACK &lt;block=1&gt;
+sent DATA &lt;block=2, 512 bytes&gt;
+received ACK &lt;block=2&gt;
+sent DATA &lt;block=3, 512 bytes&gt;
+received ACK &lt;block=3&gt;
+sent DATA &lt;block=4, 512 bytes&gt;
+...
+received ACK &lt;block=4742&gt;
+sent DATA &lt;block=4743, 512 bytes&gt;
+received ACK &lt;block=4743&gt;
+sent DATA &lt;block=4744, 512 bytes&gt;
+received ACK &lt;block=4744&gt;
+sent DATA &lt;block=4745, 0 bytes&gt;
+received ACK &lt;block=4745&gt;
+Sent 2428928 bytes in 6.2 seconds
+tftp&gt; quit
+$</pre>
+
+</p>
+
+<p>
+Wait one minute and restart the box by disconnecting and reconnecting power. Some documentations claim that the device should restart by itself but I have never seen this happen, no matter how long I wait.
+</p>
+
+</div>
+
+<h2 class="sectionedit15" id="what_tftp_client_should_i_use_to_flash_my_device">What TFTP client should I use to flash my device?</h2>
+<div class="level2">
+
+<p>
+Which ever you want!  Some suggestions are given below:
+</p>
+
+</div>
+
+<h3 class="sectionedit16" id="gnulinux">GNU/Linux</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Some people suggest <code>atftp</code> with GNU/Linux</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit17" id="windows1">Windows</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <a href="http://www.dd-wrt.com/dd-wrtv2/downloads/others/tornado/Windows-TFTP/tftp2.exe" class="urlextern" title="http://www.dd-wrt.com/dd-wrtv2/downloads/others/tornado/Windows-TFTP/tftp2.exe"  rel="nofollow">DD-WRT tftp GUI</a></div>
+<ol>
+<li class="level2"><div class="li"> Server is the IP address of your <strong>bootloader</strong> tftp server</div>
+</li>
+<li class="level2"><div class="li"> Password is typically blank</div>
+</li>
+<li class="level2"><div class="li"> Select the firmware file</div>
+</li>
+<li class="level2"><div class="li"> Set retries to 20 or more (most of the time you get it in 3)</div>
+</li>
+<li class="level2"><div class="li"> Click on Upgrade and it will constantly retry until it gets it</div>
+</li>
+</ol>
+</li>
+<li class="level1"><div class="li"> Windows 2000 and Windows XP have a built-in TFTP client and it <a href="http://martybugs.net/wireless/openwrt/flash.cgi" class="urlextern" title="http://martybugs.net/wireless/openwrt/flash.cgi"  rel="nofollow">can be used</a> to flash with OpenWrt firmware.</div>
+</li>
+<li class="level1"><div class="li"> tftpd32 from <a href="http://perso.wanadoo.fr/philippe.jounin/tftpd32.html" class="urlextern" title="http://perso.wanadoo.fr/philippe.jounin/tftpd32.html"  rel="nofollow">http://perso.wanadoo.fr/philippe.jounin/tftpd32.html</a></div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="tftp_command_line_client_short_instructions">TFTP command line client short Instructions</h4>
+<div class="level4">
+<ol>
+<li class="level1"><div class="li"> Open a command window (cmd.exe)</div>
+</li>
+<li class="level1"><div class="li"> &quot;tftp -i <em>&lt;bootloader IP tftp server address&gt;</em> PUT OpenWrt-gs-code.bin&quot;</div>
+</li>
+<li class="level1"><div class="li"> Now you may plug in the router (unplug it first if it was plugged).</div>
+</li>
+</ol>
+
+<p>
+Note that some bootloaders do not respond to ping.
+</p>
+
+</div>
+
+<h3 class="sectionedit18" id="mac_os_x">MAC OS X</h3>
+<div class="level3">
+
+</div>
+
+<h2 class="sectionedit19" id="getting_tftp_to_work_in_macosx_lion">Getting tftp to work in MacOSX &quot;Lion&quot;</h2>
+<div class="level2">
+
+<p>
+If you get &quot;tftp: timeout&quot;, use below
+</p>
+
+<p>
+below from <a href="http://forums.creativecow.net/thread/180/857349" class="urlextern" title="http://forums.creativecow.net/thread/180/857349"  rel="nofollow">http://forums.creativecow.net/thread/180/857349</a>
+</p>
+
+<p>
+sudo launchctl load -F /System/Library/LaunchDaemons/tftp.plist
+</p>
+
+<p>
+sudo launchctl start com.apple.tftpd
+</p>
+
+<p>
+You will get errors like this
+</p>
+
+<p>
+below from <a href="http://www.linuxsmiths.com/blog/?p=427" class="urlextern" title="http://www.linuxsmiths.com/blog/?p=427"  rel="nofollow">http://www.linuxsmiths.com/blog/?p=427</a>
+</p>
+
+<p>
+<em>tftp: server says: File not found</em>
+</p>
+
+<p>
+to fix it  use 
+</p>
+
+<p>
+cd /var/tftpboot
+touch (the file in your tmp dir that you are going to send)
+</p>
+
+<p>
+chmod 777 (the file in your tmp dir that you are going to send)
+</p>
+
+<p>
+then do the tftp command again (ie: # tftp -p -l /tmp/mtd1 192.168.2.2)
+</p>
+
+<p>
+TODO
+</p>
+
+</div>
+
+<h3 class="sectionedit20" id="tftpd_on_macos_104_tiger">tftpd on MacOS 10.4 &quot;Tiger&quot;</h3>
+<div class="level3">
+
+<p>
+tftpd works out-of-the-box also on the old 10.4. Maybe the tftp dir is not yet created but this is just a mkdir. Get a root shell and issue these commands:
+</p>
+
+<p>
+<pre class="code">bash-4.2$ sudo bash
+Password:
+bash-4.2# mkdir -p /private/tftpboot/
+bash-4.2# cp /path/to/openwrt-image /private/tftpboot/
+bash-4.2# launchctl load -F /System/Library/LaunchDaemons/tftp.plist 
+bash-4.2# ps axu|grep ftp
+root     23494   0.0  0.0    27696    152  ??  Ss    4:34PM   0:00.00 launchctl load -F /System/Library/LaunchDaemons/tftp.plist
+root     23496   0.0  0.0    38604      4  p3  R+    4:34PM   0:00.00 grep ftp
+bash-4.2# launchctl start com.apple.tftpd
+bash-4.2# ps axu|grep ftp
+root     23494   0.0  0.0    27696    152  ??  Ss    4:34PM   0:00.00 launchctl load -F /System/Library/LaunchDaemons/tftp.plist
+root     23498   0.0  0.0    27244    464  ??  Ss    4:34PM   0:00.01 /usr/libexec/launchproxy /usr/libexec/tftpd -i /private/tftpboot
+root     23500   0.0  0.0    38604      4  p3  R+    4:34PM   0:00.00 grep ftp
+bash-4.2# tftp 192.168.100.72   ### just testing
+tftp&gt; get openwrt-ar71xx-generic-hornet-ub-squashfs-sysupgrade.bin
+Received 7270950 bytes in 2.7 seconds
+tftp&gt;</pre>
+
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/generic.flashing.tftp.txt</bdi> · Last modified: 2014/12/31 22:48 by <bdi>bkil</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="generic.flashing.tftp?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="generic.flashing.tftp?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="generic.flashing.tftp?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="tftp#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Ageneric.flashing.tftp&amp;1432265456" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

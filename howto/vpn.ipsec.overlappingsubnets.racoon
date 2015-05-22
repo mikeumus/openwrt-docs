@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>IPsec With Overlapping Subnets [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,vpn.ipsec.overlappingsubnets.racoon"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="vpn.ipsec.overlappingsubnets.racoon?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/vpn.ipsec.overlappingsubnets.racoon"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/vpn.ipsec.overlappingsubnets.racoon"/>
+<link rel="canonical" href="vpn.ipsec.overlappingsubnets.racoon"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:vpn.ipsec.overlappingsubnets.racoon","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432273846 166.182.3.179';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="vpn.ipsec.overlappingsubnets.racoon#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="vpn.ipsec.overlappingsubnets.racoon?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="vpn.ipsec.overlappingsubnets.racoon?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:vpn.ipsec.overlappingsubnets.racoon" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="vpn.ipsec.overlappingsubnets.racoon?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="vpn.ipsec.overlappingsubnets.racoon?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="vpn.ipsec.overlappingsubnets.racoon?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="vpn.ipsec.overlappingsubnets.racoon" class="wikilink1" title="doc:howto:vpn.ipsec.overlappingsubnets.racoon">IPsec With Overlapping Subnets</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/vpn.ipsec.overlappingsubnets.racoon" class="media" title="cz:doc:howto:vpn.ipsec.overlappingsubnets.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/vpn.ipsec.overlappingsubnets.racoon" class="media" title="de:doc:howto:vpn.ipsec.overlappingsubnets.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="vpn.ipsec.overlappingsubnets.racoon" class="media" title="doc:howto:vpn.ipsec.overlappingsubnets.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/vpn.ipsec.overlappingsubnets.racoon" class="media" title="es:doc:howto:vpn.ipsec.overlappingsubnets.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/vpn.ipsec.overlappingsubnets.racoon" class="media" title="fr:doc:howto:vpn.ipsec.overlappingsubnets.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/vpn.ipsec.overlappingsubnets.racoon" class="media" title="hu:doc:howto:vpn.ipsec.overlappingsubnets.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/vpn.ipsec.overlappingsubnets.racoon" class="media" title="jp:doc:howto:vpn.ipsec.overlappingsubnets.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/vpn.ipsec.overlappingsubnets.racoon" class="media" title="pl:doc:howto:vpn.ipsec.overlappingsubnets.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/vpn.ipsec.overlappingsubnets.racoon" class="media" title="pt-br:doc:howto:vpn.ipsec.overlappingsubnets.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/vpn.ipsec.overlappingsubnets.racoon" class="media" title="ru:doc:howto:vpn.ipsec.overlappingsubnets.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/vpn.ipsec.overlappingsubnets.racoon" class="media" title="tr:doc:howto:vpn.ipsec.overlappingsubnets.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/vpn.ipsec.overlappingsubnets.racoon" class="media" title="zh-cn:doc:howto:vpn.ipsec.overlappingsubnets.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/vpn.ipsec.overlappingsubnets.racoon" class="media" title="zh-tw:doc:howto:vpn.ipsec.overlappingsubnets.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:vpn.ipsec.overlappingsubnets.racoon</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="vpn.ipsec.overlappingsubnets.racoon#real_life_example">Real Life Example</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.overlappingsubnets.racoon#linux_nat">Linux NAT</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.overlappingsubnets.racoon#openwrt_firewall_rules">OpenWrt Firewall Rules</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.overlappingsubnets.racoon#configuration">Configuration</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.overlappingsubnets.racoon#what_s_next">What&#039;s Next</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="ipsec_with_overlapping_subnets">IPsec With Overlapping Subnets</h1>
+<div class="level1">
+<div class="table sectionedit2"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> For an overview over all existing Virtual private network (VPN)-related articles in the OpenWrt wiki, please visit <a href="vpn.overview" class="wikilink1" title="doc:howto:vpn.overview">vpn.overview</a> </td>
+	</tr>
+</table></div>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> This page is about racoon. The new strongwang documentation can be found <a href="vpn.ipsec.overlappingsubnets" class="wikilink1" title="doc:howto:vpn.ipsec.overlappingsubnets">here</a>.
+</p>
+
+<p>
+One of the most common problems when establishing VPN tunnels are overlapping subnets. I.e. the IP adresses at least on one tunnel end conflict with the existing setup. Very often the firewall administrator is struggling with such a setup because special settings have to take place to create correct address translation for a clean solution. Hopefully this article will help the OpenWrt user to make it fuss-free. We assume you have read the <a href="vpn.ipsec.basics.racoon" class="wikilink1" title="doc:howto:vpn.ipsec.basics.racoon">basics</a> and the <a href="vpn.ipsec.firewall.racoon" class="wikilink1" title="doc:howto:vpn.ipsec.firewall.racoon">firewall</a> setup guide for IPsec.
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="real_life_example">Real Life Example</h2>
+<div class="level2">
+
+<p>
+So what is it all about. Let us start with a picture and some explanations. What do we have?
+</p>
+<ul>
+<li class="level1"><div class="li"> ACME company with internal subnet 10.1.2.0/24 has an existing tunnel to another company with subnet 192.168.2.0/24. The firewall therefore will route alle packets with destination 192.168.2.1-192.168.254 into the existing tunnel.</div>
+</li>
+<li class="level1"><div class="li"> Our OpenWrt user at home has already a IPsec VPN connection too. The OpenWrt firewall protects his network 192.168.2.64/26 and routes all traffic to 10.1.0.0-10.1.3.254 towards the established tunnel to another company.</div>
+</li>
+<li class="level1"><div class="li"> When establishing a new tunnel between home and ACME without address translation we would run into routing conflicts. E.g. if we want to reach the server 10.1.2.55 from home it could either be a machine in the ACME network or in the others company network.</div>
+</li>
+</ul>
+
+<p>
+<a href="../../_detail/doc/howto/ipsec_overlapping_subnets_1.png?id=doc%253Ahowto%253Avpn.ipsec.overlappingsubnets.racoon" class="media" title="doc:howto:ipsec_overlapping_subnets_1.png"><img src="../../_media/doc/howto/ipsec_overlapping_subnets_1.png" class="media" alt="" /></a>
+</p>
+
+<p>
+What to do? Both firewall adminstrators have to choose IP address ranges for the new tunnel that do not overlap with the existing infrastructure. In our case:
+</p>
+<ul>
+<li class="level1"><div class="li"> The ACME administrator chooses to &quot;hide&quot; the remote home network behind the subnet 192.168.3.0/26. So when someone from ACME company wants to reach the newly conected home network he has to take on of those addresses instead of the real ones in range 192.168.2.64/26</div>
+</li>
+<li class="level1"><div class="li"> The same applies for the home user. He does not want to reach the ACME network with its real IP addresses but changes the target range to 10.1.4.0/24.</div>
+</li>
+<li class="level1"><div class="li"> That means each of both sides determines the remote part of the tunnel subnets.</div>
+</li>
+</ul>
+
+<p>
+Let us look at the packet flow and see where address translation has to occur. Let us assume we want to reach ACME mailserver on address 10.1.2.55 from out laptop with address 192.168.2.77.
+</p>
+<ul>
+<li class="level1"><div class="li"> We cannot use the mailservers real address but have to choose 10.1.4.55 instead. You can see that the lower part of the IP will match the original address while the higher is taken from the translated subnet.</div>
+</li>
+<li class="level1"><div class="li"> The laptop sends a packet with header 192.168.2.77→10.1.4.55.</div>
+</li>
+<li class="level1"><div class="li"> The OpenWrt firewall has to translate the source address into one that can safely pass the tunnel. Again it will only translate the higher digits. The header will become 192.168.3.11→10.1.4.55. If not sure why 2.77 is converted to 3.11 you just have to check the last bits of the home netmask …11000000. Only the last 6 bits will be retained. </div>
+</li>
+<li class="level1"><div class="li"> The packet is sent into the tunnel.</div>
+</li>
+<li class="level1"><div class="li"> When it reaches the ACME firewall it will be translated again. This time the destination address will be mapped over to the real addresses. The header will be changed to 192.168.3.11→10.1.2.55</div>
+</li>
+<li class="level1"><div class="li"> The answer packet of the mailserver will travel this chain backwards. </div>
+</li>
+</ul>
+
+<p>
+<strong>Conclusion: If you have IP conflicts in a new VPN setup first of all choose alternative addresses for packets that will pass the tunnel. Retain the subnet masks for both ends.
+</strong>
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="linux_nat">Linux NAT</h2>
+<div class="level2">
+
+<p>
+Now that we know where and how to change IP addresses we will make a short excursion into the Linux netfilter deeps. We have no real choices to implement the above explained translation rules.
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>Source address translation</strong>: Required for outgoing packets. The firewall allows source address translation only in the POSTROUTING chain of the NAT table. This is the very last step of kernel packet mangling. This implies a feature and some trouble. All filter rules are applied before source translation. So they can be implemented with the original packets IP addresses. We have no burden to work on translated packets. On the other hand the firewall cannot know that the packet is routed into an IPsec tunnel before the translation takes place. As mentioned <a href="vpn.ipsec.firewall.racoon#preface" class="wikilink1" title="doc:howto:vpn.ipsec.firewall.racoon">here</a> our firewall script already observes these quirks. </div>
+</li>
+<li class="level1"><div class="li"> <strong>Desintation address translation</strong>: Required for incoming packets. The right place is the PREROUTING chain of the NAT table. The firewall will jump there before any filter chain is traversed. And again we have the possibility to build filter rules based on how we &quot;see&quot; our internal network topology - with the real local addresses.</div>
+</li>
+<li class="level1"><div class="li"> <strong>iptables module</strong>: When most of us think about address translation in the kernel the SNAT and DNAT rules come into mind. If you dig into the documentation you will soon discover that they work well only on single addresses. If you provide address ranges these modules will apply some kind of randomness. So what we need is a 1:1 subnet mapping. The command of interest is <strong>NETMAP</strong>. It will replace the higher address bits of a IP address with a new subnet while keeping the lower bits. This will help us to stay deterministic and to keep number of firewall rules small.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit5" id="openwrt_firewall_rules">OpenWrt Firewall Rules</h2>
+<div class="level2">
+
+<p>
+Once again we want to integrate the required rules nicely into the OpenWrt firewall concept. Let us start with the destination translation in the prerouitng chain. We want to translate the target IP of packets that come out of the tunnel into the matching ones of our internal subnet. OpenWrt automatically creates two chains for the VPN zone: zone_vpn_prerouting and prerouting_vpn. They are already linked correctly but have to be populated correctly. Just a source/destination address match paired with a NETMAP translation will do what is required. Have a look at the picture.
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/ipsec_prerouting_chain.png?id=doc%253Ahowto%253Avpn.ipsec.overlappingsubnets.racoon" class="media" title="doc:howto:ipsec_prerouting_chain.png"><img src="../../_media/doc/howto/ipsec_prerouting_chain.png" class="media" alt="" /></a>
+</p>
+
+<p>
+For outgoing packets we need source translation in the postrouting chain. A zone_vpn_nat chain already exists but is not linked correctly. Just place an ACCEPT rule into it for every non-natted IPsec tunnel and a NETMAP rule for every tunnel that requires address translation.
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/ipsec_postrouting_chain.png?id=doc%253Ahowto%253Avpn.ipsec.overlappingsubnets.racoon" class="media" title="doc:howto:ipsec_postrouting_chain.png"><img src="../../_media/doc/howto/ipsec_postrouting_chain.png" class="media" alt="" /></a>
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="configuration">Configuration</h2>
+<div class="level2">
+
+<p>
+Nice to know, that the configuration is very simple. The <a href="vpn.ipsec.basics.racoon#ikedaemon" class="wikilink1" title="doc:howto:vpn.ipsec.basics.racoon">racoon</a> and <a href="vpn.ipsec.firewall.racoon#vpnfirewallscript" class="wikilink1" title="doc:howto:vpn.ipsec.firewall.racoon">firewall</a> scripts will take care of the required settings. You just have to add a <strong>local_nat</strong> configuration line into the sainfo section of your <a href="../uci/racoon" class="wikilink1" title="doc:uci:racoon">/etc/config/racoon</a> file.
+</p>
+
+<p>
+<pre class="code">...
+config &#039;sainfo&#039; &#039;acme_lan&#039;
+  option &#039;local_nat&#039; &#039;191.168.3.0/26&#039;
+  option &#039;remote_subnet&#039; &#039;192.168.10.0/24&#039;
+  option &#039;local_subnet&#039; &#039;192.168.2.64/26&#039;
+  option &#039;p2_proposal&#039; &#039;g2_aes_sha1&#039;
+...</pre>
+
+</p>
+
+<p>
+This will tell the system that the local subnet 192.168.2.64/26 will be translated to 192.168.3.0/26 inside the IPsec tunnel.
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="what_s_next">What&#039;s Next</h2>
+<div class="level2">
+
+<p>
+OpenWrt as a central VPN gateway for <a href="vpn.ipsec.roadwarrior.racoon" class="wikilink1" title="doc:howto:vpn.ipsec.roadwarrior.racoon">road warriors</a>.
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/vpn.ipsec.overlappingsubnets.racoon.txt</bdi> · Last modified: 2013/10/28 08:30 by <bdi>lorema</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="vpn.ipsec.overlappingsubnets.racoon?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="vpn.ipsec.overlappingsubnets.racoon?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="vpn.ipsec.overlappingsubnets.racoon?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="vpn.ipsec.overlappingsubnets.racoon#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Avpn.ipsec.overlappingsubnets.racoon&amp;1432273846" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

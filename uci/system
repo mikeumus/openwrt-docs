@@ -1,0 +1,2071 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>System configuration [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,uci,system"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="system?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:uci"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/uci/system"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/uci/system"/>
+<link rel="canonical" href="system"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:uci';var JSINFO = {"id":"doc:uci:system","namespace":"doc:uci"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432266630 166.182.3.141';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="system#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="system?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="system?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:uci:system" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="system?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="system?do=media&amp;ns=doc%253Auci"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="system?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../uci.1" class="wikilink1" title="doc:uci">The UCI System</a></bdi> » <bdi><span class="curid"><a href="system" class="wikilink1" title="doc:uci:system">System configuration</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/uci/system" class="media" title="cz:doc:uci:system"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/uci/system" class="media" title="de:doc:uci:system"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="system" class="media" title="doc:uci:system"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/uci/system" class="media" title="es:doc:uci:system"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/uci/system" class="media" title="fr:doc:uci:system"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/uci/system" class="media" title="hu:doc:uci:system"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/uci/system" class="media" title="jp:doc:uci:system"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/uci/system" class="media" title="pl:doc:uci:system"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/uci/system" class="media" title="pt-br:doc:uci:system"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/uci/system" class="media" title="ru:doc:uci:system"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/uci/system" class="media" title="tr:doc:uci:system"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/uci/system" class="media" title="zh-cn:doc:uci:system"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/uci/system" class="media" title="zh-tw:doc:uci:system"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:uci:system</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="system#sections">Sections</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="system#system">System</a></div></li>
+<li class="level2"><div class="li"><a href="system#remote_time_ntp">Remote Time (ntp)</a></div></li>
+<li class="level2"><div class="li"><a href="system#leds">Leds</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="system#none">None</a></div></li>
+<li class="level3"><div class="li"><a href="system#timer">Timer</a></div></li>
+<li class="level3"><div class="li"><a href="system#default-on">Default-on</a></div></li>
+<li class="level3"><div class="li"><a href="system#heartbeat">Heartbeat</a></div></li>
+<li class="level3"><div class="li"><a href="system#flash_writes">Flash Writes</a></div></li>
+<li class="level3"><div class="li"><a href="system#network_activity">Network Activity</a></div></li>
+<li class="level3"><div class="li"><a href="system#wifi_activity">WiFi Activity</a></div></li>
+<li class="level3"><div class="li"><a href="system#usb_device">USB Device</a></div></li>
+<li class="level3"><div class="li"><a href="system#morse_code">Morse Code</a></div></li>
+<li class="level3"><div class="li"><a href="system#gpio">GPIO</a></div></li>
+<li class="level3"><div class="li"><a href="system#net_filter">Net filter</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="system#examples">Examples</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="system#heartbeat_led">Heartbeat led</a></div></li>
+<li class="level2"><div class="li"><a href="system#wlan_led">WLAN led</a></div></li>
+<li class="level2"><div class="li"><a href="system#timer_led_-_500ms_on_2000ms_off">Timer led - 500ms ON, 2000ms OFF</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="system#time_zones">Time Zones</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="system_configuration">System configuration</h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit2" id="sections">Sections</h2>
+<div class="level2">
+
+<p>
+The <code>system</code> configuration contains basic settings for the whole router. Larger subsystems such as the network configuration, the DHCP and <abbr title="Domain Name System">DNS</abbr> server, and similar, have their own configuration file.
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="system">System</h3>
+<div class="level3">
+
+<p>
+The <code>system</code> section contains settings that apply to the most basic operation of the system, such as the hostname, the time zone, and how and where to write logging information to. OpenWRT creates these default settings:
+</p>
+<div class="table sectionedit4"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;system&#039;
+	option &#039;hostname&#039;	&#039;OpenWrt&#039;
+	option &#039;timezone&#039;	&#039;UTC</code>&#039; </td>
+	</tr>
+</table></div>
+
+<p>
+These options can be set in the system section:
+</p>
+<div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>hostname</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>OpenWrt</code> </td><td class="col4"> The hostname for this system. Avoid points, even if they are within single7double quotes. For example <code> &#039;my.hostname&#039; </code> will show only the <code> &#039;my&#039; </code> part </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>buffersize</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> kernel specific </td><td class="col4"> Size of the kernel message buffer. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>conloglevel</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <code>7</code> </td><td class="col4"> Number between 1-8. The maximum <a href="http://www.kernel.org/doc/man-pages/online/pages/man2/syslog.2.html" class="urlextern" title="http://www.kernel.org/doc/man-pages/online/pages/man2/syslog.2.html"  rel="nofollow">log level</a> for kernel messages to be logged to the console. Only messages with a level lower than this will be printed to the console. Higher level messages have lower log level number. Highest level messages are ones with log level 0. If you want more verbous messages in console put conloglevel to 8 if you want less messages lower conloglevel to 4 or even less.</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>cronloglevel</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <code>5</code> </td><td class="col4"> The minimul level for cron messages to be logged to syslog. <code>0</code> will print all debug messages, <code>8</code> will log command executions, and <code>9</code> or higher will only log error messages. </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>klogconloglevel</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <code>7</code> </td><td class="col4"> The maximum <a href="http://www.kernel.org/doc/man-pages/online/pages/man2/syslog.2.html" class="urlextern" title="http://www.kernel.org/doc/man-pages/online/pages/man2/syslog.2.html"  rel="nofollow">log level</a> for kernel messages to be logged to the console. Only messages with a level lower than this will be printed to the console. Identical to <code>conloglevel</code> and will override it. </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>log_file</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> no log file </td><td class="col4"> File to write log messages to (type <code>file</code>). The default is to not write a log in a file. The most often used location for a system log file is <code>/var/log/messages</code>.</td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> <code>log_ip</code> </td><td class="col1"> IP address </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> IP address of a syslog server to which the log messages should be sent in addition to the local destination. </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <code>log_port</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <code>514</code> </td><td class="col4"> Port number of the remote syslog server specified with <code>log_ip</code>. </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> <code>log_prefix</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"><em>(none)</em></td><td class="col4"> Adds a prefix to all log messages send over network. </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> <code>log_size</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> <code>16</code> </td><td class="col4"> Size of the file or circular memory buffer in KiB. </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> <code>log_type</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>circular</code> </td><td class="col4"> Either <code>circular</code> or <code>file</code>. </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0"> <code>timezone</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>UTC</code> </td><td class="col4"> The time zone that date and time should be rendered in by default. A list of possible values is in the <code>TZ string</code> column of the <span class="curid"><a href="system#time_zones" class="wikilink1" title="doc:uci:system">Time Zones</a></span> table. </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0"> <code>zonename</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <code>UTC</code> </td><td class="col4"> Only useful when using eglibc and zoneinfo! (<code>LIBC_USE_EGLIBC</code>, <code>PACKAGE_zoneinfo-*</code>) The time zone that date and time should be rendered in by default. Suppose you want to use Brussels&#039; timezone, set this value to <code>Europe/Brussels</code>. Possible values can be found by running <code>(cd /usr/share/zoneinfo; find *)</code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit6" id="remote_time_ntp">Remote Time (ntp)</h3>
+<div class="level3">
+<div class="table sectionedit7"><table class="inline">
+	<tr class="row0">
+		<td class="col0 leftalign"> <img src="../../_media/meta/icons/tango/48px-outdated.svg.png" class="media" alt="" />  </td><td class="col1"> In <code><a href="https://dev.openwrt.org/browser/trunk/package/base-files/files/etc/config/system?rev=28612" class="urlextern" title="https://dev.openwrt.org/browser/trunk/package/base-files/files/etc/config/system?rev=28612"  rel="nofollow">/etc/config/system (rev28612)</a></code> <code>busybox-rdate</code> (was invoked by scripts) has been replaced with <code>busybox-nptd</code> (can run as a daemon) to avoid race condition and also to use current NTP. The remote time is since configured in <code>/etc/config/system</code> and not in <code>/etc/config/timeserver</code> any longer. </td>
+	</tr>
+</table></div>
+<ul>
+<li class="level1"><div class="li"> <img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> Old scripts first checked if a lease time server is defined for the interface in the <a href="network" class="wikilink1" title="doc:uci:network">network config</a>.</div>
+</li>
+<li class="level1"><div class="li"> <img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> If not available or syncing fails, then it searches for time servers in the <a href="timeserver" class="wikilink1" title="doc:uci:timeserver">timeserver config</a> that are either explicitly defined for that interface or via the global setting in the system config.</div>
+</li>
+</ul>
+<div class="table sectionedit8"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>
+config &#039;timeserver&#039; &#039;ntp&#039;
+        list &#039;server&#039;     &#039;0.openwrt.pool.ntp.org&#039;
+        list &#039;server&#039;     &#039;1.openwrt.pool.ntp.org&#039;
+        list &#039;server&#039;     &#039;2.openwrt.pool.ntp.org&#039;
+        list &#039;server&#039;     &#039;3.openwrt.pool.ntp.org&#039;
+        option enable_server 0
+</code></td>
+	</tr>
+</table></div>
+
+<p>
+There are at least two valid option defined for the <code>timeserver</code> <code>ntp</code> section:
+</p>
+<div class="table sectionedit9"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> <code>server</code>        </td><td class="col1"> list of hostnames </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Defines the pool of NTP servers to poll the time from. If the list is empty, the builtin NTP daemon is not started. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>enable_server</code> </td><td class="col1 leftalign"> boolean           </td><td class="col2"> no </td><td class="col3 centeralign">  0  </td><td class="col4"> You can put busybox-ntpd in<br/>
+client mode only: by defining at least one host to <code>server</code> and puting <code>enable_server</code> 0 <br/>
+client &amp; server mode: by putting <code>enable_server</code> to 1, (busybox-ntpd listens to UDP 123 by default),<br/>
+server mode only: by not defining any servers in the config and just put <code>enable_server</code> 1 (ntpd will answer with the time of the router) </td>
+	</tr>
+</table></div>
+
+<p>
+TODO: I&#039;ve replaced &quot;config_foreach getpeers timeserver&quot; with &quot;config_get peers ntp server&quot; because we want ntp timeserver, not random ones (to pre-answer if someone want to say that it&#039;s intrusive …)
+</p>
+
+<p>
+If the above configuration is missing in the file <code>/etc/config/system</code> (or faulty), busybox-nptd will not be started! You can manually invoke it by e.g.<pre class="code bash">ntpd <span class="re5">-q</span> <span class="re5">-p</span> openwrt.pool.ntp.org</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="leds">Leds</h3>
+<div class="level3">
+
+<p>
+OpenWRT supports using the router&#039;s LEDs to give feedback about its status. Which LEDs are available to be controlled through OpenWRT depends on the specific router model.
+</p>
+
+<p>
+LEDs are represented by entries in the <code>sys</code> filesystem. You can check which LEDs are available in the <code>/sys/class/leds</code> directory. The name of an entry typically consists of the name of the hardware providing the LED (the router model), the color of the LED, and it&#039;s designation (usually the label on the case). Some LEDs can show different colors. In this case, you will find one entry per color.
+</p>
+
+<p>
+The LED can be controlled by various events in the system, which is selected by the <code>trigger</code> option. Depending on the trigger, additional options must be specified.
+</p>
+
+<p>
+First of all, you need to know which triggers are available for a led, to do that simply look at <code>trigger</code> file of that led. Example:
+</p>
+<div class="table sectionedit11"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>cat /sys/class/leds/<strong>LED</strong>/trigger
+[none] timer default-on netdev morse usbdev</code> </td>
+	</tr>
+</table></div>
+
+<p>
+<pre class="code bash">opkg list-installed kmod-ledtrig<span class="sy0">*</span>
+opkg list kmod-ledtrig<span class="sy0">*</span></pre>
+
+</p>
+
+<p>
+To allow more triggers it&#039;s necessary to build your own OpenWRT or install some packages (like ledtrig-morse).
+</p>
+
+<p>
+If you build your own OpenWrt and try to install any kmod-* package from OpenWrt repository, it will fail. In this case is safe to force install:
+<pre class="code bash">opkg <span class="kw2">install</span> kmod-ledtrig-morse <span class="re5">--force-depends</span></pre>
+
+</p>
+
+</div>
+
+<h4 id="none">None</h4>
+<div class="level4">
+
+<p>
+The LED is always in default state. Unlisted LED are default OFF, so this is only useful to declare a LED to be always ON.
+</p>
+<div class="table sectionedit12"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>default</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> 0 </td><td class="col4"> LED state before trigger: <code>0</code> means OFF and <code>1</code> means ON </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>sysfs</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> LED device name </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>trigger</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> <code>none</code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h4 id="timer">Timer</h4>
+<div class="level4">
+
+<p>
+The LED blinks with the configured on/off frequency.
+<pre class="code bash">opkg <span class="kw2">install</span> kmod-ledtrig-timer</pre>
+
+</p>
+<div class="table sectionedit13"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>default</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> 0 </td><td class="col4"> LED state before trigger: <code>0</code> means OFF and <code>1</code> means ON </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>delayoff</code> </td><td class="col1"> integer </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> How long (in milliseconds) the LED should be off. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>delayon</code> </td><td class="col1"> integer </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> How long (in milliseconds) the LED should be on. </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>sysfs</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> LED device name </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>trigger</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> <code>timer</code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h4 id="default-on">Default-on</h4>
+<div class="level4">
+
+<p>
+The LED is ON. Deprecated, use default=1 trigger=none instead.
+<pre class="code bash">opkg <span class="kw2">install</span> kmod-ledtrig-default-on</pre>
+
+</p>
+<div class="table sectionedit14"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>default</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> 0 </td><td class="col4"> LED state before trigger: <code>0</code> means OFF and <code>1</code> means ON </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>sysfs</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> LED device name </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>trigger</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> <code>default-on</code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h4 id="heartbeat">Heartbeat</h4>
+<div class="level4">
+
+<p>
+The LED flashes to simulate actual heart beat <em>thump-thump-pause</em>. The frequency is in direct proportion to 1-minute average CPU load.<sup><a href="system#fn__1" id="fnt__1" class="fn_top">1)</a></sup>
+<pre class="code bash">opkg <span class="kw2">install</span> kmod-ledtrig-heartbeat</pre>
+
+</p>
+<div class="table sectionedit15"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>default</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> 0 </td><td class="col4"> LED state before trigger: <code>0</code> means OFF and <code>1</code> means ON </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>sysfs</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> LED device name </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>trigger</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> <code>heartbeat</code> </td>
+	</tr>
+</table></div>
+
+<p>
+Note:<em>to test the heartbeat take a look at <a href="../howto/snippets#generate100cpuload" class="wikilink1" title="doc:howto:snippets">snippets</a>.</em>
+</p>
+
+</div>
+
+<h4 id="flash_writes">Flash Writes</h4>
+<div class="level4">
+
+<p>
+The LED flashes as data is written to flash memory.
+</p>
+<div class="table sectionedit16"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>default</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> 0 </td><td class="col4"> LED state before trigger: <code>0</code> means OFF and <code>1</code> means ON </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>sysfs</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> LED device name </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>trigger</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> <code>nand-disk</code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h4 id="network_activity">Network Activity</h4>
+<div class="level4">
+
+<p>
+The LED flashes with link status and/or send and receive activity on the configured interface.
+<pre class="code bash">opkg <span class="kw2">install</span> kmod-ledtrig-netdev</pre>
+
+</p>
+<div class="table sectionedit17"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>default</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> 0 </td><td class="col4"> LED state before trigger: <code>0</code> means OFF and <code>1</code> means ON </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>dev</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Name of the network interface which status should be reflected </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>mode</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> One or more of <code>link</code>, <code>tx</code>, or <code>rx</code>, seperated by spaces </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>sysfs</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> LED device name </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>trigger</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> <code>netdev</code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h4 id="wifi_activity">WiFi Activity</h4>
+<div class="level4">
+
+<p>
+<img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> this subsection requires expert&#039;s review.
+</p>
+
+<p>
+The LED flashes on events triggered in physical interface, rather than in software network interface. Besides <code>phy</code>
+triggers have more events, it also provides possibility of static LED setup in case you want to monitor your 2.4 <abbr title="Gigahertz">GHz</abbr>
+radio (<code>phy0</code> usually) and 5 <abbr title="Gigahertz">GHz</abbr> radio (<code>phy1</code> usually) separately. <code>netdev</code> can&#039;t guarantee this distinguishing
+since <code>wlan0</code> may be referring to 2.4 <abbr title="Gigahertz">GHz</abbr> or 5 <abbr title="Gigahertz">GHz</abbr> radio based on current network setup.
+</p>
+<div class="table sectionedit18"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>default</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> 0 </td><td class="col4"> LED state before trigger: <code>0</code> means OFF and <code>1</code> means ON </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>sysfs</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> LED device name </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>trigger</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> <code>phy0rx</code>, <code>phy0tx</code>, <code>phy0assoc</code>, <code>phy0radio</code> or <code>phy0tpt</code> </td>
+	</tr>
+</table></div>
+<ul>
+<li class="level1"><div class="li"> <strong>phy0rx</strong> - flashes on reception.</div>
+</li>
+<li class="level1"><div class="li"> <strong>phy0tx</strong> - flashes on transmission.</div>
+</li>
+<li class="level1"><div class="li"> <strong>phy0assoc</strong> - flashes on client association.</div>
+</li>
+<li class="level1"><div class="li"> <strong>phy0radio</strong> - (<img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> hard to say what this is supposed to do; this option did nothing on my tl-wr1043nd with Backfire 10.03.1, r29592 and Attitude Adjustment r32793)</div>
+</li>
+<li class="level1"><div class="li"> <strong>phy0tpt</strong> - flashes slowly and steadily on network activity.<sup><a href="system#fn__2" id="fnt__2" class="fn_top">2)</a></sup></div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="usb_device">USB Device</h4>
+<div class="level4">
+
+<p>
+The LED turns ON if USB device is connected.
+<pre class="code bash">opkg <span class="kw2">install</span> kmod-ledtrig-usbdev</pre>
+
+</p>
+<div class="table sectionedit19"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>default</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> 0 </td><td class="col4"> LED state before trigger: <code>0</code> means OFF and <code>1</code> means ON </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>dev</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Name of USB device to monitor (in this example &#039;1-1&#039;). </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>interval</code> </td><td class="col1"> integer </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Interval in ms when device is active. </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>sysfs</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> LED device name </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>trigger</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> <code>usbdev</code> </td>
+	</tr>
+</table></div>
+
+<p>
+To find out device name use <code>logread</code> to search for it or list <code>/sys/bus/usb/devices</code> (for this example, there would be <code>/sys/bus/usb/devices/1-1</code> device).
+</p>
+
+</div>
+
+<h4 id="morse_code">Morse Code</h4>
+<div class="level4">
+
+<p>
+The LED signals a message using Morse code.
+</p>
+
+<p>
+Requires the kmod-ledtrig-morse package. UCI configuration was added in revision r34380.
+<pre class="code bash">opkg <span class="kw2">install</span> kmod-ledtrig-morse</pre>
+
+</p>
+<div class="table sectionedit20"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>default</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> 0 </td><td class="col4"> LED state before trigger: <code>0</code> means OFF and <code>1</code> means ON </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> <code>delay</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> 150 </td><td class="col4"> Dit length in milliseconds </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> <code>dev</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> Name of USB device to monitor (in this example &#039;1-1&#039;). </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>message</code> </td><td class="col1"> string </td><td class="col2"> no </td><td class="col3"> <em>(none)</em> </td><td class="col4"> The message to signal </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> <code>sysfs</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> LED device name </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <code>trigger</code> </td><td class="col1"> string </td><td class="col2"> yes </td><td class="col3"> <em>(none)</em> </td><td class="col4"> <code>morse</code> </td>
+	</tr>
+</table></div>
+
+<p>
+If you don&#039;t have a recent enough version, you can set trigger to &quot;morse&quot; and control the behavior by writing to the <code>message</code> and <code>delay</code> files in <code>/sys/class/leds/&lt;name&gt;</code>.
+</p>
+
+</div>
+
+<h4 id="gpio">GPIO</h4>
+<div class="level4">
+
+<p>
+Allows LEDs to be controlled by gpio events.
+<pre class="code bash">opkg <span class="kw2">install</span> kmod-ledtrig-gpio</pre>
+
+</p>
+<div class="table sectionedit21"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>default</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> 0 </td><td class="col4"> LED state before trigger: <code>0</code> means OFF and <code>1</code> means ON </td>
+	</tr>
+</table></div>
+
+<p>
+<img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" />
+</p>
+
+</div>
+
+<h4 id="net_filter">Net filter</h4>
+<div class="level4">
+
+<p>
+Flash LED when a particular packets passing through your machine.
+</p>
+
+<p>
+For example to create an LED trigger for incoming SSH traffic:
+<pre class="code bash">iptables <span class="re5">-A</span> INPUT <span class="re5">-p</span> tcp <span class="re5">--dport</span> <span class="nu0">22</span> <span class="re5">-j</span> LED <span class="re5">--led-trigger-id</span> <span class="kw2">ssh</span> <span class="re5">--led-delay</span> <span class="nu0">1000</span></pre>
+
+Then attach the new trigger to an LED on your system:
+<pre class="code bash"><span class="kw3">echo</span> netfilter-ssh <span class="sy0">&gt;</span> <span class="sy0">/</span>sys<span class="sy0">/</span>class<span class="sy0">/</span>leds<span class="sy0">/&lt;</span>ledname<span class="sy0">&gt;/</span>trigger</pre>
+
+</p>
+
+<p>
+<pre class="code bash">opkg <span class="kw2">install</span> kmod-ledtrig-netfilter</pre>
+
+</p>
+<div class="table sectionedit22"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Name </th><th class="col1"> Type </th><th class="col2"> Required </th><th class="col3"> Default </th><th class="col4"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> <code>default</code> </td><td class="col1"> integer </td><td class="col2"> no </td><td class="col3"> 0 </td><td class="col4"> LED state before trigger: <code>0</code> means OFF and <code>1</code> means ON </td>
+	</tr>
+</table></div>
+
+<p>
+<img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" />
+</p>
+
+</div>
+
+<h2 class="sectionedit23" id="examples">Examples</h2>
+<div class="level2">
+
+<p>
+Please remember to change the <code>sysfs</code> option to LEDs that are actually present on your router. This can be done easily through LuCI. You may find some other examples in <a href="../howto/snippets#ipv6activityled" class="wikilink1" title="doc:howto:snippets">snippets</a>. Following examples are from <code>/etc/config/system</code> file:
+</p>
+
+</div>
+
+<h3 class="sectionedit24" id="heartbeat_led">Heartbeat led</h3>
+<div class="level3">
+<div class="table sectionedit25"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;led&#039;
+	option &#039;sysfs&#039;		&#039;wrt160nl:amber:wps&#039;
+	option &#039;trigger&#039;	&#039;heartbeat</code>&#039; </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit26" id="wlan_led">WLAN led</h3>
+<div class="level3">
+<div class="table sectionedit27"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>
+config &#039;led&#039; &#039;wlan_led&#039;
+        option &#039;name&#039;           &#039;WLAN&#039;
+        option &#039;sysfs&#039;          &#039;tl-wr1043nd:green:wlan&#039;
+        option &#039;trigger&#039;        &#039;netdev&#039;
+        option &#039;dev&#039;            &#039;wlan0&#039;
+        option &#039;mode&#039;           &#039;link tx rx&#039;
+</code> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit28" id="timer_led_-_500ms_on_2000ms_off">Timer led - 500ms ON, 2000ms OFF</h3>
+<div class="level3">
+<div class="table sectionedit29"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <code>config &#039;led&#039;
+	option &#039;sysfs&#039;		&#039;wrt160nl:blue:wps&#039;
+	option &#039;trigger&#039;	&#039;timer&#039;
+	option &#039;delayon&#039;	&#039;500&#039;
+	option &#039;delayoff&#039;	&#039;2000</code>&#039; </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit30" id="time_zones">Time Zones</h2>
+<div class="level2">
+<div class="table sectionedit31"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Location </th><th class="col1"> TZ string </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> Africa/Abidjan </td><td class="col1"> GMT0 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> Africa/Accra </td><td class="col1"> GMT0 </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> Africa/Addis Ababa </td><td class="col1"> EAT-3 </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> Africa/Algiers </td><td class="col1"> CET-1 </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> Africa/Asmara </td><td class="col1"> EAT-3 </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> Africa/Bamako </td><td class="col1"> GMT0 </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> Africa/Bangui </td><td class="col1"> WAT-1 </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> Africa/Banjul </td><td class="col1"> GMT0 </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> Africa/Bissau </td><td class="col1"> GMT0 </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> Africa/Blantyre </td><td class="col1"> CAT-2 </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> Africa/Brazzaville </td><td class="col1"> WAT-1 </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0"> Africa/Bujumbura </td><td class="col1"> CAT-2 </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0"> Africa/Casablanca </td><td class="col1"> WET0 </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0"> Africa/Ceuta </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0"> Africa/Conakry </td><td class="col1"> GMT0 </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0"> Africa/Dakar </td><td class="col1"> GMT0 </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0"> Africa/Dar es Salaam </td><td class="col1"> EAT-3 </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0"> Africa/Djibouti </td><td class="col1"> EAT-3 </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0"> Africa/Douala </td><td class="col1"> WAT-1 </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0"> Africa/El Aaiun </td><td class="col1"> WET0 </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0"> Africa/Freetown </td><td class="col1"> GMT0 </td>
+	</tr>
+	<tr class="row22">
+		<td class="col0"> Africa/Gaborone </td><td class="col1"> CAT-2 </td>
+	</tr>
+	<tr class="row23">
+		<td class="col0"> Africa/Harare </td><td class="col1"> CAT-2 </td>
+	</tr>
+	<tr class="row24">
+		<td class="col0"> Africa/Johannesburg </td><td class="col1"> SAST-2 </td>
+	</tr>
+	<tr class="row25">
+		<td class="col0"> Africa/Kampala </td><td class="col1"> EAT-3 </td>
+	</tr>
+	<tr class="row26">
+		<td class="col0"> Africa/Khartoum </td><td class="col1"> EAT-3 </td>
+	</tr>
+	<tr class="row27">
+		<td class="col0"> Africa/Kigali </td><td class="col1"> CAT-2 </td>
+	</tr>
+	<tr class="row28">
+		<td class="col0"> Africa/Kinshasa </td><td class="col1"> WAT-1 </td>
+	</tr>
+	<tr class="row29">
+		<td class="col0"> Africa/Lagos </td><td class="col1"> WAT-1 </td>
+	</tr>
+	<tr class="row30">
+		<td class="col0"> Africa/Libreville </td><td class="col1"> WAT-1 </td>
+	</tr>
+	<tr class="row31">
+		<td class="col0"> Africa/Lome </td><td class="col1"> GMT0 </td>
+	</tr>
+	<tr class="row32">
+		<td class="col0"> Africa/Luanda </td><td class="col1"> WAT-1 </td>
+	</tr>
+	<tr class="row33">
+		<td class="col0"> Africa/Lubumbashi </td><td class="col1"> CAT-2 </td>
+	</tr>
+	<tr class="row34">
+		<td class="col0"> Africa/Lusaka </td><td class="col1"> CAT-2 </td>
+	</tr>
+	<tr class="row35">
+		<td class="col0"> Africa/Malabo </td><td class="col1"> WAT-1 </td>
+	</tr>
+	<tr class="row36">
+		<td class="col0"> Africa/Maputo </td><td class="col1"> CAT-2 </td>
+	</tr>
+	<tr class="row37">
+		<td class="col0"> Africa/Maseru </td><td class="col1"> SAST-2 </td>
+	</tr>
+	<tr class="row38">
+		<td class="col0"> Africa/Mbabane </td><td class="col1"> SAST-2 </td>
+	</tr>
+	<tr class="row39">
+		<td class="col0"> Africa/Mogadishu </td><td class="col1"> EAT-3 </td>
+	</tr>
+	<tr class="row40">
+		<td class="col0"> Africa/Monrovia </td><td class="col1"> GMT0 </td>
+	</tr>
+	<tr class="row41">
+		<td class="col0"> Africa/Nairobi </td><td class="col1"> EAT-3 </td>
+	</tr>
+	<tr class="row42">
+		<td class="col0"> Africa/Ndjamena </td><td class="col1"> WAT-1 </td>
+	</tr>
+	<tr class="row43">
+		<td class="col0"> Africa/Niamey </td><td class="col1"> WAT-1 </td>
+	</tr>
+	<tr class="row44">
+		<td class="col0"> Africa/Nouakchott </td><td class="col1"> GMT0 </td>
+	</tr>
+	<tr class="row45">
+		<td class="col0"> Africa/Ouagadougou </td><td class="col1"> GMT0 </td>
+	</tr>
+	<tr class="row46">
+		<td class="col0"> Africa/Porto-Novo </td><td class="col1"> WAT-1 </td>
+	</tr>
+	<tr class="row47">
+		<td class="col0"> Africa/Sao Tome </td><td class="col1"> GMT0 </td>
+	</tr>
+	<tr class="row48">
+		<td class="col0"> Africa/Tripoli </td><td class="col1"> EET-2 </td>
+	</tr>
+	<tr class="row49">
+		<td class="col0"> Africa/Tunis </td><td class="col1"> CET-1 </td>
+	</tr>
+	<tr class="row50">
+		<td class="col0"> Africa/Windhoek </td><td class="col1"> WAT-1WAST,M9.1.0,M4.1.0 </td>
+	</tr>
+	<tr class="row51">
+		<td class="col0"> America/Adak </td><td class="col1"> HAST10HADT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row52">
+		<td class="col0"> America/Anchorage </td><td class="col1"> AKST9AKDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row53">
+		<td class="col0"> America/Anguilla </td><td class="col1"> AST4 </td>
+	</tr>
+	<tr class="row54">
+		<td class="col0"> America/Antigua </td><td class="col1"> AST4 </td>
+	</tr>
+	<tr class="row55">
+		<td class="col0"> America/Araguaina </td><td class="col1"> BRT3 </td>
+	</tr>
+	<tr class="row56">
+		<td class="col0"> America/Argentina/Buenos Aires </td><td class="col1"> ART3 </td>
+	</tr>
+	<tr class="row57">
+		<td class="col0"> America/Argentina/Catamarca </td><td class="col1"> ART3 </td>
+	</tr>
+	<tr class="row58">
+		<td class="col0"> America/Argentina/Cordoba </td><td class="col1"> ART3 </td>
+	</tr>
+	<tr class="row59">
+		<td class="col0"> America/Argentina/Jujuy </td><td class="col1"> ART3 </td>
+	</tr>
+	<tr class="row60">
+		<td class="col0"> America/Argentina/La Rioja </td><td class="col1"> ART3 </td>
+	</tr>
+	<tr class="row61">
+		<td class="col0"> America/Argentina/Mendoza </td><td class="col1"> ART3 </td>
+	</tr>
+	<tr class="row62">
+		<td class="col0"> America/Argentina/Rio Gallegos </td><td class="col1"> ART3 </td>
+	</tr>
+	<tr class="row63">
+		<td class="col0"> America/Argentina/Salta </td><td class="col1"> ART3 </td>
+	</tr>
+	<tr class="row64">
+		<td class="col0"> America/Argentina/San Juan </td><td class="col1"> ART3 </td>
+	</tr>
+	<tr class="row65">
+		<td class="col0"> America/Argentina/Tucuman </td><td class="col1"> ART3 </td>
+	</tr>
+	<tr class="row66">
+		<td class="col0"> America/Argentina/Ushuaia </td><td class="col1"> ART3 </td>
+	</tr>
+	<tr class="row67">
+		<td class="col0"> America/Aruba </td><td class="col1"> AST4 </td>
+	</tr>
+	<tr class="row68">
+		<td class="col0"> America/Asuncion </td><td class="col1"> PYT4PYST,M10.1.0/0,M4.2.0/0 </td>
+	</tr>
+	<tr class="row69">
+		<td class="col0"> America/Atikokan </td><td class="col1"> EST5 </td>
+	</tr>
+	<tr class="row70">
+		<td class="col0"> America/Bahia </td><td class="col1"> BRT3 </td>
+	</tr>
+	<tr class="row71">
+		<td class="col0"> America/Barbados </td><td class="col1"> AST4 </td>
+	</tr>
+	<tr class="row72">
+		<td class="col0"> America/Belem </td><td class="col1"> BRT3 </td>
+	</tr>
+	<tr class="row73">
+		<td class="col0"> America/Belize </td><td class="col1"> CST6 </td>
+	</tr>
+	<tr class="row74">
+		<td class="col0"> America/Blanc-Sablon </td><td class="col1"> AST4 </td>
+	</tr>
+	<tr class="row75">
+		<td class="col0"> America/Boa Vista </td><td class="col1"> AMT4 </td>
+	</tr>
+	<tr class="row76">
+		<td class="col0"> America/Bogota </td><td class="col1"> COT5 </td>
+	</tr>
+	<tr class="row77">
+		<td class="col0"> America/Boise </td><td class="col1"> MST7MDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row78">
+		<td class="col0"> America/Cambridge Bay </td><td class="col1"> MST7MDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row79">
+		<td class="col0"> America/Campo Grande </td><td class="col1"> AMT4AMST,M10.3.0/0,M2.3.0/0 </td>
+	</tr>
+	<tr class="row80">
+		<td class="col0"> America/Cancun </td><td class="col1"> CST6CDT,M4.1.0,M10.5.0 </td>
+	</tr>
+	<tr class="row81">
+		<td class="col0"> America/Caracas </td><td class="col1"> VET4:30 </td>
+	</tr>
+	<tr class="row82">
+		<td class="col0"> America/Cayenne </td><td class="col1"> GFT3 </td>
+	</tr>
+	<tr class="row83">
+		<td class="col0"> America/Cayman </td><td class="col1"> EST5 </td>
+	</tr>
+	<tr class="row84">
+		<td class="col0"> America/Chicago </td><td class="col1"> CST6CDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row85">
+		<td class="col0"> America/Chihuahua </td><td class="col1"> MST7MDT,M4.1.0,M10.5.0 </td>
+	</tr>
+	<tr class="row86">
+		<td class="col0"> America/Costa Rica </td><td class="col1"> CST6 </td>
+	</tr>
+	<tr class="row87">
+		<td class="col0"> America/Cuiaba </td><td class="col1"> AMT4AMST,M10.3.0/0,M2.3.0/0 </td>
+	</tr>
+	<tr class="row88">
+		<td class="col0"> America/Curacao </td><td class="col1"> AST4 </td>
+	</tr>
+	<tr class="row89">
+		<td class="col0"> America/Danmarkshavn </td><td class="col1"> GMT0 </td>
+	</tr>
+	<tr class="row90">
+		<td class="col0"> America/Dawson </td><td class="col1"> PST8PDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row91">
+		<td class="col0"> America/Dawson Creek </td><td class="col1"> MST7 </td>
+	</tr>
+	<tr class="row92">
+		<td class="col0"> America/Denver </td><td class="col1"> MST7MDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row93">
+		<td class="col0"> America/Detroit </td><td class="col1"> EST5EDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row94">
+		<td class="col0"> America/Dominica </td><td class="col1"> AST4 </td>
+	</tr>
+	<tr class="row95">
+		<td class="col0"> America/Edmonton </td><td class="col1"> MST7MDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row96">
+		<td class="col0"> America/Eirunepe </td><td class="col1"> AMT4 </td>
+	</tr>
+	<tr class="row97">
+		<td class="col0"> America/El Salvador </td><td class="col1"> CST6 </td>
+	</tr>
+	<tr class="row98">
+		<td class="col0"> America/Fortaleza </td><td class="col1"> BRT3 </td>
+	</tr>
+	<tr class="row99">
+		<td class="col0"> America/Glace Bay </td><td class="col1"> AST4ADT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row100">
+		<td class="col0"> America/Goose Bay </td><td class="col1"> AST4ADT,M3.2.0/0:01,M11.1.0/0:01 </td>
+	</tr>
+	<tr class="row101">
+		<td class="col0"> America/Grand Turk </td><td class="col1"> EST5EDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row102">
+		<td class="col0"> America/Grenada </td><td class="col1"> AST4 </td>
+	</tr>
+	<tr class="row103">
+		<td class="col0"> America/Guadeloupe </td><td class="col1"> AST4 </td>
+	</tr>
+	<tr class="row104">
+		<td class="col0"> America/Guatemala </td><td class="col1"> CST6 </td>
+	</tr>
+	<tr class="row105">
+		<td class="col0"> America/Guayaquil </td><td class="col1"> ECT5 </td>
+	</tr>
+	<tr class="row106">
+		<td class="col0"> America/Guyana </td><td class="col1"> GYT4 </td>
+	</tr>
+	<tr class="row107">
+		<td class="col0"> America/Halifax </td><td class="col1"> AST4ADT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row108">
+		<td class="col0"> America/Havana </td><td class="col1"> CST5CDT,M3.2.0/0,M10.5.0/1 </td>
+	</tr>
+	<tr class="row109">
+		<td class="col0"> America/Hermosillo </td><td class="col1"> MST7 </td>
+	</tr>
+	<tr class="row110">
+		<td class="col0"> America/Indiana/Indianapolis </td><td class="col1"> EST5EDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row111">
+		<td class="col0"> America/Indiana/Knox </td><td class="col1"> CST6CDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row112">
+		<td class="col0"> America/Indiana/Marengo </td><td class="col1"> EST5EDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row113">
+		<td class="col0"> America/Indiana/Petersburg </td><td class="col1"> EST5EDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row114">
+		<td class="col0"> America/Indiana/Tell City </td><td class="col1"> CST6CDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row115">
+		<td class="col0"> America/Indiana/Vevay </td><td class="col1"> EST5EDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row116">
+		<td class="col0"> America/Indiana/Vincennes </td><td class="col1"> EST5EDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row117">
+		<td class="col0"> America/Indiana/Winamac </td><td class="col1"> EST5EDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row118">
+		<td class="col0"> America/Inuvik </td><td class="col1"> MST7MDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row119">
+		<td class="col0"> America/Iqaluit </td><td class="col1"> EST5EDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row120">
+		<td class="col0"> America/Jamaica </td><td class="col1"> EST5 </td>
+	</tr>
+	<tr class="row121">
+		<td class="col0"> America/Juneau </td><td class="col1"> AKST9AKDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row122">
+		<td class="col0"> America/Kentucky/Louisville </td><td class="col1"> EST5EDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row123">
+		<td class="col0"> America/Kentucky/Monticello </td><td class="col1"> EST5EDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row124">
+		<td class="col0"> America/La Paz </td><td class="col1"> BOT4 </td>
+	</tr>
+	<tr class="row125">
+		<td class="col0"> America/Lima </td><td class="col1"> PET5 </td>
+	</tr>
+	<tr class="row126">
+		<td class="col0"> America/Los Angeles </td><td class="col1"> PST8PDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row127">
+		<td class="col0"> America/Maceio </td><td class="col1"> BRT3 </td>
+	</tr>
+	<tr class="row128">
+		<td class="col0"> America/Managua </td><td class="col1"> CST6 </td>
+	</tr>
+	<tr class="row129">
+		<td class="col0"> America/Manaus </td><td class="col1"> AMT4 </td>
+	</tr>
+	<tr class="row130">
+		<td class="col0"> America/Marigot </td><td class="col1"> AST4 </td>
+	</tr>
+	<tr class="row131">
+		<td class="col0"> America/Martinique </td><td class="col1"> AST4 </td>
+	</tr>
+	<tr class="row132">
+		<td class="col0"> America/Matamoros </td><td class="col1"> CST6CDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row133">
+		<td class="col0"> America/Mazatlan </td><td class="col1"> MST7MDT,M4.1.0,M10.5.0 </td>
+	</tr>
+	<tr class="row134">
+		<td class="col0"> America/Menominee </td><td class="col1"> CST6CDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row135">
+		<td class="col0"> America/Merida </td><td class="col1"> CST6CDT,M4.1.0,M10.5.0 </td>
+	</tr>
+	<tr class="row136">
+		<td class="col0"> America/Mexico City </td><td class="col1"> CST6CDT,M4.1.0,M10.5.0 </td>
+	</tr>
+	<tr class="row137">
+		<td class="col0"> America/Miquelon </td><td class="col1"> PMST3PMDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row138">
+		<td class="col0"> America/Moncton </td><td class="col1"> AST4ADT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row139">
+		<td class="col0"> America/Monterrey </td><td class="col1"> CST6CDT,M4.1.0,M10.5.0 </td>
+	</tr>
+	<tr class="row140">
+		<td class="col0"> America/Montevideo </td><td class="col1"> UYT3UYST,M10.1.0,M3.2.0 </td>
+	</tr>
+	<tr class="row141">
+		<td class="col0"> America/Montreal </td><td class="col1"> EST5EDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row142">
+		<td class="col0"> America/Montserrat </td><td class="col1"> AST4 </td>
+	</tr>
+	<tr class="row143">
+		<td class="col0"> America/Nassau </td><td class="col1"> EST5EDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row144">
+		<td class="col0"> America/New York </td><td class="col1"> EST5EDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row145">
+		<td class="col0"> America/Nipigon </td><td class="col1"> EST5EDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row146">
+		<td class="col0"> America/Nome </td><td class="col1"> AKST9AKDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row147">
+		<td class="col0"> America/Noronha </td><td class="col1"> FNT2 </td>
+	</tr>
+	<tr class="row148">
+		<td class="col0"> America/North Dakota/Center </td><td class="col1"> CST6CDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row149">
+		<td class="col0"> America/North Dakota/New Salem </td><td class="col1"> CST6CDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row150">
+		<td class="col0"> America/Ojinaga </td><td class="col1"> MST7MDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row151">
+		<td class="col0"> America/Panama </td><td class="col1"> EST5 </td>
+	</tr>
+	<tr class="row152">
+		<td class="col0"> America/Pangnirtung </td><td class="col1"> EST5EDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row153">
+		<td class="col0"> America/Paramaribo </td><td class="col1"> SRT3 </td>
+	</tr>
+	<tr class="row154">
+		<td class="col0"> America/Phoenix </td><td class="col1"> MST7 </td>
+	</tr>
+	<tr class="row155">
+		<td class="col0"> America/Port of Spain </td><td class="col1"> AST4 </td>
+	</tr>
+	<tr class="row156">
+		<td class="col0"> America/Port-au-Prince </td><td class="col1"> EST5 </td>
+	</tr>
+	<tr class="row157">
+		<td class="col0"> America/Porto Velho </td><td class="col1"> AMT4 </td>
+	</tr>
+	<tr class="row158">
+		<td class="col0"> America/Puerto Rico </td><td class="col1"> AST4 </td>
+	</tr>
+	<tr class="row159">
+		<td class="col0"> America/Rainy River </td><td class="col1"> CST6CDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row160">
+		<td class="col0"> America/Rankin Inlet </td><td class="col1"> CST6CDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row161">
+		<td class="col0"> America/Recife </td><td class="col1"> BRT3 </td>
+	</tr>
+	<tr class="row162">
+		<td class="col0"> America/Regina </td><td class="col1"> CST6 </td>
+	</tr>
+	<tr class="row163">
+		<td class="col0"> America/Rio Branco </td><td class="col1"> AMT4 </td>
+	</tr>
+	<tr class="row164">
+		<td class="col0"> America/Santa Isabel </td><td class="col1"> PST8PDT,M4.1.0,M10.5.0 </td>
+	</tr>
+	<tr class="row165">
+		<td class="col0"> America/Santarem </td><td class="col1"> BRT3 </td>
+	</tr>
+	<tr class="row166">
+		<td class="col0"> America/Santo Domingo </td><td class="col1"> AST4 </td>
+	</tr>
+	<tr class="row167">
+		<td class="col0"> America/Sao Paulo </td><td class="col1"> BRT3BRST,M10.3.0/0,M2.3.0/0 </td>
+	</tr>
+	<tr class="row168">
+		<td class="col0"> America/Scoresbysund </td><td class="col1"> EGT1EGST,M3.5.0/0,M10.5.0/1 </td>
+	</tr>
+	<tr class="row169">
+		<td class="col0"> America/Shiprock </td><td class="col1"> MST7MDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row170">
+		<td class="col0"> America/St Barthelemy </td><td class="col1"> AST4 </td>
+	</tr>
+	<tr class="row171">
+		<td class="col0"> America/St Johns </td><td class="col1"> NST3:30NDT,M3.2.0/0:01,M11.1.0/0:01 </td>
+	</tr>
+	<tr class="row172">
+		<td class="col0"> America/St Kitts </td><td class="col1"> AST4 </td>
+	</tr>
+	<tr class="row173">
+		<td class="col0"> America/St Lucia </td><td class="col1"> AST4 </td>
+	</tr>
+	<tr class="row174">
+		<td class="col0"> America/St Thomas </td><td class="col1"> AST4 </td>
+	</tr>
+	<tr class="row175">
+		<td class="col0"> America/St Vincent </td><td class="col1"> AST4 </td>
+	</tr>
+	<tr class="row176">
+		<td class="col0"> America/Swift Current </td><td class="col1"> CST6 </td>
+	</tr>
+	<tr class="row177">
+		<td class="col0"> America/Tegucigalpa </td><td class="col1"> CST6 </td>
+	</tr>
+	<tr class="row178">
+		<td class="col0"> America/Thule </td><td class="col1"> AST4ADT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row179">
+		<td class="col0"> America/Thunder Bay </td><td class="col1"> EST5EDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row180">
+		<td class="col0"> America/Tijuana </td><td class="col1"> PST8PDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row181">
+		<td class="col0"> America/Toronto </td><td class="col1"> EST5EDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row182">
+		<td class="col0"> America/Tortola </td><td class="col1"> AST4 </td>
+	</tr>
+	<tr class="row183">
+		<td class="col0"> America/Vancouver </td><td class="col1"> PST8PDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row184">
+		<td class="col0"> America/Whitehorse </td><td class="col1"> PST8PDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row185">
+		<td class="col0"> America/Winnipeg </td><td class="col1"> CST6CDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row186">
+		<td class="col0"> America/Yakutat </td><td class="col1"> AKST9AKDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row187">
+		<td class="col0"> America/Yellowknife </td><td class="col1"> MST7MDT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row188">
+		<td class="col0"> Antarctica/Casey </td><td class="col1"> WST-8 </td>
+	</tr>
+	<tr class="row189">
+		<td class="col0"> Antarctica/Davis </td><td class="col1"> DAVT-7 </td>
+	</tr>
+	<tr class="row190">
+		<td class="col0"> Antarctica/DumontDUrville </td><td class="col1"> DDUT-10 </td>
+	</tr>
+	<tr class="row191">
+		<td class="col0"> Antarctica/Macquarie </td><td class="col1"> MIST-11 </td>
+	</tr>
+	<tr class="row192">
+		<td class="col0"> Antarctica/Mawson </td><td class="col1"> MAWT-5 </td>
+	</tr>
+	<tr class="row193">
+		<td class="col0"> Antarctica/McMurdo </td><td class="col1"> NZST-12NZDT,M9.5.0,M4.1.0/3 </td>
+	</tr>
+	<tr class="row194">
+		<td class="col0"> Antarctica/Rothera </td><td class="col1"> ROTT3 </td>
+	</tr>
+	<tr class="row195">
+		<td class="col0"> Antarctica/South Pole </td><td class="col1"> NZST-12NZDT,M9.5.0,M4.1.0/3 </td>
+	</tr>
+	<tr class="row196">
+		<td class="col0"> Antarctica/Syowa </td><td class="col1"> SYOT-3 </td>
+	</tr>
+	<tr class="row197">
+		<td class="col0"> Antarctica/Vostok </td><td class="col1"> VOST-6 </td>
+	</tr>
+	<tr class="row198">
+		<td class="col0"> Arctic/Longyearbyen </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row199">
+		<td class="col0"> Asia/Aden </td><td class="col1"> AST-3 </td>
+	</tr>
+	<tr class="row200">
+		<td class="col0"> Asia/Almaty </td><td class="col1"> ALMT-6 </td>
+	</tr>
+	<tr class="row201">
+		<td class="col0"> Asia/Anadyr </td><td class="col1"> ANAT-11ANAST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row202">
+		<td class="col0"> Asia/Aqtau </td><td class="col1"> AQTT-5 </td>
+	</tr>
+	<tr class="row203">
+		<td class="col0"> Asia/Aqtobe </td><td class="col1"> AQTT-5 </td>
+	</tr>
+	<tr class="row204">
+		<td class="col0"> Asia/Ashgabat </td><td class="col1"> TMT-5 </td>
+	</tr>
+	<tr class="row205">
+		<td class="col0"> Asia/Baghdad </td><td class="col1"> AST-3 </td>
+	</tr>
+	<tr class="row206">
+		<td class="col0"> Asia/Bahrain </td><td class="col1"> AST-3 </td>
+	</tr>
+	<tr class="row207">
+		<td class="col0"> Asia/Baku </td><td class="col1"> AZT-4AZST,M3.5.0/4,M10.5.0/5 </td>
+	</tr>
+	<tr class="row208">
+		<td class="col0"> Asia/Bangkok </td><td class="col1"> ICT-7 </td>
+	</tr>
+	<tr class="row209">
+		<td class="col0"> Asia/Beirut </td><td class="col1"> EET-2EEST,M3.5.0/0,M10.5.0/0 </td>
+	</tr>
+	<tr class="row210">
+		<td class="col0"> Asia/Bishkek </td><td class="col1"> KGT-6 </td>
+	</tr>
+	<tr class="row211">
+		<td class="col0"> Asia/Brunei </td><td class="col1"> BNT-8 </td>
+	</tr>
+	<tr class="row212">
+		<td class="col0"> Asia/Choibalsan </td><td class="col1"> CHOT-8 </td>
+	</tr>
+	<tr class="row213">
+		<td class="col0"> Asia/Chongqing </td><td class="col1"> CST-8 </td>
+	</tr>
+	<tr class="row214">
+		<td class="col0"> Asia/Colombo </td><td class="col1"> IST-5:30 </td>
+	</tr>
+	<tr class="row215">
+		<td class="col0"> Asia/Damascus </td><td class="col1"> EET-2EEST,M4.1.5/0,M10.5.5/0 </td>
+	</tr>
+	<tr class="row216">
+		<td class="col0"> Asia/Dhaka </td><td class="col1"> BDT-6 </td>
+	</tr>
+	<tr class="row217">
+		<td class="col0"> Asia/Dili </td><td class="col1"> TLT-9 </td>
+	</tr>
+	<tr class="row218">
+		<td class="col0"> Asia/Dubai </td><td class="col1"> GST-4 </td>
+	</tr>
+	<tr class="row219">
+		<td class="col0"> Asia/Dushanbe </td><td class="col1"> TJT-5 </td>
+	</tr>
+	<tr class="row220">
+		<td class="col0"> Asia/Gaza </td><td class="col1"> EET-2EEST,M3.5.6/0:01,M9.1.5 </td>
+	</tr>
+	<tr class="row221">
+		<td class="col0"> Asia/Harbin </td><td class="col1"> CST-8 </td>
+	</tr>
+	<tr class="row222">
+		<td class="col0"> Asia/Ho Chi Minh </td><td class="col1"> ICT-7 </td>
+	</tr>
+	<tr class="row223">
+		<td class="col0"> Asia/Hong Kong </td><td class="col1"> HKT-8 </td>
+	</tr>
+	<tr class="row224">
+		<td class="col0"> Asia/Hovd </td><td class="col1"> HOVT-7 </td>
+	</tr>
+	<tr class="row225">
+		<td class="col0"> Asia/Irkutsk </td><td class="col1"> IRKT-8IRKST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row226">
+		<td class="col0"> Asia/Jakarta </td><td class="col1"> WIT-7 </td>
+	</tr>
+	<tr class="row227">
+		<td class="col0"> Asia/Jayapura </td><td class="col1"> EIT-9 </td>
+	</tr>
+	<tr class="row228">
+		<td class="col0"> Asia/Kabul </td><td class="col1"> AFT-4:30 </td>
+	</tr>
+	<tr class="row229">
+		<td class="col0"> Asia/Kamchatka </td><td class="col1"> PETT-11PETST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row230">
+		<td class="col0"> Asia/Karachi </td><td class="col1"> PKT-5 </td>
+	</tr>
+	<tr class="row231">
+		<td class="col0"> Asia/Kashgar </td><td class="col1"> CST-8 </td>
+	</tr>
+	<tr class="row232">
+		<td class="col0"> Asia/Kathmandu </td><td class="col1"> NPT-5:45 </td>
+	</tr>
+	<tr class="row233">
+		<td class="col0"> Asia/Kolkata </td><td class="col1"> IST-5:30 </td>
+	</tr>
+	<tr class="row234">
+		<td class="col0"> Asia/Krasnoyarsk </td><td class="col1"> KRAT-7KRAST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row235">
+		<td class="col0"> Asia/Kuala Lumpur </td><td class="col1"> MYT-8 </td>
+	</tr>
+	<tr class="row236">
+		<td class="col0"> Asia/Kuching </td><td class="col1"> MYT-8 </td>
+	</tr>
+	<tr class="row237">
+		<td class="col0"> Asia/Kuwait </td><td class="col1"> AST-3 </td>
+	</tr>
+	<tr class="row238">
+		<td class="col0"> Asia/Macau </td><td class="col1"> CST-8 </td>
+	</tr>
+	<tr class="row239">
+		<td class="col0"> Asia/Magadan </td><td class="col1"> MAGT-11MAGST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row240">
+		<td class="col0"> Asia/Makassar </td><td class="col1"> CIT-8 </td>
+	</tr>
+	<tr class="row241">
+		<td class="col0"> Asia/Manila </td><td class="col1"> PHT-8 </td>
+	</tr>
+	<tr class="row242">
+		<td class="col0"> Asia/Muscat </td><td class="col1"> GST-4 </td>
+	</tr>
+	<tr class="row243">
+		<td class="col0"> Asia/Nicosia </td><td class="col1"> EET-2EEST,M3.5.0/3,M10.5.0/4 </td>
+	</tr>
+	<tr class="row244">
+		<td class="col0"> Asia/Novokuznetsk </td><td class="col1"> NOVT-6NOVST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row245">
+		<td class="col0"> Asia/Novosibirsk </td><td class="col1"> NOVT-6NOVST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row246">
+		<td class="col0"> Asia/Omsk </td><td class="col1"> OMST-7 </td>
+	</tr>
+	<tr class="row247">
+		<td class="col0"> Asia/Oral </td><td class="col1"> ORAT-5 </td>
+	</tr>
+	<tr class="row248">
+		<td class="col0"> Asia/Phnom Penh </td><td class="col1"> ICT-7 </td>
+	</tr>
+	<tr class="row249">
+		<td class="col0"> Asia/Pontianak </td><td class="col1"> WIT-7 </td>
+	</tr>
+	<tr class="row250">
+		<td class="col0"> Asia/Pyongyang </td><td class="col1"> KST-9 </td>
+	</tr>
+	<tr class="row251">
+		<td class="col0"> Asia/Qatar </td><td class="col1"> AST-3 </td>
+	</tr>
+	<tr class="row252">
+		<td class="col0"> Asia/Qyzylorda </td><td class="col1"> QYZT-6 </td>
+	</tr>
+	<tr class="row253">
+		<td class="col0"> Asia/Rangoon </td><td class="col1"> MMT-6:30 </td>
+	</tr>
+	<tr class="row254">
+		<td class="col0"> Asia/Riyadh </td><td class="col1"> AST-3 </td>
+	</tr>
+	<tr class="row255">
+		<td class="col0"> Asia/Sakhalin </td><td class="col1"> SAKT-10SAKST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row256">
+		<td class="col0"> Asia/Samarkand </td><td class="col1"> UZT-5 </td>
+	</tr>
+	<tr class="row257">
+		<td class="col0"> Asia/Seoul </td><td class="col1"> KST-9 </td>
+	</tr>
+	<tr class="row258">
+		<td class="col0"> Asia/Shanghai </td><td class="col1"> CST-8 </td>
+	</tr>
+	<tr class="row259">
+		<td class="col0"> Asia/Singapore </td><td class="col1"> SGT-8 </td>
+	</tr>
+	<tr class="row260">
+		<td class="col0"> Asia/Taipei </td><td class="col1"> CST-8 </td>
+	</tr>
+	<tr class="row261">
+		<td class="col0"> Asia/Tashkent </td><td class="col1"> UZT-5 </td>
+	</tr>
+	<tr class="row262">
+		<td class="col0"> Asia/Tbilisi </td><td class="col1"> GET-4 </td>
+	</tr>
+	<tr class="row263">
+		<td class="col0"> Asia/Tehran </td><td class="col1"> IRST-3:30IRDT,80/0,264/0 </td>
+	</tr>
+	<tr class="row264">
+		<td class="col0"> Asia/Thimphu </td><td class="col1"> BTT-6 </td>
+	</tr>
+	<tr class="row265">
+		<td class="col0"> Asia/Tokyo </td><td class="col1"> JST-9 </td>
+	</tr>
+	<tr class="row266">
+		<td class="col0"> Asia/Ulaanbaatar </td><td class="col1"> ULAT-8 </td>
+	</tr>
+	<tr class="row267">
+		<td class="col0"> Asia/Urumqi </td><td class="col1"> CST-8 </td>
+	</tr>
+	<tr class="row268">
+		<td class="col0"> Asia/Vientiane </td><td class="col1"> ICT-7 </td>
+	</tr>
+	<tr class="row269">
+		<td class="col0"> Asia/Vladivostok </td><td class="col1"> VLAT-10VLAST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row270">
+		<td class="col0"> Asia/Yakutsk </td><td class="col1"> YAKT-9YAKST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row271">
+		<td class="col0"> Asia/Yekaterinburg </td><td class="col1"> YEKT-5YEKST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row272">
+		<td class="col0"> Asia/Yerevan </td><td class="col1"> AMT-4AMST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row273">
+		<td class="col0"> Atlantic/Azores </td><td class="col1"> AZOT1AZOST,M3.5.0/0,M10.5.0/1 </td>
+	</tr>
+	<tr class="row274">
+		<td class="col0"> Atlantic/Bermuda </td><td class="col1"> AST4ADT,M3.2.0,M11.1.0 </td>
+	</tr>
+	<tr class="row275">
+		<td class="col0"> Atlantic/Canary </td><td class="col1"> WET0WEST,M3.5.0/1,M10.5.0 </td>
+	</tr>
+	<tr class="row276">
+		<td class="col0"> Atlantic/Cape Verde </td><td class="col1"> CVT1 </td>
+	</tr>
+	<tr class="row277">
+		<td class="col0"> Atlantic/Faroe </td><td class="col1"> WET0WEST,M3.5.0/1,M10.5.0 </td>
+	</tr>
+	<tr class="row278">
+		<td class="col0"> Atlantic/Madeira </td><td class="col1"> WET0WEST,M3.5.0/1,M10.5.0 </td>
+	</tr>
+	<tr class="row279">
+		<td class="col0"> Atlantic/Reykjavik </td><td class="col1"> GMT0 </td>
+	</tr>
+	<tr class="row280">
+		<td class="col0"> Atlantic/South Georgia </td><td class="col1"> GST2 </td>
+	</tr>
+	<tr class="row281">
+		<td class="col0"> Atlantic/St Helena </td><td class="col1"> GMT0 </td>
+	</tr>
+	<tr class="row282">
+		<td class="col0"> Atlantic/Stanley </td><td class="col1"> FKT4FKST,M9.1.0,M4.3.0 </td>
+	</tr>
+	<tr class="row283">
+		<td class="col0"> Australia/Adelaide </td><td class="col1"> CST-9:30CST,M10.1.0,M4.1.0/3 </td>
+	</tr>
+	<tr class="row284">
+		<td class="col0"> Australia/Brisbane </td><td class="col1"> EST-10 </td>
+	</tr>
+	<tr class="row285">
+		<td class="col0"> Australia/Broken Hill </td><td class="col1"> CST-9:30CST,M10.1.0,M4.1.0/3 </td>
+	</tr>
+	<tr class="row286">
+		<td class="col0"> Australia/Currie </td><td class="col1"> EST-10EST,M10.1.0,M4.1.0/3 </td>
+	</tr>
+	<tr class="row287">
+		<td class="col0"> Australia/Darwin </td><td class="col1"> CST-9:30 </td>
+	</tr>
+	<tr class="row288">
+		<td class="col0"> Australia/Eucla </td><td class="col1"> CWST-8:45 </td>
+	</tr>
+	<tr class="row289">
+		<td class="col0"> Australia/Hobart </td><td class="col1"> EST-10EST,M10.1.0,M4.1.0/3 </td>
+	</tr>
+	<tr class="row290">
+		<td class="col0"> Australia/Lindeman </td><td class="col1"> EST-10 </td>
+	</tr>
+	<tr class="row291">
+		<td class="col0"> Australia/Lord Howe </td><td class="col1"> LHST-10:30LHST-11,M10.1.0,M4.1.0 </td>
+	</tr>
+	<tr class="row292">
+		<td class="col0"> Australia/Melbourne </td><td class="col1"> EST-10EST,M10.1.0,M4.1.0/3 </td>
+	</tr>
+	<tr class="row293">
+		<td class="col0"> Australia/Perth </td><td class="col1"> WST-8 </td>
+	</tr>
+	<tr class="row294">
+		<td class="col0"> Australia/Sydney </td><td class="col1"> EST-10EST,M10.1.0,M4.1.0/3 </td>
+	</tr>
+	<tr class="row295">
+		<td class="col0"> Europe/Amsterdam </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row296">
+		<td class="col0"> Europe/Andorra </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row297">
+		<td class="col0"> Europe/Athens </td><td class="col1"> EET-2EEST,M3.5.0/3,M10.5.0/4 </td>
+	</tr>
+	<tr class="row298">
+		<td class="col0"> Europe/Belgrade </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row299">
+		<td class="col0"> Europe/Berlin </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row300">
+		<td class="col0"> Europe/Bratislava </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row301">
+		<td class="col0"> Europe/Brussels </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row302">
+		<td class="col0"> Europe/Bucharest </td><td class="col1"> EET-2EEST,M3.5.0/3,M10.5.0/4 </td>
+	</tr>
+	<tr class="row303">
+		<td class="col0"> Europe/Budapest </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row304">
+		<td class="col0"> Europe/Chisinau </td><td class="col1"> EET-2EEST,M3.5.0/3,M10.5.0/4 </td>
+	</tr>
+	<tr class="row305">
+		<td class="col0"> Europe/Copenhagen </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row306">
+		<td class="col0"> Europe/Dublin </td><td class="col1"> GMT0IST,M3.5.0/1,M10.5.0 </td>
+	</tr>
+	<tr class="row307">
+		<td class="col0"> Europe/Gibraltar </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row308">
+		<td class="col0"> Europe/Guernsey </td><td class="col1"> GMT0BST,M3.5.0/1,M10.5.0 </td>
+	</tr>
+	<tr class="row309">
+		<td class="col0"> Europe/Helsinki </td><td class="col1"> EET-2EEST,M3.5.0/3,M10.5.0/4 </td>
+	</tr>
+	<tr class="row310">
+		<td class="col0"> Europe/Isle of Man </td><td class="col1"> GMT0BST,M3.5.0/1,M10.5.0 </td>
+	</tr>
+	<tr class="row311">
+		<td class="col0"> Europe/Istanbul </td><td class="col1"> EET-2EEST,M3.5.0/3,M10.5.0/4 </td>
+	</tr>
+	<tr class="row312">
+		<td class="col0"> Europe/Jersey </td><td class="col1"> GMT0BST,M3.5.0/1,M10.5.0 </td>
+	</tr>
+	<tr class="row313">
+		<td class="col0"> Europe/Kaliningrad </td><td class="col1"> EET-2EEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row314">
+		<td class="col0"> Europe/Kiev </td><td class="col1"> EET-2EEST,M3.5.0/3,M10.5.0/4 </td>
+	</tr>
+	<tr class="row315">
+		<td class="col0"> Europe/Lisbon </td><td class="col1"> WET0WEST,M3.5.0/1,M10.5.0 </td>
+	</tr>
+	<tr class="row316">
+		<td class="col0"> Europe/Ljubljana </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row317">
+		<td class="col0"> Europe/London </td><td class="col1"> GMT0BST,M3.5.0/1,M10.5.0 </td>
+	</tr>
+	<tr class="row318">
+		<td class="col0"> Europe/Luxembourg </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row319">
+		<td class="col0"> Europe/Madrid </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row320">
+		<td class="col0"> Europe/Malta </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row321">
+		<td class="col0"> Europe/Mariehamn </td><td class="col1"> EET-2EEST,M3.5.0/3,M10.5.0/4 </td>
+	</tr>
+	<tr class="row322">
+		<td class="col0"> Europe/Minsk </td><td class="col1"> EET-2EEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row323">
+		<td class="col0"> Europe/Monaco </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row324">
+		<td class="col0"> Europe/Moscow </td><td class="col1"> MSK-4 </td>
+	</tr>
+	<tr class="row325">
+		<td class="col0"> Europe/Oslo </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row326">
+		<td class="col0"> Europe/Paris </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row327">
+		<td class="col0"> Europe/Podgorica </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row328">
+		<td class="col0"> Europe/Prague </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row329">
+		<td class="col0"> Europe/Riga </td><td class="col1"> EET-2EEST,M3.5.0/3,M10.5.0/4 </td>
+	</tr>
+	<tr class="row330">
+		<td class="col0"> Europe/Rome </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row331">
+		<td class="col0"> Europe/Samara </td><td class="col1"> SAMT-3SAMST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row332">
+		<td class="col0"> Europe/San Marino </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row333">
+		<td class="col0"> Europe/Sarajevo </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row334">
+		<td class="col0"> Europe/Simferopol </td><td class="col1"> EET-2EEST,M3.5.0/3,M10.5.0/4 </td>
+	</tr>
+	<tr class="row335">
+		<td class="col0"> Europe/Skopje </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row336">
+		<td class="col0"> Europe/Sofia </td><td class="col1"> EET-2EEST,M3.5.0/3,M10.5.0/4 </td>
+	</tr>
+	<tr class="row337">
+		<td class="col0"> Europe/Stockholm </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row338">
+		<td class="col0"> Europe/Tallinn </td><td class="col1"> EET-2EEST,M3.5.0/3,M10.5.0/4 </td>
+	</tr>
+	<tr class="row339">
+		<td class="col0"> Europe/Tirane </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row340">
+		<td class="col0"> Europe/Uzhgorod </td><td class="col1"> EET-2EEST,M3.5.0/3,M10.5.0/4 </td>
+	</tr>
+	<tr class="row341">
+		<td class="col0"> Europe/Vaduz </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row342">
+		<td class="col0"> Europe/Vatican </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row343">
+		<td class="col0"> Europe/Vienna </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row344">
+		<td class="col0"> Europe/Vilnius </td><td class="col1"> EET-2EEST,M3.5.0/3,M10.5.0/4 </td>
+	</tr>
+	<tr class="row345">
+		<td class="col0"> Europe/Volgograd </td><td class="col1"> VOLT-3VOLST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row346">
+		<td class="col0"> Europe/Warsaw </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row347">
+		<td class="col0"> Europe/Zagreb </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row348">
+		<td class="col0"> Europe/Zaporozhye </td><td class="col1"> EET-2EEST,M3.5.0/3,M10.5.0/4 </td>
+	</tr>
+	<tr class="row349">
+		<td class="col0"> Europe/Zurich </td><td class="col1"> CET-1CEST,M3.5.0,M10.5.0/3 </td>
+	</tr>
+	<tr class="row350">
+		<td class="col0"> Indian/Antananarivo </td><td class="col1"> EAT-3 </td>
+	</tr>
+	<tr class="row351">
+		<td class="col0"> Indian/Chagos </td><td class="col1"> IOT-6 </td>
+	</tr>
+	<tr class="row352">
+		<td class="col0"> Indian/Christmas </td><td class="col1"> CXT-7 </td>
+	</tr>
+	<tr class="row353">
+		<td class="col0"> Indian/Cocos </td><td class="col1"> CCT-6:30 </td>
+	</tr>
+	<tr class="row354">
+		<td class="col0"> Indian/Comoro </td><td class="col1"> EAT-3 </td>
+	</tr>
+	<tr class="row355">
+		<td class="col0"> Indian/Kerguelen </td><td class="col1"> TFT-5 </td>
+	</tr>
+	<tr class="row356">
+		<td class="col0"> Indian/Mahe </td><td class="col1"> SCT-4 </td>
+	</tr>
+	<tr class="row357">
+		<td class="col0"> Indian/Maldives </td><td class="col1"> MVT-5 </td>
+	</tr>
+	<tr class="row358">
+		<td class="col0"> Indian/Mauritius </td><td class="col1"> MUT-4 </td>
+	</tr>
+	<tr class="row359">
+		<td class="col0"> Indian/Mayotte </td><td class="col1"> EAT-3 </td>
+	</tr>
+	<tr class="row360">
+		<td class="col0"> Indian/Reunion </td><td class="col1"> RET-4 </td>
+	</tr>
+	<tr class="row361">
+		<td class="col0"> Pacific/Apia </td><td class="col1"> WST11 </td>
+	</tr>
+	<tr class="row362">
+		<td class="col0"> Pacific/Auckland </td><td class="col1"> NZST-12NZDT,M9.5.0,M4.1.0/3 </td>
+	</tr>
+	<tr class="row363">
+		<td class="col0"> Pacific/Chatham </td><td class="col1"> CHAST-12:45CHADT,M9.5.0/2:45,M4.1.0/3:45 </td>
+	</tr>
+	<tr class="row364">
+		<td class="col0"> Pacific/Efate </td><td class="col1"> VUT-11 </td>
+	</tr>
+	<tr class="row365">
+		<td class="col0"> Pacific/Enderbury </td><td class="col1"> PHOT-13 </td>
+	</tr>
+	<tr class="row366">
+		<td class="col0"> Pacific/Fakaofo </td><td class="col1"> TKT10 </td>
+	</tr>
+	<tr class="row367">
+		<td class="col0"> Pacific/Fiji </td><td class="col1"> FJT-12 </td>
+	</tr>
+	<tr class="row368">
+		<td class="col0"> Pacific/Funafuti </td><td class="col1"> TVT-12 </td>
+	</tr>
+	<tr class="row369">
+		<td class="col0"> Pacific/Galapagos </td><td class="col1"> GALT6 </td>
+	</tr>
+	<tr class="row370">
+		<td class="col0"> Pacific/Gambier </td><td class="col1"> GAMT9 </td>
+	</tr>
+	<tr class="row371">
+		<td class="col0"> Pacific/Guadalcanal </td><td class="col1"> SBT-11 </td>
+	</tr>
+	<tr class="row372">
+		<td class="col0"> Pacific/Guam </td><td class="col1"> ChST-10 </td>
+	</tr>
+	<tr class="row373">
+		<td class="col0"> Pacific/Honolulu </td><td class="col1"> HST10 </td>
+	</tr>
+	<tr class="row374">
+		<td class="col0"> Pacific/Johnston </td><td class="col1"> HST10 </td>
+	</tr>
+	<tr class="row375">
+		<td class="col0"> Pacific/Kiritimati </td><td class="col1"> LINT-14 </td>
+	</tr>
+	<tr class="row376">
+		<td class="col0"> Pacific/Kosrae </td><td class="col1"> KOST-11 </td>
+	</tr>
+	<tr class="row377">
+		<td class="col0"> Pacific/Kwajalein </td><td class="col1"> MHT-12 </td>
+	</tr>
+	<tr class="row378">
+		<td class="col0"> Pacific/Majuro </td><td class="col1"> MHT-12 </td>
+	</tr>
+	<tr class="row379">
+		<td class="col0"> Pacific/Marquesas </td><td class="col1"> MART9:30 </td>
+	</tr>
+	<tr class="row380">
+		<td class="col0"> Pacific/Midway </td><td class="col1"> SST11 </td>
+	</tr>
+	<tr class="row381">
+		<td class="col0"> Pacific/Nauru </td><td class="col1"> NRT-12 </td>
+	</tr>
+	<tr class="row382">
+		<td class="col0"> Pacific/Niue </td><td class="col1"> NUT11 </td>
+	</tr>
+	<tr class="row383">
+		<td class="col0"> Pacific/Norfolk </td><td class="col1"> NFT-11:30 </td>
+	</tr>
+	<tr class="row384">
+		<td class="col0"> Pacific/Noumea </td><td class="col1"> NCT-11 </td>
+	</tr>
+	<tr class="row385">
+		<td class="col0"> Pacific/Pago Pago </td><td class="col1"> SST11 </td>
+	</tr>
+	<tr class="row386">
+		<td class="col0"> Pacific/Palau </td><td class="col1"> PWT-9 </td>
+	</tr>
+	<tr class="row387">
+		<td class="col0"> Pacific/Pitcairn </td><td class="col1"> PST8 </td>
+	</tr>
+	<tr class="row388">
+		<td class="col0"> Pacific/Ponape </td><td class="col1"> PONT-11 </td>
+	</tr>
+	<tr class="row389">
+		<td class="col0"> Pacific/Port Moresby </td><td class="col1"> PGT-10 </td>
+	</tr>
+	<tr class="row390">
+		<td class="col0"> Pacific/Rarotonga </td><td class="col1"> CKT10 </td>
+	</tr>
+	<tr class="row391">
+		<td class="col0"> Pacific/Saipan </td><td class="col1"> ChST-10 </td>
+	</tr>
+	<tr class="row392">
+		<td class="col0"> Pacific/Tahiti </td><td class="col1"> TAHT10 </td>
+	</tr>
+	<tr class="row393">
+		<td class="col0"> Pacific/Tarawa </td><td class="col1"> GILT-12 </td>
+	</tr>
+	<tr class="row394">
+		<td class="col0"> Pacific/Tongatapu </td><td class="col1"> TOT-13 </td>
+	</tr>
+	<tr class="row395">
+		<td class="col0"> Pacific/Truk </td><td class="col1"> TRUT-10 </td>
+	</tr>
+	<tr class="row396">
+		<td class="col0"> Pacific/Wake </td><td class="col1"> WAKT-12 </td>
+	</tr>
+	<tr class="row397">
+		<td class="col0"> Pacific/Wallis </td><td class="col1"> WFT-12 </td>
+	</tr>
+</table></div>
+
+</div>
+<div class="footnotes">
+<div class="fn"><sup><a href="system#fnt__1" id="fn__1" class="fn_bot">1)</a></sup> 
+<a href="https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/tree/drivers/leds/trigger/ledtrig-heartbeat.c" class="urlextern" title="https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/tree/drivers/leds/trigger/ledtrig-heartbeat.c"  rel="nofollow">Source file of heartbeat trigger</a></div>
+<div class="fn"><sup><a href="system#fnt__2" id="fn__2" class="fn_bot">2)</a></sup> 
+in comparison to energetic flashes of tx and rx modes</div>
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/uci/system.txt</bdi> · Last modified: 2015/03/22 09:34 by <bdi>sotiritm</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="system?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="system?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="system?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="system#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Auci%253Asystem&amp;1432266630" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

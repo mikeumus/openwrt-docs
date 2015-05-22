@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Using the SDK Archive [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,obtain.firmware.sdk.old"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="obtain.firmware.sdk.old?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/obtain.firmware.sdk.old"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/obtain.firmware.sdk.old"/>
+<link rel="canonical" href="obtain.firmware.sdk.old"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:obtain.firmware.sdk.old","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432268772 166.182.3.40';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="obtain.firmware.sdk.old#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="obtain.firmware.sdk.old?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="obtain.firmware.sdk.old?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:obtain.firmware.sdk.old" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="obtain.firmware.sdk.old?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="obtain.firmware.sdk.old?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="obtain.firmware.sdk.old?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="obtain.firmware.sdk.old" class="wikilink1" title="doc:howto:obtain.firmware.sdk.old">Using the SDK Archive</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/obtain.firmware.sdk.old" class="media" title="cz:doc:howto:obtain.firmware.sdk.old"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/obtain.firmware.sdk.old" class="media" title="de:doc:howto:obtain.firmware.sdk.old"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="obtain.firmware.sdk.old" class="media" title="doc:howto:obtain.firmware.sdk.old"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/obtain.firmware.sdk.old" class="media" title="es:doc:howto:obtain.firmware.sdk.old"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/obtain.firmware.sdk.old" class="media" title="fr:doc:howto:obtain.firmware.sdk.old"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/obtain.firmware.sdk.old" class="media" title="hu:doc:howto:obtain.firmware.sdk.old"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/obtain.firmware.sdk.old" class="media" title="jp:doc:howto:obtain.firmware.sdk.old"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/obtain.firmware.sdk.old" class="media" title="pl:doc:howto:obtain.firmware.sdk.old"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/obtain.firmware.sdk.old" class="media" title="pt-br:doc:howto:obtain.firmware.sdk.old"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/obtain.firmware.sdk.old" class="media" title="ru:doc:howto:obtain.firmware.sdk.old"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/obtain.firmware.sdk.old" class="media" title="tr:doc:howto:obtain.firmware.sdk.old"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/obtain.firmware.sdk.old" class="media" title="zh-cn:doc:howto:obtain.firmware.sdk.old"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/obtain.firmware.sdk.old" class="media" title="zh-tw:doc:howto:obtain.firmware.sdk.old"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:obtain.firmware.sdk.old</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level2"><div class="li"><a href="obtain.firmware.sdk.old#attitude_adjustment_1209">Attitude Adjustment 12.09</a></div></li>
+<li class="level2"><div class="li"><a href="obtain.firmware.sdk.old#ressources_for_1003backfire">Ressources for 10.03 / Backfire</a></div></li>
+<li class="level1"><div class="li"><a href="obtain.firmware.sdk.old#obtaining_and_installing_the_sdk">Obtaining and installing the SDK</a></div></li>
+<li class="level1"><div class="li"><a href="obtain.firmware.sdk.old#creating_the_directories">Creating the directories</a></div></li>
+<li class="level1"><div class="li"><a href="obtain.firmware.sdk.old#creating_the_required_files">Creating the required files</a></div></li>
+<li class="level2"><div class="li"><a href="obtain.firmware.sdk.old#packagehelloworldconfigin">package/helloworld/Config.in</a></div></li>
+<li class="level2"><div class="li"><a href="obtain.firmware.sdk.old#packagehelloworldmakefile">package/helloworld/Makefile</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="obtain.firmware.sdk.old#sample_makefile_for_cc_programs_shipped_with_configure_script">Sample Makefile for C/C++ programs shipped with configure script</a></div></li>
+<li class="level3"><div class="li"><a href="obtain.firmware.sdk.old#sample_makefile_for_cc_software_shipped_with_a_makefile_containing_references_to_gcc_or_cc">Sample Makefile for C/C++ software shipped with a Makefile containing references to gcc or $(CC)</a></div></li>
+<li class="level3"><div class="li"><a href="obtain.firmware.sdk.old#sample_makefile_for_cc_programs_without_makefiles_usually_one_or_two_source_files">Sample Makefile for C/C++ programs without makefiles (usually one or two source files)</a></div></li>
+<li class="level3"><div class="li"><a href="obtain.firmware.sdk.old#sample_makefile_for_c_shipped_with_configure_script_and_uclibc_linkables">Sample Makefile for C++ shipped with configure script, and uClibc++ linkables</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="obtain.firmware.sdk.old#packagehelloworldipkghellocontrol">package/helloworld/ipkg/hello.control</a></div></li>
+<li class="level2"><div class="li"><a href="obtain.firmware.sdk.old#packagehelloworldpatches100-hellopatch">package/helloworld/patches/100-hello.patch</a></div></li>
+<li class="level1"><div class="li"><a href="obtain.firmware.sdk.old#compile_the_package">Compile the package</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="using_the_sdk_archive">Using the SDK Archive</h1>
+<div class="level1">
+
+</div>
+<div class="plugin_include_content plugin_include__meta:infobox:outdated" id="plugin_include__meta__infobox__outdated">
+<div class="level1">
+
+<p>
+
+<table class="inline" style="width:70%; margin-left:15%">
+  <tr>
+    <td style="border-left:6px solid #f57900; vertical-align:middle">
+      <img src="../../_media/meta/icons/tango/48px-outdated.svg.png" alt="" style="float:left; margin-right:0.5em" />
+      <strong>Outdated Information!</strong><br />
+      This article contains information that is outdated or no longer valid. You can <a href="obtain.firmware.sdk.old?do=edit">edit</a> this page to update it.
+    </td>
+  </tr>
+</table>
+
+</p>
+
+</div>
+</div>
+<div class="level1">
+
+<p>
+current information available at: <a href="obtain.firmware.sdk" class="wikilink1" title="doc:howto:obtain.firmware.sdk">obtain.firmware.sdk</a>
+</p>
+
+</div>
+
+<h1 class="sectionedit4" id="oldwikiabout_the_openwrt_sdk">oldwiki: About the OpenWrt SDK</h1>
+<div class="level1">
+
+<p>
+This howto is for people who would like to port/package applications to OpenWrt with the OpenWrt Software Development Kit (SDK).
+</p>
+
+<p>
+When using the SDK you don&#039;t require a full buildroot. The SDK is a stripped down version of it, which includes the toolchain and all the required library and header files to cross-compile applications for OpenWrt.
+</p>
+
+</div>
+
+<h1 class="sectionedit5" id="requirements">Requirements</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> a recent GNU/Linux distribution</div>
+</li>
+<li class="level1"><div class="li"> GNU Make (at least 3.80 with the Debian patch)</div>
+</li>
+<li class="level1"><div class="li"> wget</div>
+</li>
+<li class="level1"><div class="li"> patch</div>
+</li>
+</ul>
+
+<p>
+These packages suffice for the &quot;Hello world&quot; program described below
+</p>
+
+</div>
+
+<h1 class="sectionedit6" id="using_the_openwrt_sdk">Using the OpenWrt SDK</h1>
+<div class="level1">
+
+<p>
+<strong>TIP:</strong> Before you begin porting your own package to OpenWrt, check if it has not been already done by someone else. To check that <a href="http://dev.openwrt.org/browser/trunk/package/" class="urlextern" title="http://dev.openwrt.org/browser/trunk/package/"  rel="nofollow">browse the subversion repository</a> of the development version in your web browser and see if the package is already there. Don&#039;t do the work twice.
+</p>
+
+<p>
+Let&#039;s start with porting and packaging the well known &quot;Hello world&quot; program as an example.
+</p>
+
+</div>
+
+<h3 class="sectionedit7" id="attitude_adjustment_1209">Attitude Adjustment 12.09</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> ccache required</div>
+</li>
+<li class="level1"><div class="li"> see BB</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit8" id="ressources_for_1003backfire">Ressources for 10.03 / Backfire</h3>
+<div class="level3">
+
+<p>
+You can download an existing example here: <a href="https://forum.openwrt.org/viewtopic.php?pid=198460" class="urlextern" title="https://forum.openwrt.org/viewtopic.php?pid=198460"  rel="nofollow">https://forum.openwrt.org/viewtopic.php?pid=198460</a>. Another useful resource is <a href="http://fleshandmachines.wordpress.com/2011/08/22/openwrt-cc-programing/" class="urlextern" title="http://fleshandmachines.wordpress.com/2011/08/22/openwrt-cc-programing/"  rel="nofollow">http://fleshandmachines.wordpress.com/2011/08/22/openwrt-cc-programing/</a>. 
+</p>
+
+</div>
+
+<h2 class="sectionedit9" id="obtaining_and_installing_the_sdk">Obtaining and installing the SDK</h2>
+<div class="level2">
+
+<p>
+The SDK can be downloaded from <a href="http://downloads.openwrt.org/whiterussian/newest/" class="urlextern" title="http://downloads.openwrt.org/whiterussian/newest/"  rel="nofollow">http://downloads.openwrt.org/whiterussian/newest/</a>.
+</p>
+
+<p>
+Download it into your home directory (don&#039;t use the root account) and untar the tarball. After that change into the new directory.
+</p>
+
+<p>
+<pre class="code">cd ~
+wget http://downloads.openwrt.org/whiterussian/newest/OpenWrt-SDK-Linux-i686-1.tar.bz2
+bzcat OpenWrt-SDK-Linux-i686-1.tar.bz2 | tar -xvf -
+cd ~/OpenWrt-SDK-Linux-i686-1</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit10" id="creating_the_directories">Creating the directories</h2>
+<div class="level2">
+
+<p>
+Create the following directories:
+</p>
+
+<p>
+<pre class="code">cd ~/OpenWrt-SDK-Linux-i686-1
+mkdir -p package/helloworld/ipkg
+mkdir -p package/helloworld/patches</pre>
+
+</p>
+
+<p>
+Directories and their contents:
+</p>
+
+<p>
+<pre class="code">#!CSV
+Directory; Description
+ipkg; Control file which contains information about your package
+patches; Patch files for example 100-foo.patch</pre>
+
+</p>
+
+<p>
+<strong>TIP:</strong> To compile more than one package in a special order do:
+</p>
+
+<p>
+<pre class="code">cd ~/OpenWrt-SDK-Linux-i686-1
+mkdir -p package/100-packagename/ipkg
+mkdir -p package/100-packagename/patches
+mkdir -p package/200-packagename/ipkg
+mkdir -p package/200-packagename/patches</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit11" id="creating_the_required_files">Creating the required files</h2>
+<div class="level2">
+
+<p>
+<strong>TIP:</strong> If you intend to &#039;copy &amp; paste&#039; the text from this Wiki to create files on your system, then use the Unix command <pre class="code">unexpand</pre>
+
+ to translate the leading spaces into tabs.
+</p>
+
+<p>
+<pre class="code">unexpand --first-only - &gt;package/helloworld/Config.in</pre>
+
+</p>
+
+<p>
+After pasting it into a text editor, press <pre class="code">ENTER</pre>
+
+ and then <pre class="code">CTRL-D</pre>
+
+ keys to save the file.
+</p>
+
+<p>
+You can also create your own files in the <pre class="code">package/helloworld</pre>
+
+ directory (for example config files). That files you can access in your <pre class="code">package/helloworld/Makefile</pre>
+
+ with <pre class="code">./filename</pre>
+
+ and copy it to your <pre class="code">$(PKG_INSTALL_DIR)</pre>
+
+ directory.
+</p>
+
+</div>
+
+<h3 class="sectionedit12" id="packagehelloworldconfigin">package/helloworld/Config.in</h3>
+<div class="level3">
+
+<p>
+<pre class="code">config BR2_PACKAGE_HELLO
+        prompt &quot;hello............................. The classic greeting, and a good example&quot;
+        tristate
+        default m if CONFIG_DEVEL
+        help
+              The GNU hello program produces a familiar, friendly greeting.  It
+              allows non-programmers to use a classic computer science tool which
+              would otherwise be unavailable to them.
+               *
+              Seriously, though: this is an example of how to do a Debian package.
+              It is the Debian version of the GNU Project&#039;s `hello world&#039; program
+              (which is itself an example for the GNU Project).
+              http://www.wheretofindpackage.tld</pre>
+
+</p>
+
+<p>
+You need to create a Config.in file. It identifies the package name.
+In the above example BR2_PACKAGE_HELLO identifes that this is a &#039;BR2&#039;(??) formatted &#039;PACKAGE&#039; whose name is &#039;HELLO&#039;. The final executable is &#039;hello&#039;.
+</p>
+
+</div>
+
+<h3 class="sectionedit13" id="packagehelloworldmakefile">package/helloworld/Makefile</h3>
+<div class="level3">
+
+<p>
+The Makefile determines the way the software package is shipped. Basically we can divide the software into 2 main categories :
+</p>
+<ul>
+<li class="level1"><div class="li"> C (or ANSI-C) programs</div>
+</li>
+<li class="level1"><div class="li"> shipped with configure script</div>
+</li>
+<li class="level1"><div class="li"> shipped with Makefile script (with references to gcc or $(CC) )</div>
+</li>
+<li class="level1"><div class="li"> sources files only</div>
+</li>
+<li class="level1"><div class="li"> C++ programs</div>
+</li>
+<li class="level1"><div class="li"> potentially uClibc++ linkables</div>
+</li>
+<li class="level1"><div class="li"> not uClibc++ linkables</div>
+</li>
+</ul>
+
+<p>
+<strong>TIP:</strong> Use the <pre class="code">md5sum</pre>
+
+ command to create the <pre class="code">PKG_MD5SUM</pre>
+
+ from the original tarball. Use <pre class="code">@SF/hello</pre>
+
+ (choose a and expanded random SourceForge mirror) for the <pre class="code">PKG_SOURCE_URL</pre>
+
+ when your program has a download location on SourceForge.
+</p>
+
+<p>
+If PKG_SOURCE_<abbr title="Uniform Resource Locator">URL</abbr> and PKG_SOURCE are correctly identified, then the file will be downloaded into the ~/OpenWrt-SDK-Linux-i686-1/dl/ directory. It will be expanded into the ~/OpenWrt-SDK-Linux-i686-1/build_mipsel/ directory for compilation and processing.
+</p>
+
+</div>
+
+<h4 id="sample_makefile_for_cc_programs_shipped_with_configure_script">Sample Makefile for C/C++ programs shipped with configure script</h4>
+<div class="level4">
+
+<p>
+<pre class="code">include $(TOPDIR)/rules.mk
+PKG_NAME:=hello
+PKG_VERSION:=2.1.1
+PKG_RELEASE:=1
+PKG_MD5SUM:=70c9ccf9fac07f762c24f2df2290784d
+PKG_SOURCE_URL:=ftp://ftp.cs.tu-berlin.de/pub/gnu/hello \
+        http://mirrors.sunsite.dk/gnu/hello \
+        http://ftp.gnu.org/gnu/hello
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_CAT:=zcat
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
+PKG_INSTALL_DIR:=$(PKG_BUILD_DIR)/ipkg-install
+include $(TOPDIR)/package/rules.mk
+$(eval $(call PKG_template,HELLO,$(PKG_NAME),$(PKG_VERSION)-$(PKG_RELEASE),$(ARCH)))
+$(PKG_BUILD_DIR)/.configured: $(PKG_BUILD_DIR)/.prepared
+        (cd $(PKG_BUILD_DIR); \
+                $(TARGET_CONFIGURE_OPTS) \
+                CFLAGS=&quot;$(TARGET_CFLAGS)&quot; \
+                CPPFLAGS=&quot;-I$(STAGING_DIR)/usr/include -I$(STAGING_DIR)/include&quot; \
+                LDFLAGS=&quot;-L$(STAGING_DIR)/usr/lib -L$(STAGING_DIR)/lib&quot; \
+                 */configure \
+                        --target=$(GNU_TARGET_NAME) \
+                        --host=$(GNU_TARGET_NAME) \
+                        --build=$(GNU_HOST_NAME) \
+                        --prefix=/usr \
+                        --without-libiconv-prefix \
+                        --without-libintl-prefix \
+                        --disable-nls \
+        );
+        ## Add software specific configurable options above
+        ## See : ./configure --help
+        touch $@
+$(PKG_BUILD_DIR)/.built:
+        rm -rf $(PKG_INSTALL_DIR)
+        mkdir -p $(PKG_INSTALL_DIR)/usr/bin
+        $(MAKE) -C $(PKG_BUILD_DIR)/src \
+                $(TARGET_CONFIGURE_OPTS) \
+                prefix=&quot;$(PKG_INSTALL_DIR)/usr&quot;
+        $(CP) $(PKG_BUILD_DIR)/src/hello $(PKG_INSTALL_DIR)/usr/bin
+        touch $@
+$(IPKG_HELLO):
+        install -d -m0755 $(IDIR_HELLO)/usr/bin
+        $(CP) $(PKG_INSTALL_DIR)/usr/bin/hello $(IDIR_HELLO)/usr/bin
+        $(RSTRIP) $(IDIR_HELLO)
+        $(IPKG_BUILD) $(IDIR_HELLO) $(PACKAGE_DIR)
+mostlyclean:
+        make -C $(PKG_BUILD_DIR) clean
+        rm $(PKG_BUILD_DIR)/.built</pre>
+
+</p>
+
+</div>
+
+<h4 id="sample_makefile_for_cc_software_shipped_with_a_makefile_containing_references_to_gcc_or_cc">Sample Makefile for C/C++ software shipped with a Makefile containing references to gcc or $(CC)</h4>
+<div class="level4">
+
+<p>
+If you Makefile contains harcoded &quot;gcc&quot; commands, then you will have to patch the makefile and replace gcc with $(CC) in order to define at &quot;make time&quot; the cross-compiler to use.
+</p>
+
+<p>
+/!\ <strong>Note this Makefile is provided as an example only; it will not compile</strong>
+</p>
+
+<p>
+<pre class="code">include $(TOPDIR)/rules.mk
+PKG_NAME:=hello
+PKG_VERSION:=2.1.1
+PKG_RELEASE:=1
+PKG_MD5SUM:=70c9ccf9fac07f762c24f2df2290784d
+PKG_SOURCE_URL:=ftp://ftp.cs.tu-berlin.de/pub/gnu/hello \
+        http://mirrors.sunsite.dk/gnu/hello \
+        http://ftp.gnu.org/gnu/hello
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_CAT:=zcat
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
+PKG_INSTALL_DIR:=$(PKG_BUILD_DIR)/ipkg-install
+include $(TOPDIR)/package/rules.mk
+$(eval $(call PKG_template,HELLO,$(PKG_NAME),$(PKG_VERSION)-$(PKG_RELEASE),$(ARCH)))
+$(PKG_BUILD_DIR)/.configured: $(PKG_BUILD_DIR)/.prepared
+        #Since there is no configure script, we can directly go to the building step
+        touch $@
+$(PKG_BUILD_DIR)/.built:
+        rm -rf $(PKG_INSTALL_DIR)
+        mkdir -p $(PKG_INSTALL_DIR)/usr/bin
+        #Note here that we pass cross-compiler as default compiler to use
+        $(MAKE) -C $(PKG_BUILD_DIR)/src \
+                CC=$(TARGET_CC) \
+                $(TARGET_CONFIGURE_OPTS) \
+                prefix=&quot;$(PKG_INSTALL_DIR)/usr&quot;
+        $(CP) $(PKG_BUILD_DIR)/src/hello $(PKG_INSTALL_DIR)/usr/bin
+        touch $@
+$(IPKG_HELLO):
+        install -d -m0755 $(IDIR_HELLO)/usr/bin
+        $(CP) $(PKG_INSTALL_DIR)/usr/bin/hello $(IDIR_HELLO)/usr/bin
+        $(RSTRIP) $(IDIR_HELLO)
+        $(IPKG_BUILD) $(IDIR_HELLO) $(PACKAGE_DIR)
+mostlyclean:
+        make -C $(PKG_BUILD_DIR) clean
+        rm $(PKG_BUILD_DIR)/.built</pre>
+
+</p>
+
+</div>
+
+<h4 id="sample_makefile_for_cc_programs_without_makefiles_usually_one_or_two_source_files">Sample Makefile for C/C++ programs without makefiles (usually one or two source files)</h4>
+<div class="level4">
+
+<p>
+/!\ <strong>Note this Makefile is provided as an example only; it will not compile</strong>
+</p>
+
+<p>
+<pre class="code">include $(TOPDIR)/rules.mk
+PKG_NAME:=hello
+PKG_VERSION:=2.1.1
+PKG_RELEASE:=1
+PKG_MD5SUM:=70c9ccf9fac07f762c24f2df2290784d
+PKG_SOURCE_URL:=ftp://ftp.cs.tu-berlin.de/pub/gnu/hello \
+        http://mirrors.sunsite.dk/gnu/hello \
+        http://ftp.gnu.org/gnu/hello
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_CAT:=zcat
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
+PKG_INSTALL_DIR:=$(PKG_BUILD_DIR)/ipkg-install
+include $(TOPDIR)/package/rules.mk
+$(eval $(call PKG_template,HELLO,$(PKG_NAME),$(PKG_VERSION)-$(PKG_RELEASE),$(ARCH)))
+$(PKG_BUILD_DIR)/.configured: $(PKG_BUILD_DIR)/.prepared
+        #Since there is no configure script, we can directly go to the building step
+        touch $@
+$(PKG_BUILD_DIR)/.built:
+        rm -rf $(PKG_INSTALL_DIR)
+        mkdir -p $(PKG_INSTALL_DIR)/usr/bin
+        $(TARGET_CC) $(PKG_BUILD_DIR)/src/$(PKG_NAME).c -o $(PKG_BUILD_DIR)/$(PKG_NAME) ## -lyourlib #Note we directly call the cross-compiler and define its output
+        $(CP) $(PKG_BUILD_DIR)/src/hello $(PKG_INSTALL_DIR)/usr/bin
+        touch $@
+$(IPKG_HELLO):
+        install -d -m0755 $(IDIR_HELLO)/usr/bin
+        $(CP) $(PKG_INSTALL_DIR)/usr/bin/hello $(IDIR_HELLO)/usr/bin
+        $(RSTRIP) $(IDIR_HELLO)
+        $(IPKG_BUILD) $(IDIR_HELLO) $(PACKAGE_DIR)
+mostlyclean:
+        make -C $(PKG_BUILD_DIR) clean
+        rm $(PKG_BUILD_DIR)/.built</pre>
+
+</p>
+
+</div>
+
+<h4 id="sample_makefile_for_c_shipped_with_configure_script_and_uclibc_linkables">Sample Makefile for C++ shipped with configure script, and uClibc++ linkables</h4>
+<div class="level4">
+
+<p>
+/!\ <strong>Note this Makefile is provided as an example only; it will not compile</strong>
+</p>
+
+<p>
+<pre class="code">include $(TOPDIR)/rules.mk
+PKG_NAME:=hello
+PKG_VERSION:=2.1.1
+PKG_RELEASE:=1
+PKG_MD5SUM:=70c9ccf9fac07f762c24f2df2290784d
+PKG_SOURCE_URL:=ftp://ftp.cs.tu-berlin.de/pub/gnu/hello \
+        http://mirrors.sunsite.dk/gnu/hello \
+        http://ftp.gnu.org/gnu/hello
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_CAT:=zcat
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
+PKG_INSTALL_DIR:=$(PKG_BUILD_DIR)/ipkg-install
+include $(TOPDIR)/package/rules.mk
+$(eval $(call PKG_template,HELLO,$(PKG_NAME),$(PKG_VERSION)-$(PKG_RELEASE),$(ARCH)))
+$(PKG_BUILD_DIR)/.configured: $(PKG_BUILD_DIR)/.prepared
+        (cd $(PKG_BUILD_DIR); \
+                $(TARGET_CONFIGURE_OPTS) \
+                CFLAGS=&quot;$(TARGET_CFLAGS)&quot; \
+                CPPFLAGS=&quot;-I$(STAGING_DIR)/usr/include -I$(STAGING_DIR)/include&quot; \
+                LDFLAGS=&quot;-L$(STAGING_DIR)/usr/lib -L$(STAGING_DIR)/lib&quot; \
+                 */configure \
+                        CXXFLAGS=&quot;$(TARGET_CFLAGS) -fno-builtin -fno-rtti -nostdinc++&quot; \
+                        CPPFLAGS=&quot;-I$(STAGING_DIR)/usr/include -I$(STAGING_DIR)/include&quot; \
+                        LDFLAGS=&quot;-nodefaultlibs -L$(STAGING_DIR)/usr/lib -L$(STAGING_DIR)/lib&quot; \ #do not use default libraries since we want uClibc++ linking
+                        LIBS=&quot;-luClibc++ -lc -lm -lgcc&quot; \ # You may need to add other libraries : lpcap, lssl ... #
+                        --target=$(GNU_TARGET_NAME) \
+                        --host=$(GNU_TARGET_NAME) \
+                        --build=$(GNU_HOST_NAME) \
+                        --prefix=/usr \
+                        --without-libiconv-prefix \
+                        --without-libintl-prefix \
+                        --disable-nls \
+        );
+        ## Add software specific configurable options above
+        ## See : ./configure --help
+        touch $@
+$(PKG_BUILD_DIR)/.built:
+        rm -rf $(PKG_INSTALL_DIR)
+        mkdir -p $(PKG_INSTALL_DIR)/usr/bin
+        $(MAKE) -C $(PKG_BUILD_DIR)/src \
+                $(TARGET_CONFIGURE_OPTS) \
+                prefix=&quot;$(PKG_INSTALL_DIR)/usr&quot;
+        $(CC) $(PKG_BUILD_DIR)/src/hello $(PKG_INSTALL_DIR)/usr/bin
+        touch $@
+$(IPKG_HELLO):
+        install -d -m0755 $(IDIR_HELLO)/usr/bin
+        $(CP) $(PKG_INSTALL_DIR)/usr/bin/hello $(IDIR_HELLO)/usr/bin
+        $(RSTRIP) $(IDIR_HELLO)
+        $(IPKG_BUILD) $(IDIR_HELLO) $(PACKAGE_DIR)
+mostlyclean:
+        make -C $(PKG_BUILD_DIR) clean
+        rm $(PKG_BUILD_DIR)/.built</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit14" id="packagehelloworldipkghellocontrol">package/helloworld/ipkg/hello.control</h3>
+<div class="level3">
+
+<p>
+The control file, as you might have guessed, controls the package information reported by ipkg.
+</p>
+
+<p>
+Anyone familiar with Debian packaging will be aware of the format - a deeper description than provided here is available in the <a href="http://handhelds.org/moin/moin.cgi/BuildingIpkgs" class="urlextern" title="http://handhelds.org/moin/moin.cgi/BuildingIpkgs"  rel="nofollow">ipkg documentation</a>.
+</p>
+
+<p>
+<pre class="code">Package: hello
+Priority: optional
+Section: misc
+Description: The GNU hello world program</pre>
+
+</p>
+
+<p>
+The following fields are available:
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>Package</strong> - should be the package name, as in the Makefile.</div>
+</li>
+</ul>
+
+<p>
+ <strong>Priority</strong> - should be set to <em>optional</em> for almost all packages.
+ <strong>Section</strong> - indicates the type of package - useful sections include <em>comm</em>, <em>editors</em>, <em>graphics</em>, <em>libs</em>, <em>net</em>, <em>text</em>, <em>web</em>, or if you can&#039;t decide, <em>misc</em>.
+ <strong>Description</strong> - a short description of the package. (You can include a longer description here in a similar manner to the help text in Config.in. Start a new line after the short description, and use a line containing a single full stop (&#039;.&#039;) as a replacement for blank lines.
+ <strong>Depends</strong> (not in the example above) - a list of package names that this package <em>requires</em> to operate. Use package names without versions here where possible (e.g. <em>openssh-client</em>).
+</p>
+
+<p>
+Note: had to modify package/rules.mk changing ./ipkg/$(2) to the real directory ./ did not work for me
+</p>
+
+</div>
+
+<h3 class="sectionedit15" id="packagehelloworldpatches100-hellopatch">package/helloworld/patches/100-hello.patch</h3>
+<div class="level3">
+
+<p>
+This example applies a Debian patch, which isn&#039;t essential for (so you can skip this point).
+</p>
+
+<p>
+Other Linux and free UNIX distributions are often an excellent source of patches for non-portable programs. You might like to try searching for packages from <a href="http://packages.ubuntu.com/dapper/source/" class="urlextern" title="http://packages.ubuntu.com/dapper/source/"  rel="nofollow">Ubuntu</a>, <a href="http://sources.gentoo.org/" class="urlextern" title="http://sources.gentoo.org/"  rel="nofollow">Gentoo</a>, or <a href="http://www.freshports.org/" class="urlextern" title="http://www.freshports.org/"  rel="nofollow">FreeBSD&#039;s Ports</a>.
+</p>
+
+<p>
+<pre class="code">cd package/helloworld/patches
+wget http://ftp.debian.org/debian/pool/main/h/hello/hello_2.1.1-4.diff.gz
+gunzip hello_2.1.1-4.diff.gz
+mv hello_2.1.1-4.diff 100-hello.patch</pre>
+
+</p>
+
+<p>
+<strong>TIP:</strong> You can apply as many patches as you like. To apply them in a special order name them like:
+</p>
+
+<p>
+<pre class="code">100-xxx.patch
+200-xxx.patch</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit16" id="compile_the_package">Compile the package</h2>
+<div class="level2">
+
+<p>
+The make command below compiles every package that you have created in the package directory.
+</p>
+
+<p>
+<pre class="code">cd ~/OpenWrt-SDK-Linux-i686-1
+make clean &amp;&amp; make world</pre>
+
+</p>
+
+<p>
+Note that there is a fault in the default package/rules.mk file. There is &quot;..&quot; following the &quot;$(PKG_BUILD_DIR)/&quot; which causes the files to be extracted to the wrong directory. Here is the corrected version:
+<pre class="code">ifneq ($(strip $(PKG_CAT)),)
+$(PKG_BUILD_DIR)/.prepared: $(DL_DIR)/$(PKG_SOURCE)
+	rm -rf $(PKG_BUILD_DIR)
+	mkdir -p $(PKG_BUILD_DIR)
+	$(PKG_CAT) $(DL_DIR)/$(PKG_SOURCE) | tar -C $(PKG_BUILD_DIR)/ $(TAR_OPTIONS)
+	if [ -d ./patches ]; then \
+		$(PATCH) $(PKG_BUILD_DIR) ./patches ; \
+	fi
+	touch $(PKG_BUILD_DIR)/.prepared
+endif</pre>
+
+</p>
+
+<p>
+<strong>NOTE:</strong> If you are using GNU make 3.80 (current &quot;latest&quot;) and get a &quot;virtual memory exhausted&quot; message while making, see <a href="http://gamecontractor.org/Make" class="urlextern" title="http://gamecontractor.org/Make"  rel="nofollow">this page</a>.
+</p>
+
+<p>
+For Slackware users there is a fixed make package <a href="http://internetghetto.org/files/index.php?download=./make-fix/make-fixed-3.80-i386-1.tgz" class="urlextern" title="http://internetghetto.org/files/index.php?download=./make-fix/make-fixed-3.80-i386-1.tgz"  rel="nofollow">here</a> and sources + patch are <a href="http://internetghetto.org/files/index.php?dir=./make-fix/orig/" class="urlextern" title="http://internetghetto.org/files/index.php?dir=./make-fix/orig/"  rel="nofollow">here</a>.
+</p>
+
+<p>
+When the compiling is finished you have a ready to use ipkg package for OpenWrt in the <pre class="code">~/OpenWrt-SDK-Linux-i686-1/bin/packages</pre>
+
+ directory.
+</p>
+
+<p>
+<pre class="code">cd bin/packages; ls -al hello_2.1.1-1_mipsel.ipk
+-rw-r--r--  1 openwrt-dev openwrt-dev 3976 Sep 14 13:03 hello_2.1.1-1_mipsel.ipk</pre>
+
+</p>
+
+</div>
+
+<h1 class="sectionedit17" id="contribute_your_new_ported_program">Contribute your new ported program</h1>
+<div class="level1">
+
+<p>
+When you like you can contribute your program/package to the OpenWrt community. It may be included in further versions of OpenWrt.
+</p>
+
+<p>
+To do this create a patch from your <pre class="code">package/</pre>
+
+ directory with:
+</p>
+
+<p>
+<pre class="code">cd ~/OpenWrt-SDK-Linux-i686-1
+diff -ruN package/.orig package/ &gt; -.patch</pre>
+
+</p>
+
+<p>
+Once you have created a patch <a href="https://dev.openwrt.org/newticket" class="urlextern" title="https://dev.openwrt.org/newticket"  rel="nofollow">open a ticket</a> and submit your new package (the patch).
+</p>
+
+</div>
+
+<h1 class="sectionedit18" id="native_development">Native Development</h1>
+<div class="level1">
+
+<p>
+You need 150Mb storage unit (USB or SD Card)
+</p>
+
+<p>
+- Download the file <a href="http://www.uclibc.org/downloads/root_fs_mipsel.ext2.bz2" class="urlextern" title="http://www.uclibc.org/downloads/root_fs_mipsel.ext2.bz2"  rel="nofollow">Native Mipsel Toolchain</a> (24Mb)
+</p>
+
+<p>
+- Bunzip2 (120mb) it to the storage unit in a ext2 partition.
+</p>
+
+<p>
+- unmount partition
+</p>
+
+<p>
+- Execute this script, I have it at /sbin/devel.sh
+</p>
+
+<p>
+<pre class="code">#!/bin/sh
+# Kill unusefull tasks (uncoment it) we need memory
+#killall logger
+#killall syslogd
+#killall telnetd
+#killall crond
+#killall klogd
+#killall udhcpc
+#killall httpd
+#rmmod ext3
+#rmmod jbd
+#My SD card have 2 partitions 1.ext2  2.swap
+mount /dev/mmc/disc0/part1 /mnt -o noatime async
+# Swap for large sources. I have 30Mb
+#swapoff -a
+#mkswap  /dev/mmc/disc0/part2
+#swapon  /dev/mmc/disc0/part2
+mount -o move /tmp /mnt/tmp
+echo &quot; *** exit *** to back - Para volver al sistema&quot;
+chroot /mnt/ /bin/ash -
+echo &quot; *** Me are here again - De vuelta al sistema original ***&quot;
+mount -o move /mnt/tmp/ /tmp/
+umount /mnt</pre>
+
+</p>
+
+<p>
+- Go /home
+</p>
+
+<p>
+- download the source. Example: <a href="http://www.didiwiki.org/sources/didiwiki-0.5.tar.gz" class="urlextern" title="http://www.didiwiki.org/sources/didiwiki-0.5.tar.gz"  rel="nofollow">Didiwiki-0.5.tar.gz</a> from <a href="http://www.didiwiki.org" class="urlextern" title="http://www.didiwiki.org"  rel="nofollow">http://www.didiwiki.org</a>
+</p>
+
+<p>
+- tar -xvzf didiwiki-0.5.tar.gz
+</p>
+
+<p>
+- cd didiwiki-0.5
+</p>
+
+<p>
+- configure     (1 minute)
+</p>
+
+<p>
+- make          (1 minute)
+</p>
+
+<p>
+- You have your new Binary in the SRC directory (didiwiki)
+</p>
+
+<p>
+- copy it to the /tmp directori
+</p>
+
+<p>
+- type exit
+</p>
+
+<p>
+You have the binary in /tmp directory. copy it to /usr/bin
+</p>
+
+<p>
+The result <a href="http://gepage.googlepages.com/didiwiki.mipsel.binary.gz" class="urlextern" title="http://gepage.googlepages.com/didiwiki.mipsel.binary.gz"  rel="nofollow">didiwiki.mipsel.binary.gz</a> a small wiki for our router at 8000 port. If you don&#039;t use storage unit, you must create /home to store new pages. /home/.didiwiki/*
+</p>
+
+</div>
+
+<h1 class="sectionedit19" id="links">Links</h1>
+<div class="level1">
+
+<p>
+You can find an useful reference for the packaging process in nbd&#039;s paper to the &#039;OpenWrt Hacking&#039; talk on the 22C3: <br/>
+- <a href="http://events.ccc.de/congress/2005/fahrplan/attachments/567-Paper_HackingOpenWRT.pdf" class="urlextern" title="http://events.ccc.de/congress/2005/fahrplan/attachments/567-Paper_HackingOpenWRT.pdf"  rel="nofollow">http://events.ccc.de/congress/2005/fahrplan/attachments/567-Paper_HackingOpenWRT.pdf</a>
+</p>
+
+<p>
+Full buildroot documentation (for compiling kernel modules and such things, for the rest the SDK should be used) <br/>
+- <a href="http://downloads.openwrt.org/docs/buildroot-documentation.html" class="urlextern" title="http://downloads.openwrt.org/docs/buildroot-documentation.html"  rel="nofollow">http://downloads.openwrt.org/docs/buildroot-documentation.html</a>
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/obtain.firmware.sdk.old.txt</bdi> · Last modified: 2015/05/05 09:29 by <bdi>theoradicus</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="obtain.firmware.sdk.old?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="obtain.firmware.sdk.old?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="obtain.firmware.sdk.old?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="obtain.firmware.sdk.old#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Aobtain.firmware.sdk.old&amp;1432268772" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

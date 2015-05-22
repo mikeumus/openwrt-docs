@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>OpenWrt – operating system architecture [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,techref,architecture"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="architecture?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:techref"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/techref/architecture"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/techref/architecture"/>
+<link rel="canonical" href="architecture"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:techref';var JSINFO = {"id":"doc:techref:architecture","namespace":"doc:techref"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432267213 166.182.3.150';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="architecture#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="architecture?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="architecture?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:techref:architecture" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="architecture?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="architecture?do=media&amp;ns=doc%253Atechref"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="architecture?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="../techref.1" class="wikilink1" title="doc:techref:start">Technical Reference</a></bdi> » <bdi><span class="curid"><a href="architecture" class="wikilink1" title="doc:techref:architecture">OpenWrt – operating system architecture</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/techref/architecture" class="media" title="cz:doc:techref:architecture"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/techref/architecture" class="media" title="de:doc:techref:architecture"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="architecture" class="media" title="doc:techref:architecture"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/techref/architecture" class="media" title="es:doc:techref:architecture"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/techref/architecture" class="media" title="fr:doc:techref:architecture"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/techref/architecture" class="media" title="hu:doc:techref:architecture"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/techref/architecture" class="media" title="jp:doc:techref:architecture"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/techref/architecture" class="media" title="pl:doc:techref:architecture"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/techref/architecture" class="media" title="pt-br:doc:techref:architecture"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/techref/architecture" class="media" title="ru:doc:techref:architecture"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/techref/architecture" class="media" title="tr:doc:techref:architecture"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/techref/architecture" class="media" title="zh-cn:doc:techref:architecture"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/techref/architecture" class="media" title="zh-tw:doc:techref:architecture"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:techref:architecture</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level2"><div class="li"><a href="architecture#dependencies_of_luci2">Dependencies of LuCI2</a></div></li>
+<li class="level2"><div class="li"><a href="architecture#what_s_the_difference_between_ubus_and_dbus">What&#039;s the difference between ubus and dbus?</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="openwrt_operating_system_architecture">OpenWrt – operating system architecture</h1>
+<div class="level1">
+
+<p>
+Whereas desktop distributions use <a href="http://en.wikipedia.org/wiki/GLib" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/GLib">glib</a> and <a href="http://en.wikipedia.org/wiki/D-Bus" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/D-Bus">dbus</a> (and <a href="http://en.wikipedia.org/wiki/udev" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/udev">udev</a>) OpenWrt uses <a href="http://nbd.name/gitweb.cgi?p=luci2/libubox.git;a=summary" class="urlextern" title="http://nbd.name/gitweb.cgi?p=luci2/libubox.git;a=summary"  rel="nofollow">libubox</a> and <a href="ubus" class="wikilink1" title="doc:techref:ubus">ubus</a> (and <a href="hotplug" class="wikilink1" title="doc:techref:hotplug">hotplug2</a>).
+This provides some pretty awesome functionality without requiring huge libraries with huge dependencies (*cough* glib).
+</p>
+<div class="table sectionedit2"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> </th><th class="col1 centeralign" colspan="2">  Desktop Distributions  </th><th class="col3 centeralign" colspan="2">  OpenWrt  </th><th class="col5 centeralign">  <a href="http://en.wikipedia.org/wiki/Android (operating system)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Android (operating system)">Android</a>  </th><th class="col6"> <a href="http://en.wikipedia.org/wiki/Replicant (operating system)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Replicant (operating system)">Replicant</a> </th><th class="col7"> <a href="http://en.wikipedia.org/wiki/Mer (software distribution)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Mer (software distribution)">mer-based</a> </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> Typical main memory size         </td><td class="col1 centeralign" colspan="2">  <strong><span style='color:red; '>128 MiB</span></strong> to 16 GiB (or more)     </td><td class="col3 centeralign" colspan="2">  <strong><span style='color:red; '>32 MiB</span></strong> to 512 MiB<sup><a href="architecture#fn__1" id="fnt__1" class="fn_top">1)</a></sup>  </td><td class="col5 centeralign" colspan="2">  min <strong><span style='color:red; '>92 MiB</span></strong> for Android 2.1 <br/>
+min <strong><span style='color:red; '>340 MiB</span></strong> for Android 4.0  </td><td class="col7 centeralign">  ?  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> Supported intruction sets        </td><td class="col1 centeralign" colspan="2">  almost anything                 </td><td class="col3 centeralign" colspan="2">  almost anything         </td><td class="col5 centeralign" colspan="3">  x86, 86-64, ARM, MIPS32  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> non-volatile storage space       </td><td class="col1 centeralign" colspan="2">  100 MiB                               </td><td class="col3 centeralign" colspan="2">  8 MiB<sup><a href="architecture#fn__2" id="fnt__2" class="fn_top">2)</a></sup>  </td><td class="col5 centeralign" colspan="2">  150MiB for Android 2.1<br/>
+512MiB for Android 4.0  </td><td class="col7 centeralign">  ?  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0" rowspan="2"> <a href="http://en.wikipedia.org/wiki/Kernel (computing)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Kernel (computing)">kernel</a> </td><td class="col1 centeralign" colspan="7">  <strong><code><a href="http://en.wikipedia.org/wiki/Linux kernel" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Linux kernel">Linux kernel</a></code></strong>  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign" colspan="2"> <abbr title="Free &amp; Open-Source Software">FOSS</abbr> and binary drivers           </td><td class="col2" colspan="2"> <abbr title="Free &amp; Open-Source Software">FOSS</abbr> drivers: e.g. <a href="http://en.wikipedia.org/wiki/Comparison of open-source wireless drivers" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Comparison of open-source wireless drivers">802.11</a>; <a href="../hardware/internet.access.technologies" class="wikilink1" title="doc:hardware:internet.access.technologies">Iaccess</a> </td><td class="col4"> Android binary drivers </td><td class="col5 leftalign">   </td><td class="col6 leftalign">   </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> <a href="http://en.wikipedia.org/wiki/C standard library" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/C standard library">C standard library</a>        </td><td class="col1 leftalign" colspan="2"> <a href="http://en.wikipedia.org/wiki/GNU C Library" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/GNU C Library">glibc</a>        </td><td class="col3 leftalign" colspan="2"> <a href="http://en.wikipedia.org/wiki/uClibc" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/uClibc">uClibc</a>    </td><td class="col5 leftalign"> <a href="http://en.wikipedia.org/wiki/Bionic (software)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Bionic (software)">bionic</a>         </td><td class="col6"> glibc + <a href="http://en.wikipedia.org/wiki/Hybris (software)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Hybris (software)">libhybris</a> </td><td class="col7 leftalign"> eglibc 2.15  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> <a href="http://en.wikipedia.org/wiki/init" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/init">init</a>                      </td><td class="col1 leftalign"> <a href="http://en.wikipedia.org/wiki/init" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/init">init</a><br/>
+<a href="http://en.wikipedia.org/wiki/Upstart" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Upstart">Upstart</a><br/>
+ <a href="http://en.wikipedia.org/wiki/Initng" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Initng">Initng</a>     </td><td class="col2" rowspan="6"> <strong><code><a href="http://en.wikipedia.org/wiki/systemd" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/systemd">systemd</a></code></strong> </td><td class="col3 leftalign"> busybox-initd                               </td><td class="col4" rowspan="3"> <strong><code><a href="procd" class="wikilink1" title="doc:techref:procd">procd</a></code></strong> </td><td class="col5"> Android init-fork </td><td class="col6"> </td><td class="col7" rowspan="6"> <code>systemd</code> </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign">                                  </td><td class="col1"> <a href="http://en.wikipedia.org/wiki/rsyslog" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/rsyslog">rsyslog</a> / <a href="http://en.wikipedia.org/wiki/syslog-ng" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/syslog-ng">syslog-ng</a> </td><td class="col2 leftalign"> busybox-klogd, busybox-syslogd              </td><td class="col3 leftalign">  </td><td class="col4 leftalign">  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign">                                  </td><td class="col1 leftalign"> <a href="http://en.wikipedia.org/wiki/watchdog" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/watchdog">watchdog</a>                   </td><td class="col2 leftalign"> busybox-watchdog                            </td><td class="col3 leftalign">  </td><td class="col4 leftalign">  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign">                                  </td><td class="col1 leftalign"> <a href="http://en.wikipedia.org/wiki/udev" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/udev">udev</a>                       </td><td class="col2 leftalign"> <a href="hotplug" class="wikilink1" title="doc:techref:hotplug">hotplug2</a>            </td><td class="col3"> ubox? </td><td class="col4 leftalign">  </td><td class="col5 leftalign">  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign">                                  </td><td class="col1 leftalign"> <a href="http://en.wikipedia.org/wiki/cron" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/cron">cron</a>                       </td><td class="col2 leftalign" colspan="2"> <code><a href="../howto/ntp.server" class="wikilink1" title="doc:howto:ntp.client">busybox-crond</a></code>       </td><td class="col4 leftalign">  </td><td class="col5 leftalign">  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign">                                  </td><td class="col1 leftalign"> <a href="http://en.wikipedia.org/wiki/at (Unix)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/at (Unix)">atd</a>              </td><td class="col2 leftalign" colspan="2"> <em>na</em>                                           </td><td class="col4 leftalign">  </td><td class="col5 leftalign">  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign">                                  </td><td class="col1 leftalign" colspan="2"> <a href="http://en.wikipedia.org/wiki/D-Bus" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/D-Bus">D-Bus</a>                      </td><td class="col3 leftalign" colspan="2"> <a href="ubus" class="wikilink1" title="doc:techref:ubus">ubus</a>         </td><td class="col5"> Binder </td><td class="col6 leftalign"> ?  </td><td class="col7"> D-Bus </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 leftalign"> network configuration            </td><td class="col1 leftalign" colspan="2"> <a href="http://en.wikipedia.org/wiki/NetworkManager" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/NetworkManager">NetworkManager</a> + <abbr title="Graphical User Interface">GUI</abbr>       </td><td class="col3 leftalign" colspan="2"> <code><a href="netifd" class="wikilink1" title="doc:techref:netifd">netifd</a></code>   </td><td class="col5"> ConnectivityManager<br/>
+(not <a href="https://connman.net/" class="urlextern" title="https://connman.net/"  rel="nofollow">ConnMan = ConnectionManager</a>!) </td><td class="col6"> ? </td><td class="col7"> ConnMan </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 leftalign">                                  </td><td class="col1 leftalign" colspan="2"> <a href="http://en.wikipedia.org/wiki/GLib" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/GLib">GLib</a> <br/>
+(GObject, Glib, GModule, GThread, GIO)  </td><td class="col3 leftalign" colspan="2"> <a href="libubox" class="wikilink1" title="doc:techref:libubox">libubox</a>      </td><td class="col5"> ? </td><td class="col6"> ? </td><td class="col7"> Qt-based? </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 leftalign">                                  </td><td class="col1 leftalign" colspan="2"> <a href="http://en.wikipedia.org/wiki/PulseAudio" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/PulseAudio">PulseAudio</a>                 </td><td class="col3" colspan="2"> <a href="../howto/pulseaudio" class="wikilink1" title="doc:howto:pulseaudio">PulseAudio</a> (optional) </td><td class="col5"> PulseAudio </td><td class="col6"> PulseAudio </td><td class="col7"> PulseAudio </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0"> <a href="http://en.wikipedia.org/wiki/Package management system" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Package management system">Package management system</a> </td><td class="col1 leftalign" colspan="2"> <a href="http://en.wikipedia.org/wiki/dpkg" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/dpkg">dpkg</a>/<a href="http://en.wikipedia.org/wiki/Advanced Packaging Tool" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Advanced Packaging Tool">APT</a><br/>
+<a href="http://en.wikipedia.org/wiki/RPM Package Manager" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/RPM Package Manager">RPM</a>/<a href="http://en.wikipedia.org/wiki/Yellowdog Updater, Modified" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Yellowdog Updater, Modified">yum</a><br/>
+<a href="http://en.wikipedia.org/wiki/Portage (software)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Portage (software)">portage</a><br/>
+<a href="http://en.wikipedia.org/wiki/pacman (package manager)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/pacman (package manager)">pacman</a><br/>
+…  </td><td class="col3 leftalign" colspan="2"> <code><a href="opkg" class="wikilink1" title="doc:techref:opkg">opkg</a></code>  </td><td class="col5"> <a href="http://en.wikipedia.org/wiki/APK (file format)" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/APK (file format)">apk</a> </td><td class="col6"> ? </td><td class="col7"> <a href="http://en.wikipedia.org/wiki/RPM Package Manager" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/RPM Package Manager">RPM</a> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit3" id="dependencies_of_luci2">Dependencies of LuCI2</h3>
+<div class="level3">
+
+<p>
+The idea for LuCI2 and its different components started a long time ago: <a href="http://luci.subsignal.org/trac/browser/luci2" class="urlextern" title="http://luci.subsignal.org/trac/browser/luci2"  rel="nofollow">http://luci.subsignal.org/trac/browser/luci2</a>; Code is being developed <a href="http://nbd.name/gitweb.cgi" class="urlextern" title="http://nbd.name/gitweb.cgi"  rel="nofollow">here</a>;
+</p>
+<ul>
+<li class="level1"><div class="li"> <code><a href="libubox" class="wikilink1" title="doc:techref:libubox">libubox</a></code> (~ 12KiB) is a general purpose library which provides things like an event loop, binary blob message formatting and handling, the Linux linked list implementation, and some JSON helpers. The functions in <code>libubox</code> are used to write the other software in LuCI2</div>
+</li>
+<li class="level1"><div class="li"> <code><a href="ubus" class="wikilink1" title="doc:techref:ubus">ubus</a></code> (~ 13KiB) is an RPC daemon similar to D-Bus but with a much friendlier C <abbr title="Application Programming Interface">API</abbr></div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> <code><a href="ubox" class="wikilink1" title="doc:techref:ubox">ubox</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="mountd" class="wikilink1" title="doc:techref:mountd">mountd</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="rpcd" class="wikilink1" title="doc:techref:rpcd">rpcd</a></code></div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> <a href="http://www.freedesktop.org/wiki/Software/PulseAudio/FAQ/#index2h3" class="urlextern" title="http://www.freedesktop.org/wiki/Software/PulseAudio/FAQ/#index2h3"  rel="nofollow">PulseAudio does not depend on GLib</a> and does not seem to depends on D-Bus neither: <a href="http://www.linuxfromscratch.org/blfs/view/svn/multimedia/pulseaudio.html" class="urlextern" title="http://www.linuxfromscratch.org/blfs/view/svn/multimedia/pulseaudio.html"  rel="nofollow">LFS</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="https://archive.fosdem.org/2013/schedule/event/dist_network/" class="urlextern" title="https://archive.fosdem.org/2013/schedule/event/dist_network/"  rel="nofollow">FOSDEM2013: Can Linux network configuration suck less?</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit4" id="what_s_the_difference_between_ubus_and_dbus">What&#039;s the difference between ubus and dbus?</h3>
+<div class="level3">
+
+<p>
+<code>dbus</code> is bloated, its C <abbr title="Application Programming Interface">API</abbr> is very annoying to use and requires writing large amounts of boilerplate code. In fact, the pure C <abbr title="Application Programming Interface">API</abbr> is so annoying that its own <abbr title="Application Programming Interface">API</abbr> documentation states: &quot;If you use this low-level <abbr title="Application Programming Interface">API</abbr> directly, you&#039;re signing up for some pain.&quot;
+</p>
+
+<p>
+<code>ubus</code> is tiny and has the advantage of being easy to use from regular C code, as well as automatically making all exported <abbr title="Application Programming Interface">API</abbr> functionality also available to shell scripts with no extra effort.
+</p>
+
+<p>
+&quot;Of course, NetworkManager should be renamed to <strong><em><code>&quot;unetwork&quot;</code></em></strong>, dbus to <strong><em><code>&quot;ubus&quot;</code></em></strong>, PulseAudio to <strong><em><code>&quot;usound&quot;</code></em></strong>, and X.Org-Server/Wayland-Compositor to <strong><em><code>&quot;udisplay&quot;</code></em></strong>; and then indescribable happiness would come down to all people of this world.&quot; – <a href="http://lists.freedesktop.org/archives/dbus/2010-April/012545.html" class="urlextern" title="http://lists.freedesktop.org/archives/dbus/2010-April/012545.html"  rel="nofollow">Lennart Poettering</a>
+</p>
+<hr />
+<ul>
+<li class="level1"><div class="li"> →<a href="../../about/toolchain" class="wikilink1" title="about:toolchain">OpenWrt Buildroot – About</a></div>
+</li>
+<li class="level1"><div class="li"> →<a href="../howto/buildroot.exigence" class="wikilink1" title="doc:howto:buildroot.exigence">OpenWrt Buildroot – Installation</a></div>
+</li>
+<li class="level1"><div class="li"> →<a href="../howto/obtain.firmware.compile" class="wikilink1" title="doc:howto:build">OpenWrt Buildroot – Usage</a></div>
+</li>
+<li class="level1"><div class="li"> →<a href="../devel/patches" class="wikilink1" title="doc:devel:patches">OpenWrt Buildroot – Patches</a></div>
+</li>
+</ul>
+<hr />
+<ul>
+<li class="level1"><div class="li"> →<a href="file_system" class="wikilink1" title="doc:techref:file_system">file_system</a> / <a href="flash.layout" class="wikilink1" title="doc:techref:flash.layout">flash.layout</a></div>
+</li>
+<li class="level1"><div class="li"> →<a href="internal.layout" class="wikilink1" title="doc:techref:internal.layout">internal.layout</a></div>
+</li>
+<li class="level1"><div class="li"> →<a href="preinit_mount" class="wikilink1" title="doc:techref:preinit_mount">preinit_mount</a>/<a href="process.boot" class="wikilink1" title="doc:techref:process.boot">process.boot</a>/<a href="requirements.boot.process" class="wikilink1" title="doc:techref:requirements.boot.process">requirements.boot.process</a></div>
+</li>
+</ul>
+
+</div>
+<div class="footnotes">
+<div class="fn"><sup><a href="architecture#fnt__1" id="fn__1" class="fn_bot">1)</a></sup> 
+yes, <em>heavily</em> stripped OpenWrt can run on 16 or even 8MiB</div>
+<div class="fn"><sup><a href="architecture#fnt__2" id="fn__2" class="fn_bot">2)</a></sup> 
+yes, 4MiB and 2MiB possible</div>
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/techref/architecture.txt</bdi> · Last modified: 2013/10/10 23:50 by <bdi>olaf.dietsche</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="architecture?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="architecture?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="architecture?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="architecture#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Atechref%253Aarchitecture&amp;1432267213" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

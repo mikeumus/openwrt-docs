@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>IPsec Basics [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="crypto"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="vpn.ipsec.basics.racoon?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/vpn.ipsec.basics.racoon"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/vpn.ipsec.basics.racoon"/>
+<link rel="canonical" href="vpn.ipsec.basics.racoon"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:vpn.ipsec.basics.racoon","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432273841 166.182.3.179';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="vpn.ipsec.basics.racoon#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="vpn.ipsec.basics.racoon?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="vpn.ipsec.basics.racoon?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:vpn.ipsec.basics.racoon" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="vpn.ipsec.basics.racoon?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="vpn.ipsec.basics.racoon?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="vpn.ipsec.basics.racoon?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="vpn.ipsec.basics.racoon" class="wikilink1" title="doc:howto:vpn.ipsec.basics.racoon">IPsec Basics</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/vpn.ipsec.basics.racoon" class="media" title="cz:doc:howto:vpn.ipsec.basics.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/vpn.ipsec.basics.racoon" class="media" title="de:doc:howto:vpn.ipsec.basics.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="vpn.ipsec.basics.racoon" class="media" title="doc:howto:vpn.ipsec.basics.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/vpn.ipsec.basics.racoon" class="media" title="es:doc:howto:vpn.ipsec.basics.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/vpn.ipsec.basics.racoon" class="media" title="fr:doc:howto:vpn.ipsec.basics.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/vpn.ipsec.basics.racoon" class="media" title="hu:doc:howto:vpn.ipsec.basics.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/vpn.ipsec.basics.racoon" class="media" title="jp:doc:howto:vpn.ipsec.basics.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/vpn.ipsec.basics.racoon" class="media" title="pl:doc:howto:vpn.ipsec.basics.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/vpn.ipsec.basics.racoon" class="media" title="pt-br:doc:howto:vpn.ipsec.basics.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/vpn.ipsec.basics.racoon" class="media" title="ru:doc:howto:vpn.ipsec.basics.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/vpn.ipsec.basics.racoon" class="media" title="tr:doc:howto:vpn.ipsec.basics.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/vpn.ipsec.basics.racoon" class="media" title="zh-cn:doc:howto:vpn.ipsec.basics.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/vpn.ipsec.basics.racoon" class="media" title="zh-tw:doc:howto:vpn.ipsec.basics.racoon"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:vpn.ipsec.basics.racoon</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="vpn.ipsec.basics.racoon#packages">Packages</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.basics.racoon#configuration_concept">Configuration concept</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.basics.racoon#ike_daemon">IKE Daemon</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.basics.racoon#hardware_performance">Hardware performance</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.basics.racoon#ipsec_tuning">IPsec Tuning</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.basics.racoon#openssl_tuning">OpenSSL Tuning</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.basics.racoon#what_s_next">What&#039;s next</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.ipsec.basics.racoon#tag">Tag</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="ipsec_basics">IPsec Basics</h1>
+<div class="level1">
+<div class="table sectionedit2"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> For an overview over all existing Virtual private network (VPN)-related articles in the OpenWrt wiki, please visit <a href="vpn.overview" class="wikilink1" title="doc:howto:vpn.overview">vpn.overview</a> </td>
+	</tr>
+</table></div>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> This page is about racoon. The new strongSwan documentation can be found <a href="vpn.ipsec.basics" class="wikilink1" title="doc:howto:vpn.ipsec.basics">here</a>.
+</p>
+
+<p>
+A quick starters quide based on Backfire 10.03.1-rc6. Maybe it will save you and me time if one has to setup an IPsec VPN in the future. Hopefully it will ecourage other people to use Openwrt as an IPsec VPN router. We cannot provide a graphical user interface at the moment but at least it is a solid alternative to commercial IPsec appliances. If you came here for informations about <a href="http://www.openswan.org" class="urlextern" title="http://www.openswan.org"  rel="nofollow">Openswan</a> on OpenWrt you may be disappointed. This guide is only about racoon, see <a href="http://packages.debian.org/racoon" class="urlextern" title="http://packages.debian.org/racoon"  rel="nofollow">http://packages.debian.org/racoon</a>.
+</p>
+
+<p>
+–UPDATE– Openswan documentation is being put together here <a href="vpn.ipsec.site2site.openswan" class="wikilink1" title="doc:howto:vpn.ipsec.site2site.openswan">IPsec Site To Site Using Openswan</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="packages">Packages</h2>
+<div class="level2">
+
+<p>
+If not already installed on your router you need the at least those packages
+</p>
+<ul>
+<li class="level1"><div class="li"> ipsec-tools: racoon, setkey, and kernel encryption modules</div>
+</li>
+<li class="level1"><div class="li"> kmod-crypto-authenc: Module for block cipher modes (AEAD) (automatically installed with ipsec-tools in latest trunk)</div>
+</li>
+<li class="level1"><div class="li"> kmod-ipsec: Basic security module (automatically installed with ipsec-tools in latest trunk)</div>
+</li>
+<li class="level1"><div class="li"> kmod-ipsec4: IPv4 security module</div>
+</li>
+<li class="level1"><div class="li"> kmod-ipsec6: IPv6 security module</div>
+</li>
+<li class="level1"><div class="li"> ip: Required to make scripting easier</div>
+</li>
+<li class="level1"><div class="li"> openssl-util: Certificate handling</div>
+</li>
+<li class="level1"><div class="li"> iptables-mod-nat-extra: For VPN networks with <a href="vpn.ipsec.overlappingsubnets.racoon" class="wikilink1" title="doc:howto:vpn.ipsec.overlappingsubnets.racoon">overlapping IP addresses</a></div>
+</li>
+<li class="level1"><div class="li"> ip6tables: IPv6 firewall support</div>
+</li>
+</ul>
+
+<p>
+Altogether those packages will eat up about 1,2 <abbr title="Megabyte">MB</abbr> of your router&#039;s flash memory. The racoon and ip binaries will already be 650KB. Maybe it is time for an <a href="extroot" class="wikilink1" title="doc:howto:extroot">extroot</a> installation?
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="configuration_concept">Configuration concept</h2>
+<div class="level2">
+
+<p>
+With Linux default IPsec daemon is called racoon. For this one normally edits some files
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>/etc/racoon.conf</strong>: Central configuration file &amp; endpoint definitions</div>
+</li>
+<li class="level1"><div class="li"> <strong>/etc/racoon/psk.txt</strong>: List of preshared keys</div>
+</li>
+<li class="level1"><div class="li"> <strong>/etc/racoon/setkey.conf</strong>: Security policies for tunnels</div>
+</li>
+</ul>
+
+<p>
+The major challenges are handling setkey.conf with dynamic IP addresses and clean integration into the OpenWrt configuration concept. To solve this we will use a hierarchical configuration process. That involves
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>/etc/config/racoon</strong>: The OpenWrt configuration file for racoon</div>
+</li>
+<li class="level1"><div class="li"> <strong>/etc/init.d/racoon</strong>: The racoon start script. It will generate the required configuration files for racoon</div>
+</li>
+<li class="level1"><div class="li"> <strong>/var/racoon/racoon.conf</strong>: The generated racoon config</div>
+</li>
+<li class="level1"><div class="li"> <strong>/var/racoon/psk.txt</strong> : The generated file with preshared keys</div>
+</li>
+<li class="level1"><div class="li"> <strong>/var/racoon/cert</strong>: The folder with generated certificates</div>
+</li>
+</ul>
+
+<p>
+Here a short example of the configuration methodology when having two VPN tunnels to ACME and Yabadoo networks 
+</p>
+
+<p>
+<pre class="code">#/etc/config/racoon
+config &#039;tunnel&#039; &#039;ACME&#039;
+  option &#039;enabled&#039; &#039;1&#039;
+  option &#039;remote&#039; &#039;1.2.3.4&#039;
+  list   &#039;sainfo&#039; &#039;acme_lan&#039;
+  ...
+
+config &#039;sainfo&#039; &#039;acme_lan&#039;
+  option &#039;local_address&#039; &#039;192.168.213.64/26&#039;
+  option &#039;remote_address&#039; &#039;192.168.10.0/24&#039;
+  ...
+
+config &#039;tunnel&#039; &#039;Yabadoo&#039;
+  option &#039;enabled&#039; &#039;1&#039;
+  option &#039;remote&#039; &#039;5.6.7.8&#039;</pre>
+
+</p>
+
+<p>
+Read more about the complete syntax for <a href="../uci/racoon" class="wikilink1" title="doc:uci:racoon">/etc/config/racoon</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="ike_daemon">IKE Daemon</h2>
+<div class="level2">
+
+<p>
+As already mentioned it can be a little scary to insert security polices into the kernel. Especially when you have a reconnecting interface with a dynamic outside IP. But to be honest all we have to know is already inside our /etc/config/racoon file. So we just have to use the startup script to parse those files and hand them over to the IPSec stack via setkey command. Our solution involves
+</p>
+<ul>
+<li class="level1"><div class="li"> automatically determine interfaces and IPs</div>
+</li>
+<li class="level1"><div class="li"> allow multiple sainfo sets per tunnel</div>
+</li>
+<li class="level1"><div class="li"> if racoon is already running reload policies only</div>
+</li>
+<li class="level1"><div class="li"> generate certificates and their hashes</div>
+</li>
+</ul>
+
+<p>
+To let racoon run as a background daemon we can place a hook in the init environment. Therefore create the file <strong>/etc/init.d/racoon</strong> and set the executable bit. Remark: This script is in an advanced beta state. It currently works for site to site or roadwarrior tunnels with either preshared keys or RSA certificates. Feel free to enhance it.
+</p>
+
+<p>
+Enhancement:  It works also with cisco ASA remote endpoint now <img src="../../lib/images/smileys/icon_smile.gif" class="icon" alt=":-)" />
+</p>
+
+<p>
+<pre class="code bash"><span class="co0">#!/bin/sh /etc/rc.common</span>
+<span class="co0">#/etc/init.d/racoon - version 27</span>
+&nbsp;
+<span class="re2">NAME</span>=racoon
+<span class="re2">PROG</span>=<span class="sy0">/</span>usr<span class="sy0">/</span>sbin<span class="sy0">/</span>racoon
+<span class="re2">START</span>=<span class="nu0">60</span>
+<span class="re2">STOP</span>=<span class="nu0">60</span>
+&nbsp;
+. <span class="sy0">/</span>etc<span class="sy0">/</span>functions.sh
+&nbsp;
+<span class="re2">ConfigFile</span>=<span class="st0">&quot;/var/racoon/racoon.conf&quot;</span>
+<span class="re2">PSKFile</span>=<span class="st0">&quot;/var/racoon/psk.txt&quot;</span>
+<span class="re2">UserFile</span>=<span class="st0">&quot;/var/racoon/xauthuser.txt&quot;</span>
+<span class="re2">CertificatePath</span>=<span class="st0">&quot;/var/racoon/cert&quot;</span>
+<span class="re2">CallParameters</span>=<span class="st0">&quot;&quot;</span>
+<span class="re2">RoadWarriorRemote</span>=<span class="st0">&quot;anonymous&quot;</span>
+<span class="re2">RoadWarriorDNS</span>=<span class="st0">&quot;&quot;</span>
+<span class="re2">RoadWarriorDomain</span>=<span class="st0">&quot;&quot;</span>
+<span class="re2">RoadWarriorCerts</span>=<span class="st0">&quot;&quot;</span>
+<span class="re2">MainConfigDone</span>=<span class="nu0">0</span>
+&nbsp;
+UserConfig<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+  <span class="kw3">local</span> enabled
+  <span class="kw3">local</span> xauth
+  <span class="kw3">local</span> name
+  <span class="kw3">local</span> password
+  <span class="kw3">local</span> crt_subject
+&nbsp;
+  config_get_bool enabled <span class="re4">$1</span> enabled <span class="nu0">0</span>
+  <span class="br0">&#91;</span><span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$enabled</span>&quot;</span> == <span class="st0">&quot;0&quot;</span> <span class="br0">&#93;</span><span class="br0">&#93;</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">return</span>
+&nbsp;
+  config_get_bool xauth       <span class="re4">$1</span> xauth       <span class="nu0">0</span>
+  config_get      name        <span class="re4">$1</span> name        <span class="st0">&quot;&quot;</span>
+  config_get      password    <span class="re4">$1</span> password    <span class="st0">&quot;&quot;</span>
+  config_get      crt_subject <span class="re4">$1</span> crt_subject <span class="st0">&quot;&quot;</span>
+&nbsp;
+  <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re1">$xauth</span> <span class="re5">-eq</span> <span class="nu0">1</span> <span class="re5">-a</span> <span class="st0">&quot;<span class="es2">$name</span>&quot;</span> <span class="sy0">!</span>= <span class="st0">&quot;&quot;</span> <span class="re5">-a</span> <span class="st0">&quot;<span class="es2">$password</span>&quot;</span> <span class="sy0">!</span>= <span class="st0">&quot;&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+    <span class="kw3">echo</span> <span class="st0">&quot;<span class="es2">$name</span> <span class="es2">$password</span>&quot;</span> <span class="sy0">&gt;&gt;</span> <span class="re1">$UserFile</span>
+  <span class="kw1">fi</span>
+&nbsp;
+  <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$crt_subject</span>&quot;</span> <span class="sy0">!</span>= <span class="st0">&quot;&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+    <span class="re2">RoadWarriorCerts</span>=<span class="st0">&quot;<span class="es3">${RoadWarriorCerts}</span>peers_identifier asn1dn <span class="es1">\&quot;</span><span class="es2">$crt_subject</span><span class="es1">\&quot;</span>;&quot;</span>
+  <span class="kw1">fi</span>
+<span class="br0">&#125;</span>
+&nbsp;
+CreateSA<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+  <span class="kw3">local</span> <span class="re2">LocalEndpoint</span>=<span class="sy0">`</span><span class="kw2">ip route</span> get <span class="re4">$3</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="re5">-F</span><span class="st0">&quot;src&quot;</span> <span class="st_h">'/src/{gsub(/ /,&quot;&quot;);print $2}'</span> <span class="sy0">|</span> <span class="kw2">sed</span> <span class="re5">-e</span> <span class="st_h">'s/metric.*//'</span><span class="sy0">`</span>
+&nbsp;
+  <span class="kw3">echo</span> <span class="st0">&quot;spdadd $1 $2 any -P out ipsec <span class="es1">\
+</span>        esp/tunnel/<span class="es2">$LocalEndpoint</span>-$3/unique; <span class="es1">\
+</span>        spdadd $2 $1 any -P in ipsec <span class="es1">\
+</span>        esp/tunnel/$3-<span class="es2">$LocalEndpoint</span>/unique; <span class="es1">\
+</span>       &quot;</span> <span class="sy0">|</span> setkey <span class="re5">-c</span> <span class="nu0">1</span><span class="sy0">&gt;&amp;</span><span class="nu0">2</span>
+<span class="br0">&#125;</span>
+&nbsp;
+RoadWarriorSubnet<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+  <span class="kw3">local</span> i
+&nbsp;
+  <span class="kw3">let</span> <span class="st0">&quot;i=255&lt;&lt;(24-<span class="es3">${1#*/}</span>+8)&amp;255&quot;</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;  netmask4 255.255.255.<span class="es2">$i</span>;&quot;</span>
+&nbsp;
+  <span class="re2">i</span>=<span class="st0">&quot;<span class="es3">${1%/*}</span>&quot;</span>
+  <span class="kw3">let</span> <span class="st0">&quot;i=<span class="es3">${i##*.}</span>+1&quot;</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;  network4 <span class="es3">${1%.*}</span>.<span class="es2">$i</span>;&quot;</span>
+<span class="br0">&#125;</span>
+&nbsp;
+MainConfig<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+  <span class="kw3">local</span> foreground
+  <span class="kw3">local</span> debug
+  <span class="kw3">local</span> listen
+&nbsp;
+  config_get_bool foreground        <span class="re4">$1</span> foreground <span class="nu0">0</span>
+  config_get_bool debug             <span class="re4">$1</span> debug      <span class="nu0">0</span>
+  config_get      listen            <span class="re4">$1</span> listen     <span class="st0">&quot;&quot;</span>
+  config_get      RoadWarriorDNS    <span class="re4">$1</span> dns        <span class="st0">&quot;&quot;</span>
+  config_get      RoadWarriorDomain <span class="re4">$1</span> domain     <span class="st0">&quot;&quot;</span>
+&nbsp;
+  <span class="br0">&#91;</span><span class="br0">&#91;</span> <span class="re1">$foreground</span> <span class="re5">-ne</span> <span class="nu0">0</span> <span class="br0">&#93;</span><span class="br0">&#93;</span> <span class="sy0">&amp;&amp;</span> <span class="re2">CallParameters</span>=<span class="st0">&quot;-F&quot;</span>
+  <span class="br0">&#91;</span><span class="br0">&#91;</span> <span class="re1">$debug</span> <span class="re5">-ne</span> <span class="nu0">0</span> <span class="br0">&#93;</span><span class="br0">&#93;</span>      <span class="sy0">&amp;&amp;</span> <span class="re2">CallParameters</span>=<span class="re1">$CallParameters</span><span class="st0">&quot; -d&quot;</span>
+&nbsp;
+  <span class="kw3">echo</span> <span class="st0">&quot;# auto generated by /etc/init.d/racoon&quot;</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;path pre_shared_key <span class="es1">\&quot;</span><span class="es2">$PSKFile</span><span class="es1">\&quot;</span>;&quot;</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;path certificate <span class="es1">\&quot;</span><span class="es2">$CertificatePath</span><span class="es1">\&quot;</span>;&quot;</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;padding {&quot;</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;  maximum_length 20; randomize off;&quot;</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;  strict_check off; exclusive_tail off;&quot;</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;}&quot;</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;timer {&quot;</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;  counter 5; interval 20 sec; persend 1;&quot;</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;  phase1 30 sec; phase2 15 sec;&quot;</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;}&quot;</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;&quot;</span>
+&nbsp;
+  <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$listen</span>&quot;</span> <span class="sy0">!</span>= <span class="st0">&quot;&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+    <span class="kw3">echo</span> <span class="st0">&quot;listen {&quot;</span>
+    config_list_foreach <span class="st0">&quot;$1&quot;</span> listen AddListenIP
+    <span class="kw3">echo</span> <span class="st0">&quot;}&quot;</span>
+    <span class="kw3">echo</span> <span class="st0">&quot;&quot;</span>
+  <span class="kw1">fi</span>
+  <span class="re2">MainConfigDone</span>=<span class="nu0">1</span>
+<span class="br0">&#125;</span>
+&nbsp;
+AddListenIP<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+  <span class="kw3">local</span> <span class="re2">value</span>=<span class="st0">&quot;$1&quot;</span>
+  . <span class="sy0">/</span>lib<span class="sy0">/</span>functions<span class="sy0">/</span>network.sh
+  <span class="kw3">local</span> retvalue
+  network_get_ipaddr listenIP <span class="st0">&quot;<span class="es2">$value</span>&quot;</span>
+  <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re4">$?</span> <span class="re5">-eq</span> <span class="nu0">0</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+    <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$listenIP</span>&quot;</span> <span class="sy0">!</span>= <span class="st0">&quot;&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+      <span class="kw3">echo</span> <span class="st0">&quot;  isakmp <span class="es2">$listenIP</span>;&quot;</span>
+      <span class="kw3">echo</span> <span class="st0">&quot;  isakmp_natt <span class="es2">$listenIP</span> [4500];&quot;</span>
+    <span class="kw1">fi</span>
+  <span class="kw1">fi</span>
+  network_get_ipaddr6 listenIP <span class="st0">&quot;<span class="es2">$value</span>&quot;</span>
+  <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re4">$?</span> <span class="re5">-eq</span> <span class="nu0">0</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+    <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$listenIP</span>&quot;</span> <span class="sy0">!</span>= <span class="st0">&quot;&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+      <span class="kw3">echo</span> <span class="st0">&quot;  isakmp <span class="es2">$listenIP</span>;&quot;</span>
+      <span class="kw3">echo</span> <span class="st0">&quot;  isakmp_natt <span class="es2">$listenIP</span> [4500];&quot;</span>
+    <span class="kw1">fi</span>
+  <span class="kw1">fi</span>
+<span class="br0">&#125;</span>
+&nbsp;
+TunnelConfig<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+  <span class="kw3">local</span> enabled
+  <span class="kw3">local</span> remote
+  <span class="kw3">local</span> remote_device
+  <span class="kw3">local</span> preshared_key
+  <span class="kw3">local</span> exchange_mode
+  <span class="kw3">local</span> my_identifier
+  <span class="kw3">local</span> my_identifier_type
+  <span class="kw3">local</span> certificate
+  <span class="kw3">local</span> remote_device
+&nbsp;
+  config_get_bool enabled <span class="st0">&quot;$1&quot;</span> enabled <span class="nu0">0</span>
+  <span class="br0">&#91;</span><span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$enabled</span>&quot;</span> == <span class="st0">&quot;0&quot;</span> <span class="br0">&#93;</span><span class="br0">&#93;</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">return</span>
+&nbsp;
+  config_get remote             <span class="st0">&quot;$1&quot;</span> remote
+  config_get remote_device      <span class="st0">&quot;$1&quot;</span> remote_device <span class="st0">&quot;&quot;</span>
+  config_get pre_shared_key     <span class="st0">&quot;$1&quot;</span> pre_shared_key <span class="st0">&quot;&quot;</span>
+  config_get exchange_mode      <span class="st0">&quot;$1&quot;</span> exchange_mode
+  config_get my_identifier      <span class="st0">&quot;$1&quot;</span> my_identifier <span class="st0">&quot;&quot;</span>
+  config_get my_identifier_type <span class="st0">&quot;$1&quot;</span> my_identifier_type <span class="st0">&quot;fqdn&quot;</span>
+  config_get certificate        <span class="st0">&quot;$1&quot;</span> certificate <span class="st0">&quot;&quot;</span>
+  config_get dpd_delay		<span class="st0">&quot;$1&quot;</span> dpd_delay <span class="st0">&quot;&quot;</span>
+&nbsp;
+  <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$remote</span>&quot;</span> <span class="sy0">!</span>= <span class="st0">&quot;<span class="es2">$RoadWarriorRemote</span>&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+    <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re5">-x</span> <span class="sy0">/</span>usr<span class="sy0">/</span>bin<span class="sy0">/</span>dnsip <span class="br0">&#93;</span> ; <span class="kw1">then</span>
+      <span class="re2">remote</span>=<span class="sy0">`/</span>usr<span class="sy0">/</span>bin<span class="sy0">/</span>dnsip <span class="re1">$remote</span><span class="sy0">`</span>
+    <span class="kw1">else</span> 
+      <span class="re2">remote</span>=<span class="sy0">`</span>nslookup <span class="st0">&quot;<span class="es2">$remote</span>&quot;</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'NR==5 { print $3 }'</span><span class="sy0">`</span>
+    <span class="kw1">fi</span>
+    <span class="re2">prg</span>=<span class="sy0">`</span>racoon <span class="re5">-V</span> <span class="nu0">2</span><span class="sy0">&gt;/</span>dev<span class="sy0">/</span>null<span class="sy0">|</span> <span class="kw2">grep</span> <span class="st0">&quot;ipsec-tools 0.8&quot;</span> <span class="sy0">|</span> <span class="kw2">wc</span> -l<span class="sy0">`</span>
+    <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re1">$prg</span> <span class="re5">-eq</span> <span class="nu0">0</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+      <span class="kw3">echo</span> <span class="st0">&quot;remote <span class="es2">$remote</span> {&quot;</span>
+    <span class="kw1">else</span>
+      <span class="kw3">echo</span> <span class="st0">&quot;remote <span class="es1">\&quot;</span>$1<span class="es1">\&quot;</span> {&quot;</span>
+      <span class="kw3">echo</span> <span class="st0">&quot;  remote_address <span class="es2">$remote</span>;&quot;</span>
+    <span class="kw1">fi</span>
+&nbsp;
+  <span class="kw1">else</span>
+    <span class="kw3">echo</span> <span class="st0">&quot;remote anonymous {&quot;</span>
+    <span class="kw3">echo</span> <span class="st0">&quot;  generate_policy on;&quot;</span>
+  <span class="kw1">fi</span>
+&nbsp;
+  <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$pre_shared_key</span>&quot;</span> <span class="sy0">!</span>= <span class="st0">&quot;&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+    <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$remote</span>&quot;</span> <span class="sy0">!</span>= <span class="st0">&quot;<span class="es2">$RoadWarriorRemote</span>&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+      <span class="kw3">echo</span> <span class="st0">&quot;<span class="es2">$remote</span> <span class="es2">$pre_shared_key</span>&quot;</span> <span class="sy0">&gt;&gt;</span> <span class="re1">$PSKFile</span>
+    <span class="kw1">else</span>
+      <span class="kw3">echo</span> <span class="st0">&quot;* <span class="es2">$pre_shared_key</span>&quot;</span> <span class="sy0">&gt;&gt;</span> <span class="re1">$PSKFile</span>
+    <span class="kw1">fi</span>
+    <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$my_identifier</span>&quot;</span> <span class="sy0">!</span>= <span class="st0">&quot;&quot;</span> <span class="re5">-a</span> <span class="st0">&quot;<span class="es2">$my_identifier_type</span>&quot;</span> <span class="sy0">!</span>= <span class="st0">&quot;&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+      <span class="kw3">echo</span> <span class="st0">&quot;  my_identifier <span class="es2">$my_identifier_type</span>  <span class="es1">\&quot;</span><span class="es2">$my_identifier</span><span class="es1">\&quot;</span>;&quot;</span>
+    <span class="kw1">fi</span>
+  <span class="kw1">elif</span> <span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$certificate</span>&quot;</span> <span class="sy0">!</span>= <span class="st0">&quot;&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+    <span class="kw3">echo</span> <span class="st0">&quot;  verify_cert on;&quot;</span>
+    <span class="kw3">echo</span> <span class="st0">&quot;  certificate_type x509 <span class="es1">\&quot;</span><span class="es2">$certificate</span>.crt<span class="es1">\&quot;</span> <span class="es1">\&quot;</span><span class="es2">$certificate</span>.key<span class="es1">\&quot;</span>;&quot;</span>
+    <span class="kw3">echo</span> <span class="st0">&quot;  my_identifier asn1dn;&quot;</span>
+    <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$remote</span>&quot;</span> == <span class="st0">&quot;<span class="es2">$RoadWarriorRemote</span>&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+      <span class="kw3">echo</span> <span class="st0">&quot;  verify_identifier on;&quot;</span>
+      <span class="kw3">echo</span> <span class="st0">&quot;  &quot;</span><span class="re1">$RoadWarriorCerts</span>
+    <span class="kw1">else</span>
+      <span class="kw3">echo</span> <span class="st0">&quot;  peers_identifier asn1dn;&quot;</span>
+    <span class="kw1">fi</span>
+  <span class="kw1">fi</span>
+&nbsp;
+  <span class="kw3">echo</span> <span class="st0">&quot;  exchange_mode <span class="es2">$exchange_mode</span>;&quot;</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;  proposal_check obey;&quot;</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;  nat_traversal on;&quot;</span>
+  <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$dpd_delay</span>&quot;</span> <span class="sy0">!</span>= <span class="st0">&quot;&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+    <span class="kw3">echo</span> <span class="st0">&quot;  dpd_delay <span class="es2">$dpd_delay</span>;&quot;</span>
+  <span class="kw1">fi</span>
+&nbsp;
+  config_list_foreach <span class="st0">&quot;$1&quot;</span> p1_proposal ConfigP1
+  <span class="kw3">echo</span> <span class="st0">&quot;}&quot;</span>
+&nbsp;
+  <span class="re2">AnonSA</span>=<span class="nu0">0</span>
+  config_list_foreach <span class="st0">&quot;$1&quot;</span> sainfo ConfigSA <span class="re1">$tunnel</span> <span class="re1">$remote</span>
+  <span class="br0">&#91;</span><span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$remote</span>&quot;</span> == <span class="st0">&quot;<span class="es2">$RoadWarriorRemote</span>&quot;</span> <span class="br0">&#93;</span><span class="br0">&#93;</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">echo</span> <span class="st0">&quot;}&quot;</span>
+<span class="br0">&#125;</span>
+&nbsp;
+ConfigP1<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+  <span class="kw3">local</span> lifetime
+  <span class="kw3">local</span> encryption_algorithm
+  <span class="kw3">local</span> hash_algorithm
+  <span class="kw3">local</span> authentication
+  <span class="kw3">local</span> dh_group
+&nbsp;
+  config_get lifetime              <span class="st0">&quot;$1&quot;</span> lifetime <span class="nu0">28800</span>
+  config_get encryption_algorithm  <span class="st0">&quot;$1&quot;</span> encryption_algorithm
+  config_get hash_algorithm        <span class="st0">&quot;$1&quot;</span> hash_algorithm
+  config_get authentication_method <span class="st0">&quot;$1&quot;</span> authentication_method
+  config_get dh_group              <span class="st0">&quot;$1&quot;</span> dh_group
+&nbsp;
+  <span class="kw3">echo</span> <span class="st0">&quot;  proposal {&quot;</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;    lifetime time <span class="es2">$lifetime</span> sec;&quot;</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;    encryption_algorithm <span class="es2">$encryption_algorithm</span>;&quot;</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;    hash_algorithm <span class="es2">$hash_algorithm</span>;&quot;</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;    authentication_method <span class="es2">$authentication_method</span>;&quot;</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;    dh_group <span class="es2">$dh_group</span>;&quot;</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;  }&quot;</span>
+<span class="br0">&#125;</span>
+&nbsp;
+ConfigSA<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+  <span class="kw3">local</span> <span class="re2">tunnel</span>=<span class="sy0">`</span><span class="kw3">echo</span> <span class="re4">$2</span> <span class="sy0">|</span> <span class="kw2">cut</span> <span class="re5">-d</span><span class="st0">&quot; &quot;</span> -f1<span class="sy0">`</span>
+  <span class="kw3">local</span> <span class="re2">sainfo</span>=<span class="re4">$1</span>
+  <span class="kw3">local</span> <span class="re2">remote</span>=<span class="sy0">`</span><span class="kw3">echo</span> <span class="re4">$2</span> <span class="sy0">|</span> <span class="kw2">cut</span> <span class="re5">-d</span><span class="st0">&quot; &quot;</span> -f2<span class="sy0">`</span>
+  <span class="kw3">local</span> local_subnet
+  <span class="kw3">local</span> local_nat
+  <span class="kw3">local</span> remote_subnet
+  <span class="kw3">local</span> p2_proposal
+  <span class="kw3">local</span> pfs_group
+  <span class="kw3">local</span> lifetime
+  <span class="kw3">local</span> encryption_algorithm
+  <span class="kw3">local</span> <span class="kw3">local</span> authentication_algorithm
+&nbsp;
+  config_get local_subnet             <span class="st0">&quot;<span class="es2">$sainfo</span>&quot;</span>      local_subnet
+  config_get local_nat                <span class="st0">&quot;<span class="es2">$sainfo</span>&quot;</span>      local_nat <span class="st0">&quot;&quot;</span>
+  config_get remote_subnet            <span class="st0">&quot;<span class="es2">$sainfo</span>&quot;</span>      remote_subnet
+  config_get p2_proposal              <span class="st0">&quot;<span class="es2">$sainfo</span>&quot;</span>      p2_proposal
+  config_get pfs_group                <span class="st0">&quot;<span class="es2">$p2_proposal</span>&quot;</span> pfs_group
+  config_get lifetime                 <span class="st0">&quot;<span class="es2">$p2_proposal</span>&quot;</span> lifetime <span class="nu0">3600</span>
+  config_get encryption_algorithm     <span class="st0">&quot;<span class="es2">$p2_proposal</span>&quot;</span> encryption_algorithm
+  config_get authentication_algorithm <span class="st0">&quot;<span class="es2">$p2_proposal</span>&quot;</span> authentication_algorithm
+&nbsp;
+  <span class="br0">&#91;</span><span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$local_nat</span>&quot;</span> <span class="sy0">!</span>= <span class="st0">&quot;&quot;</span> <span class="br0">&#93;</span><span class="br0">&#93;</span> <span class="sy0">&amp;&amp;</span> <span class="re2">local_subnet</span>=<span class="re1">$local_nat</span>
+&nbsp;
+  <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$remote</span>&quot;</span> = <span class="st0">&quot;<span class="es2">$RoadWarriorRemote</span>&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+    <span class="kw3">let</span> <span class="re2">AnonSA</span>=<span class="re1">$AnonSA</span>+<span class="nu0">1</span>
+  <span class="kw1">fi</span>
+  <span class="br0">&#91;</span><span class="br0">&#91;</span> <span class="re1">$AnonSA</span> <span class="re5">-eq</span> <span class="nu0">1</span> <span class="br0">&#93;</span><span class="br0">&#93;</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">echo</span> <span class="st0">&quot;sainfo anonymous {&quot;</span>
+  <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re1">$AnonSA</span> <span class="re5">-eq</span> <span class="nu0">0</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+    CreateSA <span class="re1">$local_subnet</span> <span class="re1">$remote_subnet</span> <span class="re1">$remote</span>
+    <span class="kw3">echo</span> <span class="st0">&quot;sainfo address <span class="es2">$local_subnet</span> any address <span class="es2">$remote_subnet</span> any {&quot;</span>
+  <span class="kw1">fi</span>
+  <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re1">$AnonSA</span> <span class="re5">-lt</span> <span class="nu0">2</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+    <span class="br0">&#91;</span><span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$remote_device</span>&quot;</span> <span class="sy0">!</span>= <span class="st0">&quot;asa&quot;</span> <span class="br0">&#93;</span><span class="br0">&#93;</span> <span class="sy0">&amp;&amp;</span>  <span class="kw3">echo</span> <span class="st0">&quot;  pfs_group <span class="es2">$pfs_group</span>;&quot;</span>
+    <span class="kw3">echo</span> <span class="st0">&quot;  lifetime time <span class="es2">$lifetime</span> sec;&quot;</span>
+    <span class="kw3">echo</span> <span class="st0">&quot;  encryption_algorithm <span class="es2">$encryption_algorithm</span>;&quot;</span>
+    <span class="kw3">echo</span> <span class="st0">&quot;  authentication_algorithm <span class="es2">$authentication_algorithm</span>;&quot;</span>
+    <span class="kw3">echo</span> <span class="st0">&quot;  compression_algorithm deflate;&quot;</span>
+    <span class="kw3">echo</span> <span class="st0">&quot;}&quot;</span>
+  <span class="kw1">fi</span>
+  <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re1">$AnonSA</span> <span class="re5">-eq</span> <span class="nu0">1</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+    <span class="kw3">echo</span> <span class="st0">&quot;mode_cfg {&quot;</span>
+    <span class="kw3">echo</span> <span class="st0">&quot;  auth_source system;&quot;</span>
+    <span class="kw3">echo</span> <span class="st0">&quot;  conf_source local;&quot;</span>
+    <span class="br0">&#91;</span><span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$RoadWarriorDNS</span>&quot;</span>    <span class="sy0">!</span>= <span class="st0">&quot;&quot;</span> <span class="br0">&#93;</span><span class="br0">&#93;</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">echo</span> <span class="st0">&quot;  dns4 <span class="es2">$RoadWarriorDNS</span>;&quot;</span>
+    <span class="br0">&#91;</span><span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$RoadWarriorDomain</span>&quot;</span> <span class="sy0">!</span>= <span class="st0">&quot;&quot;</span> <span class="br0">&#93;</span><span class="br0">&#93;</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">echo</span> <span class="st0">&quot;  default_domain <span class="es1">\&quot;</span><span class="es2">$RoadWarriorDomain</span><span class="es1">\&quot;</span>;&quot;</span>
+    RoadWarriorSubnet <span class="re1">$remote_subnet</span>
+  <span class="kw1">fi</span>
+  <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re1">$AnonSA</span> <span class="re5">-gt</span> <span class="nu0">0</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+    <span class="kw3">echo</span> <span class="st0">&quot;  split_network include <span class="es2">$local_subnet</span>;&quot;</span>
+  <span class="kw1">fi</span>
+<span class="br0">&#125;</span>
+&nbsp;
+CertConfig<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+  <span class="kw3">local</span> val
+  <span class="kw3">local</span> <span class="kw3">hash</span>
+&nbsp;
+  <span class="kw1">for</span> opt <span class="kw1">in</span> key crt; <span class="kw1">do</span>
+    config_get val <span class="st0">&quot;$1&quot;</span> <span class="st0">&quot;<span class="es2">$opt</span>&quot;</span> <span class="st0">&quot;&quot;</span>
+    <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$val</span>&quot;</span> <span class="sy0">!</span>= <span class="st0">&quot;&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+      <span class="kw3">echo</span> <span class="re1">$val</span> <span class="sy0">|</span> <span class="kw2">sed</span> <span class="st0">&quot;s/-\+[A-Z ]\+-\+/<span class="es1">\n</span>&amp;<span class="es1">\n</span>/g&quot;</span> \
+                <span class="sy0">|</span> <span class="kw2">sed</span> <span class="st0">&quot;s/.\{50,50\}/&amp;<span class="es1">\n</span>/g&quot;</span> \
+                <span class="sy0">|</span> <span class="kw2">sed</span> <span class="st0">&quot;/^$/d&quot;</span> <span class="sy0">&gt;</span> <span class="re1">$CertificatePath</span><span class="sy0">/</span><span class="re4">$1</span>.<span class="re1">$opt</span>
+      <span class="kw2">chmod</span> <span class="nu0">600</span> <span class="re1">$CertificatePath</span><span class="sy0">/</span><span class="re4">$1</span>.<span class="re1">$opt</span>
+    <span class="kw1">fi</span>
+  <span class="kw1">done</span>
+&nbsp;
+  <span class="re2">hash</span>=<span class="sy0">`</span>openssl x509 <span class="re5">-noout</span> <span class="re5">-hash</span> <span class="re5">-in</span> <span class="re1">$CertificatePath</span><span class="sy0">/</span><span class="re4">$1</span>.crt<span class="sy0">`</span>
+  <span class="kw2">ln</span> <span class="re5">-s</span> <span class="re5">-f</span> <span class="re1">$CertificatePath</span><span class="sy0">/</span><span class="re4">$1</span>.crt <span class="re1">$CertificatePath</span><span class="sy0">/</span><span class="re1">$hash</span>.0
+<span class="br0">&#125;</span>
+&nbsp;
+CheckEnvironment<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+  <span class="kw3">local</span> prg
+  <span class="kw1">for</span> prg <span class="kw1">in</span> <span class="sy0">/</span>usr<span class="sy0">/</span>bin<span class="sy0">/</span>openssl <span class="sy0">/</span>usr<span class="sy0">/</span>sbin<span class="sy0">/</span><span class="kw2">ip</span>; <span class="kw1">do</span>
+    <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="sy0">!</span> <span class="re5">-x</span> <span class="re1">$prg</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+      <span class="kw3">echo</span> <span class="st0">&quot;Error! <span class="es2">$prg</span> missing. Exit now.&quot;</span>
+      <span class="kw3">exit</span>
+    <span class="kw1">fi</span>
+  <span class="kw1">done</span>
+&nbsp;
+  <span class="kw2">mkdir</span> <span class="re5">-m</span> 0700 <span class="re5">-p</span> <span class="sy0">/</span>var<span class="sy0">/</span>racoon
+  <span class="kw2">mkdir</span> <span class="re5">-m</span> 0700 <span class="re5">-p</span> <span class="re1">$CertificatePath</span>
+<span class="br0">&#125;</span>
+&nbsp;
+start<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+  <span class="kw3">local</span> <span class="re2">active</span>=<span class="sy0">`</span><span class="kw2">ps</span> <span class="sy0">|</span> <span class="kw2">grep</span> <span class="sy0">/</span>usr<span class="sy0">/</span>sbin<span class="sy0">/</span>racoon <span class="sy0">|</span> <span class="kw2">grep</span> <span class="re5">-v</span> <span class="kw2">grep</span> <span class="sy0">|</span> <span class="kw2">wc</span> -l<span class="sy0">`</span>
+&nbsp;
+  CheckEnvironment
+&nbsp;
+  <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re1">$active</span> <span class="re5">-eq</span> <span class="nu0">0</span> <span class="re5">-o</span> <span class="st0">&quot;$1&quot;</span> = <span class="st0">&quot;force&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+    <span class="kw2">rm</span> <span class="re1">$UserFile</span> <span class="nu0">2</span><span class="sy0">&gt;/</span>dev<span class="sy0">/</span>null
+    config_load <span class="kw2">users</span>
+    config_foreach UserConfig user
+  <span class="kw1">fi</span>
+&nbsp;
+  config_load racoon
+&nbsp;
+  <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re1">$active</span> <span class="re5">-ne</span> <span class="nu0">0</span> <span class="re5">-a</span> <span class="st0">&quot;$1&quot;</span> <span class="sy0">!</span>= <span class="st0">&quot;force&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+    <span class="re2">PSKFile</span>=<span class="sy0">/</span>dev<span class="sy0">/</span>null
+    <span class="re2">ConfigFile</span>=<span class="sy0">/</span>dev<span class="sy0">/</span>null
+  <span class="kw1">else</span>
+    config_foreach CertConfig certificate
+    <span class="kw3">echo</span> <span class="st0">&quot;# auto generated by /etc/init.d/racoon&quot;</span> <span class="sy0">&gt;</span> <span class="re1">$PSKFile</span>
+    <span class="kw2">chmod</span> <span class="nu0">600</span> <span class="re1">$PSKFile</span>
+  <span class="kw1">fi</span>
+&nbsp;
+  config_foreach MainConfig racoon <span class="sy0">&gt;</span> <span class="re1">$ConfigFile</span>
+  <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re1">$MainConfigDone</span> <span class="re5">-eq</span> <span class="nu0">0</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+    MainConfig XXX <span class="sy0">&gt;</span> <span class="re1">$ConfigFile</span>
+  <span class="kw1">fi</span>
+&nbsp;
+  <span class="kw3">echo</span> <span class="st0">&quot;flush; spdflush;&quot;</span> <span class="sy0">|</span> setkey <span class="re5">-c</span>
+  config_foreach TunnelConfig tunnel <span class="sy0">&gt;&gt;</span> <span class="re1">$ConfigFile</span>
+&nbsp;
+  <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re1">$active</span> <span class="re5">-eq</span> <span class="nu0">0</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+    <span class="sy0">/</span>usr<span class="sy0">/</span>sbin<span class="sy0">/</span>racoon <span class="re1">$CallParameters</span> <span class="re5">-f</span> <span class="re1">$ConfigFile</span>
+  <span class="kw1">elif</span> <span class="br0">&#91;</span> <span class="st0">&quot;$1&quot;</span> = <span class="st0">&quot;force&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+    racoonctl reload-config
+  <span class="kw1">fi</span>
+<span class="br0">&#125;</span>
+&nbsp;
+stop<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+  <span class="re2">pid</span>=<span class="sy0">`</span><span class="kw2">ps</span> <span class="sy0">|</span> <span class="kw2">grep</span> <span class="sy0">/</span>usr<span class="sy0">/</span>sbin<span class="sy0">/</span>racoon <span class="sy0">|</span> <span class="kw2">grep</span> <span class="re5">-v</span> <span class="kw2">grep</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'{ print $1}'</span><span class="sy0">`</span>
+  <span class="br0">&#91;</span><span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$pid</span>&quot;</span> <span class="sy0">!</span>= <span class="st0">&quot;&quot;</span> <span class="br0">&#93;</span><span class="br0">&#93;</span> <span class="sy0">&amp;&amp;</span> <span class="kw2">kill</span> <span class="re1">$pid</span>
+  <span class="kw3">echo</span> <span class="st0">&quot;flush; spdflush;&quot;</span> <span class="sy0">|</span> setkey <span class="re5">-c</span>
+<span class="br0">&#125;</span>
+&nbsp;
+restart<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+  start force
+<span class="br0">&#125;</span></pre>
+
+</p>
+
+<p>
+Before you start racoon with the web interface you should make a dry run from command line. Enable forground operation in /etc/config/racoon by setting <strong>option &#039;foreground&#039; &#039;1&#039;</strong> in section racoon and call <strong>/etc/init.d/racoon start</strong>. This will show you if there are any errors in your generated configuration file <strong>/var/racoon/racoon.conf</strong>. Afterwards you can control startup behaviour with LuCI.
+</p>
+
+<p>
+<a href="../../_detail/doc/howto/ipsec_racoon.png?id=doc%253Ahowto%253Avpn.ipsec.basics.racoon" class="media" title="doc:howto:ipsec_racoon.png"><img src="../../_media/doc/howto/ipsec_racoon.png" class="media" alt="" /></a>
+</p>
+
+<p>
+An automatic reload of security policies after a router reconnect is very helpful. Luckily pppd will call all scripts in /etc/ppp/ip-up.d after pppoe-wan is up again. Create a small script in this directory that calls the racoon init script. If it detects that racoon is running already it will only set the security policies.
+</p>
+
+<p>
+<pre class="code bash"><span class="co0">#!/bin/sh</span>
+<span class="co0">#/etc/ppp/ip-up.d/racoon</span>
+<span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>racoon start</pre>
+
+</p>
+
+<p>
+Another way to reload racoon when the wan IP changes and we are not using ppp, is creating a script like this in /etc/hotplug.d/iface/35-racoon
+</p>
+
+<p>
+<pre class="code bash"><span class="co0">#!/bin/sh</span>
+&nbsp;
+ListenInterface<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+  <span class="kw3">local</span> <span class="re2">iface</span>=<span class="st0">&quot;$1&quot;</span>
+  <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$INTERFACE</span>&quot;</span> = <span class="st0">&quot;<span class="es2">$iface</span>&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+    <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>racoon restart
+  <span class="kw1">fi</span>
+<span class="br0">&#125;</span>
+&nbsp;
+RacoonInstance<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+  config_list_foreach <span class="st0">&quot;$1&quot;</span> listen ListenInterface
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw1">if</span> <span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$ACTION</span>&quot;</span> = <span class="st0">&quot;ifup&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+  config_load racoon
+  config_foreach RacoonInstance racoon
+<span class="kw1">fi</span></pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="hardware_performance">Hardware performance</h2>
+<div class="level2">
+
+<p>
+In the times of broadband internet connections encryption and decryption speed of routers can limit throughput of VPN tunnels. CPU utilization maxes out at 100 percent and impacts other services of the device like a web server. If you really want to go with a self made IPsec VPN on a cheap router you should consider some facts
+</p>
+<ul>
+<li class="level1"><div class="li"> Older firewall devices with hardware accelerated VPN are sold for a few bucks on Ebay. Juniper Netscreen 5GT for example can easily reach a VPN throughput of 20 MBit/sec. Downside is that firmware updates are only possible with a Juniper support contract. So check twice for a bargain.</div>
+</li>
+<li class="level1"><div class="li"> Firewall devices are build to support IPsec out of the box. A convenient web interface helps the administrator to build a tunnel in a few seconds. OpenWrt still lacks a standard LuCI config panel. If you only go with 1-5 VPN tunnels this should be no concern to you.</div>
+</li>
+</ul>
+
+<p>
+To find the right OpenWrt hardware for your VPN you should have a look at the following benchmark table. It is build on a simple test without any claim of perfection. Nevertheless the numbers are quite close to what you can expect from an AES 128/256 bit encrypted IPsec Tunnel connection with standard kernel modules. You may notice that those numbers differ from what is written on the <a href="../../inbox/benchmark.openssl" class="wikilink1" title="inbox:benchmark.openssl">OpenSSL wiki page</a>. But simply remember: <strong>The tests over there do not include network traffic</strong>. If you want to add a new device onto the list check the encrpytion throughput using the following prerequisites
+</p>
+<ul>
+<li class="level1"><div class="li"> Logon to a fast Linux machine </div>
+</li>
+<li class="level1"><div class="li"> Use a direct <abbr title="Local Area Network">LAN</abbr> connection to the router</div>
+</li>
+<li class="level1"><div class="li"> Ensure the router is idle</div>
+</li>
+<li class="level1"><div class="li"> Transfer 100 <abbr title="Megabyte">MB</abbr> of data using ssh</div>
+</li>
+<li class="level1"><div class="li"> Calculate the speed from the elapsed time. Throughput = 800 / SecondsElapsed</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">ssh -2 -c aes128-cbc root@&lt;router&gt; time dd if=/dev/zero bs=500000 count=200 &gt; /dev/null
+ssh -2 -c aes256-cbc root@&lt;router&gt; time dd if=/dev/zero bs=500000 count=200 &gt; /dev/null</pre>
+
+</p>
+
+<p>
+You can have a look at the realtime traffic graph in a dry run afterwards to verify the speed. But do not open it during your test because it invalidates the results.
+</p>
+<div class="table sectionedit7"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> CPU </th><th class="col1"> <abbr title="Megahertz">MHz</abbr> </th><th class="col2"> tested device </th><th class="col3">AES128 (s)</th><th class="col4">AES128 (MBit/s)</th><th class="col5">AES256 (s)</th><th class="col6">AES256 (MBit/s)</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> MIPS 24k </td><td class="col1"> 680 </td><td class="col2"> <a href="../../toh/d-link/dir-825" class="wikilink1" title="toh:d-link:dir-825">D-Link DIR-825</a> <a href="../../toh/netgear/wndr37av" class="wikilink1" title="toh:netgear:wndr3700">Netgear WNDR3700</a> </td><td class="col3 rightalign">  28.2 </td><td class="col4 rightalign">  28.5 </td><td class="col5 rightalign">  32.4 </td><td class="col6 rightalign">  24.6 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> MIPS 24k </td><td class="col1"> 400 </td><td class="col2"> <a href="../../toh/tp-link/tl-wr703n" class="wikilink1" title="toh:tp-link:tl-wr703n">TP-Link TL-WR703N</a> </td><td class="col3 rightalign">  47.7 </td><td class="col4 rightalign">  16.5 </td><td class="col5 rightalign">  56.1 </td><td class="col6 rightalign">  14.2 </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> MIPS R3000 </td><td class="col1"> 125 </td><td class="col2"> <a href="../../toh/asus/wl500g" class="wikilink1" title="toh:asus:wl500g">Asus WL-500g</a> </td><td class="col3 rightalign">  164.8 </td><td class="col4 rightalign">  4.8 </td><td class="col5 rightalign">  183.5 </td><td class="col6 rightalign">  4.3 </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit8" id="ipsec_tuning">IPsec Tuning</h2>
+<div class="level2">
+
+<p>
+If you use a default OpenWrt installation you will discover that using the SHA1 hashing function will hit VPN performance. If you go for raw throughput MD5 can be a helpful alternative. One may remark that MD5 is <a href="http://en.wikipedia.org/wiki/Md5#Security" class="urlextern" title="http://en.wikipedia.org/wiki/Md5#Security"  rel="nofollow">not very secure</a> but for IPsec connections it should be enough as we are talking about hash values of encrypted data with a key that is changed <a href="../uci/racoon#p2_proposal" class="wikilink1" title="doc:uci:racoon">every hour</a> according to phase 2 proposals. A good tradeoff could be to choose AES256/SHA1 for phase 1 and AES128/MD5 for phase 2.  
+</p>
+
+<p>
+Read on if you have some time and want to enhance your VPN speed. The kernel IPsec architecture relies on different crypto providers. E.g. if you build a tunnel with SHA1 checksums you must hava a module that can calculate those values. A look at /proc/crypto will reveal what modules are loaded and which algorithms they provide. The standard Linux Kernel modules are far from being optimized. At least with kernel 3.2 someone has taken care of <a href="http://git.kernel.org/?p=linux/kernel/git/torvalds/linux.git;a=commit;h=1eb19a12bd2214cdcad5273d472b062a4ba97fa1" class="urlextern" title="http://git.kernel.org/?p=linux/kernel/git/torvalds/linux.git;a=commit;h=1eb19a12bd2214cdcad5273d472b062a4ba97fa1"  rel="nofollow">SHA1</a>. Those of you that are on <strong>MIPS big endian</strong> machines can replace the default aes_generic.ko, sha_generic.ko, cbc.ko and md5.ko modules with a single assembler optimized <a href="https://sourceforge.net/projects/mcespi/files/" class="urlextern" title="https://sourceforge.net/projects/mcespi/files/"  rel="nofollow">mcespi.ko</a>. Besides of being faster it has some nice characteristcs:
+</p>
+<ul>
+<li class="level1"><div class="li"> SHA1 calculation works on registers only</div>
+</li>
+<li class="level1"><div class="li"> A lot of memcpy operations have been removed from MD5 and AES.</div>
+</li>
+<li class="level1"><div class="li"> AES memory footprint is lowered from 16K to 8,2K</div>
+</li>
+<li class="level1"><div class="li"> Avoid little endian byte swapping in AES</div>
+</li>
+<li class="level1"><div class="li"> 21K module size in contrast to 4 modules with 45K</div>
+</li>
+</ul>
+
+<p>
+If you are on AR7161 you should ensure that you already have <a href="https://dev.openwrt.org/browser/trunk/target/linux/ar71xx/patches-2.6.39/910-unaligned_access_hacks.patch" class="urlextern" title="https://dev.openwrt.org/browser/trunk/target/linux/ar71xx/patches-2.6.39/910-unaligned_access_hacks.patch"  rel="nofollow">unaligned access patch 1</a> from trunk and the not yet implemented <a href="http://patchwork.openwrt.org/patch/1721/" class="urlextern" title="http://patchwork.openwrt.org/patch/1721/"  rel="nofollow">unaligned access patch 2</a>. It will free CPU from handling unaligned access expections so that you can reach these results:
+</p>
+<div class="table sectionedit9"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> OpenWrt </th><th class="col1"> Device </th><th class="col2"> AES256/SHA1 (MBit/s) </th><th class="col3"> AES128/SHA1 (MBit/s)</th><th class="col4"> AES128/MD5 (MBit/s)</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> trunk + mcespi.ko </td><td class="col1"> MIPS 24K @ 680 <abbr title="Megahertz">MHz</abbr> (AR7161) </td><td class="col2 rightalign">  37.5 </td><td class="col3 rightalign">  42.4 </td><td class="col4 rightalign">  47.6 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> 10.03.1-rc6 </td><td class="col1"> MIPS 24K @ 680 <abbr title="Megahertz">MHz</abbr> (AR7161) </td><td class="col2 rightalign">  18.0 </td><td class="col3 rightalign">  19.6 </td><td class="col4 rightalign">  30.3 </td>
+	</tr>
+</table></div>
+
+<p>
+The module is in early alpha development an the easyiest way to install it includes a few steps.
+</p>
+<ul>
+<li class="level1"><div class="li"> create a buildroot environment</div>
+</li>
+<li class="level1"><div class="li"> compile an image for your router once</div>
+</li>
+<li class="level1"><div class="li"> put the mcespi.c into the the folder build_dir/linux-&lt;arch&gt;/linux-&lt;X.Y.Z&gt;/crypto</div>
+</li>
+<li class="level1"><div class="li"> Include the line <strong>obj-$(CONFIG_CRYPTO_AES) += mcespi.o</strong> into build_dir/linux-&lt;arch&gt;/linux-&lt;X.Y.Z&gt;/crypto/Makefile</div>
+</li>
+<li class="level1"><div class="li"> compile the image once again.</div>
+</li>
+<li class="level1"><div class="li"> Afterwards you will find build_dir/linux-&lt;arch&gt;/linux-&lt;X.Y.Z&gt;/crypto/mcespi.ko</div>
+</li>
+<li class="level1"><div class="li"> Put mcespi.ko to your router into /lib/modules/&lt;X.Y.Z&gt;</div>
+</li>
+<li class="level1"><div class="li"> Load the module with insmod </div>
+</li>
+<li class="level1"><div class="li"> For automatic loading create a new /etc/modules.d/09-crypto-mcespi with corresponding content.</div>
+</li>
+</ul>
+
+<p>
+If you are not on MIPS big endian but you have at least kernel 2.6.39 you can head for SHA1 performance optimization. Download <a href="../../_media/doc/howto/sha1-optimized.c" class="urlextern" title="http://wiki.openwrt.org/_media/doc/howto/sha1-optimized.c"  rel="nofollow">sha_optimized.c</a> and build it as a module. <img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> Ticket <a href="https://dev.openwrt.org/ticket/10637" class="urlextern" title="https://dev.openwrt.org/ticket/10637"  rel="nofollow">#10637</a> tries to implement that patch into trunk. At least on Atheros AR7161 platform and current trunk this leads to an oops. If you can help and find out why just put your feedback here or over there.  Note: On current trunk the default kernel is 3.3 and sha_optimized.c does not have to be backported anymore.
+</p>
+
+<p>
+<pre class="code bash"><span class="kw2">mv</span> <span class="nu0">259</span>-crypto_SHA1_3.2_backport.patch target<span class="sy0">/</span>linux<span class="sy0">/</span>generic<span class="sy0">/</span>patches-XXX
+<span class="kw2">make</span> target<span class="sy0">/</span>linux<span class="sy0">/</span>clean
+<span class="kw2">make</span> world</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit10" id="openssl_tuning">OpenSSL Tuning</h2>
+<div class="level2">
+
+<p>
+While talking about performance optimization there is also room for some improvement for non-VPN encrpytion scenarios. With newer versions of OpenSSL more and more assembler encryption and decryption routines are included. <a href="http://cvs.openssl.org/chngview?cn=21708" class="urlextern" title="http://cvs.openssl.org/chngview?cn=21708"  rel="nofollow">Check-in 21708</a> provides those for MIPS architecture and the 1.0.1 branch . Porting some of the assembler routines to OpenSSL 0.9.8p for ar71xx (Backfire 10.06.01-rc6) involves the following steps in the <a href="../../about/toolchain" class="wikilink1" title="about:toolchain">buildroot environment</a>:
+</p>
+<ul>
+<li class="level1"><div class="li"> Remove build_dir/target_xxx/openssl-0.9.8p/*</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Remove line OPENSSL_OPTIONS += no-perlasm from package/openssl/Makefile</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Replace &quot;${no_asm}&quot; with &quot;:::aes_cbc.o aes-mips.o:::::::&quot; in file package/openssl/patches/110-optimize-for-size.patch. Do not use quotation marks and ensure that you include those 10 colons.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Start build process for first time with make package/openssl/compile V=99. This process will stop with an error.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Copy crypto/aes/asm/aes-mips.pl from OpenSLL 1.0.1 sources and store it into the newly created build_dir/target_xxx/openssl-0.9.8p/crypto/aes/asm folder. </div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Modify build_dir/target_xxx/openssl-0.9.8p/crypto/aes/Makefile and insert two lines (the second one starts with a tab)</div>
+</li>
+</ul>
+
+<p>
+<pre class="code">aes-mips.s: asm/aes-mips.pl
+        $(PERL) asm/aes-mips.pl &gt; $@</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Restart build process with make package/openssl/compile V=99. It will complete without errors this time.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Copy build_dir/target_xxx/openssl-0.9.8p/libcrypto.so.0.9.8 to your router</div>
+</li>
+</ul>
+
+<p>
+Comparing benchmark numbers before and afterwards with <strong>openssl speed</strong> gives a speedup of about 8% for aes-128-cbc and about 5% for aes-256-cbc.
+</p>
+
+</div>
+
+<h2 class="sectionedit11" id="what_s_next">What&#039;s next</h2>
+<div class="level2">
+
+<p>
+After the basic setup you should continue with the <a href="vpn.ipsec.firewall.racoon" class="wikilink1" title="doc:howto:vpn.ipsec.firewall.racoon">firewall modifications</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit12" id="tag">Tag</h2>
+<div class="level2">
+<div class="tags"><span>
+	<a href="../../tag/crypto?do=showtag&amp;tag=crypto" class="wikilink1" title="tag:crypto" rel="tag">crypto</a>
+</span></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/vpn.ipsec.basics.racoon.txt</bdi> · Last modified: 2014/06/28 18:24 by <bdi>slh</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="vpn.ipsec.basics.racoon?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="vpn.ipsec.basics.racoon?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="vpn.ipsec.basics.racoon?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="vpn.ipsec.basics.racoon#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Avpn.ipsec.basics.racoon&amp;1432273842" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>OpenVPN client with TAP (Layer 2) device [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,vpn.client.openvpn.tap"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="vpn.client.openvpn.tap?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/vpn.client.openvpn.tap"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/vpn.client.openvpn.tap"/>
+<link rel="canonical" href="vpn.client.openvpn.tap"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:vpn.client.openvpn.tap","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432273839 166.182.3.179';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="vpn.client.openvpn.tap#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="vpn.client.openvpn.tap?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="vpn.client.openvpn.tap?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:vpn.client.openvpn.tap" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="vpn.client.openvpn.tap?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="vpn.client.openvpn.tap?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="vpn.client.openvpn.tap?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="vpn.client.openvpn.tap" class="wikilink1" title="doc:howto:vpn.client.openvpn.tap">OpenVPN client with TAP (Layer 2) device</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/vpn.client.openvpn.tap" class="media" title="cz:doc:howto:vpn.client.openvpn.tap"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/vpn.client.openvpn.tap" class="media" title="de:doc:howto:vpn.client.openvpn.tap"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="vpn.client.openvpn.tap" class="media" title="doc:howto:vpn.client.openvpn.tap"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/vpn.client.openvpn.tap" class="media" title="es:doc:howto:vpn.client.openvpn.tap"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/vpn.client.openvpn.tap" class="media" title="fr:doc:howto:vpn.client.openvpn.tap"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/vpn.client.openvpn.tap" class="media" title="hu:doc:howto:vpn.client.openvpn.tap"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/vpn.client.openvpn.tap" class="media" title="jp:doc:howto:vpn.client.openvpn.tap"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/vpn.client.openvpn.tap" class="media" title="pl:doc:howto:vpn.client.openvpn.tap"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/vpn.client.openvpn.tap" class="media" title="pt-br:doc:howto:vpn.client.openvpn.tap"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../ru/doc/howto/vpn.client.openvpn.tap" class="media" title="ru:doc:howto:vpn.client.openvpn.tap"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/vpn.client.openvpn.tap" class="media" title="tr:doc:howto:vpn.client.openvpn.tap"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/vpn.client.openvpn.tap" class="media" title="zh-cn:doc:howto:vpn.client.openvpn.tap"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/vpn.client.openvpn.tap" class="media" title="zh-tw:doc:howto:vpn.client.openvpn.tap"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:vpn.client.openvpn.tap</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="vpn.client.openvpn.tap#configuring_the_client">Configuring the client</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.client.openvpn.tap#starting_and_enabling_openvpn">Starting and enabling OpenVPN</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.client.openvpn.tap#routing_traffic_over_nat">Routing traffic over NAT</a></div></li>
+<li class="level1"><div class="li"><a href="vpn.client.openvpn.tap#routing_client_traffic_transparently">Routing client traffic transparently</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="openvpn_client_with_tap_layer_2_device">OpenVPN client with TAP (Layer 2) device</h1>
+<div class="level1">
+<div class="table sectionedit2"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> There are many redundant wiki pages relating to configuring OpenVPN on OpenWrt.  Some are better than others, and others are an out-of-date muddled mess.  For a reasonably complete / up-to-date guide to installing, configuring and troubleshooting OpenVPN clients &amp; servers on OpenWrt (including creating a simple PKI), could I suggest you consider starting with <a href="vpn.openvpn" class="wikilink1" title="doc:howto:vpn.openvpn">vpn.openvpn</a> instead of this page. It is not that the other pages aren&#039;t worth reading; it is just that (<abbr title="In my humble opinion">IMHO</abbr>) <a href="vpn.openvpn" class="wikilink1" title="doc:howto:vpn.openvpn">vpn.openvpn</a> is a better place to start (it has been rewritten from scratch just a few weeks ago).  Maybe you could improve it further rather than edit this page? <img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> </td>
+	</tr>
+</table></div>
+
+<p>
+In this instance, this page has several issues (as at May 2014), including being 2 years out of date. It also advocates TAP rather than TUN where TUN would, in most cases, be preferable.  If you definitely want TAP rather than TUN, then <a href="vpn.openvpn" class="wikilink1" title="doc:howto:vpn.openvpn">vpn.openvpn</a> might still be a useful place to visit.
+</p>
+<div class="table sectionedit3"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> For an overview over all existing Virtual private network (VPN)-related articles in the OpenWrt wiki, please visit <a href="vpn.overview" class="wikilink1" title="doc:howto:vpn.overview">vpn.overview</a> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit4" id="configuring_the_client">Configuring the client</h2>
+<div class="level2">
+
+<p>
+<pre class="code">config &#039;openvpn&#039; &#039;name_of_the_connection&#039;
+	option &#039;client&#039; &#039;1&#039;
+	option &#039;remote&#039; &#039;ip.address.of.server&#039;
+	option &#039;port&#039; &#039;1194&#039;
+	option &#039;proto&#039; &#039;tcp&#039;
+	option &#039;dev&#039; &#039;tap0&#039;
+	option &#039;ca&#039; &#039;/path/to/ca.crt&#039;
+	option &#039;cert&#039; &#039;/path/to/client.crt&#039;
+	option &#039;key&#039; &#039;/path/to/client.key&#039;
+	option &#039;comp_lzo&#039; &#039;1&#039;
+	option &#039;keepalive&#039; &#039;10 120&#039;
+	option &#039;status&#039; &#039;/tmp/openvpn.status&#039;
+	option &#039;persist-key&#039; &#039;1&#039;
+	option &#039;persist-tun&#039; &#039;1&#039;
+	option &#039;verb&#039; &#039;7&#039;
+	option &#039;mute&#039; &#039;20&#039;
+	option &#039;nobind&#039; &#039;1&#039;</pre>
+
+</p>
+
+<p>
+Note that using TCP is more reliable but somewhat slower.
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="starting_and_enabling_openvpn">Starting and enabling OpenVPN</h2>
+<div class="level2">
+
+<p>
+Either run OṕenVPN only once:
+<pre class="code">/etc/init.d/openvpn start</pre>
+
+</p>
+
+<p>
+Or make it start at boot:
+<pre class="code">/etc/init.d/openvpn enable</pre>
+
+</p>
+
+<p>
+If your internet connection works and everything in your config is correct (which you usually get from your VPN provider),
+you should see something like:
+<pre class="code">Initialization Sequence Completed</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="routing_traffic_over_nat">Routing traffic over NAT</h2>
+<div class="level2">
+
+<p>
+To actually access the resources behind the VPN server, first create a new interface in /etc/config/network:
+<pre class="code">config interface &#039;VPN_client&#039;
+	option proto &#039;none&#039;
+	option ifname &#039;tap0&#039;</pre>
+
+</p>
+
+<p>
+And then modify your /etc/config/firewall:
+<pre class="code">config zone
+	option name &#039;VPN_client&#039;
+	option masq &#039;1&#039;
+	option input &#039;ACCEPT&#039;
+	option forward &#039;REJECT&#039;
+	option output &#039;ACCEPT&#039;
+	option network &#039;VPN_client&#039;
+
+config forwarding
+	option dest &#039;VPN_client&#039;
+	option src &#039;lan&#039;</pre>
+
+</p>
+
+<p>
+After restarting your firewall and network, your router should allow access its clients resources behind the VPN server over NAT.
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="routing_client_traffic_transparently">Routing client traffic transparently</h2>
+<div class="level2">
+
+<p>
+If you want transparent routing and clients accesible from the server, modify your /etc/config/network as above and put this into your /etc/config/firewall:
+<pre class="code">config zone
+	option name &#039;VPN_client&#039;
+	option input &#039;ACCEPT&#039;
+	option forward &#039;REJECT&#039;
+	option output &#039;ACCEPT&#039;
+	option network &#039;VPN_client&#039;
+
+config forwarding
+	option dest &#039;lan&#039;
+	option src &#039;VPN_client&#039;
+
+config forwarding
+	option dest &#039;VPN_client&#039;
+	option src &#039;lan&#039;</pre>
+
+</p>
+
+<p>
+Your server will have to be configured to route traffic to your <abbr title="Local Area Network">LAN</abbr> subnet over its VPN interface in this case.
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/vpn.client.openvpn.tap.txt</bdi> · Last modified: 2015/01/27 23:34 by <bdi>lukeshu</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="vpn.client.openvpn.tap?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="vpn.client.openvpn.tap?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="vpn.client.openvpn.tap?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="vpn.client.openvpn.tap#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Avpn.client.openvpn.tap&amp;1432273839" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

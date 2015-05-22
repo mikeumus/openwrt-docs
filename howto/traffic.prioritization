@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>Network Traffic Control [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="qos"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="packet.scheduler/packet.scheduler?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto:packet.scheduler"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/packet.scheduler/packet.scheduler"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/packet.scheduler/packet.scheduler"/>
+<link rel="canonical" href="traffic.shaping"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto:packet.scheduler';var JSINFO = {"id":"doc:howto:packet.scheduler:packet.scheduler","namespace":"doc:howto:packet.scheduler"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432273832 166.182.3.179';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="traffic.shaping#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="packet.scheduler/packet.scheduler?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="packet.scheduler/packet.scheduler?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:packet.scheduler:packet.scheduler" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="packet.scheduler/packet.scheduler?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="packet.scheduler/packet.scheduler?do=media&amp;ns=doc%253Ahowto%253Apacket.scheduler"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="packet.scheduler/packet.scheduler?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="traffic.shaping" class="wikilink1" title="doc:howto:packet.scheduler:packet.scheduler">Network Traffic Control</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/packet.scheduler/packet.scheduler" class="media" title="cz:doc:howto:packet.scheduler:packet.scheduler"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/packet.scheduler/packet.scheduler" class="media" title="de:doc:howto:packet.scheduler:packet.scheduler"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="traffic.shaping" class="media" title="doc:howto:packet.scheduler:packet.scheduler"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/packet.scheduler/packet.scheduler" class="media" title="es:doc:howto:packet.scheduler:packet.scheduler"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/packet.scheduler/packet.scheduler" class="media" title="fr:doc:howto:packet.scheduler:packet.scheduler"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/packet.scheduler/packet.scheduler" class="media" title="hu:doc:howto:packet.scheduler:packet.scheduler"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/packet.scheduler/packet.scheduler" class="media" title="jp:doc:howto:packet.scheduler:packet.scheduler"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/packet.scheduler/packet.scheduler" class="media" title="pl:doc:howto:packet.scheduler:packet.scheduler"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/packet.scheduler/packet.scheduler" class="media" title="pt-br:doc:howto:packet.scheduler:packet.scheduler"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/packet.scheduler/packet.scheduler" class="media" title="ru:doc:howto:packet.scheduler:packet.scheduler"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/packet.scheduler/packet.scheduler" class="media" title="tr:doc:howto:packet.scheduler:packet.scheduler"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/packet.scheduler/packet.scheduler" class="media" title="zh-cn:doc:howto:packet.scheduler:packet.scheduler"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/packet.scheduler/packet.scheduler" class="media" title="zh-tw:doc:howto:packet.scheduler:packet.scheduler"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:packet.scheduler:packet.scheduler</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="traffic.shaping#preparations">Preparations</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="traffic.shaping#required_packages">Required Packages</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="traffic.shaping#installation">Installation</a></div></li>
+<li class="level1"><div class="li"><a href="traffic.shaping#configuration">Configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="traffic.shaping#hierarchynesting_of_qdiscs_classes">Hierarchy: Nesting of qdiscs &amp; classes</a></div></li>
+<li class="level2"><div class="li"><a href="traffic.shaping#qdiscs_packet_scheduling_algorithms">Qdiscs (Packet Scheduling Algorithms)</a></div></li>
+<li class="level2"><div class="li"><a href="traffic.shaping#actions">Actions</a></div></li>
+<li class="level2"><div class="li"><a href="traffic.shaping#filters">Filters</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="traffic.shaping#filter_with_packet_scheduler">Filter with packet scheduler</a></div></li>
+<li class="level3"><div class="li"><a href="traffic.shaping#filter_with_packet_scheduler_and_netfilter">Filter with packet scheduler and netfilter</a></div></li>
+<li class="level3"><div class="li"><a href="traffic.shaping#filter_with_netfilter_only">Filter with netfilter only</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="traffic.shaping#approach_to_our_own_configuration">Approach to our own configuration</a></div></li>
+<li class="level1"><div class="li"><a href="traffic.shaping#examples">Examples</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="traffic.shaping#check_results">Check results</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="traffic.shaping#testing">Testing</a></div></li>
+<li class="level1"><div class="li"><a href="traffic.shaping#start_on_boot">Start on boot</a></div></li>
+<li class="level1"><div class="li"><a href="traffic.shaping#hotplug">Hotplug</a></div></li>
+<li class="level1"><div class="li"><a href="traffic.shaping#statistical_data">Statistical Data</a></div></li>
+<li class="level1"><div class="li"><a href="traffic.shaping#tips">Tips</a></div></li>
+<li class="level1"><div class="li"><a href="traffic.shaping#terminology">Terminology</a></div></li>
+<li class="level1"><div class="li"><a href="traffic.shaping#reference">Reference</a></div></li>
+<li class="level1"><div class="li"><a href="traffic.shaping#tags">Tags</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="network_traffic_control">Network Traffic Control</h1>
+<div class="level1">
+
+<p>
+Traffic Control is the umbrella term for packet prioritizing, traffic <a href="traffic.shaping#shaping" title="doc:howto:packet.scheduler:packet.scheduler ↵" class="wikilink1">shaping</a>, bandwidth limiting, AQM (Active Queue Management), QoS (Quality of Service), etc. This HowTo will help you understand and set up traffic control on your router. Is it one strategy to address problems caused by <a href="http://en.wikipedia.org/wiki/Network congestion" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Network congestion">Network congestion</a>.
+</p>
+<div class="table sectionedit2"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/dialog-information.png" class="media" alt="" /> </td><td class="col1"> You <em>can</em> control, i.e. prioritize and/or shape, ANY <strong>upload traffic</strong>, i.e. traffic being sent from your router to the Internet. Doing so <em>will</em> solve problems that occur with congestion, i.e. <a href="http://en.wikipedia.org/wiki/Jitter#Packet_jitter_in_computer_networks" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Jitter#Packet_jitter_in_computer_networks">jitter</a> and delay. </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/dialog-information.png" class="media" alt="" /> </td><td class="col1"> You do NOT have the same level of control over <strong>download traffic</strong>, i.e. traffic arriving at your router from the Internet. Here, you can only drop packets but not rearrange them.<br/>
+The dropping of TCP packets, causes the sending site to reduce its transmission rate, the dropping of UDP packets however, will only help to keep the buffer empty. </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit3" id="preparations">Preparations</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> Read about <a href="tc/tc.theory" class="wikilink1" title="doc:howto:packet.scheduler:packet.scheduler.theory">Linux packet scheduling</a> </div>
+</li>
+<li class="level1"><div class="li"> Learn about the<code><a href="http://man.cx/tc" class="interwiki iw_man" title="http://man.cx/tc">tc command</a></code></div>
+</li>
+<li class="level1"><div class="li"> Determine the characteristics of the connection you are configuring the packet scheduler for:</div>
+<ul>
+<li class="level2"><div class="li"> whether it is a full-duplex or a half-duplex line <a href="http://en.wikipedia.org/wiki/duplex" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/duplex">duplex</a></div>
+</li>
+<li class="level2"><div class="li"> the actual available upload bandwidth! The Linux packet scheduler works on Layer 2, thus you should always work with the actual bandwidth for the Layer-2-Payload:</div>
+</li>
+<li class="level2"><div class="li"> ie: when you employ the Layer 1 protocol &quot;BASE100-TX&quot;:</div>
+<ul>
+<li class="level3"><div class="li"> you have 100MBit/s of theoretically available bandwidth</div>
+</li>
+<li class="level3"><div class="li"> Physical factors such as interference, substandard cabling or faulty hardware can reduce that bandwidth.</div>
+</li>
+<li class="level3"><div class="li"> The Layer 2 protocol you use adds <a href="../networking/datagram.structures" class="wikilink1" title="doc:networking:datagram.structures">protocol overhead</a>. In the case of &quot;Ethernet&quot;, it adds about 2,5%, so a maximum of 97,5MBit/s remain for the Layer-2-payload.</div>
+</li>
+<li class="level3"><div class="li"> Download testing sites usually refer to Layer 4 bandwidth, which includes Layer 3 and 4 protocol overhead.</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Be prepared to adjust your configuration. It can take some time and experimentation to find what works best for your circumstances.</div>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit4" id="required_packages">Required Packages</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"><strong><code>tc</code></strong> (<code>traffic control</code>, program to configure the Linux packet scheduler)</div>
+<ul>
+<li class="level2"><div class="li"><strong><code>kmod-sched-core</code></strong> (dependency of <em>tc</em>), package containing most used or advanced (QDiscs) and classifiers</div>
+</li>
+<li class="level2"><div class="li"><strong><code>kmod-sched</code></strong> (optional), package containing other schedulers and <a href="traffic.shaping#classifier" title="doc:howto:packet.scheduler:packet.scheduler ↵" class="wikilink1">classifiers</a> (those not included in the previous)</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><strong><code>iptables-mod-ipopt</code></strong> optional! Contains some matches and TARGETs for iptables:  CLASSIFY, dscp/DSCP, ecn/ECN, length, mac, mark/MARK, statistic, tcpmms, tos/TOS, ttl/TTL, unclean</div>
+<ul>
+<li class="level2"><div class="li"><strong><code>kmod-ipt-ipopt</code></strong> (module; dependency of corresponding user space module;</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><strong><code>iptables-mod-*</code></strong> optional! (modules for iptables)</div>
+<ul>
+<li class="level2"><div class="li"><strong><code>kmod-ipt-*</code></strong> (kernel modules for iptables)</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><strong><code>l7-protocols</code></strong> optional! If you want to match Layer 7 content</div>
+</li>
+<li class="level1"><div class="li"><strong><code>l7-protocols-testing</code></strong> optional! If you want to test. Check the projects own <a href="http://l7-filter.clearfoundation.com/docs/start" class="urlextern" title="http://l7-filter.clearfoundation.com/docs/start"  rel="nofollow">Homepage</a>.</div>
+</li>
+</ul>
+
+<p>
+As long as your ISP does not give you access to the DSL-AC so you can install a simple TC-script, you will have to settle with <a href="traffic.shaping#policing" title="doc:howto:packet.scheduler:packet.scheduler ↵" class="wikilink1">policing</a> the download:
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>kmod-ifb</code> and act_connmark</div>
+</li>
+</ul>
+<div class="table sectionedit5"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/48px-outdated.svg.png" class="media" alt="" /> </td><td class="col1 leftalign"> In <a href="https://dev.openwrt.org/changeset/25641/trunk" class="urlextern" title="https://dev.openwrt.org/changeset/25641/trunk"  rel="nofollow">r25641</a> <code>iptables-mod-imq</code> (Intermediate Queueing Device) was removed and is not supported any longer. It&#039;s successor is <code>kmod-ifb</code>. See <a href="http://www.linuxfoundation.org/collaborate/workgroups/networking/ifb" class="urlextern" title="http://www.linuxfoundation.org/collaborate/workgroups/networking/ifb"  rel="nofollow">Intermediate Functional Block device</a>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit6" id="installation">Installation</h2>
+<div class="level2">
+
+<p>
+<a href="../techref/opkg" class="wikilink1" title="doc:techref:opkg">opkg</a>
+<pre class="code bash">opkg update
+opkg <span class="kw2">install</span> tc iptables-mod-ipopt</pre>
+
+</p>
+
+<p>
+Since the description of <code>kmod-sched-core</code> (<code>kmod-sched-core</code> is a dependency of <code>tc</code>) does not contain any information regarding its content, after installation do
+<pre class="code">ls -leha /lib/modules/$(uname -r)/ | grep sch</pre>
+
+for a list of the currently installed QDisc modules (try installing <code>kmod-sched</code> for other modules). To use a particular one, you need to load the kernel module into memory: <pre class="code">insmod sch_hfsc</pre>
+ You need to do this after every reboot. For a list of currently loaded kernel modules and to remove a module do
+<pre class="code">lsmod
+rmmod sch_hfsc</pre>
+
+</p>
+
+<p>
+After thoroughly reading this wiki page, you are going to write a shell script which will invoke <code>tc</code> a couple of times and configure the packet scheduler. Please also see the available <a href="traffic.shaping#examples" title="doc:howto:packet.scheduler:packet.scheduler ↵" class="wikilink1">examples</a>. When everything works good enough, proceed with <a href="traffic.shaping#start_on_boot" title="doc:howto:packet.scheduler:packet.scheduler ↵" class="wikilink1">Start on boot</a> and <a href="traffic.shaping#hotplug" title="doc:howto:packet.scheduler:packet.scheduler ↵" class="wikilink1">Hotplug</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="configuration">Configuration</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit8" id="hierarchynesting_of_qdiscs_classes">Hierarchy: Nesting of qdiscs &amp; classes</h3>
+<div class="level3">
+
+<p>
+There are two types of scheduling algorithms <a href="traffic.shaping#queueingdisciplineqdisc" title="doc:howto:packet.scheduler:packet.scheduler ↵" class="wikilink1">(QDiscs)</a> - <a href="traffic.shaping#classfulqdisc" title="doc:howto:packet.scheduler:packet.scheduler ↵" class="wikilink1">classful</a> and <a href="traffic.shaping#classlessqdisc" title="doc:howto:packet.scheduler:packet.scheduler ↵" class="wikilink1">classless</a>. If you choose to employ a classful <a href="traffic.shaping#rootqdisc" title="doc:howto:packet.scheduler:packet.scheduler ↵" class="wikilink1">root QDisc</a>, you will be able to tailor the configuration very closely to your needs, by constructing a hierarchy of &quot;nesting entities&quot; and then further tune each branch of the tree separately.
+</p>
+
+<p>
+ <code>tc</code> is the only user space program available to set up, maintain and inspect the configuration of the Linux packet scheduler. What <code>iptables</code>, <code>ip6tables</code> are for netfilter, <code>tc</code> is for the Linux packet scheduler. Generally only one change is made to the packet scheduler each time <code>tc</code> is executed. A small shell script containing multiple invocations of <code>tc</code> is required to achieve a meaningful overall configuration.
+</p>
+<div class="table sectionedit9"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign" colspan="4">         </th><th class="col4 centeralign" colspan="2">  nesting  </th><th class="col6 centeralign" colspan="2">  configuration  </th>
+	</tr>
+	<tr class="row1">
+		<th class="col0"> tc </th><th class="col1"> what </th><th class="col2"> command </th><th class="col3"> <a href="../networking/network.interfaces" class="wikilink1" title="doc:networking:network.interfaces">interface</a> </th><th class="col4"> parent qdisc-id </th><th class="col5"> classid </th><th class="col6"> QDisc </th><th class="col7 leftalign"> QDisc specific parameters  </th>
+	</tr>
+	</thead>
+	<tr class="row2">
+		<td class="col0 leftalign" rowspan="7"> <code>tc</code>  </td><td class="col1 leftalign" rowspan="4"> <code>qdisc</code>  </td><td class="col2 leftalign"> <code>add</code>     </td><td class="col3"> <code>dev</code> eth0 </td><td class="col4 leftalign"> <code>root</code>       </td><td class="col5 leftalign"> <code>handle</code> 1:    </td><td class="col6 centeralign">  <code>hfsc</code>  </td><td class="col7 leftalign"> default 20  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> <code>change</code>  </td><td class="col1"> <code>dev</code> eth0 </td><td class="col2 leftalign"> <code>root</code>       </td><td class="col3 leftalign"> <code>handle</code> 1:    </td><td class="col4 centeralign">  <code>hfsc</code>  </td><td class="col5 leftalign"> default 20  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <code>replace</code> </td><td class="col1"> <code>dev</code> eth0 </td><td class="col2 leftalign"> <code>root</code>       </td><td class="col3 leftalign"> <code>handle</code> 1:    </td><td class="col4 centeralign">  <code>hfsc</code>  </td><td class="col5 leftalign"> default 20  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> <code>link</code>    </td><td class="col1"> <code>dev</code> eth0 </td><td class="col2 leftalign"> <code>root</code>       </td><td class="col3 leftalign"> <code>handle</code> 1:    </td><td class="col4 centeralign">  <code>hfsc</code>  </td><td class="col5 leftalign"> default 20  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign" rowspan="3"> <code>class</code>  </td><td class="col1 leftalign"> <code>add</code>     </td><td class="col2"> <code>dev</code> eth0 </td><td class="col3 leftalign"> <code>parent</code> 1:  </td><td class="col4 leftalign"> <code>classid</code> 1:1  </td><td class="col5 centeralign">  <code>hfsc</code>  </td><td class="col6 leftalign"> ls rate 750kbit ul rate 1000kbit  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> <code>change</code>  </td><td class="col1"> <code>dev</code> eth0 </td><td class="col2"> <code>parent</code> 1:1 </td><td class="col3"> <code>classid</code> 1:10 </td><td class="col4 centeralign">  <code>hfsc</code>  </td><td class="col5 leftalign"> ls rate 250kbit ul rate 1000kbit  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> <code>replace</code> </td><td class="col1"> <code>dev</code> eth0 </td><td class="col2"> <code>parent</code> 1:1 </td><td class="col3"> <code>classid</code> 1:20 </td><td class="col4 centeralign">  <code>hfsc</code>  </td><td class="col5 leftalign"> ls rate 250kbit ul rate 1000kbit  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit10" id="qdiscs_packet_scheduling_algorithms">Qdiscs (Packet Scheduling Algorithms)</h3>
+<div class="level3">
+
+<p>
+Once you decide what your entire configuration will look like, look up the <em>specific configuration of the QDisc algorithm</em> you intend to use. Each Qdisc aka Scheduling Algorithm gives you parameters to tune:
+</p>
+<div class="table sectionedit11"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign" colspan="2"> Queueing Discipline  </th><th class="col2 centeralign">  Classfull  </th><th class="col3 leftalign"> Description  </th><th class="col4 centeralign">  kmod-sched-core  </th><th class="col5 rightalign">  kmod-sched </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> →   sch_atm      </td><td class="col1 centeralign">  name                                 </td><td class="col2 centeralign">  ??  </td><td class="col3 leftalign"> bla  </td><td class="col4 leftalign">  </td><td class="col5 leftalign">  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> →   sch_blackhole</td><td class="col1 centeralign">  Black hole queue                 </td><td class="col2 centeralign">  ??  </td><td class="col3 leftalign"> bla  </td><td class="col4 leftalign">  </td><td class="col5 leftalign">  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> → <a href="packet.scheduler/sch_cbq" class="wikilink1" title="doc:howto:packet.scheduler:sch_cbq">sch_cbq</a>    </td><td class="col1 centeralign">  Class-Based Queueing discipline      </td><td class="col2 centeralign">  ☑  </td><td class="col3 leftalign"> very complex  </td><td class="col4 leftalign">  </td><td class="col5 leftalign">  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> → <a href="packet.scheduler/sch_choke" class="wikilink1" title="doc:howto:packet.scheduler:sch_choke">sch_choke</a>  </td><td class="col1 centeralign">  CHOKe scheduler                      </td><td class="col2 centeralign">  ??  </td><td class="col3 leftalign"> bla  </td><td class="col4 leftalign">  </td><td class="col5 leftalign">  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> → <a href="packet.scheduler/sch_codel" class="wikilink1" title="doc:howto:packet.scheduler:sch_codel">sch_codel</a>  </td><td class="col1 centeralign">  The Controlled-Delay Active Queue Management   </td><td class="col2 centeralign">  ??  </td><td class="col3 leftalign"> available since <a href="https://dev.openwrt.org/changeset/31756" class="urlextern" title="https://dev.openwrt.org/changeset/31756"  rel="nofollow">r31756</a> and <a href="https://dev.openwrt.org/changeset/31757" class="urlextern" title="https://dev.openwrt.org/changeset/31757"  rel="nofollow">r31757</a>, mainlined in Kernel 3.5  </td><td class="col4 centeralign">  ☑  </td><td class="col5 leftalign">  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> → <a href="packet.scheduler/sch_drr" class="wikilink1" title="doc:howto:packet.scheduler:sch_drr">sch_drr</a>    </td><td class="col1 centeralign">  Deficit Round Robin scheduler        </td><td class="col2 centeralign">  ??  </td><td class="col3 leftalign"> can handle packets of variable size without knowing their mean size.   </td><td class="col4 leftalign">  </td><td class="col5 leftalign">  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> →   sch_dsmark   </td><td class="col1 centeralign">  Differentiated Services field marker  </td><td class="col2 centeralign">  ??  </td><td class="col3 leftalign"> bla  </td><td class="col4 leftalign">  </td><td class="col5 centeralign">  ☑  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> → <a href="http://wiki.openwrt.org/doc/howto/packet.scheduler/sch_esfq" class="wikilink2" title="doc:howto:packet.scheduler:sch_esfq" rel="nofollow">sch_esfq</a>   </td><td class="col1 centeralign">  Enhanced Stochastic Fairness Queueing  </td><td class="col2 centeralign">  ??  </td><td class="col3 leftalign"> removed in mainline kernel, but still available in OpenWrt  </td><td class="col4 leftalign">  </td><td class="col5 centeralign">  ☑  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> → <a href="http://wiki.openwrt.org/doc/howto/packet.scheduler/sch_fifo" class="wikilink2" title="doc:howto:packet.scheduler:sch_fifo" rel="nofollow">sch_fifo</a>   </td><td class="col1 centeralign">  The simplest FIFO queue                </td><td class="col2 centeralign">  ??  </td><td class="col3 leftalign"> bla  </td><td class="col4 leftalign">  </td><td class="col5 centeralign">  ☑  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> → <a href="packet.scheduler/sch_fq_codel" class="wikilink1" title="doc:howto:packet.scheduler:sch_fq_codel">sch_fq_codel</a>  </td><td class="col1 centeralign">  Fair Queue CoDel discipline         </td><td class="col2 centeralign">  ??  </td><td class="col3 leftalign"> available since <a href="https://dev.openwrt.org/changeset/31756" class="urlextern" title="https://dev.openwrt.org/changeset/31756"  rel="nofollow">r31756</a> and <a href="https://dev.openwrt.org/changeset/31757" class="urlextern" title="https://dev.openwrt.org/changeset/31757"  rel="nofollow">r31757</a>, mainlined in Kernel 3.5  </td><td class="col4 centeralign">  ☑  </td><td class="col5 leftalign">  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0"> → <a href="http://wiki.openwrt.org/doc/howto/packet.scheduler/sch_generic" class="wikilink2" title="doc:howto:packet.scheduler:sch_generic" rel="nofollow">sch_generic</a> </td><td class="col1 centeralign">  Generic packet scheduler routines   </td><td class="col2 centeralign">  ??  </td><td class="col3 leftalign"> bla  </td><td class="col4 leftalign">  </td><td class="col5 leftalign">  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> → <a href="http://wiki.openwrt.org/doc/howto/packet.scheduler/sch_gred" class="wikilink2" title="doc:howto:packet.scheduler:sch_gred" rel="nofollow">sch_gred</a>   </td><td class="col1 centeralign">  Generic Random Early Detection       </td><td class="col2 centeralign">  ??  </td><td class="col3 leftalign"> bla  </td><td class="col4 leftalign">  </td><td class="col5 centeralign">  ☑  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> → <a href="packet.scheduler/sch_hfsc" class="wikilink1" title="doc:howto:packet.scheduler:sch_hfsc">sch_hfsc</a>   </td><td class="col1 centeralign">  Hierarchical Fair Service Curve      </td><td class="col2 centeralign">  ☑  </td><td class="col3 leftalign"> link sharing and low delay at the same time  </td><td class="col4 centeralign">  ☑  </td><td class="col5 leftalign">  </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 leftalign"> → <a href="packet.scheduler/sch_htb" class="wikilink1" title="doc:howto:packet.scheduler:sch_htb">sch_htb</a>    </td><td class="col1 centeralign">  Hierarchy Token Bucket               </td><td class="col2 centeralign">  ☑  </td><td class="col3 leftalign"> easiest configuration of link sharing, derived from CBQ  </td><td class="col4 leftalign">  </td><td class="col5 centeralign">  ☑  </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 leftalign"> → <a href="http://wiki.openwrt.org/doc/howto/packet.scheduler/sch_ingress" class="wikilink2" title="doc:howto:packet.scheduler:sch_ingress" rel="nofollow">sch_ingress</a>  </td><td class="col1 centeralign">  Ingress qdisc                      </td><td class="col2 centeralign">  ??  </td><td class="col3 leftalign"> bla  </td><td class="col4 centeralign">  ☑  </td><td class="col5 leftalign">  </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 leftalign"> → <a href="http://wiki.openwrt.org/doc/howto/packet.scheduler/sch_mq" class="wikilink2" title="doc:howto:packet.scheduler:sch_mq" rel="nofollow">sch_mq</a>     </td><td class="col1 centeralign">  Classful multiqueue dummy scheduler  </td><td class="col2 centeralign">  ??  </td><td class="col3 leftalign"> bla  </td><td class="col4 leftalign">  </td><td class="col5 leftalign">  </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0"> → <a href="http://wiki.openwrt.org/doc/howto/packet.scheduler/sch_mqprio" class="wikilink2" title="doc:howto:packet.scheduler:sch_mqprio" rel="nofollow">sch_mqprio</a> </td><td class="col1 centeralign">  name                                 </td><td class="col2 centeralign">  ??  </td><td class="col3 leftalign"> bla  </td><td class="col4 leftalign">  </td><td class="col5 leftalign">  </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0"> → <a href="http://wiki.openwrt.org/doc/howto/packet.scheduler/sch_multiq" class="wikilink2" title="doc:howto:packet.scheduler:sch_multiq" rel="nofollow">sch_multiq</a> </td><td class="col1 centeralign">  name                                 </td><td class="col2 centeralign">  ??  </td><td class="col3 leftalign"> bla  </td><td class="col4 leftalign">  </td><td class="col5 leftalign">  </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0 leftalign"> → <a href="packet.scheduler/sch_netem" class="wikilink1" title="doc:howto:packet.scheduler:sch_netem">sch_netem</a>  </td><td class="col1 centeralign">  Network emulator                     </td><td class="col2 centeralign">  ☒  </td><td class="col3 leftalign"> Drop, delay, bla packets  </td><td class="col4 leftalign">  </td><td class="col5 leftalign">  </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0 leftalign"> → <a href="http://wiki.openwrt.org/doc/howto/packet.scheduler/sch_pfifo_fast" class="wikilink2" title="doc:howto:packet.scheduler:sch_pfifo_fast" rel="nofollow">sch_pfifo_fast</a>  </td><td class="col1 centeralign">  FIFO with prioritizing          </td><td class="col2 centeralign">  ☒  </td><td class="col3 leftalign"> DEFAULT, usually build-into the kernel  </td><td class="col4 leftalign">  </td><td class="col5 leftalign">  </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0 leftalign"> → <a href="http://wiki.openwrt.org/doc/howto/packet.scheduler/sch_prio" class="wikilink2" title="doc:howto:packet.scheduler:sch_prio" rel="nofollow">sch_prio</a>   </td><td class="col1 centeralign">  Simple 3-band priority scheduler     </td><td class="col2 centeralign">  ☒  </td><td class="col3 leftalign"> allows packet prioritization  </td><td class="col4 leftalign">  </td><td class="col5 centeralign">  ☑  </td>
+	</tr>
+	<tr class="row22">
+		<td class="col0 leftalign"> → <a href="http://wiki.openwrt.org/doc/howto/packet.scheduler/sch_qfq" class="wikilink2" title="doc:howto:packet.scheduler:sch_qfq" rel="nofollow">sch_qfq</a>    </td><td class="col1 centeralign">  Quick Fair Queueing Scheduler        </td><td class="col2 centeralign">  ??  </td><td class="col3 leftalign"> bla  </td><td class="col4 leftalign">  </td><td class="col5 leftalign">  </td>
+	</tr>
+	<tr class="row23">
+		<td class="col0 leftalign"> → <a href="packet.scheduler/sch_red" class="wikilink1" title="doc:howto:packet.scheduler:sch_red">sch_red</a>    </td><td class="col1 centeralign">  Random Early Detection               </td><td class="col2 centeralign">  ☒  </td><td class="col3 leftalign"> bla  </td><td class="col4 leftalign">  </td><td class="col5 centeralign">  ☑  </td>
+	</tr>
+	<tr class="row24">
+		<td class="col0 leftalign"> → <a href="http://wiki.openwrt.org/doc/howto/packet.scheduler/sch_sfb" class="wikilink2" title="doc:howto:packet.scheduler:sch_sfb" rel="nofollow">sch_sfb</a>    </td><td class="col1 centeralign">  Stochastic Fair Blue                 </td><td class="col2 centeralign">  ??  </td><td class="col3 leftalign"> bla  </td><td class="col4 leftalign">  </td><td class="col5 leftalign">  </td>
+	</tr>
+	<tr class="row25">
+		<td class="col0 leftalign"> → <a href="packet.scheduler/sch_sfq" class="wikilink1" title="doc:howto:packet.scheduler:sch_sfq">sch_sfq</a>    </td><td class="col1 centeralign">  Stochastic Fairness Queueing         </td><td class="col2 centeralign">  ☒  </td><td class="col3 leftalign"> distibutes bandwidth for known tcp-connections fairly  </td><td class="col4 leftalign">  </td><td class="col5 centeralign">  ☑  </td>
+	</tr>
+	<tr class="row26">
+		<td class="col0"> → <a href="http://wiki.openwrt.org/doc/howto/packet.scheduler/sch_sfqred" class="wikilink2" title="doc:howto:packet.scheduler:sch_sfqred" rel="nofollow">sch_sfqred</a> </td><td class="col1 centeralign">  mixture of qfq and red               </td><td class="col2 centeralign">  ?  </td><td class="col3 leftalign">       </td><td class="col4"> </td><td class="col5"> </td>
+	</tr>
+	<tr class="row27">
+		<td class="col0 leftalign"> → <a href="packet.scheduler/sch_tbf" class="wikilink1" title="doc:howto:packet.scheduler:sch_tbf">sch_tbf</a>    </td><td class="col1 centeralign">  Token Bucket Filter                  </td><td class="col2 centeralign">  ☒  </td><td class="col3 leftalign"> limit bandwidth  </td><td class="col4 leftalign">  </td><td class="col5 centeralign">  ☑  </td>
+	</tr>
+	<tr class="row28">
+		<td class="col0 leftalign"> → <a href="http://wiki.openwrt.org/doc/howto/packet.scheduler/sch_teql" class="wikilink2" title="doc:howto:packet.scheduler:sch_teql" rel="nofollow">sch_teql</a>   </td><td class="col1 centeralign">  True/Trivial Link Equalizer          </td><td class="col2 centeralign">  ??  </td><td class="col3 leftalign"> bla  </td><td class="col4 leftalign">  </td><td class="col5 centeralign">  ☑  </td>
+	</tr>
+</table></div>
+
+<p>
+<strong><code>Note:</code></strong> The PRIO QDisc does contain three classes, but since they cannot be configured further, PRIO is considered to be a classless QDisc. Its classes are sometimes called bands.
+</p>
+
+</div>
+
+<h3 class="sectionedit12" id="actions">Actions</h3>
+<div class="level3">
+<div class="table sectionedit13"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign" colspan="2"> Action  </th><th class="col2 centeralign">  Description  </th><th class="col3 centeralign">  kmod-sched-core  </th><th class="col4 rightalign">  kmod-sched </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> <a href="http://wiki.openwrt.org/doc/howto/packet.scheduler/act_police" class="wikilink2" title="doc:howto:packet.scheduler:act_police" rel="nofollow">act_police</a>  </td><td class="col1 leftalign"> Input police filter        </td><td class="col2 leftalign">  </td><td class="col3 leftalign">  </td><td class="col4"></td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <a href="http://wiki.openwrt.org/doc/howto/packet.scheduler/act_nat" class="wikilink2" title="doc:howto:packet.scheduler:act_nat" rel="nofollow">act_nat</a>     </td><td class="col1 leftalign"> Stateless NAT actions      </td><td class="col2"> </td><td class="col3"> </td><td class="col4"></td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> <a href="http://wiki.openwrt.org/doc/howto/packet.scheduler/act_mirred" class="wikilink2" title="doc:howto:packet.scheduler:act_mirred" rel="nofollow">act_mirred</a>  </td><td class="col1"> packet mirroring and redirect actions </td><td class="col2"> </td><td class="col3"> </td><td class="col4"></td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> <a href="http://wiki.openwrt.org/doc/howto/packet.scheduler/act_skbedit" class="wikilink2" title="doc:howto:packet.scheduler:act_skbedit" rel="nofollow">act_skbedit</a> </td><td class="col1"> </td><td class="col2"> </td><td class="col3"> </td><td class="col4"></td>
+	</tr>
+</table></div>
+
+</div>
+
+<h3 class="sectionedit14" id="filters">Filters</h3>
+<div class="level3">
+
+<p>
+This is where you configure which network packet belongs to which queue/bucket. A rule used to allocate a group of IP packets to a certain classid consists of a number of classifiers (match) and one connected action (TARGET or VERDICT). 
+</p>
+<ul>
+<li class="level1"><div class="li"> In principle it works exactly like <a href="netfilter#configuration" class="wikilink1" title="doc:howto:netfilter">netfilter rules</a>, the only difference is that <span style='color:blue; '>matches</span> are called <span style='color:blue; '>classifiers</span> and the <span style='color:red; '>TARGET</span> are called <span style='color:red; '>VERDICT</span> in available documentation. However, since it is possible to do the filtering <del>entirely</del> with netfilter (almost, doesn&#039;t forget Layer 2 packets like arp), this does not really matter.</div>
+</li>
+</ul>
+<div class="table sectionedit15"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign" colspan="2"> Filter (Classifier)  </th><th class="col2 centeralign">  Description  </th><th class="col3 centeralign">  kmod-sched-core  </th><th class="col4 rightalign">  kmod-sched </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> → <a href="http://git.kernel.org/?p=linux/kernel/git/torvalds/linux.git;a=commit;h=e5dfb815181fcb186d6080ac3a091eadff2d98fe" class="urlextern" title="http://git.kernel.org/?p=linux/kernel/git/torvalds/linux.git;a=commit;h=e5dfb815181fcb186d6080ac3a091eadff2d98fe"  rel="nofollow">cls_flow</a>    </td><td class="col1 leftalign"> flow classifier  </td><td class="col2 leftalign"> bla  </td><td class="col3 centeralign">  ☑  </td><td class="col4 leftalign">  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> → <a href="http://wiki.openwrt.org/doc/howto/packet.scheduler/cls_fw" class="wikilink2" title="doc:howto:packet.scheduler:cls_fw" rel="nofollow">cls_fw</a>    </td><td class="col1 leftalign"> firewall classifier  </td><td class="col2 leftalign"> bla  </td><td class="col3 centeralign">  ☑  </td><td class="col4 leftalign">  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> → <a href="http://wiki.openwrt.org/doc/howto/packet.scheduler/cls_route" class="wikilink2" title="doc:howto:packet.scheduler:cls_route" rel="nofollow">cls_route</a>    </td><td class="col1 leftalign"> route classifier  </td><td class="col2 leftalign"> bla  </td><td class="col3 centeralign">  ☑  </td><td class="col4 leftalign">  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> → <a href="http://wiki.openwrt.org/doc/howto/packet.scheduler/cls_tcindex" class="wikilink2" title="doc:howto:packet.scheduler:cls_tcindex" rel="nofollow">cls_tcindex</a>    </td><td class="col1"> tcindex classifier </td><td class="col2 leftalign"> bla  </td><td class="col3 centeralign">  ☑  </td><td class="col4 leftalign">  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> → <a href="http://wiki.openwrt.org/doc/howto/packet.scheduler/cls_u32" class="wikilink2" title="doc:howto:packet.scheduler:cls_u32" rel="nofollow">cls_u32</a>    </td><td class="col1 leftalign"> u32 classifier  </td><td class="col2 leftalign"> bla  </td><td class="col3 centeralign">  ☑  </td><td class="col4 leftalign">  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> → <a href="http://wiki.openwrt.org/doc/howto/packet.scheduler/cls_basic" class="wikilink2" title="doc:howto:packet.scheduler:cls_basic" rel="nofollow">cls_basic</a>    </td><td class="col1 leftalign"> basic classifier  </td><td class="col2 leftalign"> bla  </td><td class="col3 leftalign">  </td><td class="col4 centeralign">  ☑  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> → <a href="http://wiki.openwrt.org/doc/howto/packet.scheduler/cls_cgroup" class="wikilink2" title="doc:howto:packet.scheduler:cls_cgroup" rel="nofollow">cls_cgroup</a> </td><td class="col1"> <a href="http://en.wikipedia.org/wiki/cgroups" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/cgroups">cgroups</a> (Control Group) Classifier </td><td class="col2 leftalign">   </td><td class="col3 leftalign">   </td><td class="col4"></td>
+	</tr>
+</table></div>
+
+</div>
+
+<h4 id="filter_with_packet_scheduler">Filter with packet scheduler</h4>
+<div class="level4">
+
+<p>
+A filter is used by a classfull QDisc to determine in which bucket a packet will be enqueued. Whenever traffic arrives at a class with subclasses, it needs to be classified. Various methods may be used, one of which is filters. All filters attached to the class are called until one of them returns with a verdict. If no verdict is declared, other criteria may be considered. This behaviour varies between different QDiscs.
+</p>
+<div class="table sectionedit16"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign" colspan="3">                   </th><th class="col3 centeralign" colspan="2">  location  </th><th class="col5"> </th><th class="col6 centeralign" colspan="3">  match  </th><th class="col9 centeralign">  verdict/target  </th>
+	</tr>
+	<tr class="row1">
+		<th class="col0"> tc </th><th class="col1"> what </th><th class="col2"> command </th><th class="col3"> interface </th><th class="col4"> target </th><th class="col5"> priority </th><th class="col6"> protocol </th><th class="col7"> filtertype </th><th class="col8"> [ filtertype specific parameters ] </th><th class="col9"> flowid </th>
+	</tr>
+	</thead>
+	<tr class="row2">
+		<td class="col0 leftalign" rowspan="3"> tc  </td><td class="col1" rowspan="3"> filter </td><td class="col2 leftalign"> add     </td><td class="col3"> dev eth0 </td><td class="col4"> <code>parent</code> 1: </td><td class="col5"> <code>prio</code> 10 </td><td class="col6"> <code>protocol</code> ip </td><td class="col7 leftalign"> <code>u32</code>    </td><td class="col8"> <code>match</code> ip <code>dport</code> 22 0xffff </td><td class="col9"> <code>classid</code> 1:202 </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> change  </td><td class="col1"> dev eth0 </td><td class="col2"> <code>parent</code> 1: </td><td class="col3"> <code>prio</code> 20 </td><td class="col4"> <code>protocol</code> ip </td><td class="col5 leftalign"> <code>u32</code>    </td><td class="col6"> <code>match</code> ip <code>dport</code> 22 0xffff </td><td class="col7"> <code>classid</code> 1:202 </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> replace </td><td class="col1"> dev eth0 </td><td class="col2"> <code>parent</code> 1: </td><td class="col3"> <code>prio</code> 99 </td><td class="col4"> <code>protocol</code> ip </td><td class="col5"> <code>handle</code> </td><td class="col6 leftalign"> 202 fw                           </td><td class="col7"> <code>flowid</code> 1:202 </td>
+	</tr>
+</table></div>
+
+<p>
+<strong><code>Rule No1:</code></strong> It is important to notice that filters reside within QDiscs - they are not masters of what happens. <span style='color:red; '>hä?</span><br/>
+
+<strong><code>Rule No2:</code></strong> A filter always belongs to a qdisc and never to a class!
+</p>
+
+<p>
+<strong><code>Note1:</code></strong> <code>packet scheduler</code> classifying is slower then <code>netfilter</code> classifying!<br/>
+
+<strong><code>Note2:</code></strong> If you are using NAT, <del>you cannot use the packet scheduler to filter for the source IP address of different internal hosts</del>, because they are being replaced with the router&#039;s external IP address before the packets enter the packet scheduler! Actually you can use cls_flow classifier, with option like nfct-src,nfct-dst,nfct-proto-src,nfct-proto-dst, it will retrieve original information from conntrack.
+</p>
+
+</div>
+
+<h4 id="filter_with_packet_scheduler_and_netfilter">Filter with packet scheduler and netfilter</h4>
+<div class="level4">
+
+<p>
+Using <code><a href="http://wiki.openwrt.org/doc/howto/netfilter/netfilter#configuration" class="wikilink2" title="doc:howto:netfilter:netfilter" rel="nofollow">iptables</a></code> and <code>tc filter</code>. <em>deprecated?</em> We first match wanted packets with netfilter and mark them, then match the mark (<em>handle 202</em>) and connect it with a certain classid (<em>flowid 1:202</em>):
+<pre class="code bash">iptables <span class="re5">-t</span> mangle <span class="re5">-A</span> POSTROUTING <span class="re5">-j</span> MARK <span class="re5">--set-mark</span> <span class="nu0">202</span> <span class="re5">-p</span> udp <span class="re5">--dport</span> <span class="nu0">22</span>
+tc filter add dev pppoe-dsl parent <span class="nu0">1</span>: prio <span class="nu0">1</span> protocol <span class="kw2">ip</span> handle <span class="nu0">202</span> fw flowid <span class="nu0">1</span>:<span class="nu0">202</span></pre>
+
+</p>
+
+</div>
+
+<h4 id="filter_with_netfilter_only">Filter with netfilter only</h4>
+<div class="level4">
+
+<p>
+It is possible, more efficient and comes with the most options to use netfilter to match and then directly classify network packets:
+</p>
+
+<p>
+<pre class="code bash">iptables <span class="re5">-t</span> mangle <span class="re5">-A</span> POSTROUTING <span class="re5">-j</span> CLASSIFY <span class="re5">--set-class</span> <span class="nu0">1</span>:<span class="nu0">202</span> <span class="re5">-p</span> tcp <span class="re5">--dport</span> <span class="nu0">22</span></pre>
+
+</p>
+
+<p>
+For netfilter there is a module called <em>layer7</em> (install the package <code>l7-protocols</code>.). Deep packet inspection can be slow:
+<pre class="code bash">iptables <span class="re5">-t</span> mangle <span class="re5">-A</span> POSTROUTING <span class="re5">-j</span> CLASSIFY <span class="re5">--set-class</span> <span class="nu0">1</span>:<span class="nu0">305</span> <span class="re5">-m</span> layer7 <span class="re5">--l7proto</span> xxx</pre>
+
+</p>
+
+<p>
+Here we match the combination of source IP address, transport protocol, destination port and packet (not payload) length:
+<pre class="code bash">iptables <span class="re5">-t</span> mangle <span class="re5">-A</span> POSTROUTING <span class="re5">-j</span> CLASSIFY <span class="re5">--set-class</span> <span class="nu0">1</span>:<span class="nu0">303</span> <span class="re5">-s</span> 192.168.0.15 <span class="re5">-p</span> tcp <span class="re5">--dport</span> <span class="nu0">80</span> <span class="re5">-m</span> length <span class="re5">--length</span> :<span class="nu0">512</span></pre>
+
+</p>
+
+<p>
+<strong><code>Note:</code></strong> You may read on the internet that you can use target CLASSIFY only on POSTROUTING, but it&#039;s not true since at least 2006, you can also use it on FORWARD and OUTPUT. From kernel 2.6.39, you are no longer restricted to the mangle table, and can classify with arptables (on OUTPUT and FORWARD)(<a href="http://comments.gmane.org/gmane.comp.security.firewalls.netfilter.devel/36340" class="urlextern" title="http://comments.gmane.org/gmane.comp.security.firewalls.netfilter.devel/36340"  rel="nofollow">http://comments.gmane.org/gmane.comp.security.firewalls.netfilter.devel/36340</a>).
+</p>
+
+</div>
+
+<h2 class="sectionedit17" id="approach_to_our_own_configuration">Approach to our own configuration</h2>
+<div class="level2">
+
+<p>
+The configuration of the packet scheduler has to be tailored to your situation. Bear in mind what you are actually doing - controlling the behavior of the packet scheduler managing the egress queue of a network interface.
+</p>
+
+<p>
+We can:
+</p>
+<ol>
+<li class="level1"><div class="li"> Manipulate the order of packets leaving the egress queue (re-order/prioritize) which reduces <a href="http://en.wikipedia.org/wiki/jitter" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/jitter">jitter</a> that occurs with congestion.</div>
+</li>
+<li class="level1"><div class="li"> Divide the queue into sub-queues, and then drop packets when they are full (traffic shaping) which shares available bandwidth between traffic types and/or users.</div>
+</li>
+</ol>
+
+<p>
+So, let&#039;s check your situation and let&#039;s then configure your packet scheduler accordingly:
+</p>
+<ol>
+<li class="level1"><div class="li"> Do you require traffic control?</div>
+<ul>
+<li class="level2"><div class="li"> IF you generate more outgoing traffic than available upload bandwidth, STOP This will only clog your egress buffer and cause serious problems with jitter.</div>
+</li>
+</ul>
+<ol>
+<li class="level2"><div class="li"> IF your roommate is responsible for the excess traffic, and you cannot change this, THEN yes</div>
+</li>
+<li class="level2"><div class="li"> IF you do not generate more traffic then can go through the line, but have problems with jitter then you could benefit from traffic prioritization.</div>
+</li>
+</ol>
+</li>
+</ol>
+<ol>
+<li class="level1"><div class="li"> What can you configure?</div>
+<ol>
+<li class="level2"><div class="li"> You can determine the behavior of the packet scheduler through exactly three choices: the nesting (only in case the root qdisc is a classfull one), the particular algorithm(s) to be applied and particular parameters of the employed algorithm(s)</div>
+</li>
+</ol>
+</li>
+<li class="level1"><div class="li"> are you alone or is there traffic generated by multiple users at the same time?</div>
+<ol>
+<li class="level2"><div class="li"> in case you are alone, the configuration could look very simple. See →<a href="traffic.shaping#examples" title="doc:howto:packet.scheduler:packet.scheduler ↵" class="wikilink1">Examples</a>.</div>
+</li>
+<li class="level2"><div class="li"> in case of multiple users, there a couple of methods only for the nesting.</div>
+</li>
+</ol>
+</li>
+<li class="level1"><div class="li"> what kind of traffic is being generated?</div>
+<ol>
+<li class="level2"><div class="li"> Given that fact that the packet scheduler can only do so much, it makes sense to distinguish between exactly only two types of traffic: traffic susceptible to jitter and time delay, and traffic that is not! Yes, can subdivide this two types further, but whether this makes sense, depends on the employed algorithm, on how full the egress buffer is and on your available upload bandwidth.</div>
+</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li class="level1"><div class="li"> classfull or classless? → <a href="tc/tc.theory#implementation_of_classfull_with_2_levels" class="wikilink1" title="doc:howto:packet.scheduler:packet.scheduler.theory">implementation</a> that matches your situation best. Alone, use neither. Use classless.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit18" id="examples">Examples</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"><a href="tc/tc.example1" class="wikilink1" title="doc:howto:packet.scheduler:packet.scheduler.example1">packet.scheduler.example1</a> PRIO; one user, simple prioritizing</div>
+</li>
+<li class="level1"><div class="li"><a href="packet.scheduler/packet.scheduler.example2" class="wikilink1" title="doc:howto:packet.scheduler:packet.scheduler.example2">packet.scheduler.example2</a> HTB;  plain simple bandwidth sharing without concern for delay</div>
+</li>
+<li class="level1"><div class="li"><a href="tc/tc.example3" class="wikilink1" title="doc:howto:packet.scheduler:packet.scheduler.example3">packet.scheduler.example3</a> HFSC; several user with all sorts of traffic</div>
+</li>
+<li class="level1"><div class="li"><a href="packet.scheduler/packet.scheduler.example4" class="wikilink1" title="doc:howto:packet.scheduler:packet.scheduler.example4">packet.scheduler.example4</a> HFSC + FQ_CODEL + FLOW classifier; basic fair sharing behind triple play box </div>
+</li>
+</ul>
+
+<p>
+<strong><code>Note:</code></strong> The above examples do not make any use of UCI or anthing else, that is not OpenWrt-specific, so you can simply port them to any other Linux distributions and back.
+</p>
+
+</div>
+
+<h3 class="sectionedit19" id="check_results">Check results</h3>
+<div class="level3">
+
+<p>
+To check on your results, use <code>tc</code> with or without the option <code>-s</code> <code>(statistics)</code>:
+</p>
+
+<p>
+<pre class="code"> tc -s qdisc show dev pppoe-dsl</pre>
+
+</p>
+
+<p>
+<pre class="code"> tc class show dev pppoe-dsl</pre>
+
+</p>
+
+<p>
+<pre class="code"> tc filter show dev pppoe-dsl</pre>
+
+</p>
+
+<p>
+<pre class="code"> iptables -nL -v -x -t mangle</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit20" id="testing">Testing</h2>
+<div class="level2">
+
+<p>
+Once you managed to set up a working configuration, you need to test it. Thoroughly! Failure to do so could produce unpredictable results and/or problems. 
+</p>
+
+<p>
+Ideally you should set up your own mini-network that allows you to monitor and control the source, destination and traffic in between. 
+</p>
+
+<p>
+Produce all kinds of outgoing traffic and measure the bandwidth distribution. 
+</p>
+
+<p>
+Then measure and compare latency in different situations:
+</p>
+<ol>
+<li class="level1"><div class="li"> with minimal traffic, without QoS</div>
+</li>
+<li class="level1"><div class="li"> with heavy traffic and congestion, without QoS</div>
+</li>
+<li class="level1"><div class="li"> with minimal traffic, with QoS</div>
+</li>
+<li class="level1"><div class="li"> with heavy traffic and congestion, with QoS</div>
+</li>
+</ol>
+
+<p>
+If you successful <em>please</em> <strong>share your knowledge</strong>!
+</p>
+
+</div>
+
+<h2 class="sectionedit21" id="start_on_boot">Start on boot</h2>
+<div class="level2">
+
+<p>
+Make <code>init</code> restart your script every boot up.
+<code>vi etc/init.d/trafficc</code>
+<pre class="code bash"><span class="co0">#!/bin/sh</span>
+&nbsp;
+<span class="re2">START</span>=<span class="nu0">50</span>
+&nbsp;
+boot <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+        <span class="sy0">/</span>etc<span class="sy0">/</span>tc_hfsc.sh start
+<span class="br0">&#125;</span>
+&nbsp;
+start<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+        <span class="sy0">/</span>etc<span class="sy0">/</span>tc_hfsc.sh start
+<span class="br0">&#125;</span>
+&nbsp;
+stop<span class="br0">&#40;</span><span class="br0">&#41;</span>  <span class="br0">&#123;</span>
+        <span class="sy0">/</span>etc<span class="sy0">/</span>tc_hfsc.sh stop
+<span class="br0">&#125;</span></pre>
+
+<code>chmod a+x /etc/init.d/traffic</code>
+<code>sh /etc/init.d/traffic start</code>
+<code>sh /etc/init.d/traffic enable</code>
+</p>
+
+</div>
+
+<h2 class="sectionedit22" id="hotplug">Hotplug</h2>
+<div class="level2">
+
+<p>
+If you disconnect your dsl-connection, the device <code>pppoe-dsl</code> will close and so will its QDisc. 
+</p>
+
+<p>
+The following script will restart it whenever you reconnect:
+</p>
+
+<p>
+<pre class="code bash"><span class="kw2">vi</span> <span class="sy0">/</span>etc<span class="sy0">/</span>hotplug.d<span class="sy0">/</span>iface<span class="sy0">/</span><span class="nu0">30</span>-trafficc
+&nbsp;
+&nbsp;
+<span class="sy0">&lt;</span><span class="kw2">file</span> <span class="nu0">30</span>-trafficc<span class="sy0">&gt;</span>
+<span class="co0">#!/bin/sh</span>
+<span class="co0"># This script is executed as part of the hotplug event with</span>
+<span class="co0"># HOTPLUG_TYPE=iface, triggered by various scripts when an interface</span>
+<span class="co0"># is configured (ACTION=ifup) or deconfigured (ACTION=ifdown).  The</span>
+<span class="co0"># interface is available as INTERFACE, the real device as DEVICE.</span>
+&nbsp;
+<span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$ACTION</span>&quot;</span> = <span class="kw2">ifup</span> <span class="re5">-a</span> <span class="st0">&quot;<span class="es2">$INTERFACE</span>&quot;</span> = <span class="st0">&quot;dsl&quot;</span> <span class="br0">&#93;</span> 
+<span class="sy0">&amp;&amp;</span> <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>trafficc enabled <span class="sy0">&amp;&amp;</span> <span class="sy0">/</span>etc<span class="sy0">/</span>tc_hfsc.sh
+<span class="sy0">&lt;/</span><span class="kw2">file</span><span class="sy0">&gt;</span></pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit23" id="statistical_data">Statistical Data</h2>
+<div class="level2">
+
+<p>
+Once your configuration is up and running, you may want to collect some statistical data:
+</p>
+<ul>
+<li class="level1"><div class="li"> about bandwidth used by the different classes</div>
+</li>
+<li class="level1"><div class="li"> packets dropped (!)</div>
+</li>
+<li class="level1"><div class="li"> number of packets, packets size, which protocol was being used, source IP, …</div>
+</li>
+<li class="level1"><div class="li"> the data <code>tc</code> and <code>iptables</code> dispense is of course not sooo well formated.</div>
+</li>
+<li class="level1"><div class="li"> use a tool to collect and parse data: <a href="http://wiki.openwrt.org/doc/howto/ngn" class="wikilink2" title="doc:howto:ngn" rel="nofollow">NGN</a></div>
+</li>
+</ul>
+
+<p>
+<strong>NOTE:</strong> If you do not log only your own traffic data, please mind <strong><span style='color:red; '>data privacy protection laws</span></strong> to prevent you from going to jail or paying a fine.
+</p>
+
+</div>
+
+<h2 class="sectionedit24" id="tips">Tips</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Leave some bandwidth available in your packet scheduler configuration for unspecified traffic. This will help avoid blocking important low-volume traffic you may have forgetten to consider.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Don&#039;t forget to classify ARP packets! (even if you match all packets in iptables, you won&#039;t match ARP packet, as iptables is layer 3 and ARP is layer 2)</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> If you use any virtual interfaces, don&#039;t forget to configure the queue size using the txqueuelan traffic. The default is 0. </div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit25" id="terminology">Terminology</h2>
+<div class="level2">
+
+<p>
+<strong><code>Queueing Discipline (QDisc)</code></strong> An algorithm that manages the queue of a device, either incoming (ingress) or outgoing (egress). Also referred to as a packet scheduler.
+</p>
+<ul>
+<li class="level1"><div class="li"> <code><strong>Root QDisc</strong></code> Not an actual queuing discipline (QDisc), but rather the location where traffic control structures can be attached to an interface for egress (outbound traffic). It can contain any of the queuing disciplines (qdiscs) with potential classes and class structures. </div>
+</li>
+<li class="level1"><div class="li"> <code><strong>Ingress QDisc</strong></code> The location where ingress (incoming traffic) filters can be attached. For practical purposes, the ingress qdisc is merely a convenient object onto which to attach a policer to limit the amount of traffic accepted on a network interface.</div>
+</li>
+<li class="level1"><div class="li"> <code><strong>Classless QDisc</strong></code> A QDisc with no configurable internal subdivisions.</div>
+</li>
+<li class="level1"><div class="li"> <code><strong>Classful QDisc</strong></code> Contains multiple classes. Some of these classes contain a further QDisc, which may again be classful, but need not be. </div>
+</li>
+<li class="level1"><div class="li"> <code><strong>Work-Conserving</strong></code> A work-conserving QDisc never delays packets. It does NOT &quot;shape&quot; packets.</div>
+</li>
+<li class="level1"><div class="li"> <code><strong>Non-Work-Conserving</strong></code> A non-work-conserving QDiscs may delay packets and &quot;shape&quot; them. This means that they sometimes refuse to pass a packet, even though they have one available.</div>
+</li>
+<li class="level1"><div class="li"> <code><strong>Tail drop Queue</strong></code> see <a href="http://en.wikipedia.org/wiki/Tail drop" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Tail drop">Tail drop</a></div>
+</li>
+</ul>
+
+<p>
+<strong><code>Classes</code></strong> Classes are sub-QDiscs which allow the user to configure QoS in more detail. Classes can contain additional classes. Classes do not have a queue, do not contain any network packets and cannot contain filters.
+</p>
+<ul>
+<li class="level1"><div class="li"> <code><strong>Leaf Class</strong></code> End class without any child classes. Always contains a QDisc! In case one is not configure, the default pfifo_fast is used. Leaf classes give unused bandwidth back to their parent class.</div>
+</li>
+<li class="level1"><div class="li"> <code><strong>Inner Class</strong></code> Classes which contain leaf-classes.</div>
+</li>
+<li class="level1"><div class="li"> <code><strong>Parent Class</strong></code> Parent class can dynamically pass bandwidth to leaf-classes</div>
+</li>
+<li class="level1"><div class="li"> <code><strong>Child Class</strong></code> Class that has another class or a QDisc as parent and contains classes.</div>
+</li>
+</ul>
+
+<p>
+<strong><code>Classifier</code></strong> Determines which class to send a packet.
+</p>
+
+<p>
+<strong><code>Filter</code></strong> Classification can be performed using filters. A filter contains a number of conditions which if matched, make the filter match.
+</p>
+
+<p>
+<strong><code>Scheduling</code></strong> A QDisc may, with the help of a classifier, decide that some packets need to leave earlier than others. This process is called scheduling.
+</p>
+
+<p>
+<strong><code>Shaping</code></strong> <a href="http://en.wikipedia.org/wiki/Traffic_shaping" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Traffic_shaping">Traffic Shaping</a> is the process of delaying packets to limit egress traffic to a maximum rate or smooth bursts.
+</p>
+
+<p>
+<strong><code>Policing</code></strong> <a href="http://en.wikipedia.org/wiki/Traffic_policing" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Traffic_policing"> Traffic Policing</a> is the practice of dropping, marking or ignoring ingress packets that don&#039;t comply with user-defined criteria.
+</p>
+
+<p>
+<strong><code>Filters</code></strong> Filters are used by classful QDiscs to determine which class a packet will be queued to.
+</p>
+
+<p>
+<strong><code>TCP Turbo</code></strong> Yet another <a href="http://en.wikipedia.org/wiki/Buzzword bingo" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Buzzword bingo">Buzzword bingo</a> term; means the prioritization of TCP ACK-packets on the upload-side
+</p>
+
+</div>
+
+<h2 class="sectionedit26" id="reference">Reference</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="http://lartc.org" class="urlextern" title="http://lartc.org"  rel="nofollow">Linux Advanced Routing &amp; Traffic Control</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://lartc.org/howto/lartc.qdisc.html" class="urlextern" title="http://lartc.org/howto/lartc.qdisc.html"  rel="nofollow">Queueing Disciplines for Bandwidth Management</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://lartc.org/manpages" class="urlextern" title="http://lartc.org/manpages"  rel="nofollow">tc man pages</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.bufferbloat.net/projects/bloat/wiki/Linux_Tips" class="urlextern" title="http://www.bufferbloat.net/projects/bloat/wiki/Linux_Tips"  rel="nofollow">Linux Tips</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://lxr.free-electrons.com/source/net/sched/" class="urlextern" title="http://lxr.free-electrons.com/source/net/sched/"  rel="nofollow">Source code</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://linuxgazette.net/135/pfeiffer.html" class="urlextern" title="http://linuxgazette.net/135/pfeiffer.html"  rel="nofollow">TCP and Linux&#039; Pluggable Congestion Control Algorithms</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.mail-archive.com/lartc@mailman.ds9a.nl/msg17009.html" class="urlextern" title="http://www.mail-archive.com/lartc@mailman.ds9a.nl/msg17009.html"  rel="nofollow">Packet scheduler and VLANs</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit27" id="tags">Tags</h2>
+<div class="level2">
+<div class="tags"><span>
+	<a href="../../tag/qos?do=showtag&amp;tag=QoS" class="wikilink1" title="tag:qos" rel="tag">QoS</a>
+</span></div>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/packet.scheduler/packet.scheduler.txt</bdi> · Last modified: 2015/04/13 11:01 by <bdi>valentt</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="packet.scheduler/packet.scheduler?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="packet.scheduler/packet.scheduler?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="packet.scheduler/packet.scheduler?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="traffic.shaping#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="http://wiki.openwrt.org/lib/exe/indexer.php?id=doc%3Ahowto%3Apacket.scheduler%3Apacket.scheduler&amp;1432273832" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

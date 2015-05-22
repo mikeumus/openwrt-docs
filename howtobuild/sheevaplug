@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>SheevaPlug [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howtobuild,sheevaplug"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="sheevaplug?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howtobuild"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howtobuild/sheevaplug"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howtobuild/sheevaplug"/>
+<link rel="canonical" href="sheevaplug"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howtobuild';var JSINFO = {"id":"doc:howtobuild:sheevaplug","namespace":"doc:howtobuild"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265810 166.182.3.44';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="sheevaplug#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="sheevaplug?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="sheevaplug?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howtobuild:sheevaplug" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="sheevaplug?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="sheevaplug?do=media&amp;ns=doc%253Ahowtobuild"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="sheevaplug?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howtobuild:start">如何编译法</a></bdi> » <bdi><span class="curid"><a href="sheevaplug" class="wikilink1" title="doc:howtobuild:sheevaplug">SheevaPlug</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howtobuild/sheevaplug" class="media" title="cz:doc:howtobuild:sheevaplug"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howtobuild/sheevaplug" class="media" title="de:doc:howtobuild:sheevaplug"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="sheevaplug" class="media" title="doc:howtobuild:sheevaplug"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howtobuild/sheevaplug" class="media" title="es:doc:howtobuild:sheevaplug"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howtobuild/sheevaplug" class="media" title="fr:doc:howtobuild:sheevaplug"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howtobuild/sheevaplug" class="media" title="hu:doc:howtobuild:sheevaplug"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howtobuild/sheevaplug" class="media" title="jp:doc:howtobuild:sheevaplug"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howtobuild/sheevaplug" class="media" title="pl:doc:howtobuild:sheevaplug"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howtobuild/sheevaplug" class="media" title="pt-br:doc:howtobuild:sheevaplug"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howtobuild/sheevaplug" class="media" title="ru:doc:howtobuild:sheevaplug"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howtobuild/sheevaplug" class="media" title="tr:doc:howtobuild:sheevaplug"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howtobuild/sheevaplug" class="media" title="zh-cn:doc:howtobuild:sheevaplug"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howtobuild/sheevaplug" class="media" title="zh-tw:doc:howtobuild:sheevaplug"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howtobuild:sheevaplug</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="sheevaplug#what_you_need_to_know">What You Need To Know</a></div></li>
+<li class="level1"><div class="li"><a href="sheevaplug#preparations">Preparations</a></div></li>
+<li class="level1"><div class="li"><a href="sheevaplug#procedure">Procedure</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="sheevaplug#pull_openwrt_buildroot_and_install_its_dependencies">1. Pull OpenWrt Buildroot and install its dependencies</a></div></li>
+<li class="level2"><div class="li"><a href="sheevaplug#pull_sources_for_barrier_breaker">2. Pull sources for BARRIER BREAKER</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="sheevaplug#it_has_512m_of_nand_memory">It has 512M of NAND memory</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="sheevaplug#strongswan">StrongSwan</a></div></li>
+<li class="level2"><div class="li"><a href="sheevaplug#prepare_a_tftp_server">3. Prepare a TFTP server</a></div></li>
+<li class="level2"><div class="li"><a href="sheevaplug#deal_with_u-boot">4. Deal with u-boot</a></div></li>
+<li class="level2"><div class="li"><a href="sheevaplug#first_boot">5. First boot</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="sheevaplug#troubleshooting">Troubleshooting</a></div></li>
+<li class="level1"><div class="li"><a href="sheevaplug#notes">Notes</a></div></li>
+<li class="level1"><div class="li"><a href="sheevaplug#manage_rootfs_and_uimage_space">Manage Rootfs and UImage Space</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="sheevaplug">SheevaPlug</h1>
+<div class="level1">
+
+<p>
+I have installed OpenWrt BARRIER BREAKER on the NAND memory of a <a href="https://en.wikipedia.org/wiki/SheevaPlug" class="urlextern" title="https://en.wikipedia.org/wiki/SheevaPlug"  rel="nofollow">SheevaPlug</a> with success.
+</p>
+
+<p>
+Hope these notes will help to explain how reproduce it.
+</p>
+
+<p>
+There are a lot of advantages to put OpenWrt on a SheevaPlug NAND, for example:
+</p>
+<ul>
+<li class="level1"><div class="li">  Have a system it can be shutdown as a modem.</div>
+</li>
+<li class="level1"><div class="li">  Use an external USB hard drive and spin it down for noise reduction.</div>
+</li>
+<li class="level1"><div class="li">  Have fast restart of the system, very good thing for a PBX</div>
+</li>
+<li class="level1"><div class="li">  Etc …</div>
+</li>
+</ul>
+
+<p>
+Unfortunately, there aren&#039;t any pre-built images offered for download for the SheevaPLug device.
+</p>
+
+<p>
+In fact the port is simple. It just needs to regenerate a openwrt-kirkwood-uImage file after having enabled the SheevaPlug motherboard support.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="what_you_need_to_know">What You Need To Know</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> The jffs2-nand support file system is only available on the BARRIER BREAKER version.</div>
+</li>
+<li class="level1"><div class="li"> The rootfs size reserved by u-boot will be too small by default.</div>
+</li>
+<li class="level1"><div class="li"> Never use /snapshots/trunk/kirkwood/uboot-kirkwood-sheevaplug/ to update your u-boot.</div>
+</li>
+</ol>
+
+</div>
+
+<h2 class="sectionedit3" id="preparations">Preparations</h2>
+<div class="level2">
+
+<p>
+Might look like a bad joke, but in fact when I started the SheevaPlug port I had only read the Wiki documentation. All the necessary info for building it on your own devices is there.
+</p>
+<ol>
+<li class="level1"><div class="li"> You will be using OpenWrt Buildroot for this, so read <a href="../../about/toolchain" class="wikilink1" title="about:toolchain">about it</a></div>
+</li>
+<li class="level1"><div class="li"> Pull OpenWrt Buildroot per svn/git and install its prerequisites on your system: <a href="../howto/buildroot.exigence" class="wikilink1" title="doc:howto:buildroot.exigence">OpenWrt Buildroot – Installation</a></div>
+</li>
+<li class="level1"><div class="li"> See howto use it <a href="../howto/obtain.firmware.compile" class="wikilink1" title="doc:howto:build">OpenWrt Buildroot – Usage</a></div>
+</li>
+<li class="level1"><div class="li"> In case questions pop up, cf. <a href="http://wiki.openwrt.org/doc/techref/buildroot" class="wikilink2" title="doc:techref:buildroot" rel="nofollow">OpenWrt Buildroot – Technical Reference</a> (Work in Progress)</div>
+</li>
+</ol>
+
+<p>
+Debian 7 : 
+<pre class="code">sudo apt-get install libncurses5-dev zlib1g-dev gawk subversion build-essential libncurses5-dev zlib1g-dev gawk git ccache gettext libssl-dev xsltproc</pre>
+
+</p>
+
+<p>
+<strong>Note:</strong> If you simply and swiftly want to cross compile a program, see <a href="../devel/crosscompile" class="wikilink1" title="doc:devel:crosscompile">crosscompile</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="procedure">Procedure</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit5" id="pull_openwrt_buildroot_and_install_its_dependencies">1. Pull OpenWrt Buildroot and install its dependencies</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <a href="../howto/buildroot.exigence" class="wikilink1" title="doc:howto:buildroot.exigence">OpenWrt Buildroot – Installation</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit6" id="pull_sources_for_barrier_breaker">2. Pull sources for BARRIER BREAKER</h3>
+<div class="level3">
+
+<p>
+<pre class="code">cd ~
+mkdir -p ~/openwrt
+cd ~/openwrt
+svn co svn://svn.openwrt.org/openwrt/branches/barrier_breaker
+cd barrier_breaker</pre>
+
+</p>
+
+<p>
+Configure Target system
+<pre class="code">make menuconfig</pre>
+
+<pre class="code">  - Target System ---&gt; Marvell Kirkwood
+  - Target Profile ---&gt; Generic (default)
+  - Target Images  ---&gt; 
+     [*] jffs2 for NAND
+  - Save and Exit</pre>
+
+<pre class="code">make kernel_menuconfig</pre>
+
+<pre class="code">System Type  ---&gt; 
+  Marvell Kirkwood Implementations  ---&gt;
+   [*] Marvell eSATA SheevaPlug Reference Board
+   [*] Marvell SheevaPlug Reference Board
+  Device Drivers  ---&gt; 
+   [*] USB support  ---&gt;
+     &lt;*&gt;   Support for Host-side USB
+  [*] Network device support  ---&gt;
+    USB Network Adapters  ---&gt;
+      &lt;*&gt; Multi-purpose USB Networking Framework
+      &lt;*&gt;   CDC NCM support
+      &lt;*&gt;   Host for RNDIS and ActiveSync devices
+      &lt;*&gt;   QMI WWAN driver for Qualcomm MSM based 3G and LTE modems
+      &lt;*&gt; USB-to-WWAN Driver for Sierra Wireless modems
+      -*-   CDC Ethernet support (smart devices such as cable modems)
+  - Save and Exit</pre>
+
+We add feeds after having declared the System Type, then generate default configuration
+<pre class="code">./scripts/feeds update -a
+./scripts/feeds install -a
+make defconfig
+make prereq
+make oldconfig</pre>
+
+</p>
+
+<p>
+It&#039;s time to add necessary packages for configuring the SheevaPlug via Luci. 
+</p>
+
+<p>
+I have tried many times and many things without success, but finally found that <a href="http://ofmodemsandmen.com/build.html" class="urlextern" title="http://ofmodemsandmen.com/build.html"  rel="nofollow">http://ofmodemsandmen.com/build.html</a> describes very well the necessary things for having USB working well with OpenWrt. That&#039;s why the settings proposed here are the same as Ofmodemsandmen, since i haven&#039;t the required skills for makeing it better. Apologize for that.
+</p>
+
+<p>
+<pre class="code">make menuconfig</pre>
+
+<pre class="code">Kernel modules  ---&gt;
+  USB Support  ---&gt;
+    &lt;*&gt; kmod-usb-acm......................... Support for modems/isdn controllers
+    &lt;*&gt; kmod-usb-net............... Kernel modules for USB-to-Ethernet convertors
+    &lt;*&gt; kmod-usb-net-sierrawireless.......... Support for Sierra Wireless devices
+    &lt;*&gt; kmod-usb-ohci............................... Support for OHCI controllers
+    &lt;*&gt; kmod-usb-serial..................... Support for USB-to-Serial converters
+    &lt;*&gt; kmod-usb-serial-option................... Support for Option HSDPA modems
+    &lt;*&gt; kmod-usb-serial-qualcomm................. Support for Qualcomm USB serial
+    &lt;*&gt; kmod-usb-serial-sierrawireless....... Support for Sierra Wireless devices
+    &lt;*&gt; kmod-usb-uhci............................... Support for UHCI controllers
+    &lt;*&gt; kmod-usb2................................... Support for USB2 controllers
+LuCI  ---&gt; 
+  1. Collections  ---&gt; &lt;*&gt; luci-ssl
+    -*- luci
+    &lt;*&gt; luci-ssl......................... Standard OpenWrt set with HTTPS support
+  6. Protocols  ---&gt;
+    &lt;*&gt; luci-proto-3g............................................. Support for 3G
+    &lt;*&gt; luci-proto-relay....................... Support for relayd pseudo bridges
+  3. Applications  ---&gt;
+    &lt;*&gt; luci-app-qos..................... Quality of Service configuration module
+    &lt;*&gt; luci-app-ddns........................... Dynamic DNS configuration module
+    &lt;*&gt; luci-app-ntpc.............. NTP time synchronisation configuration module
+Network  ---&gt;
+  &lt;*&gt; ppp........................................................... PPP daemon
+  &lt;*&gt; ppp-mod-pppoe............................................... PPPoE plugin
+  &lt;*&gt; wpad-mini............ IEEE 802.1x Authenticator/Supplicant (WPA-PSK only)
+Utilities  ---&gt;
+  &lt;*&gt; usb-modeswitch................................ USB mode switching utility
+  &lt;*&gt; procps.................................................... proc utilities  ---&gt; (ALL)
+Base system  ---&gt;
+  &lt;*&gt; wireless-tools.......... Tools for manipulating Linux Wireless Extensions 
+- Save and Exit</pre>
+
+</p>
+
+<p>
+Then we start the compilation
+</p>
+
+<p>
+<pre class="code">make V=s</pre>
+
+</p>
+
+<p>
+It results in a minimalistic functioning system, but you shouldn&#039;t stop you work here.
+Instead, build all other available packages as module, especially the kernel-modules. That because a lot of packages can depend on kernel sign. It can take days to generate all packages as opkg format, but that&#039;s a good way for never having to recompile anything.
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="it_has_512m_of_nand_memory">It has 512M of NAND memory</h2>
+<div class="level2">
+
+<p>
+It&#039;s time to save your configuration via ./scripts/env script and configure special things. Storage space will be no problem. VPN, PBX, Tvheadend with IPTV tuner, who knows …
+</p>
+
+<p>
+<pre class="code">user@youhost:~/openwrt/barrier_breaker$rmdir ./env/files
+user@youhost:~/openwrt/barrier_breaker$./script/env save
+Initialized empty Git repository in /home/hts/openwrt/barrier_breaker/env/.git/
+[master 14ece99] Update at jeudi 8 mai 2014, 21:51:48 (UTC+0200)
+ 1 file changed, 4045 insertions(+)
+./scripts/env new sheevaplug_strongswan
+Switched to a new branch &#039;sheevaplug_strongswan&#039;
+Do you want to start your configuration repository with the current configuration? (Y/n): y
+# On branch sheevaplug_strongswan
+nothing to commit (working directory clean)
+user@youhost:~/openwrt/barrier_breaker$ ./scripts/env list
+  master
+* sheevaplug_strongswan</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit8" id="strongswan">StrongSwan</h3>
+<div class="level3">
+
+<p>
+StrongSwan is a IPV6/IPV4 IPsec-based VPN solution.
+</p>
+
+<p>
+Start by enabling the required StrongSwan 
+Original source: <a href="http://wiki.strongswan.org/projects/strongswan/wiki/KernelModules" class="urlextern" title="http://wiki.strongswan.org/projects/strongswan/wiki/KernelModules"  rel="nofollow">http://wiki.strongswan.org/projects/strongswan/wiki/KernelModules</a>
+</p>
+
+<p>
+<pre class="code">make kernel_menuconfig</pre>
+
+<pre class="code">Networking  ---&gt;
+  [*] Networking support  ---&gt;
+        Networking options  ---&gt;
+          &lt;*&gt; Transformation user configuration interface
+          &lt;*&gt; PF_KEY sockets
+          [*] TCP/IP networking
+          [*]   IP: advanced router
+          [*]   IP: policy routing
+          &lt;*&gt;   IP: AH transformation
+          &lt;*&gt;   IP: ESP transformation
+          &lt;*&gt;   IP: IPComp transformation
+          &lt;*&gt;   IP: IPsec transport mode
+          &lt;*&gt;   IP: IPsec tunnel mode
+          &lt;*&gt;   IP: IPsec BEET mode
+          &lt;*&gt;   The IPv6 protocol  ---&gt;
+            &lt;*&gt;   IPv6: AH transformation
+            &lt;*&gt;   IPv6: ESP transformation
+            &lt;*&gt;   IPv6: IPComp transformation
+            &lt;*&gt;   IPv6: IPsec transport mode
+            &lt;*&gt;   IPv6: IPsec tunnel mode
+            &lt;*&gt;   IPv6: IPsec BEET mode
+            [*]   IPv6: Multiple Routing Tables
+         [*] Network packet filtering framework (Netfilter)  ---&gt;
+               Core Netfilter Configuration  ---&gt;
+                 &lt;*&gt; Netfilter Xtables support (required for ip_tables)
+                 &lt;*&gt;   IPsec &quot;policy&quot; match support
+
+ Cryptographic API
+   Select algorithms you want to use... ???</pre>
+
+</p>
+
+<p>
+<pre class="code">make menuconfig</pre>
+
+</p>
+
+<p>
+<pre class="code">&lt;*&gt; luci-proto-ipv6................. Support for DHCPv6/6in4/6to4/6rd/DS-Lite
+&lt;*&gt; strongswan.................................................... StrongSwan
+&lt;*&gt; strongswan-charon................... StrongSwan IKEv1/IKEv2 keying daemon
+&lt;*&gt; strongswan-default.................................. StrongSwan (default)
+&lt;*&gt; strongswan-mod-uci................ StrongSwan UCI config interface plugin</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="prepare_a_tftp_server">3. Prepare a TFTP server</h3>
+<div class="level3">
+
+<p>
+Unfortunately for you I have use a TFTP server to inject both kernel and rootfs image on the SheevaPlug NAND. I use Debian 7 host for all my test, then the example is for GNU/Linux system. For other <abbr title="Operating System">OS</abbr> it should be possible, you just have to put openwrt-kirkwood-uImage and openwrt-kirkwood-generic-jffs2-nand-2048-128k.img on the &quot;root&quot; of you TFTP server.
+</p>
+
+<p>
+<pre class="code">apt-get install tftpd-hpa</pre>
+
+</p>
+
+<p>
+Take a look on /etc/default/tftpd-hpa file, it should look like that:
+<pre class="code"># /etc/default/tftpd-hpa
+RUN_DAEMON=&quot;yes&quot;
+TFTP_USERNAME=&quot;tftp&quot;
+TFTP_DIRECTORY=&quot;/srv/tftp&quot;
+TFTP_ADDRESS=&quot;0.0.0.0:69&quot;
+TFTP_OPTIONS=&quot;--secure --verbose&quot;</pre>
+
+then
+<pre class="code">/etc/init.d/tftpd-hpa restart
+[ ok ] Restarting HPA&#039;s tftpd: in.tftpd.</pre>
+
+</p>
+
+<p>
+copy openwrt-kirkwood-uImage and openwrt-kirkwood-generic-jffs2-nand-2048-128k.img on /srv/tftp/ directory
+<pre class="code">cp ./bin/kirkwood/openwrt-kirkwood-uImage /srv/tftp/
+cp ./bin/kirkwood/openwrt-kirkwood-generic-jffs2-nand-2048-128k.img /srv/tftp/</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="deal_with_u-boot">4. Deal with u-boot</h3>
+<div class="level3">
+
+<p>
+You probably have to update your u-boot, you can find it here: <a href="http://people.debian.org/~tbm/u-boot/" class="urlextern" title="http://people.debian.org/~tbm/u-boot/"  rel="nofollow">http://people.debian.org/~tbm/u-boot/</a>
+</p>
+
+<p>
+Follow this howto <a href="http://www.cyrius.com/debian/kirkwood/sheevaplug/uboot-upgrade/" class="urlextern" title="http://www.cyrius.com/debian/kirkwood/sheevaplug/uboot-upgrade/"  rel="nofollow">http://www.cyrius.com/debian/kirkwood/sheevaplug/uboot-upgrade/</a>
+</p>
+
+<p>
+Never use the u-boot file generated by OpenWrt SDK, or found on anywhere of OpenWrt, that will simply break your device. Prefer Debian u-boot file.
+</p>
+<ol>
+<li class="level1"><div class="li"> Connect the sheevaPlug MiniUSB to a USB port of you computer</div>
+</li>
+<li class="level1"><div class="li"> Open a terminal session</div>
+</li>
+<li class="level1"><div class="li"> Use screen or Minicom</div>
+</li>
+</ol>
+
+<p>
+<pre class="code">screen /dev/ttyUSB0 115200</pre>
+
+</p>
+
+<p>
+Start by creating a backup of your u-boot environment variables by <code>printenv</code>, then copy&amp;paste the result inside your favorite text editor.
+<pre class="code">Marvell&gt;&gt; printenv</pre>
+
+</p>
+
+<p>
+Unset almost every variables by using: <code>sentenv VARIABLE_NAME</code>.
+</p>
+
+<p>
+When it&#039;s pretty clean, inject these environment settings:
+<pre class="code"> setenv loadaddr &#039;0x6400000&#039;
+ setenv console &#039;console=ttyS0,115200 panic=20&#039;
+ setenv bootargs_root &#039;root=/dev/mtdblock2 rootfstype=jffs2&#039;
+ setenv kernel_name &#039;openwrt-kirkwood-uImage&#039;
+ setenv rootfs_name &#039;openwrt-kirkwood-generic-jffs2-nand-2048-128k.img&#039;
+ setenv download_kernel &#039;mw $(loadaddr) 0xffff 0x300000; tftp $(loadaddr) $(kernel_name);&#039;
+ setenv flash_kernel &#039;nand erase 0x100000 0x400000; nand write.e $(loadaddr) 0x100000 0x400000;&#039;
+ setenv download_rootfs &#039;mw $(loadaddr) 0xffff 0x200000; tftp $(loadaddr) $(rootfs_name);&#039;
+ setenv flash_rootfs &#039;nand erase 0x500000 0xfb00000; nand write.e $(loadaddr) 0x500000 0x900000;&#039;
+ setenv load_openwrt &#039;setenv bootargs $(console) $(bootargs_root); nand read $(loadaddr) 0x100000 0x400000; bootm $(loadaddr)&#039;
+ setenv bootcmd &#039;run load_openwrt&#039;
+ saveenv</pre>
+
+</p>
+
+<p>
+If you just add the previous features the following lines does not concern you.
+</p>
+
+<p>
+The 2 lines &#039;setenv flash_kernel&#039; &amp; &#039;setenv flash_rootfs&#039; set the space for the kernel and the rootfs, check that the 2 files are smaller than the allocated space whereas they will be trunck and the system will not works.
+</p>
+
+<p>
+For more info please see rootfs and UImage notes at the bottom of the page.
+</p>
+
+<p>
+Set the correct arcNumber for the SheevaPlug
+<pre class="code"> setenv arcNumber &#039;2097&#039;</pre>
+
+</p>
+
+<p>
+If you have an eSATA SheevaPlug <strong>you have to inform u-boot</strong> by typing:
+<pre class="code">setenv machid a76</pre>
+
+</p>
+
+<p>
+Find <code>ethaddr</code> and replace &#039;XX:XX:XX:XX:XX:XX&#039; by your true MAC address, which can be found on a sticker on the back of your device
+<pre class="code"> setenv ethaddr &#039;XX:XX:XX:XX:XX:XX&#039;</pre>
+
+</p>
+
+<p>
+Save your settings now
+<pre class="code">saveenv</pre>
+
+</p>
+
+<p>
+If you have DHCP, inject TFTP information:
+<pre class="code"> dhcp;run download_kernel;run flash_kernel;run download_rootfs;run flash_rootfs;reset;</pre>
+
+Else:
+<pre class="code"> setenv ipaddr &#039;192.168.1.100&#039;
+ setenv serverip &#039;192.168.1.10&#039;
+ run download_kernel;run flash_kernel;run download_rootfs;run flash_rootfs;reset;</pre>
+
+where <strong>ipaddr</strong> is you IP address on you network, and <strong>serverip</strong> the TFTP server IP address on you network.
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="first_boot">5. First boot</h3>
+<div class="level3">
+
+<p>
+At first boot, the filesytem will take a moment to grow the rootfs partition to MAX size. Be patient, this can take quite a while (5 minutes).
+</p>
+
+</div>
+
+<h2 class="sectionedit12" id="troubleshooting">Troubleshooting</h2>
+<div class="level2">
+
+<p>
+Download a valid u-boot from here <a href="http://people.debian.org/~tbm/u-boot/" class="urlextern" title="http://people.debian.org/~tbm/u-boot/"  rel="nofollow">http://people.debian.org/~tbm/u-boot/</a>
+</p>
+
+<p>
+<pre class="code">cd $HOME
+wget http://people.debian.org/~tbm/u-boot/2013.10-2/sheevaplug/u-boot.kwb
+wget http://people.debian.org/~tbm/u-boot/2013.10-2/sheevaplug/uboot.elf</pre>
+
+</p>
+
+<p>
+Install openocd for unbricking your SheevaPlug device.
+</p>
+
+<p>
+<pre class="code">sudo apt-get update &amp;&amp; apt-get install openocd telnet screen</pre>
+
+</p>
+
+<p>
+Connect power to the SheevaPlug and connect the miniusb port to you computer.
+</p>
+
+<p>
+Open a terminal session and initialize openocd:
+<pre class="code">#openocd -f /usr/share/openocd/scripts/board/sheevaplug.cfg -s /usr/share/openocd/scripts</pre>
+
+</p>
+
+<p>
+<pre class="code">Open On-Chip Debugger 0.5.0 (2011-08-09-08:45)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.berlios.de/doc/doxygen/bugs.html
+Info : only one transport option; autoselect &#039;jtag&#039;
+2000 kHz
+trst_and_srst separate srst_gates_jtag trst_push_pull srst_open_drain
+adapter_nsrst_delay: 200
+jtag_ntrst_delay: 200
+dcc downloads are enabled
+Warn : use &#039;feroceon.cpu&#039; as target identifier, not &#039;0&#039;
+sheevaplug_load_uboot
+Info : clock speed 2000 kHz
+Error: JTAG scan chain interrogation failed: all zeroes
+Error: Check JTAG interface, timings, target power, etc.
+Error: Trying to use configured scan chain anyway...
+Error: feroceon.cpu: IR capture error; saw 0x00 not 0x01
+Warn : Bypassing JTAG setup events due to errors
+Info : Embedded ICE version 0
+Info : feroceon.cpu: hardware has 1 breakpoint/watchpoint unit
+Error: unexpected Feroceon EICE version signature</pre>
+
+</p>
+
+<p>
+Download a valid u-boot.elf
+</p>
+
+<p>
+Copy it on you home 
+</p>
+
+<p>
+Open a other terminal session and connect you with telnet on localhost 4444.
+</p>
+
+<p>
+<pre class="code">user@youhost:~$ telnet localhost 4444
+Trying ::1...
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is &#039;^]&#039;.
+Open On-Chip Debugger
+&gt;</pre>
+
+</p>
+
+<p>
+When you obtain the above prompt, inject a valid u-boot and write it on the NAND.
+<pre class="code">reset;sheevaplug_init;load_image u-boot.elf;resume 0x00600000</pre>
+
+</p>
+
+<p>
+Now you can see Uboot starting to run &quot;screen /dev/ttyUSB0 115200&quot;  you are ready to start restoring your plug.
+</p>
+
+<p>
+Reference Documents:
+<a href="https://newit.co.uk/forum/index.php?topic=2835.0;wap2" class="urlextern" title="https://newit.co.uk/forum/index.php?topic=2835.0;wap2"  rel="nofollow">https://newit.co.uk/forum/index.php?topic=2835.0;wap2</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit13" id="notes">Notes</h2>
+<div class="level2">
+
+<p>
+I don&#039;t provide any image, because my images don&#039;t respect default OpenWrt configuration. I have totally made my own thing, via the amazing OpenWrt SDK. It&#039;s still an OpenWrt, but it&#039;s ready out of the box for my own personal usage. Here is what I have done:
+</p>
+
+<p>
+<pre class="code"> Compile natively the entire GNU Core Utilities, and not install busybox
+ Compile natively NTPD
+ Compile natively SSHD and not install dropbear
+ Compile natively Asterisk 11 - chan_sscp-b (for Cisco support)
+ Compile natively DJBDNS and not dnsmasq then not install dhcp server thing
+ Compile natively StrongSwan an IPSEC thing
+ Not install Luci
+ Inject all my default config files, via the ./script/env and ./file/ directory</pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit14" id="manage_rootfs_and_uimage_space">Manage Rootfs and UImage Space</h2>
+<div class="level2">
+
+<p>
+If you add some feature, you will have your rootfs and UImage that will grow.
+If the roofs is larger than the space allocated than the file will be truncked and the system will start but not works properly.
+So you will need to change the memory allocated range, to do so please refert to those page to help you to setup the right range.
+</p>
+<pre class="code">http://numbermonk.com/?all=1
+http://sebastienguillon.com/test/javascript/convertisseur.html</pre>
+
+<p>
+for example :
+</p>
+<pre class="code">setenv flash_kernel &#039;nand erase 0x100000 (1,048,576 octets) 0x4000000(4,194,304 octets) nand write.e$(loadaddr) 0x100000 0x400000;&#039;
+setenv download_rootfs &#039;mw $(loadaddr) 0xffff (65,535 octets) 0x200000 (2,097,152 octets); tftp $(loadaddr)$(rootfs_name);&#039;
+setenv flash_rootfs &#039;nand erase 0x500000 (5,242,880 octets) 0xfb00000 (263,192,576octets); nand write.e$(loadaddr) 0x500000(5,242,880 octets) 0x900000 (9,437,184 octets) ;&#039;</pre>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howtobuild/sheevaplug.txt</bdi> · Last modified: 2015/04/15 10:50 by <bdi>ptitcharly</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="sheevaplug?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="sheevaplug?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="sheevaplug?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="sheevaplug#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowtobuild%253Asheevaplug&amp;1432265810" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

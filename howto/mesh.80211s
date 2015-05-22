@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>802.11s [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,mesh.80211s"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="mesh.80211s?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/mesh.80211s"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/mesh.80211s"/>
+<link rel="canonical" href="mesh.80211s"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:mesh.80211s","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432273802 166.182.3.179';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="mesh.80211s#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="mesh.80211s?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="mesh.80211s?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:mesh.80211s" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="mesh.80211s?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="mesh.80211s?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="mesh.80211s?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="mesh.80211s" class="wikilink1" title="doc:howto:mesh.80211s">802.11s</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/mesh.80211s" class="media" title="cz:doc:howto:mesh.80211s"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/de/doc/howto/mesh.80211s" class="media" title="de:doc:howto:mesh.80211s"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="mesh.80211s" class="media" title="doc:howto:mesh.80211s"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/mesh.80211s" class="media" title="es:doc:howto:mesh.80211s"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/fr/doc/howto/mesh.80211s" class="media" title="fr:doc:howto:mesh.80211s"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/mesh.80211s" class="media" title="hu:doc:howto:mesh.80211s"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/mesh.80211s" class="media" title="jp:doc:howto:mesh.80211s"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/mesh.80211s" class="media" title="pl:doc:howto:mesh.80211s"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/mesh.80211s" class="media" title="pt-br:doc:howto:mesh.80211s"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/mesh.80211s" class="media" title="ru:doc:howto:mesh.80211s"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/mesh.80211s" class="media" title="tr:doc:howto:mesh.80211s"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/mesh.80211s" class="media" title="zh-cn:doc:howto:mesh.80211s"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/mesh.80211s" class="media" title="zh-tw:doc:howto:mesh.80211s"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:mesh.80211s</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level2"><div class="li"><a href="mesh.80211s#about_80211s">About 802.11s</a></div></li>
+<li class="level2"><div class="li"><a href="mesh.80211s#known_issues">Known Issues</a></div></li>
+<li class="level2"><div class="li"><a href="mesh.80211s#using_uci">Using uci</a></div></li>
+<li class="level2"><div class="li"><a href="mesh.80211s#using_the_command_line_cli">Using the command line CLI</a></div></li>
+<li class="level2"><div class="li"><a href="mesh.80211s#verify">Verify</a></div></li>
+<li class="level2"><div class="li"><a href="mesh.80211s#more_background">more background</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="s">802.11s</h1>
+<div class="level1">
+
+</div>
+
+<h3 class="sectionedit2" id="about_80211s">About 802.11s</h3>
+<div class="level3">
+
+<p>
+<a href="http://en.wikipedia.org/wiki/IEEE 802.11s" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/IEEE 802.11s">802.11s</a> is an open-source standard for connecting wireless devices without having to set up infrastructure. It operates on Layer 2.
+</p>
+
+<p>
+Packages for AA are operating on a number of routers in the field. 
+You can download them at <a href="https://dev.openwrt.org/ticket/12078" class="urlextern" title="https://dev.openwrt.org/ticket/12078"  rel="nofollow">here</a>.
+</p>
+
+<p>
+(Update 06-2014)
+Some 802.11s support is available in Trunk (Barrier Breaker).
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Luci integration is not complete / working.
+</p>
+
+<p>
+To connect end-user devices without infrastructure see P2P (Wi-Fi Direct)<img src="../../lib/images/smileys/fixme.gif" class="icon" alt="FIXME" /> or IBSS (ad-hoc). Ad-Hoc is used in <a href="http://wiki.openwrt.org/inbox/mesh.batman" class="wikilink2" title="inbox:mesh.batman" rel="nofollow">B.A.T.M.A.N</a> and <a href="http://wiki.openwrt.org/inbox/mesh.olsr" class="wikilink2" title="inbox:mesh.olsr" rel="nofollow">OLSR</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="known_issues">Known Issues</h3>
+<div class="level3">
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> Support for 802.11s (type mesh) depends on wireless driver
+</p>
+
+<p>
+<img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> 802.11s , P2P-GO or P2P-client (Wi-Fi Direct), IBSS are less often used. There might be bugs.
+</p>
+
+<p>
+Use the following to determine if your hardware supports 802.11s mesh.
+<pre class="code">iw list
+
+...
+      Supported interface modes:
+                 * IBSS
+                 * managed
+                 * AP
+                 * AP/VLAN
+                 * WDS
+                 * monitor
+                 * mesh point
+...</pre>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Having multiple mesh points, APs depends on the wireless driver</div>
+</li>
+</ul>
+
+<p>
+Example: ath9k in router
+<pre class="code">iw list
+...
+valid interface combinations:
+		 * #{ managed, WDS } &lt;= 2048, #{ AP, mesh point } &lt;= 8, #{ P2P-client, P2P-GO } &lt;= 1, #{ IBSS } &lt;= 1,
+		   total &lt;= 2048, #channels &lt;= 1, STA/AP BI must match
+		 * #{ IBSS, AP, mesh point } &lt;= 1,
+		   total &lt;= 1, #channels &lt;= 1, STA/AP BI must match, radar detect widths: { 20 MHz (no HT), 20 MHz }
+...</pre>
+
+</p>
+
+<p>
+Example: ath9k_htc USB Stick
+<pre class="code">iw list
+...
+valid interface combinations:
+		 * #{ managed, P2P-client } &lt;= 2, #{ AP, mesh point, P2P-GO } &lt;= 2,
+		   total &lt;= 2, #channels &lt;= 1
+...</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="using_uci">Using uci</h3>
+<div class="level3">
+
+<p>
+/etc/config/wireless
+<pre class="code">config wifi-iface
+        option encryption &#039;none&#039;
+        option device &#039;radio0&#039;
+        option mode &#039;mesh&#039;
+        option mesh_id &#039;mesh&#039;
+        option network &#039;mesh&#039;</pre>
+
+</p>
+
+<p>
+for a list of mesh_params you can use see values of
+</p>
+<ul>
+<li class="level1"><div class="li"> MP_CONFIG_INT</div>
+</li>
+<li class="level1"><div class="li"> MP_CONFIG_BOOL</div>
+</li>
+<li class="level1"><div class="li"> MP_CONFIG_STRING</div>
+</li>
+</ul>
+
+<p>
+in: <a href="https://dev.openwrt.org/browser/trunk/package/kernel/mac80211/files/lib/netifd/wireless/mac80211.sh" class="urlextern" title="https://dev.openwrt.org/browser/trunk/package/kernel/mac80211/files/lib/netifd/wireless/mac80211.sh"  rel="nofollow">mac80211.sh Source</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="using_the_command_line_cli">Using the command line CLI</h3>
+<div class="level3">
+
+<p>
+iw is a new nl80211 based CLI configuration utility for wireless devices.<a href="http://wireless.kernel.org/en/users/Documentation/iw#About_iw" class="urlextern" title="http://wireless.kernel.org/en/users/Documentation/iw#About_iw"  rel="nofollow">more...</a>
+</p>
+
+<p>
+Create a new interface &quot;mesh0&quot;
+<pre class="code">iw phy phy0 interface add mesh0 type mp mesh_id mymesh</pre>
+
+</p>
+
+<p>
+Confirm that the new interface exists
+<pre class="code">ifconfig -a | grep mesh0
+
+     mesh0      Link encap:Ethernet  HWaddr 00:18:39:14:48:B5</pre>
+
+</p>
+
+<p>
+Bring up your mesh0 interface
+<pre class="code">ifconfig mesh0 up</pre>
+
+</p>
+
+<p>
+Assign the interface an IP address. ie: 10.0.0.x
+<pre class="code">ifconfig mesh0 10.0.0.1</pre>
+
+</p>
+
+<p>
+By default, mesh points will use channel 1 and automatically attempt to create peer links with mesh nodes with the same mesh ID and channel.
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="verify">Verify</h3>
+<div class="level3">
+
+<p>
+Use the iw command to display peer links or a table of reachable nodes in your mesh
+<pre class="code">iw dev $MESH_IFACE station dump
+iw dev $MESH_IFACE mpath dump</pre>
+
+</p>
+
+<p>
+Example:
+<pre class="code">iw dev $MESH_IFACE station dump
+    Station 00:15:6d:84:14:10 (on mesh)
+         inactive time:  1320 ms
+         rx bytes:   352
+         rx packets: 4
+         tx bytes:   174
+         tx packets: 2
+         signal:     -61 dBm
+         tx bitrate: 1.0 MBit/s
+         mesh llid:  32577
+         mesh plid:  15969
+         mesh plink: ESTAB
+    Station 00:15:6d:84:14:09 (on mesh)
+         inactive time:  3370 ms
+         rx bytes:   1064
+         rx packets: 12
+         tx bytes:   545
+         tx packets: 7
+         signal:     -53 dBm
+         tx bitrate: 1.0 MBit/s
+         mesh llid:  41036
+         mesh plid:  24435
+         mesh plink: ESTAB</pre>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit7" id="more_background">more background</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <a href="http://www.cwnp.com/wp-content/uploads/pdf/802.11s_mesh_networking_v1.0.pdf" class="urlextern" title="http://www.cwnp.com/wp-content/uploads/pdf/802.11s_mesh_networking_v1.0.pdf"  rel="nofollow">good background article</a> from CWNP</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://wireless.kernel.org/en/developers/Documentation/ieee80211/802.11s" class="urlextern" title="http://wireless.kernel.org/en/developers/Documentation/ieee80211/802.11s"  rel="nofollow">http://wireless.kernel.org/en/developers/Documentation/ieee80211/802.11s</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://open80211s.org/" class="urlextern" title="http://open80211s.org/"  rel="nofollow">http://open80211s.org/</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://lists.open80211s.org" class="urlextern" title="http://lists.open80211s.org"  rel="nofollow">Open80211s Mailing List</a></div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/mesh.80211s.txt</bdi> · Last modified: 2014/07/07 22:05 by <bdi>theoradicus</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="mesh.80211s?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="mesh.80211s?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="mesh.80211s?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="mesh.80211s#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Amesh.80211s&amp;1432273802" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

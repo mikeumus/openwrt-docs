@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>OpenWrt Sysupgrade [OpenWrt Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="doc,howto,generic.sysupgrade"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="OpenWrt Wiki"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="generic.sysupgrade?do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php?mode=list&amp;ns=doc:howto"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/doc/howto/generic.sysupgrade"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/doc/howto/generic.sysupgrade"/>
+<link rel="canonical" href="generic.sysupgrade"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php?t=openwrt&amp;tseed=6f44f363dc87908d905dc56ff3acbfc4"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='doc:howto';var JSINFO = {"id":"doc:howto:generic.sysupgrade","namespace":"doc:howto"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php?tseed=6f44f363dc87908d905dc56ff3acbfc4"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/jQuery(function(){
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1432265435 166.182.3.25';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+/*!]]>*/</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="../../lib/tpl/openwrt/images/favicon.ico" />
+<link rel="apple-touch-icon" href="../../lib/tpl/openwrt/images/apple-touch-icon.png" />
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_openwrt     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="generic.sysupgrade#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="../../start"  accesskey="h" title="[H]"><img src="../../lib/tpl/openwrt/images/logo.png" width="386" height="98" alt="" /> <span>OpenWrt Wiki</span></a></h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="generic.sysupgrade?do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="generic.sysupgrade?do=login&amp;sectok=382740b13d95f946eed36caa57076b4a"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="../../start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="../../doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="doc:howto:generic.sysupgrade" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="generic.sysupgrade?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="generic.sysupgrade?do=media&amp;ns=doc%253Ahowto"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="generic.sysupgrade?do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="../../start" class="wikilink1" title="start">OpenWrt Wiki</a></bdi></span> » <bdi><a href="../start" class="wikilink1" title="doc:start">Documentation</a></bdi> » <bdi><a href="start" class="wikilink1" title="doc:howto:start">HOWTOs</a></bdi> » <bdi><span class="curid"><a href="generic.sysupgrade" class="wikilink1" title="doc:howto:generic.sysupgrade">OpenWrt Sysupgrade</a></span></bdi></div>
+                                    <div class="plugin_multilingual">
+        <ul>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/cz/doc/howto/generic.sysupgrade" class="media" title="cz:doc:howto:generic.sysupgrade"><img src="../../lib/exe/fetch.php?cache=&amp;tok=aff589&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fcz.gif" class="media" title="Čeština (Czech)" alt="Čeština (Czech)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../de/doc/howto/generic.sysupgrade" class="media" title="de:doc:howto:generic.sysupgrade"><img src="../../lib/exe/fetch.php?cache=&amp;tok=e24010&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fde.gif" class="media" title="Deutsch (German)" alt="Deutsch (German)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <span class="curid"><a href="generic.sysupgrade" class="media" title="doc:howto:generic.sysupgrade"><img src="../../lib/exe/fetch.php?cache=&amp;tok=2a37ae&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fgb.gif" class="media" title="English" alt="English" /></a></span>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/es/doc/howto/generic.sysupgrade" class="media" title="es:doc:howto:generic.sysupgrade"><img src="../../lib/exe/fetch.php?cache=&amp;tok=46c004&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fmx.gif" class="media" title="Español (Spanish, Mexico)" alt="Español (Spanish, Mexico)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <a href="../../fr/doc/howto/generic.sysupgrade" class="media" title="fr:doc:howto:generic.sysupgrade"><img src="../../lib/exe/fetch.php?cache=&amp;tok=a5beba&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ffr.gif" class="media" title="Français (French)" alt="Français (French)" /></a>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/hu/doc/howto/generic.sysupgrade" class="media" title="hu:doc:howto:generic.sysupgrade"><img src="../../lib/exe/fetch.php?cache=&amp;tok=6b5470&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fhu.gif" class="media" title="Magyar (Hungarian)" alt="Magyar (Hungarian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/jp/doc/howto/generic.sysupgrade" class="media" title="jp:doc:howto:generic.sysupgrade"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f999fc&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fjp.gif" class="media" title="日本語 (Japanese)" alt="日本語 (Japanese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pl/doc/howto/generic.sysupgrade" class="media" title="pl:doc:howto:generic.sysupgrade"><img src="../../lib/exe/fetch.php?cache=&amp;tok=c805c0&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fpl.gif" class="media" title="Poliski (Polish)" alt="Poliski (Polish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/pt-br/doc/howto/generic.sysupgrade" class="media" title="pt-br:doc:howto:generic.sysupgrade"><img src="../../lib/exe/fetch.php?cache=&amp;tok=13127d&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fbr.gif" class="media" title="Português brasileiro (Portuguese, Brasil)" alt="Português brasileiro (Portuguese, Brasil)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/ru/doc/howto/generic.sysupgrade" class="media" title="ru:doc:howto:generic.sysupgrade"><img src="../../lib/exe/fetch.php?cache=&amp;tok=66ab5e&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fru.gif" class="media" title="Русский (Russsian)" alt="Русский (Russsian)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/tr/doc/howto/generic.sysupgrade" class="media" title="tr:doc:howto:generic.sysupgrade"><img src="../../lib/exe/fetch.php?cache=&amp;tok=f4beed&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Ftr.gif" class="media" title="Tϋrkçe (Turkish)" alt="Tϋrkçe (Turkish)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-cn/doc/howto/generic.sysupgrade" class="media" title="zh-cn:doc:howto:generic.sysupgrade"><img src="../../lib/exe/fetch.php?cache=&amp;tok=93625a&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-cn.gif" class="media" title="官話/官话 (Chinese)" alt="官話/官话 (Chinese)" /></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="li">
+              <div class="flag_not_exists">
+                <a href="http://wiki.openwrt.org/zh-tw/doc/howto/generic.sysupgrade" class="media" title="zh-tw:doc:howto:generic.sysupgrade"><img src="../../lib/exe/fetch.php?cache=&amp;tok=b56198&amp;media=http%253A%252F%252Fwiki.openwrt.org%252Flib%252Fplugins%252Fmultilingual%252Fflags%252Fzh-tw.gif" class="media" title="臺灣華語 (Taiwanese)" alt="臺灣華語 (Taiwanese)" /></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+        </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>doc:howto:generic.sysupgrade</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="generic.sysupgrade#terminal_upgrade_process">Terminal Upgrade Process</a></div></li>
+<li class="level1"><div class="li"><a href="generic.sysupgrade#luci_web_upgrade_process">LuCI Web Upgrade Process</a></div></li>
+<li class="level1"><div class="li"><a href="generic.sysupgrade#alternatives_to_openwrt_sysupgrade">Alternatives to OpenWrt Sysupgrade</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="generic.sysupgrade#mtd">mtd</a></div></li>
+<li class="level2"><div class="li"><a href="generic.sysupgrade#netcat">netcat</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="generic.sysupgrade#direct_method">Direct method</a></div></li>
+<li class="level3"><div class="li"><a href="generic.sysupgrade#indirect_method">Indirect method</a></div></li>
+<li class="level3"><div class="li"><a href="generic.sysupgrade#some_useful_links_for_netcat">Some useful links for netcat</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="generic.sysupgrade#scp">scp</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="generic.sysupgrade#copy_your_firmware_to_your_router">Copy your firmware to your router</a></div></li>
+<li class="level3"><div class="li"><a href="generic.sysupgrade#write_the_firmware_to_your_router">Write the firmware to your router</a></div></li>
+<li class="level3"><div class="li"><a href="generic.sysupgrade#note">Note</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="generic.sysupgrade#free_up_ram">Free up RAM</a></div></li>
+<li class="level1"><div class="li"><a href="generic.sysupgrade#notes">Notes</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="openwrt_sysupgrade">OpenWrt Sysupgrade</h1>
+<div class="level1">
+
+<p>
+Before reading this, please have a look at <a href="../techref/flash.layout" class="wikilink1" title="doc:techref:flash.layout">Flash Layout</a>.
+</p>
+
+<p>
+A sysupgrade will replace the entire OpenWrt installation: the Linux kernel, the SquashFS partition and the JFFS2 partition. You cannot save installed OPKG packages: you will have to install them again after sysupgrade. That way everything will match, e.g. the flashed Linux Kernel and installed Kernel modules. You can manually save some of your configuration files, but be aware that on rare occasions you will need to modify an old configuration file to work with the updated program. 
+</p>
+
+<p>
+It is important to download the firmware image file to the <code>/tmp</code> directory.
+The  <code>/tmp</code> directory is stored in RAM (using <a href="http://en.wikipedia.org/wiki/tmpfs" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/tmpfs">tmpfs</a>), not in the flash storage.
+It is unlikely that there is sufficient free space in flash memory but it is possible to arrange sufficient free space in RAM.
+You may need to <a href="generic.sysupgrade#free_up_ram" title="doc:howto:generic.sysupgrade ↵" class="wikilink1">Free up RAM</a> beforehand.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="terminal_upgrade_process">Terminal Upgrade Process</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> You should check how much main memory you have currently available:<pre class="code">free</pre>
+ In case you do not have enough free main memory, consult <a href="generic.sysupgrade#free_up_ram" title="doc:howto:generic.sysupgrade ↵" class="wikilink1">Free up RAM</a>.</div>
+</li>
+<li class="level1"><div class="li"> Populate your <code><a href="notuci.config#etcsysupgradeconf" class="wikilink1" title="doc:howto:notuci.config">/etc/sysupgrade.conf</a></code> with the configuration files you want to keep</div>
+</li>
+<li class="level1"><div class="li"> Obtain suitable OpenWrt firmware image: for trunk<pre class="code">    cd /tmp
+    wget http://downloads.openwrt.org/snapshots/trunk/PLATFORM/xxx-sysupgrade.bin
+    wget http://downloads.openwrt.org/snapshots/trunk/PLATFORM/md5sums</pre>
+AA stable<pre class="code">    cd /tmp
+    wget http://downloads.openwrt.org/attitude_adjustment/12.09/PLATFORM/xxx-sysupgrade.bin
+    wget http://downloads.openwrt.org/attitude_adjustment/12.09/PLATFORM/md5sums</pre>
+</div>
+<ol>
+<li class="level2"><div class="li"> <img src="../../lib/images/smileys/icon_exclaim.gif" class="icon" alt=":!:" /> for x86 systems there is no &quot;sysupgrade&quot; image, just be sure to use the new firmware image has the same family of filesystem (if the current firmware uses squashfs then the new will use squashfs as well and if the current has ext the new will use ext filesystem. Note that an upgrade from ext2 [10.03.1] to ext4 [12.09] seems not working. Tested 10.03.1 squashfs to 12.09 squashfs, working ; 10.03.1 squashfs to 12.09 ext4 failed; 10.03.1 ext2 to 12.09 ext4 failed)</div>
+</li>
+</ol>
+</li>
+<li class="level1"><div class="li"> check the integrity of the image file:<pre class="code">md5sum -c md5sums 2&gt; /dev/null | grep OK</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> use the following command to upgrade:<pre class="code">sysupgrade -v /tmp/openwrt-ar71xx-generic-wzr-hp-ag300h-squashfs-sysupgrade.bin</pre>
+</div>
+</li>
+</ol>
+<ul>
+<li class="level1"><div class="li"> The verbose-option should give some output similar to this:<pre class="code">root@openwrt:/tmp$ sysupgrade -v openwrt-ar71xx-generic-tl-wr1043nd-v1-squashfs-sysupgrade.bin
+Saving config files...
+root/statistics
+etc/sysupgrade.conf
+etc/sysctl.conf
+etc/rc.local
+etc/profile
+etc/passwd
+etc/firewall.user
+etc/dropbear/dropbear_rsa_host_key
+etc/dropbear/dropbear_dss_host_key
+etc/config/wireless
+etc/config/system
+etc/config/network
+etc/config/firewall
+etc/config/dropbear
+etc/config/dhcp
+Switching to ramdisk...
+Performing system upgrade...
+Unlocking firmware ...
+
+Writing from &lt;stdin&gt; to firmware ...
+Appending jffs2 data from /tmp/sysupgrade.tgz to firmware...TRX header not found
+Error fixing up TRX header
+
+Writing from &lt;stdin&gt; to firmware ...
+Upgrade completed
+Rebooting system...</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> After the automatic reboot, the system should come up with the setting in the saved configuration files: same network IP addresses, same SSH password, etc. In case that it does not, try a <a href="http://en.wikipedia.org/wiki/Booting#Hard_reboot" class="interwiki iw_wp" title="http://en.wikipedia.org/wiki/Booting#Hard_reboot">cold reset</a> (= interrupt the electrical current to the device, wait a couple of seconds and then connect it again). </div>
+<ul>
+<li class="level2"><div class="li"> Be careful about /etc/opkg.conf as explained here <a href="https://dev.openwrt.org/ticket/13309" class="urlextern" title="https://dev.openwrt.org/ticket/13309"  rel="nofollow">https://dev.openwrt.org/ticket/13309</a> .</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> After the cold reboot, you should gain access and here you could check things out:<pre class="code bash"><span class="kw2">dmesg</span>
+<span class="kw2">uname</span> <span class="re5">-a</span>
+iptables <span class="re5">-V</span>
+...</pre>
+</div>
+</li>
+</ul>
+<div class="table sectionedit3"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/48px-dialog-warning.svg.png" class="media" alt="" /> </td><td class="col1 leftalign"> For unknown reasons such a cold reset has often been reported to be necessary after a sysupgrade. This is very very bad in case you performed this remotely!  </td>
+	</tr>
+</table></div>
+<ul>
+<li class="level1"><div class="li"> You do need to reinstall opkg-packages:<pre class="code">opkg update
+opkg install tc iptables-mod-ipopt wol ...</pre>
+</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit4" id="luci_web_upgrade_process">LuCI Web Upgrade Process</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> Download a suitable OpenWrt firmware image file to your PC</div>
+</li>
+<li class="level1"><div class="li"> Login to the WebInterface of the router (default: <a href="http://192.168.1.1" class="urlextern" title="http://192.168.1.1"  rel="nofollow">http://192.168.1.1</a>)</div>
+</li>
+<li class="level1"><div class="li"> Select <em>System</em> ⇒ <em>Backup / Flash Firmware</em> ⇒ <em>Configuration</em> to edit <code>/etc/sysupgrade.conf</code> (Attitude Adjustment)</div>
+<ul>
+<li class="level2"><div class="li"> Select <em>System</em> ⇒ <em>System</em> ⇒ <em>Custom Files</em> to edit <code>/etc/sysupgrade.conf</code> (Previous versions)</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Select <em>System</em> ⇒ <em>Backup / Flash Firmware</em> ⇒ <em>Actions</em> (Attitude Adjustment)</div>
+<ul>
+<li class="level2"><div class="li"> Select <em>System</em> ⇒ <em>Flash Firmware</em> (Previous versions)</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Upload the OpenWrt image file you downloaded to your PC at step 1 to your router via LuCI</div>
+</li>
+<li class="level1"><div class="li"> LuCI will calculate the MD5 checksum of the file, if it&#039;s correct, you are green to go</div>
+</li>
+<li class="level1"><div class="li"> Wait until the router comes back online</div>
+</li>
+<li class="level1"><div class="li"> You do need to reinstall opkg-packages</div>
+</li>
+</ol>
+
+<p>
+<a href="../../_detail/doc/howto/luci.sysupgrade.conf.png?id=doc%253Ahowto%253Ageneric.sysupgrade" class="media" title="doc:howto:luci.sysupgrade.conf.png"><img src="../../_media/doc/howto/luci.sysupgrade.conf.png?w=200&amp;tok=73d851" class="media" alt="" width="200" /></a>
+<a href="../../_detail/doc/howto/luci.sysupgrade.png?id=doc%253Ahowto%253Ageneric.sysupgrade" class="media" title="doc:howto:luci.sysupgrade.png"><img src="../../_media/doc/howto/luci.sysupgrade.png?w=200&amp;tok=82601a" class="media" alt="" width="200" /></a>
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="alternatives_to_openwrt_sysupgrade">Alternatives to OpenWrt Sysupgrade</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit6" id="mtd">mtd</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> If <code>sysupgrade</code> is not supported for your embedded device, you should use <code><a href="../techref/mtd" class="wikilink1" title="doc:techref:mtd">mtd</a></code> instead:<pre class="code">mtd -r write /tmp/openwrt-ar71xx-generic-wzr-hp-ag300h-squashfs-sysupgrade.bin firmware</pre>
+</div>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit7" id="netcat">netcat</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="direct_method">Direct method</h4>
+<div class="level4">
+
+<p>
+Netcat could be employed if you cannot free <strong>enough RAM</strong>. See <a href="http://man.cx/netcat" class="interwiki iw_man" title="http://man.cx/netcat">netcat</a>. Netcat needs to be installed first.
+</p>
+<div class="table sectionedit8"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <img src="../../_media/meta/icons/tango/48px-dialog-warning.svg.png" class="media" alt="" /> </td><td class="col1"> This method is <strong>NOT</strong> recommended! </td>
+	</tr>
+</table></div>
+<ol>
+<li class="level1"><div class="li"> On your Linux PC run:<pre class="code">nc -q0 192.168.1.1 1234 &lt; openwrt-ar71xx-tl-wr1043nd-v1-squashfs-sysupgrade.bin</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> On the router run:<pre class="code">nc -l -p 1234 | mtd write - firmware</pre>
+</div>
+</li>
+</ol>
+
+</div>
+
+<h4 id="indirect_method">Indirect method</h4>
+<div class="level4">
+<div class="table sectionedit9"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> <a href="../../_detail/meta/icons/tango/dialog-information.png?id=doc%253Ahowto%253Ageneric.sysupgrade" class="media" title="meta:icons:tango:dialog-information.png"><img src="../../_media/meta/icons/tango/dialog-information.png" class="media" alt="" /></a> </td><td class="col1"> This method is much <strong>SAFER</strong> if you have <strong>enough RAM</strong>. </td>
+	</tr>
+</table></div>
+
+<p>
+<strong> This method is fine for self built firmwares.</strong>
+</p>
+
+<p>
+You should check how much RAM you have currently available.(In case you do not have enough left, consult <a href="generic.sysupgrade#free_up_ram" title="doc:howto:generic.sysupgrade ↵" class="wikilink1">Free up RAM</a>.)<pre class="code">free</pre>
+
+</p>
+
+</div>
+
+<h5 id="transferring_image_file_to_a_temporary_location">Transferring image file to a temporary location</h5>
+<div class="level5">
+<ol>
+<li class="level1"><div class="li"> On your Linux PC run:<pre class="code">cat [specified firmware].bin | pv -b | nc -l -p 3333</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> On the router run:<pre class="code">nc 192.168.1.111 3333 &gt; /tmp/[specified firmware].bin </pre>
+</div>
+</li>
+</ol>
+
+<p>
+The port 3333 an IP address 192.168.1.111 are just examples. The command &#039;pv -b&#039; is optional for tracking progress but maybe you have to install pv to your system previously.
+</p>
+
+</div>
+
+<h5 id="write_it_to_flash">Write it to flash</h5>
+<div class="level5">
+<ul>
+<li class="level1"><div class="li"> sysupgrade:<pre class="code">sysupgrade -v /tmp/[specified firmware].bin </pre>
+</div>
+</li>
+</ul>
+<div class="table sectionedit10"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><strong>OR</strong></td>
+	</tr>
+</table></div>
+<ul>
+<li class="level1"><div class="li"> mtd:<pre class="code">mtd -r write /tmp/[specified firmware].bin firmware</pre>
+</div>
+</li>
+</ul>
+
+<p>
+I have tested under Ubuntu 11.10.
+</p>
+
+</div>
+
+<h4 id="some_useful_links_for_netcat">Some useful links for netcat</h4>
+<div class="level4">
+
+<p>
+<a href="http://www.g-loaded.eu/2006/11/06/netcat-a-couple-of-useful-examples/" class="urlextern" title="http://www.g-loaded.eu/2006/11/06/netcat-a-couple-of-useful-examples/"  rel="nofollow">http://www.g-loaded.eu/2006/11/06/netcat-a-couple-of-useful-examples/</a>
+</p>
+
+<p>
+<a href="http://www.screenage.de/blog/2007/12/30/using-netcat-and-tar-for-network-file-transfer/" class="urlextern" title="http://www.screenage.de/blog/2007/12/30/using-netcat-and-tar-for-network-file-transfer/"  rel="nofollow">http://www.screenage.de/blog/2007/12/30/using-netcat-and-tar-for-network-file-transfer/</a>
+</p>
+
+<p>
+<a href="https://help.ubuntu.com/community/BackupYourSystem/TAR" class="urlextern" title="https://help.ubuntu.com/community/BackupYourSystem/TAR"  rel="nofollow">https://help.ubuntu.com/community/BackupYourSystem/TAR</a>
+</p>
+
+<p>
+<a href="http://www.aboutdebian.com/tar-backup.htm" class="urlextern" title="http://www.aboutdebian.com/tar-backup.htm"  rel="nofollow">http://www.aboutdebian.com/tar-backup.htm</a>
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="scp">scp</h3>
+<div class="level3">
+
+<p>
+Make sure your router have enough memory.
+<pre class="code">root@OpenWrt:/# free</pre>
+
+</p>
+
+<p>
+Make sure you have set the password for your router.(you must set a password for your router to enable the SSH). If not, set by doing this:
+<pre class="code">linux$ telnet 192.168.1.1
+root@OpenWrt:/# passwd</pre>
+
+See <a href="firstlogin" class="wikilink1" title="doc:howto:firstlogin">First Login</a> for more details.
+</p>
+
+</div>
+
+<h4 id="copy_your_firmware_to_your_router">Copy your firmware to your router</h4>
+<div class="level4">
+
+<p>
+On your Linux PC run:
+<pre class="code">linux$ scp openwrt-ar71xx-tl-wr1043nd-v1-squashfs-sysupgrade.bin root@192.168.1.1:/tmp</pre>
+
+Input &#039;yes&#039; to estabilish authenticity, then input the password of your router. Wait <code>scp</code> command finished.
+Now you can see your firmware in /tmp directory.
+</p>
+
+</div>
+
+<h4 id="write_the_firmware_to_your_router">Write the firmware to your router</h4>
+<div class="level4">
+
+<p>
+<pre class="code">root@OpenWrt:/# sysupgrade -v /tmp/[specified firmware].bin </pre>
+
+</p>
+
+</div>
+
+<h4 id="note">Note</h4>
+<div class="level4">
+
+<p>
+<strong>192.168.1.1</strong> is the ip address(may be called GateWay) of your router. Check by run:
+<pre class="code">linux$ route -n </pre>
+
+or you can check the the /etc/config/network file, &#039;127.0.0.1&#039; is the loopback ipaddress, the other one is the ip address of your router.
+<pre class="code">root@OpenWrt:/# cat /etc/config/network | grep &#039;ipaddr&#039; </pre>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit12" id="free_up_ram">Free up RAM</h2>
+<div class="level2">
+
+<p>
+First check memory usage with the <code>free</code> or <code>top</code> or <code>cat /proc/meminfo</code> commands; proceed if you have as much free RAM as the image is in size plus an some additional MiB of free memory.
+</p>
+<div class="table sectionedit13"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>root@openwrt:/$ free
+             total         used         free       shared      buffers
+Mem:         29540        18124        <strong>11416</strong>         0         1248
+-/+ buffers:              16876        12664
+Swap:            0            0            0</code></td>
+	</tr>
+</table></div>
+
+<p>
+In this example there are precisely 11416 KiB of RAM unused. All the rest 32768 - 11416 = 21352 KiB are used somehow and a portion of it can and will be made available by the kernel, if it be needed, the problem is, we do not know how much exactly that is. Make sure <em>enough</em> is available. Free space in /tmp also counts towards free memory. Therefore with:
+</p>
+<div class="table sectionedit14"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>root@openwrt:/$ free
+Mem:         13388        12636          752            0         1292
+Swap:            0            0            0
+Total:       13388        12636          752</code></td>
+	</tr>
+</table></div>
+<div class="table sectionedit15"><table class="inline">
+	<tr class="row0">
+		<td class="col0"><code>root@openwrt:/$ df
+Filesystem           1K-blocks      Used Available Use% Mounted on
+/dev/root                 2304      2304         0 100% /rom
+tmpfs                     6696        60      6636   1% /tmp
+tmpfs                      512         0       512   0% /dev
+/dev/mtdblock3             576       288       288  50% /overlay
+mini_fo:/overlay          2304      2304         0 100% /</code></td>
+	</tr>
+</table></div>
+
+<p>
+One has actually 752+6636 KiB of free memory available.
+</p>
+<ul>
+<li class="level1"><div class="li"> quickest and safest way to free up, some RAM is to delete the <code><a href="../techref/opkg" class="wikilink1" title="doc:techref:opkg">opkg</a></code> packages file:<pre class="code">rm -r /tmp/opkg-lists/</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> drop caches:<pre class="code">echo 3 &gt; /proc/sys/vm/drop_caches</pre>
+</div>
+</li>
+<li class="level1"><div class="li"> prevent wireless drivers to be loaded at next boot and then reboot:<pre class="code">rm /etc/modules.d/*80211*
+rm /etc/modules.d/*ath9k*
+rm /etc/modules.d/b43*
+reboot</pre>
+</div>
+</li>
+</ul>
+
+<p>
+The wireless drivers, usually take up quite some amount of RAM and are not required (unless you are connected via wireless of course <img src="../../lib/images/smileys/icon_wink.gif" class="icon" alt=";-)" />), so an easy way to free up some RAM is to delete the symlinks in <code>etc/modules.d</code> so these are not loaded into memory at the next reboot.
+</p>
+
+</div>
+
+<h2 class="sectionedit16" id="notes">Notes</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="../techref/sysupgrade" class="wikilink1" title="doc:techref:sysupgrade">Sysupgrade – Technical Reference</a></div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>doc/howto/generic.sysupgrade.txt</bdi> · Last modified: 2015/04/15 22:38 by <bdi>wwahammy</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="generic.sysupgrade?do=edit"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="generic.sysupgrade?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="generic.sysupgrade?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="generic.sysupgrade#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="../../lib/images/license/button/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported" /></a>        <a href="http://www.dokuwiki.org/donate" title="Donate" ><img
+            src="../../lib/tpl/openwrt/images/button-donate.gif" width="80" height="15" alt="Donate" /></a>
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="../../lib/tpl/openwrt/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" ><img
+            src="../../lib/tpl/openwrt/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" ><img
+            src="../../lib/tpl/openwrt/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="../../lib/tpl/openwrt/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="../../lib/exe/indexer.php?id=doc%253Ahowto%253Ageneric.sysupgrade&amp;1432265435" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>
